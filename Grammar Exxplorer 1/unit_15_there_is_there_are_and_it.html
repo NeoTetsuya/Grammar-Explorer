@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 15: There Is / There Are & It</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffbeb; /* Amber 50 */
+        }
+        
+        /* Tab Navigation */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #f97316; /* Orange 500 */
+            color: #ea580c; /* Orange 600 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover { color: #334155; border-color: #cbd5e1; }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.3), 0 4px 6px -2px rgba(249, 115, 22, 0.15);
+        }
+        
+        .pulse-border { animation: pulse-border 2s infinite; }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+        }
+
+        .interactive-group { position: relative; display: inline-block; }
+        .interactive-trigger {
+            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
+            text-decoration-color: #f97316; padding: 2px 4px; border-radius: 4px;
+            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
+        }
+        .interactive-target {
+            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent;
+        }
+        .interactive-active-trigger {
+            background-color: #ffedd5; color: #c2410c; font-weight: bold; text-decoration-color: transparent;
+        }
+        .interactive-active-target {
+            background-color: #fef08a; color: #854d0e; font-weight: bold;
+            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+        }
+
+        /* Rule Indicator Box */
+        .rule-indicator {
+            position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%);
+            font-size: 11px; font-weight: bold; color: #ea580c; opacity: 0;
+            transition: opacity 0.2s; pointer-events: none; white-space: nowrap;
+            background: white; padding: 2px 8px; border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15); border: 1px solid #ffedd5; z-index: 10;
+        }
+        .interactive-active-trigger .rule-indicator { opacity: 1; }
+
+        /* Sub-Tabs */
+        .subtab-active { background-color: #f97316; color: white; box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.4); }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        /* Quiz Buttons */
+        .option-btn { transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #f97316; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* Identify Words */
+        .click-word {
+            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+        }
+        .click-word:hover { background-color: #e2e8f0; }
+        .click-word.selected { background-color: #fb923c; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(251, 146, 60, 0.4); border-color: #f97316; }
+        .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
+        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
+
+        /* Match Exercise */
+        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .match-btn:hover:not(:disabled) { border-color: #fb923c; background-color: #fff7ed; transform: translateY(-2px); }
+        .match-btn.selected { background-color: #ffedd5; border-color: #f97316; color: #c2410c; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2); }
+        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
+        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        /* Fill Blanks */
+        .fill-blank {
+            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #ea580c;
+        }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #ffedd5; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #ea580c; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
+        <defs>
+            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#ea580c" />
+            </marker>
+            <marker id="arrowhead-correct" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a" />
+            </marker>
+            <marker id="arrowhead-incorrect" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626" />
+            </marker>
+            <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            </marker>
+        </defs>
+        <g id="svg-paths-container"></g>
+    </svg>
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-orange-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-orange-400 to-amber-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-map-location-dot text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 15: There Is / There Are & It</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 15 Grammar</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Existence, Time, and Weather</h2>
+                <p class="text-lg text-slate-600">Learn how to declare that something exists using <strong>There is / There are</strong>, and master the use of the pronoun <strong>It</strong> for time and weather conditions.</p>
+                <div class="mt-4 inline-flex items-center gap-2 bg-orange-50 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold border border-orange-200">
+                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
+                    Tap the dashed words in the examples to reveal grammar rules!
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Point 1: There Is / There Are -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-orange-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-building text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">1. There Is / There Are</h3>
+                        </div>
+                        <p class="text-orange-100 font-medium">Used to state that something exists.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-orange-700 mb-2 border-b pb-1">There Is</h4>
+                                <p class="text-sm text-slate-600 mb-2">Use with Singular & Non-Count nouns.</p>
+                                <span class="text-base font-medium block"><span class="interactive-trigger text-orange-600" data-target="noun-hosp">There is</span> a <span id="noun-hosp" class="interactive-target">hospital</span>.</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-orange-700 mb-2 border-b pb-1">There Are</h4>
+                                <p class="text-sm text-slate-600 mb-2">Use with Plural count nouns.</p>
+                                <span class="text-base font-medium block"><span class="interactive-trigger text-orange-600" data-target="noun-elevs">There are</span> two <span id="noun-elevs" class="interactive-target">elevators</span>.</span>
+                            </div>
+                        </div>
+
+                        <!-- The List Rule -->
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-sm relative mt-4">
+                            <div class="absolute top-0 right-0 bg-amber-500 text-white px-3 py-1 rounded-bl-xl text-xs font-bold">THE LIST RULE</div>
+                            <h4 class="font-bold text-amber-900 mb-2 text-lg">Agreement with Multiple Nouns</h4>
+                            <p class="text-sm text-amber-800 mb-3">If followed by a list, the verb usually agrees with the <strong>first noun</strong> in the list.</p>
+                            
+                            <div class="bg-white p-3 rounded-lg border border-amber-100 text-lg">
+                                <div class="interactive-group block mb-2">
+                                    <span class="interactive-trigger text-orange-600" data-target="noun-book">There's</span> 
+                                    <span class="interactive-target" id="noun-book">a book</span> and three pens.
+                                    <span class="rule-indicator">Verb agrees with the singular 'book'</span>
+                                </div>
+                                <div class="interactive-group block border-t pt-2">
+                                    <span class="interactive-trigger text-orange-600" data-target="noun-cookies">There are</span> 
+                                    <span class="interactive-target" id="noun-cookies">some cookies</span> and juice.
+                                    <span class="rule-indicator">Verb agrees with the plural 'cookies'</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-1">Using "No" for Negatives</h4>
+                            <p class="text-sm text-slate-600 mb-2">"There is no..." means the exact same as "There isn't any..."</p>
+                            <span class="text-base font-bold text-orange-700">There is no homework tonight.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Point 2: Questions and Quantities -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-amber-500 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-circle-question text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">2. Questions & Quantities</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Yes / No Questions</h4>
+                            <p class="text-sm text-slate-600 mb-3">Reverse the order of <em>There</em> and the verb <em>Be</em>.</p>
+                            
+                            <div class="flex gap-4">
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex-1">
+                                    <strong class="text-amber-600 block mb-1">Question</strong>
+                                    <span class="font-bold">Is there</span> an entrance?
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 flex-1">
+                                    <strong class="text-green-600 block mb-1">Answer</strong>
+                                    Yes, <span class="font-bold">there is.</span><br>
+                                    <span class="text-xs text-slate-500">No contractions for affirmative short answers.</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-3 text-sm text-slate-700 bg-amber-50 p-3 rounded-lg border border-amber-100">
+                                <strong>Conversational Tip:</strong> Use <em>"There's one"</em> in spoken English to avoid repeating a singular noun. <br>
+                                <em>"Is there a bank? Yes, <strong>there's one</strong> nearby."</em>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Quantity Questions</h4>
+                            <ul class="space-y-3 text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <div class="interactive-group block text-lg mb-1">
+                                        <span class="interactive-trigger text-orange-500" data-target="noun-hw">How much</span> 
+                                        <span class="interactive-target" id="noun-hw">homework</span> is there?
+                                        <span class="rule-indicator">Use with Non-Count Nouns</span>
+                                    </div>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <div class="interactive-group block text-lg mb-1">
+                                        <span class="interactive-trigger text-amber-500" data-target="noun-comps">How many</span> 
+                                        <span class="interactive-target" id="noun-comps">computers</span> are there?
+                                        <span class="rule-indicator">Use with Plural Count Nouns</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- "It" for Time and Weather -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl border border-slate-700 overflow-hidden flex flex-col text-white relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-cloud-sun text-8xl"></i>
+                    </div>
+                    <div class="p-6 relative z-10 flex-grow space-y-6">
+                        
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-clock text-sky-400 text-2xl"></i>
+                                <h3 class="text-2xl font-bold text-sky-400">3. Using "It" (Time & Weather)</h3>
+                            </div>
+                            <p class="text-slate-300 font-medium">The pronoun <em>it</em> is the standard subject for time, dates, and weather.</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-600">
+                                <h4 class="font-bold text-white mb-2 border-b border-slate-600 pb-1">Time & Dates</h4>
+                                <ul class="text-sm text-slate-300 space-y-2">
+                                    <li><strong class="text-sky-300">Q:</strong> What time <span class="font-bold text-white">is it</span>?</li>
+                                    <li><strong class="text-sky-300">Q:</strong> What day <span class="font-bold text-white">is it</span>?</li>
+                                    <li><strong class="text-green-400">A:</strong> <span class="font-bold text-white">It is</span> 2:00.</li>
+                                    <li><strong class="text-green-400">A:</strong> <span class="font-bold text-white">It's</span> Monday.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-600">
+                                <h4 class="font-bold text-white mb-2 border-b border-slate-600 pb-1">Weather</h4>
+                                <ul class="text-sm text-slate-300 space-y-2">
+                                    <li><strong class="text-sky-300">Q:</strong> How <span class="font-bold text-white">is the weather</span>?</li>
+                                    <li><strong class="text-sky-300">Q:</strong> What's the weather <span class="font-bold text-white">like</span>?</li>
+                                    <li><strong class="text-green-400">A:</strong> <span class="font-bold text-white">It's</span> warm and sunny.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-900/30 p-4 rounded-xl border border-red-500/30 mt-4">
+                            <h4 class="font-bold text-red-400 mb-2"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Crucial Rule</h4>
+                            <p class="text-sm text-slate-300 mb-2">Do not use the pronoun <em>it</em> in time questions that start with <em>What is</em> or <em>What's</em>.</p>
+                            <div class="space-y-1">
+                                <div class="text-green-400 text-sm"><i class="fa-solid fa-check mr-2"></i> What is the time?</div>
+                                <div class="text-red-400 text-sm line-through"><i class="fa-solid fa-xmark mr-2"></i> What is it the time?</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spelling Traps -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-rose-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-spell-check text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">4. Spelling Distinctions</h3>
+                        </div>
+                        <p class="text-rose-100 font-medium">There vs. They're vs. Their</p>
+                    </div>
+                    
+                    <div class="p-6 flex-grow flex flex-col justify-center space-y-6">
+                        
+                        <div class="interactive-group block bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="font-bold text-rose-700 text-lg mb-1"><span class="interactive-trigger" data-target="def-there">There</span></h4>
+                            <p id="def-there" class="interactive-target text-slate-700">Used for existence or to mean "in/to that place."</p>
+                            <p class="text-sm italic text-slate-500 mt-2">Example: <strong>There</strong> is a man in the boat.</p>
+                        </div>
+                        
+                        <div class="interactive-group block bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="font-bold text-rose-700 text-lg mb-1"><span class="interactive-trigger" data-target="def-theyre">They're</span></h4>
+                            <p id="def-theyre" class="interactive-target text-slate-700">The contraction for "they are".</p>
+                            <p class="text-sm italic text-slate-500 mt-2">Example: <strong>They're</strong> in the park.</p>
+                        </div>
+
+                        <div class="interactive-group block bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="font-bold text-rose-700 text-lg mb-1"><span class="interactive-trigger" data-target="def-their">Their</span></h4>
+                            <p id="def-their" class="interactive-target text-slate-700">The possessive adjective (showing ownership).</p>
+                            <p class="text-sm italic text-slate-500 mt-2">Example: <strong>Their</strong> house is on Pine Street.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Practice</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-list-check mr-2"></i>Quiz
+                            </button>
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-magnifying-glass mr-2"></i>Subject Check
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-comments mr-2"></i>Q & A Match
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Fill Blanks
+                            </button>
+                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-diagram-project mr-2"></i>Sentence Builder
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: QUIZ -->
+                        <div id="ex-container-quiz" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Knowledge Check</h3>
+                                </div>
+                                <span id="quiz-progress" class="bg-orange-100 text-orange-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
+                                <!-- Options injected -->
+                            </div>
+
+                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: IDENTIFY (Subject controlling 'there') -->
+                        <div id="ex-container-identify" class="hidden fade-in">
+                            <div class="mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Identify the Governing Subject</h3>
+                                <p class="text-sm text-slate-600 mt-1">Click on the <strong>first noun phrase</strong> in the sentence that controls whether we use <em>There is</em> or <em>There are</em>.</p>
+                            </div>
+
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                            </div>
+
+                            <div class="bg-white border-2 border-orange-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            </div>
+
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+
+                            <div class="flex justify-center gap-4">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(249,115,22,0.4)] pop-out">
+                                    Check Answer <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: MATCH (Q&A) -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Q & A Matcher</h3>
+                                <p class="text-slate-500 text-sm mt-1">Connect the question (left) to the correct logical answer (right).</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-3xl mx-auto mb-8 relative">
+                                <div id="match-col-left" class="space-y-3"></div>
+                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
+                                    <div class="h-full w-px bg-slate-200"></div>
+                                </div>
+                                <div id="match-col-right" class="space-y-3"></div>
+                            </div>
+
+                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+
+                            <div class="flex justify-center mt-6">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 4: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Complete the Sentence</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct phrase to complete the structure.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-orange-100 text-orange-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
+                                <!-- Options injected here -->
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 5: LINK WORDS -->
+                        <div id="ex-container-link" class="hidden fade-in">
+                            <div class="mb-6 text-center">
+                                <h3 class="font-bold text-xl text-slate-800">Sentence Builder</h3>
+                                <p class="text-sm text-slate-600 mt-1">Connect the start of the question (left) to the correct ending (right) to form valid grammar structures.</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                                <div id="link-col-left" class="space-y-4"></div>
+                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
+                                    <div class="h-full w-px bg-slate-200"></div>
+                                </div>
+                                <div id="link-col-right" class="space-y-4"></div>
+                            </div>
+
+                            <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+
+                            <div class="flex justify-center mt-6">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-orange-500 to-amber-500 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                    Check Connections <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI & INTERACTIVITY LOGIC
+        // ==========================================
+        function switchMainTab(tabId) {
+            const isStudy = tabId === 'study';
+            
+            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (isStudy) {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+                setTimeout(redrawArrows, 50);
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
+                    quizInit(); idInit(); matchInit(); fillInit(); linkInit();
+                }
+                setTimeout(redrawArrows, 50);
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['quiz', 'identify', 'match', 'fill', 'link'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
+                    container.classList.remove('hidden'); container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
+                    container.classList.remove('block'); container.classList.add('hidden');
+                }
+            });
+            setTimeout(redrawArrows, 50);
+        }
+
+        let activeTrigger = null;
+
+        function setupStudyInteractive() {
+            const triggers = document.querySelectorAll('.interactive-trigger');
+            triggers.forEach(trig => {
+                trig.addEventListener('mouseenter', () => activateLink(trig));
+                trig.addEventListener('mouseleave', () => deactivateLink(trig));
+                trig.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
+                    else {
+                        triggers.forEach(t => deactivateLink(t));
+                        activateLink(trig);
+                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
+                    }
+                });
+            });
+            window.addEventListener('scroll', hideArrows);
+            window.addEventListener('resize', redrawArrows);
+        }
+
+        function activateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.add('interactive-active-target');
+                trig.classList.add('interactive-active-trigger');
+                activeTrigger = trig;
+                redrawArrows();
+            }
+        }
+
+        function deactivateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.remove('interactive-active-target');
+                trig.classList.remove('interactive-active-trigger');
+            }
+            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
+        }
+
+        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
+
+        function createArrowSVG(startEl, endEl, state) {
+            if (!startEl || !endEl) return '';
+            const startRect = startEl.getBoundingClientRect();
+            const endRect = endEl.getBoundingClientRect();
+            
+            let startX = startRect.left + (startRect.width / 2);
+            let startY = startRect.bottom + 2;
+            let endX = endRect.left + (endRect.width / 2);
+            let endY = endRect.bottom + 2;
+            
+            // Adjust for left/right columns in link exercise
+            if (state !== 'study') {
+                startX = startRect.right + 2;
+                startY = startRect.top + (startRect.height / 2);
+                endX = endRect.left - 2;
+                endY = endRect.top + (endRect.height / 2);
+            }
+
+            let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
+            
+            if(state === 'study') { color = '#ea580c'; marker = 'url(#arrowhead-study)'; }
+            if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
+            if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
+            
+            if (state === 'study') {
+                const curve = Math.max(20, Math.abs(endX - startX) * 0.15);
+                const lowY = Math.max(startY, endY) + curve;
+                return `<path d="M ${startX},${startY} Q ${(startX+endX)/2},${lowY} ${endX},${endY + 6}" stroke="${color}" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="${marker}"/>`;
+            } else {
+                // Horizontal s-curve for linking columns
+                const curveX = (startX + endX) / 2;
+                return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 6},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
+            }
+        }
+
+        function redrawArrows() {
+            let html = '';
+            
+            // Draw for Study Guide
+            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
+                const targetId = activeTrigger.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) html += createArrowSVG(activeTrigger, targetEl, 'study');
+            }
+            
+            // Draw for Link Exercise
+            if (document.getElementById('ex-container-link') && document.getElementById('ex-container-link').classList.contains('block')) {
+                linkUserPairs.forEach(pair => {
+                    const startEl = document.getElementById(`link-start-${pair.startId}`);
+                    const endEl = document.getElementById(`link-end-${pair.endId}`);
+                    if(startEl && endEl) html += createArrowSVG(startEl, endEl, pair.status || 'neutral');
+                });
+            }
+            
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: QUIZ
+        // ==========================================
+        const quizData = [
+            { q: "_____ any classes at the university at night?", opts: ["Are there", "Is there", "There are"], ans: 0, exp: "'Classes' is plural, and for a question, we invert the order: 'Are there'." },
+            { q: "_____ a pencil and two books on the desk.", opts: ["There are", "There is", "Is there"], ans: 1, exp: "Following the List Rule, the verb agrees with the FIRST noun ('a pencil'), which is singular." },
+            { q: "What time _____?", opts: ["it is", "is it", "is the time"], ans: 1, exp: "In time questions, the verb 'is' comes before the subject 'it'." },
+            { q: "How _____ milk is there in the fridge?", opts: ["much", "many", "is"], ans: 0, exp: "'Milk' is a non-count noun, so we use 'How much'." },
+            { q: "_____ a bank near here? Yes, there's one on the corner.", opts: ["There is", "Are there", "Is there"], ans: 2, exp: "For singular questions, use 'Is there'." },
+            { q: "What _____ the time?", opts: ["is", "is it", "it is"], ans: 0, exp: "When asking 'What is the time?', do NOT use the pronoun 'it'." },
+            { q: "_____ a lot of traffic on the highway today.", opts: ["There are", "Their is", "There is"], ans: 2, exp: "'Traffic' is a non-count noun, so we use singular 'There is'." },
+            { q: "Are there any apples left? No, _____.", opts: ["there isn't", "there aren't", "they aren't"], ans: 1, exp: "Match the plural question 'Are there' with the plural negative answer 'there aren't'." },
+            { q: "_____ house is very large.", opts: ["There", "They're", "Their"], ans: 2, exp: "'Their' is the possessive form showing ownership of the house." },
+            { q: "How's the weather today? _____ very cold and windy.", opts: ["There is", "It's", "Is it"], ans: 1, exp: "Use 'It is / It's' to describe weather conditions." }
+        ];
+        
+        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        function quizInit() {
+            activeQuiz = shuffleArray(quizData).slice(0, 6);
+            quizCurrent = 0; quizScore = 0;
+            document.getElementById('quiz-btn-reset').classList.add('hidden');
+            quizLoad();
+        }
+
+        function quizLoad() {
+            quizAns = false;
+            const q = activeQuiz[quizCurrent];
+            document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
+            document.getElementById('quiz-q-text').innerHTML = q.q.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-orange-600">_____</span>');
+            
+            const optsCon = document.getElementById('quiz-options');
+            optsCon.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.onclick = () => quizSelect(idx, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-btn-next').classList.add('hidden');
+        }
+
+        function quizSelect(idx, btnElement) {
+            if (quizAns) return;
+            quizAns = true;
+            
+            const q = activeQuiz[quizCurrent];
+            const isCor = idx === q.ans;
+            if (isCor) quizScore++;
+            
+            const allBtns = document.getElementById('quiz-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.add('option-disabled');
+                allBtns[i].onclick = null;
+                const icon = allBtns[i].querySelector('.indicator-icon');
+                
+                if (i === q.ans) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
+                } else if (i === idx && !isCor) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                }
+            }
+            
+            const fb = document.getElementById('quiz-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
+            
+            if (isCor) {
+                fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
+                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+            }
+            
+            document.getElementById('quiz-btn-next').classList.remove('hidden');
+            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+        }
+
+        function quizNext() {
+            if (quizCurrent < activeQuiz.length - 1) {
+                quizCurrent++; quizLoad();
+            } else {
+                document.getElementById('quiz-options').innerHTML = '';
+                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-orange-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-progress').textContent = "Done";
+                document.getElementById('quiz-feedback').classList.add('hidden');
+                document.getElementById('quiz-btn-next').classList.add('hidden');
+                document.getElementById('quiz-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 2: IDENTIFY (Subject)
+        // ==========================================
+        const idData = [
+            { text: "There is", noun: "some milk", rest: "and two eggs in the fridge." },
+            { text: "There are", noun: "five cars", rest: "and a bus on the street." },
+            { text: "There is", noun: "a computer", rest: "and two printers in the office." },
+            { text: "There are", noun: "no tickets", rest: "left for the concert tonight." },
+            { text: "There is", noun: "too much sugar", rest: "in this recipe." }
+        ];
+        
+        let idCurrent = 0; let idSelected = null; let idAns = false; let activeIdPool = [];
+
+        function idInit() {
+            activeIdPool = shuffleArray(idData).slice(0, 4);
+            idCurrent = 0; document.getElementById('id-total').textContent = activeIdPool.length;
+            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+        }
+
+        function idLoad() {
+            idSelected = null; idAns = false;
+            document.getElementById('id-current').textContent = idCurrent + 1;
+            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
+            
+            const q = activeIdPool[idCurrent];
+            
+            // Build the sentence with clickable parts
+            const spanThere = document.createElement('span'); spanThere.textContent = q.text + " ";
+            con.appendChild(spanThere);
+
+            const parts = [
+                { text: q.noun, isTarget: true },
+                { text: q.rest, isTarget: false }
+            ];
+
+            parts.forEach((item, idx) => {
+                const span = document.createElement('span');
+                span.textContent = item.text + " "; 
+                span.className = 'click-word bg-slate-100 text-slate-800';
+                span.dataset.isTarget = item.isTarget ? "true" : "false";
+                span.onclick = () => {
+                    if(idAns) return;
+                    document.querySelectorAll('.click-word').forEach(el => el.classList.remove('selected'));
+                    idSelected = span;
+                    span.classList.add('selected');
+                };
+                con.appendChild(span);
+            });
+            
+            document.getElementById('id-feedback').classList.add('hidden');
+            document.getElementById('id-btn-check').classList.remove('hidden');
+            document.getElementById('id-btn-next').classList.add('hidden');
+        }
+
+        function idCheck() {
+            if(idAns || !idSelected) return; idAns = true;
+            
+            const isCor = idSelected.dataset.isTarget === "true";
+
+            document.querySelectorAll('.click-word').forEach(span => {
+                span.classList.remove('selected', 'bg-slate-100');
+                if (span.dataset.isTarget === "true") {
+                    span.classList.add(isCor ? 'correct' : 'missed');
+                } else if (span === idSelected && !isCor) {
+                    span.classList.add('incorrect');
+                } else {
+                    span.classList.add('bg-transparent', 'text-slate-400');
+                }
+                span.style.cursor = 'default';
+            });
+
+            const fb = document.getElementById('id-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
+            
+            if(isCor) { 
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); 
+                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Correct! This first noun dictates if we use 'is' or 'are'."; 
+            } else { 
+                fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); 
+                fb.innerHTML = `<i class='fa-solid fa-xmark mr-2'></i> Incorrect. Remember the verb agrees with the FIRST noun after 'There is/are'.`; 
+            }
+
+            document.getElementById('id-btn-check').classList.add('hidden');
+            if(idCurrent < activeIdPool.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
+            else document.getElementById('id-btn-reset').classList.remove('hidden');
+        }
+        function idNext() { if (idCurrent < activeIdPool.length - 1) { idCurrent++; idLoad(); } }
+
+        // ==========================================
+        // EXERCISE 3: MATCH (Q & A)
+        // ==========================================
+        const matchPool = [
+            { id: 1, left: "Is there a bank near here?", right: "Yes, there's one on the corner." },
+            { id: 2, left: "How's the weather today?", right: "It's cold and rainy." },
+            { id: 3, left: "What time is it?", right: "It is 4 o'clock." },
+            { id: 4, left: "Are there any tickets left?", right: "No, there aren't." },
+            { id: 5, left: "How much time is there?", right: "There is only one hour left." },
+            { id: 6, left: "What day is it?", right: "It's Friday." }
+        ];
+
+        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+
+        function matchInit() {
+            mSelLeft = null; mSelRight = null; matchCount = 0;
+            activeMatch = shuffleArray([...matchPool]).slice(0, 4);
+            
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            document.getElementById('match-feedback').textContent = '';
+            
+            const lCol = document.getElementById('match-col-left');
+            const rCol = document.getElementById('match-col-right');
+            lCol.innerHTML = ''; rCol.innerHTML = '';
+
+            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.left, side: 'left' })));
+            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.right, side: 'right' })));
+
+            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+        }
+
+        function createMBtn(item) {
+            const btn = document.createElement('button');
+            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm';
+            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
+            btn.onclick = () => handleMClick(btn, item);
+            return btn;
+        }
+
+        function handleMClick(btn, item) {
+            if(btn.classList.contains('matched')) return;
+            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+
+            if(item.side === 'left') {
+                if(mSelLeft) mSelLeft.el.classList.remove('selected');
+                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            } else {
+                if(mSelRight) mSelRight.el.classList.remove('selected');
+                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+            }
+
+            if(mSelLeft && mSelRight) checkMatch();
+        }
+
+        function checkMatch() {
+            const fb = document.getElementById('match-feedback');
+            if(mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.classList.replace('selected', 'matched');
+                mSelRight.el.classList.replace('selected', 'matched');
+                fb.textContent = `Correct Match!`;
+                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
+                matchCount++; mSelLeft = null; mSelRight = null;
+
+                if(matchCount === activeMatch.length) {
+                    setTimeout(() => {
+                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> All questions answered!`;
+                        document.getElementById('match-btn-reset').classList.remove('hidden');
+                    }, 500);
+                }
+            } else {
+                fb.textContent = 'Try again!';
+                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
+                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
+                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
+                mSelLeft = null; mSelRight = null;
+                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 4: FILL IN BLANKS
+        // ==========================================
+        const fillData = [
+            { pre: "", blank: "There is", post: " no traffic on the road today.", opts: ["There is", "There are", "It is"] },
+            { pre: "What time ", blank: "is it", post: "?", opts: ["it is", "is it", "is there"] },
+            { pre: "", blank: "Is there", post: " a pharmacy near here?", opts: ["Are there", "Is there", "There is"] },
+            { pre: "How many students ", blank: "are there", post: " in your class?", opts: ["is there", "are there", "there are"] },
+            { pre: "Look outside! ", blank: "It's", post: " freezing and snowy.", opts: ["There's", "It's", "Is it"] },
+            { pre: "What is ", blank: "the time", post: "?", opts: ["it the time", "the time", "time is it"] }
+        ];
+
+        let activeFill = []; let fillCur = 0; let fillAns = false;
+
+        function fillInit() {
+            activeFill = shuffleArray(fillData).slice(0, 5);
+            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAns = false; const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
+            
+            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
+            shuffleArray([...q.opts]).forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'pop-out bg-white border-2 border-orange-200 text-orange-700 font-bold py-3 px-6 rounded-xl hover:bg-orange-50 hover:border-orange-400 shadow-sm text-lg';
+                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+        }
+
+        function fillSelect(sel, cor, btn) {
+            if (fillAns) return; fillAns = true;
+            const target = document.getElementById('fill-target');
+            target.textContent = sel; target.classList.add('filled');
+            
+            const isCor = sel === cor;
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
+            
+            const allBtns = document.getElementById('fill-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === cor) {
+                    allBtns[i].classList.remove('border-orange-200', 'text-orange-700', 'opacity-50');
+                    allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
+                }
+            }
+
+            if (isCor) {
+                target.classList.add('correct');
+                btn.classList.replace('border-orange-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Excellent choice!";
+            } else {
+                target.classList.add('incorrect');
+                btn.classList.replace('border-orange-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
+                fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review the grammar rules.";
+            }
+            
+            document.getElementById('fill-btn-next').classList.remove('hidden');
+            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+        }
+
+        function fillNext() {
+            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
+            else {
+                document.getElementById('fill-options').innerHTML = '';
+                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-orange-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 5: LINK WORDS
+        // ==========================================
+        const linkData = [
+            { id: 1, left: "How much", right: "traffic is there?" },
+            { id: 2, left: "What time", right: "is it?" },
+            { id: 3, left: "How many", right: "cars are there?" },
+            { id: 4, left: "Is there", right: "a hospital nearby?" },
+            { id: 5, left: "What's", right: "the weather like?" }
+        ];
+
+        let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
+
+        function linkInit() {
+            linkUserPairs = []; linkSelLeft = null; linkChecked = false;
+            
+            const lCol = document.getElementById('link-col-left');
+            const rCol = document.getElementById('link-col-right');
+            lCol.innerHTML = ''; rCol.innerHTML = '';
+
+            const activeLinks = shuffleArray([...linkData]);
+
+            const lItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.left, type: 'start' })));
+            const rItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.right, type: 'end' })));
+
+            lItems.forEach(item => lCol.appendChild(createLinkBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createLinkBtn(item)));
+
+            document.getElementById('link-feedback').classList.add('hidden');
+            document.getElementById('link-btn-check').classList.remove('hidden');
+            document.getElementById('link-btn-reset').classList.add('hidden');
+            
+            redrawArrows();
+        }
+
+        function createLinkBtn(item) {
+            const btn = document.createElement('div');
+            btn.id = `link-${item.type}-${item.id}`;
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-orange-300 transition-all z-10 relative';
+            btn.textContent = item.text;
+            btn.dataset.id = item.id;
+            btn.dataset.type = item.type;
+            btn.onclick = () => handleLinkClick(btn, item);
+            return btn;
+        }
+
+        function handleLinkClick(btn, item) {
+            if(linkChecked) return;
+
+            if (item.type === 'start') {
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-orange-300', 'bg-orange-50');
+                if (linkSelLeft && linkSelLeft.id === item.id) {
+                    linkSelLeft = null; // deselect
+                } else {
+                    linkSelLeft = { el: btn, id: item.id };
+                    btn.classList.add('ring-4', 'ring-orange-300', 'bg-orange-50');
+                }
+            } else if (item.type === 'end' && linkSelLeft) {
+                // Remove existing links for either start or end
+                linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
+                
+                // Add new link
+                linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
+                
+                linkSelLeft.el.classList.remove('ring-4', 'ring-orange-300', 'bg-orange-50');
+                linkSelLeft = null;
+                redrawArrows();
+            }
+        }
+
+        function linkCheck() {
+            if(linkChecked) return;
+            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-orange-300', 'bg-orange-50'); linkSelLeft = null; }
+            
+            linkChecked = true;
+            let corCount = 0;
+
+            linkUserPairs.forEach(up => {
+                if (up.startId === up.endId) {
+                    up.status = 'correct'; corCount++;
+                } else {
+                    up.status = 'incorrect';
+                }
+            });
+
+            const fb = document.getElementById('link-feedback');
+            fb.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-amber-600');
+            
+            if (corCount === linkData.length) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
+            } else {
+                fb.classList.add('text-amber-600');
+                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct.`;
+            }
+
+            redrawArrows();
+            document.getElementById('link-btn-check').classList.add('hidden');
+            document.getElementById('link-btn-reset').classList.remove('hidden');
+        }
+
+        // Initialize on load
+        window.onload = () => { setupStudyInteractive(); };
+    </script>
+</body>
+</html>

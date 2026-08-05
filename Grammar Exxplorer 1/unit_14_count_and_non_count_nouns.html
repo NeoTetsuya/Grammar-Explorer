@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 14: Count and Non-Count Nouns</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdfa; /* Teal 50 */
+        }
+        
+        /* Tab Navigation */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #0d9488; /* Teal 600 */
+            color: #0f766e; /* Teal 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover { color: #334155; border-color: #94a3b8; }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.3), 0 4px 6px -2px rgba(13, 148, 136, 0.15);
+        }
+        
+        .pulse-border { animation: pulse-border 2s infinite; }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); } /* Teal 500 */
+            70% { box-shadow: 0 0 0 10px rgba(20, 184, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
+
+        .interactive-group { position: relative; display: inline-block; }
+        .interactive-trigger {
+            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
+            text-decoration-color: #0d9488; padding: 2px 4px; border-radius: 4px;
+            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
+        }
+        .interactive-target {
+            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent;
+        }
+        .interactive-active-trigger {
+            background-color: #ccfbf1; color: #0f766e; font-weight: bold; text-decoration-color: transparent;
+        }
+        .interactive-active-target {
+            background-color: #fef08a; color: #854d0e; font-weight: bold;
+            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+        }
+
+        /* Rule Indicator Box */
+        .rule-indicator {
+            position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%);
+            font-size: 11px; font-weight: bold; color: #0d9488; opacity: 0;
+            transition: opacity 0.2s; pointer-events: none; white-space: nowrap;
+            background: white; padding: 2px 8px; border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15); border: 1px solid #ccfbf1; z-index: 10;
+        }
+        .interactive-active-trigger .rule-indicator { opacity: 1; }
+
+        /* Sub-Tabs */
+        .subtab-active { background-color: #0d9488; color: white; box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.4); }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        /* Quiz Buttons */
+        .option-btn { transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0d9488; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* Clickable Words for Identify/Reading */
+        .click-word {
+            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+        }
+        .click-word:hover { background-color: #e2e8f0; }
+        .click-word.selected { background-color: #2dd4bf; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(45, 212, 191, 0.4); border-color: #14b8a6; }
+        .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
+        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
+
+        /* Match Exercise */
+        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .match-btn:hover:not(:disabled) { border-color: #2dd4bf; background-color: #f0fdfa; transform: translateY(-2px); }
+        .match-btn.selected { background-color: #ccfbf1; border-color: #0d9488; color: #0f766e; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.2); }
+        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
+        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        /* Fill Blanks */
+        .fill-blank {
+            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #0d9488;
+        }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #ccfbf1; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #0d9488; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
+        <defs>
+            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#0d9488" />
+            </marker>
+        </defs>
+        <g id="svg-paths-container"></g>
+    </svg>
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-teal-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-teal-500 to-emerald-500 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-apple-whole text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 14: Count & Non-Count Nouns</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 14 Nouns</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Count & Non-Count Nouns</h2>
+                <p class="text-lg text-slate-600">Learn how to express quantities, use articles correctly, and master the rules for things you can count versus things you cannot.</p>
+                <div class="mt-4 inline-flex items-center gap-2 bg-teal-50 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold border border-teal-200">
+                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
+                    Tap the dashed words in the examples to reveal grammar rules!
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Point 1: Basics & Categories -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-teal-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-layer-group text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">1. Count vs. Non-Count</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-teal-700 mb-2 border-b pb-1">Count Nouns</h4>
+                                <p class="text-sm text-slate-600 mb-2">Things you can count. Have singular & plural forms.</p>
+                                <span class="text-lg font-medium">one apple &rarr; two apples</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <h4 class="font-bold text-teal-700 mb-2 border-b pb-1">Non-Count Nouns</h4>
+                                <p class="text-sm text-slate-600 mb-2">Cannot be counted. <strong class="text-red-500">No plural form.</strong></p>
+                                <span class="text-lg font-medium">sugar <span class="text-red-500 line-through text-sm ml-1">sugars</span></span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 mb-3 text-lg">Categories of Non-Count Nouns</h4>
+                            <div class="flex flex-wrap gap-2 text-sm">
+                                <span class="bg-orange-50 text-orange-700 border border-orange-200 px-3 py-1 rounded-lg"><strong>Foods:</strong> bread, meat, pasta, rice</span>
+                                <span class="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-lg"><strong>Liquids:</strong> coffee, oil, water, soup</span>
+                                <span class="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-lg"><strong>Activities:</strong> soccer, tennis, yoga</span>
+                                <span class="bg-purple-50 text-purple-700 border border-purple-200 px-3 py-1 rounded-lg"><strong>Categories:</strong> furniture, luggage, money, weather</span>
+                                <span class="bg-slate-100 text-slate-700 border border-slate-300 px-3 py-1 rounded-lg"><strong>Abstract:</strong> advice, fun, information, work</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-400">
+                            <h4 class="font-bold text-amber-800 mb-1"><i class="fa-solid fa-code-branch mr-1"></i> Dual-Meaning Nouns</h4>
+                            <p class="text-sm text-amber-900 mb-2">Some words change depending on context.</p>
+                            <ul class="text-sm text-amber-900 space-y-2">
+                                <li><strong>Non-Count (Substance):</strong> I love <span class="font-bold">pizza</span>.</li>
+                                <li><strong>Count (Whole Item):</strong> We ordered three <span class="font-bold">pizzas</span>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Point 2: Articles & Measurement -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-emerald-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-a text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">2. Articles & Measurements</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Articles (A / An / The)</h4>
+                            <ul class="space-y-3 text-slate-700 text-sm">
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <strong class="text-emerald-700 text-base block mb-1">A / An (Indefinite)</strong>
+                                    Use <strong class="text-red-500">ONLY</strong> with singular count nouns.<br>
+                                    <div class="mt-2 space-y-1">
+                                        <div class="interactive-group">She has <span class="interactive-trigger" data-target="noun-suitcase">a</span> <span id="noun-suitcase" class="interactive-target">suitcase</span>. <span class="rule-indicator">Consonant sound</span></div><br>
+                                        <div class="interactive-group">He ate <span class="interactive-trigger" data-target="noun-orange">an</span> <span id="noun-orange" class="interactive-target">orange</span>. <span class="rule-indicator">Vowel sound</span></div>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-t text-xs font-medium text-slate-500">
+                                        *Exceptions: <span class="text-emerald-600">a university</span> (sounds like 'y'), <span class="text-emerald-600">an hour</span> (silent 'h').
+                                    </div>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <strong class="text-emerald-700 text-base block mb-1">The (Definite)</strong>
+                                    Can be used with BOTH count and non-count nouns when specific or already known (e.g., <em>the earth, the water on the table</em>).
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Measurement Words</h4>
+                            <p class="text-sm text-slate-600 mb-2">Used with 'of' to count non-count nouns.</p>
+                            
+                            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 shadow-sm relative">
+                                <div class="absolute top-0 right-0 bg-emerald-500 text-white px-3 py-1 rounded-bl-xl text-xs font-bold">RULE</div>
+                                <div class="text-lg">
+                                    <div class="interactive-group block mb-1">
+                                        I bought two <span class="interactive-trigger" data-target="meas-carton">cartons</span> of <span id="meas-carton" class="interactive-target">eggs</span>.
+                                        <span class="rule-indicator">Make the measurement plural!</span>
+                                    </div>
+                                    <div class="text-red-400 line-through text-sm ml-6">two carton of eggs</div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-xs text-slate-500 mt-3 font-medium">Common: a bottle of, a slice of, a piece of, a loaf of, a bowl of.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- Quantifiers Table -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-sky-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-scale-balanced text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">3. Quantifiers</h3>
+                        </div>
+                        <p class="text-sky-100 font-medium">Much, Many, A lot of, A few, A little</p>
+                    </div>
+                    
+                    <div class="p-0 flex-grow">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-slate-100 text-slate-700">
+                                <tr>
+                                    <th class="p-4 border-b">Quantifier</th>
+                                    <th class="p-4 border-b">Used With</th>
+                                    <th class="p-4 border-b">Example</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="p-4 font-bold text-sky-700">Many</td>
+                                    <td class="p-4"><span class="bg-sky-100 text-sky-800 px-2 py-1 rounded text-xs">Count (Plural)</span></td>
+                                    <td class="p-4">I have <span class="font-bold">many</span> apples.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-sky-700">Much</td>
+                                    <td class="p-4"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Non-Count</span></td>
+                                    <td class="p-4">I don't have <span class="font-bold">much</span> time.</td>
+                                </tr>
+                                <tr class="bg-slate-50">
+                                    <td class="p-4 font-bold text-emerald-700">A lot of / Lots of</td>
+                                    <td class="p-4">
+                                        <span class="bg-sky-100 text-sky-800 px-2 py-1 rounded text-xs mb-1 block w-max">Count</span>
+                                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs block w-max">Non-Count</span>
+                                    </td>
+                                    <td class="p-4">We eat <span class="font-bold">a lot of</span> vegetables & honey.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-purple-700">A few</td>
+                                    <td class="p-4"><span class="bg-sky-100 text-sky-800 px-2 py-1 rounded text-xs">Count (Plural)</span></td>
+                                    <td class="p-4">I have <span class="font-bold">a few</span> pencils.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-purple-700">A little</td>
+                                    <td class="p-4"><span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Non-Count</span></td>
+                                    <td class="p-4">Add <span class="font-bold">a little</span> milk.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Questions and Some/Any -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl border border-slate-700 overflow-hidden flex flex-col text-white relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-circle-question text-8xl"></i>
+                    </div>
+                    <div class="p-6 relative z-10 flex-grow space-y-6">
+                        
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-clipboard-question text-teal-400 text-2xl"></i>
+                                <h3 class="text-2xl font-bold text-teal-400">4. Some vs. Any</h3>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 mt-4">
+                                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-600">
+                                    <h4 class="font-bold text-white mb-2 border-b border-slate-600 pb-1">SOME</h4>
+                                    <ul class="text-sm text-slate-300 space-y-2">
+                                        <li><i class="fa-solid fa-plus text-green-400 w-4"></i> Affirmative statements.</li>
+                                        <li><i class="fa-solid fa-question text-yellow-400 w-4"></i> Polite offers <em>(Would you like some...?)</em>.</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-600">
+                                    <h4 class="font-bold text-white mb-2 border-b border-slate-600 pb-1">ANY</h4>
+                                    <ul class="text-sm text-slate-300 space-y-2">
+                                        <li><i class="fa-solid fa-minus text-red-400 w-4"></i> Negative statements.</li>
+                                        <li><i class="fa-solid fa-question text-blue-400 w-4"></i> General questions <em>(Do you have any...?)</em>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-white text-lg border-b border-slate-600 pb-2 mb-3">5. How much vs. How many</h4>
+                            
+                            <div class="space-y-3">
+                                <div class="bg-slate-700/50 p-3 rounded-xl border border-slate-600">
+                                    <div class="interactive-group block text-lg mb-1">
+                                        <span class="interactive-trigger text-orange-400" data-target="noun-money">How much</span> 
+                                        <span class="interactive-target text-white" id="noun-money">money</span> does it cost?
+                                        <span class="rule-indicator">Use with Non-Count</span>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-700/50 p-3 rounded-xl border border-slate-600">
+                                    <div class="interactive-group block text-lg mb-1">
+                                        <span class="interactive-trigger text-sky-400" data-target="noun-bottles">How many</span> 
+                                        <span class="interactive-target text-white" id="noun-bottles">bottles</span> do we need?
+                                        <span class="rule-indicator">Use with Plural Count</span>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-slate-400 italic text-center mt-2">Note: You can omit the noun in conversation if it's obvious! ("How many do we need?")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Quantity Mastery</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-list-check mr-2"></i>Quiz
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-boxes-stacked mr-2"></i>Categorize
+                            </button>
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-magnifying-glass mr-2"></i>Identify
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Fill Blanks
+                            </button>
+                            <button id="ex-tab-reading" onclick="switchExTab('reading')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-book-open-reader mr-2"></i>Recipe Check
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <div id="ex-container-quiz" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Knowledge Check</h3>
+                                </div>
+                                <span id="quiz-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
+                                <!-- Options injected -->
+                            </div>
+
+                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Noun Categorizer</h3>
+                                <p class="text-slate-500 text-sm mt-1">Connect the noun or phrase (left) to its correct grammatical category (right).</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                                <div id="match-col-left" class="space-y-3"></div>
+                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
+                                    <div class="h-full w-px bg-slate-200"></div>
+                                </div>
+                                <div id="match-col-right" class="space-y-3"></div>
+                            </div>
+
+                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+
+                            <div class="flex justify-center mt-6">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-identify" class="hidden fade-in">
+                            <div class="mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Find the Non-Count Nouns</h3>
+                                <p class="text-sm text-slate-600 mt-1">Click on <strong>all the non-count nouns</strong> in the sentence below. Do not click count nouns or other words.</p>
+                            </div>
+
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                            </div>
+
+                            <div class="bg-white border-2 border-teal-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            </div>
+
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+
+                            <div class="flex justify-center gap-4">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(20,184,166,0.4)] pop-out">
+                                    Check Answer <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Choose the Quantifier</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct word to complete the sentence.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
+                                <!-- Options injected here -->
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-reading" class="hidden fade-in">
+                            <div class="mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Recipe Check: Measurement Words</h3>
+                                <p class="text-sm text-slate-600 mt-1">Read the recipe below. Click to highlight <strong>every measurement phrase</strong> (e.g., "a cup of").</p>
+                            </div>
+
+                            <div class="bg-white border-2 border-emerald-100 shadow-inner rounded-xl p-8 mb-6 leading-loose text-slate-700 text-lg">
+                                <div id="read-passage-container"></div>
+                            </div>
+
+                            <div id="read-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+
+                            <div class="flex justify-center gap-4">
+                                <button id="read-btn-check" onclick="readCheck()" class="bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(16,185,129,0.4)] pop-out">
+                                    Check Recipe <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="read-btn-reset" onclick="readInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI & INTERACTIVITY LOGIC
+        // ==========================================
+        function switchMainTab(tabId) {
+            const isStudy = tabId === 'study';
+            
+            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (isStudy) {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+                setTimeout(redrawArrows, 50);
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
+                    quizInit(); matchInit(); fillInit(); idInit(); readInit();
+                }
+                setTimeout(redrawArrows, 50);
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['quiz', 'match', 'identify', 'fill', 'reading'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
+                    container.classList.remove('hidden'); container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
+                    container.classList.remove('block'); container.classList.add('hidden');
+                }
+            });
+        }
+
+        let activeTrigger = null;
+
+        function setupStudyInteractive() {
+            const triggers = document.querySelectorAll('.interactive-trigger');
+            triggers.forEach(trig => {
+                trig.addEventListener('mouseenter', () => activateLink(trig));
+                trig.addEventListener('mouseleave', () => deactivateLink(trig));
+                trig.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
+                    else {
+                        triggers.forEach(t => deactivateLink(t));
+                        activateLink(trig);
+                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
+                    }
+                });
+            });
+            window.addEventListener('scroll', hideArrows);
+            window.addEventListener('resize', redrawArrows);
+        }
+
+        function activateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.add('interactive-active-target');
+                trig.classList.add('interactive-active-trigger');
+                activeTrigger = trig;
+                redrawArrows();
+            }
+        }
+
+        function deactivateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.remove('interactive-active-target');
+                trig.classList.remove('interactive-active-trigger');
+            }
+            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
+        }
+
+        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
+
+        function redrawArrows() {
+            let html = '';
+            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
+                const targetId = activeTrigger.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    const sRect = activeTrigger.getBoundingClientRect();
+                    const eRect = targetEl.getBoundingClientRect();
+                    const sX = sRect.left + (sRect.width / 2); const sY = sRect.bottom + 2;
+                    const eX = eRect.left + (eRect.width / 2); const eY = eRect.bottom + 2;
+                    const curve = Math.max(20, Math.abs(eX - sX) * 0.15);
+                    const lowY = Math.max(sY, eY) + curve;
+                    html = `<path d="M ${sX},${sY} Q ${(sX+eX)/2},${lowY} ${eX},${eY + 6}" stroke="#0d9488" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="url(#arrowhead-study)"/>`;
+                }
+            }
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: QUIZ
+        // ==========================================
+        const quizData = [
+            { q: "We need ___ information about the project.", opts: ["a", "an", "some"], ans: 2, exp: "Information is a non-count noun, so you cannot use 'a' or 'an'." },
+            { q: "___ money do you have in your wallet?", opts: ["How much", "How many", "What"], ans: 0, exp: "Money is a non-count noun, so we use 'How much'." },
+            { q: "She bought three ___ of milk.", opts: ["carton", "cartons", "carton's"], ans: 1, exp: "When using a measurement word + of, the measurement word becomes plural (cartons)." },
+            { q: "I don't have ___ time to finish this.", opts: ["much", "many", "a few"], ans: 0, exp: "Time is a non-count noun, so we use 'much' in negative statements." },
+            { q: "Would you like ___ coffee?", opts: ["any", "a", "some"], ans: 2, exp: "We use 'some' in questions when making a polite offer." },
+            { q: "We only have ___ apples left.", opts: ["a little", "a few", "much"], ans: 1, exp: "Apples are plural count nouns, so we use 'a few' for small quantities." },
+            { q: "He studies at ___ university in London.", opts: ["a", "an", "the"], ans: 0, exp: "Although 'university' starts with a vowel, it is pronounced with a consonant 'y' sound, so we use 'a'." },
+            { q: "They didn't give us ___ help.", opts: ["some", "any", "many"], ans: 1, exp: "Use 'any' for negative statements with non-count nouns." },
+            { q: "___ people live in this city?", opts: ["How much", "How many", "How"], ans: 1, exp: "People is a plural count noun, so we use 'How many'." },
+            { q: "I ate a huge ___ of pizza for lunch.", opts: ["bowl", "slice", "loaf"], ans: 1, exp: "Pizza is typically measured in 'slices'." }
+        ];
+        
+        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        function quizInit() {
+            activeQuiz = shuffleArray(quizData).slice(0, 6);
+            quizCurrent = 0; quizScore = 0;
+            document.getElementById('quiz-btn-reset').classList.add('hidden');
+            quizLoad();
+        }
+
+        function quizLoad() {
+            quizAns = false;
+            const q = activeQuiz[quizCurrent];
+            document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
+            document.getElementById('quiz-q-text').innerHTML = q.q.replace('___', '<span class="border-b-2 border-slate-400 font-bold px-4 text-teal-600">___</span>');
+            
+            const optsCon = document.getElementById('quiz-options');
+            optsCon.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.onclick = () => quizSelect(idx, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-btn-next').classList.add('hidden');
+        }
+
+        function quizSelect(idx, btnElement) {
+            if (quizAns) return;
+            quizAns = true;
+            
+            const q = activeQuiz[quizCurrent];
+            const isCor = idx === q.ans;
+            if (isCor) quizScore++;
+            
+            const allBtns = document.getElementById('quiz-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.add('option-disabled');
+                allBtns[i].onclick = null;
+                const icon = allBtns[i].querySelector('.indicator-icon');
+                
+                if (i === q.ans) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
+                } else if (i === idx && !isCor) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                }
+            }
+            
+            const fb = document.getElementById('quiz-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
+            
+            if (isCor) {
+                fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
+                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+            }
+            
+            document.getElementById('quiz-btn-next').classList.remove('hidden');
+            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+        }
+
+        function quizNext() {
+            if (quizCurrent < activeQuiz.length - 1) {
+                quizCurrent++; quizLoad();
+            } else {
+                document.getElementById('quiz-options').innerHTML = '';
+                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-teal-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-progress').textContent = "Done";
+                document.getElementById('quiz-feedback').classList.add('hidden');
+                document.getElementById('quiz-btn-next').classList.add('hidden');
+                document.getElementById('quiz-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 2: MATCH (Categorize)
+        // ==========================================
+        const matchPool = [
+            { id: 1, base: "Advice", cat: "Non-Count Noun" },
+            { id: 2, base: "Suitcase", cat: "Count Noun" },
+            { id: 3, base: "Luggage", cat: "Category Noun (Non-Count)" },
+            { id: 4, base: "A loaf of", cat: "Measurement Phrase" },
+            { id: 5, base: "Water", cat: "Liquid (Non-Count)" },
+            { id: 6, base: "Much", cat: "Quantifier (Non-Count)" },
+            { id: 7, base: "Many", cat: "Quantifier (Count)" }
+        ];
+
+        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+
+        function matchInit() {
+            mSelLeft = null; mSelRight = null; matchCount = 0;
+            activeMatch = shuffleArray([...matchPool]).slice(0, 5);
+            
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            document.getElementById('match-feedback').textContent = '';
+            
+            const lCol = document.getElementById('match-col-left');
+            const rCol = document.getElementById('match-col-right');
+            lCol.innerHTML = ''; rCol.innerHTML = '';
+
+            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.base, side: 'left' })));
+            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.cat, side: 'right' })));
+
+            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+        }
+
+        function createMBtn(item) {
+            const btn = document.createElement('button');
+            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm';
+            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
+            btn.onclick = () => handleMClick(btn, item);
+            return btn;
+        }
+
+        function handleMClick(btn, item) {
+            if(btn.classList.contains('matched')) return;
+            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+
+            if(item.side === 'left') {
+                if(mSelLeft) mSelLeft.el.classList.remove('selected');
+                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            } else {
+                if(mSelRight) mSelRight.el.classList.remove('selected');
+                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+            }
+
+            if(mSelLeft && mSelRight) checkMatch();
+        }
+
+        function checkMatch() {
+            const fb = document.getElementById('match-feedback');
+            if(mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.classList.replace('selected', 'matched');
+                mSelRight.el.classList.replace('selected', 'matched');
+                fb.textContent = `Correct: ${mSelLeft.el.textContent} ➡️ ${mSelRight.el.textContent}`;
+                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
+                matchCount++; mSelLeft = null; mSelRight = null;
+
+                if(matchCount === activeMatch.length) {
+                    setTimeout(() => {
+                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> Perfect Match!`;
+                        document.getElementById('match-btn-reset').classList.remove('hidden');
+                    }, 500);
+                }
+            } else {
+                fb.textContent = 'Try again!';
+                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
+                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
+                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
+                mSelLeft = null; mSelRight = null;
+                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 3: IDENTIFY (Non-Count)
+        // ==========================================
+        const idData = [
+            [{w:"We"}, {w:"bought"}, {w:"two"}, {w:"chairs"}, {w:"and"}, {w:"some"}, {w:"furniture", isNC:true}, {w:"for"}, {w:"the"}, {w:"house."}],
+            [{w:"She"}, {w:"gave"}, {w:"me"}, {w:"good"}, {w:"advice", isNC:true}, {w:"about"}, {w:"my"}, {w:"homework.", isNC:true}],
+            [{w:"There"}, {w:"is"}, {w:"too"}, {w:"much"}, {w:"traffic", isNC:true}, {w:"on"}, {w:"the"}, {w:"road"}, {w:"today."}],
+            [{w:"I"}, {w:"need"}, {w:"more"}, {w:"information", isNC:true}, {w:"before"}, {w:"I"}, {w:"spend"}, {w:"my"}, {w:"money.", isNC:true}]
+        ];
+        
+        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        function idInit() {
+            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+        }
+
+        function idLoad() {
+            idSelected.clear(); idAns = false;
+            document.getElementById('id-current').textContent = idCurrent + 1;
+            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
+            
+            idData[idCurrent].forEach((item, idx) => {
+                const span = document.createElement('span');
+                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.dataset.isNC = item.isNC ? "true" : "false";
+                span.onclick = () => {
+                    if(idAns) return;
+                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
+                    else { idSelected.add(idx); span.classList.add('selected'); }
+                };
+                con.appendChild(span);
+            });
+            document.getElementById('id-feedback').classList.add('hidden');
+            document.getElementById('id-btn-check').classList.remove('hidden');
+            document.getElementById('id-btn-next').classList.add('hidden');
+        }
+
+        function idCheck() {
+            if(idAns) return; idAns = true;
+            const spans = document.querySelectorAll('#id-sentence-container .click-word');
+            let cor = 0; let tot = idData[idCurrent].filter(i => i.isNC).length; let err = false;
+
+            spans.forEach((span, idx) => {
+                const isTar = span.dataset.isNC === "true"; const isSel = idSelected.has(idx);
+                span.classList.remove('selected', 'bg-slate-100');
+                if(isTar && isSel) { span.classList.add('correct'); cor++; }
+                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
+                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
+                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+            });
+
+            const fb = document.getElementById('id-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
+            
+            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect!"; } 
+            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `Found ${cor}/${tot}. Remember category nouns like 'furniture' and abstract nouns like 'advice' are non-count.`; }
+
+            document.getElementById('id-btn-check').classList.add('hidden');
+            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
+            else document.getElementById('id-btn-reset').classList.remove('hidden');
+        }
+        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
+
+        // ==========================================
+        // EXERCISE 4: FILL IN BLANKS (Quantifiers)
+        // ==========================================
+        const fillData = [
+            { pre: "She has ", blank: "many", post: " friends in the city.", opts: ["much", "many", "a little"] },
+            { pre: "We only have ", blank: "a little", post: " time before the train leaves.", opts: ["a few", "a little", "many"] },
+            { pre: "I don't eat ", blank: "much", post: " meat.", opts: ["much", "many", "a few"] },
+            { pre: "They answered ", blank: "a few", post: " questions.", opts: ["a little", "a few", "much"] },
+            { pre: "There are ", blank: "a lot of", post: " people here today.", opts: ["much", "a little", "a lot of"] }
+        ];
+
+        let activeFill = []; let fillCur = 0; let fillAns = false;
+
+        function fillInit() {
+            activeFill = shuffleArray(fillData).slice(0, 5);
+            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAns = false; const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
+            
+            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
+            shuffleArray([...q.opts]).forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'pop-out bg-white border-2 border-teal-200 text-teal-700 font-bold py-3 px-6 rounded-xl hover:bg-teal-50 hover:border-teal-400 shadow-sm text-lg';
+                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+        }
+
+        function fillSelect(sel, cor, btn) {
+            if (fillAns) return; fillAns = true;
+            const target = document.getElementById('fill-target');
+            target.textContent = sel; target.classList.add('filled');
+            
+            const isCor = sel === cor;
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
+            
+            const allBtns = document.getElementById('fill-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === cor) {
+                    allBtns[i].classList.remove('border-teal-200', 'text-teal-700', 'opacity-50');
+                    allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
+                }
+            }
+
+            if (isCor) {
+                target.classList.add('correct');
+                btn.classList.replace('border-teal-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Excellent choice!";
+            } else {
+                target.classList.add('incorrect');
+                btn.classList.replace('border-teal-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
+                fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Remember the rules for count vs. non-count.";
+            }
+            
+            document.getElementById('fill-btn-next').classList.remove('hidden');
+            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+        }
+
+        function fillNext() {
+            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
+            else {
+                document.getElementById('fill-options').innerHTML = '';
+                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-teal-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 5: READING (Measurement Words)
+        // ==========================================
+        const readData = [
+            {w:"To"}, {w:"bake"}, {w:"this"}, {w:"cake,"}, {w:"you"}, {w:"need"}, 
+            {w:"a cup of", isMeas:true}, {w:"flour,"}, {w:"and"}, {w:"a piece of", isMeas:true}, {w:"butter."}, 
+            {w:"Add"}, {w:"a teaspoon of", isMeas:true}, {w:"salt"}, {w:"and"}, {w:"two"}, {w:"cartons of", isMeas:true}, {w:"milk."}, 
+            {w:"Finally,"}, {w:"serve"}, {w:"it"}, {w:"with"}, {w:"a glass of", isMeas:true}, {w:"water."}
+        ];
+
+        let rSel = new Set(); let rAns = false;
+
+        function readInit() {
+            rSel.clear(); rAns = false;
+            const con = document.getElementById('read-passage-container'); con.innerHTML = '';
+            
+            readData.forEach((item, idx) => {
+                const span = document.createElement('span');
+                span.textContent = item.w; span.className = 'click-word text-slate-700';
+                span.dataset.isMeas = item.isMeas ? "true" : "false";
+                span.onclick = () => {
+                    if(rAns) return;
+                    if(rSel.has(idx)) { rSel.delete(idx); span.classList.remove('selected'); }
+                    else { rSel.add(idx); span.classList.add('selected'); }
+                };
+                con.appendChild(span);
+            });
+            document.getElementById('read-feedback').classList.add('hidden');
+            document.getElementById('read-btn-check').classList.remove('hidden');
+            document.getElementById('read-btn-reset').classList.add('hidden');
+        }
+
+        function readCheck() {
+            if(rAns) return; rAns = true;
+            const spans = document.querySelectorAll('#read-passage-container .click-word');
+            let cor = 0; let tot = readData.filter(i => i.isMeas).length; let err = false;
+
+            spans.forEach((span, idx) => {
+                const isTar = span.dataset.isMeas === "true"; const isSel = rSel.has(idx);
+                span.classList.remove('selected'); span.style.cursor = 'default';
+                if(isTar && isSel) { span.classList.add('correct'); cor++; }
+                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
+                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
+                else span.classList.add('text-slate-400');
+            });
+
+            const fb = document.getElementById('read-feedback');
+            fb.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'border-emerald-200', 'bg-amber-50', 'text-amber-800');
+            if(!err && cor === tot) { fb.classList.add('bg-emerald-50', 'text-emerald-800', 'border-emerald-200'); fb.innerHTML = "<i class='fa-solid fa-check-double mr-2'></i> Perfect! You found all measurement phrases."; } 
+            else { fb.classList.add('bg-amber-50', 'text-amber-800'); fb.innerHTML = `Found ${cor}/${tot}. Look for phrases starting with 'a/an' + word + 'of'.`; }
+
+            document.getElementById('read-btn-check').classList.add('hidden');
+            document.getElementById('read-btn-reset').classList.remove('hidden');
+        }
+
+        window.onload = () => { setupStudyInteractive(); };
+    </script>
+</body>
+</html>

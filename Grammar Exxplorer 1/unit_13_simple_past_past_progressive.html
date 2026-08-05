@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 13: Simple Past & Past Progressive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        /* Tab Navigation */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #ec4899; /* Pink 500 */
+            color: #db2777; /* Pink 600 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover { color: #334155; border-color: #cbd5e1; }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3), 0 4px 6px -2px rgba(236, 72, 153, 0.15);
+        }
+        .pulse-border { animation: pulse-border 2s infinite; }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(236, 72, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+        }
+
+        .interactive-group { position: relative; display: inline-block; }
+        .interactive-trigger {
+            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
+            text-decoration-color: #ec4899; padding: 2px 4px; border-radius: 4px;
+            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
+        }
+        .interactive-target {
+            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent;
+        }
+        .interactive-active-trigger {
+            background-color: #fce7f3; color: #be185d; font-weight: bold; text-decoration-color: transparent;
+        }
+        .interactive-active-target {
+            background-color: #dcfce7; color: #15803d; font-weight: bold;
+            border-color: #86efac; box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.3);
+        }
+
+        /* Sub-Tabs */
+        .subtab-active { background-color: #ec4899; color: white; box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.4); }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .option-btn { transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #ec4899; }
+        .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+
+        .click-word {
+            display: inline-block; padding: 4px 8px; margin: 2px 1px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+        }
+        .click-word:hover { background-color: #e2e8f0; }
+        .click-word.selected { background-color: #f472b6; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(244, 114, 182, 0.4); }
+        .click-word.correct { background-color: #22c55e; color: white; }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; }
+        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
+
+        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .match-btn:hover:not(:disabled) { border-color: #f472b6; background-color: #fdf2f8; transform: translateY(-2px); }
+        .match-btn.selected { background-color: #fce7f3; border-color: #ec4899; color: #be185d; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.2); }
+        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
+        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        .fill-blank {
+            display: inline-block; min-width: 80px; height: 32px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #ec4899;
+        }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #fce7f3; border-radius: 4px 4px 0 0; padding: 0 8px; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
+        <defs>
+            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#ec4899" />
+            </marker>
+        </defs>
+        <g id="svg-paths-container"></g>
+    </svg>
+
+    <header class="bg-white shadow-md sticky top-0 z-30 border-b border-pink-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-pink-500 to-rose-500 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-clock-rotate-left text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 13: Past Tenses</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 13</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Past Tenses</h2>
+                <p class="text-lg text-slate-600">Master the **Simple Past** (completed actions) and the **Past Progressive** (actions in progress). Watch out for irregular verbs!</p>
+                <div class="mt-4 inline-flex items-center gap-2 bg-pink-50 text-pink-700 px-4 py-2 rounded-full text-sm font-semibold border border-pink-200">
+                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
+                    Tap the dashed words in the examples to see grammar rules connect!
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Point 1: Past of Be -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-blue-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-user-clock text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">1. Simple Past of 'Be'</h3>
+                        </div>
+                        <p class="text-blue-100 font-medium">Was / Were</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">The Forms</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <span class="font-bold text-blue-600 block mb-1">WAS / WASN'T</span>
+                                    I, He, She, It, Singular
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <span class="font-bold text-blue-600 block mb-1">WERE / WEREN'T</span>
+                                    We, You, They, Plural
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Interactive Examples</h4>
+                            <div class="space-y-4 text-lg bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                                <div class="interactive-group block">
+                                    <span class="interactive-target" id="subj1">She</span> 
+                                    <span class="interactive-trigger" data-target="subj1">was</span> at home.
+                                </div>
+                                <div class="interactive-group block border-t pt-4">
+                                    <span class="interactive-target" id="subj2">They</span> 
+                                    <span class="interactive-trigger" data-target="subj2">weren't</span> happy.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-400">
+                            <h4 class="font-bold text-amber-800 mb-2"><i class="fa-solid fa-clock mr-1"></i> Time Clues</h4>
+                            <ul class="text-sm text-amber-900 space-y-1">
+                                <li><strong>last:</strong> night, week, year (No 'the')</li>
+                                <li><strong>yesterday:</strong> morning, afternoon (No 'yesterday night')</li>
+                                <li><strong>ago:</strong> Place <em>after</em> the time (e.g., <em>two days ago</em>)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Point 2: Regular & Irregular -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-purple-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-bolt text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">2. Regular & Irregular Verbs</h3>
+                        </div>
+                        <p class="text-purple-100 font-medium">Completed Actions</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Affirmative Rules</h4>
+                            <p class="text-sm text-slate-600 mb-2">Same form for ALL subjects.</p>
+                            <ul class="space-y-2 text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <li><strong>Regular:</strong> Add -ed or -d (e.g., <em>walked, hiked</em>).</li>
+                                <li><strong>Double Consonant:</strong> CVC verbs double the last letter if stressed on the final syllable (e.g., <em>plan &rarr; planned</em>, <em>prefer &rarr; preferred</em>). But NOT if ending in w, x, y.</li>
+                                <li><strong>Irregular:</strong> Memorize groups (e.g., <em>go &rarr; went</em>, <em>put &rarr; put</em>).</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-red-50 p-4 rounded-xl border border-red-200 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-red-500 text-white px-3 py-1 rounded-bl-xl text-xs font-bold">CRITICAL</div>
+                            <h4 class="font-bold text-red-800 mb-2 text-lg">Negative Statements (didn't)</h4>
+                            <p class="text-sm text-red-900 mb-3">Always use <strong>didn't + BASE FORM</strong>. Do not use the past tense verb after didn't.</p>
+                            
+                            <div class="bg-white p-3 rounded-lg border border-red-100 text-lg">
+                                <div class="interactive-group block mb-2">
+                                    <i class="fa-solid fa-check text-green-500 mr-2"></i>
+                                    They <span class="interactive-trigger text-purple-600" data-target="base1">didn't</span> 
+                                    <span class="interactive-target" id="base1">take</span> the bus.
+                                </div>
+                                <div class="text-slate-400 line-through text-sm ml-6">
+                                    <i class="fa-solid fa-xmark text-red-400 mr-1"></i> They didn't took the bus.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- Questions Subject vs Object -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-teal-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-circle-question text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">3. Questions (Subject vs Object)</h3>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow space-y-4">
+                        <p class="text-sm text-slate-600 mb-2">When using <em>Who</em> or <em>What</em>, the structure changes depending on what you are asking about.</p>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-l-4 border-l-orange-400">
+                            <h4 class="font-bold text-slate-800 mb-1">Asking about the SUBJECT</h4>
+                            <p class="text-xs text-slate-500 mb-2">Do NOT use 'did'. Use Past Verb.</p>
+                            <div class="interactive-group block bg-white p-2 rounded border border-slate-100">
+                                <span class="interactive-trigger text-teal-600" data-target="subjQ">Who</span> 
+                                <span class="interactive-target" id="subjQ">went</span> with you?
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 border-l-4 border-l-green-400">
+                            <h4 class="font-bold text-slate-800 mb-1">Asking about the OBJECT</h4>
+                            <p class="text-xs text-slate-500 mb-2">Use 'did' + Base Verb.</p>
+                            <div class="interactive-group block bg-white p-2 rounded border border-slate-100">
+                                <span class="interactive-trigger text-teal-600" data-target="objQ">Who</span> did you 
+                                <span class="interactive-target" id="objQ">ask</span>?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past Progressive & Interrupted -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl border border-slate-700 overflow-hidden flex flex-col text-white relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
+                        <i class="fa-solid fa-person-running text-8xl"></i>
+                    </div>
+                    <div class="p-6 relative z-10 flex-grow space-y-6">
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-arrows-spin text-pink-400 text-2xl"></i>
+                                <h3 class="text-2xl font-bold text-pink-400">4. Past Progressive</h3>
+                            </div>
+                            <p class="text-slate-300 font-medium">Actions in progress in the past.</p>
+                            <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-600 font-mono text-sm text-center mt-3 text-pink-300">
+                                Subject + was/were + Verb-ing
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-white text-lg border-b border-slate-600 pb-2 mb-3">Interrupted Actions</h4>
+                            <p class="text-sm text-slate-400 mb-3">Background ongoing action (Progressive) is interrupted by a sudden completed action (Simple Past).</p>
+                            
+                            <div class="bg-slate-700/50 p-4 rounded-xl border border-slate-600">
+                                <div class="interactive-group block text-lg mb-1">
+                                    I <span class="interactive-target text-pink-400" id="prog1">was walking</span> 
+                                    <span class="interactive-trigger text-amber-400" data-target="prog1">when</span> 
+                                    I <span class="interactive-target text-emerald-400 font-bold" id="simp1">heard</span> a noise.
+                                </div>
+                                <div class="text-xs text-slate-400 mt-2 flex gap-4">
+                                    <span><i class="fa-solid fa-wave-square text-pink-400"></i> Ongoing</span>
+                                    <span><i class="fa-solid fa-bolt text-emerald-400"></i> Interruption</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Past Tense Mastery</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-list-check mr-2"></i>Quiz
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-link mr-2"></i>Irregular Verbs
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Fill Blanks
+                            </button>
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-magnifying-glass mr-2"></i>Identify
+                            </button>
+                            <button id="ex-tab-reading" onclick="switchExTab('reading')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-book-open-reader mr-2"></i>Reading
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: QUIZ -->
+                        <div id="ex-container-quiz" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Knowledge Check</h3>
+                                </div>
+                                <span id="quiz-progress" class="bg-pink-100 text-pink-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
+                                <!-- Options injected -->
+                            </div>
+
+                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: MATCH (Irregular Verbs) -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Irregular Verb Matcher</h3>
+                                <p class="text-slate-500 text-sm mt-1">Connect the base form (left) to its irregular past form (right).</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                                <div id="match-col-left" class="space-y-3"></div>
+                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
+                                    <div class="h-full w-px bg-slate-200"></div>
+                                </div>
+                                <div id="match-col-right" class="space-y-3"></div>
+                            </div>
+
+                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors"></div>
+
+                            <div class="flex justify-center mt-6">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Conjugate the Verbs</h3>
+                                    <p class="text-slate-500 text-sm">Choose the correct tense (Simple Past or Past Progressive).</p>
+                                </div>
+                                <span id="fill-progress" class="bg-purple-100 text-purple-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
+                                <!-- Options injected here -->
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 4: IDENTIFY -->
+                        <div id="ex-container-identify" class="hidden fade-in">
+                            <div class="mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Find the Simple Past</h3>
+                                <p class="text-sm text-slate-600 mt-1">Click on <strong>all verbs in the Simple Past tense</strong> (both regular and irregular). Do not click past progressive verbs.</p>
+                            </div>
+
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                            </div>
+
+                            <div class="bg-white border-2 border-pink-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            </div>
+
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+
+                            <div class="flex justify-center gap-4">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(236,72,153,0.4)] pop-out">
+                                    Check Answer <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 5: READING -->
+                        <div id="ex-container-reading" class="hidden fade-in">
+                            <div class="mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Passage Analysis: Interrupted Actions</h3>
+                                <p class="text-sm text-slate-600 mt-1">Read the story. Click to highlight <strong>every verb in the Past Progressive tense</strong> (actions in progress).</p>
+                            </div>
+
+                            <div class="bg-white border-2 border-blue-100 shadow-inner rounded-xl p-8 mb-6 leading-loose text-slate-700 text-justify text-lg">
+                                <div id="read-passage-container"></div>
+                            </div>
+
+                            <div id="read-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+
+                            <div class="flex justify-center gap-4">
+                                <button id="read-btn-check" onclick="readCheck()" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(59,130,246,0.4)] pop-out">
+                                    Check Passage <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="read-btn-reset" onclick="readInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI & INTERACTIVITY LOGIC
+        // ==========================================
+        function switchMainTab(tabId) {
+            const isStudy = tabId === 'study';
+            
+            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (isStudy) {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+                setTimeout(redrawArrows, 50);
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
+                    quizInit(); matchInit(); fillInit(); idInit(); readInit();
+                }
+                setTimeout(redrawArrows, 50);
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['quiz', 'match', 'fill', 'identify', 'reading'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
+                    container.classList.remove('hidden'); container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
+                    container.classList.remove('block'); container.classList.add('hidden');
+                }
+            });
+        }
+
+        let activeTrigger = null;
+
+        function setupStudyInteractive() {
+            const triggers = document.querySelectorAll('.interactive-trigger');
+            triggers.forEach(trig => {
+                trig.addEventListener('mouseenter', () => activateLink(trig));
+                trig.addEventListener('mouseleave', () => deactivateLink(trig));
+                trig.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
+                    else {
+                        triggers.forEach(t => deactivateLink(t));
+                        activateLink(trig);
+                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
+                    }
+                });
+            });
+            window.addEventListener('scroll', hideArrows);
+            window.addEventListener('resize', redrawArrows);
+        }
+
+        function activateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.add('interactive-active-target');
+                trig.classList.add('interactive-active-trigger');
+                activeTrigger = trig;
+                redrawArrows();
+            }
+        }
+
+        function deactivateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.remove('interactive-active-target');
+                trig.classList.remove('interactive-active-trigger');
+            }
+            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
+        }
+
+        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
+
+        function redrawArrows() {
+            let html = '';
+            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
+                const targetId = activeTrigger.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    const sRect = activeTrigger.getBoundingClientRect();
+                    const eRect = targetEl.getBoundingClientRect();
+                    const sX = sRect.left + (sRect.width / 2); const sY = sRect.bottom + 2;
+                    const eX = eRect.left + (eRect.width / 2); const eY = eRect.bottom + 2;
+                    const curve = Math.max(20, Math.abs(eX - sX) * 0.15);
+                    const lowY = Math.max(sY, eY) + curve;
+                    html = `<path d="M ${sX},${sY} Q ${(sX+eX)/2},${lowY} ${eX},${eY + 6}" stroke="#ec4899" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="url(#arrowhead-study)"/>`;
+                }
+            }
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: QUIZ
+        // ==========================================
+        const quizData = [
+            { q: "Where _____ you yesterday afternoon?", opts: ["was", "were", "did"], ans: 1, exp: "Use 'were' with the subject 'you'." },
+            { q: "She didn't _____ the email.", opts: ["wrote", "writed", "write"], ans: 2, exp: "After didn't, ALWAYS use the base form of the verb." },
+            { q: "We went to a great restaurant _____.", opts: ["yesterday night", "last night", "night ago"], ans: 1, exp: "The correct expression is 'last night', not 'yesterday night'." },
+            { q: "_____ made this delicious cake?", opts: ["Who did", "Who", "What"], ans: 1, exp: "When asking about the subject (Who did the action?), do not use 'did'. Use the past verb directly (Who made...)." },
+            { q: "What _____ they do after class?", opts: ["did", "were", "are"], ans: 0, exp: "Use 'did' to ask questions about actions in the simple past." },
+            { q: "I _____ my grandparents two weeks _____.", opts: ["visit / ago", "visited / ago", "visited / before"], ans: 1, exp: "Use the past tense 'visited' and 'ago' after a specific time period." },
+            { q: "They _____ playing tennis when it started to rain.", opts: ["was", "were", "are"], ans: 1, exp: "Past progressive uses 'were' for 'They'." },
+            { q: "He _____ the answer to the question.", opts: ["was knowing", "knew", "knowed"], ans: 1, exp: "'Know' is a non-action verb and cannot be progressive. The past of know is 'knew'." },
+            { q: "Which spelling is correct for the past tense of 'plan'?", opts: ["planed", "planned", "plaanned"], ans: 1, exp: "One-syllable CVC verbs double the final consonant before adding -ed." },
+            { q: "_____ was on vacation last week?", opts: ["Who", "Who did", "Who were"], ans: 0, exp: "When asking about the subject with 'Who', always use the singular 'was'." }
+        ];
+        
+        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        function quizInit() {
+            activeQuiz = shuffleArray(quizData).slice(0, 6);
+            quizCurrent = 0; quizScore = 0;
+            document.getElementById('quiz-btn-reset').classList.add('hidden');
+            quizLoad();
+        }
+
+        function quizLoad() {
+            quizAns = false;
+            const q = activeQuiz[quizCurrent];
+            document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
+            document.getElementById('quiz-q-text').innerHTML = q.q.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-pink-600">_____</span>');
+            
+            const optsCon = document.getElementById('quiz-options');
+            optsCon.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.onclick = () => quizSelect(idx, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-btn-next').classList.add('hidden');
+        }
+
+        function quizSelect(idx, btnElement) {
+            if (quizAns) return;
+            quizAns = true;
+            
+            const q = activeQuiz[quizCurrent];
+            const isCor = idx === q.ans;
+            if (isCor) quizScore++;
+            
+            const allBtns = document.getElementById('quiz-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.add('option-disabled');
+                allBtns[i].onclick = null;
+                const icon = allBtns[i].querySelector('.indicator-icon');
+                
+                if (i === q.ans) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
+                } else if (i === idx && !isCor) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                }
+            }
+            
+            const fb = document.getElementById('quiz-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
+            
+            if (isCor) {
+                fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
+                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+            }
+            
+            document.getElementById('quiz-btn-next').classList.remove('hidden');
+            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+        }
+
+        function quizNext() {
+            if (quizCurrent < activeQuiz.length - 1) {
+                quizCurrent++; quizLoad();
+            } else {
+                document.getElementById('quiz-options').innerHTML = '';
+                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-trophy text-6xl text-pink-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-progress').textContent = "Done";
+                document.getElementById('quiz-feedback').classList.add('hidden');
+                document.getElementById('quiz-btn-next').classList.add('hidden');
+                document.getElementById('quiz-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 2: MATCH (Irregular Verbs)
+        // ==========================================
+        const matchPool = [
+            { id: 1, base: "buy", past: "bought" }, { id: 2, base: "go", past: "went" },
+            { id: 3, base: "leave", past: "left" }, { id: 4, base: "take", past: "took" },
+            { id: 5, base: "eat", past: "ate" }, { id: 6, base: "write", past: "wrote" },
+            { id: 7, base: "see", past: "saw" }, { id: 8, base: "cost", past: "cost" },
+            { id: 9, base: "read", past: "read" }, { id: 10, base: "make", past: "made" }
+        ];
+
+        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+
+        function matchInit() {
+            mSelLeft = null; mSelRight = null; matchCount = 0;
+            activeMatch = shuffleArray([...matchPool]).slice(0, 5);
+            
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            document.getElementById('match-feedback').textContent = '';
+            
+            const lCol = document.getElementById('match-col-left');
+            const rCol = document.getElementById('match-col-right');
+            lCol.innerHTML = ''; rCol.innerHTML = '';
+
+            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.base, side: 'left' })));
+            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.past, side: 'right' })));
+
+            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+        }
+
+        function createMBtn(item) {
+            const btn = document.createElement('button');
+            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm';
+            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
+            btn.onclick = () => handleMClick(btn, item);
+            return btn;
+        }
+
+        function handleMClick(btn, item) {
+            if(btn.classList.contains('matched')) return;
+            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+
+            if(item.side === 'left') {
+                if(mSelLeft) mSelLeft.el.classList.remove('selected');
+                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            } else {
+                if(mSelRight) mSelRight.el.classList.remove('selected');
+                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+            }
+
+            if(mSelLeft && mSelRight) checkMatch();
+        }
+
+        function checkMatch() {
+            const fb = document.getElementById('match-feedback');
+            if(mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.classList.replace('selected', 'matched');
+                mSelRight.el.classList.replace('selected', 'matched');
+                fb.textContent = `Correct: ${mSelLeft.el.textContent} ➡️ ${mSelRight.el.textContent}`;
+                fb.className = 'text-center h-8 font-bold text-lg text-green-600';
+                matchCount++; mSelLeft = null; mSelRight = null;
+
+                if(matchCount === activeMatch.length) {
+                    setTimeout(() => {
+                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> Perfect Match!`;
+                        document.getElementById('match-btn-reset').classList.remove('hidden');
+                    }, 500);
+                }
+            } else {
+                fb.textContent = 'Try again!';
+                fb.className = 'text-center h-8 font-bold text-lg text-red-500';
+                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
+                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
+                mSelLeft = null; mSelRight = null;
+                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 3: FILL IN BLANKS (Simple vs Prog)
+        // ==========================================
+        const fillData = [
+            { pre: "I ", blank: "was walking", post: " to class when I heard a loud noise.", opts: ["walked", "was walking", "were walking"] },
+            { pre: "When their team ", blank: "won", post: ", they celebrated.", opts: ["was winning", "won", "were winning"] },
+            { pre: "She ", blank: "wanted", post: " to go to the park yesterday.", opts: ["was wanting", "wanted", "want"] },
+            { pre: "They ", blank: "were sleeping", post: " when the phone rang.", opts: ["slept", "were sleeping", "was sleeping"] },
+            { pre: "Efren ", blank: "knew", post: " the answer to the teacher's question.", opts: ["was knowing", "knowed", "knew"] },
+            { pre: "We ", blank: "saw", post: " a beautiful bird while we were hiking.", opts: ["were seeing", "saw", "see"] }
+        ];
+
+        let activeFill = []; let fillCur = 0; let fillAns = false;
+
+        function fillInit() {
+            activeFill = shuffleArray(fillData).slice(0, 5);
+            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAns = false; const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
+            
+            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
+            shuffleArray([...q.opts]).forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'pop-out bg-white border-2 border-purple-200 text-purple-700 font-bold py-3 px-6 rounded-xl hover:bg-purple-50 hover:border-purple-400 shadow-sm text-lg';
+                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+        }
+
+        function fillSelect(sel, cor, btn) {
+            if (fillAns) return; fillAns = true;
+            const target = document.getElementById('fill-target');
+            target.textContent = sel; target.classList.add('filled');
+            
+            const isCor = sel === cor;
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
+            
+            const allBtns = document.getElementById('fill-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === cor) {
+                    allBtns[i].classList.remove('border-purple-200', 'text-purple-700', 'opacity-50');
+                    allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
+                }
+            }
+
+            if (isCor) {
+                target.classList.add('correct');
+                btn.classList.replace('border-purple-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Excellent choice!";
+            } else {
+                target.classList.add('incorrect');
+                btn.classList.replace('border-purple-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
+                fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Remember non-action rules or interrupted actions.";
+            }
+            
+            document.getElementById('fill-btn-next').classList.remove('hidden');
+            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+        }
+
+        function fillNext() {
+            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
+            else {
+                document.getElementById('fill-options').innerHTML = '';
+                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-purple-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 4: IDENTIFY (Simple Past)
+        // ==========================================
+        const idData = [
+            [{w:"We"}, {w:"went", isPast:true}, {w:"to"}, {w:"the"}, {w:"store"}, {w:"and"}, {w:"bought", isPast:true}, {w:"milk."}],
+            [{w:"She"}, {w:"didn't"}, {w:"take"}, {w:"the"}, {w:"bus"}, {w:"because"}, {w:"she"}, {w:"walked.", isPast:true}],
+            [{w:"They"}, {w:"were"}, {w:"sleeping"}, {w:"when"}, {w:"the"}, {w:"phone"}, {w:"rang.", isPast:true}],
+            [{w:"I"}, {w:"studied", isPast:true}, {w:"hard"}, {w:"and"}, {w:"passed", isPast:true}, {w:"the"}, {w:"exam."}]
+        ];
+        
+        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        function idInit() {
+            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+        }
+
+        function idLoad() {
+            idSelected.clear(); idAns = false;
+            document.getElementById('id-current').textContent = idCurrent + 1;
+            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
+            
+            idData[idCurrent].forEach((item, idx) => {
+                const span = document.createElement('span');
+                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.dataset.isPast = item.isPast ? "true" : "false";
+                span.onclick = () => {
+                    if(idAns) return;
+                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
+                    else { idSelected.add(idx); span.classList.add('selected'); }
+                };
+                con.appendChild(span);
+            });
+            document.getElementById('id-feedback').classList.add('hidden');
+            document.getElementById('id-btn-check').classList.remove('hidden');
+            document.getElementById('id-btn-next').classList.add('hidden');
+        }
+
+        function idCheck() {
+            if(idAns) return; idAns = true;
+            const spans = document.querySelectorAll('#id-sentence-container .click-word');
+            let cor = 0; let tot = idData[idCurrent].filter(i => i.isPast).length; let err = false;
+
+            spans.forEach((span, idx) => {
+                const isTar = span.dataset.isPast === "true"; const isSel = idSelected.has(idx);
+                span.classList.remove('selected', 'bg-slate-100');
+                if(isTar && isSel) { span.classList.add('correct'); cor++; }
+                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
+                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
+                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+            });
+
+            const fb = document.getElementById('id-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
+            
+            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect!"; } 
+            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `Found ${cor}/${tot}. Watch out for 'were sleeping' (progressive) or base verbs after 'didn't'.`; }
+
+            document.getElementById('id-btn-check').classList.add('hidden');
+            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
+            else document.getElementById('id-btn-reset').classList.remove('hidden');
+        }
+        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
+
+        // ==========================================
+        // EXERCISE 5: READING (Past Progressive)
+        // ==========================================
+        const readData = [
+            {w:"Yesterday,"}, {w:"I"}, {w:"was", isProg:true}, {w:"walking", isProg:true}, {w:"home"}, {w:"when"}, {w:"it"}, {w:"started"}, {w:"to"}, {w:"rain."}, 
+            {w:"My"}, {w:"friends"}, {w:"were", isProg:true}, {w:"waiting", isProg:true}, {w:"for"}, {w:"me"}, {w:"at"}, {w:"the"}, {w:"cafe."}, 
+            {w:"While"}, {w:"we"}, {w:"were", isProg:true}, {w:"drinking", isProg:true}, {w:"coffee,"}, {w:"the"}, {w:"lights"}, {w:"went"}, {w:"out."}
+        ];
+
+        let rSel = new Set(); let rAns = false;
+
+        function readInit() {
+            rSel.clear(); rAns = false;
+            const con = document.getElementById('read-passage-container'); con.innerHTML = '';
+            
+            readData.forEach((item, idx) => {
+                const span = document.createElement('span');
+                span.textContent = item.w; span.className = 'click-word text-slate-700';
+                span.dataset.isProg = item.isProg ? "true" : "false";
+                span.onclick = () => {
+                    if(rAns) return;
+                    if(rSel.has(idx)) { rSel.delete(idx); span.classList.remove('selected'); }
+                    else { rSel.add(idx); span.classList.add('selected'); }
+                };
+                con.appendChild(span);
+            });
+            document.getElementById('read-feedback').classList.add('hidden');
+            document.getElementById('read-btn-check').classList.remove('hidden');
+            document.getElementById('read-btn-reset').classList.add('hidden');
+        }
+
+        function readCheck() {
+            if(rAns) return; rAns = true;
+            const spans = document.querySelectorAll('#read-passage-container .click-word');
+            let cor = 0; let tot = readData.filter(i => i.isProg).length; let err = false;
+
+            spans.forEach((span, idx) => {
+                const isTar = span.dataset.isProg === "true"; const isSel = rSel.has(idx);
+                span.classList.remove('selected'); span.style.cursor = 'default';
+                if(isTar && isSel) { span.classList.add('correct'); cor++; }
+                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
+                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
+                else span.classList.add('text-slate-400');
+            });
+
+            const fb = document.getElementById('read-feedback');
+            fb.classList.remove('hidden', 'bg-blue-50', 'text-blue-800', 'border-blue-200', 'bg-amber-50', 'text-amber-800');
+            if(!err && cor === tot) { fb.classList.add('bg-blue-50', 'text-blue-800', 'border-blue-200'); fb.innerHTML = "<i class='fa-solid fa-check-double mr-2'></i> Perfect! You found all past progressive verbs."; } 
+            else { fb.classList.add('bg-amber-50', 'text-amber-800'); fb.innerHTML = `Found ${cor}/${tot}. Look for 'was/were + verb-ing'.`; }
+
+            document.getElementById('read-btn-check').classList.add('hidden');
+            document.getElementById('read-btn-reset').classList.remove('hidden');
+        }
+
+        window.onload = () => { setupStudyInteractive(); };
+    </script>
+</body>
+</html>
