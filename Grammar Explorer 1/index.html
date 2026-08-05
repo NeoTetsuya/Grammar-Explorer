@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Explorer 1 | Interactive Grammar Masterclass Portal</title>
+    <meta name="description" content="Master English grammar with 17 interactive units, real-world context, theoretical lessons, and self-check exercises.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-sky-500/20">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-xl text-slate-900 dark:text-white tracking-tight">Grammar Explorer <span class="text-sky-600 dark:text-sky-400">1</span></span>
+                    <span class="hidden sm:inline-block text-xs font-semibold px-2 py-0.5 ml-2 bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 rounded-full border border-sky-200 dark:border-sky-800">Curriculum Portal</span>
+                </div>
+            </div>
+
+            <!-- Controls & Quick Actions -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <button id="quick-ref-btn" class="hidden md:flex items-center space-x-2 text-xs font-semibold px-3 py-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Quick Grammar Rules</span>
+                </button>
+                <button id="random-unit-btn" class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900 transition">
+                    <i class="fa-solid fa-shuffle"></i>
+                    <span class="hidden sm:inline">Random Lesson</span>
+                </button>
+                <button id="theme-toggle" class="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none" title="Toggle Theme">
+                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg hidden dark:block text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50/40 to-slate-50 dark:from-slate-900 dark:via-slate-900/80 dark:to-slate-950 pt-10 pb-12 border-b border-slate-200/60 dark:border-slate-800/80">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-sky-400/10 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-24 w-80 h-80 bg-indigo-400/10 dark:bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300 text-xs font-medium mb-4 border border-sky-200 dark:border-sky-800">
+                    <i class="fa-solid fa-layer-group text-sky-500"></i>
+                    <span>Structured English Curriculum • 17 Sequenced Lessons</span>
+                </div>
+                <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    Master English Grammar in <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 dark:from-sky-400 dark:via-indigo-400 dark:to-purple-400">Structured Sequence</span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                    Explore all 17 interactive lessons ordered logically from fundamental verb concepts to complex tenses, modifiers, and modal structures.
+                </p>
+
+                <!-- Stats Overview Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-6">
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-sky-600 dark:text-sky-400 font-display">17</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Interactive Lessons</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 font-display">5</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Learning Stages</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-emerald-600 dark:text-emerald-400 font-display">80+</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Practice Drills</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-purple-600 dark:text-purple-400 font-display" id="progress-percent-display">0%</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Course Progress</div>
+                    </div>
+                </div>
+
+                <!-- Global Progress Bar -->
+                <div class="max-w-xl mx-auto bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-300 mb-2">
+                        <span><i class="fa-solid fa-trophy text-amber-500 mr-1.5"></i>Your Overall Progress</span>
+                        <span id="progress-text-display">0 of 17 Completed</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 h-3 rounded-full overflow-hidden p-0.5 border border-slate-200/50 dark:border-slate-700/50">
+                        <div id="progress-bar-fill" class="bg-gradient-to-r from-sky-500 via-indigo-500 to-emerald-500 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+
+        <!-- Search & Filter Controls Toolbar -->
+        <div class="mb-8 space-y-4">
+            <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                
+                <!-- Search Box & View Toggle Row -->
+                <div class="flex flex-col sm:flex-row gap-3 items-center w-full lg:w-auto">
+                    <!-- Search Input -->
+                    <div class="relative w-full sm:w-80">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="search-input" placeholder="Search by title, grammar concept..." 
+                            class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400 transition">
+                        <button id="clear-search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- View Mode Toggle Buttons (Grid vs List) -->
+                    <div class="flex items-center p-1 bg-slate-200/70 dark:bg-slate-800/80 rounded-xl border border-slate-300/60 dark:border-slate-700/60 shrink-0 self-start sm:self-auto">
+                        <button id="view-grid-btn" title="Grid View" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                            <span>Grid</span>
+                        </button>
+                        <button id="view-list-btn" title="Compact List View" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5">
+                            <i class="fa-solid fa-list-ul"></i>
+                            <span>List</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Stage Filters -->
+                <div class="flex flex-wrap gap-2 justify-center lg:justify-end w-full lg:w-auto" id="category-filters">
+                    <button data-category="all" class="filter-btn active-filter text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        All Lessons (17)
+                    </button>
+                    <button data-category="stage1" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 1: Foundations
+                    </button>
+                    <button data-category="stage2" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 2: Nouns & Places
+                    </button>
+                    <button data-category="stage3" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 3: Verbs & Tenses
+                    </button>
+                    <button data-category="stage4" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 4: Past Grammar
+                    </button>
+                    <button data-category="stage5" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 5: Modifiers & Future
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Units Display Container (Switches between Grid and List Layout) -->
+        <div id="units-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Unit cards will be rendered dynamically by JavaScript -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div id="no-results" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400 text-2xl">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-slate-700 dark:text-slate-300">No matching lessons found</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Try adjusting your search query or choosing another stage filter.</p>
+        </div>
+
+        <!-- Recommended Learning Path / Roadmap -->
+        <section class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800">Structured Path</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-3">Curriculum Learning Roadmap</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">Follow our 5-stage learning progression to systematically build core grammar mastery.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-rose-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-rose-600 dark:text-rose-400 block mb-1">STAGE 1 • Lessons 01–03</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Foundations & Present</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Verb Be, Simple Present, Wh- Questions</p>
+                    <div class="text-[10px] text-slate-400 mt-3 font-semibold"><i class="fa-solid fa-circle-check text-rose-500 mr-1"></i>Foundational</div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-emerald-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 block mb-1">STAGE 2 • Lessons 04–08</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Nouns & Spatial Grammar</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Food Nouns, Homes, There Is/Are, Prepositions, Count/Non-Count</p>
+                    <div class="text-[10px] text-slate-400 mt-3 font-semibold"><i class="fa-solid fa-boxes-stacked text-emerald-500 mr-1"></i>Quantification</div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-orange-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-orange-600 dark:text-orange-400 block mb-1">STAGE 3 • Lessons 09–11</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Continuous & Verb Rules</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Present Progressive, Action vs Non-Action, Tense Contrast</p>
+                    <div class="text-[10px] text-slate-400 mt-3 font-semibold"><i class="fa-solid fa-spinner text-orange-500 mr-1"></i>Aspect Contrast</div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-purple-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-purple-600 dark:text-purple-400 block mb-1">STAGE 4 • Lessons 12–13</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Past & Narrative Tenses</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">The Past (Parts 1 & 2), Simple Past & Past Progressive</p>
+                    <div class="text-[10px] text-slate-400 mt-3 font-semibold"><i class="fa-solid fa-history text-purple-500 mr-1"></i>Narrative Tenses</div>
+                </div>
+
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-sky-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-sky-600 dark:text-sky-400 block mb-1">STAGE 5 • Lessons 14–17</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Modifiers, Modals & Future</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Adjectives/Adverbs, Comparatives, Modals, Future</p>
+                    <div class="text-[10px] text-slate-400 mt-3 font-semibold"><i class="fa-solid fa-rocket text-sky-500 mr-1"></i>Advanced Mastery</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Quick Grammar Rules Modal -->
+    <div id="quick-ref-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-900/50">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-indigo-500 text-lg"></i>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Grammar Quick Reference Rules</h3>
+                </div>
+                <button id="close-modal-btn" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-5 text-sm">
+                <div class="p-4 bg-sky-50 dark:bg-sky-950/40 rounded-xl border border-sky-200 dark:border-sky-800">
+                    <h4 class="font-bold text-sky-800 dark:text-sky-300 mb-1"><i class="fa-solid fa-bolt mr-2"></i>Simple Present vs. Present Progressive</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">Simple Present is used for permanent habits, facts, and routines (e.g., <em>I work every day</em>). Present Progressive is for actions happening right now or temporary situations (e.g., <em>I am working today</em>).</p>
+                </div>
+                <div class="p-4 bg-emerald-50 dark:bg-emerald-950/40 rounded-xl border border-emerald-200 dark:border-emerald-800">
+                    <h4 class="font-bold text-emerald-800 dark:text-emerald-300 mb-1"><i class="fa-solid fa-cubes mr-2"></i>Count vs. Non-Count Nouns</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">Count nouns take plural -s (<em>apples, books</em>). Non-count nouns do not take plural -s and use singular verb forms (<em>information, water, advice, rice</em>).</p>
+                </div>
+                <div class="p-4 bg-purple-50 dark:bg-purple-950/40 rounded-xl border border-purple-200 dark:border-purple-800">
+                    <h4 class="font-bold text-purple-800 dark:text-purple-300 mb-1"><i class="fa-solid fa-brain mr-2"></i>Non-Action / Stative Verbs Rule</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">Verbs describing mental states, feelings, or possession (<em>know, love, need, belong, want</em>) are NOT usually used in progressive tenses (-ing).</p>
+                </div>
+                <div class="p-4 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-200 dark:border-amber-800">
+                    <h4 class="font-bold text-amber-800 dark:text-amber-300 mb-1"><i class="fa-solid fa-timeline mr-2"></i>Past Interrupted Actions (When / While)</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">Use <strong>Past Progressive</strong> for the longer background action and <strong>Simple Past</strong> for the interrupting event: <em>While I was studying, the phone rang.</em></p>
+                </div>
+            </div>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-right">
+                <button id="modal-ok-btn" class="px-4 py-2 bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-700 dark:hover:bg-white transition">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-sky-600 text-white flex items-center justify-center font-bold text-xs">
+                    GE1
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Grammar Explorer 1 • Interactive Learning Course</span>
+            </div>
+            <div class="text-xs text-slate-400 dark:text-slate-500">
+                Created for ESL / EFL Grammar Mastery & Interactive Practice
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Script -->
+    <script>
+        // Units Curriculum Dataset - Ordered in Structured Sequential Curriculum Order (1 to 17)
+        const unitsData = [
+            // STAGE 1: Foundations & Present Tense
+            {
+                lessonNum: "Lesson 01",
+                id: "unit_1_2",
+                file: "unit_1_2_the_verb_be_basics.html",
+                unitTag: "Units 1 & 2",
+                title: "Unit 1 & 2: The Verb Be & Basic Grammar",
+                category: "stage1",
+                stageName: "Stage 1: Foundations",
+                icon: "fa-font",
+                color: "rose",
+                description: "Master present forms of the verb 'be' (am/is/are), subject pronouns, affirmative & negative statements, and short answers.",
+                topics: ["Am / Is / Are", "Subject Pronouns", "Yes/No Questions", "Short Answers"]
+            },
+            {
+                lessonNum: "Lesson 02",
+                id: "unit_3_4",
+                file: "unit_3_4_simple_present_daily_life.html",
+                unitTag: "Units 3 & 4",
+                title: "Units 3 & 4: Simple Present & Daily Life",
+                category: "stage1",
+                stageName: "Stage 1: Foundations",
+                icon: "fa-clock",
+                color: "indigo",
+                description: "Explore simple present affirmative & negative structures, 3rd person -s/-es spelling, frequency adverbs, and daily routine descriptions.",
+                topics: ["Simple Present", "Habits & Routines", "Frequency Adverbs", "3rd Person Spelling"]
+            },
+            {
+                lessonNum: "Lesson 03",
+                id: "wh_questions",
+                file: "wh_questions.html",
+                unitTag: "Masterclass",
+                title: "Wh- Questions Masterclass",
+                category: "stage1",
+                stageName: "Stage 1: Foundations",
+                icon: "fa-circle-question",
+                color: "cyan",
+                description: "Deep dive into formulating Wh- information questions, distinguishing subject vs. object questions, and applying question words.",
+                topics: ["Who / What / Where", "Subject vs. Object", "Do/Does Auxiliary", "Question Patterns"]
+            },
+
+            // STAGE 2: Nouns, Quantifiers, Places & Prepositions
+            {
+                lessonNum: "Lesson 04",
+                id: "unit_5",
+                file: "unit_5_food_and_hospitality.html",
+                unitTag: "Unit 5",
+                title: "Unit 5: Food & Hospitality (Nouns)",
+                category: "stage2",
+                stageName: "Stage 2: Nouns & Places",
+                icon: "fa-utensils",
+                color: "emerald",
+                description: "Understand countable and uncountable food nouns, quantifiers (a lot of, many, much, a few, a little), and hospitality contexts.",
+                topics: ["Count / Non-Count", "Quantifiers", "Food & Drink", "Measurement Words"]
+            },
+            {
+                lessonNum: "Lesson 05",
+                id: "unit_6",
+                file: "unit_6_homes_and_communities.html",
+                unitTag: "Unit 6",
+                title: "Unit 6: Homes & Communities",
+                category: "stage2",
+                stageName: "Stage 2: Nouns & Places",
+                icon: "fa-house-user",
+                color: "sky",
+                description: "Describe living spaces using 'There is / There are', express excess & sufficiency (too, too much/many, enough), and indefinite pronouns.",
+                topics: ["There is / There are", "Too & Enough", "Indefinite Pronouns", "Community Places"]
+            },
+            {
+                lessonNum: "Lesson 06",
+                id: "there_is_are",
+                file: "there_is_there_are_and_it.html",
+                unitTag: "Masterclass",
+                title: "There Is / There Are & It",
+                category: "stage2",
+                stageName: "Stage 2: Nouns & Places",
+                icon: "fa-layer-group",
+                color: "blue",
+                description: "Master presenting existence with 'There is/are' vs introducing environment, weather, distance, and time conditions with 'It'.",
+                topics: ["Existence vs. Environment", "It vs. There", "Weather & Distance", "Common Pitfalls"]
+            },
+            {
+                lessonNum: "Lesson 07",
+                id: "prepositions",
+                file: "prepositions_of_place_time.html",
+                unitTag: "Masterclass",
+                title: "Prepositions of Place and Time",
+                category: "stage2",
+                stageName: "Stage 2: Nouns & Places",
+                icon: "fa-location-dot",
+                color: "amber",
+                description: "Clear guidelines on using In, On, At for spatial locations, time expressions, directional movement, and prepositional phrases.",
+                topics: ["In / On / At (Time)", "In / On / At (Place)", "Spatial Positions", "Time Expressions"]
+            },
+            {
+                lessonNum: "Lesson 08",
+                id: "count_noncount",
+                file: "count_and_non_count_nouns.html",
+                unitTag: "Masterclass",
+                title: "Count and Non-Count Nouns",
+                category: "stage2",
+                stageName: "Stage 2: Nouns & Places",
+                icon: "fa-boxes-stacked",
+                color: "teal",
+                description: "Advanced classification of count vs non-count nouns, partitives, determiners (some, any, no), and singular/plural agreement.",
+                topics: ["Noun Types", "Partitives & Containers", "Some / Any / No", "Plural Exceptions"]
+            },
+
+            // STAGE 3: Continuous Aspects & Action Verbs
+            {
+                lessonNum: "Lesson 09",
+                id: "unit_7",
+                file: "unit_7_present_progressive.html",
+                unitTag: "Unit 7",
+                title: "Unit 7: Extremes (Present Progressive)",
+                category: "stage3",
+                stageName: "Stage 3: Continuous & Verbs",
+                icon: "fa-person-running",
+                color: "orange",
+                description: "Form and apply the present progressive (-ing) for ongoing actions, master spelling rules, and identify stative verb limits.",
+                topics: ["Be + Verb-ing", "Spelling -ing Rules", "Temporary Actions", "Questions & Negatives"]
+            },
+            {
+                lessonNum: "Lesson 10",
+                id: "action_verbs",
+                file: "action_vs_non_action_verbs.html",
+                unitTag: "Masterclass",
+                title: "Action vs Non-Action Verbs",
+                category: "stage3",
+                stageName: "Stage 3: Continuous & Verbs",
+                icon: "fa-brain",
+                color: "violet",
+                description: "Distinguish dynamic action verbs from stative non-action verbs (feel, know, want, belong) and examine dual-meaning verbs.",
+                topics: ["Stative Verbs", "Dynamic Action Verbs", "Dual-Meaning Verbs", "Progressive Blockers"]
+            },
+            {
+                lessonNum: "Lesson 11",
+                id: "simple_vs_prog",
+                file: "simple_present_vs_present_progressive.html",
+                unitTag: "Masterclass",
+                title: "Simple Present vs. Present Progressive",
+                category: "stage3",
+                stageName: "Stage 3: Continuous & Verbs",
+                icon: "fa-sliders",
+                color: "fuchsia",
+                description: "Contrast permanent habits/facts with temporary ongoing actions, analyze time markers (every day vs. right now), and avoid tense mix-ups.",
+                topics: ["Habit vs. Right Now", "Time Signal Words", "Tense Contrast", "Contextual Selection"]
+            },
+
+            // STAGE 4: Past Tenses & Narrative Grammar
+            {
+                lessonNum: "Lesson 12",
+                id: "unit_8_9",
+                file: "unit_8_9_the_past.html",
+                unitTag: "Units 8 & 9",
+                title: "Units 8 & 9: The Past (Parts 1 & 2)",
+                category: "stage4",
+                stageName: "Stage 4: Past Grammar",
+                icon: "fa-clock-rotate-left",
+                color: "rose",
+                description: "Learn simple past of 'be' (was/were), regular (-ed) and irregular verb conjugations, time markers, and narrative structures.",
+                topics: ["Was / Were", "Regular -ed Forms", "Irregular Verbs List", "Past Time Expressions"]
+            },
+            {
+                lessonNum: "Lesson 13",
+                id: "past_prog",
+                file: "simple_past_past_progressive.html",
+                unitTag: "Masterclass",
+                title: "Simple Past & Past Progressive",
+                category: "stage4",
+                stageName: "Stage 4: Past Grammar",
+                icon: "fa-timeline",
+                color: "indigo",
+                description: "Master interrupted past actions using 'when' and 'while' clauses, contrasting finished past events with background progressive actions.",
+                topics: ["When & While", "Interrupted Past Actions", "Background Actions", "Simultaneous Events"]
+            },
+
+            // STAGE 5: Modifiers, Modals & Future Tense
+            {
+                lessonNum: "Lesson 14",
+                id: "unit_10",
+                file: "unit_10_mastering_adjectives.html",
+                unitTag: "Unit 10",
+                title: "Unit 10: Adjectives & Adverbs",
+                category: "stage5",
+                stageName: "Stage 5: Modifiers & Future",
+                icon: "fa-wand-magic-sparkles",
+                color: "amber",
+                description: "Explore descriptive adjectives, royal order of adjectives (OSASCOMP), manner adverbs (-ly), and verb vs noun modification.",
+                topics: ["Adjective Order", "Adverbs of Manner", "Modifiers", "Descriptive Rules"]
+            },
+            {
+                lessonNum: "Lesson 15",
+                id: "unit_12_comp",
+                file: "unit_12_comparatives_superlatives.html",
+                unitTag: "Unit 12",
+                title: "Unit 12: Comparatives, Superlatives & Possessives",
+                category: "stage5",
+                stageName: "Stage 5: Modifiers & Future",
+                icon: "fa-scale-balanced",
+                color: "emerald",
+                description: "Form comparative (-er / more) and superlative (-est / most) modifiers, irregular forms (good/better/best), and possessive structures.",
+                topics: ["Comparative (-er/more)", "Superlative (-est/most)", "Irregular Modifiers", "Possessives ('s)"]
+            },
+            {
+                lessonNum: "Lesson 16",
+                id: "modals_conj",
+                file: "unit_11_13_modals_and_conjunctions.html",
+                unitTag: "Units 11 & 13",
+                title: "Units 11 & 13: Modals & Conjunctions",
+                category: "stage5",
+                stageName: "Stage 5: Modifiers & Future",
+                icon: "fa-link",
+                color: "sky",
+                description: "Express ability, permission, advice, and obligation (can, could, should, must) and connect ideas with conjunctions (and, but, or, so).",
+                topics: ["Can / Could / Should", "Must & Have to", "Coordinating Conjunctions", "Connecting Clauses"]
+            },
+            {
+                lessonNum: "Lesson 17",
+                id: "unit_14_future",
+                file: "unit_14_the_future_education_learning.html",
+                unitTag: "Unit 14",
+                title: "Unit 14: Education & Learning (The Future)",
+                category: "stage5",
+                stageName: "Stage 5: Modifiers & Future",
+                icon: "fa-graduation-cap",
+                color: "violet",
+                description: "Express future plans and predictions using 'be going to' and 'will', analyze future time clauses, and discuss education topics.",
+                topics: ["Be going to vs. Will", "Future Predictions", "Future Time Clauses", "Plans & Intentions"]
+            }
+        ];
+
+        // Style Mappings for Color Themes
+        const colorClasses = {
+            rose: { bg: "bg-rose-500", lightBg: "bg-rose-50 dark:bg-rose-950/30", text: "text-rose-600 dark:text-rose-400", border: "border-rose-200 dark:border-rose-800" },
+            indigo: { bg: "bg-indigo-500", lightBg: "bg-indigo-50 dark:bg-indigo-950/30", text: "text-indigo-600 dark:text-indigo-400", border: "border-indigo-200 dark:border-indigo-800" },
+            cyan: { bg: "bg-cyan-500", lightBg: "bg-cyan-50 dark:bg-cyan-950/30", text: "text-cyan-600 dark:text-cyan-400", border: "border-cyan-200 dark:border-cyan-800" },
+            emerald: { bg: "bg-emerald-500", lightBg: "bg-emerald-50 dark:bg-emerald-950/30", text: "text-emerald-600 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-800" },
+            teal: { bg: "bg-teal-500", lightBg: "bg-teal-50 dark:bg-teal-950/30", text: "text-teal-600 dark:text-teal-400", border: "border-teal-200 dark:border-teal-800" },
+            sky: { bg: "bg-sky-500", lightBg: "bg-sky-50 dark:bg-sky-950/30", text: "text-sky-600 dark:text-sky-400", border: "border-sky-200 dark:border-sky-800" },
+            blue: { bg: "bg-blue-500", lightBg: "bg-blue-50 dark:bg-blue-950/30", text: "text-blue-600 dark:text-blue-400", border: "border-blue-200 dark:border-blue-800" },
+            amber: { bg: "bg-amber-500", lightBg: "bg-amber-50 dark:bg-amber-950/30", text: "text-amber-600 dark:text-amber-400", border: "border-amber-200 dark:border-amber-800" },
+            orange: { bg: "bg-orange-500", lightBg: "bg-orange-50 dark:bg-orange-950/30", text: "text-orange-600 dark:text-orange-400", border: "border-orange-200 dark:border-orange-800" },
+            violet: { bg: "bg-violet-500", lightBg: "bg-violet-50 dark:bg-violet-950/30", text: "text-violet-600 dark:text-violet-400", border: "border-violet-200 dark:border-violet-800" },
+            fuchsia: { bg: "bg-fuchsia-500", lightBg: "bg-fuchsia-50 dark:bg-fuchsia-950/30", text: "text-fuchsia-600 dark:text-fuchsia-400", border: "border-fuchsia-200 dark:border-fuchsia-800" },
+        };
+
+        // State Management (LocalStorage)
+        let completedUnits = JSON.parse(localStorage.getItem('ge1_completed_units') || '[]');
+        let currentView = localStorage.getItem('ge1_view_mode') || 'grid';
+        let activeCategory = 'all';
+        let searchQuery = '';
+
+        // DOM Elements
+        const unitsGrid = document.getElementById('units-grid');
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search');
+        const noResults = document.getElementById('no-results');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const viewGridBtn = document.getElementById('view-grid-btn');
+        const viewListBtn = document.getElementById('view-list-btn');
+        const progressFill = document.getElementById('progress-bar-fill');
+        const progressText = document.getElementById('progress-text-display');
+        const progressPercent = document.getElementById('progress-percent-display');
+
+        // Initialize Dark Mode Theme
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // View Mode Switcher Handling
+        function updateViewButtons() {
+            if (currentView === 'grid') {
+                viewGridBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 bg-white dark:bg-slate-900 text-sky-600 dark:text-sky-400 shadow-xs';
+                viewListBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+            } else {
+                viewListBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 bg-white dark:bg-slate-900 text-sky-600 dark:text-sky-400 shadow-xs';
+                viewGridBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+            }
+        }
+
+        viewGridBtn.addEventListener('click', () => {
+            currentView = 'grid';
+            localStorage.setItem('ge1_view_mode', 'grid');
+            updateViewButtons();
+            renderUnits();
+        });
+
+        viewListBtn.addEventListener('click', () => {
+            currentView = 'list';
+            localStorage.setItem('ge1_view_mode', 'list');
+            updateViewButtons();
+            renderUnits();
+        });
+
+        // Modal Controls
+        const modal = document.getElementById('quick-ref-modal');
+        document.getElementById('quick-ref-btn').addEventListener('click', () => modal.classList.remove('hidden'));
+        document.getElementById('close-modal-btn').addEventListener('click', () => modal.classList.add('hidden'));
+        document.getElementById('modal-ok-btn').addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+        // Random Unit Selector
+        document.getElementById('random-unit-btn').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * unitsData.length);
+            const randomUnit = unitsData[randomIndex];
+            window.location.href = randomUnit.file;
+        });
+
+        // Update Progress UI
+        function updateProgress() {
+            const total = unitsData.length;
+            const count = completedUnits.length;
+            const percentage = Math.round((count / total) * 100);
+
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = `${count} of ${total} Completed`;
+            progressPercent.textContent = percentage + '%';
+
+            localStorage.setItem('ge1_completed_units', JSON.stringify(completedUnits));
+        }
+
+        // Toggle Unit Completion
+        window.toggleCompletion = function(unitId, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            if (completedUnits.includes(unitId)) {
+                completedUnits = completedUnits.filter(id => id !== unitId);
+            } else {
+                completedUnits.push(unitId);
+            }
+            
+            updateProgress();
+            renderUnits();
+        };
+
+        // Render Units Function
+        function renderUnits() {
+            unitsGrid.innerHTML = '';
+            
+            const filteredUnits = unitsData.filter(unit => {
+                const matchesCategory = activeCategory === 'all' || unit.category === activeCategory;
+                const matchesSearch = searchQuery === '' || 
+                    unit.title.toLowerCase().includes(searchQuery) ||
+                    unit.file.toLowerCase().includes(searchQuery) ||
+                    unit.lessonNum.toLowerCase().includes(searchQuery) ||
+                    unit.description.toLowerCase().includes(searchQuery) ||
+                    unit.unitTag.toLowerCase().includes(searchQuery) ||
+                    unit.topics.some(t => t.toLowerCase().includes(searchQuery));
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredUnits.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            // Apply Container Layout (Grid vs List)
+            if (currentView === 'grid') {
+                unitsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+            } else {
+                unitsGrid.className = 'flex flex-col space-y-3';
+            }
+
+            filteredUnits.forEach(unit => {
+                const isCompleted = completedUnits.includes(unit.id);
+                const theme = colorClasses[unit.color] || colorClasses.sky;
+
+                const card = document.createElement('div');
+
+                if (currentView === 'grid') {
+                    // GRID VIEW CARD
+                    card.className = `glass-card card-hover-effect rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${isCompleted ? 'ring-2 ring-emerald-500/50 dark:ring-emerald-400/30' : ''}`;
+                    card.innerHTML = `
+                        <div>
+                            <!-- Top Metadata Row -->
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs">
+                                        ${unit.lessonNum}
+                                    </span>
+                                    <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded-md ${theme.lightBg} ${theme.text} ${theme.border} border">
+                                        ${unit.unitTag}
+                                    </span>
+                                </div>
+                                <button onclick="toggleCompletion('${unit.id}', event)" 
+                                    title="${isCompleted ? 'Mark as Incomplete' : 'Mark as Completed'}"
+                                    class="flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1 rounded-full transition ${isCompleted ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'}">
+                                    <i class="fa-solid ${isCompleted ? 'fa-circle-check text-emerald-600 dark:text-emerald-400' : 'fa-circle'} text-xs"></i>
+                                    <span class="text-[11px]">${isCompleted ? 'Done' : 'Mark Done'}</span>
+                                </button>
+                            </div>
+
+                            <!-- Card Header -->
+                            <div class="flex items-start space-x-4 mb-3">
+                                <div class="w-12 h-12 rounded-2xl ${theme.bg} text-white flex items-center justify-center shrink-0 shadow-md shadow-${unit.color}-500/20 text-lg">
+                                    <i class="fa-solid ${unit.icon}"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-sky-600 transition">
+                                        <a href="${unit.file}" class="hover:underline">${unit.title}</a>
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3">
+                                ${unit.description}
+                            </p>
+
+                            <!-- Key Concepts Pills -->
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                ${unit.topics.map(topic => `
+                                    <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                        ${topic}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Action Link Button -->
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                            <span class="text-[11px] font-medium text-slate-400 dark:text-slate-500">
+                                ${unit.stageName}
+                            </span>
+                            <a href="${unit.file}" class="inline-flex items-center space-x-1.5 text-xs font-bold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 group">
+                                <span>Open Lesson</span>
+                                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    // COMPACT LIST VIEW ROW
+                    card.className = `glass-card card-hover-effect rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 ${isCompleted ? 'ring-2 ring-emerald-500/50 dark:ring-emerald-400/30' : ''}`;
+                    card.innerHTML = `
+                        <!-- Left Info: Icon, Lesson Badge, Tag, Title, Stage -->
+                        <div class="flex items-center space-x-3.5 min-w-0">
+                            <div class="w-11 h-11 rounded-xl ${theme.bg} text-white flex items-center justify-center shrink-0 shadow-md text-base">
+                                <i class="fa-solid ${unit.icon}"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center space-x-2 mb-1 flex-wrap">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs">
+                                        ${unit.lessonNum}
+                                    </span>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${theme.lightBg} ${theme.text} ${theme.border} border">
+                                        ${unit.unitTag}
+                                    </span>
+                                    <span class="text-[11px] text-slate-400 dark:text-slate-500 font-medium hidden sm:inline">
+                                        • ${unit.stageName}
+                                    </span>
+                                </div>
+                                <h3 class="font-display font-bold text-base text-slate-900 dark:text-white truncate">
+                                    <a href="${unit.file}" class="hover:underline hover:text-sky-600 transition">${unit.title}</a>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <!-- Center: Topic Pills -->
+                        <div class="hidden xl:flex items-center gap-1.5 shrink-0 max-w-xs flex-wrap">
+                            ${unit.topics.slice(0, 3).map(topic => `
+                                <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                    ${topic}
+                                </span>
+                            `).join('')}
+                        </div>
+
+                        <!-- Right Action Controls -->
+                        <div class="flex items-center space-x-3 shrink-0 self-end md:self-center">
+                            <button onclick="toggleCompletion('${unit.id}', event)" 
+                                title="${isCompleted ? 'Mark as Incomplete' : 'Mark as Completed'}"
+                                class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-full transition ${isCompleted ? 'bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'}">
+                                <i class="fa-solid ${isCompleted ? 'fa-circle-check text-emerald-600 dark:text-emerald-400' : 'fa-circle'} text-xs"></i>
+                                <span class="text-[11px]">${isCompleted ? 'Done' : 'Mark Done'}</span>
+                            </button>
+                            <a href="${unit.file}" class="inline-flex items-center space-x-1.5 text-xs font-bold px-3.5 py-1.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl transition shadow-xs group">
+                                <span>Open</span>
+                                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    `;
+                }
+
+                unitsGrid.appendChild(card);
+            });
+        }
+
+        // Category Filter Handling
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-sky-600', 'text-white', 'border-sky-600', 'active-filter');
+                    b.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-400', 'border-slate-200', 'dark:border-slate-800');
+                });
+                
+                btn.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-400', 'border-slate-200', 'dark:border-slate-800');
+                btn.classList.add('bg-sky-600', 'text-white', 'border-sky-600', 'active-filter');
+
+                activeCategory = btn.dataset.category;
+                renderUnits();
+            });
+        });
+
+        // Search Handling
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            if (searchQuery.length > 0) {
+                clearSearchBtn.classList.remove('hidden');
+            } else {
+                clearSearchBtn.classList.add('hidden');
+            }
+            renderUnits();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            renderUnits();
+        });
+
+        // Initial Setup
+        initTheme();
+        updateViewButtons();
+        updateProgress();
+        renderUnits();
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 14: Education & Learning (The Future)</title>
+    <title>Unit 12: Comparatives, Superlatives & Possessives</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -14,14 +14,14 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0fdf4; /* Teal 50 */
+            background-color: #ecfeff; /* Teal/Cyan 50 */
         }
         
         /* Tab Navigation */
         .tab-active {
             border-bottom-width: 4px;
-            border-color: #0d9488; /* Teal 600 */
-            color: #0f766e; /* Teal 700 */
+            border-color: #0891b2; /* Cyan 600 */
+            color: #164e63; /* Cyan 900 */
             font-weight: 700;
         }
         .tab-inactive {
@@ -41,27 +41,27 @@
         .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .pop-out:hover:not(:disabled) {
             transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.3), 0 4px 6px -2px rgba(13, 148, 136, 0.15);
+            box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.3), 0 4px 6px -2px rgba(8, 145, 178, 0.15);
         }
         
         .pulse-border { animation: pulse-border 2s infinite; }
         @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(13, 148, 136, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(8, 145, 178, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(8, 145, 178, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(8, 145, 178, 0); }
         }
 
         .interactive-group { position: relative; display: inline-block; }
         .interactive-trigger {
             cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
-            text-decoration-color: #0d9488; padding: 2px 4px; border-radius: 4px;
+            text-decoration-color: #0891b2; padding: 2px 4px; border-radius: 4px;
             transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
         }
         .interactive-target {
             padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
         }
         .interactive-active-trigger {
-            background-color: #ccfbf1; color: #0f766e; text-decoration-color: transparent;
+            background-color: #cffafe; color: #164e63; text-decoration-color: transparent;
         }
         .interactive-active-target {
             background-color: #fef08a; color: #854d0e;
@@ -71,21 +71,21 @@
         /* Rule Indicator Box */
         .rule-indicator {
             position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%);
-            font-size: 11px; font-weight: bold; color: #0d9488; opacity: 0;
+            font-size: 11px; font-weight: bold; color: #0891b2; opacity: 0;
             transition: opacity 0.2s; pointer-events: none; white-space: nowrap;
             background: white; padding: 2px 8px; border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15); border: 1px solid #ccfbf1; z-index: 10;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15); border: 1px solid #cffafe; z-index: 10;
         }
         .interactive-active-trigger .rule-indicator { opacity: 1; }
 
         /* Sub-Tabs */
-        .subtab-active { background-color: #0d9488; color: white; box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.4); }
+        .subtab-active { background-color: #0891b2; color: white; box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.4); }
         .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
         .subtab-inactive:hover { background-color: #e2e8f0; }
 
         /* Quiz Buttons */
         .option-btn { transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0d9488; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0891b2; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
         .option-disabled { opacity: 0.6; cursor: not-allowed; }
@@ -96,15 +96,15 @@
             cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
         }
         .click-word:hover { background-color: #e2e8f0; }
-        .click-word.selected { background-color: #2dd4bf; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(45, 212, 191, 0.4); border-color: #0d9488; }
+        .click-word.selected { background-color: #22d3ee; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(34, 211, 238, 0.4); border-color: #06b6d4; }
         .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
         .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
         .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
 
         /* Match Exercise */
         .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
-        .match-btn:hover:not(:disabled) { border-color: #2dd4bf; background-color: #f0fdfa; transform: translateY(-2px); }
-        .match-btn.selected { background-color: #ccfbf1; border-color: #0d9488; color: #0f766e; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.2); }
+        .match-btn:hover:not(:disabled) { border-color: #22d3ee; background-color: #ecfeff; transform: translateY(-2px); }
+        .match-btn.selected { background-color: #cffafe; border-color: #0891b2; color: #164e63; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.2); }
         .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
         .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
 
@@ -118,9 +118,9 @@
         /* Fill Blanks */
         .fill-blank {
             display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
-            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #0d9488;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #0891b2;
         }
-        .fill-blank.filled { border-bottom-style: solid; background-color: #ccfbf1; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #0d9488; }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #cffafe; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #0891b2; }
         .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
         .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
 
@@ -131,7 +131,7 @@
     <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
         <defs>
             <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#0d9488" />
+                <polygon points="0 0, 10 3.5, 0 7" fill="#0891b2" />
             </marker>
             <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
                 <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
@@ -140,15 +140,15 @@
         <g id="svg-paths-container"></g>
     </svg>
 
-    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-teal-100">
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-cyan-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-teal-500 to-emerald-600 text-white p-2 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-graduation-cap text-xl w-6 text-center"></i>
+                    <div class="bg-gradient-to-br from-cyan-500 to-blue-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-ranking-star text-xl w-6 text-center"></i>
                     </div>
-                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 14: Education & Learning (The Future)</h1>
-                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">The Future</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 12: Comparatives, Superlatives & Possessives</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 12</h1>
                 </div>
                 <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
                     <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
@@ -167,13 +167,13 @@
         <section id="section-study" class="fade-in block space-y-8">
             
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Expressing Future Time & Conditions</h2>
-                <p class="text-lg text-slate-600">Master how to discuss future plans, predictions, probability, spontaneous choices, and conditional future clauses.</p>
-
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Describing Differences & Ownership</h2>
+                <p class="text-lg text-slate-600">Learn how to compare two things, identify the absolute best/worst in a group, and show ownership without repeating yourself.</p>
+                
                 <!-- TTS Audio Player Controls -->
-                <div class="mt-6 bg-white p-4 rounded-2xl border border-teal-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="mt-6 bg-white p-4 rounded-2xl border border-cyan-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="flex items-center gap-3 text-left">
-                        <div class="bg-teal-100 text-teal-700 p-3 rounded-xl">
+                        <div class="bg-cyan-100 text-cyan-700 p-3 rounded-xl">
                             <i class="fa-solid fa-volume-high text-xl"></i>
                         </div>
                         <div>
@@ -182,16 +182,16 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-teal-500 focus:border-teal-500 font-medium max-w-[160px] truncate">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-cyan-500 focus:border-cyan-500 font-medium max-w-[160px] truncate">
                             <option value="">Loading voices...</option>
                         </select>
-                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
                             <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="mt-4 inline-flex items-center gap-2 bg-teal-50 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold border border-teal-200">
+                <div class="mt-4 inline-flex items-center gap-2 bg-cyan-50 text-cyan-800 px-4 py-2 rounded-full text-sm font-semibold border border-cyan-200">
                     <i class="fa-solid fa-hand-pointer animate-pulse"></i>
                     Tap the dashed words in the examples to reveal grammar connections!
                 </div>
@@ -199,67 +199,86 @@
 
             <div class="grid lg:grid-cols-2 gap-8">
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-teal-600 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-calendar-check absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Be Going To</h3>
-                        <p class="text-teal-100 font-medium relative z-10">Plans, Intentions & Certain Predictions</p>
+                    <div class="bg-cyan-600 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-scale-unbalanced absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">1. Comparative Adjectives</h3>
+                        <p class="text-cyan-100 font-medium relative z-10">Comparing TWO people, places, or things.</p>
                     </div>
                     <div class="p-6 flex-grow space-y-5">
                         
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-lg text-center">
-                            I am 
+                            The Grand Hotel is 
                             <span class="interactive-group">
-                                <span class="interactive-trigger text-teal-600" data-target="target-going1">going to study</span> 
-                                <span id="target-going1" class="interactive-target">tonight</span>
-                            </span>.
-                            <div class="text-sm text-slate-500 mt-2">Subject + Be (am/is/are) + going to + Base Verb</div>
+                                <span class="interactive-trigger text-cyan-600" data-target="noun-than">nicer</span> 
+                                <span id="noun-than" class="interactive-target">than</span>
+                            </span> 
+                            the Plaza.
+                            <div class="text-sm text-slate-500 mt-2">Always use <strong>than</strong> after a comparative!</div>
                         </div>
 
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Key Features & Rules</h4>
+                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Spelling Rules</h4>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Time Expressions:</strong> next year, tomorrow, next week <br><span class="text-red-500 font-bold">No "the":</span> next year (NOT <s>the next year</s>)</div>
-                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Spoken English:</strong> "gonna" <br><span class="text-slate-500">Spoken only! NEVER write "gonna".</span></div>
-                                <div class="bg-slate-50 border border-slate-200 p-2 rounded sm:col-span-2"><strong>Questions:</strong> Be + Subject + going to + Base Verb? <br><span class="text-slate-500">Are you going to graduate next semester?</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Short (1 syllable):</strong> Add -er <br><span class="text-slate-500">high &rarr; higher</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Silent -e:</strong> Add -r <br><span class="text-slate-500">large &rarr; larger</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>CVC (Short):</strong> Double + -er <br><span class="text-slate-500">big &rarr; bigger, hot &rarr; hotter</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Consonant + y:</strong> -ier <br><span class="text-slate-500">heavy &rarr; heavier</span></div>
+                                <div class="bg-cyan-50 border border-cyan-200 p-2 rounded sm:col-span-2"><strong>Long (2+ syllables):</strong> more + adj <br><span class="text-cyan-700">famous &rarr; more famous, difficult &rarr; more difficult</span></div>
                             </div>
                         </div>
 
                         <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-sm">
-                            <h4 class="font-bold text-amber-800 mb-1">Subject vs. Object Wh- Questions</h4>
-                            <p class="text-amber-900"><strong>Subject:</strong> Who is going to help? (No word order change)</p>
-                            <p class="text-amber-900"><strong>Object:</strong> Who are you going to ask? (Invert Be & Subject)</p>
+                            <h4 class="font-bold text-amber-800 mb-1">Using "One / Ones"</h4>
+                            <p class="text-amber-900">Use to avoid repeating the noun.</p>
+                            <div class="bg-white p-2 rounded mt-1 font-medium text-slate-700">
+                                This house is older than that <span class="text-amber-600">one</span>.
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-emerald-600 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-plane-departure absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Present Progressive for Future</h3>
-                        <p class="text-emerald-100 font-medium relative z-10">Fixed Arrangements & Scheduled Events</p>
+                    <div class="bg-blue-600 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-trophy absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">2. Superlative Adjectives</h3>
+                        <p class="text-blue-100 font-medium relative z-10">Comparing THREE OR MORE items.</p>
                     </div>
                     <div class="p-6 flex-grow space-y-6">
                         
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-lg text-center">
-                            She is 
+                            Mount Everest is 
                             <span class="interactive-group">
-                                <span class="interactive-trigger text-emerald-600" data-target="target-prog1">flying</span> 
-                                to Paris <span id="target-prog1" class="interactive-target">next Tuesday</span>
-                            </span>.
-                            <div class="text-sm text-slate-500 mt-2">Requires a future time clue to show it's not happening right now!</div>
+                                <span id="noun-the" class="interactive-target">the</span>
+                                <span class="interactive-trigger text-blue-600" data-target="noun-the">highest</span> 
+                            </span> 
+                            mountain.
+                            <div class="text-sm text-slate-500 mt-2">Always use <strong>the</strong> before a superlative!</div>
                         </div>
 
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Common Movement/Transition Verbs</h4>
-                            <div class="flex flex-wrap gap-1.5 text-xs">
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">arrive</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">leave</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">fly</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">drive</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">meet</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">stay</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">visit</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">come</span>
+                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Spelling Rules</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Short:</strong> Add -est <br><span class="text-slate-500">old &rarr; oldest</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Silent -e:</strong> Add -st <br><span class="text-slate-500">nice &rarr; nicest</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>CVC:</strong> Double + -est <br><span class="text-slate-500">thin &rarr; thinnest</span></div>
+                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Consonant + y:</strong> -iest <br><span class="text-slate-500">easy &rarr; easiest</span></div>
+                                <div class="bg-blue-50 border border-blue-200 p-2 rounded sm:col-span-2"><strong>Long:</strong> the most + adj <br><span class="text-blue-700">modern &rarr; the most modern</span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="bg-indigo-50 p-3 rounded-xl border border-indigo-200 text-sm flex-1">
+                                <h4 class="font-bold text-indigo-800 mb-1">One of the...</h4>
+                                <p class="text-indigo-900">Followed by a <span class="underline">plural</span> noun.</p>
+                                <div class="font-bold text-slate-800 mt-1">One of the <span class="text-indigo-600">best</span> restaurant<span class="text-indigo-600">s</span>.</div>
+                            </div>
+                            <div class="bg-red-50 p-3 rounded-xl border border-red-200 text-sm flex-1">
+                                <h4 class="font-bold text-red-800 mb-1">Irregulars</h4>
+                                <ul class="text-red-900 font-medium">
+                                    <li>good &rarr; best</li>
+                                    <li>bad &rarr; worst</li>
+                                    <li>far &rarr; farthest</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -269,70 +288,72 @@
 
             <div class="grid lg:grid-cols-2 gap-8">
                 
+                <!-- Possessive Pronouns -->
                 <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
                     <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-                        <i class="fa-solid fa-wand-magic-sparkles text-8xl"></i>
+                        <i class="fa-solid fa-hand-holding-heart text-8xl"></i>
                     </div>
                     <div class="p-8 relative z-10 h-full flex flex-col">
                         <div class="flex items-center gap-3 mb-6">
-                            <i class="fa-solid fa-bolt text-teal-400 text-3xl"></i>
-                            <h3 class="text-3xl font-bold text-teal-400">3. Will vs. May / Might</h3>
+                            <i class="fa-solid fa-user-tag text-teal-400 text-3xl"></i>
+                            <h3 class="text-3xl font-bold text-teal-400">3. Possessive Pronouns</h3>
                         </div>
                         
-                        <div class="grid grid-cols-2 gap-4 text-sm bg-slate-800/80 p-4 rounded-xl border border-slate-600 mb-6">
-                            <div>
-                                <h4 class="font-bold text-teal-300 border-b border-slate-600 pb-1 mb-2">Will (Certainty)</h4>
-                                <ul class="space-y-1 text-slate-300 text-xs">
-                                    <li>• Predictions / Certainty</li>
-                                    <li>• Promises / Offers</li>
-                                    <li>• Spontaneous decisions</li>
-                                    <li>• Negative: <strong>won't</strong></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-amber-300 border-b border-slate-600 pb-1 mb-2">May / Might (Possibility)</h4>
-                                <ul class="space-y-1 text-slate-300 text-xs">
-                                    <li>• Present/Future possibilities</li>
-                                    <li>• Unsure outcomes</li>
-                                    <li>• Negative: <strong>might not / may not</strong> (No contractions!)</li>
-                                </ul>
-                            </div>
+                        <p class="text-slate-300 mb-4 text-sm">Used in place of a possessive adjective + noun to avoid repetition.</p>
+
+                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm bg-slate-800/80 p-4 rounded-xl border border-slate-600 mb-6">
+                            <div class="text-slate-400 font-bold border-b border-slate-600 pb-1">Adjective + Noun</div>
+                            <div class="text-teal-400 font-bold border-b border-slate-600 pb-1">Pronoun</div>
+                            
+                            <div><span class="text-slate-200">my</span> book</div><div class="font-bold text-white">mine</div>
+                            <div><span class="text-slate-200">your</span> book</div><div class="font-bold text-white">yours</div>
+                            <div><span class="text-slate-200">his/her</span> book</div><div class="font-bold text-white">his/hers</div>
+                            <div><span class="text-slate-200">our/their</span> book</div><div class="font-bold text-white">ours/theirs</div>
                         </div>
 
-                        <div class="bg-teal-900/30 p-4 rounded-xl border border-teal-500/30 text-xs text-slate-300 space-y-2 mt-auto">
-                            <div><strong>Adverb "Probably" Placement:</strong></div>
-                            <div>• Affirmative: After 'will' &rarr; <em>"It will <strong>probably</strong> rain."</em></div>
-                            <div>• Negative: Before 'won't' &rarr; <em>"We <strong>probably</strong> won't go."</em></div>
+                        <div class="bg-red-900/30 p-4 rounded-xl border border-red-500/30 mt-auto">
+                            <h4 class="font-bold text-red-400 mb-1"><i class="fa-solid fa-ban mr-1"></i> The Golden Rule</h4>
+                            <p class="text-sm text-slate-300">Do <strong class="text-red-300 underline">not</strong> place a noun directly after a possessive pronoun.</p>
+                            <div class="mt-2 space-y-1">
+                                <div class="text-green-400 text-sm"><i class="fa-solid fa-check mr-2"></i> The book is mine.</div>
+                                <div class="text-red-400 text-sm line-through"><i class="fa-solid fa-xmark mr-2"></i> This is mine book.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Whose -->
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-cyan-600 p-6 text-white flex items-center gap-3">
-                        <i class="fa-solid fa-diagram-project text-2xl opacity-80"></i>
-                        <h3 class="text-2xl font-bold">4. If & Time Clauses</h3>
+                    <div class="bg-purple-600 p-6 text-white flex items-center gap-3">
+                        <i class="fa-solid fa-circle-question text-2xl opacity-80"></i>
+                        <h3 class="text-2xl font-bold">4. Questions with Whose</h3>
                     </div>
                     
                     <div class="p-6 flex-grow space-y-6">
                         
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm mb-2">If Clause (Condition & Result)</h4>
-                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-sm space-y-2">
+                            <p class="text-sm text-slate-600 mb-3">Ask about ownership using <strong>Whose + noun</strong>.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-3">
+                                
                                 <div class="interactive-group block">
-                                    <span class="interactive-trigger text-cyan-600" data-target="if-clause1">If I pass the exam</span>, 
-                                    I <span id="if-clause1" class="interactive-target">will apply</span> for college.
+                                    <span class="text-slate-500 text-xs font-bold uppercase block mb-1">Asking about an Object</span>
+                                    <span class="interactive-trigger text-purple-600" data-target="whose1">Whose car</span> did you 
+                                    <span class="interactive-target" id="whose1">take</span>?
                                 </div>
-                                <div class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> Use <strong>Simple Present</strong> in the 'If' clause, and <strong>Will / Going to / May / Might</strong> in the main clause!</div>
+                                <div class="interactive-group block border-t pt-2">
+                                    <span class="text-slate-500 text-xs font-bold uppercase block mb-1">Asking about a Subject</span>
+                                    <span class="interactive-trigger text-purple-600" data-target="whose2">Whose car</span> 
+                                    <span class="interactive-target" id="whose2">goes</span> faster?
+                                </div>
                             </div>
                         </div>
 
                         <div class="bg-orange-50 p-4 rounded-xl border border-orange-200 text-sm">
-                            <h4 class="font-bold text-orange-800 mb-2">Future Time Clauses (Before, After, When)</h4>
-                            <p class="text-orange-900 mb-2">Shows sequential order of future actions.</p>
-                            <ul class="space-y-1 text-xs text-slate-700 bg-white p-3 rounded-lg border border-orange-100">
-                                <li>• <strong>After / When:</strong> Introduces the 1st event.</li>
-                                <li>• <strong>Before:</strong> Introduces the 2nd event.</li>
-                                <li>• <strong>Punctuation:</strong> Use a comma if the time/if clause comes at the START.</li>
+                            <h4 class="font-bold text-orange-800 mb-2">Whose vs. Who's</h4>
+                            <p class="text-orange-900 mb-2">They sound identical but mean very different things.</p>
+                            <ul class="space-y-2 bg-white p-3 rounded-lg">
+                                <li><strong class="text-orange-600">Whose</strong> indicates possession. <br><span class="text-slate-500 italic">"Whose book is this?"</span></li>
+                                <li><strong class="text-orange-600">Who's</strong> is short for 'Who is'. <br><span class="text-slate-500 italic">"Who's at the door?"</span></li>
                             </ul>
                         </div>
 
@@ -342,13 +363,14 @@
 
         </section>
 
+
         <section id="section-practice" class="hidden fade-in">
             <div class="max-w-4xl mx-auto">
                 
                 <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
                     
                     <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Practice Exercises</h2>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Practice</h2>
                         
                         <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
                             <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
@@ -361,22 +383,23 @@
                                 <i class="fa-solid fa-bug mr-2"></i>Spot the Error
                             </button>
                             <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-layer-group mr-2"></i>Function Matcher
+                                <i class="fa-solid fa-arrow-right-arrow-left mr-2"></i>Pronoun Match
                             </button>
                             <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-diagram-project mr-2"></i>Time Clause Linker
+                                <i class="fa-solid fa-diagram-project mr-2"></i>Whose vs Who's
                             </button>
                         </div>
                     </div>
 
                     <div class="p-6 md:p-10">
                         
+                        <!-- EXERCISE 1: QUIZ -->
                         <div id="ex-container-quiz" class="block fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice</h3>
                                 </div>
-                                <span id="quiz-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="quiz-progress" class="bg-cyan-100 text-cyan-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
                             </div>
                             
                             <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
@@ -399,13 +422,14 @@
                             </div>
                         </div>
 
+                        <!-- EXERCISE 2: FILL IN BLANKS -->
                         <div id="ex-container-fill" class="hidden fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
                                     <h3 class="font-bold text-xl text-slate-800">Form the Word</h3>
-                                    <p class="text-slate-500 text-sm">Select the correct future verb form or modal.</p>
+                                    <p class="text-slate-500 text-sm">Select the correct comparative or superlative form.</p>
                                 </div>
-                                <span id="fill-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="fill-progress" class="bg-cyan-100 text-cyan-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
                             </div>
 
                             <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
@@ -428,9 +452,10 @@
                             </div>
                         </div>
 
+                        <!-- EXERCISE 3: IDENTIFY ERROR -->
                         <div id="ex-container-identify" class="hidden fade-in">
                             <div class="mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Spot the Grammar Error</h3>
+                                <h3 class="font-bold text-xl text-slate-800">Spot the Error</h3>
                                 <p class="text-sm text-slate-600 mt-1">Click on the word or phrase that contains a <strong>grammar error</strong> in the sentence.</p>
                             </div>
 
@@ -438,14 +463,14 @@
                                 <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
                             </div>
 
-                            <div class="bg-white border-2 border-teal-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                            <div class="bg-white border-2 border-cyan-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
                                 <div id="id-sentence-container" class="leading-loose text-lg"></div>
                             </div>
 
                             <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
 
                             <div class="flex justify-center gap-4">
-                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(13,148,136,0.4)] pop-out">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(8,145,178,0.4)] pop-out">
                                     Check Answer <i class="fa-solid fa-check ml-2"></i>
                                 </button>
                                 <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
@@ -457,10 +482,11 @@
                             </div>
                         </div>
 
+                        <!-- EXERCISE 4: MATCH PRONOUNS -->
                         <div id="ex-container-match" class="hidden fade-in">
                             <div class="text-center mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Function Matcher</h3>
-                                <p class="text-slate-500 text-sm mt-1">Connect the example sentence (left) to the correct grammatical future function (right).</p>
+                                <h3 class="font-bold text-xl text-slate-800">Pronoun Matcher</h3>
+                                <p class="text-slate-500 text-sm mt-1">Connect the possessive adjective phrase (left) to the correct possessive pronoun (right).</p>
                             </div>
                             
                             <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
@@ -474,16 +500,17 @@
                             <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
 
                             <div class="flex justify-center mt-6">
-                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
                                     Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
+                        <!-- EXERCISE 5: LINK WORDS (Whose vs Who's) -->
                         <div id="ex-container-link" class="hidden fade-in">
                             <div class="mb-6 text-center">
-                                <h3 class="font-bold text-xl text-slate-800">Time Clause Linker</h3>
-                                <p class="text-sm text-slate-600 mt-1">Connect the beginning (left) to the correct ending (right) to form valid future time and conditional sentences.</p>
+                                <h3 class="font-bold text-xl text-slate-800">Whose vs. Who's</h3>
+                                <p class="text-sm text-slate-600 mt-1">Connect the beginning (left) to the correct ending (right) to form a valid sentence.</p>
                             </div>
 
                             <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
@@ -497,7 +524,7 @@
                             <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
 
                             <div class="flex justify-center mt-6">
-                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
                                     Check Connections <i class="fa-solid fa-check ml-2"></i>
                                 </button>
                                 <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
@@ -614,7 +641,7 @@
 
             let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
             
-            if(state === 'study') { color = '#0d9488'; marker = 'url(#arrowhead-study)'; }
+            if(state === 'study') { color = '#0891b2'; marker = 'url(#arrowhead-study)'; }
             if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
             if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
             
@@ -659,14 +686,14 @@
         }
 
         const quizData = [
-            { q: "If I pass the final exam, I _____ my studies next year.", opts: ["will continue", "will to continue", "continue"], ans: 0, exp: "Use 'will + base verb' in the main result clause of a future conditional." },
-            { q: "We are meeting the professor _____.", opts: ["next week", "the next week", "in next week"], ans: 0, exp: "Do not place the article 'the' before 'next' in future time expressions." },
-            { q: "I haven't studied, so I _____ pass the test.", opts: ["probably won't", "won't probably", "probably not"], ans: 0, exp: "The adverb 'probably' goes BEFORE 'won't' in negative statements." },
-            { q: "Look at those dark clouds! It _____ rain soon.", opts: ["is going to", "will to", "mights"], ans: 0, exp: "Use 'be going to' for clear, certain predictions based on present evidence." },
-            { q: "_____ going to give the presentation tomorrow?", opts: ["Who is", "Who", "Who does"], ans: 0, exp: "In subject Wh- questions with 'be going to', use 'Who is'." },
-            { q: "She _____ to London next Tuesday for a conference.", opts: ["is flying", "flies to", "will fly to"], ans: 0, exp: "The Present Progressive is commonly used for fixed future travel arrangements." },
-            { q: "If you _____ hard, you will succeed.", opts: ["work", "will work", "are going to work"], ans: 0, exp: "Do NOT use future 'will' inside an 'if' clause; use Simple Present." },
-            { q: "Are you coming to the party? Yes, I _____.", opts: ["am", "I'm", "will"], ans: 0, exp: "Never use contractions in affirmative short answers with 'be'." }
+            { q: "This restaurant is _____ than the one across the street.", opts: ["more nice", "nicer", "most nice"], ans: 1, exp: "'Nice' is a one-syllable adjective ending in -e, so we just add -r." },
+            { q: "That was the _____ movie I have ever seen.", opts: ["worse", "baddest", "worst"], ans: 2, exp: "The superlative form of 'bad' is irregular: 'worst'." },
+            { q: "_____ jacket is this? It's not mine.", opts: ["Who's", "Whose", "Who"], ans: 1, exp: "'Whose' asks about ownership or possession." },
+            { q: "I don't have a pen. Can I borrow _____?", opts: ["your", "yours", "you're"], ans: 1, exp: "Use the possessive pronoun 'yours' to replace 'your pen'." },
+            { q: "She is one of the _____ people I know.", opts: ["friendlyest", "friendlier", "friendliest"], ans: 0, exp: "Adjectives ending in consonant + y change the -y to -i and add -est." },
+            { q: "Chinese is the most difficult language _____ learn.", opts: ["to", "for", "in"], ans: 0, exp: "An infinitive (to + verb) often follows a superlative phrase." },
+            { q: "Which mountain is _____, Everest or K2?", opts: ["the highest", "higher", "more high"], ans: 1, exp: "We are comparing exactly two things, so we use the comparative form 'higher'." },
+            { q: "This is mine book.", opts: ["Correct", "Incorrect"], ans: 1, exp: "Incorrect. You cannot place a noun directly after a possessive pronoun. Say 'This is my book' or 'This book is mine'." }
         ];
         
         let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
@@ -683,9 +710,10 @@
             const q = activeQuiz[quizCurrent];
             document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
             
+            // Format blank
             let qText = q.q;
             if(qText.includes("_____")) {
-                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-teal-600">_____</span>');
+                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-cyan-600">_____</span>');
             }
             document.getElementById('quiz-q-text').innerHTML = qText;
             
@@ -747,7 +775,7 @@
                 quizCurrent++; quizLoad();
             } else {
                 document.getElementById('quiz-options').innerHTML = '';
-                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-teal-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-cyan-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
                 document.getElementById('quiz-progress').textContent = "Done";
                 document.getElementById('quiz-feedback').classList.add('hidden');
                 document.getElementById('quiz-btn-next').classList.add('hidden');
@@ -756,11 +784,11 @@
         }
 
         const fillData = [
-            { pre: "If she studies hard, she ", blank: "will pass", post: " the test.", opts: ["will pass", "will passes", "passes"] },
-            { pre: "I'm not sure, but it ", blank: "might rain", post: " later tonight.", opts: ["might rain", "mights rain", "may to rain"] },
-            { pre: "They ", blank: "probably won't", post: " attend the meeting.", opts: ["probably won't", "won't probably", "probably don't"] },
-            { pre: "When class ends, I ", blank: "am going to go", post: " home.", opts: ["am going to go", "go", "will to go"] },
-            { pre: "He ", blank: "is leaving", post: " for Chicago tomorrow morning.", opts: ["is leaving", "leaves for", "leave"] }
+            { pre: "Today is hot, but yesterday was ", blank: "hotter", post: ".", opts: ["hoter", "hotter", "more hot"] },
+            { pre: "She is the ", blank: "most intelligent", post: " person in the room.", opts: ["intelligentest", "most intelligent", "more intelligent"] },
+            { pre: "My car is old, but ", blank: "hers", post: " is new.", opts: ["her", "hers", "she's"] },
+            { pre: "That test was ", blank: "worse", post: " than the last one.", opts: ["bader", "worst", "worse"] },
+            { pre: "It's one of the ", blank: "biggest", post: " cities in the world.", opts: ["bigger", "biggest", "most big"] }
         ];
 
         let activeFill = []; let fillCur = 0; let fillAns = false;
@@ -779,7 +807,7 @@
             const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
             shuffleArray([...q.opts]).forEach((opt) => {
                 const btn = document.createElement('button');
-                btn.className = 'pop-out bg-white border-2 border-teal-200 text-teal-700 font-bold py-3 px-6 rounded-xl hover:bg-teal-50 hover:border-teal-400 shadow-sm text-lg';
+                btn.className = 'pop-out bg-white border-2 border-cyan-200 text-cyan-700 font-bold py-3 px-6 rounded-xl hover:bg-cyan-50 hover:border-cyan-400 shadow-sm text-lg';
                 btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
                 optsCon.appendChild(btn);
             });
@@ -801,21 +829,21 @@
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
                 if (allBtns[i].textContent === cor) {
-                    allBtns[i].classList.remove('border-teal-200', 'text-teal-700', 'opacity-50');
+                    allBtns[i].classList.remove('border-cyan-200', 'text-cyan-700', 'opacity-50');
                     allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
                 }
             }
 
             if (isCor) {
                 target.classList.add('correct');
-                btn.classList.replace('border-teal-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
+                btn.classList.replace('border-cyan-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
                 fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
                 fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
             } else {
                 target.classList.add('incorrect');
-                btn.classList.replace('border-teal-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
+                btn.classList.replace('border-cyan-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
                 fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review modal and time clause rules.";
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review the spelling rules.";
             }
             
             document.getElementById('fill-btn-next').classList.remove('hidden');
@@ -826,7 +854,7 @@
             if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
             else {
                 document.getElementById('fill-options').innerHTML = '';
-                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-teal-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-cyan-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
                 document.getElementById('fill-progress').textContent = "Done";
                 document.getElementById('fill-feedback').classList.add('hidden');
                 document.getElementById('fill-btn-next').classList.add('hidden');
@@ -835,10 +863,10 @@
         }
 
         const idData = [
-            [{w:"If"}, {w:"it"}, {w:"will rain", isErr:true}, {w:"tomorrow,"}, {w:"we"}, {w:"will"}, {w:"stay"}, {w:"inside."}],
-            [{w:"I"}, {w:"am"}, {w:"gonna", isErr:true}, {w:"visit"}, {w:"my"}, {w:"family"}, {w:"in"}, {w:"July."}],
-            [{w:"We"}, {w:"are"}, {w:"leaving"}, {w:"in"}, {w:"the next week.", isErr:true}],
-            [{w:"She"}, {w:"might"}, {w:"not to", isErr:true}, {w:"come"}, {w:"to"}, {w:"the"}, {w:"party."}]
+            [{w:"He"}, {w:"is"}, {w:"more taller", isErr:true}, {w:"than"}, {w:"his"}, {w:"brother."}],
+            [{w:"This"}, {w:"jacket"}, {w:"is"}, {w:"mine", isErr:true}, {w:"jacket", isErr:true}, {w:"because"}, {w:"it"}, {w:"is"}, {w:"blue."}],
+            [{w:"She"}, {w:"is"}, {w:"the"}, {w:"most", isErr:true}, {w:"smartest", isErr:true}, {w:"student"}, {w:"in"}, {w:"class."}],
+            [{w:"Who's", isErr:true}, {w:"car"}, {w:"is"}, {w:"parked"}, {w:"outside?"}]
         ];
         
         let idCurrent = 0; let idSelected = new Set(); let idAns = false;
@@ -887,7 +915,7 @@
             fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
             
             if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You found the error."; } 
-            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `You missed the error. Watch out for 'will' in 'if' clauses, 'gonna' in writing, or 'the next week'.`; }
+            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `You missed the error. Watch out for double comparatives/superlatives or noun placement after possessive pronouns.`; }
 
             document.getElementById('id-btn-check').classList.add('hidden');
             if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
@@ -896,18 +924,19 @@
         function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
 
         const matchPool = [
-            { id: 1, left: "I'll help you with that box.", right: "Offer / Decision" },
-            { id: 2, left: "I am going to study tonight.", right: "Plan / Intention" },
-            { id: 3, left: "It might rain later.", right: "Possibility" },
-            { id: 4, left: "She is flying to Paris tomorrow.", right: "Fixed Arrangement" },
-            { id: 5, left: "I promise I'll call you.", right: "Promise" }
+            { id: 1, left: "My car", right: "Mine" },
+            { id: 2, left: "Your house", right: "Yours" },
+            { id: 3, left: "His shoes", right: "His" },
+            { id: 4, left: "Her bag", right: "Hers" },
+            { id: 5, left: "Our dog", right: "Ours" },
+            { id: 6, left: "Their keys", right: "Theirs" }
         ];
 
         let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
 
         function matchInit() {
             mSelLeft = null; mSelRight = null; matchCount = 0;
-            activeMatch = shuffleArray([...matchPool]);
+            activeMatch = shuffleArray([...matchPool]).slice(0, 5);
             
             document.getElementById('match-btn-reset').classList.add('hidden');
             document.getElementById('match-feedback').textContent = '';
@@ -972,10 +1001,10 @@
         }
 
         const linkData = [
-            { id: 1, left: "If I pass the exam,", right: "I will apply for college." },
-            { id: 2, left: "After class finishes,", right: "we are going to go home." },
-            { id: 3, left: "When she arrives,", right: "we will start the meeting." },
-            { id: 4, left: "Before he leaves,", right: "he will sign the document." }
+            { id: 1, left: "Whose", right: "shoes are these?" },
+            { id: 2, left: "Who's", right: "at the door?" },
+            { id: 3, left: "Which car", right: "is faster?" },
+            { id: 4, left: "Who is", right: "the oldest?" }
         ];
 
         let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
@@ -1005,7 +1034,7 @@
         function createLinkBtn(item) {
             const btn = document.createElement('div');
             btn.id = `link-${item.type}-${item.id}`;
-            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-teal-300 transition-all z-10 relative';
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-cyan-300 transition-all z-10 relative';
             btn.textContent = item.text;
             btn.dataset.id = item.id;
             btn.dataset.type = item.type;
@@ -1017,17 +1046,17 @@
             if(linkChecked) return;
 
             if (item.type === 'start') {
-                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50');
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-300', 'bg-cyan-50');
                 if (linkSelLeft && linkSelLeft.id === item.id) {
                     linkSelLeft = null; // deselect
                 } else {
                     linkSelLeft = { el: btn, id: item.id };
-                    btn.classList.add('ring-4', 'ring-teal-300', 'bg-teal-50');
+                    btn.classList.add('ring-4', 'ring-cyan-300', 'bg-cyan-50');
                 }
             } else if (item.type === 'end' && linkSelLeft) {
                 linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
                 linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
-                linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50');
+                linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-300', 'bg-cyan-50');
                 linkSelLeft = null;
                 redrawArrows();
             }
@@ -1035,7 +1064,7 @@
 
         function linkCheck() {
             if(linkChecked) return;
-            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50'); linkSelLeft = null; }
+            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-300', 'bg-cyan-50'); linkSelLeft = null; }
             
             linkChecked = true;
             let corCount = 0;
@@ -1056,7 +1085,7 @@
                 fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
             } else {
                 fb.classList.add('text-amber-600');
-                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the logical relationship between clauses.`;
+                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the difference between Whose and Who's.`;
             }
 
             redrawArrows();
@@ -1064,7 +1093,10 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
-        window.onload = () => { setupStudyInteractive(); };
+        window.onload = () => { 
+            setupStudyInteractive(); 
+            populateVoiceList();
+        };
 
         /* Built-in TTS Web Speech API Integration */
         let synth = window.speechSynthesis;
@@ -1072,27 +1104,23 @@
         let currentUtterance = null;
 
         function populateVoiceList() {
+            if (!synth) return;
             voices = synth.getVoices();
             const voiceSelect = document.getElementById('tts-voice-select');
             
-            if (voices.length === 0) {
-                return;
-            }
+            if (voices.length === 0) return;
 
             voiceSelect.innerHTML = '';
-
             let defaultVoiceIndex = 0;
             
-            // Try to find UK Male Voice (e.g., Google UK English Male)
-            // Fallback to any UK English, then to any English voice
-            for(let i = 0; i < voices.length ; i++) {
+            for (let i = 0; i < voices.length; i++) {
                 const option = document.createElement('option');
                 option.textContent = `${voices[i].name} (${voices[i].lang})`;
                 option.setAttribute('data-lang', voices[i].lang);
                 option.setAttribute('data-name', voices[i].name);
                 voiceSelect.appendChild(option);
 
-                if(voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
+                if (voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
                     defaultVoiceIndex = i;
                 } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
                     defaultVoiceIndex = i;
@@ -1106,27 +1134,25 @@
             }
         }
 
-        populateVoiceList();
-        if (speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = populateVoiceList;
+        if (synth && synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
         }
 
         function toggleAudioSummary() {
+            if (!synth) return;
             const icon = document.getElementById('tts-icon');
             const text = document.getElementById('tts-text');
 
             if (synth.speaking || synth.pending) {
-                synth.cancel(); // Stop playing
+                synth.cancel();
                 icon.className = "fa-solid fa-play";
                 text.textContent = "Listen";
                 return;
             }
 
-            const summaryPrompt = "Welcome to Unit 14! In this lesson, you will learn how to express future time and conditions. Use 'be going to' for planned intentions and clear predictions. Use present progressive for fixed arrangements. Use 'will' for spontaneous decisions or promises, and 'may' or 'might' for possibilities. Remember: in 'if' clauses and future time clauses with before, after, or when, always use the simple present tense!";
+            const summaryPrompt = "Welcome to the grammar guide on Comparatives, Superlatives, and Possessives. Use comparative adjectives with 'than' to compare two things. Use superlative adjectives with 'the' for three or more items. Possessive pronouns like mine and yours replace nouns to show ownership. Finally, use whose to ask about possession.";
             
             currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
-            
-            // Prevent garbage collection bug in Chrome which causes sudden 'interrupted' errors
             window._ttsUtterance = currentUtterance;
             
             const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
@@ -1138,7 +1164,7 @@
                     currentUtterance.lang = voice.lang;
                 }
             } else {
-                currentUtterance.lang = 'en-US'; // Fallback
+                currentUtterance.lang = 'en-US';
             }
 
             currentUtterance.onstart = () => {
@@ -1152,7 +1178,6 @@
             };
 
             currentUtterance.onerror = (e) => {
-                // Ignore intentional cancellations which trigger 'interrupted' or 'canceled'
                 if (e.error !== 'interrupted' && e.error !== 'canceled') {
                     console.error('SpeechSynthesis Error:', e);
                 }

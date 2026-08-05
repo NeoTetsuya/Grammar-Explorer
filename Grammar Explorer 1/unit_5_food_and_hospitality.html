@@ -165,9 +165,30 @@
             <div class="text-center max-w-3xl mx-auto mb-10">
                 <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Count & Non-Count Nouns</h2>
                 <p class="text-lg text-slate-600">Learn how to express quantities, talk about food, and master articles and measurement words.</p>
-                <div class="mt-4 inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold border border-emerald-200">
+                <div class="mt-4 inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold border border-emerald-200 mb-6">
                     <i class="fa-solid fa-hand-pointer animate-pulse"></i>
                     Tap the dashed words in the examples to reveal grammar rules!
+                </div>
+
+                <!-- Audio Summary Player -->
+                <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-slate-200 text-left max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-700 p-3 rounded-xl">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Audio Summary</h4>
+                            <p class="text-xs text-slate-500">Listen to a short spoken overview</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2 focus:ring-emerald-500 focus:border-emerald-500 font-medium max-w-[150px] truncate">
+                            <option value="">Loading voices...</option>
+                        </select>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all whitespace-nowrap">
+                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -1127,8 +1148,86 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
+        // Web Speech API Audio Summary
+        const synth = window.speechSynthesis;
+        let currentUtterance = null;
+        let voices = [];
+
+        function populateVoiceList() {
+            if (!synth) return;
+            voices = synth.getVoices().filter(voice => voice.lang.includes('en'));
+            const voiceSelect = document.getElementById('tts-voice-select');
+            if (!voiceSelect) return;
+            voiceSelect.innerHTML = '';
+            
+            let defaultVoiceIndex = 0;
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-name', voice.name);
+                if (voice.default || voice.name.includes('Google') || voice.name.includes('Natural')) {
+                    defaultVoiceIndex = index;
+                }
+                voiceSelect.appendChild(option);
+            });
+            if (voiceSelect.options.length > 0) {
+                voiceSelect.selectedIndex = defaultVoiceIndex;
+            }
+        }
+
+        if (synth && synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
+        }
+
+        function toggleAudioSummary() {
+            if (!synth) return;
+            const icon = document.getElementById('tts-icon');
+            const text = document.getElementById('tts-text');
+
+            if (synth.speaking || synth.pending) {
+                synth.cancel();
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+                return;
+            }
+
+            const summaryPrompt = "Welcome to Unit 5! In this lesson, you will explore count and non-count food nouns alongside quantifiers. Use count nouns for individual items you can count with numbers, and non-count nouns for liquids and bulk items. Practice using 'a lot of', 'many', 'much', 'a few', and 'a little' to talk about quantity in dining and hospitality settings.";
+
+            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
+            window._ttsUtterance = currentUtterance;
+            
+            const selectedOption = document.getElementById('tts-voice-select')?.selectedOptions[0];
+            if (selectedOption && selectedOption.hasAttribute('data-name')) {
+                const selectedVoice = selectedOption.getAttribute('data-name');
+                const voice = voices.find(v => v.name === selectedVoice);
+                if (voice) {
+                    currentUtterance.voice = voice;
+                    currentUtterance.lang = voice.lang;
+                }
+            } else {
+                currentUtterance.lang = 'en-US';
+            }
+
+            currentUtterance.onstart = () => {
+                if (icon) icon.className = "fa-solid fa-square";
+                if (text) text.textContent = "Stop";
+            };
+
+            currentUtterance.onend = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+            };
+
+            currentUtterance.onerror = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+            };
+
+            synth.speak(currentUtterance);
+        }
+
         // Initialize on load
-        window.onload = () => { setupStudyInteractive(); };
+        window.onload = () => { setupStudyInteractive(); populateVoiceList(); };
     </script>
 </body>
 </html>

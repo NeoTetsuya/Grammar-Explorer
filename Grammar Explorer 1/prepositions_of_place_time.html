@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepositions of Place and Time</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #8b5cf6; /* Violet 500 */
+            color: #7c3aed; /* Violet 600 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Highlights */
+        .highlight-place { color: #0d9488; font-weight: 700; } /* Teal for Place */
+        .highlight-time { color: #7c3aed; font-weight: 700; } /* Violet for Time */
+
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-place {
+            background-color: #ccfbf1; color: #0f766e; border-color: #14b8a6; border-style: solid;
+        }
+        .grammar-toggle.state-time {
+            background-color: #ede9fe; color: #6d28d9; border-color: #8b5cf6; border-style: solid;
+        }
+        .grammar-toggle.state-err {
+            background-color: #fee2e2; color: #991b1b; border-color: #ef4444; border-style: solid; text-decoration: line-through;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #8b5cf6; color: white; box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #8b5cf6; background-color: #faf5ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 80px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #8b5cf6; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #8b5cf6; background-color: #faf5ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-violet-500 to-indigo-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-map-location-dot text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Prepositions: Place & Time</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Prepositions</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Mastering "At, On, and In"</h2>
+                <p class="text-lg text-slate-600">These three tiny words do a lot of heavy lifting! Learn how to use them for describing <span class="highlight-place">Locations (Place)</span> and <span class="highlight-time">When things happen (Time)</span>.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-violet-50 text-violet-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-violet-200 mb-6">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-violet-500 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal their rules!
+                </div>
+
+                <!-- Audio Summary Player -->
+                <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-slate-200 text-left max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-violet-100 text-violet-700 p-3 rounded-xl">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Audio Summary</h4>
+                            <p class="text-xs text-slate-500">Listen to a short spoken overview</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2 focus:ring-violet-500 focus:border-violet-500 font-medium max-w-[150px] truncate">
+                            <option value="">Loading voices...</option>
+                        </select>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-violet-600 hover:bg-violet-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all whitespace-nowrap">
+                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- PLACE COLUMN -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-teal-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-location-dot text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">Prepositions of Place</h3>
+                        </div>
+                        <p class="text-teal-100 font-medium">Where something is located.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">At, On, and In</h4>
+                            <ul class="space-y-4 text-slate-700">
+                                <li><strong class="text-slate-900 text-lg text-teal-700">At:</strong> Specific addresses or common daily places. <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 text-sm border border-slate-100">
+                                        She lives <span class="grammar-toggle" data-type="place" data-exp="Specific address">at</span> 39 Main Street. <br>
+                                        I am <span class="grammar-toggle" data-type="place" data-exp="Daily life place">at</span> the supermarket.
+                                    </div>
+                                </li>
+                                <li><strong class="text-slate-900 text-lg text-teal-700">On:</strong> Streets, roads, avenues, and building floors. <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 text-sm border border-slate-100">
+                                        The cafe is <span class="grammar-toggle" data-type="place" data-exp="Name of a street">on</span> Park Street. <br>
+                                        My office is <span class="grammar-toggle" data-type="place" data-exp="Specific floor">on</span> the second floor.
+                                    </div>
+                                </li>
+                                <li><strong class="text-slate-900 text-lg text-teal-700">In:</strong> Cities, countries, and rooms (enclosed spaces). <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 text-sm border border-slate-100">
+                                        They met <span class="grammar-toggle" data-type="place" data-exp="City/Country">in</span> Paris. <br>
+                                        We are <span class="grammar-toggle" data-type="place" data-exp="Enclosed room">in</span> Room 215.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                            <h4 class="font-bold text-amber-800 mb-2"><i class="fa-solid fa-triangle-exclamation mr-2"></i>Omission of "The"</h4>
+                            <p class="text-sm text-amber-700">In everyday English, do NOT use "the" before certain common locations:</p>
+                            <p class="mt-2 text-sm font-bold text-slate-700">Correct: <span class="bg-white px-2 py-1 rounded shadow-sm font-normal mx-1">at school</span> <span class="bg-white px-2 py-1 rounded shadow-sm font-normal mx-1">at home</span> <span class="bg-white px-2 py-1 rounded shadow-sm font-normal mx-1">at work</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIME COLUMN -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-violet-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-regular fa-clock text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">Prepositions of Time</h3>
+                        </div>
+                        <p class="text-violet-100 font-medium">When something happens.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">At, In, and On</h4>
+                            <ul class="space-y-4 text-slate-700">
+                                <li><strong class="text-slate-900 text-lg text-violet-700">At:</strong> Specific clock times, midnight, or "night". <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 text-sm border border-slate-100">
+                                        Class starts <span class="grammar-toggle" data-type="time" data-exp="Specific clock time">at</span> three-thirty. <br>
+                                        I sleep <span class="grammar-toggle" data-type="time" data-exp="Exception for 'night'">at</span> night.
+                                    </div>
+                                </li>
+                                <li><strong class="text-slate-900 text-lg text-violet-700">In:</strong> Years, months, seasons, and parts of the day. <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 text-sm border border-slate-100">
+                                        Born <span class="grammar-toggle" data-type="time" data-exp="Year or Month">in</span> 2015. <br>
+                                        We play tennis <span class="grammar-toggle" data-type="time" data-exp="Part of the day">in</span> the morning.
+                                    </div>
+                                </li>
+                                <li><strong class="text-slate-900 text-lg text-violet-700">On:</strong> Specific dates, days of the week, and weekends. <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 text-sm border border-slate-100">
+                                        The party is <span class="grammar-toggle" data-type="time" data-exp="Specific Date">on</span> June 29. <br>
+                                        I relax <span class="grammar-toggle" data-type="time" data-exp="Habitual weekend">on</span> weekends.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+                            <h4 class="font-bold text-slate-800 mb-2"><i class="fa-solid fa-layer-group text-slate-400 mr-2"></i>Multiple Phrases</h4>
+                            <p class="text-sm text-slate-600 mb-2">You can use more than one prepositional phrase to be precise:</p>
+                            <p class="text-sm bg-white p-2 rounded border border-slate-200">He wakes up <span class="text-violet-600 font-bold">at</span> five-thirty <span class="text-violet-600 font-bold">in</span> the morning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Spatial Descriptors -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center"><i class="fa-solid fa-cubes text-teal-500 mr-3"></i>Spatial Descriptors</h3>
+                    <p class="text-sm text-slate-500 mb-4">Words to describe the physical position of objects relative to one another.</p>
+                    
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1">
+                            <span class="font-bold text-teal-700">In / Inside</span>
+                            <span class="text-slate-600">Inside an enclosed space (in the glass).</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1">
+                            <span class="font-bold text-teal-700">On</span>
+                            <span class="text-slate-600">Resting on a surface (on the book).</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1">
+                            <span class="font-bold text-teal-700">Next to / Near</span>
+                            <span class="text-slate-600">Beside / close to something.</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1">
+                            <span class="font-bold text-teal-700">Between</span>
+                            <span class="text-slate-600">In the middle of two objects.</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1">
+                            <span class="font-bold text-teal-700">In front of / Behind</span>
+                            <span class="text-slate-600">Ahead of / At the rear of something.</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1">
+                            <span class="font-bold text-teal-700">Over / Under</span>
+                            <span class="text-slate-600">Higher than / Lower than something.</span>
+                        </div>
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 flex flex-col gap-1 col-span-2">
+                            <span class="font-bold text-teal-700">Across from</span>
+                            <span class="text-slate-600">Facing on the opposite side (e.g., across the hall).</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Boundaries -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center"><i class="fa-solid fa-hourglass-half text-violet-500 mr-3"></i>Time Boundaries</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-violet-400 pl-4">
+                                <h4 class="font-bold text-slate-800">From... To...</h4>
+                                <p class="text-sm text-slate-600">Establishes the exact start and end points.</p>
+                                <p class="text-sm mt-1 bg-slate-50 inline-block px-2 py-1 rounded">She works <strong class="text-violet-600">from</strong> nine <strong class="text-violet-600">to</strong> five-thirty.</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-violet-400 pl-4">
+                                <h4 class="font-bold text-slate-800">Until</h4>
+                                <p class="text-sm text-slate-600">Describes an ongoing action up to a boundary time.</p>
+                                <p class="text-sm mt-1 bg-slate-50 inline-block px-2 py-1 rounded">The bank is open <strong class="text-violet-600">until</strong> four o'clock.</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-violet-400 pl-4">
+                                <h4 class="font-bold text-slate-800">Approximating Time</h4>
+                                <p class="text-sm text-slate-600">Use <strong class="text-slate-800">around</strong> or <strong class="text-slate-800">about</strong> before the time to be less specific.</p>
+                                <p class="text-sm mt-1 bg-slate-50 inline-block px-2 py-1 rounded">We eat dinner at <strong class="text-violet-600">about</strong> 8:00.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-slate-800 rounded-3xl shadow-lg overflow-hidden text-white relative">
+                <div class="absolute top-0 right-0 p-6 opacity-5">
+                    <i class="fa-solid fa-circle-question text-9xl"></i>
+                </div>
+                <div class="p-8 relative z-10">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Formulating Questions</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-700">
+                            <h4 class="font-bold text-teal-400 text-xl mb-4"><i class="fa-solid fa-location-arrow mr-2"></i>Where (Place)</h4>
+                            <p class="text-slate-300 text-sm mb-4">Verb "be" MUST go before the subject.</p>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg border border-slate-600">
+                                    <i class="fa-solid fa-check text-green-400"></i>
+                                    <span><strong>Where</strong> is the park?</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg border border-slate-600">
+                                    <i class="fa-solid fa-xmark text-red-400"></i>
+                                    <span class="text-slate-400 line-through">Where the park is?</span>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-slate-700 text-sm">
+                                    <strong class="text-teal-300">Contractions:</strong>
+                                    <ul class="list-disc pl-5 mt-1 text-slate-300 space-y-1">
+                                        <li>Where + is = <strong class="text-white">Where's</strong></li>
+                                        <li>Where + are = <strong class="text-white">Where are</strong> <span class="text-red-400 text-xs ml-1">(NEVER Where're)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-700">
+                            <h4 class="font-bold text-violet-400 text-xl mb-4"><i class="fa-solid fa-calendar-day mr-2"></i>When (Time)</h4>
+                            <p class="text-slate-300 text-sm mb-4">Verb "be" MUST go before the subject.</p>
+                            
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg border border-slate-600">
+                                    <i class="fa-solid fa-check text-green-400"></i>
+                                    <span><strong>When</strong> is the test?</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-slate-800 p-3 rounded-lg border border-slate-600">
+                                    <i class="fa-solid fa-xmark text-red-400"></i>
+                                    <span class="text-slate-400 line-through">When the test is?</span>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-slate-700 text-sm">
+                                    <strong class="text-violet-300">Contractions:</strong>
+                                    <ul class="list-disc pl-5 mt-1 text-slate-300 space-y-1">
+                                        <li>When + is = <strong class="text-white">When's</strong> (e.g., When's your birthday?)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-check-to-slot mr-2"></i>Choose Preposition
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Fill in Blanks
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-layer-group mr-2"></i>Rule Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: CHOOSE PREPOSITION -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct preposition of place or time.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-violet-100 text-violet-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-3 gap-4 mb-6">
+                                <!-- Options injected -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Type the Missing Word</h3>
+                                    <p class="text-slate-500 text-sm">Type the correct preposition or spatial descriptor.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-violet-100 text-violet-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <p id="fill-hint" class="mt-6 text-sm font-bold text-violet-600 bg-violet-100 inline-block px-3 py-1 rounded-full"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-violet-500 focus:outline-none focus:ring-4 focus:ring-violet-500/20 transition-all" placeholder="Type preposition..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-violet-600 hover:bg-violet-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: RULE MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Preposition Rule Matcher</h3>
+                                <p class="text-slate-500 mt-2">Which preposition is used for the following category?</p>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto items-center">
+                                
+                                <div class="bg-slate-800 text-white p-8 rounded-3xl shadow-lg text-center relative overflow-hidden h-full flex flex-col justify-center">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Rule / Category</div>
+                                    <div id="match-category" class="text-2xl md:text-3xl font-bold mt-6 mb-2 text-balance"></div>
+                                    <div id="match-example" class="text-slate-300 font-medium text-sm mt-4 bg-slate-700/50 inline-block px-4 py-2 rounded-lg mx-auto"></div>
+                                </div>
+
+                                <div id="match-options" class="space-y-3">
+                                    <!-- Options injected -->
+                                </div>
+
+                            </div>
+                            
+                            <div id="match-feedback" class="h-12 mt-8 text-center font-bold text-xl flex items-center justify-center"></div>
+
+                            <div class="flex justify-center mt-4">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others to prevent clutter
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        t.className = 'grammar-toggle font-bold text-sm px-2';
+                        if(t.dataset.type === 'place') t.classList.add('state-place');
+                        else if(t.dataset.type === 'time') t.classList.add('state-time');
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = 'grammar-toggle';
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: CHOOSE PREPOSITION
+        // ==========================================
+
+        const chooseData = [
+            { q: "We are meeting ______ the library.", opts: ["in", "on", "at"], ans: 2, exp: "'At' is used for specific daily life places like a library." },
+            { q: "The concert is ______ July 15th.", opts: ["in", "on", "at"], ans: 1, exp: "Use 'on' for specific dates." },
+            { q: "My apartment is ______ the third floor.", opts: ["in", "on", "at"], ans: 1, exp: "Use 'on' for specific floors of a building." },
+            { q: "He was born ______ 1995.", opts: ["in", "on", "at"], ans: 0, exp: "Use 'in' for years." },
+            { q: "I have a meeting ______ three-thirty.", opts: ["in", "on", "at"], ans: 2, exp: "Use 'at' for specific clock times." },
+            { q: "They live ______ Paris.", opts: ["in", "on", "at"], ans: 0, exp: "Use 'in' for cities and countries." },
+            { q: "The bakery is ______ Maple Road.", opts: ["in", "on", "at"], ans: 1, exp: "Use 'on' for names of streets, roads, or avenues." },
+            { q: "I like to read ______ the evening.", opts: ["in", "on", "at"], ans: 0, exp: "Use 'in' for parts of the day (morning, afternoon, evening)." },
+            { q: "We go hiking ______ the weekend.", opts: ["in", "on", "at"], ans: 1, exp: "Use 'on' for the weekend (North American usage)." },
+            { q: "She works ______ home on Fridays.", opts: ["at", "in", "the"], ans: 0, exp: "Use 'at home' (omission of 'the')." },
+            { q: "I usually sleep ______ night.", opts: ["in", "on", "at"], ans: 2, exp: "The word 'night' takes the preposition 'at'." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            blank.textContent = q.opts[idx];
+            blank.classList.add('filled');
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-8b5cf6', 'hover:bg-faf5ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-violet-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS (Typing)
+        // ==========================================
+
+        const fillData = [
+            { q: "The pen is ___ the glass.", hint: "inside", ans: ["in", "inside"] },
+            { q: "He works ___ 9:00 to 5:00.", hint: "starting boundary", ans: ["from"] },
+            { q: "The store is open ___ 10:00 PM.", hint: "up to a boundary", ans: ["until", "till"] },
+            { q: "___ is the bathroom?", hint: "asking for a place", ans: ["where"] },
+            { q: "___ is the concert?", hint: "asking for time", ans: ["when"] },
+            { q: "The cat is hiding ___ the table.", hint: "lower position", ans: ["under", "below", "beneath"] },
+            { q: "I will arrive at ___ 8:00.", hint: "approximate time", ans: ["about", "around"] },
+            { q: "The teacher stands ___ of the class.", hint: "ahead / foreground", ans: ["in front", "in front of"] },
+            { q: "My desk is ___ to the window.", hint: "directly beside", ans: ["next"] },
+            { q: "The library is ___ from the bank.", hint: "facing opposite", ans: ["across"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 5);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace('___', `<span id="fill-target" class="text-violet-600 border-b-2 border-violet-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-hint').textContent = `Hint: ${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase();
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns || "___";
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-violet-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-hint').classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 3: RULE MATCHER
+        // ==========================================
+
+        const matchData = [
+            { cat: "Cities and Countries", ex: "Paris, France", ans: "In" },
+            { cat: "Specific Clock Times", ex: "3:30, 8:00", ans: "At" },
+            { cat: "Specific Dates", ex: "June 29", ans: "On" },
+            { cat: "Specific Street Addresses", ex: "39 Main Street", ans: "At" },
+            { cat: "Names of Streets/Roads", ex: "Park Street", ans: "On" },
+            { cat: "Years and Months", ex: "2015, May", ans: "In" },
+            { cat: "Days of the Week", ex: "Sunday", ans: "On" },
+            { cat: "Rooms / Enclosed Spaces", ex: "Room 215", ans: "In" },
+            { cat: "The word 'night'", ex: "late ___ night", ans: "At" },
+            { cat: "Specific Floors", ex: "The 2nd Floor", ans: "On" }
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 6);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-category').textContent = q.cat;
+            document.getElementById('match-example').textContent = `Example: ${q.ex}`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            const options = ["At", "On", "In"]; // Fixed options for this exercise
+            
+            options.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-bold py-4 px-6 rounded-2xl text-xl w-full text-left shadow-sm flex justify-between items-center border-2 border-slate-200';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200"></i>`;
+                btn.onclick = () => matchSelect(opt, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-12 mt-8 text-center font-bold text-xl flex items-center justify-center opacity-0';
+        }
+
+        function matchSelect(selectedOpt, btn) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === q.ans;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-8b5cf6', 'hover:bg-faf5ff');
+                const icon = allBtns[i].querySelector('i');
+                const textVal = allBtns[i].querySelector('span').textContent;
+                
+                if(textVal === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-2xl';
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-2xl';
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0', 'text-green-500', 'text-red-500');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-500');
+                fb.innerHTML = `Correct Match!`;
+            } else {
+                fb.classList.add('text-red-500');
+                fb.innerHTML = `Remember the rule!`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 1200); // Auto advance slightly faster
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-category').innerHTML = `<i class="fa-solid fa-check-double text-5xl text-violet-400 mb-2 block"></i> ${matchCorrects}/${matchPool.length}`;
+            document.getElementById('match-example').textContent = "Classification Complete!";
+            document.getElementById('match-options').innerHTML = '';
+            document.getElementById('match-feedback').className = 'h-12 mt-8 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+
+        // Web Speech API Audio Summary
+        const synth = window.speechSynthesis;
+        let currentUtterance = null;
+        let voices = [];
+
+        function populateVoiceList() {
+            if (!synth) return;
+            voices = synth.getVoices().filter(voice => voice.lang.includes('en'));
+            const voiceSelect = document.getElementById('tts-voice-select');
+            if (!voiceSelect) return;
+            voiceSelect.innerHTML = '';
+            
+            let defaultVoiceIndex = 0;
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-name', voice.name);
+                if (voice.default || voice.name.includes('Google') || voice.name.includes('Natural')) {
+                    defaultVoiceIndex = index;
+                }
+                voiceSelect.appendChild(option);
+            });
+            if (voiceSelect.options.length > 0) {
+                voiceSelect.selectedIndex = defaultVoiceIndex;
+            }
+        }
+
+        if (synth && synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
+        }
+
+        function toggleAudioSummary() {
+            if (!synth) return;
+            const icon = document.getElementById('tts-icon');
+            const text = document.getElementById('tts-text');
+
+            if (synth.speaking || synth.pending) {
+                synth.cancel();
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+                return;
+            }
+
+            const summaryPrompt = "Welcome to the Prepositions Masterclass! Master the core prepositions 'in', 'on', and 'at' for both place and time. Use 'at' for specific times and exact locations, 'on' for days, dates, and surface areas, and 'in' for months, years, centuries, and enclosed spaces!";
+
+            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
+            window._ttsUtterance = currentUtterance;
+            
+            const selectedOption = document.getElementById('tts-voice-select')?.selectedOptions[0];
+            if (selectedOption && selectedOption.hasAttribute('data-name')) {
+                const selectedVoice = selectedOption.getAttribute('data-name');
+                const voice = voices.find(v => v.name === selectedVoice);
+                if (voice) {
+                    currentUtterance.voice = voice;
+                    currentUtterance.lang = voice.lang;
+                }
+            } else {
+                currentUtterance.lang = 'en-US';
+            }
+
+            currentUtterance.onstart = () => {
+                if (icon) icon.className = "fa-solid fa-square";
+                if (text) text.textContent = "Stop";
+            };
+
+            currentUtterance.onend = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+            };
+
+            currentUtterance.onerror = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+            };
+
+            synth.speak(currentUtterance);
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+            populateVoiceList();
+        };
+
+    </script>
+</body>
+</html>

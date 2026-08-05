@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wh- Questions Masterclass</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #06b6d4; /* Cyan 500 */
+            color: #0891b2; /* Cyan 600 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Grammar Highlights */
+        .highlight-subj { color: #10b981; font-weight: 700; } /* Emerald */
+        .highlight-obj { color: #f43f5e; font-weight: 700; } /* Rose */
+        .highlight-aux { color: #8b5cf6; font-weight: 700; } /* Violet */
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-active {
+            background-color: #cffafe; color: #0891b2; border-color: #06b6d4; border-style: solid;
+        }
+        .grammar-toggle.state-warn {
+            background-color: #fee2e2; color: #e11d48; border-color: #f43f5e; border-style: solid;
+        }
+
+        /* Subtabs */
+        .subtab-active {
+            background-color: #06b6d4; color: white; box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        /* Exercise Styles */
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #06b6d4; background-color: #ecfeff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 80px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 8px; vertical-align: bottom; text-align: center; color: #0891b2; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #06b6d4; background-color: #ecfeff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-cyan-400 to-blue-500 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-circle-question text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Wh- Questions Masterclass</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Wh- Questions</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Information Questions</h2>
+                <p class="text-lg text-slate-600">Wh- questions ask for specific information, not just a "yes" or "no". Discover the rules for structuring questions with the verb <span class="font-bold text-cyan-600">be</span>, <span class="highlight-aux">auxiliaries</span>, and the crucial difference between <span class="highlight-subj">Subject</span> and <span class="highlight-obj">Object</span> questions.</p>
+                <div class="mt-4 inline-flex items-center gap-2 bg-cyan-50 text-cyan-700 px-4 py-2 rounded-full text-sm font-semibold border border-cyan-200 shadow-sm mb-6">
+                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
+                    Tap the dashed grammar words in the examples for rule breakdowns!
+                </div>
+
+                <!-- Audio Summary Player -->
+                <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-slate-200 text-left max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-cyan-100 text-cyan-700 p-3 rounded-xl">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Audio Summary</h4>
+                            <p class="text-xs text-slate-500">Listen to a short spoken overview</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2 focus:ring-cyan-500 focus:border-cyan-500 font-medium max-w-[150px] truncate">
+                            <option value="">Loading voices...</option>
+                        </select>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all whitespace-nowrap">
+                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Basic Structures Grid -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <!-- With Verb Be -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-indigo-500 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-equals text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">With the Verb "Be"</h3>
+                        </div>
+                        <p class="text-indigo-100 font-medium">No 'do/does/did' needed!</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Rule: Invert Subject and Be</h4>
+                            <p class="text-sm text-slate-600 mb-3">When <strong>be</strong> is the main verb, simply move it before the subject.</p>
+                            <ul class="space-y-4 text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-600">Present (am/is/are):</strong><br>
+                                    <span class="text-lg mt-1 inline-block">Where <span class="grammar-toggle" data-exp="Be comes before subject">is the library</span>?</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-600">Past (was/were):</strong><br>
+                                    <span class="text-lg mt-1 inline-block">When <span class="grammar-toggle" data-exp="Past Be before subject">were you</span> in Norway?</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-sm text-amber-800">
+                            <strong><i class="fa-solid fa-triangle-exclamation mr-1"></i> Contraction Rule:</strong> You can contract <em>Where is</em> to <em>Where's</em>, but <strong>never</strong> contract <em>Where are</em> in writing.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- With Other Verbs -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-cyan-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-gears text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">With Other Verbs</h3>
+                        </div>
+                        <p class="text-cyan-100 font-medium">You MUST use an auxiliary verb.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Rule: Add Do / Does / Did</h4>
+                            <p class="text-sm text-slate-600 mb-3">For all verbs except "be", you need a helping verb. The main verb reverts to the base form.</p>
+                            <ul class="space-y-4 text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-cyan-600">Simple Present:</strong><br>
+                                    <span class="text-lg mt-1 inline-block">Why <span class="grammar-toggle" data-exp="Auxiliary (does) + Subject (he) + Base Verb (live)">does he live</span> in Miami?</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-cyan-600">Simple Past:</strong><br>
+                                    <span class="text-lg mt-1 inline-block">What <span class="grammar-toggle" data-exp="Past Auxiliary (did) + Subject + Base Verb">did she buy</span>?</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-cyan-600">Progressive Tenses:</strong><br>
+                                    <span class="text-lg mt-1 inline-block">Where <span class="grammar-toggle" data-exp="Be (aux) + Subject + Verb-ing">are they going</span>?</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subject vs Object Questions (CRITICAL RULE) -->
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative">
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-scale-balanced text-emerald-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">The Big Rule: Subject vs. Object Questions</h3>
+                    </div>
+                    
+                    <p class="text-slate-300 text-lg mb-8 max-w-3xl">
+                        When using <strong>Who</strong> or <strong>What</strong>, the grammar changes completely depending on whether the Wh- word is the <em>doer</em> of the action (Subject) or the <em>receiver</em> (Object).
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Subject Questions -->
+                        <div class="bg-emerald-900/30 p-6 rounded-2xl border border-emerald-700/50">
+                            <h4 class="font-bold text-emerald-400 text-xl mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-user-check"></i> Subject Questions
+                            </h4>
+                            <p class="text-sm text-emerald-100/70 mb-4 border-b border-emerald-700/50 pb-3">
+                                Asking about the doer. <strong>DO NOT use do/does/did!</strong> Conjugate the verb directly as a 3rd-person singular.
+                            </p>
+                            <div class="space-y-4 text-lg">
+                                <div class="bg-emerald-950/50 p-3 rounded-xl shadow-inner">
+                                    <span class="text-emerald-300 font-bold text-sm uppercase block mb-1">Present</span>
+                                    Who <span class="grammar-toggle state-active border-emerald-400 text-emerald-200 font-bold" data-exp="No auxiliary! Add -s to verb.">knows</span> the answer?
+                                </div>
+                                <div class="bg-emerald-950/50 p-3 rounded-xl shadow-inner">
+                                    <span class="text-emerald-300 font-bold text-sm uppercase block mb-1">Past</span>
+                                    What <span class="grammar-toggle state-active border-emerald-400 text-emerald-200 font-bold" data-exp="Directly use past tense verb.">happened</span> to you?
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Object Questions -->
+                        <div class="bg-rose-900/30 p-6 rounded-2xl border border-rose-700/50">
+                            <h4 class="font-bold text-rose-400 text-xl mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-user-tag"></i> Object Questions
+                            </h4>
+                            <p class="text-sm text-rose-100/70 mb-4 border-b border-rose-700/50 pb-3">
+                                Asking about the receiver. <strong>Normal rules apply.</strong> You MUST use an auxiliary verb (do/does/did) and a subject.
+                            </p>
+                            <div class="space-y-4 text-lg">
+                                <div class="bg-rose-950/50 p-3 rounded-xl shadow-inner">
+                                    <span class="text-rose-300 font-bold text-sm uppercase block mb-1">Present</span>
+                                    Who <span class="grammar-toggle state-warn border-rose-400 text-rose-200 font-bold" data-exp="Auxiliary (do) + Subject (you) + Base (see)">do you see</span>?
+                                </div>
+                                <div class="bg-rose-950/50 p-3 rounded-xl shadow-inner">
+                                    <span class="text-rose-300 font-bold text-sm uppercase block mb-1">Past</span>
+                                    What <span class="grammar-toggle state-warn border-rose-400 text-rose-200 font-bold" data-exp="Auxiliary (did) + Subject (they) + Base (do)">did they do</span>?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specific Words & Modals -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-800 border-b pb-2"><i class="fa-solid fa-wand-magic-sparkles text-cyan-500 mr-2"></i>Tricky Question Words</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-3 rounded-xl">
+                            <h4 class="font-bold text-slate-700">What ... like? <span class="font-normal text-slate-500 text-sm ml-2">(Description)</span></h4>
+                            <p class="text-sm text-slate-600 mt-1">Uses "be" to ask for a description. Do not confuse with "What does she like?" (preferences).</p>
+                            <p class="font-medium text-slate-800 mt-2">"What <strong class="text-cyan-600">is</strong> she <strong class="text-cyan-600">like</strong>?" &rarr; "She is nice."</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-xl">
+                            <h4 class="font-bold text-slate-700">Whose vs. Who's</h4>
+                            <p class="text-sm text-slate-600 mt-1"><strong>Whose</strong> asks about possession. <strong>Who's</strong> means "Who is".</p>
+                            <p class="font-medium text-slate-800 mt-2">"<strong class="text-cyan-600">Whose</strong> car is this?" <span class="text-sm text-slate-500">(Possession)</span></p>
+                            <p class="font-medium text-slate-800">"<strong class="text-cyan-600">Who's</strong> your teacher?" <span class="text-sm text-slate-500">(Identity)</span></p>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-xl">
+                            <h4 class="font-bold text-slate-700">How much / How many</h4>
+                            <ul class="text-sm text-slate-600 mt-1 space-y-1 list-disc pl-4">
+                                <li><strong>How much:</strong> Non-count nouns (water, time, homework).</li>
+                                <li><strong>How many:</strong> Plural count nouns (apples, people, books).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+                    <h3 class="text-xl font-bold text-slate-800 border-b pb-2"><i class="fa-solid fa-shield-halved text-indigo-500 mr-2"></i>Modals & Conversation</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-3 rounded-xl">
+                            <h4 class="font-bold text-slate-700">Questions with Modals</h4>
+                            <p class="text-sm text-slate-600 mt-1">Modals (can, should, would) act like auxiliaries. Place them before the subject.</p>
+                            <div class="mt-2 space-y-1 text-slate-800 font-medium">
+                                <p>Where <strong class="text-indigo-600">can we get</strong> coffee?</p>
+                                <p>What <strong class="text-indigo-600">should I bring</strong>?</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-xl">
+                            <h4 class="font-bold text-slate-700">Polite Requests</h4>
+                            <p class="text-sm text-slate-600 mt-1">Use <em>Could you</em> or <em>Would you</em> before the subject to be polite.</p>
+                            <p class="font-medium text-slate-800 mt-2">"<strong class="text-indigo-600">Could you</strong> open the door?"</p>
+                        </div>
+
+                        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200">
+                            <h4 class="font-bold text-amber-800">Conversational Rule</h4>
+                            <p class="text-sm text-amber-700 mt-1">In speech, answers to Wh- questions are rarely full sentences, and Wh- words can be used alone to ask for clarification.</p>
+                            <p class="font-medium text-amber-900 mt-2 bg-white/50 p-2 rounded">"I only sleep 4 hours." &rarr; <strong>"Why?"</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Multiple Choice
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Fill in Blanks
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-scale-balanced mr-2"></i>Subject vs Object
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: CHOOSE THE STRUCTURE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Choose the Correct Word or Structure</h3>
+                                    <p class="text-slate-500 text-sm">Select the grammatically correct option to complete the question.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-cyan-100 text-cyan-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Complete the Question</h3>
+                                    <p class="text-slate-500 text-sm">Type the missing Wh- word or auxiliary verb based on the answer provided.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-cyan-100 text-cyan-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <div class="mt-8 bg-white inline-block px-5 py-3 rounded-xl border border-slate-200 shadow-sm">
+                                    <span class="text-slate-500 font-bold text-sm uppercase block mb-1">Response:</span>
+                                    <span id="fill-response" class="text-lg font-medium text-indigo-600"></span>
+                                </div>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/20 transition-all" placeholder="Type answer here..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: SUBJECT VS OBJECT MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Subject or Object Question?</h3>
+                                <p class="text-slate-500 mt-2">Does the Wh- word ask about the <strong>doer</strong> (Subject) or the <strong>receiver</strong> (Object)? Look at the grammar structure!</p>
+                            </div>
+                            
+                            <div class="max-w-2xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Question</div>
+                                    <div id="match-question" class="text-3xl md:text-4xl font-bold mt-6 mb-2"></div>
+                                </div>
+
+                                <div id="match-options" class="grid grid-cols-2 gap-4">
+                                    <button onclick="matchSelect('Subject')" class="opt-btn pop-out bg-emerald-50 border-2 border-emerald-200 text-emerald-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2">
+                                        <i class="fa-solid fa-user-check text-3xl"></i>
+                                        <span>Subject Question</span>
+                                    </button>
+                                    <button onclick="matchSelect('Object')" class="opt-btn pop-out bg-rose-50 border-2 border-rose-200 text-rose-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2">
+                                        <i class="fa-solid fa-user-tag text-3xl"></i>
+                                        <span>Object Question</span>
+                                    </button>
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset all others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        // Determine class based on state (active vs warn for obj/subj)
+                        if (t.dataset.baseClass.includes('state-warn')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-warn';
+                        } else if (t.dataset.baseClass.includes('state-active')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-active';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: CHOOSE STRUCTURE
+        // ==========================================
+
+        const chooseData = [
+            { q: "Who ______ to the party last night?", opts: ["did you invite", "you invited"], ans: 0, exp: "Object question: Requires auxiliary 'did' + subject + base verb." },
+            { q: "______ painted this beautiful picture?", opts: ["Who did", "Who"], ans: 1, exp: "Subject question: Do not use 'did'. Conjugate the verb directly." },
+            { q: "______ jacket is sitting on that chair?", opts: ["Who's", "Whose"], ans: 1, exp: "Use 'Whose' to ask about possession (who owns the jacket)." },
+            { q: "What ______ your new teacher like?", opts: ["is", "does"], ans: 0, exp: "Using 'be' (is) asks for a description (What is she like?). 'Does' would ask about preferences." },
+            { q: "How ______ milk is left in the fridge?", opts: ["many", "much"], ans: 1, exp: "Use 'much' for non-count nouns (milk)." },
+            { q: "______ is the closest train station?", opts: ["Where", "When"], ans: 0, exp: "Use 'Where' to ask about location." },
+            { q: "Who ______ the answer to this question?", opts: ["does know", "knows"], ans: 1, exp: "Subject question: No auxiliary needed. Use the 3rd person singular form (-s)." },
+            { q: "Where ______ we get some good pizza around here?", opts: ["can", "do can"], ans: 0, exp: "Modals (can) act as the auxiliary. Do not use 'do' with a modal." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 5);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            // Format question with blank
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            // Update Blank
+            const blank = document.getElementById('choose-blank');
+            blank.textContent = q.opts[idx];
+            blank.classList.add('filled');
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-06b6d4', 'hover:bg-ecfeff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-cyan-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS
+        // ==========================================
+
+        const fillData = [
+            { q: "Where [___] he live?", resp: "In Miami.", ans: ["does"] },
+            { q: "[___] called you yesterday?", resp: "My boss did.", ans: ["who"] },
+            { q: "How [___] time do we have left?", resp: "About 10 minutes.", ans: ["much"] },
+            { q: "[___] shoes are these?", resp: "They are mine.", ans: ["whose"] },
+            { q: "What [___] you do last weekend?", resp: "I went hiking.", ans: ["did"] },
+            { q: "Who [___] calling? (Right now)", resp: "Alice and Tina are.", ans: ["is"] }, // Present progressive subject question uses singular 'is'
+            { q: "Where [___] we go for dinner?", resp: "We should go to the diner.", ans: ["should", "can"] },
+            { q: "[___] is the test?", resp: "Next Friday.", ans: ["when"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 5);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            document.getElementById('fill-response').parentElement.classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            // Format question
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-cyan-600 border-b-2 border-cyan-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-response').textContent = `"${q.resp}"`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase();
+            if(!userAns) return; // ignore empty
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-cyan-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-response').parentElement.classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 3: SUBJECT VS OBJECT MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "Who lives on that farm?", ans: "Subject", exp: "Notice the verb 'lives' is conjugated directly after Who. Who is the doer." },
+            { q: "Who did you see at the store?", ans: "Object", exp: "Notice the auxiliary 'did' and subject 'you'. Who is the receiver." },
+            { q: "What happened to your car?", ans: "Subject", exp: "Notice the verb 'happened' is directly attached. What is the doer." },
+            { q: "What did they do yesterday?", ans: "Object", exp: "Notice the auxiliary 'did' and subject 'they'." },
+            { q: "Who is calling?", ans: "Subject", exp: "No 'do/does/did'. Who is performing the action of calling." },
+            { q: "Who are you calling?", ans: "Object", exp: "'You' is the subject making the call. 'Who' is receiving it." },
+            { q: "Who went with you?", ans: "Subject", exp: "The verb 'went' follows directly. Who is the doer." },
+            { q: "Who will you go with?", ans: "Object", exp: "Notice the subject 'you' is between 'will' and 'go'." }
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 6);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            
+            // reset options state
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.remove('hidden');
+            }
+            
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').textContent = `"${q.q}"`;
+            
+            // Reset buttons
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'shake-err', 'scale-95');
+                // restore original bg colors safely
+                if(btn.textContent.includes('Subject')) {
+                    btn.className = 'opt-btn pop-out bg-emerald-50 border-2 border-emerald-200 text-emerald-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2';
+                } else {
+                    btn.className = 'opt-btn pop-out bg-rose-50 border-2 border-rose-200 text-rose-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2';
+                }
+            }
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedAns) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedAns === q.ans;
+            if(isCorrect) matchCorrects++;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.disabled = true;
+                btn.classList.remove('pop-out');
+                
+                const isBtnSubject = btn.textContent.includes('Subject');
+                const isSelectedBtn = (selectedAns === 'Subject' && isBtnSubject) || (selectedAns === 'Object' && !isBtnSubject);
+                const isCorrectBtn = (q.ans === 'Subject' && isBtnSubject) || (q.ans === 'Object' && !isBtnSubject);
+                
+                if (isCorrectBtn) {
+                    btn.classList.add('border-green-500', 'bg-green-100');
+                    if(isBtnSubject) btn.classList.replace('text-emerald-800', 'text-green-800');
+                    else btn.classList.replace('text-rose-800', 'text-green-800');
+                } else {
+                    btn.classList.add('opacity-50', 'scale-95');
+                }
+
+                if (isSelectedBtn && !isCorrect) {
+                     btn.classList.add('shake-err', 'border-red-500', 'bg-red-100');
+                     btn.classList.remove('opacity-50'); // Keep visible to show error
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Correct!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Oops!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); // 3 seconds to read the explanation before moving on
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-cyan-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            // Hide buttons
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.add('hidden');
+            }
+
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // Web Speech API Audio Summary
+        const synth = window.speechSynthesis;
+        let currentUtterance = null;
+        let voices = [];
+
+        function populateVoiceList() {
+            if (!synth) return;
+            voices = synth.getVoices().filter(voice => voice.lang.includes('en'));
+            const voiceSelect = document.getElementById('tts-voice-select');
+            if (!voiceSelect) return;
+            voiceSelect.innerHTML = '';
+            
+            let defaultVoiceIndex = 0;
+            voices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-name', voice.name);
+                if (voice.default || voice.name.includes('Google') || voice.name.includes('Natural')) {
+                    defaultVoiceIndex = index;
+                }
+                voiceSelect.appendChild(option);
+            });
+            if (voiceSelect.options.length > 0) {
+                voiceSelect.selectedIndex = defaultVoiceIndex;
+            }
+        }
+
+        if (synth && synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
+        }
+
+        function toggleAudioSummary() {
+            if (!synth) return;
+            const icon = document.getElementById('tts-icon');
+            const text = document.getElementById('tts-text');
+
+            if (synth.speaking || synth.pending) {
+                synth.cancel();
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+                return;
+            }
+
+            const summaryPrompt = "Welcome to the Wh- Questions Masterclass! Learn how to form information questions using 'who', 'what', 'where', 'when', 'why', and 'how'. Remember the standard question order: Question word, auxiliary verb 'do' or 'does', subject, and main verb. Watch out for subject questions like 'Who called you?', which do not use auxiliary verbs!";
+
+            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
+            window._ttsUtterance = currentUtterance;
+            
+            const selectedOption = document.getElementById('tts-voice-select')?.selectedOptions[0];
+            if (selectedOption && selectedOption.hasAttribute('data-name')) {
+                const selectedVoice = selectedOption.getAttribute('data-name');
+                const voice = voices.find(v => v.name === selectedVoice);
+                if (voice) {
+                    currentUtterance.voice = voice;
+                    currentUtterance.lang = voice.lang;
+                }
+            } else {
+                currentUtterance.lang = 'en-US';
+            }
+
+            currentUtterance.onstart = () => {
+                if (icon) icon.className = "fa-solid fa-square";
+                if (text) text.textContent = "Stop";
+            };
+
+            currentUtterance.onend = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+            };
+
+            currentUtterance.onerror = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
+            };
+
+            synth.speak(currentUtterance);
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+            populateVoiceList();
+        };
+
+    </script>
+</body>
+</html>

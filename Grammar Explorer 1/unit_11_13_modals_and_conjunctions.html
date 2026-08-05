@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 14: Education & Learning (The Future)</title>
+    <title>Units 11 & 13: Modals & Conjunctions</title>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -14,14 +14,13 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0fdf4; /* Teal 50 */
+            background-color: #f5f3ff; /* Violet 50 */
         }
         
-        /* Tab Navigation */
         .tab-active {
             border-bottom-width: 4px;
-            border-color: #0d9488; /* Teal 600 */
-            color: #0f766e; /* Teal 700 */
+            border-color: #8b5cf6; /* Violet 500 */
+            color: #6d28d9; /* Violet 700 */
             font-weight: 700;
         }
         .tab-inactive {
@@ -31,7 +30,6 @@
         }
         .tab-inactive:hover { color: #334155; border-color: #cbd5e1; }
 
-        /* Animations */
         .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -41,70 +39,65 @@
         .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .pop-out:hover:not(:disabled) {
             transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.3), 0 4px 6px -2px rgba(13, 148, 136, 0.15);
+            box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3), 0 4px 6px -2px rgba(139, 92, 246, 0.15);
         }
         
         .pulse-border { animation: pulse-border 2s infinite; }
         @keyframes pulse-border {
-            0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(13, 148, 136, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(139, 92, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
         }
 
         .interactive-group { position: relative; display: inline-block; }
         .interactive-trigger {
             cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
-            text-decoration-color: #0d9488; padding: 2px 4px; border-radius: 4px;
+            text-decoration-color: #8b5cf6; padding: 2px 4px; border-radius: 4px;
             transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
         }
         .interactive-target {
-            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
+            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent;
         }
         .interactive-active-trigger {
-            background-color: #ccfbf1; color: #0f766e; text-decoration-color: transparent;
+            background-color: #ede9fe; color: #5b21b6; font-weight: bold; text-decoration-color: transparent;
         }
         .interactive-active-target {
-            background-color: #fef08a; color: #854d0e;
+            background-color: #fef08a; color: #854d0e; font-weight: bold;
             border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
         }
 
-        /* Rule Indicator Box */
         .rule-indicator {
             position: absolute; bottom: -24px; left: 50%; transform: translateX(-50%);
-            font-size: 11px; font-weight: bold; color: #0d9488; opacity: 0;
+            font-size: 11px; font-weight: bold; color: #6d28d9; opacity: 0;
             transition: opacity 0.2s; pointer-events: none; white-space: nowrap;
             background: white; padding: 2px 8px; border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15); border: 1px solid #ccfbf1; z-index: 10;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15); border: 1px solid #ede9fe; z-index: 10;
         }
         .interactive-active-trigger .rule-indicator { opacity: 1; }
 
-        /* Sub-Tabs */
-        .subtab-active { background-color: #0d9488; color: white; box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.4); }
+        .subtab-active { background-color: #8b5cf6; color: white; box-shadow: 0 4px 6px -1px rgba(139, 92, 246, 0.4); }
         .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
         .subtab-inactive:hover { background-color: #e2e8f0; }
 
-        /* Quiz Buttons */
         .option-btn { transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0d9488; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #8b5cf6; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
         .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
         .option-disabled { opacity: 0.6; cursor: not-allowed; }
 
-        /* Identify Words */
         .click-word {
-            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
+            display: inline-block; padding: 4px 8px; margin: 2px 1px; border-radius: 6px;
             cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
         }
         .click-word:hover { background-color: #e2e8f0; }
-        .click-word.selected { background-color: #2dd4bf; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(45, 212, 191, 0.4); border-color: #0d9488; }
+        .click-word.selected { background-color: #a855f7; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(168, 85, 247, 0.4); border-color: #9333ea; }
         .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
         .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
         .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
 
-        /* Match Exercise */
         .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
-        .match-btn:hover:not(:disabled) { border-color: #2dd4bf; background-color: #f0fdfa; transform: translateY(-2px); }
-        .match-btn.selected { background-color: #ccfbf1; border-color: #0d9488; color: #0f766e; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.2); }
+        .match-btn:hover:not(:disabled) { border-color: #a855f7; background-color: #faf5ff; transform: translateY(-2px); }
+        .match-btn.selected { background-color: #f3e8ff; border-color: #9333ea; color: #7e22ce; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(147, 51, 234, 0.2); }
         .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
         .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
 
@@ -115,12 +108,11 @@
             75% { transform: translateX(-5px); }
         }
 
-        /* Fill Blanks */
         .fill-blank {
             display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
-            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #0d9488;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #8b5cf6;
         }
-        .fill-blank.filled { border-bottom-style: solid; background-color: #ccfbf1; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #0d9488; }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #f3e8ff; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #8b5cf6; }
         .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
         .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
 
@@ -131,7 +123,13 @@
     <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
         <defs>
             <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#0d9488" />
+                <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6" />
+            </marker>
+            <marker id="arrowhead-correct" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#16a34a" />
+            </marker>
+            <marker id="arrowhead-incorrect" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626" />
             </marker>
             <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
                 <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
@@ -140,15 +138,15 @@
         <g id="svg-paths-container"></g>
     </svg>
 
-    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-teal-100">
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-violet-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-teal-500 to-emerald-600 text-white p-2 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-graduation-cap text-xl w-6 text-center"></i>
+                    <div class="bg-gradient-to-br from-violet-500 to-fuchsia-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-puzzle-piece text-xl w-6 text-center"></i>
                     </div>
-                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 14: Education & Learning (The Future)</h1>
-                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">The Future</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Units 11 & 13: Modals & Conjunctions</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Modals</h1>
                 </div>
                 <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
                     <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
@@ -167,13 +165,17 @@
         <section id="section-study" class="fade-in block space-y-8">
             
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Expressing Future Time & Conditions</h2>
-                <p class="text-lg text-slate-600">Master how to discuss future plans, predictions, probability, spontaneous choices, and conditional future clauses.</p>
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Modals: Ability, Advice & Necessity</h2>
+                <p class="text-lg text-slate-600">Master how to use <strong>modals</strong> (can, could, should, must, have to) to express what people are able to do, what they should do, and what they must do.</p>
+                <div class="mt-4 inline-flex items-center gap-2 bg-violet-50 text-violet-800 px-4 py-2 rounded-full text-sm font-semibold border border-violet-200 shadow-sm mb-6">
+                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
+                    Tap the dashed words in the examples to reveal grammar rules!
+                </div>
 
-                <!-- TTS Audio Player Controls -->
-                <div class="mt-6 bg-white p-4 rounded-2xl border border-teal-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 text-left">
-                        <div class="bg-teal-100 text-teal-700 p-3 rounded-xl">
+                <!-- Audio Summary Player -->
+                <div class="bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-sm border border-slate-200 text-left max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="bg-violet-100 text-violet-700 p-3 rounded-xl">
                             <i class="fa-solid fa-volume-high text-xl"></i>
                         </div>
                         <div>
@@ -182,84 +184,97 @@
                         </div>
                     </div>
                     <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-teal-500 focus:border-teal-500 font-medium max-w-[160px] truncate">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2 focus:ring-violet-500 focus:border-violet-500 font-medium max-w-[150px] truncate">
                             <option value="">Loading voices...</option>
                         </select>
-                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-violet-600 hover:bg-violet-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all whitespace-nowrap">
                             <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
                         </button>
                     </div>
                 </div>
-
-                <div class="mt-4 inline-flex items-center gap-2 bg-teal-50 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold border border-teal-200">
-                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
-                    Tap the dashed words in the examples to reveal grammar connections!
-                </div>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
+                
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-teal-600 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-calendar-check absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Be Going To</h3>
-                        <p class="text-teal-100 font-medium relative z-10">Plans, Intentions & Certain Predictions</p>
+                    <div class="bg-violet-600 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-dumbbell absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">1. Ability & Possibility</h3>
+                        <p class="text-violet-100 font-medium relative z-10">Can, Could, Be Able To</p>
                     </div>
                     <div class="p-6 flex-grow space-y-5">
                         
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-lg text-center">
-                            I am 
-                            <span class="interactive-group">
-                                <span class="interactive-trigger text-teal-600" data-target="target-going1">going to study</span> 
-                                <span id="target-going1" class="interactive-target">tonight</span>
-                            </span>.
-                            <div class="text-sm text-slate-500 mt-2">Subject + Be (am/is/are) + going to + Base Verb</div>
-                        </div>
-
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Key Features & Rules</h4>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Time Expressions:</strong> next year, tomorrow, next week <br><span class="text-red-500 font-bold">No "the":</span> next year (NOT <s>the next year</s>)</div>
-                                <div class="bg-slate-50 border border-slate-200 p-2 rounded"><strong>Spoken English:</strong> "gonna" <br><span class="text-slate-500">Spoken only! NEVER write "gonna".</span></div>
-                                <div class="bg-slate-50 border border-slate-200 p-2 rounded sm:col-span-2"><strong>Questions:</strong> Be + Subject + going to + Base Verb? <br><span class="text-slate-500">Are you going to graduate next semester?</span></div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-1 mb-2">Can & Could</h4>
+                            <p class="text-sm text-slate-600 mb-2"><strong>Can</strong> is for Present/Future. <strong>Could</strong> is for the Past. They are always followed by the <strong>base form</strong> of the verb.</p>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
+                                <div class="interactive-group block">
+                                    <span class="interactive-trigger text-violet-600" data-target="v-base1">Can</span> you 
+                                    <span class="interactive-target font-bold" id="v-base1">swim</span>?
+                                    <span class="rule-indicator bg-white">Modal + Base Verb</span>
+                                </div>
+                                <div class="interactive-group block">
+                                    She <span class="interactive-trigger text-violet-600" data-target="v-base2">couldn't</span> 
+                                    <span class="interactive-target font-bold" id="v-base2">sleep</span> last night.
+                                    <span class="rule-indicator bg-white">Modal + Base Verb</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="bg-amber-50 p-3 rounded-xl border border-amber-200 text-sm">
-                            <h4 class="font-bold text-amber-800 mb-1">Subject vs. Object Wh- Questions</h4>
-                            <p class="text-amber-900"><strong>Subject:</strong> Who is going to help? (No word order change)</p>
-                            <p class="text-amber-900"><strong>Object:</strong> Who are you going to ask? (Invert Be & Subject)</p>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-1 mb-2">Be Able To</h4>
+                            <p class="text-sm text-slate-600 mb-2">Has the exact same meaning as *can*, but you conjugate the verb <em>be</em>.</p>
+                            <div class="bg-violet-50 p-3 rounded-xl border border-violet-100">
+                                <strong>Present:</strong> He <em>is able to</em> work. <br>
+                                <strong>Past:</strong> They <em>were able to</em> finish.
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-1 mb-2">Know How To vs. Can</h4>
+                            <ul class="text-sm space-y-2 text-slate-700">
+                                <li><strong class="text-indigo-600">Know how to:</strong> Used for skills acquired through practice. (e.g., <em>"I know how to play piano"</em>). Requires do/does for negatives.</li>
+                                <li><strong class="text-indigo-600">Can:</strong> Used for general ability not requiring practice. (e.g., <em>"I can open the door for you"</em>).</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-emerald-600 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-plane-departure absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Present Progressive for Future</h3>
-                        <p class="text-emerald-100 font-medium relative z-10">Fixed Arrangements & Scheduled Events</p>
+                    <div class="bg-fuchsia-600 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-user-doctor absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">2. Advice & Permission</h3>
+                        <p class="text-fuchsia-100 font-medium relative z-10">Should, May, Can</p>
                     </div>
                     <div class="p-6 flex-grow space-y-6">
                         
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-lg text-center">
-                            She is 
-                            <span class="interactive-group">
-                                <span class="interactive-trigger text-emerald-600" data-target="target-prog1">flying</span> 
-                                to Paris <span id="target-prog1" class="interactive-target">next Tuesday</span>
-                            </span>.
-                            <div class="text-sm text-slate-500 mt-2">Requires a future time clue to show it's not happening right now!</div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Giving Advice (Should)</h4>
+                            <p class="text-sm text-slate-600 mb-2">Use <strong>should</strong> or <strong>shouldn't</strong> to give advice. Like all modals, use the base verb.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <div class="interactive-group block">
+                                    You <span class="interactive-trigger text-fuchsia-600" data-target="v-adv">should</span> 
+                                    <span class="interactive-target font-bold" id="v-adv">rest</span> today.
+                                    <span class="rule-indicator">Advice + Base Verb</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div>
-                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Common Movement/Transition Verbs</h4>
-                            <div class="flex flex-wrap gap-1.5 text-xs">
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">arrive</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">leave</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">fly</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">drive</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">meet</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">stay</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">visit</span>
-                                <span class="bg-emerald-50 border border-emerald-200 text-emerald-800 px-2 py-1 rounded">come</span>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Asking for Permission</h4>
+                            <div class="space-y-3">
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 border-l-4 border-l-emerald-500">
+                                    <div class="text-xs font-bold text-emerald-600 uppercase mb-1">Standard (Can)</div>
+                                    <div class="text-sm">"<strong>Can</strong> I leave early?" &rarr; "Yes, you <strong>can</strong>."</div>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 border-l-4 border-l-purple-500">
+                                    <div class="text-xs font-bold text-purple-600 uppercase mb-1">Polite/Formal (May / Could)</div>
+                                    <div class="text-sm mb-1">"<strong>May</strong> I sit here?" (Formal)</div>
+                                    <div class="text-sm">"<strong>Could</strong> I sit here?" (Polite)</div>
+                                    <div class="bg-red-50 text-red-800 text-xs p-2 mt-2 rounded">
+                                        <i class="fa-solid fa-triangle-exclamation"></i> Do NOT use <em>could</em> in the short answer. (Say: "Yes, you can", not "Yes, you could.")
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -271,71 +286,102 @@
                 
                 <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
                     <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-                        <i class="fa-solid fa-wand-magic-sparkles text-8xl"></i>
+                        <i class="fa-solid fa-gavel text-8xl"></i>
                     </div>
-                    <div class="p-8 relative z-10 h-full flex flex-col">
-                        <div class="flex items-center gap-3 mb-6">
-                            <i class="fa-solid fa-bolt text-teal-400 text-3xl"></i>
-                            <h3 class="text-3xl font-bold text-teal-400">3. Will vs. May / Might</h3>
-                        </div>
+                    <div class="p-6 relative z-10 flex-grow space-y-6">
                         
-                        <div class="grid grid-cols-2 gap-4 text-sm bg-slate-800/80 p-4 rounded-xl border border-slate-600 mb-6">
-                            <div>
-                                <h4 class="font-bold text-teal-300 border-b border-slate-600 pb-1 mb-2">Will (Certainty)</h4>
-                                <ul class="space-y-1 text-slate-300 text-xs">
-                                    <li>• Predictions / Certainty</li>
-                                    <li>• Promises / Offers</li>
-                                    <li>• Spontaneous decisions</li>
-                                    <li>• Negative: <strong>won't</strong></li>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-400 text-2xl"></i>
+                                <h3 class="text-2xl font-bold text-amber-400">3. Necessity & Rules</h3>
+                            </div>
+                            <p class="text-slate-300 font-medium">Have To & Must</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-600">
+                                <h4 class="font-bold text-white mb-2 border-b border-slate-600 pb-1">Have To / Has To</h4>
+                                <p class="text-sm text-slate-300 mb-2">States that something is necessary (similar to <em>need to</em>).</p>
+                                <ul class="text-sm text-slate-300 space-y-2">
+                                    <li><strong class="text-amber-400">Questions:</strong> Use <em>Do/Does</em> (e.g., "Do you have to work?")</li>
+                                    <li><strong class="text-amber-400">Negative:</strong> Use <em>Don't/Doesn't</em> to mean "not necessary" (e.g., "She doesn't have to go.")</li>
+                                    <li><strong class="text-amber-400">Past:</strong> "Had to" / "Didn't have to"</li>
                                 </ul>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-amber-300 border-b border-slate-600 pb-1 mb-2">May / Might (Possibility)</h4>
-                                <ul class="space-y-1 text-slate-300 text-xs">
-                                    <li>• Present/Future possibilities</li>
-                                    <li>• Unsure outcomes</li>
-                                    <li>• Negative: <strong>might not / may not</strong> (No contractions!)</li>
-                                </ul>
+                            
+                            <div class="bg-red-900/30 p-4 rounded-xl border border-red-500/30">
+                                <h4 class="font-bold text-red-400 mb-1">Must</h4>
+                                <p class="text-sm text-slate-300">Stronger than <em>have to</em>. Typically used for strict rules or laws.</p>
+                                <div class="mt-2 text-sm">"You <strong>must</strong> wear a seatbelt."</div>
                             </div>
                         </div>
 
-                        <div class="bg-teal-900/30 p-4 rounded-xl border border-teal-500/30 text-xs text-slate-300 space-y-2 mt-auto">
-                            <div><strong>Adverb "Probably" Placement:</strong></div>
-                            <div>• Affirmative: After 'will' &rarr; <em>"It will <strong>probably</strong> rain."</em></div>
-                            <div>• Negative: Before 'won't' &rarr; <em>"We <strong>probably</strong> won't go."</em></div>
-                        </div>
                     </div>
                 </div>
 
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-cyan-600 p-6 text-white flex items-center gap-3">
-                        <i class="fa-solid fa-diagram-project text-2xl opacity-80"></i>
-                        <h3 class="text-2xl font-bold">4. If & Time Clauses</h3>
+                    <div class="bg-indigo-600 p-6 text-white flex items-center gap-3">
+                        <i class="fa-solid fa-link text-2xl opacity-80"></i>
+                        <h3 class="text-2xl font-bold">4. Conjunctions</h3>
                     </div>
                     
-                    <div class="p-6 flex-grow space-y-6">
+                    <div class="p-6 flex flex-col justify-center space-y-5 flex-grow">
                         
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm mb-2">If Clause (Condition & Result)</h4>
-                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-sm space-y-2">
-                                <div class="interactive-group block">
-                                    <span class="interactive-trigger text-cyan-600" data-target="if-clause1">If I pass the exam</span>, 
-                                    I <span id="if-clause1" class="interactive-target">will apply</span> for college.
-                                </div>
-                                <div class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> Use <strong>Simple Present</strong> in the 'If' clause, and <strong>Will / Going to / May / Might</strong> in the main clause!</div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-sm font-bold text-indigo-800">
+                            <div class="bg-indigo-50 py-2 rounded-lg border border-indigo-100">AND (Adds info)</div>
+                            <div class="bg-indigo-50 py-2 rounded-lg border border-indigo-100">BUT (Contrast)</div>
+                            <div class="bg-indigo-50 py-2 rounded-lg border border-indigo-100">SO (Result)</div>
+                        </div>
+                        
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <h4 class="font-bold text-indigo-700 text-lg mb-2">Shortening Contrasts</h4>
+                            <p class="text-sm text-slate-700 mb-3">To avoid repeating words, the clause after <strong>but</strong> is often shortened if the verb remains the same.</p>
+                            
+                            <div class="interactive-group block bg-white p-3 rounded border border-slate-200">
+                                I can swim, <span class="interactive-trigger text-indigo-600" data-target="def-but">but</span> 
+                                <span id="def-but" class="interactive-target text-slate-800 font-bold">he can't.</span>
+                                <span class="rule-indicator">Shortened to avoid saying "swim" twice</span>
+                            </div>
+
+                            <div class="bg-red-50 p-2 mt-3 rounded border border-red-100 text-xs text-red-800">
+                                <i class="fa-solid fa-ban mr-1"></i> Exception: Do not shorten if the verbs are different (e.g., "I'm studying, but he is working.")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-cyan-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-hand-holding-heart text-2xl opacity-80"></i>
+                    <h3 class="text-2xl font-bold">5. Polite Requests & Offers</h3>
+                </div>
+                <div class="p-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-1">Making Requests</h4>
+                            <p class="text-sm text-slate-600">Asking someone else to do something.</p>
+                            <ul class="text-sm space-y-2 bg-cyan-50 p-3 rounded-lg border border-cyan-100">
+                                <li><strong>Can you...?</strong> (Standard)</li>
+                                <li><strong>Could you / Would you...?</strong> (More polite)</li>
+                            </ul>
+                            <div class="text-xs text-slate-500 bg-slate-50 p-2 rounded">
+                                To refuse politely, use <strong>can't</strong> + explanation. "I'm sorry, I can't. I'm busy."
                             </div>
                         </div>
 
-                        <div class="bg-orange-50 p-4 rounded-xl border border-orange-200 text-sm">
-                            <h4 class="font-bold text-orange-800 mb-2">Future Time Clauses (Before, After, When)</h4>
-                            <p class="text-orange-900 mb-2">Shows sequential order of future actions.</p>
-                            <ul class="space-y-1 text-xs text-slate-700 bg-white p-3 rounded-lg border border-orange-100">
-                                <li>• <strong>After / When:</strong> Introduces the 1st event.</li>
-                                <li>• <strong>Before:</strong> Introduces the 2nd event.</li>
-                                <li>• <strong>Punctuation:</strong> Use a comma if the time/if clause comes at the START.</li>
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-1">Making Offers</h4>
+                            <p class="text-sm text-slate-600">Offering to do something for someone.</p>
+                            <ul class="text-sm space-y-2 bg-cyan-50 p-3 rounded-lg border border-cyan-100">
+                                <li><strong>Can I / Could I...?</strong> (Offer your help)</li>
+                                <li><strong>Would you like...?</strong> (Offer an item/help)</li>
                             </ul>
+                            <div class="text-xs text-slate-500 bg-slate-50 p-2 rounded">
+                                Accept: "Yes, thank you." | Refuse: "No, thanks."
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -348,23 +394,23 @@
                 <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
                     
                     <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Practice Exercises</h2>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Practice</h2>
                         
                         <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
                             <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
                                 <i class="fa-solid fa-list-check mr-2"></i>Knowledge Check
                             </button>
                             <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-keyboard mr-2"></i>Form the Word
+                                <i class="fa-solid fa-keyboard mr-2"></i>Modal Selection
                             </button>
                             <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-bug mr-2"></i>Spot the Error
+                                <i class="fa-solid fa-magnifying-glass mr-2"></i>Find Errors
                             </button>
                             <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-layer-group mr-2"></i>Function Matcher
+                                <i class="fa-solid fa-layer-group mr-2"></i>Function Match
                             </button>
                             <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-diagram-project mr-2"></i>Time Clause Linker
+                                <i class="fa-solid fa-diagram-project mr-2"></i>Conjunctions
                             </button>
                         </div>
                     </div>
@@ -374,9 +420,9 @@
                         <div id="ex-container-quiz" class="block fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                    <h3 class="font-bold text-xl text-slate-800">Knowledge Check</h3>
                                 </div>
-                                <span id="quiz-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="quiz-progress" class="bg-violet-100 text-violet-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
                             </div>
                             
                             <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
@@ -402,10 +448,10 @@
                         <div id="ex-container-fill" class="hidden fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Form the Word</h3>
-                                    <p class="text-slate-500 text-sm">Select the correct future verb form or modal.</p>
+                                    <h3 class="font-bold text-xl text-slate-800">Complete the Sentence</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct modal or verb form.</p>
                                 </div>
-                                <span id="fill-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="fill-progress" class="bg-fuchsia-100 text-fuchsia-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
                             </div>
 
                             <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
@@ -431,21 +477,21 @@
                         <div id="ex-container-identify" class="hidden fade-in">
                             <div class="mb-6">
                                 <h3 class="font-bold text-xl text-slate-800">Spot the Grammar Error</h3>
-                                <p class="text-sm text-slate-600 mt-1">Click on the word or phrase that contains a <strong>grammar error</strong> in the sentence.</p>
+                                <p class="text-sm text-slate-600 mt-1">Click on the word that contains a <strong>grammar error</strong> in how the modal or conjunction is used.</p>
                             </div>
 
                             <div class="flex justify-between items-center mb-2">
                                 <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
                             </div>
 
-                            <div class="bg-white border-2 border-teal-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                            <div class="bg-white border-2 border-violet-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
                                 <div id="id-sentence-container" class="leading-loose text-lg"></div>
                             </div>
 
                             <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
 
                             <div class="flex justify-center gap-4">
-                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(13,148,136,0.4)] pop-out">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(139,92,246,0.4)] pop-out">
                                     Check Answer <i class="fa-solid fa-check ml-2"></i>
                                 </button>
                                 <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
@@ -460,10 +506,10 @@
                         <div id="ex-container-match" class="hidden fade-in">
                             <div class="text-center mb-6">
                                 <h3 class="font-bold text-xl text-slate-800">Function Matcher</h3>
-                                <p class="text-slate-500 text-sm mt-1">Connect the example sentence (left) to the correct grammatical future function (right).</p>
+                                <p class="text-slate-500 text-sm mt-1">Connect the sentence (left) to the correct grammatical function (right).</p>
                             </div>
                             
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-4 md:gap-16 max-w-3xl mx-auto mb-8 relative">
                                 <div id="match-col-left" class="space-y-3"></div>
                                 <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
                                     <div class="h-full w-px bg-slate-200"></div>
@@ -474,7 +520,7 @@
                             <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
 
                             <div class="flex justify-center mt-6">
-                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
                                     Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
@@ -482,11 +528,11 @@
 
                         <div id="ex-container-link" class="hidden fade-in">
                             <div class="mb-6 text-center">
-                                <h3 class="font-bold text-xl text-slate-800">Time Clause Linker</h3>
-                                <p class="text-sm text-slate-600 mt-1">Connect the beginning (left) to the correct ending (right) to form valid future time and conditional sentences.</p>
+                                <h3 class="font-bold text-xl text-slate-800">Conjunction Connector</h3>
+                                <p class="text-sm text-slate-600 mt-1">Connect the first half of the sentence (left) to its logical conclusion (right) using And, But, or So.</p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-4xl mx-auto mb-8 relative">
                                 <div id="link-col-left" class="space-y-4"></div>
                                 <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
                                     <div class="h-full w-px bg-slate-200"></div>
@@ -497,7 +543,7 @@
                             <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
 
                             <div class="flex justify-center mt-6">
-                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-teal-500 to-emerald-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
                                     Check Connections <i class="fa-solid fa-check ml-2"></i>
                                 </button>
                                 <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
@@ -515,7 +561,6 @@
     <script>
         function switchMainTab(tabId) {
             const isStudy = tabId === 'study';
-            
             document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
             document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
             
@@ -529,14 +574,14 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
                 if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
-                    quizInit(); fillInit(); idInit(); matchInit(); linkInit();
+                    quizInit(); matchInit(); fillInit(); idInit(); linkInit();
                 }
                 setTimeout(redrawArrows, 50);
             }
         }
 
         function switchExTab(exId) {
-            const tabs = ['quiz', 'fill', 'identify', 'match', 'link'];
+            const tabs = ['quiz', 'match', 'fill', 'identify', 'link'];
             tabs.forEach(t => {
                 const btn = document.getElementById(`ex-tab-${t}`);
                 const container = document.getElementById(`ex-container-${t}`);
@@ -605,6 +650,7 @@
             let endX = endRect.left + (endRect.width / 2);
             let endY = endRect.bottom + 2;
             
+            // Adjust for left/right columns in link exercise
             if (state !== 'study') {
                 startX = startRect.right + 2;
                 startY = startRect.top + (startRect.height / 2);
@@ -614,7 +660,7 @@
 
             let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
             
-            if(state === 'study') { color = '#0d9488'; marker = 'url(#arrowhead-study)'; }
+            if(state === 'study') { color = '#8b5cf6'; marker = 'url(#arrowhead-study)'; }
             if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
             if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
             
@@ -658,15 +704,19 @@
             return arr;
         }
 
+
+        // ==========================================
+        // EXERCISE 1: QUIZ
+        // ==========================================
         const quizData = [
-            { q: "If I pass the final exam, I _____ my studies next year.", opts: ["will continue", "will to continue", "continue"], ans: 0, exp: "Use 'will + base verb' in the main result clause of a future conditional." },
-            { q: "We are meeting the professor _____.", opts: ["next week", "the next week", "in next week"], ans: 0, exp: "Do not place the article 'the' before 'next' in future time expressions." },
-            { q: "I haven't studied, so I _____ pass the test.", opts: ["probably won't", "won't probably", "probably not"], ans: 0, exp: "The adverb 'probably' goes BEFORE 'won't' in negative statements." },
-            { q: "Look at those dark clouds! It _____ rain soon.", opts: ["is going to", "will to", "mights"], ans: 0, exp: "Use 'be going to' for clear, certain predictions based on present evidence." },
-            { q: "_____ going to give the presentation tomorrow?", opts: ["Who is", "Who", "Who does"], ans: 0, exp: "In subject Wh- questions with 'be going to', use 'Who is'." },
-            { q: "She _____ to London next Tuesday for a conference.", opts: ["is flying", "flies to", "will fly to"], ans: 0, exp: "The Present Progressive is commonly used for fixed future travel arrangements." },
-            { q: "If you _____ hard, you will succeed.", opts: ["work", "will work", "are going to work"], ans: 0, exp: "Do NOT use future 'will' inside an 'if' clause; use Simple Present." },
-            { q: "Are you coming to the party? Yes, I _____.", opts: ["am", "I'm", "will"], ans: 0, exp: "Never use contractions in affirmative short answers with 'be'." }
+            { q: "_____ you help me carry these bags?", opts: ["Could", "May", "Should"], ans: 0, exp: "'Could' is used for polite requests. 'May' is for asking permission." },
+            { q: "We can't go to the movie, _____ we can watch one at home.", opts: ["and", "but", "so"], ans: 1, exp: "'But' shows contrast or an alternative option." },
+            { q: "I know how to play the piano, but my sister _____.", opts: ["doesn't", "don't", "isn't"], ans: 0, exp: "'Know how to' uses do/does for negatives, and 'sister' takes 'doesn't'." },
+            { q: "Tomorrow is Sunday, so I _____ wake up early.", opts: ["must not", "don't have to", "shouldn't"], ans: 1, exp: "'Don't have to' means it's not necessary. 'Must not' means it's forbidden." },
+            { q: "_____ I leave early today? Yes, you can.", opts: ["Could", "May", "Should"], ans: 1, exp: "'May' is formal permission. Note: The short answer to 'May/Could' is 'Yes, you can'." },
+            { q: "He _____ speak three languages fluently.", opts: ["can", "knows how to", "is able"], ans: 0, exp: "'Can' is used for general ability. 'Is able' needs 'to', and 'knows how to' implies learned skill, but 'can' is the most direct standard fit here." },
+            { q: "You _____ wear a seatbelt; it's the law.", opts: ["must", "should", "can"], ans: 0, exp: "'Must' is used for strong rules and laws." },
+            { q: "Are you ready? I am, but they _____.", opts: ["don't", "aren't", "can't"], ans: 1, exp: "Shortened contrast matches the verb 'be' in the first clause." }
         ];
         
         let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
@@ -682,12 +732,7 @@
             quizAns = false;
             const q = activeQuiz[quizCurrent];
             document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
-            
-            let qText = q.q;
-            if(qText.includes("_____")) {
-                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-teal-600">_____</span>');
-            }
-            document.getElementById('quiz-q-text').innerHTML = qText;
+            document.getElementById('quiz-q-text').innerHTML = q.q.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-violet-600">_____</span>');
             
             const optsCon = document.getElementById('quiz-options');
             optsCon.innerHTML = '';
@@ -747,7 +792,7 @@
                 quizCurrent++; quizLoad();
             } else {
                 document.getElementById('quiz-options').innerHTML = '';
-                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-teal-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-violet-500 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
                 document.getElementById('quiz-progress').textContent = "Done";
                 document.getElementById('quiz-feedback').classList.add('hidden');
                 document.getElementById('quiz-btn-next').classList.add('hidden');
@@ -755,12 +800,15 @@
             }
         }
 
+        // ==========================================
+        // EXERCISE 2: FILL IN BLANKS
+        // ==========================================
         const fillData = [
-            { pre: "If she studies hard, she ", blank: "will pass", post: " the test.", opts: ["will pass", "will passes", "passes"] },
-            { pre: "I'm not sure, but it ", blank: "might rain", post: " later tonight.", opts: ["might rain", "mights rain", "may to rain"] },
-            { pre: "They ", blank: "probably won't", post: " attend the meeting.", opts: ["probably won't", "won't probably", "probably don't"] },
-            { pre: "When class ends, I ", blank: "am going to go", post: " home.", opts: ["am going to go", "go", "will to go"] },
-            { pre: "He ", blank: "is leaving", post: " for Chicago tomorrow morning.", opts: ["is leaving", "leaves for", "leave"] }
+            { pre: "You ", blank: "should", post: " see a doctor if you feel sick.", opts: ["must", "should", "can"] },
+            { pre: "I ", blank: "couldn't", post: " find my keys yesterday.", opts: ["can't", "couldn't", "shouldn't"] },
+            { pre: "Why ", blank: "does he have to", post: " wear a uniform?", opts: ["does he have to", "must he", "has he to"] },
+            { pre: "We are tired, ", blank: "so", post: " we are going to sleep.", opts: ["but", "and", "so"] },
+            { pre: "She ", blank: "knows how to", post: " fix computers.", opts: ["can", "knows how to", "is able"] }
         ];
 
         let activeFill = []; let fillCur = 0; let fillAns = false;
@@ -779,7 +827,7 @@
             const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
             shuffleArray([...q.opts]).forEach((opt) => {
                 const btn = document.createElement('button');
-                btn.className = 'pop-out bg-white border-2 border-teal-200 text-teal-700 font-bold py-3 px-6 rounded-xl hover:bg-teal-50 hover:border-teal-400 shadow-sm text-lg';
+                btn.className = 'pop-out bg-white border-2 border-violet-200 text-violet-700 font-bold py-3 px-6 rounded-xl hover:bg-violet-50 hover:border-violet-400 shadow-sm text-lg';
                 btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
                 optsCon.appendChild(btn);
             });
@@ -801,21 +849,21 @@
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
                 if (allBtns[i].textContent === cor) {
-                    allBtns[i].classList.remove('border-teal-200', 'text-teal-700', 'opacity-50');
+                    allBtns[i].classList.remove('border-violet-200', 'text-violet-700', 'opacity-50');
                     allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
                 }
             }
 
             if (isCor) {
                 target.classList.add('correct');
-                btn.classList.replace('border-teal-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
+                btn.classList.replace('border-violet-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
                 fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
                 fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
             } else {
                 target.classList.add('incorrect');
-                btn.classList.replace('border-teal-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
+                btn.classList.replace('border-violet-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
                 fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review modal and time clause rules.";
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect.";
             }
             
             document.getElementById('fill-btn-next').classList.remove('hidden');
@@ -826,7 +874,7 @@
             if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
             else {
                 document.getElementById('fill-options').innerHTML = '';
-                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-teal-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-fuchsia-500 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
                 document.getElementById('fill-progress').textContent = "Done";
                 document.getElementById('fill-feedback').classList.add('hidden');
                 document.getElementById('fill-btn-next').classList.add('hidden');
@@ -834,11 +882,15 @@
             }
         }
 
+        // ==========================================
+        // EXERCISE 3: IDENTIFY (Spot Errors)
+        // ==========================================
         const idData = [
-            [{w:"If"}, {w:"it"}, {w:"will rain", isErr:true}, {w:"tomorrow,"}, {w:"we"}, {w:"will"}, {w:"stay"}, {w:"inside."}],
-            [{w:"I"}, {w:"am"}, {w:"gonna", isErr:true}, {w:"visit"}, {w:"my"}, {w:"family"}, {w:"in"}, {w:"July."}],
-            [{w:"We"}, {w:"are"}, {w:"leaving"}, {w:"in"}, {w:"the next week.", isErr:true}],
-            [{w:"She"}, {w:"might"}, {w:"not to", isErr:true}, {w:"come"}, {w:"to"}, {w:"the"}, {w:"party."}]
+            [{w:"She"}, {w:"can"}, {w:"swims", isErr:true}, {w:"very"}, {w:"fast."}],
+            [{w:"They"}, {w:"must", isErr:true}, {w:"to", isErr:true}, {w:"wear"}, {w:"a"}, {w:"uniform."}],
+            [{w:"He"}, {w:"doesn't"}, {w:"knows", isErr:true}, {w:"how"}, {w:"to"}, {w:"drive."}],
+            [{w:"Could"}, {w:"I"}, {w:"leave?"}, {w:"Yes,"}, {w:"you"}, {w:"could.", isErr:true}],
+            [{w:"You"}, {w:"don't"}, {w:"must", isErr:true}, {w:"worry"}, {w:"about"}, {w:"it."}]
         ];
         
         let idCurrent = 0; let idSelected = new Set(); let idAns = false;
@@ -887,7 +939,7 @@
             fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
             
             if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You found the error."; } 
-            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `You missed the error. Watch out for 'will' in 'if' clauses, 'gonna' in writing, or 'the next week'.`; }
+            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `You missed the error. Remember: modals take the base verb, and negatives for necessity use 'don't have to'.`; }
 
             document.getElementById('id-btn-check').classList.add('hidden');
             if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
@@ -895,19 +947,23 @@
         }
         function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
 
+        // ==========================================
+        // EXERCISE 4: MATCH (Functions)
+        // ==========================================
         const matchPool = [
-            { id: 1, left: "I'll help you with that box.", right: "Offer / Decision" },
-            { id: 2, left: "I am going to study tonight.", right: "Plan / Intention" },
-            { id: 3, left: "It might rain later.", right: "Possibility" },
-            { id: 4, left: "She is flying to Paris tomorrow.", right: "Fixed Arrangement" },
-            { id: 5, left: "I promise I'll call you.", right: "Promise" }
+            { id: 1, left: "Can I help you?", right: "Polite Offer" },
+            { id: 2, left: "Could you help me?", right: "Polite Request" },
+            { id: 3, left: "You should study.", right: "Advice" },
+            { id: 4, left: "You must stop.", right: "Necessity / Rule" },
+            { id: 5, left: "I can swim.", right: "Ability" },
+            { id: 6, left: "May I leave?", right: "Permission" }
         ];
 
         let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
 
         function matchInit() {
             mSelLeft = null; mSelRight = null; matchCount = 0;
-            activeMatch = shuffleArray([...matchPool]);
+            activeMatch = shuffleArray([...matchPool]).slice(0, 5);
             
             document.getElementById('match-btn-reset').classList.add('hidden');
             document.getElementById('match-feedback').textContent = '';
@@ -925,7 +981,7 @@
 
         function createMBtn(item) {
             const btn = document.createElement('button');
-            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm';
+            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm text-sm';
             btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
             btn.onclick = () => handleMClick(btn, item);
             return btn;
@@ -971,11 +1027,14 @@
             }
         }
 
+        // ==========================================
+        // EXERCISE 5: LINK WORDS (Conjunctions)
+        // ==========================================
         const linkData = [
-            { id: 1, left: "If I pass the exam,", right: "I will apply for college." },
-            { id: 2, left: "After class finishes,", right: "we are going to go home." },
-            { id: 3, left: "When she arrives,", right: "we will start the meeting." },
-            { id: 4, left: "Before he leaves,", right: "he will sign the document." }
+            { id: 1, left: "I am ready,", right: "but he isn't." },
+            { id: 2, left: "I lost my keys,", right: "so I can't drive." },
+            { id: 3, left: "She is smart,", right: "and she is kind." },
+            { id: 4, left: "They can swim,", right: "but we can't." }
         ];
 
         let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
@@ -1005,7 +1064,7 @@
         function createLinkBtn(item) {
             const btn = document.createElement('div');
             btn.id = `link-${item.type}-${item.id}`;
-            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-teal-300 transition-all z-10 relative';
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-violet-300 transition-all z-10 relative';
             btn.textContent = item.text;
             btn.dataset.id = item.id;
             btn.dataset.type = item.type;
@@ -1017,17 +1076,17 @@
             if(linkChecked) return;
 
             if (item.type === 'start') {
-                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50');
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-violet-300', 'bg-violet-50');
                 if (linkSelLeft && linkSelLeft.id === item.id) {
                     linkSelLeft = null; // deselect
                 } else {
                     linkSelLeft = { el: btn, id: item.id };
-                    btn.classList.add('ring-4', 'ring-teal-300', 'bg-teal-50');
+                    btn.classList.add('ring-4', 'ring-violet-300', 'bg-violet-50');
                 }
             } else if (item.type === 'end' && linkSelLeft) {
                 linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
                 linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
-                linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50');
+                linkSelLeft.el.classList.remove('ring-4', 'ring-violet-300', 'bg-violet-50');
                 linkSelLeft = null;
                 redrawArrows();
             }
@@ -1035,7 +1094,7 @@
 
         function linkCheck() {
             if(linkChecked) return;
-            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50'); linkSelLeft = null; }
+            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-violet-300', 'bg-violet-50'); linkSelLeft = null; }
             
             linkChecked = true;
             let corCount = 0;
@@ -1056,7 +1115,7 @@
                 fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
             } else {
                 fb.classList.add('text-amber-600');
-                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the logical relationship between clauses.`;
+                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the logical meaning of And, But, and So.`;
             }
 
             redrawArrows();
@@ -1064,72 +1123,55 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
-        window.onload = () => { setupStudyInteractive(); };
-
-        /* Built-in TTS Web Speech API Integration */
-        let synth = window.speechSynthesis;
-        let voices = [];
+        // Web Speech API Audio Summary
+        const synth = window.speechSynthesis;
         let currentUtterance = null;
+        let voices = [];
 
         function populateVoiceList() {
-            voices = synth.getVoices();
+            if (!synth) return;
+            voices = synth.getVoices().filter(voice => voice.lang.includes('en'));
             const voiceSelect = document.getElementById('tts-voice-select');
-            
-            if (voices.length === 0) {
-                return;
-            }
-
+            if (!voiceSelect) return;
             voiceSelect.innerHTML = '';
-
+            
             let defaultVoiceIndex = 0;
-            
-            // Try to find UK Male Voice (e.g., Google UK English Male)
-            // Fallback to any UK English, then to any English voice
-            for(let i = 0; i < voices.length ; i++) {
+            voices.forEach((voice, index) => {
                 const option = document.createElement('option');
-                option.textContent = `${voices[i].name} (${voices[i].lang})`;
-                option.setAttribute('data-lang', voices[i].lang);
-                option.setAttribute('data-name', voices[i].name);
-                voiceSelect.appendChild(option);
-
-                if(voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang.startsWith('en')) {
-                    defaultVoiceIndex = i;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.setAttribute('data-name', voice.name);
+                if (voice.default || voice.name.includes('Google') || voice.name.includes('Natural')) {
+                    defaultVoiceIndex = index;
                 }
-            }
-            
+                voiceSelect.appendChild(option);
+            });
             if (voiceSelect.options.length > 0) {
                 voiceSelect.selectedIndex = defaultVoiceIndex;
             }
         }
 
-        populateVoiceList();
-        if (speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = populateVoiceList;
+        if (synth && synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
         }
 
         function toggleAudioSummary() {
+            if (!synth) return;
             const icon = document.getElementById('tts-icon');
             const text = document.getElementById('tts-text');
 
             if (synth.speaking || synth.pending) {
-                synth.cancel(); // Stop playing
-                icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                synth.cancel();
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
                 return;
             }
 
-            const summaryPrompt = "Welcome to Unit 14! In this lesson, you will learn how to express future time and conditions. Use 'be going to' for planned intentions and clear predictions. Use present progressive for fixed arrangements. Use 'will' for spontaneous decisions or promises, and 'may' or 'might' for possibilities. Remember: in 'if' clauses and future time clauses with before, after, or when, always use the simple present tense!";
-            
+            const summaryPrompt = "Welcome to Units 11 and 13! Learn modal auxiliaries like 'can', 'could', 'should', and 'must' to express ability, permission, advice, and obligation. Combine sentences smoothly using coordinating conjunctions like 'and', 'but', 'or', and 'so' to create clear compound structures!";
+
             currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
-            
-            // Prevent garbage collection bug in Chrome which causes sudden 'interrupted' errors
             window._ttsUtterance = currentUtterance;
             
-            const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
+            const selectedOption = document.getElementById('tts-voice-select')?.selectedOptions[0];
             if (selectedOption && selectedOption.hasAttribute('data-name')) {
                 const selectedVoice = selectedOption.getAttribute('data-name');
                 const voice = voices.find(v => v.name === selectedVoice);
@@ -1138,30 +1180,28 @@
                     currentUtterance.lang = voice.lang;
                 }
             } else {
-                currentUtterance.lang = 'en-US'; // Fallback
+                currentUtterance.lang = 'en-US';
             }
 
             currentUtterance.onstart = () => {
-                icon.className = "fa-solid fa-square";
-                text.textContent = "Stop";
+                if (icon) icon.className = "fa-solid fa-square";
+                if (text) text.textContent = "Stop";
             };
 
             currentUtterance.onend = () => {
-                icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
             };
 
-            currentUtterance.onerror = (e) => {
-                // Ignore intentional cancellations which trigger 'interrupted' or 'canceled'
-                if (e.error !== 'interrupted' && e.error !== 'canceled') {
-                    console.error('SpeechSynthesis Error:', e);
-                }
-                icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+            currentUtterance.onerror = () => {
+                if (icon) icon.className = "fa-solid fa-play";
+                if (text) text.textContent = "Listen";
             };
 
             synth.speak(currentUtterance);
         }
+
+        window.onload = () => { setupStudyInteractive(); populateVoiceList(); };
     </script>
 </body>
 </html>
