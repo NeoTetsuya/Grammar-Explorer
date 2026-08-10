@@ -590,12 +590,14 @@
         // ==========================================
 
         const chooseData = [
-            { q: "The girl with five brothers ______ very athletic.", opts: ["is", "are"], ans: 0, exp: "The verb agrees with the head noun 'girl', not the intervening phrase 'with five brothers'." },
-            { q: "Every day and night ______ fun.", opts: ["was", "were"], ans: 0, exp: "Subjects joined by 'and' are singular when preceded by 'each' or 'every'." },
-            { q: "Two hundred dollars ______ a lot of money to spend on shoes.", opts: ["is", "are"], ans: 0, exp: "Plural amounts of money are treated as singular units." },
-            { q: "The news about the economy ______ encouraging.", opts: ["is", "are"], ans: 0, exp: "The noun 'news' takes a singular verb." },
-            { q: "A number of students ______ waiting outside.", opts: ["is", "are"], ans: 1, exp: "'A number of' takes a plural verb, while 'The number of' takes a singular verb." },
-            { q: "Fifty percent of the students ______ the answer.", opts: ["know", "knows"], ans: 0, exp: "With percentages, the verb agrees with the noun after 'of' (students = plural)." }
+            { q: "It _____ that centenarians in Okinawa live longer due to a nutrient-dense diet and low stress.", opts: ["is believed", "believes"], ans: 0, exp: "Use Impersonal Passive ('It is believed that...') for general academic claims or reporting." },
+            { q: "The renowned surgeon is reported _____ over five thousand successful heart transplants.", opts: ["to have performed", "performing"], ans: 0, exp: "Reporting passives with subject pronouns ('He is reported to...') use the perfect infinitive ('to have performed') for earlier past actions." },
+            { q: "To prepare for the university commencement ceremony, she had her academic gown _____ by a tailor.", opts: ["altered", "alter"], ans: 0, exp: "Causative passive structure: 'have/get + object + past participle' (had her gown altered)." },
+            { q: "A number of developmental psychologists _____ that childhood play is crucial for emotional growth.", opts: ["argue", "argues"], ans: 0, exp: "The phrase 'A number of + plural noun' takes a PLURAL verb ('argue'). ('The number of' takes singular)." },
+            { q: "The number of elderly citizens in the developed world _____ projected to double by 2050.", opts: ["is", "are"], ans: 0, exp: "'The number of' focuses on a single statistic/amount and takes a SINGULAR verb ('is')." },
+            { q: "Seventy-five percent of the university budget _____ allocated to scientific research grants.", opts: ["was", "were"], ans: 0, exp: "With percentage phrases, verb agreement is determined by the noun following 'of' (budget = singular)." },
+            { q: "Every child and parent _____ required to submit registration forms prior to enrollment.", opts: ["is", "are"], ans: 0, exp: "Subjects connected by 'and' preceded by 'every' or 'each' take a SINGULAR verb." },
+            { q: "The historic manuscript was thought _____ lost forever until an archivist found it in the vault.", opts: ["to have been", "to be"], ans: 0, exp: "Use passive perfect infinitive ('to have been') for past states existing before the main past action." }
         ];
 
         let choosePool = [];

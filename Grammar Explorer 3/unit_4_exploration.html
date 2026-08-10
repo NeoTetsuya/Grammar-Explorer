@@ -572,13 +572,14 @@
         // ==========================================
 
         const chooseData = [
-            { q: "She went to the museum, ______?", opts: ["didn't she", "did she", "doesn't she"], ans: 0, exp: "Affirmative action verb (went). Use negative tag with 'did' (didn't she)." },
-            { q: "______ you study for the test? (Expressing annoyance/surprise)", opts: ["Did", "Didn't", "Do"], ans: 1, exp: "Use a Negative Yes/No Question ('Didn't') to express strong feelings like surprise or annoyance." },
-            { q: "They aren't coming with us, ______?", opts: ["aren't they", "are they", "do they"], ans: 1, exp: "Negative statement ('aren't') requires an affirmative tag ('are')." },
-            { q: "He never listens to my advice, ______?", opts: ["does he", "doesn't he", "is he"], ans: 0, exp: "The word 'never' makes the statement negative, so the tag MUST be affirmative ('does he')." },
-            { q: "I am going to pass this class, ______?", opts: ["am not I", "aren't I", "don't I"], ans: 1, exp: "The negative tag for 'I am' is always 'aren't I?'." },
-            { q: "(With rising intonation): You met the President?!", opts: ["Statement Question", "Negative Question", "Tag Question"], ans: 0, exp: "Maintains normal statement word order but uses rising intonation to express surprise." },
-            { q: "Everyone is here, ______?", opts: ["isn't everyone", "aren't they", "isn't they"], ans: 1, exp: "Use 'they' for indefinite pronouns like 'everyone'. Since 'they' is plural, the verb changes to 'aren't'." }
+            { q: "The expedition team found fresh footprints in the snow; the elusive snow leopard _____ nearby.", opts: ["must have been", "can't have been"], ans: 0, exp: "Use 'must have + past participle' for strong positive logical deduction in the past based on evidence." },
+            { q: "She _____ the severe storm warning, otherwise she wouldn't have set sail in such perilous conditions.", opts: ["can't have heard", "must have heard"], ans: 0, exp: "Use 'can't have / couldn't have + V3' for strong negative past deduction (logical impossibility)." },
+            { q: "We _____ packed so much heavy winter gear; the weather at the base camp turned out surprisingly mild.", opts: ["needn't have", "didn't need to"], ans: 0, exp: "'Needn't have + V3' means an action was done but was unnecessary. 'Didn't need to' means it wasn't necessary (and might not have been done)." },
+            { q: "I am lead archaeologist on this cave exploration project, _____?", opts: ["aren't I", "am not I"], ans: 0, exp: "The standard negative question tag for 'I am' is ALWAYS 'aren't I?'." },
+            { q: "The research vessel never reached the deep ocean trench, _____?", opts: ["did it", "didn't it"], ans: 0, exp: "Negative words like 'never' or 'seldom' make the statement negative, requiring an affirmative tag." },
+            { q: "You brought the emergency satellite communicator with you, _____?", opts: ["didn't you", "did you"], ans: 0, exp: "An affirmative statement with a simple past action verb requires a negative tag with 'didn't'." },
+            { q: "Everyone on the mountaineering team has registered for safety insurance, _____?", opts: ["haven't they", "hasn't he"], ans: 0, exp: "Indefinite pronouns like 'everyone' take plural pronoun 'they' and plural verb auxiliary ('haven't they') in tags." },
+            { q: "You _____ checked the barometer before beginning the high-altitude ascent!", opts: ["should have", "must have"], ans: 0, exp: "Use 'should have + V3' or 'ought to have + V3' to express past advisability, criticism, or regret." }
         ];
 
         let choosePool = [];

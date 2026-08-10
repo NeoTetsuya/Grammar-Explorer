@@ -564,12 +564,14 @@
         }
 
         const chooseData = [
-            { q: "Do you know where ______?", opts: ["the museum is", "is the museum"], ans: 0, exp: "Inside a Wh- noun clause, always use Statement Word Order (Subject + Verb)!" },
-            { q: "I don't know whether ______ passed the exam.", opts: ["or not I", "or not I have"], ans: 0, exp: "'or not' can go directly after 'whether', but not directly after 'if'!" },
-            { q: "Jen ______ us that dinner was ready.", opts: ["told", "said"], ans: 0, exp: "'Told' MUST have a direct object ('us'). 'Said' cannot take a direct object without 'to'." },
-            { q: "Julie said that running ______ great exercise.", opts: ["was", "is"], ans: 0, exp: "Standard reported speech backshifts simple present ('is') to simple past ('was')." },
-            { q: "Lina asked, ______", opts: ["\"Where is the bus stop?\"", "\"where is the bus stop?\""], ans: 0, exp: "Quoted speech must begin with a capital letter inside the quotation marks." },
-            { q: "Joe told me ______ cut the cake.", opts: ["not to", "to not"], ans: 0, exp: "To report negative commands, place 'not' directly before the infinitive ('not to cut')." }
+            { q: "Could you please explain to me where _____?", opts: ["the research lab is", "is the research lab"], ans: 0, exp: "Inside a Wh- noun clause, ALWAYS use statement word order (Subject + Verb)." },
+            { q: "I am not sure whether _____ the expedition will be postponed due to the storm.", opts: ["or not", "if or not"], ans: 0, exp: "'Or not' can go directly after 'whether', but CANNOT follow 'if' directly." },
+            { q: "The lead geologist _____ the team that the satellite data was ready.", opts: ["told", "said"], ans: 0, exp: "'Told' requires a personal direct object ('the team'). 'Said' does not take a direct object." },
+            { q: "Dr. Aris stated that the expedition _____ scheduled to departure next Tuesday.", opts: ["was", "is"], ans: 0, exp: "Reported speech with a past reporting verb ('stated') backshifts present tense ('is') to past tense ('was')." },
+            { q: "The expedition leader asked, \"Where _____ the topographical map?\"", opts: ["is", "was"], ans: 0, exp: "Quoted speech uses exact original words and direct question word order." },
+            { q: "Scientists are concerned _____ polar ice caps are melting at an accelerated rate.", opts: ["that", "which"], ans: 0, exp: "Adjectives of emotion or certainty ('concerned') are followed by a 'that-clause'." },
+            { q: "Select the sentence with CORRECT quoted speech punctuation:", opts: ["Lina asked, \"Where is the bus stop?\"", "Lina asked \"Where is the bus stop?.\"", "Lina asked, \"Where is the bus stop\"?"], ans: 0, exp: "Place a comma after the reporting verb and keep question marks INSIDE the quotation marks." },
+            { q: "He wondered _____ we had gathered enough supplies for the long journey.", opts: ["if", "that"], ans: 0, exp: "Use 'if' or 'whether' to introduce noun clauses created from Yes/No questions." }
         ];
 
         let choosePool = [];

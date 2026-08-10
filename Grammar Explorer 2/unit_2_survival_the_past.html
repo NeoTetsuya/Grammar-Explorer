@@ -184,145 +184,120 @@
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 1: Simple Past -->
+                <!-- Lesson 1: Simple Past vs. Past Progressive -->
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
                     <div class="bg-teal-700 p-6 text-white relative overflow-hidden">
                         <i class="fa-solid fa-clock-rotate-left absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Simple Past Tense</h3>
-                        <p class="text-teal-100 font-medium relative z-10">Completed Actions & Feelings in the Past</p>
+                        <h3 class="text-2xl font-bold relative z-10">1. Simple Past & Past Progressive</h3>
+                        <p class="text-teal-100 font-medium relative z-10">Completed Actions, Interrupted Actions & Background Scenes</p>
                     </div>
                     <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-base space-y-3">
-                            <div>
-                                <strong>Regular & Irregular:</strong> 
-                                We <span id="target-sp1" class="interactive-target">played</span> soccer and <span class="interactive-trigger text-teal-700" data-target="target-sp1">ate</span> pizza.
-                                <div class="text-xs text-slate-500 mt-1">Regular adds -ed/-d; Irregular verbs change form (eat &rarr; ate).</div>
-                            </div>
-                            <div class="border-t pt-2">
-                                <strong>Negative Statements:</strong> 
-                                She <span class="interactive-trigger text-teal-700" data-target="target-sp2">didn't</span> <span id="target-sp2" class="interactive-target">take</span> the bus.
-                                <div class="text-xs text-slate-500 mt-1">Use <em>didn't</em> + <strong>Base Form</strong> of the verb. (NOT <s>didn't took</s>).</div>
-                            </div>
-                            <div class="border-t pt-2">
-                                <strong>Verb 'Be':</strong> Was (I, he, she, it) / Were (you, we, they). <br>
-                                <span class="text-xs text-slate-500">Negatives: <em>wasn't / weren't</em>. (DO NOT use <s>didn't be</s>).</span>
-                            </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Form & Auxiliary Rules</h4>
+                            <div>• <strong>Simple Past:</strong> Subject + regular (-ed) / irregular verb (<span class="italic">ate, spoke, built</span>). Negative: <em>didn't + base verb</em>.</div>
+                            <div>• <strong>Past Progressive:</strong> Subject + <em>was/were (not) + verb-ing</em>.</div>
+                            <div>• <strong>Subject Questions:</strong> <span class="interactive-trigger text-teal-700" data-target="target-subjq">Who</span> <span id="target-subjq" class="interactive-target text-slate-800 font-bold">rescued</span> the survivors? (Do NOT use <em>did</em>!).</div>
                         </div>
 
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm border-b pb-1 mb-2 uppercase tracking-wide">Who / What as Subject Rule</h4>
-                            <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs text-amber-900 space-y-2">
-                                <div>
-                                    <i class="fa-solid fa-star text-amber-500 mr-1"></i> <strong>Subject Question:</strong> <br>
-                                    When <em>Who</em> or <em>What</em> asks about the subject performing the action: <br>
-                                    • <strong class="underline text-red-700">DO NOT</strong> use <em>did</em>! Use the simple past verb directly. <br>
-                                    • <span class="interactive-trigger text-teal-800" data-target="target-subjq">Who</span> <span id="target-subjq" class="interactive-target text-amber-900 font-bold">called</span> you?
-                                </div>
-                                <div>
-                                    • <strong>Object Question:</strong> Who <span class="interactive-trigger text-teal-800" data-target="target-objq">did</span> you <span id="target-objq" class="interactive-target text-amber-900 font-bold">call</span>? (Use <em>did + Subject + Base Verb</em>)
-                                </div>
-                            </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Interrupted & Parallel Actions</h4>
+                            <div>• <strong>Interrupted Action:</strong> <span id="target-tc1" class="interactive-target">I was sleeping</span> <span class="interactive-trigger text-teal-700" data-target="target-tc1">when the storm struck</span>.</div>
+                            <div>• <strong>Parallel Background Actions:</strong> <em>While the rain was pouring, rescue teams were navigating the flooded streets.</em></div>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-1">
+                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Stative Verbs Warning</h4>
+                            <div>Stative non-action verbs (*know, love, believe, possess*) cannot be progressive in past tenses (<span class="italic text-slate-700">"We knew the danger"</span>, NOT <span class="line-through text-red-600">were knowing</span>).</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lesson 2: Past Progressive -->
+                <!-- Lesson 2: Past Habits (Used to vs. Would) -->
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
                     <div class="bg-emerald-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-person-running absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Past Progressive</h3>
-                        <p class="text-emerald-100 font-medium relative z-10">Ongoing Actions & Background Scenes</p>
+                        <i class="fa-solid fa-repeat absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">2. Past Habits: Used To & Would</h3>
+                        <p class="text-emerald-100 font-medium relative z-10">Past Habits, Past States & Customary Expressions</p>
                     </div>
                     <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center text-sm">
-                            <span class="font-mono font-bold text-emerald-800 text-base">Subject + was/were + Verb-ing</span>
-                            <div class="mt-2 text-slate-600">Describes an action actively in progress at a past moment.</div>
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                <strong class="text-emerald-700 block mb-1">Used To (Actions & States)</strong>
+                                Past habits AND past states that no longer exist.<br>
+                                <span class="italic font-medium text-slate-600">"I used to live in Tokyo."</span><br>
+                                Negative: <span class="font-bold text-amber-800">didn't use to</span> (no 'd').
+                            </div>
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                <strong class="text-emerald-700 block mb-1">Would (Actions ONLY)</strong>
+                                Repeated past actions only; CANNOT express past states.<br>
+                                <span class="italic font-medium text-slate-600">"Every winter we would ski."</span>
+                            </div>
                         </div>
 
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <div><strong>Affirmative:</strong> At 8 PM, I <span class="interactive-trigger text-emerald-700" data-target="target-pp1">was studying</span> for my exam.</div>
-                            <div id="target-pp1" class="interactive-target text-slate-500">Action was in progress at that specific moment.</div>
-                            <div class="border-t pt-2"><strong>Negative:</strong> They <span class="interactive-trigger text-emerald-700" data-target="target-pp2">weren't sleeping</span> when the storm hit.</div>
-                            <div id="target-pp2" class="interactive-target text-slate-500"><em>wasn't / weren't + verb-ing</em>.</div>
+                        <div class="bg-red-50 border border-red-200 p-3.5 rounded-xl text-xs text-red-950 space-y-1">
+                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-ban text-red-600 mr-1"></i> State Restriction for "Would"</h4>
+                            <div>Do NOT use <em>would</em> for past states or situations!</div>
+                            <div><span class="line-through text-red-600 font-mono text-[11px]">There would be a small wooden cabin here.</span> &rarr; <span class="font-bold text-emerald-800">There used to be a small wooden cabin here.</span></div>
                         </div>
 
-                        <div class="bg-teal-50 border border-teal-200 p-3 rounded-xl text-xs text-teal-900">
-                            <strong>Who as Subject (Past Progressive):</strong> <br>
-                            Always use the singular auxiliary <strong>was</strong>: <br>
-                            <span class="italic font-bold">"Who was singing last night?"</span> (Even if the answer is plural!)
+                        <div class="bg-teal-50 border border-teal-200 p-3 rounded-xl text-xs text-teal-950">
+                            <strong>Be / Get Used To + V-ing / Noun:</strong> Means <em>accustomed to</em> (<span class="italic">"She is used to surviving in harsh conditions."</span>).
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 3: Past Time Clauses -->
+                <!-- Lesson 3: Past Perfect Tense -->
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
                     <div class="bg-slate-800 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-diagram-project absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">3. Past Time Clauses</h3>
-                        <p class="text-slate-300 font-medium relative z-10">When, While & Events in Sequence</p>
+                        <i class="fa-solid fa-hourglass-start absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">3. Past Perfect Tense</h3>
+                        <p class="text-slate-300 font-medium relative z-10">Had + Past Participle & Time Sequence</p>
                     </div>
                     <div class="p-6 flex-grow space-y-5">
-                        
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Interrupted Actions (When vs. While)</h4>
-                            <div class="bg-white p-2.5 rounded border border-slate-200">
-                                • Use <strong class="text-teal-700">while / when</strong> + <strong class="text-emerald-700">Past Progressive</strong> for the background ongoing action. <br>
-                                • Use <strong class="text-teal-700">when</strong> + <strong class="text-amber-700">Simple Past</strong> for the interrupting event.
-                            </div>
-                            <div class="p-2.5 bg-teal-50 rounded border border-teal-200 text-teal-900">
-                                <span id="target-tc1" class="interactive-target">I was sleeping</span> <span class="interactive-trigger text-teal-700" data-target="target-tc1">when you texted me</span>.
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Form & Core Function</h4>
+                            <div>• <strong>Formula:</strong> Subject + <em>had (not)</em> + <strong>Past Participle (V3)</strong>.</div>
+                            <div>• <strong>Function:</strong> Expresses an action completed BEFORE another past action or specific past time.</div>
+                            <div class="bg-white p-2.5 rounded border font-mono text-[11px] text-slate-800 mt-1">
+                                By the time help arrived (2nd action), they <strong class="text-teal-700">had built</strong> a shelter (1st earlier action).
                             </div>
                         </div>
 
-                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-2">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-list-ol mr-1"></i> Events in Sequence (Consecutive Actions)</h4>
-                            <p>When two actions happen one immediately after another, use <strong>Simple Past in both clauses</strong>. <em>When</em> introduces the FIRST event!</p>
-                            <div class="bg-white p-2.5 rounded border border-amber-200 font-medium">
-                                <span class="text-amber-800">When her phone rang, she answered it.</span> <br>
-                                <span class="text-slate-500 font-normal">(1st: phone rang &rarr; 2nd: she answered it).</span>
-                            </div>
-                            <div class="text-[11px] text-slate-600 italic">
-                                <i class="fa-solid fa-pen-nib mr-1"></i> Comma Rule: If the time clause comes first, follow it with a comma!
-                            </div>
+                        <div class="bg-indigo-50 border border-indigo-200 p-3.5 rounded-xl text-xs text-indigo-950 space-y-1.5">
+                            <h4 class="font-bold uppercase tracking-wide border-b border-indigo-200 pb-1"><i class="fa-solid fa-list-ol mr-1 text-indigo-700"></i> Sequence Conjunctions: By the time, Before, After</h4>
+                            <div>• <strong>By the time / Before + Simple Past</strong>, <strong>Past Perfect</strong> main clause.</div>
+                            <div>• <strong>After + Past Perfect</strong>, <strong>Simple Past</strong> main clause (<span class="italic">"After they had eaten, they continued hiking"</span>).</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lesson 4 & Writing Focus: Used To, Would & Fragments -->
+                <!-- Lesson 4 & Writing Focus: Time Clause Commas & Sentence Fragments -->
                 <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
                     <div class="p-6 relative z-10 flex flex-col h-full space-y-5">
                         <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-repeat text-amber-400 text-3xl"></i>
+                            <i class="fa-solid fa-pen-nib text-amber-400 text-3xl"></i>
                             <div>
-                                <h3 class="text-2xl font-bold text-amber-400">4. Repeated Past Actions: Used To & Would</h3>
-                                <p class="text-xs text-slate-300">Habits that no longer exist today</p>
+                                <h3 class="text-2xl font-bold text-amber-400">4. Time Clause Commas & Writing</h3>
+                                <p class="text-xs text-slate-300">Punctuation & Fixing Sentence Fragments</p>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-3 text-xs bg-slate-800/90 p-3 rounded-xl border border-slate-700">
-                            <div>
-                                <strong class="text-teal-300 block mb-1">Used To (Habits & States)</strong>
-                                • <span class="text-slate-200">I used to live in a village.</span> <br>
-                                • Negative: <span class="text-amber-300 font-bold">didn't use to</span> (No 'd'!). <br>
-                                • Question: <span class="text-amber-300 font-bold">Did you use to...?</span>
-                            </div>
-                            <div>
-                                <strong class="text-teal-300 block mb-1">Would (Repeated Actions Only)</strong>
-                                • <span class="text-slate-200">My dad would take me to the zoo.</span> <br>
-                                • <strong class="text-red-400">Constraint:</strong> Do NOT use <em>would</em> for past states/conditions! (<s>There would be a library</s> &rarr; <span class="text-green-300">There used to be...</span>).
-                            </div>
+                        <div class="space-y-2.5 text-xs bg-slate-800/90 p-3.5 rounded-xl border border-slate-700 text-slate-200">
+                            <strong class="text-teal-300 block">Comma Rule with Dependent Time Clauses</strong>
+                            <div>• If dependent time clause is <strong>FIRST</strong>: Use a comma! (<span class="italic text-slate-100">"While they were climbing, night fell."</span>)</div>
+                            <div>• If dependent time clause is <strong>LAST</strong>: No comma needed! (<span class="italic text-slate-100">"Night fell while they were climbing."</span>)</div>
                         </div>
 
                         <div class="bg-amber-900/30 p-3.5 rounded-xl border border-amber-500/30 text-xs text-slate-200 space-y-2 mt-auto">
                             <div class="font-bold text-amber-300 flex items-center gap-2">
                                 <i class="fa-solid fa-scissors"></i> Writing Focus: Fixing Sentence Fragments
                             </div>
-                            <p class="text-slate-300">A fragment is an incomplete sentence missing a subject or verb.</p>
-                            <div class="bg-slate-900/80 p-2 rounded border border-slate-700 font-mono text-[11px]">
-                                <span class="text-red-400 line-through">Fragment: Waited on our roof for help.</span> <br>
-                                <span class="text-green-400">Correct: My family waited on our roof for help.</span>
+                            <p class="text-slate-300">A fragment is an incomplete sentence lacking an independent subject or verb.</p>
+                            <div class="bg-slate-900/80 p-2 rounded border border-slate-700 font-mono text-[11px] space-y-1">
+                                <div class="text-red-400 line-through">Fragment: Because the boat lost its motor during the gale.</div>
+                                <div class="text-green-400">Correct: Because the boat lost its motor, the crew called for help.</div>
                             </div>
                         </div>
                     </div>
@@ -655,14 +630,14 @@
 
         /* 1. QUIZ DATA */
         const quizData = [
-            { q: "_____ called you on the satellite phone? The team captain did.", opts: ["Who", "Who did", "Whose"], ans: 0, exp: "When 'Who' asks about the subject, do not use 'did'. Place the simple past verb directly after 'Who'." },
-            { q: "We _____ in a tent during our trek last winter.", opts: ["didn't stayed", "didn't stay", "weren't stay"], ans: 1, exp: "Negative statements in the simple past use 'didn't + base verb'." },
-            { q: "The storm started while we _____ down the mountain.", opts: ["were walking", "walked", "were walk"], ans: 0, exp: "Use 'while' + past progressive for background ongoing actions." },
-            { q: "When the alarm rang, everyone _____ the building.", opts: ["evacuated", "was evacuating", "did evacuate"], ans: 0, exp: "When 'when' introduces two consecutive past actions in sequence, use Simple Past for both." },
-            { q: "She _____ live in a coastal village, but now she lives in the city.", opts: ["used to", "would", "didn't use to"], ans: 0, exp: "Use 'used to' for past states or conditions that are no longer true today." },
-            { q: "There _____ a small library on this street, but it closed last year.", opts: ["used to be", "would be", "use to be"], ans: 0, exp: "'Would' cannot be used for past states or conditions (like 'be'); use 'used to' instead." },
-            { q: "When I was young, my uncle _____ tell us survival stories by the campfire.", opts: ["would", "used", "use to"], ans: 0, exp: "'Would' expresses repeated past habits or routines." },
-            { q: "He _____ like vegetables when he was a child.", opts: ["didn't use to", "didn't used to", "wouldn't to"], ans: 0, exp: "The negative form is 'didn't use to' (without the 'd')." }
+            { q: "_____ rescued the injured mountain climber? The helicopter crew did.", opts: ["Who", "Who did", "Whose"], ans: 0, exp: "When 'Who' asks about the subject, do not use 'did'. Place the simple past verb directly after 'Who'." },
+            { q: "The mountain storm started while they _____ up the steep peak.", opts: ["were climbing", "climbed", "were climb"], ans: 0, exp: "Use 'while' + past progressive for background ongoing actions." },
+            { q: "By the time the rescue team arrived, the hikers _____ a temporary shelter.", opts: ["had built", "built", "have built"], ans: 0, exp: "Use past perfect ('had + V3') for an action completed before another past event." },
+            { q: "There _____ a small wooden cabin here before the forest fire.", opts: ["used to be", "would be", "use to be"], ans: 0, exp: "'Would' CANNOT express past states or conditions; use 'used to' instead." },
+            { q: "Every summer, our guide _____ tell us survival stories around the campfire.", opts: ["would", "used", "use to"], ans: 0, exp: "'Would' expresses repeated past habits and actions." },
+            { q: "He _____ like freeze-dried emergency rations when he first tried them.", opts: ["didn't use to", "didn't used to", "wouldn't to"], ans: 0, exp: "The negative form of used to is 'didn't use to' (without the 'd')." },
+            { q: "They were exhausted because they _____ without water for two days.", opts: ["had traveled", "were traveling", "travel"], ans: 0, exp: "Past perfect explains the earlier reason for a past condition ('were exhausted')." },
+            { q: "Select the sentence with CORRECT punctuation:", opts: ["While we were hiking, it began to snow.", "While we were hiking it began to snow.", "While we were hiking. It began to snow."], ans: 0, exp: "When the dependent time clause comes first, follow it with a comma." }
         ];
         
         let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;

@@ -568,12 +568,14 @@
 
         /* Multiple Choice Data */
         const chooseData = [
-            { q: "I have friends who ______ traveling around the world.", opts: ["likes", "like"], ans: 1, exp: "The relative clause verb must agree with the plural noun 'friends'." },
-            { q: "The person ______ we spoke was extremely helpful.", opts: ["to who", "to whom"], ans: 1, exp: "In formal English, prepositions must go before 'whom' (for people), never 'who'." },
-            { q: "She is the author ______ book won the prestigious award.", opts: ["whose", "who's"], ans: 0, exp: "'Whose' shows possession. 'Who's' means 'who is'." },
-            { q: "Where's the book that ______ the map?", opts: ["has", "it has"], ans: 0, exp: "Never repeat the subject pronoun ('it') inside a subject relative clause." },
-            { q: "She has a job that she loves ______.", opts: ["(no word needed)", "it"], ans: 0, exp: "Do not repeat the object pronoun ('it') at the end of an object relative clause." },
-            { q: "I know a man ______ owns ten luxury sports cars.", opts: ["who", "(omitted pronoun)"], ans: 0, exp: "You CANNOT omit the relative pronoun in a subject relative clause!" }
+            { q: "I have several colleagues who ______ specializing in artificial intelligence.", opts: ["are", "is"], ans: 0, exp: "The relative clause verb must agree with the plural noun 'colleagues'." },
+            { q: "The senior diplomat to ______ we presented the petition was very receptive.", opts: ["whom", "who"], ans: 0, exp: "In formal English, prepositions go directly before 'whom' (for people), never 'who'." },
+            { q: "She is an acclaimed architect ______ innovative designs won the international award.", opts: ["whose", "who's"], ans: 0, exp: "'Whose' is the possessive relative pronoun. 'Who's' is a contraction for 'who is'." },
+            { q: "Professor Miller, ______ lectured on ancient Rome, will publish a new book next month.", opts: ["who", "that"], ans: 0, exp: "Non-restricting relative clauses (set off by commas) CANNOT use 'that'; use 'who' for people." },
+            { q: "The historical documents ______ we analyzed yesterday were extremely rare.", opts: ["which", "what"], ans: 0, exp: "Use 'which' or 'that' for things. Never use 'what' as a relative pronoun!" },
+            { q: "Do you know the scientist ______ developed this new vaccine?", opts: ["who", "Ø (no word needed)"], ans: 0, exp: "Relative pronouns CANNOT be omitted in subject relative clauses." },
+            { q: "The apartment building in ______ she resides was constructed in 1920.", opts: ["which", "where"], ans: 0, exp: "Use 'in which' (or 'where') to specify place in formal relative clauses." },
+            { q: "Select the sentence with CORRECT punctuation:", opts: ["My brother, who lives in Paris, is an artist.", "My brother that lives in Paris is an artist.", "My brother who lives in Paris, is an artist."], ans: 0, exp: "Non-restricting relative clauses providing non-essential extra info must be enclosed in commas." }
         ];
 
         let choosePool = [];
