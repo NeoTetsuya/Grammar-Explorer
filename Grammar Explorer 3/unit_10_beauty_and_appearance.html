@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 10: Beauty and Appearance</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdf2f8; /* Fuchsia 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #c026d3; /* Fuchsia 600 */
+            color: #a21caf; /* Fuchsia 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-base {
+            background-color: #fae8ff; color: #7e22ce; border-color: #a855f7; border-style: solid;
+        }
+        .grammar-toggle.state-inf {
+            background-color: #dbeafe; color: #1d4ed8; border-color: #3b82f6; border-style: solid;
+        }
+        .grammar-toggle.state-pass {
+            background-color: #fce7f3; color: #be185d; border-color: #ec4899; border-style: solid;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #c026d3; color: white; box-shadow: 0 4px 6px -1px rgba(192, 38, 211, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #c026d3; background-color: #fdf4ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #c026d3; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #c026d3; background-color: #fdf4ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-fuchsia-500 to-pink-500 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-scissors text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 10: Beauty & Appearance</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 10</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Causatives & Phrasal Verbs</h2>
+                <p class="text-lg text-slate-600">Learn how to talk about arranging services, causing actions, and the tricky rules of two-part verbs.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-fuchsia-50 text-fuchsia-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-fuchsia-200 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-fuchsia-500 text-lg"></i>
+                    Tap the dashed grammar words to reveal structural rules!
+                </div>
+            </div>
+
+            <!-- 1. Active Causatives -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-purple-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-people-arrows text-2xl"></i>
+                    <h3 class="text-2xl font-bold">1. Active Causatives</h3>
+                </div>
+                
+                <div class="p-8">
+                    <p class="text-slate-600 mb-6 font-medium">Active causatives show how a subject causes, persuades, or permits <em>another person</em> to act.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Base Form Causatives -->
+                        <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100">
+                            <h4 class="font-bold text-purple-900 text-lg mb-2">Have, Let, Make</h4>
+                            <p class="text-xs font-mono bg-white p-1 rounded text-center text-slate-500 mb-4 border border-purple-200">Verb + Object + Base Verb</p>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li>
+                                    <strong class="text-purple-700 block mb-1">Have (Require/Request):</strong>
+                                    You can <span class="grammar-toggle state-base" data-exp="Have + Obj (someone) + Base Verb (give)">have someone give</span> you a tour.
+                                </li>
+                                <li>
+                                    <strong class="text-purple-700 block mb-1">Let (Permit):</strong>
+                                    The owners <span class="grammar-toggle state-base" data-exp="Let + Obj (tourists) + Base Verb (enter)">let tourists enter</span> the pens.
+                                </li>
+                                <li>
+                                    <strong class="text-purple-700 block mb-1">Make (Force/Cause):</strong>
+                                    The camels <span class="grammar-toggle state-base" data-exp="Make + Obj (everybody) + Base Verb (smile)">make everybody smile</span>.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Infinitive Causatives -->
+                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                            <h4 class="font-bold text-blue-900 text-lg mb-2">Get and Help</h4>
+                            <p class="text-xs font-mono bg-white p-1 rounded text-center text-slate-500 mb-4 border border-blue-200">Verb + Object + Infinitive</p>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li>
+                                    <strong class="text-blue-700 block mb-1">Get (Persuade/Cause):</strong>
+                                    He <span class="grammar-toggle state-inf" data-exp="Get + Obj (brother) + Infinitive (to lend)">got his brother to lend</span> him money.
+                                </li>
+                                <li class="bg-white p-3 rounded-xl border border-blue-200 shadow-sm mt-4">
+                                    <strong class="text-blue-700 block mb-1">Help (Assist):</strong>
+                                    <em>Help</em> is unique! It can take either the base form OR the infinitive. Both are correct.
+                                    <div class="mt-2 text-slate-600 font-medium">
+                                        <i class="fa-solid fa-check text-green-500 mr-1"></i> Help me <strong class="text-blue-600">do</strong> it.<br>
+                                        <i class="fa-solid fa-check text-green-500 mr-1"></i> Help me <strong class="text-blue-600">to do</strong> it.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Passive Causatives -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative border border-slate-700">
+                <div class="absolute top-0 right-0 p-6 opacity-10">
+                    <i class="fa-solid fa-couch text-9xl"></i>
+                </div>
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-user-clock text-pink-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">2. Passive Causative</h3>
+                    </div>
+                    <p class="text-slate-300 mb-6">Used to describe a service that we arrange for someone else to perform for us. The subject does NOT do the action.</p>
+
+                    <div class="bg-slate-950/50 p-5 rounded-2xl border border-slate-700 mb-8 max-w-lg">
+                        <h4 class="font-bold text-pink-400 text-lg mb-2 text-center">The Structure</h4>
+                        <div class="text-center font-mono text-lg bg-black/40 p-3 rounded-xl border border-pink-500/30 text-slate-200">
+                            <span class="text-pink-300 font-bold">Have/Get</span> + <span class="text-sky-300">Object</span> + <span class="text-emerald-400">Past Participle</span>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-white text-lg mb-3">Tense Changes</h4>
+                            <p class="text-sm text-slate-400 mb-4">The causative verb (have/get) changes to fit the tense. The past participle never changes.</p>
+                            
+                            <ul class="space-y-3 text-sm text-slate-300">
+                                <li class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <span><strong>Simple Present:</strong></span>
+                                    <span class="font-medium">I <span class="text-pink-400">have</span> my hair <span class="text-emerald-400">cut</span>.</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <span><strong>Present Prog:</strong></span>
+                                    <span class="font-medium">She <span class="text-pink-400">is getting</span> it <span class="text-emerald-400">dyed</span>.</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <span><strong>Simple Past:</strong></span>
+                                    <span class="font-medium">We <span class="text-pink-400">had</span> the roof <span class="text-emerald-400">fixed</span>.</span>
+                                </li>
+                                <li class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <span><strong>Future (going to):</strong></span>
+                                    <span class="font-medium">I <span class="text-pink-400">am going to get</span> it <span class="text-emerald-400">cleaned</span>.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-rose-950/30 p-6 rounded-2xl border border-rose-900/50">
+                            <h4 class="font-bold text-rose-400 text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> Grammar Caution</h4>
+                            <p class="text-sm text-slate-300 mb-4">Do not confuse the <strong class="text-pink-300">Passive Causative</strong> with the <strong class="text-amber-300">Present Perfect</strong> tense. The word order completely changes the meaning!</p>
+                            
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-black/30 p-3 rounded-lg border border-white/5">
+                                    <span class="text-amber-300 font-bold block mb-1">Present Perfect (I did it)</span>
+                                    I <strong class="text-white">have cleaned</strong> the house.
+                                </div>
+                                <div class="bg-black/30 p-3 rounded-lg border border-white/5">
+                                    <span class="text-pink-300 font-bold block mb-1">Passive Causative (Someone else did it)</span>
+                                    I <strong class="text-white">have</strong> the house <strong class="text-white">cleaned</strong>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Phrasal Verbs -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-fuchsia-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-puzzle-piece text-2xl"></i>
+                    <h3 class="text-2xl font-bold">3. Phrasal Verbs</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="mb-8">
+                        <h4 class="font-bold text-slate-800 text-lg mb-3">Transitive vs. Intransitive</h4>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm text-slate-700">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <strong class="text-fuchsia-700 block mb-1">Transitive</strong>
+                                Must be followed by a direct object. <br>
+                                <span class="italic text-slate-500">"Could you <strong class="text-slate-800">turn off</strong> the light?"</span>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <strong class="text-fuchsia-700 block mb-1">Intransitive</strong>
+                                Cannot take a direct object. <br>
+                                <span class="italic text-slate-500">"We <strong class="text-slate-800">grew up</strong> quickly."</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-fuchsia-50 border border-fuchsia-200 rounded-2xl p-6">
+                        <h4 class="font-bold text-fuchsia-900 text-xl mb-4 text-center">Separable vs. Inseparable (Transitive Only)</h4>
+                        
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h5 class="font-bold text-fuchsia-800 mb-2 border-b border-fuchsia-200 pb-1">Separable</h5>
+                                <p class="text-sm text-fuchsia-900/80 mb-3">The object can go <em>after</em> the particle, or <em>in between</em> the verb and the particle.</p>
+                                
+                                <div class="space-y-2 text-sm font-medium">
+                                    <div class="bg-white p-2 rounded shadow-sm border border-fuchsia-100">
+                                        Who <strong class="text-fuchsia-600">picked out</strong> the card? <i class="fa-solid fa-check text-green-500 ml-2"></i>
+                                    </div>
+                                    <div class="bg-white p-2 rounded shadow-sm border border-fuchsia-100">
+                                        Who <strong class="text-fuchsia-600">picked</strong> the card <strong class="text-fuchsia-600">out</strong>? <i class="fa-solid fa-check text-green-500 ml-2"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 bg-amber-100/50 p-3 rounded-lg border border-amber-300">
+                                    <strong class="text-amber-900 block text-sm mb-1"><i class="fa-solid fa-star text-amber-500"></i> The Pronoun Rule</strong>
+                                    <p class="text-xs text-amber-800">If the object is a pronoun (it, them, him), it <strong class="underline">MUST</strong> go in the middle.</p>
+                                    <div class="text-sm font-bold mt-1 text-slate-800">
+                                        She <span class="text-fuchsia-600">picked</span> it <span class="text-fuchsia-600">out</span>.
+                                    </div>
+                                    <div class="text-sm font-bold text-slate-400 line-through">
+                                        She picked out it.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="font-bold text-fuchsia-800 mb-2 border-b border-fuchsia-200 pb-1">Inseparable</h5>
+                                <p class="text-sm text-fuchsia-900/80 mb-3">The object or pronoun must <strong class="underline">always</strong> follow the phrasal verb. Never split them!</p>
+                                
+                                <div class="space-y-2 text-sm font-medium">
+                                    <div class="bg-white p-2 rounded shadow-sm border border-fuchsia-100">
+                                        I <strong class="text-fuchsia-600">came across</strong> an article. <i class="fa-solid fa-check text-green-500 ml-2"></i>
+                                    </div>
+                                    <div class="bg-white p-2 rounded shadow-sm border border-fuchsia-100">
+                                        I <strong class="text-fuchsia-600">came across</strong> it. <i class="fa-solid fa-check text-green-500 ml-2"></i>
+                                    </div>
+                                    <div class="bg-slate-100 p-2 rounded shadow-sm border border-slate-200 text-slate-400 line-through">
+                                        I came it across. <i class="fa-solid fa-xmark text-red-500 ml-2"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 bg-sky-50 p-3 rounded-lg border border-sky-200">
+                                    <strong class="text-sky-900 block text-sm mb-1"><i class="fa-solid fa-circle-info text-sky-500"></i> 3-Word Phrasal Verbs</strong>
+                                    <p class="text-xs text-sky-800">Verbs like <em>look forward to</em> or <em>put up with</em> are <strong class="underline">always</strong> inseparable.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Causative Conjugator
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-arrows-split-up-and-left mr-2"></i>Phrasal Verb Matcher
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Passive vs Perfect
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: MULTIPLE CHOICE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Causative Conjugator</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct verb form based on the causative verb used.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-fuchsia-100 text-fuchsia-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-3 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: PHRASAL VERB MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Pronoun Placement Matcher</h3>
+                                <p class="text-slate-500 mt-2">Is the given sentence grammatically correct based on Separable/Inseparable rules?</p>
+                            </div>
+                            
+                            <div class="max-w-2xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Sentence to Evaluate</div>
+                                    <div id="match-question" class="text-2xl md:text-3xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid grid-cols-2 gap-4">
+                                    <button onclick="matchSelect('Correct')" class="opt-btn pop-out bg-emerald-50 border-2 border-emerald-200 text-emerald-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2">
+                                        <i class="fa-solid fa-check text-3xl"></i>
+                                        <span>Correct</span>
+                                    </button>
+                                    <button onclick="matchSelect('Incorrect')" class="opt-btn pop-out bg-rose-50 border-2 border-rose-200 text-rose-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2">
+                                        <i class="fa-solid fa-xmark text-3xl"></i>
+                                        <span>Incorrect</span>
+                                    </button>
+                                </div>
+                                
+                                <div id="match-feedback" class="h-20 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Passive Causative vs Present Perfect</h3>
+                                    <p class="text-slate-500 text-sm">Type the correct form based on the hint indicating who performed the action.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-fuchsia-100 text-fuchsia-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <div class="mt-6 flex justify-center">
+                                   <div id="fill-hint" class="bg-fuchsia-100 text-fuchsia-800 px-4 py-2 rounded-xl text-sm font-bold border border-fuchsia-200 shadow-sm"></div>
+                                </div>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-fuchsia-500 focus:outline-none focus:ring-4 focus:ring-fuchsia-500/20 transition-all" placeholder="Type answer here..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'match', 'fill'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-base')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-base';
+                        } else if (t.dataset.baseClass.includes('state-inf')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-inf';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: CHOOSE CAUSATIVE FORM
+        // ==========================================
+
+        const chooseData = [
+            { q: "The security guard let me ______ the building.", opts: ["enter", "to enter", "entered"], ans: 0, exp: "'Let' takes the base form of the verb." },
+            { q: "I got my sister ______ me with my homework.", opts: ["help", "to help", "helped"], ans: 1, exp: "'Get' takes the infinitive form when active (Get + person + to do)." },
+            { q: "The boss made us ______ late on Friday.", opts: ["stay", "to stay", "stayed"], ans: 0, exp: "'Make' takes the base form of the verb." },
+            { q: "I had my car ______ at the mechanic yesterday.", opts: ["fix", "to fix", "fixed"], ans: 2, exp: "Passive Causative (Have + object + past participle)." },
+            { q: "Can you help me ______ these boxes?", opts: ["carry", "to carry", "Both are correct"], ans: 2, exp: "'Help' is unique and can take either the base form or the infinitive." },
+            { q: "She is going to get her teeth ______ next week.", opts: ["clean", "to clean", "cleaned"], ans: 2, exp: "Passive Causative (Get + object + past participle)." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 5);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.textContent = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-c026d3', 'hover:bg-fdf4ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-fuchsia-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 2: PHRASAL VERB MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "She didn't pick it out.", ans: "Correct", exp: "Separable verb. The pronoun 'it' MUST go in the middle." },
+            { q: "She didn't pick out it.", ans: "Incorrect", exp: "Separable verb. The pronoun 'it' cannot go at the end." },
+            { q: "I came across it.", ans: "Correct", exp: "Inseparable verb. The pronoun 'it' must go at the end." },
+            { q: "I came it across.", ans: "Incorrect", exp: "Inseparable verb. You cannot split 'come across'." },
+            { q: "He looked up to him.", ans: "Correct", exp: "3-word phrasal verbs are always inseparable." },
+            { q: "He looked him up to.", ans: "Incorrect", exp: "3-word phrasal verbs are always inseparable." }
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').innerHTML = `"${q.q}"`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'shake-err', 'scale-95', 'border-green-500', 'bg-green-100', 'border-red-500', 'bg-red-100');
+                if(btn.textContent.includes('Correct')) {
+                    btn.className = 'opt-btn pop-out bg-emerald-50 border-2 border-emerald-200 text-emerald-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2';
+                } else {
+                    btn.className = 'opt-btn pop-out bg-rose-50 border-2 border-rose-200 text-rose-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2';
+                }
+            }
+            
+            document.getElementById('match-feedback').className = 'h-20 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedAns) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedAns === q.ans;
+            if(isCorrect) matchCorrects++;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.disabled = true;
+                btn.classList.remove('pop-out');
+                
+                const isBtnCorrectOpt = btn.textContent.includes('Correct') && !btn.textContent.includes('Incorrect');
+                const isBtnIncorrectOpt = btn.textContent.includes('Incorrect');
+                
+                const isSelectedBtn = (selectedAns === 'Correct' && isBtnCorrectOpt) || (selectedAns === 'Incorrect' && isBtnIncorrectOpt);
+                const isTheRightAnswerBtn = (q.ans === 'Correct' && isBtnCorrectOpt) || (q.ans === 'Incorrect' && isBtnIncorrectOpt);
+                
+                if (isTheRightAnswerBtn) {
+                    btn.classList.add('border-green-500', 'bg-green-100');
+                    btn.classList.replace('text-emerald-800', 'text-green-800');
+                    btn.classList.replace('text-rose-800', 'text-green-800');
+                } else {
+                    btn.classList.add('opacity-50', 'scale-95');
+                }
+
+                if (isSelectedBtn && !isCorrect) {
+                     btn.classList.add('shake-err', 'border-red-500', 'bg-red-100');
+                     btn.classList.remove('opacity-50'); 
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Not quite.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3500); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-fuchsia-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.add('hidden');
+            }
+
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // EXERCISE 3: FILL IN BLANKS
+        // ==========================================
+
+        const fillData = [
+            { q: "I [___] the walls painted.", hint: "Action performed by a hired painter.", ans: ["had", "got"] },
+            { q: "I [___] painted the walls.", hint: "Action performed by the subject (I did it).", ans: ["have"] },
+            { q: "She is going to [___] her nails cleaned.", hint: "Arranging a service (future)", ans: ["have", "get"] },
+            { q: "She [___] cleaned her nails.", hint: "Action performed by the subject (Present Perfect)", ans: ["has"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 4);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-fuchsia-600 border-b-2 border-fuchsia-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-hint').innerHTML = `<i class="fa-solid fa-lightbulb mr-2"></i>Context: ${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(document.getElementById('fill-target')) document.getElementById('fill-target').className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                if(document.getElementById('fill-target')) document.getElementById('fill-target').className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-fuchsia-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-hint').classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>

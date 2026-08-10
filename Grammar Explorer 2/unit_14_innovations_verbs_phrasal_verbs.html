@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 14: Innovations (Verbs & Phrasal Verbs)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ecfeff; /* Cyan 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #0891b2; /* Cyan 600 */
+            color: #0e7490; /* Cyan 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Grammar Toggles */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-trans {
+            background-color: #cffafe; color: #0891b2; border-color: #06b6d4; border-style: solid;
+        }
+        .grammar-toggle.state-phrasal {
+            background-color: #e0e7ff; color: #3730a3; border-color: #6366f1; border-style: solid;
+        }
+        .grammar-toggle.state-rule {
+            background-color: #fef3c7; color: #9a3412; border-color: #f97316; border-style: solid;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #0891b2; color: white; box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #0891b2; background-color: #ecfeff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #0891b2; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #0891b2; background-color: #ecfeff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-cyan-500 to-teal-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-lightbulb text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 14: Innovations (Verbs)</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 14</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Verb Patterns & Phrasal Verbs</h2>
+                <p class="text-lg text-slate-600">Master transitive vs. intransitive actions, direct and indirect object word order, and separable vs. inseparable phrasal verbs.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-cyan-100/70 text-cyan-800 px-5 py-2.5 rounded-full text-sm font-semibold border border-cyan-300 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-cyan-600 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal structural rules!
+                </div>
+            </div>
+
+            <!-- LESSON 1: TRANSITIVE & INTRANSITIVE VERBS -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-cyan-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-arrow-right-arrow-left text-2xl"></i>
+                    <h3 class="text-2xl font-bold">1. Transitive and Intransitive Verbs</h3>
+                </div>
+                
+                <div class="p-8 space-y-8">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-bullseye text-cyan-500"></i> Transitive vs. Intransitive
+                            </h4>
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                    <strong class="text-cyan-900 block mb-1">Transitive Verbs (Take Direct Object):</strong>
+                                    Followed directly by a noun/pronoun experiencing the action (answers <em>who</em> or <em>what</em>). <br>
+                                    <span class="italic text-slate-600">"Jon <span class="grammar-toggle state-trans" data-exp="Verb (lost) + Direct Object (his car keys)">lost his car keys</span>."</span>
+                                </li>
+                                <li class="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                                    <strong class="text-cyan-900 block mb-1">Intransitive Verbs (No Object):</strong>
+                                    Cannot take a direct object. Followed by adverbs or prepositional phrases. <br>
+                                    <span class="italic text-slate-600">"We <span class="grammar-toggle state-trans" data-exp="Verb (arrived) + Prepositional phrase (after dark)">arrived after dark</span>."</span> <br>
+                                    <span class="text-xs text-slate-500 italic mt-1 block">Common: arrive, fall, live, sleep, come, go, travel, wait.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-arrows-split-up-and-left text-cyan-500"></i> Dual-Nature Verbs
+                            </h4>
+                            <div class="space-y-3 text-sm">
+                                <p class="text-slate-600">Many verbs can be either transitive or intransitive depending on the context:</p>
+                                <div class="bg-cyan-50/70 p-3.5 rounded-xl border border-cyan-200">
+                                    <strong class="text-cyan-900 block mb-1">Dual Verbs:</strong>
+                                    begin, close, open, call, continue, start, change, drive, stop.
+                                </div>
+                                <div class="grid sm:grid-cols-2 gap-3 text-xs md:text-sm">
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                        <strong class="text-emerald-700 block mb-1">Transitive Use:</strong>
+                                        "He is <span class="grammar-toggle state-trans" data-exp="Verb + Object (his car)">driving his car</span>." <br>
+                                        "He <span class="grammar-toggle state-trans" data-exp="Verb + Object (the door)">opened the door</span>."
+                                    </div>
+                                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                        <strong class="text-indigo-700 block mb-1">Intransitive Use:</strong>
+                                        "She <span class="grammar-toggle state-trans" data-exp="Verb + Prep phrase (to work)">drives to work</span>." <br>
+                                        "The doors <span class="grammar-toggle state-trans" data-exp="Verb + Adverb (automatically)">open automatically</span>."
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct & Indirect Objects Rules -->
+                    <div class="pt-6 border-t border-slate-200 space-y-6">
+                        <h4 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-list-ol text-cyan-500"></i> Direct & Indirect Objects with To and For
+                        </h4>
+
+                        <div class="grid md:grid-cols-3 gap-6 text-sm">
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                <strong class="text-cyan-900 block mb-2"><i class="fa-solid fa-paper-plane mr-1 text-cyan-600"></i> Verbs taking "To"</strong>
+                                <span class="text-xs text-slate-500 block mb-2">explain, give, offer, send, show, tell</span>
+                                <span class="italic text-slate-700 block">"He sent an e-mail <strong class="text-cyan-600">to</strong> his parents."</span>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                <strong class="text-cyan-900 block mb-2"><i class="fa-solid fa-gift mr-1 text-cyan-600"></i> Verbs taking "For"</strong>
+                                <span class="text-xs text-slate-500 block mb-2">buy, fix, keep, make, get, provide</span>
+                                <span class="italic text-slate-700 block">"I bought a gift <strong class="text-cyan-600">for</strong> my brother."</span>
+                            </div>
+
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                                <strong class="text-cyan-900 block mb-2"><i class="fa-solid fa-right-left mr-1 text-cyan-600"></i> Either "To" or "For"</strong>
+                                <span class="text-xs text-slate-500 block mb-2">bring, take</span>
+                                <span class="italic text-slate-700 block">"Bring a book <strong class="text-cyan-600">to/for</strong> me."</span>
+                            </div>
+                        </div>
+
+                        <!-- Word Order & Omitting Prepositions -->
+                        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 space-y-4 text-sm text-amber-900">
+                            <strong class="font-bold text-amber-950 text-base block flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Word Order & Pronoun Constraints
+                            </strong>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-3.5 rounded-xl border border-amber-200 shadow-sm">
+                                    <strong class="text-amber-900 block mb-1">1. Omitting Prepositions (IO before DO)</strong>
+                                    You can omit <em>to/for</em> by placing the Indirect Object directly before the Direct Object: <br>
+                                    <span class="text-slate-700 font-medium block mt-1">&bull; With prep: We bought batteries <strong class="text-cyan-700">for Timothy</strong>.</span>
+                                    <span class="text-slate-700 font-medium block mt-1">&bull; Without prep: We bought <strong class="text-cyan-700">Timothy</strong> batteries.</span>
+                                </div>
+
+                                <div class="bg-white p-3.5 rounded-xl border border-amber-200 shadow-sm">
+                                    <strong class="text-amber-900 block mb-1">2. Preposition Placement Restriction</strong>
+                                    When using <em>to/for</em>, the phrase MUST come after the Direct Object! <br>
+                                    <span class="text-emerald-800 font-bold block mt-1"><i class="fa-solid fa-check mr-1"></i> He brought flowers <strong class="text-cyan-700">to my mother</strong>.</span>
+                                    <span class="text-rose-700 line-through block mt-0.5"><i class="fa-solid fa-xmark mr-1"></i> He brought to my mother flowers.</span>
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-4 pt-2">
+                                <div class="bg-white p-3.5 rounded-xl border border-amber-200 shadow-sm">
+                                    <strong class="text-amber-900 block mb-1">3. Indirect Object Pronoun</strong>
+                                    If IO is a pronoun (me, him, us), it goes before DO with preposition omitted: <br>
+                                    <span class="italic text-slate-700 font-medium">&bull; "My cousin owes <strong class="text-cyan-700">me</strong> money."</span>
+                                </div>
+
+                                <div class="bg-white p-3.5 rounded-xl border border-amber-200 shadow-sm">
+                                    <strong class="text-rose-900 block mb-1"><i class="fa-solid fa-ban text-rose-600 mr-1"></i> 4. Direct Object Pronoun Constraint!</strong>
+                                    If DO is a pronoun (<em>it, them</em>), it MUST come before IO, and you CANNOT omit <em>to/for</em>! <br>
+                                    <span class="text-emerald-800 font-bold block mt-1"><i class="fa-solid fa-check mr-1"></i> She got <strong class="text-cyan-700">them for</strong> her sister.</span>
+                                    <span class="text-rose-700 line-through block mt-0.5"><i class="fa-solid fa-xmark mr-1"></i> She got her sister them.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LESSON 2: PHRASAL VERBS -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-indigo-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-puzzle-piece text-2xl"></i>
+                    <h3 class="text-2xl font-bold">2. Phrasal Verbs: Separable vs. Inseparable</h3>
+                </div>
+                
+                <div class="p-8 space-y-8">
+                    
+                    <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5">
+                        <h4 class="font-bold text-indigo-900 text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-layer-group text-indigo-600"></i> What is a Phrasal Verb?
+                        </h4>
+                        <p class="text-sm text-indigo-900">A phrasal verb consists of a <strong>verb + particle</strong> (on, off, in, up, out, over). Particles look like prepositions but change the verb's meaning completely!</p>
+                        <div class="grid sm:grid-cols-2 gap-3 mt-3 text-xs md:text-sm">
+                            <div class="bg-white p-3 rounded-xl border border-indigo-200">
+                                <strong class="text-indigo-800 block mb-0.5">Phrasal Verb (Idiomatic):</strong>
+                                "Look out! There's a dog in the road!" <br><span class="text-slate-500 italic">(Meaning: Be careful!)</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-indigo-200">
+                                <strong class="text-indigo-800 block mb-0.5">Verb + Preposition (Literal):</strong>
+                                "I looked out the window." <br><span class="text-slate-500 italic">(Literal directional sight)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Word Equivalents -->
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-equals text-indigo-500"></i> Single-Word Equivalents
+                        </h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs md:text-sm">
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>call off</strong> = cancel</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>find out</strong> = discover</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>get ahead</strong> = succeed</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>give up</strong> = quit</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>go over</strong> = review</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>hand in</strong> = submit</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>run into</strong> = meet by chance</div>
+                            <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 font-medium"><strong>talk over</strong> = discuss</div>
+                        </div>
+                    </div>
+
+                    <!-- Separable vs Inseparable -->
+                    <div class="grid md:grid-cols-2 gap-8 pt-4 border-t border-slate-200">
+                        <!-- Separable -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-arrows-split-up-and-left text-indigo-500"></i> Separable Phrasal Verbs
+                            </h4>
+                            <p class="text-xs text-slate-500">call off, find out, look up, set up, figure out, hand in, put on, talk over</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-sm">
+                                <div>&bull; DO after: <em>"I turned off the light."</em></div>
+                                <div>&bull; DO between: <em>"I turned the light off."</em></div>
+                            </div>
+
+                            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-xs md:text-sm text-rose-900 space-y-1">
+                                <strong class="font-bold text-rose-950 block mb-1"><i class="fa-solid fa-ban text-rose-600 mr-1"></i> Separable Pronoun Rule!</strong>
+                                When DO is a pronoun (<em>it, them, him, her, me</em>), it <strong class="underline">MUST</strong> go between the verb and particle!
+                                <div class="text-emerald-800 font-bold mt-1"><i class="fa-solid fa-check mr-1"></i> She didn't pick <strong class="text-indigo-600">it out</strong>.</div>
+                                <div class="text-rose-700 line-through"><i class="fa-solid fa-xmark mr-1"></i> She didn't pick out it.</div>
+                            </div>
+                        </div>
+
+                        <!-- Inseparable -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-lock text-indigo-500"></i> Inseparable Phrasal Verbs
+                            </h4>
+                            <p class="text-xs text-slate-500">call on, come up with, go over, run into, come from, get on, look into, think about</p>
+                            
+                            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-sm">
+                                <div>&bull; DO must ALWAYS follow particle!</div>
+                                <div class="text-emerald-800 font-bold"><i class="fa-solid fa-check mr-1"></i> I ran into <strong class="text-indigo-600">an old friend</strong>.</div>
+                                <div class="text-rose-700 line-through"><i class="fa-solid fa-xmark mr-1"></i> I ran an old friend into.</div>
+                            </div>
+
+                            <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-4 text-xs md:text-sm text-indigo-900 space-y-1">
+                                <strong class="font-bold text-indigo-950 block mb-1"><i class="fa-solid fa-shield-halved text-indigo-600 mr-1"></i> Inseparable Pronoun Rule!</strong>
+                                Even if DO is a pronoun, it <strong class="underline">STILL MUST</strong> follow the particle! (3-word phrasal verbs like <em>look up to, come up with</em> are always inseparable too).
+                                <div class="text-emerald-800 font-bold mt-1"><i class="fa-solid fa-check mr-1"></i> I came across <strong class="text-indigo-600">it</strong> yesterday.</div>
+                                <div class="text-rose-700 line-through"><i class="fa-solid fa-xmark mr-1"></i> I came it across yesterday.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- WRITING FOCUS: TITLES OF WORKS -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start mt-8">
+                <i class="fa-solid fa-pen-nib text-3xl text-amber-600 mt-1"></i>
+                <div class="w-full">
+                    <h4 class="font-bold text-amber-900 text-lg mb-2">Writing Focus: Choosing an Effective Title</h4>
+                    <p class="text-sm text-amber-800 mb-3">When writing an essay about an innovative product, phrasing your title as a compelling question is a powerful technique!</p>
+                    
+                    <div class="grid sm:grid-cols-3 gap-4 text-sm">
+                        <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-bullseye text-amber-600 mr-1"></i> Catch Interest</strong>
+                            Make the title intriguing to grab the reader's attention immediately.
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-font text-amber-600 mr-1"></i> Capitalization</strong>
+                            Always begin with a capital letter and capitalize major words.
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-question text-amber-600 mr-1"></i> No Period at End</strong>
+                            Do NOT put a period at the end! End with a question mark (?) or exclamation mark (!) for emphasis.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Multiple Choice
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Order & Pronoun Engine
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-sliders mr-2"></i>Rule Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: MULTIPLE CHOICE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Transitive, Objects & Phrasal Rules</h3>
+                                    <p class="text-slate-500 text-sm">Select the grammatically correct option based on Unit 14 rules.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-cyan-100 text-cyan-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN THE BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Order & Pronoun Conjugator</h3>
+                                    <p class="text-slate-500 text-sm">Type the exact correct phrase or structure.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-cyan-100 text-cyan-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <p id="fill-hint" class="mt-4 text-sm font-bold text-cyan-700 bg-cyan-50 inline-block px-3 py-1 rounded-full border border-cyan-200"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/20 transition-all" placeholder="Type answer..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: RULE MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Rule Matcher</h3>
+                                <p class="text-slate-500 mt-2">Identify which verb rule governs the given scenario.</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Grammar Scenario</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options injected via JS -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-trans')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-trans';
+                        } else if (t.dataset.baseClass.includes('state-phrasal')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-phrasal';
+                        } else if (t.dataset.baseClass.includes('state-rule')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-rule';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        const chooseData = [
+            { q: "He brought some flowers ______.", opts: ["to my mother", "my mother to"], ans: 0, exp: "When using 'to' or 'for', the prepositional phrase must go after the direct object." },
+            { q: "She got ______ for her sister.", opts: ["them", "her sister them"], ans: 0, exp: "If the direct object is a pronoun ('them'), it MUST come before the indirect object!" },
+            { q: "She didn't pick ______.", opts: ["it out", "out it"], ans: 0, exp: "Separable Pronoun Rule: Pronoun objects must go between the verb and particle." },
+            { q: "I came ______ while doing research.", opts: ["across it", "it across"], ans: 0, exp: "Inseparable Pronoun Rule: Pronoun objects must STILL follow the particle for inseparable phrasal verbs." },
+            { q: "Our car ______ on the highway.", opts: ["broke down", "broke down it"], ans: 0, exp: "'Break down' is an intransitive phrasal verb and cannot take an object." },
+            { q: "My cousin owes ______ money.", opts: ["me", "to me"], ans: 0, exp: "When placing the indirect object before the direct object, omit the preposition ('me money')." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 5);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.innerHTML = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.innerHTML = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-cyan-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great job on Unit 14!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        const fillData = [
+            { q: "We bought [___] batteries.", hint: "Preposition omitted IO (Timothy)", ans: ["timothy"] },
+            { q: "I bought a gift [___] my brother.", hint: "Preposition for verb 'buy'", ans: ["for"] },
+            { q: "I turned the light [___].", hint: "Separable particle for 'turn off'", ans: ["off"] },
+            { q: "She didn't pick [___] out.", hint: "Pronoun object for 'it'", ans: ["it"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 4);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-cyan-600 border-b-2 border-cyan-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-hint').innerHTML = `<i class="fa-solid fa-lightbulb mr-2"></i>Rule: ${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return;
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-cyan-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-hint').classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        const matchData = [
+            { q: "She didn't pick it out.", ans: "Separable Pronoun Rule", exp: "When direct object is a pronoun ('it'), it must go in the middle of a separable phrasal verb." },
+            { q: "I came across it yesterday.", ans: "Inseparable Pronoun Rule", exp: "Even with pronouns, the object must follow the particle of an inseparable phrasal verb." },
+            { q: "She got them for her sister.", ans: "Direct Object Pronoun Rule", exp: "When DO is a pronoun ('them'), it must come before IO and preposition cannot be omitted." },
+            { q: "Gary looked up to his brother.", ans: "3-Word Phrasal Verb", exp: "3-word phrasal verbs are always inseparable." },
+            { q: "We bought Timothy batteries.", ans: "Omitted Preposition IO Order", exp: "Indir. Obj (Timothy) placed before Dir. Obj (batteries) with preposition omitted." }
+        ];
+
+        const matchOptionsList = [
+            "Separable Pronoun Rule",
+            "Inseparable Pronoun Rule",
+            "Direct Object Pronoun Rule",
+            "3-Word Phrasal Verb",
+            "Omitted Preposition IO Order"
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').textContent = `"${q.q}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            let opts = [q.ans];
+            while(opts.length < 4) {
+                let randomOpt = matchOptionsList[Math.floor(Math.random() * matchOptionsList.length)];
+                if(!opts.includes(randomOpt)) opts.push(randomOpt);
+            }
+            opts = shuffleArray(opts);
+            
+            opts.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-slate-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Not quite.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-cyan-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.add('hidden');
+            }
+
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+    </script>
+</body>
+</html>

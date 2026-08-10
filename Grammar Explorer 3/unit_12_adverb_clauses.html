@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 12: The Rise of the City (Adverb Clauses)</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff; /* Sky 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #0284c7; /* Sky 600 */
+            color: #0369a1; /* Sky 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-blue {
+            background-color: #e0f2fe; color: #0284c7; border-color: #0ea5e9; border-style: solid;
+        }
+        .grammar-toggle.state-amber {
+            background-color: #fef3c7; color: #d97706; border-color: #f59e0b; border-style: solid;
+        }
+        .grammar-toggle.state-err {
+            background-color: #fee2e2; color: #e11d48; border-color: #f43f5e; border-style: solid; text-decoration: line-through;
+        }
+
+        .subtab-active {
+            background-color: #0284c7; color: white; box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #0284c7; background-color: #f0f9ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #0284c7; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #0284c7; background-color: #f0f9ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-sky-500 to-indigo-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-city text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 12: The Rise of the City</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 12</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Adverb Clauses & Reductions</h2>
+                <p class="text-lg text-slate-600">Master how to connect ideas using clauses of time, contrast, reason, and purpose. Then, learn the strict rules for beautifully shortening them into reduced clauses.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-sky-50 text-sky-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-sky-200 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-sky-500 text-lg"></i>
+                    Tap the dashed grammar words to reveal structural rules!
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-sky-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-link text-2xl"></i>
+                    <h3 class="text-2xl font-bold">1. Clauses of Time and Contrast</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="mb-8 border-l-4 border-amber-500 pl-4 bg-amber-50 p-3 rounded-r-lg">
+                        <h4 class="font-bold text-amber-800"><i class="fa-solid fa-triangle-exclamation mr-2"></i>The Golden Comma Rule</h4>
+                        <p class="text-sm text-amber-900 mt-1">If the adverb clause comes <strong>first</strong> in the sentence, use a comma. If it comes <strong>after</strong> the main clause, do not use a comma.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-clock text-sky-500"></i> Time Clauses
+                            </h4>
+                            <p class="text-sm text-slate-600 mb-4">Tell <em>when</em> the action in the main clause happens.</p>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-sky-700 block mb-1">As / Just as</strong>
+                                    "As" means when or while. "Just as" emphasizes the exact same moment.<br>
+                                    <span class="mt-2 block font-medium">"<span class="grammar-toggle state-blue" data-exp="Comma needed because time clause is first">Just as I was leaving,</span> the phone rang."</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-sky-700 block mb-1">As long as</strong>
+                                    Means "from beginning to end."<br>
+                                    <span class="mt-2 block font-medium">"I’ll remember it <span class="grammar-toggle state-blue" data-exp="No comma when clause is second">as long as I live</span>."</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-sky-700 block mb-1">Whenever</strong>
+                                    Means "any time" or "every time."<br>
+                                    <span class="mt-2 block font-medium">"<span class="grammar-toggle state-blue" data-exp="Comma needed">Whenever she speaks,</span> I listen."</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-code-compare text-sky-500"></i> Contrast Clauses
+                            </h4>
+                            <p class="text-sm text-slate-600 mb-4">Introduce unexpected or surprising information. Use <em>although, even though,</em> or <em>though</em>.</p>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-sky-700 block mb-1">Usage Distinctions</strong>
+                                    <ul class="list-disc pl-5 mt-1 space-y-1">
+                                        <li><strong>Even though:</strong> Expresses a stronger contrast.</li>
+                                        <li><strong>Although:</strong> Preferred in formal writing.</li>
+                                        <li><strong>Though:</strong> Much more common in informal/spoken English.</li>
+                                    </ul>
+                                </li>
+                                <li class="bg-rose-50 p-4 rounded-lg border border-rose-200 shadow-inner">
+                                    <strong class="text-rose-800 block mb-2"><i class="fa-solid fa-ban mr-1"></i> The "But" Trap</strong>
+                                    <p class="text-xs text-rose-700 mb-2">Never use the conjunction <em>but</em> in a sentence that already uses a contrast clause.</p>
+                                    <span class="grammar-toggle state-err block mb-1" data-exp="Do not use 'but' here!">Although it was raining, but I walked.</span>
+                                    <span class="text-emerald-700 font-bold block"><i class="fa-solid fa-check mr-1"></i> Although it was raining, I walked.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-indigo-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-bullseye text-2xl"></i>
+                    <h3 class="text-2xl font-bold">2. Clauses of Reason and Purpose</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-lightbulb text-indigo-500"></i> Reason Clauses
+                            </h4>
+                            <p class="text-sm text-slate-600 mb-4">Explain <em>why</em> something happens. Uses <em>because, since,</em> or <em>now that</em>.</p>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-700 block mb-1">Because / Since</strong>
+                                    Introduce direct reasons.<br>
+                                    <span class="mt-2 block font-medium">"<span class="grammar-toggle state-blue" data-exp="Reason clause first = comma">Since we are late,</span> let's take a taxi."</span>
+                                    <span class="text-xs text-amber-600 block mt-1">*Note: Since can also refer to time (e.g., Since 2010).</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-700 block mb-1">Now that</strong>
+                                    Shows a reason that is true in the present (meaning "because... now").<br>
+                                    <span class="mt-2 block font-medium">"<span class="grammar-toggle state-blue" data-exp="Reason clause first = comma">Now that I know English,</span> I can get a job."</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-location-arrow text-indigo-500"></i> Purpose Clauses
+                            </h4>
+                            <p class="text-sm text-slate-600 mb-4">Express the goal of an action. Uses <em>so that</em> (meaning "in order to").</p>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-4 rounded-lg border border-slate-100 shadow-inner">
+                                    <strong class="text-indigo-700 block mb-2">Using Modals</strong>
+                                    <p class="text-sm text-slate-600 mb-2">Modal verbs like <em>can, could,</em> and <em>would</em> are heavily used inside purpose clauses.</p>
+                                    <span class="mt-1 block font-medium">"We left early <span class="grammar-toggle state-amber" data-exp="So that + modal (can)">so that we can</span> avoid traffic."</span>
+                                </li>
+                                <li class="bg-indigo-50 p-3 rounded-lg border border-indigo-100">
+                                    <strong class="text-indigo-900 block mb-1">Real English Tip</strong>
+                                    In casual spoken English, the word <em>that</em> is often omitted.<br>
+                                    <span class="mt-1 block font-medium italic text-slate-600">"I texted Bill <strong class="text-indigo-600">so</strong> he could get the info."</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative border border-slate-700">
+                <div class="absolute top-0 right-0 p-6 opacity-10">
+                    <i class="fa-solid fa-scissors text-9xl"></i>
+                </div>
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-compress text-amber-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">3. Reduced Adverb Clauses</h3>
+                    </div>
+                    <p class="text-slate-300 mb-6 font-medium">Shortening adverb clauses of time and reason into relative phrases.</p>
+
+                    <div class="bg-red-950/50 p-5 rounded-2xl border border-red-500/50 mb-8">
+                        <h4 class="font-bold text-red-400 text-xl mb-2 text-center uppercase tracking-widest"><i class="fa-solid fa-triangle-exclamation mr-2"></i>The Absolute Requirement</h4>
+                        <p class="text-center text-slate-200">You can <strong>ONLY</strong> reduce an adverb clause if the subject of the adverb clause and the subject of the main clause are the <strong>exact same person or thing</strong>. Otherwise, you create a "dangling modifier".</p>
+                        <div class="mt-4 grid md:grid-cols-2 gap-4 text-sm">
+                            <div class="bg-black/30 p-3 rounded border border-white/5">
+                                <span class="text-green-400 font-bold block mb-1"><i class="fa-solid fa-check"></i> Same Subject (Can Reduce)</span>
+                                After <strong class="text-white">I</strong> studied, <strong class="text-white">I</strong> went to bed.<br>
+                                &rarr; <span class="text-emerald-300 font-bold">After studying, I went to bed.</span>
+                            </div>
+                            <div class="bg-black/30 p-3 rounded border border-white/5">
+                                <span class="text-red-400 font-bold block mb-1"><i class="fa-solid fa-xmark"></i> Different Subjects (Cannot Reduce)</span>
+                                After <strong class="text-white">the dog</strong> barked, <strong class="text-white">I</strong> opened the door.<br>
+                                <span class="line-through text-slate-500 mt-1 block">After barking, I opened the door.</span> <span class="text-xs text-rose-300">(Implies I barked!)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-white text-lg mb-3 border-b border-slate-700 pb-2">Reducing Time Clauses</h4>
+                            <p class="text-sm text-slate-400 mb-3">Only clauses starting with <em>after, before, since,</em> and <em>while</em> can be reduced.</p>
+                            
+                            <ul class="space-y-4 text-sm">
+                                <li>
+                                    <strong class="text-sky-300 block mb-1">Standard Verbs</strong>
+                                    Omit the subject and change the verb to <strong>-ing</strong>.<br>
+                                    <div class="bg-slate-900 p-2 rounded mt-1 border border-slate-700">
+                                        "Before <span class="line-through text-slate-500">I leave</span> home..." &rarr; "Before <strong class="text-emerald-400">leaving</strong> home..."
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong class="text-sky-300 block mb-1">Progressive Verbs</strong>
+                                    Omit the subject AND the 'be' verb, keeping only the -ing form.<br>
+                                    <div class="bg-slate-900 p-2 rounded mt-1 border border-slate-700">
+                                        "While <span class="line-through text-slate-500">I was riding</span>..." &rarr; "While <strong class="text-emerald-400">riding</strong>..."
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-white text-lg mb-3 border-b border-slate-700 pb-2">Reducing Reason Clauses</h4>
+                            <p class="text-sm text-slate-400 mb-3">Omit the conjunction (because/since) AND the subject.</p>
+                            
+                            <ul class="space-y-4 text-sm">
+                                <li>
+                                    <strong class="text-amber-300 block mb-1">Standard Reduction</strong>
+                                    <div class="bg-slate-900 p-2 rounded mt-1 border border-slate-700">
+                                        "<span class="line-through text-slate-500">Because she is</span> an only child..." &rarr; "<strong class="text-emerald-400">Being</strong> an only child..."
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong class="text-amber-300 block mb-1">Negative Clauses</strong>
+                                    Place <em>not</em> directly before the -ing verb.<br>
+                                    <div class="bg-slate-900 p-2 rounded mt-1 border border-slate-700">
+                                        "<span class="line-through text-slate-500">Since I don't know</span> Chinese..." &rarr; "<strong class="text-emerald-400">Not knowing</strong> Chinese..."
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong class="text-amber-300 block mb-1">Perfect Aspect (Past/Present Perfect)</strong>
+                                    Change have/had to <em>having</em>.<br>
+                                    <div class="bg-slate-900 p-2 rounded mt-1 border border-slate-700">
+                                        "<span class="line-through text-slate-500">Since she had spent</span> her money..." &rarr; "<strong class="text-emerald-400">Having spent</strong> her money..."
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start mt-8">
+                <i class="fa-solid fa-pen-nib text-3xl text-amber-600 mt-1"></i>
+                <div class="w-full">
+                    <h4 class="font-bold text-amber-900 text-lg mb-2">Writing Connection: Making Comparisons with "Like"</h4>
+                    <p class="text-sm text-amber-800 mb-3">Use the prepositional phrase <strong>like + a noun phrase</strong> to show that the subject of your main clause is similar to the noun following like.</p>
+                    <div class="bg-white p-4 rounded-xl border border-amber-100 shadow-sm text-sm">
+                        <strong class="text-slate-800 block mb-2">Punctuation Rule:</strong>
+                        <p class="text-slate-600">Always place a comma after the phrase with <em>like</em> when it starts a sentence.</p>
+                        <div class="mt-2 font-medium italic text-slate-800">
+                            "Like any city<strong class="text-amber-600 text-lg">,</strong> Seoul can be a stressful place to live."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Multiple Choice
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-compress mr-2"></i>Reduction Engine
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-brain mr-2"></i>Clause Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Conjunctions & Rules</h3>
+                                    <p class="text-slate-500 text-sm">Select the grammatically correct option to complete the sentence.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-sky-100 text-sky-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Reduction Engine</h3>
+                                    <p class="text-slate-500 text-sm">Type the reduced form of the highlighted adverb clause.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-sky-100 text-sky-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <p id="fill-hint" class="mt-4 text-sm font-bold text-amber-600 bg-amber-50 inline-block px-3 py-1 rounded-full border border-amber-200"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-500/20 transition-all" placeholder="Type reduced phrase..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Clause Matcher</h3>
+                                <p class="text-slate-500 mt-2">Read the sentence. What type of adverb clause is being used?</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Sentence</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options injected via JS -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-blue')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-blue';
+                        } else if (t.dataset.baseClass.includes('state-amber')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-amber';
+                        } else if (t.dataset.baseClass.includes('state-err')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-err';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: MULTIPLE CHOICE
+        // ==========================================
+
+        const chooseData = [
+            { q: "______ it was raining, but I went for a walk.", opts: ["Although", "Even though", "Neither (Incorrect Sentence)"], ans: 2, exp: "Do not use 'but' in a sentence that already uses a contrast clause like although or even though." },
+            { q: "______ we finished classes, we went on vacation.", opts: ["As soon as", "Whenever"], ans: 0, exp: "'As soon as' fits best to show an action happening immediately after another." },
+            { q: "I’ll never forget that day ______ I live.", opts: ["as", "as long as"], ans: 1, exp: "'As long as' means from beginning to end." },
+            { q: "We’re leaving early ______ we can avoid traffic.", opts: ["so that", "because"], ans: 0, exp: "'So that' introduces a purpose clause and is often followed by a modal like 'can'." },
+            { q: "______ the dog barked, I opened the door.", opts: ["After", "After barking,"], ans: 0, exp: "You CANNOT reduce the clause here because the subjects ('the dog' and 'I') are different." },
+            { q: "______ any city, Seoul can be a stressful place.", opts: ["As", "Like"], ans: 1, exp: "Use the preposition 'Like' + noun phrase to make a comparison." },
+            { q: "______ I know English, I can get a good job.", opts: ["Now that", "So that"], ans: 0, exp: "'Now that' shows a reason that is true in the present (because... now)." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.textContent = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-0284c7', 'hover:bg-f0f9ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-sky-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS (REDUCE)
+        // ==========================================
+
+        const fillData = [
+            { q: "I always have coffee [before I leave] home.", hint: "Omit subject, change verb to -ing", ans: ["before leaving"] },
+            { q: "[Because she is] an only child, she is lonely.", hint: "Reason clause: Omit conjunction & subject, change to -ing", ans: ["being"] },
+            { q: "I got tired [while I was riding] my bike.", hint: "Progressive: Omit subject and 'be' verb", ans: ["while riding"] },
+            { q: "[Since I don't know] Chinese, I can't understand him.", hint: "Negative Reason: Use 'Not' + -ing", ans: ["not knowing"] },
+            { q: "[Since she had spent] her money, she needed more.", hint: "Perfect aspect: Change had to 'having'", ans: ["having spent"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 4);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            // Highlight the phrase to be reduced
+            const qHtml = q.q.replace(/\[(.*?)\]/, `<span class="bg-amber-100 text-amber-800 px-2 py-1 rounded line-through decoration-amber-400">$1</span> <br class="md:hidden"><i class="fa-solid fa-arrow-right text-slate-300 mx-2 hidden md:inline"></i><i class="fa-solid fa-arrow-down text-slate-300 mx-2 md:hidden"></i><span id="fill-target" class="text-sky-600 border-b-2 border-sky-300 font-bold px-2 inline-block min-w-[80px]">______</span>`);
+            
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-hint').innerHTML = `<i class="fa-solid fa-compress mr-2"></i>${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correctly reduced!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-sky-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-hint').classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 3: CONCEPT MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "Although we enjoy the country, we prefer the city.", ans: "Contrast Clause", exp: "Introduces unexpected/contrasting information using 'Although'." },
+            { q: "We went on vacation as soon as we finished classes.", ans: "Time Clause", exp: "Tells *when* the action happened using 'as soon as'." },
+            { q: "Since we're late, let's take a taxi.", ans: "Reason Clause", exp: "Explains *why* something happens using 'Since' (meaning because)." },
+            { q: "We left early so that we could avoid traffic.", ans: "Purpose Clause", exp: "Expresses the goal of an action using 'so that'." },
+            { q: "Having spent her money, she needed more.", ans: "Reduced Reason Clause", exp: "A shortened reason clause using the perfect aspect (having + past participle)." },
+            { q: "Before leaving home, I always have coffee.", ans: "Reduced Time Clause", exp: "A shortened time clause omitting the subject and 'be' verb." }
+        ];
+
+        const matchOptionsList = [
+            "Time Clause",
+            "Contrast Clause",
+            "Reason Clause",
+            "Purpose Clause",
+            "Reduced Time Clause",
+            "Reduced Reason Clause"
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            // Highlight the clause conjunction or key reduction words
+            let displayQ = q.q;
+            const keywords = ["Although", "as soon as", "Since", "so that", "Having spent", "Before leaving"];
+            keywords.forEach(kw => {
+                if(displayQ.includes(kw)) {
+                    displayQ = displayQ.replace(kw, `<span class="text-sky-400 font-bold">${kw}</span>`);
+                }
+            });
+
+            document.getElementById('match-question').innerHTML = `"${displayQ}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            // Get 4 random options including the correct one
+            let opts = [q.ans];
+            while(opts.length < 4) {
+                let randomOpt = matchOptionsList[Math.floor(Math.random() * matchOptionsList.length)];
+                if(!opts.includes(randomOpt)) opts.push(randomOpt);
+            }
+            opts = shuffleArray(opts);
+            
+            opts.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-slate-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-0284c7', 'hover:bg-f0f9ff');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Not quite.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-sky-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.add('hidden');
+            }
+
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>

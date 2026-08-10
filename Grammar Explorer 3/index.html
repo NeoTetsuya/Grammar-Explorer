@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Explorer 3 | Interactive Advanced Grammar Portal</title>
+    <meta name="description" content="Master advanced English grammar with 15 interactive units covering perfect progressive tenses, past modals, passive voice, conditionals, wish, noun clauses, reported speech, and transitions.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            900: '#581c87',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-600 flex items-center justify-center text-white shadow-md shadow-purple-500/20">
+                    <i class="fa-solid fa-graduation-cap text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-xl text-slate-900 dark:text-white tracking-tight">Grammar Explorer <span class="text-purple-600 dark:text-purple-400">3</span></span>
+                    <span class="hidden sm:inline-block text-xs font-semibold px-2 py-0.5 ml-2 bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 rounded-full border border-purple-200 dark:border-purple-800">Advanced Portal</span>
+                </div>
+            </div>
+
+            <!-- Controls & Quick Actions -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <a href="../index.html" class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Back to All Courses Hub">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="hidden sm:inline">Hub Home</span>
+                </a>
+                <button id="quick-ref-btn" class="hidden md:flex items-center space-x-2 text-xs font-semibold px-3 py-2 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-purple-900 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Quick Rules</span>
+                </button>
+                <button id="random-unit-btn" class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 hover:bg-pink-100 dark:hover:bg-pink-900 transition">
+                    <i class="fa-solid fa-shuffle"></i>
+                    <span class="hidden sm:inline">Random Lesson</span>
+                </button>
+                <button id="theme-toggle" class="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none" title="Toggle Theme">
+                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg hidden dark:block text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-purple-50 via-pink-50/40 to-slate-50 dark:from-slate-900 dark:via-slate-900/80 dark:to-slate-950 pt-10 pb-12 border-b border-slate-200/60 dark:border-slate-800/80">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-purple-400/10 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-24 w-80 h-80 bg-pink-400/10 dark:bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs font-medium mb-4 border border-purple-200 dark:border-purple-800">
+                    <i class="fa-solid fa-layer-group text-purple-500"></i>
+                    <span>Advanced English Curriculum • 15 Units</span>
+                </div>
+                <h1 class="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight">
+                    Master Advanced English with <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 dark:from-purple-400 dark:via-pink-400 dark:to-rose-400">Academic Precision</span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                    Explore all 15 interactive units covering Perfect Progressive Tenses, Past Modals, Conditionals (0-3 & Mixed), Noun Clauses, Reported Speech, and Cohesive Transitions.
+                </p>
+
+                <!-- Stats Overview Bar -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto mb-6">
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-purple-600 dark:text-purple-400 font-display">15</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Advanced Units</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-pink-600 dark:text-pink-400 font-display">5</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Learning Stages</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-rose-600 dark:text-rose-400 font-display">90+</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Practice Drills</div>
+                    </div>
+                    <div class="glass-card p-3 rounded-xl text-center shadow-xs">
+                        <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 font-display" id="progress-percent-display">0%</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">Course Progress</div>
+                    </div>
+                </div>
+
+                <!-- Global Progress Bar -->
+                <div class="max-w-xl mx-auto bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div class="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-300 mb-2">
+                        <span><i class="fa-solid fa-trophy text-amber-500 mr-1.5"></i>Your Level 3 Progress</span>
+                        <span id="progress-text-display">0 of 15 Completed</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 h-3 rounded-full overflow-hidden p-0.5 border border-slate-200/50 dark:border-slate-700/50">
+                        <div id="progress-bar-fill" class="bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+
+        <!-- Search & Filter Controls Toolbar -->
+        <div class="mb-8 space-y-4">
+            <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                
+                <!-- Search Box & View Toggle Row -->
+                <div class="flex flex-col sm:flex-row gap-3 items-center w-full lg:w-auto">
+                    <!-- Search Input -->
+                    <div class="relative w-full sm:w-80">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input type="text" id="search-input" placeholder="Search by title, grammar concept..." 
+                            class="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400 transition">
+                        <button id="clear-search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+
+                    <!-- View Mode Toggle Buttons -->
+                    <div class="flex items-center p-1 bg-slate-200/70 dark:bg-slate-800/80 rounded-xl border border-slate-300/60 dark:border-slate-700/60 shrink-0 self-start sm:self-auto">
+                        <button id="view-grid-btn" title="Grid View" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5">
+                            <i class="fa-solid fa-grip-vertical"></i>
+                            <span>Grid</span>
+                        </button>
+                        <button id="view-list-btn" title="Compact List View" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5">
+                            <i class="fa-solid fa-list-ul"></i>
+                            <span>List</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Stage Filters -->
+                <div class="flex flex-wrap gap-2 justify-center lg:justify-end w-full lg:w-auto" id="category-filters">
+                    <button data-category="all" class="filter-btn active-filter text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        All Units (15)
+                    </button>
+                    <button data-category="stage1" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 1: Advanced Tenses
+                    </button>
+                    <button data-category="stage2" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 2: Question & Agreement
+                    </button>
+                    <button data-category="stage3" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 3: Verbs & Modals
+                    </button>
+                    <button data-category="stage4" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 4: Passive & Modifiers
+                    </button>
+                    <button data-category="stage5" class="filter-btn text-xs font-semibold px-3 py-2 rounded-xl transition border">
+                        Stage 5: Clauses & Discourse
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Units Display Container -->
+        <div id="units-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Units rendered dynamically -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div id="no-results" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400 text-2xl">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-slate-700 dark:text-slate-300">No matching lessons found</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Try adjusting your search query or choosing another stage filter.</p>
+        </div>
+
+        <!-- Recommended Roadmap -->
+        <section class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-3 py-1 rounded-full border border-purple-200 dark:border-purple-800">Academic Progression</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-3">Grammar Explorer 3 Learning Roadmap</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">5 advanced stages to achieve academic writing and discourse precision.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-purple-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-purple-600 dark:text-purple-400 block mb-1">STAGE 1 • Units 1–3</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Advanced Tense Mastery</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Perfect Progressive & Future Perfect</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-pink-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-pink-600 dark:text-pink-400 block mb-1">STAGE 2 • Units 4–5</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Questions & Agreement</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Tag Questions & Subject-Verb Agreement</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-rose-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-rose-600 dark:text-rose-400 block mb-1">STAGE 3 • Units 6–8</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Gerunds & Past Modals</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Passive Gerunds & Past Speculation</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-amber-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-amber-600 dark:text-amber-400 block mb-1">STAGE 4 • Units 9–10</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Academic Passive & Modifiers</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Modal Passives & Advanced Adverbs</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl border-l-4 border-l-indigo-500 shadow-xs relative">
+                    <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400 block mb-1">STAGE 5 • Units 11–15</span>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Complex Clauses & Speech</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Conditionals, Reported Speech & Transitions</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Quick Rules Modal -->
+    <div id="quick-ref-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-900/50">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-purple-500 text-lg"></i>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white">Grammar Explorer 3 Quick Reference</h3>
+                </div>
+                <button id="close-modal-btn" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-4 text-sm">
+                <div class="p-4 bg-purple-50 dark:bg-purple-950/40 rounded-xl border border-purple-200 dark:border-purple-800">
+                    <h4 class="font-bold text-purple-800 dark:text-purple-300 mb-1"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Past Modals of Deduction</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">Use <strong>Must + have + V3</strong> for strong certainty about the past (<em>He must have forgotten</em>), <strong>Could/Might + have + V3</strong> for possibility, and <strong>Should + have + V3</strong> for regret or missed obligations.</p>
+                </div>
+                <div class="p-4 bg-pink-50 dark:bg-pink-950/40 rounded-xl border border-pink-200 dark:border-pink-800">
+                    <h4 class="font-bold text-pink-800 dark:text-pink-300 mb-1"><i class="fa-solid fa-code-branch mr-2"></i>3rd & Mixed Conditionals</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">3rd Conditional expresses hypothetical past conditions (<em>If I had studied, I would have passed</em>). Mixed conditional connects past conditions with present outcomes (<em>If I had studied medicine, I would be a doctor today</em>).</p>
+                </div>
+                <div class="p-4 bg-rose-50 dark:bg-rose-950/40 rounded-xl border border-rose-200 dark:border-rose-800">
+                    <h4 class="font-bold text-rose-800 dark:text-rose-300 mb-1"><i class="fa-solid fa-[#quote-left] mr-2"></i>Reported Speech Backshifting</h4>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs">When reporting past speech, backshift tenses: Present Simple → Past Simple, Present Perfect → Past Perfect, Will → Would. Pronouns and time signals also shift (e.g. <em>now → then, today → that day</em>).</p>
+                </div>
+            </div>
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-right">
+                <button id="modal-ok-btn" class="px-4 py-2 bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-semibold rounded-lg hover:bg-slate-700 dark:hover:bg-white transition">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-purple-600 text-white flex items-center justify-center font-bold text-xs">
+                    GE3
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Grammar Explorer 3 • Advanced Course</span>
+            </div>
+            <div class="text-xs text-slate-400 dark:text-slate-500">
+                Created for Academic & Professional English Proficiency
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        const unitsData = [
+            {
+                lessonNum: "Unit 01",
+                id: "ge3_unit_1",
+                file: "unit_1_present_and_past.html",
+                unitTag: "Unit 1",
+                title: "Unit 1: Present & Past Tenses",
+                category: "stage1",
+                stageName: "Stage 1: Advanced Tenses",
+                icon: "fa-sliders",
+                color: "purple",
+                description: "Deepen command of simple, progressive, and state vs action verb aspects across present and past time frames.",
+                topics: ["Present Tenses", "Past Tenses", "State vs Action Verbs", "Aspect Review"]
+            },
+            {
+                lessonNum: "Unit 02",
+                id: "ge3_unit_2",
+                file: "unit_2_perfect_tenses.html",
+                unitTag: "Unit 2",
+                title: "Unit 2: Perfect & Perfect Progressive Tenses",
+                category: "stage1",
+                stageName: "Stage 1: Advanced Tenses",
+                icon: "fa-timeline",
+                color: "pink",
+                description: "Contrast Present/Past Perfect Simple with Perfect Progressive forms (have been doing / had been doing).",
+                topics: ["Present Perfect Progressive", "Past Perfect Progressive", "Duration & Completion"]
+            },
+            {
+                lessonNum: "Unit 03",
+                id: "ge3_unit_3",
+                file: "unit_3_the_future.html",
+                unitTag: "Unit 3",
+                title: "Unit 3: A Look Into the Future",
+                category: "stage1",
+                stageName: "Stage 1: Advanced Tenses",
+                icon: "fa-crystal-ball",
+                color: "rose",
+                description: "Master future progressive (will be doing), future perfect (will have done), and complex future clause expressions.",
+                topics: ["Future Progressive", "Future Perfect", "Future in the Past", "Future Clauses"]
+            },
+            {
+                lessonNum: "Unit 04",
+                id: "ge3_unit_4",
+                file: "unit_4_exploration.html",
+                unitTag: "Unit 4",
+                title: "Unit 4: Exploration (Tag & Negative Questions)",
+                category: "stage2",
+                stageName: "Stage 2: Question & Agreement",
+                icon: "fa-circle-question",
+                color: "amber",
+                description: "Form tag questions for confirmation, negative questions for surprise, and emphatic question structures.",
+                topics: ["Question Tags", "Negative Questions", "Intonation Rules", "Confirmation"]
+            },
+            {
+                lessonNum: "Unit 05",
+                id: "ge3_unit_5",
+                file: "unit_5_stages_of_life.html",
+                unitTag: "Unit 5",
+                title: "Unit 5: Stages of Life (Nouns, Articles & S-V Agreement)",
+                category: "stage2",
+                stageName: "Stage 2: Question & Agreement",
+                icon: "fa-people-roof",
+                color: "emerald",
+                description: "Master complex subject-verb agreement (collective nouns, quantity phrases), zero article, and generic nouns.",
+                topics: ["Subject-Verb Agreement", "Collective Nouns", "Generic Nouns", "Article Nuances"]
+            },
+            {
+                lessonNum: "Unit 06",
+                id: "ge3_unit_6",
+                file: "unit_6_gerunds_and_infinitives.html",
+                unitTag: "Unit 6",
+                title: "Unit 6: Wellness (Gerunds and Infinitives)",
+                category: "stage3",
+                stageName: "Stage 3: Verbs & Modals",
+                icon: "fa-notes-medical",
+                color: "cyan",
+                description: "Examine complex gerunds and infinitives, passive gerunds (being done), perfect infinitives (to have done), and sense verbs.",
+                topics: ["Passive Gerunds", "Perfect Infinitives", "Sense Verbs", "Complex Complements"]
+            },
+            {
+                lessonNum: "Unit 07",
+                id: "ge3_unit_7",
+                file: "unit_7_globetrotting.html",
+                unitTag: "Unit 7",
+                title: "Unit 7: Globetrotting (Modals Part 1)",
+                category: "stage3",
+                stageName: "Stage 3: Verbs & Modals",
+                icon: "fa-compass-drafting",
+                color: "sky",
+                description: "Express degrees of certainty and speculation in present and future time using must, may, might, could, and cannot.",
+                topics: ["Modals of Certainty", "Present Speculation", "Degrees of Probability"]
+            },
+            {
+                lessonNum: "Unit 08",
+                id: "ge3_unit_8",
+                file: "unit_8_our_mysterious_world.html",
+                unitTag: "Unit 8",
+                title: "Unit 8: Our Mysterious World (Modals Part 2)",
+                category: "stage3",
+                stageName: "Stage 3: Verbs & Modals",
+                icon: "fa-skull-crossbones",
+                color: "blue",
+                description: "Form past modals of speculation and regret (must have, could have, might have, should have done).",
+                topics: ["Past Modals", "Past Speculation", "Regret & Criticism", "Must / Could Have"]
+            },
+            {
+                lessonNum: "Unit 09",
+                id: "ge3_unit_9",
+                file: "unit_9_the_natural_world.html",
+                unitTag: "Unit 9",
+                title: "Unit 9: The Natural World (The Passive)",
+                category: "stage4",
+                stageName: "Stage 4: Passive & Modifiers",
+                icon: "fa-volcano",
+                color: "indigo",
+                description: "Apply passive voice in academic writing, modal passives (can be done, must be handled), and stative passive phrases.",
+                topics: ["Academic Passive", "Modal Passives", "Stative Passive", "Scientific Style"]
+            },
+            {
+                lessonNum: "Unit 10",
+                id: "ge3_unit_10",
+                file: "unit_10_beauty_and_appearance.html",
+                unitTag: "Unit 10",
+                title: "Unit 10: Beauty and Appearance (Adjectives & Adverbs)",
+                category: "stage4",
+                stageName: "Stage 4: Passive & Modifiers",
+                icon: "fa-sparkles",
+                color: "violet",
+                description: "Master participial adjectives (-ing vs -ed), compound adjectives, sentence adverbs (surprisingly, frankly), and emphasis.",
+                topics: ["Participial Adjectives", "Compound Modifiers", "Sentence Adverbs", "Emphasis"]
+            },
+            {
+                lessonNum: "Unit 11",
+                id: "ge3_unit_11",
+                file: "unit_11_the_power_of_images.html",
+                unitTag: "Unit 11",
+                title: "Unit 11: The Power of Images (Relative Clauses)",
+                category: "stage5",
+                stageName: "Stage 5: Clauses & Discourse",
+                icon: "fa-camera-retro",
+                color: "fuchsia",
+                description: "Form non-defining relative clauses, relative clauses with prepositions (in which, to whom), and quantitative relative phrases.",
+                topics: ["Non-defining Clauses", "Prepositions + Relative Pronouns", "Quantity Relative Clauses"]
+            },
+            {
+                lessonNum: "Unit 12",
+                id: "ge3_unit_12",
+                file: "unit_12_adverb_clauses.html",
+                unitTag: "Unit 12",
+                title: "Unit 12: The Rise of the City (Adverb Clauses)",
+                category: "stage5",
+                stageName: "Stage 5: Clauses & Discourse",
+                icon: "fa-city",
+                color: "orange",
+                description: "Connect complex sentences with adverb clauses of contrast (although, even though, whereas), condition, and clause reduction.",
+                topics: ["Adverb Clauses of Contrast", "Condition Clauses", "Reduced Participial Phrases"]
+            },
+            {
+                lessonNum: "Unit 13",
+                id: "ge3_unit_13",
+                file: "unit_13_choices.html",
+                unitTag: "Unit 13",
+                title: "Unit 13: Choices (Conditionals and Wish)",
+                category: "stage5",
+                stageName: "Stage 5: Clauses & Discourse",
+                icon: "fa-route",
+                color: "rose",
+                description: "Master real & unreal conditionals (0, 1st, 2nd, 3rd, mixed conditionals) and wish / if only structures for regret.",
+                topics: ["3rd Conditional", "Mixed Conditionals", "Wish & If Only", "Hypothetical Scenarios"]
+            },
+            {
+                lessonNum: "Unit 14",
+                id: "ge3_unit_14",
+                file: "unit_14_noun_clauses_and_reported_speech.html",
+                unitTag: "Unit 14",
+                title: "Unit 14: Noun Clauses & Reported Speech",
+                category: "stage5",
+                stageName: "Stage 5: Clauses & Discourse",
+                icon: "fa-comments",
+                color: "purple",
+                description: "Construct noun clauses as subjects/objects, reported questions, commands, and backshifting rules in indirect speech.",
+                topics: ["Noun Clauses", "Reported Speech Backshifting", "Indirect Questions", "Reporting Verbs"]
+            },
+            {
+                lessonNum: "Unit 15",
+                id: "ge3_unit_15",
+                file: "unit_15_transitions_prepositional_phrases.html",
+                unitTag: "Unit 15",
+                title: "Unit 15: Learning (Combining Ideas)",
+                category: "stage5",
+                stageName: "Stage 5: Clauses & Discourse",
+                icon: "fa-pen-nib",
+                color: "emerald",
+                description: "Master transitional adverbs (however, furthermore, consequently), prepositional phrases, and academic cohesive devices.",
+                topics: ["Transition Words", "Prepositional Phrases", "Academic Writing Cohesion"]
+            }
+        ];
+
+        const colorClasses = {
+            rose: { bg: "bg-rose-500", lightBg: "bg-rose-50 dark:bg-rose-950/30", text: "text-rose-600 dark:text-rose-400", border: "border-rose-200 dark:border-rose-800" },
+            indigo: { bg: "bg-indigo-500", lightBg: "bg-indigo-50 dark:bg-indigo-950/30", text: "text-indigo-600 dark:text-indigo-400", border: "border-indigo-200 dark:border-indigo-800" },
+            cyan: { bg: "bg-cyan-500", lightBg: "bg-cyan-50 dark:bg-cyan-950/30", text: "text-cyan-600 dark:text-cyan-400", border: "border-cyan-200 dark:border-cyan-800" },
+            emerald: { bg: "bg-emerald-500", lightBg: "bg-emerald-50 dark:bg-emerald-950/30", text: "text-emerald-600 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-800" },
+            teal: { bg: "bg-teal-500", lightBg: "bg-teal-50 dark:bg-teal-950/30", text: "text-teal-600 dark:text-teal-400", border: "border-teal-200 dark:border-teal-800" },
+            sky: { bg: "bg-sky-500", lightBg: "bg-sky-50 dark:bg-sky-950/30", text: "text-sky-600 dark:text-sky-400", border: "border-sky-200 dark:border-sky-800" },
+            blue: { bg: "bg-blue-500", lightBg: "bg-blue-50 dark:bg-blue-950/30", text: "text-blue-600 dark:text-blue-400", border: "border-blue-200 dark:border-blue-800" },
+            amber: { bg: "bg-amber-500", lightBg: "bg-amber-50 dark:bg-amber-950/30", text: "text-amber-600 dark:text-amber-400", border: "border-amber-200 dark:border-amber-800" },
+            orange: { bg: "bg-orange-500", lightBg: "bg-orange-50 dark:bg-orange-950/30", text: "text-orange-600 dark:text-orange-400", border: "border-orange-200 dark:border-orange-800" },
+            violet: { bg: "bg-violet-500", lightBg: "bg-violet-50 dark:bg-violet-950/30", text: "text-violet-600 dark:text-violet-400", border: "border-violet-200 dark:border-violet-800" },
+            fuchsia: { bg: "bg-fuchsia-500", lightBg: "bg-fuchsia-50 dark:bg-fuchsia-950/30", text: "text-fuchsia-600 dark:text-fuchsia-400", border: "border-fuchsia-200 dark:border-fuchsia-800" },
+            pink: { bg: "bg-pink-500", lightBg: "bg-pink-50 dark:bg-pink-950/30", text: "text-pink-600 dark:text-pink-400", border: "border-pink-200 dark:border-pink-800" },
+            purple: { bg: "bg-purple-500", lightBg: "bg-purple-50 dark:bg-purple-950/30", text: "text-purple-600 dark:text-purple-400", border: "border-purple-200 dark:border-purple-800" }
+        };
+
+        let completedUnits = JSON.parse(localStorage.getItem('ge3_completed_units') || '[]');
+        let currentView = localStorage.getItem('ge3_view_mode') || 'grid';
+        let activeCategory = 'all';
+        let searchQuery = '';
+
+        const unitsGrid = document.getElementById('units-grid');
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('clear-search');
+        const noResults = document.getElementById('no-results');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const viewGridBtn = document.getElementById('view-grid-btn');
+        const viewListBtn = document.getElementById('view-list-btn');
+        const progressFill = document.getElementById('progress-bar-fill');
+        const progressText = document.getElementById('progress-text-display');
+        const progressPercent = document.getElementById('progress-percent-display');
+
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        function updateViewButtons() {
+            if (currentView === 'grid') {
+                viewGridBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-400 shadow-xs';
+                viewListBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+            } else {
+                viewListBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-400 shadow-xs';
+                viewGridBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center space-x-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+            }
+        }
+
+        viewGridBtn.addEventListener('click', () => {
+            currentView = 'grid';
+            localStorage.setItem('ge3_view_mode', 'grid');
+            updateViewButtons();
+            renderUnits();
+        });
+
+        viewListBtn.addEventListener('click', () => {
+            currentView = 'list';
+            localStorage.setItem('ge3_view_mode', 'list');
+            updateViewButtons();
+            renderUnits();
+        });
+
+        const modal = document.getElementById('quick-ref-modal');
+        document.getElementById('quick-ref-btn').addEventListener('click', () => modal.classList.remove('hidden'));
+        document.getElementById('close-modal-btn').addEventListener('click', () => modal.classList.add('hidden'));
+        document.getElementById('modal-ok-btn').addEventListener('click', () => modal.classList.add('hidden'));
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+
+        document.getElementById('random-unit-btn').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * unitsData.length);
+            const randomUnit = unitsData[randomIndex];
+            window.location.href = randomUnit.file;
+        });
+
+        function updateProgress() {
+            const total = unitsData.length;
+            const count = completedUnits.length;
+            const percentage = Math.round((count / total) * 100);
+
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = `${count} of ${total} Completed`;
+            progressPercent.textContent = percentage + '%';
+
+            localStorage.setItem('ge3_completed_units', JSON.stringify(completedUnits));
+        }
+
+        window.toggleCompletion = function(unitId, event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            if (completedUnits.includes(unitId)) {
+                completedUnits = completedUnits.filter(id => id !== unitId);
+            } else {
+                completedUnits.push(unitId);
+            }
+            
+            updateProgress();
+            renderUnits();
+        };
+
+        function renderUnits() {
+            unitsGrid.innerHTML = '';
+            
+            const filteredUnits = unitsData.filter(unit => {
+                const matchesCategory = activeCategory === 'all' || unit.category === activeCategory;
+                const matchesSearch = searchQuery === '' || 
+                    unit.title.toLowerCase().includes(searchQuery) ||
+                    unit.file.toLowerCase().includes(searchQuery) ||
+                    unit.lessonNum.toLowerCase().includes(searchQuery) ||
+                    unit.description.toLowerCase().includes(searchQuery) ||
+                    unit.unitTag.toLowerCase().includes(searchQuery) ||
+                    unit.topics.some(t => t.toLowerCase().includes(searchQuery));
+                
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filteredUnits.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            if (currentView === 'grid') {
+                unitsGrid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+            } else {
+                unitsGrid.className = 'flex flex-col space-y-3';
+            }
+
+            filteredUnits.forEach(unit => {
+                const isCompleted = completedUnits.includes(unit.id);
+                const theme = colorClasses[unit.color] || colorClasses.purple;
+
+                const card = document.createElement('div');
+
+                if (currentView === 'grid') {
+                    card.className = `glass-card card-hover-effect rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 ${isCompleted ? 'ring-2 ring-purple-500/50 dark:ring-purple-400/30' : ''}`;
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-xs font-extrabold px-2.5 py-1 rounded-md bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs">
+                                        ${unit.lessonNum}
+                                    </span>
+                                    <span class="text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded-md ${theme.lightBg} ${theme.text} ${theme.border} border">
+                                        ${unit.unitTag}
+                                    </span>
+                                </div>
+                                <button onclick="toggleCompletion('${unit.id}', event)" 
+                                    title="${isCompleted ? 'Mark as Incomplete' : 'Mark as Completed'}"
+                                    class="flex items-center space-x-1.5 text-xs font-semibold px-2.5 py-1 rounded-full transition ${isCompleted ? 'bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'}">
+                                    <i class="fa-solid ${isCompleted ? 'fa-circle-check text-purple-600 dark:text-purple-400' : 'fa-circle'} text-xs"></i>
+                                    <span class="text-[11px]">${isCompleted ? 'Done' : 'Mark Done'}</span>
+                                </button>
+                            </div>
+
+                            <div class="flex items-start space-x-4 mb-3">
+                                <div class="w-12 h-12 rounded-2xl ${theme.bg} text-white flex items-center justify-center shrink-0 shadow-md text-lg">
+                                    <i class="fa-solid ${unit.icon}"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-display font-bold text-base text-slate-900 dark:text-white leading-snug group-hover:text-purple-600 transition">
+                                        <a href="${unit.file}" class="hover:underline">${unit.title}</a>
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <p class="text-xs text-slate-600 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3">
+                                ${unit.description}
+                            </p>
+
+                            <div class="flex flex-wrap gap-1.5 mb-5">
+                                ${unit.topics.map(topic => `
+                                    <span class="text-[10px] font-medium px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                        ${topic}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                            <span class="text-[11px] font-medium text-slate-400 dark:text-slate-500">
+                                ${unit.stageName}
+                            </span>
+                            <a href="${unit.file}" onclick="localStorage.setItem('ge_last_opened_file', 'Grammar Explorer 3/${unit.file}'); localStorage.setItem('ge_last_opened_title', '${unit.title}');" class="inline-flex items-center space-x-1.5 text-xs font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 group">
+                                <span>Open Lesson</span>
+                                <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    `;
+                } else {
+                    card.className = `glass-card card-hover-effect rounded-2xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 ${isCompleted ? 'ring-2 ring-purple-500/50 dark:ring-purple-400/30' : ''}`;
+                    card.innerHTML = `
+                        <div class="flex items-center space-x-3.5 min-w-0">
+                            <div class="w-11 h-11 rounded-xl ${theme.bg} text-white flex items-center justify-center shrink-0 shadow-md text-base">
+                                <i class="fa-solid ${unit.icon}"></i>
+                            </div>
+                            <div class="min-w-0">
+                                <div class="flex items-center space-x-2 mb-1 flex-wrap">
+                                    <span class="text-xs font-extrabold px-2 py-0.5 rounded bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs">
+                                        ${unit.lessonNum}
+                                    </span>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded ${theme.lightBg} ${theme.text} ${theme.border} border">
+                                        ${unit.unitTag}
+                                    </span>
+                                    <span class="text-[10px] text-slate-400 font-medium">${unit.stageName}</span>
+                                </div>
+                                <h3 class="font-display font-bold text-sm text-slate-900 dark:text-white truncate">
+                                    <a href="${unit.file}" class="hover:underline">${unit.title}</a>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-3 shrink-0 self-end md:self-auto">
+                            <button onclick="toggleCompletion('${unit.id}', event)" 
+                                title="${isCompleted ? 'Mark as Incomplete' : 'Mark as Completed'}"
+                                class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-1.5 rounded-xl transition ${isCompleted ? 'bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-300 dark:border-purple-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'}">
+                                <i class="fa-solid ${isCompleted ? 'fa-circle-check text-purple-600 dark:text-purple-400' : 'fa-circle'} text-xs"></i>
+                                <span class="text-xs">${isCompleted ? 'Completed' : 'Mark Done'}</span>
+                            </button>
+                            <a href="${unit.file}" class="px-3.5 py-1.5 rounded-xl bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white text-xs font-bold transition flex items-center space-x-1">
+                                <span>Study</span>
+                                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    `;
+                }
+
+                unitsGrid.appendChild(card);
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim().toLowerCase();
+            clearSearchBtn.classList.toggle('hidden', searchQuery === '');
+            renderUnits();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            renderUnits();
+        });
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active-filter', 'bg-purple-600', 'text-white', 'dark:bg-purple-500');
+                    b.classList.add('text-slate-600', 'dark:text-slate-300', 'bg-white', 'dark:bg-slate-900', 'border-slate-200', 'dark:border-slate-800');
+                });
+                btn.classList.add('active-filter', 'bg-purple-600', 'text-white', 'dark:bg-purple-500');
+                btn.classList.remove('text-slate-600', 'dark:text-slate-300', 'bg-white', 'dark:bg-slate-900', 'border-slate-200', 'dark:border-slate-800');
+                activeCategory = btn.getAttribute('data-category');
+                renderUnits();
+            });
+        });
+
+        initTheme();
+        updateViewButtons();
+        updateProgress();
+        renderUnits();
+    </script>
+</body>
+</html>

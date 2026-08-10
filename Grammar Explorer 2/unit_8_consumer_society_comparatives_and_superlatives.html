@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 8: Consumer Society (Comparatives & Superlatives)</title>
+    <!-- Tailwind CSS for modern responsive layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fffbeb; /* Amber 50 */
+        }
+        
+        /* Main Navigation Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #d97706; /* Amber 600 */
+            color: #92400e; /* Amber 800 */
+            font-weight: 800;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover { color: #92400e; border-color: #cbd5e1; }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.3), 0 4px 6px -2px rgba(217, 119, 6, 0.15);
+        }
+        
+        /* Interactive Triggers and Target Connections */
+        .interactive-group { position: relative; display: inline-block; }
+        .interactive-trigger {
+            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
+            text-decoration-color: #d97706; padding: 2px 4px; border-radius: 4px;
+            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
+        }
+        .interactive-target {
+            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
+        }
+        .interactive-active-trigger {
+            background-color: #fef3c7; color: #92400e; text-decoration-color: transparent;
+        }
+        .interactive-active-target {
+            background-color: #fef08a; color: #854d0e;
+            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+        }
+
+        /* Sub-Tabs for Exercises */
+        .subtab-active { background-color: #d97706; color: white; box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.4); }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        /* Quiz Options */
+        .option-btn { transition: all 0.2s; }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #d97706; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* Clickable Words for Identification */
+        .click-word {
+            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+        }
+        .click-word:hover { background-color: #e2e8f0; }
+        .click-word.selected { background-color: #d97706; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(217, 119, 6, 0.4); border-color: #b45309; }
+        .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
+        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
+
+        /* Matching Buttons */
+        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .match-btn:hover:not(:disabled) { border-color: #d97706; background-color: #fffbeb; transform: translateY(-2px); }
+        .match-btn.selected { background-color: #fef3c7; border-color: #d97706; color: #92400e; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.2); }
+        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
+        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        /* Fill Blanks */
+        .fill-blank {
+            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #d97706;
+        }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #fef3c7; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #d97706; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- SVG Overlay for Connecting Arrows -->
+    <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
+        <defs>
+            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#d97706" />
+            </marker>
+            <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            </marker>
+        </defs>
+        <g id="svg-paths-container"></g>
+    </svg>
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-amber-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-amber-600 to-emerald-700 text-white p-2.5 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-bag-shopping text-xl w-6 text-center"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 8: Consumer Society</h1>
+                        <p class="text-xs text-slate-500 hidden sm:block font-medium">Grammar Focus: Comparatives, Superlatives & Run-on Corrections</p>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 8: Shopping</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <section id="section-study" class="fade-in block space-y-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Comparatives & Superlatives</h2>
+                <p class="text-lg text-slate-600">Master comparing two or more items, using <em>as...as</em>, quantifying differences, applying <em>one of the</em>, and fixing run-on sentences.</p>
+                
+                <!-- Built-in TTS Audio Player Bar -->
+                <div class="mt-6 bg-white p-4 rounded-2xl border border-amber-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 text-left">
+                        <div class="bg-amber-100 text-amber-800 p-3 rounded-xl">
+                            <i class="fa-solid fa-volume-high text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-sm">Spoken Audio Overview</h4>
+                            <p class="text-xs text-slate-500">Listen to key Unit 8 comparison rules</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-amber-500 focus:border-amber-500 font-medium max-w-[160px] truncate">
+                            <option value="">Loading voices...</option>
+                        </select>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
+                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-4 inline-flex items-center gap-2 bg-amber-50 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold border border-amber-200">
+                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
+                    Tap the dashed words in the examples to reveal grammar connections!
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Lesson 1: Comparative Adjectives & Adverbs -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-amber-600 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-scale-unbalanced absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">1. Comparative Adjectives & Adverbs</h3>
+                        <p class="text-amber-100 font-medium relative z-10">Comparing Two Items or Actions</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-5">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Comparative Adjectives & Quantifiers</h4>
+                            <div>• <strong>1 Syllable:</strong> Add <em>-er</em> (<span class="italic">small &rarr; smaller, nice &rarr; nicer, hot &rarr; hotter</span>).</div>
+                            <div>• <strong>2+ Syllables:</strong> Use <em>more</em> (<span class="italic">expensive &rarr; more expensive</span>).</div>
+                            <div>• <strong>2-Syllable Exceptions:</strong> <em>quieter / simpler / narrower</em> can use <em>-er</em> or <em>more</em>.</div>
+                            <div class="bg-amber-50 p-2.5 rounded border border-amber-200 text-amber-950 font-medium mt-1">
+                                <i class="fa-solid fa-gauge-high mr-1 text-amber-700"></i> Quantifiers (*a little, a lot, much, not much*):<br>
+                                • <span class="italic font-normal">This smartphone is <span id="target-comp1" class="interactive-target">much cheaper</span> <span class="interactive-trigger text-amber-800" data-target="target-comp1">than</span> that model.</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Completing Comparisons & Irregulars</h4>
+                            <div>• <strong>Irregulars:</strong> <em>good/well &rarr; better | bad/badly &rarr; worse | far &rarr; farther/further</em>.</div>
+                            <div>• <strong>Completing with Auxiliaries:</strong> <span class="italic font-semibold">"Ana runs faster than Pat <span class="underline text-amber-700">does</span>."</span> (NOT <s>runs</s>).</div>
+                            <div>• <strong>Possessives & Pronouns:</strong> Informal: <em>taller than him</em> | Formal: <em>taller than he is</em> | Possessive: <em>more expensive than hers</em>.</div>
+                            <div class="bg-red-50 p-2 rounded border border-red-200 text-red-900 mt-1 font-semibold">
+                                <i class="fa-solid fa-ban text-red-600 mr-1"></i> <strong>Spelling Trap:</strong> Always write <strong class="underline">THAN</strong> for comparisons! Never write <em>THEN</em>!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lesson 2: Comparisons with As... As and Less -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-emerald-700 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-equals absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">2. As... As & Less... Than</h3>
+                        <p class="text-emerald-100 font-medium relative z-10">Equal Comparisons & Lower Degree</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-5">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Equative: As + Adjective/Adverb + As</h4>
+                            <p>Used to show two items are equal in some quality or degree.</p>
+                            <div class="bg-white p-2.5 rounded border border-slate-200 font-mono text-[11px] space-y-1">
+                                <div>• This store is <span id="target-equ1" class="interactive-target">as cheap as</span> <span class="interactive-trigger text-emerald-700" data-target="target-equ1">the outlet</span>.</div>
+                                <div>• Informal: <em>He is as tall as me.</em> | Formal: <em>He is as tall as I am.</em></div>
+                            </div>
+                        </div>
+
+                        <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-xs text-emerald-900 space-y-2">
+                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-code-compare mr-1"></i> Less... Than vs. Not As... As</h4>
+                            <p>Both <em>less... than</em> and <em>not as... as</em> share the exact same meaning!</p>
+                            <div class="bg-white p-2 rounded border border-emerald-200 font-mono text-[11px] text-slate-800">
+                                "My old car was <span class="font-bold text-amber-700">less efficient than</span> / <span class="font-bold text-emerald-700">not as efficient as</span> my new car."
+                            </div>
+                            <div class="bg-amber-50 p-2 rounded border border-amber-200 text-amber-950 font-medium text-[11px]">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> <strong>1-Syllable Constraint:</strong> Use <strong class="underline">not as... as</strong> for 1-syllable adjectives! (<span class="italic">"My room is not as big as yours"</span> &rarr; NOT <s>less big than</s>).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Lesson 3: Superlatives & Special Phrases -->
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-slate-800 p-6 text-white relative overflow-hidden">
+                        <i class="fa-solid fa-ranking-star absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
+                        <h3 class="text-2xl font-bold relative z-10">3. Superlative Adjectives & Adverbs</h3>
+                        <p class="text-slate-300 font-medium relative z-10">Unique Extremes Among 3 or More Items</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-5">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
+                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Form Rules & The Definite Article</h4>
+                            <div>• Must place <strong class="underline text-amber-700">THE</strong> before superlative adjectives (<span class="italic font-bold">the cheapest, the most expensive</span>).</div>
+                            <div>• <strong>Short Adjectives:</strong> Add <em>-est</em> (<span class="italic">oldest, largest, thinnest</span>).</div>
+                            <div>• <strong>Long Adjectives (2+ syllables):</strong> Use <em>the most</em> or <em>the least</em>.</div>
+                            <div>• <strong>Irregulars:</strong> <em>good/well &rarr; the best | bad/badly &rarr; the worst</em>.</div>
+                        </div>
+
+                        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-2">
+                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-layer-group mr-1"></i> "One of the" + Plural Noun</h4>
+                            <p>Follow <em>one of the + superlative adjective</em> with a <strong class="underline">PLURAL noun</strong>!</p>
+                            <div class="bg-white p-2 rounded border border-amber-200 font-mono text-[11px] text-slate-800">
+                                "China is <span id="target-one1" class="interactive-target">one of the biggest</span> <span class="interactive-trigger text-amber-800" data-target="target-one1">countries</span> in the world."
+                            </div>
+                            <div class="text-[11px] text-slate-600">
+                                • <strong>In vs. Of Phrases:</strong> Use <em>in</em> for places/groups (<span class="italic">in the world, in class</span>); use <em>of</em> for times/members (<span class="italic">of the three, of all time</span>).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Writing Focus: Correcting Run-on Sentences -->
+                <div class="bg-gradient-to-br from-slate-900 to-amber-950 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
+                    <div class="p-6 relative z-10 flex flex-col h-full space-y-5">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-scissors text-amber-400 text-3xl"></i>
+                            <div>
+                                <h3 class="text-2xl font-bold text-amber-400">Writing Focus: Fixing Run-on Sentences</h3>
+                                <p class="text-xs text-slate-300">Connecting Independent Clauses Correctly</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-slate-300">A run-on sentence occurs when two independent clauses are joined without proper punctuation or connecting words.</p>
+
+                        <div class="space-y-3 text-xs bg-slate-800/90 p-3.5 rounded-xl border border-slate-700">
+                            <div class="text-red-400 line-through"><i class="fa-solid fa-xmark mr-1"></i> Run-on: I enjoyed shopping at the mall I'll go back next week.</div>
+                            <div class="text-emerald-400 font-semibold"><i class="fa-solid fa-check mr-1"></i> Solution 1 (Period): I enjoyed shopping at the mall. Next week, I'll go back.</div>
+                            <div class="text-emerald-400 font-semibold"><i class="fa-solid fa-check mr-1"></i> Solution 2 (Comma + Conjunction): I enjoyed shopping at the mall, but I spent too much.</div>
+                        </div>
+
+                        <div class="bg-amber-900/30 p-3 rounded-xl border border-amber-500/30 text-xs text-slate-200 mt-auto">
+                            <i class="fa-solid fa-lightbulb text-amber-300 mr-1"></i> Always use a comma before <em>and, but, or</em> when joining two complete independent thoughts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Consumer Society Practice</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-list-check mr-2"></i>Knowledge Check
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Form the Comparison
+                            </button>
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-bug mr-2"></i>Spot Run-ons & Errors
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-layer-group mr-2"></i>Category Matcher
+                            </button>
+                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
+                                <i class="fa-solid fa-diagram-project mr-2"></i>Run-on & Clause Linker
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <div id="ex-container-quiz" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                </div>
+                                <span id="quiz-progress" class="bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
+                                <!-- Injected by JS -->
+                            </div>
+
+                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Form the Comparison</h3>
+                                    <p class="text-slate-500 text-sm">Select the grammatically correct comparative or superlative form.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
+                                <!-- Injected by JS -->
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-identify" class="hidden fade-in">
+                            <div class="mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Spot Run-ons & Comparison Traps</h3>
+                                <p class="text-sm text-slate-600 mt-1">Click on the word or phrase that contains a <strong>run-on error, spelling trap, or grammar flaw</strong>.</p>
+                            </div>
+
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                            </div>
+
+                            <div class="bg-white border-2 border-amber-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            </div>
+
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+
+                            <div class="flex justify-center gap-4">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-amber-600 to-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(217,119,6,0.4)] pop-out">
+                                    Check Answer <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-6">
+                                <h3 class="font-bold text-xl text-slate-800">Category & Structure Matcher</h3>
+                                <p class="text-slate-500 text-sm mt-1">Connect the phrase (left) to its correct comparative/superlative category rule (right).</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                                <div id="match-col-left" class="space-y-3"></div>
+                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
+                                    <div class="h-full w-px bg-slate-200"></div>
+                                </div>
+                                <div id="match-col-right" class="space-y-3"></div>
+                            </div>
+
+                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+
+                            <div class="flex justify-center mt-6">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-amber-600 to-emerald-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-link" class="hidden fade-in">
+                            <div class="mb-6 text-center">
+                                <h3 class="font-bold text-xl text-slate-800">Clause & Run-on Linker</h3>
+                                <p class="text-sm text-slate-600 mt-1">Connect the starter clause (left) to the grammatically correct continuation (right).</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                                <div id="link-col-left" class="space-y-4"></div>
+                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
+                                    <div class="h-full w-px bg-slate-200"></div>
+                                </div>
+                                <div id="link-col-right" class="space-y-4"></div>
+                            </div>
+
+                            <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+
+                            <div class="flex justify-center mt-6">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-amber-600 to-emerald-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                                    Check Connections <i class="fa-solid fa-check ml-2"></i>
+                                </button>
+                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Main Tab Navigation Switcher
+        function switchMainTab(tabId) {
+            const isStudy = tabId === 'study';
+            
+            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (isStudy) {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+                setTimeout(redrawArrows, 50);
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
+                    quizInit(); fillInit(); idInit(); matchInit(); linkInit();
+                }
+                setTimeout(redrawArrows, 50);
+            }
+        }
+
+        // Sub-Tab Navigation for Practice Exercises
+        function switchExTab(exId) {
+            const tabs = ['quiz', 'fill', 'identify', 'match', 'link'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
+                    container.classList.remove('hidden'); container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
+                    container.classList.remove('block'); container.classList.add('hidden');
+                }
+            });
+            setTimeout(redrawArrows, 50);
+        }
+
+        let activeTrigger = null;
+
+        function setupStudyInteractive() {
+            const triggers = document.querySelectorAll('.interactive-trigger');
+            triggers.forEach(trig => {
+                trig.addEventListener('mouseenter', () => activateLink(trig));
+                trig.addEventListener('mouseleave', () => deactivateLink(trig));
+                trig.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
+                    else {
+                        triggers.forEach(t => deactivateLink(t));
+                        activateLink(trig);
+                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
+                    }
+                });
+            });
+            window.addEventListener('scroll', hideArrows);
+            window.addEventListener('resize', redrawArrows);
+        }
+
+        function activateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.add('interactive-active-target');
+                trig.classList.add('interactive-active-trigger');
+                activeTrigger = trig;
+                redrawArrows();
+            }
+        }
+
+        function deactivateLink(trig) {
+            const targetId = trig.getAttribute('data-target');
+            const targetEl = document.getElementById(targetId);
+            if(targetEl) {
+                targetEl.classList.remove('interactive-active-target');
+                trig.classList.remove('interactive-active-trigger');
+            }
+            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
+        }
+
+        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
+
+        function createArrowSVG(startEl, endEl, state) {
+            if (!startEl || !endEl) return '';
+            const startRect = startEl.getBoundingClientRect();
+            const endRect = endEl.getBoundingClientRect();
+            
+            let startX = startRect.left + (startRect.width / 2);
+            let startY = startRect.bottom + 2;
+            let endX = endRect.left + (endRect.width / 2);
+            let endY = endRect.bottom + 2;
+            
+            if (state !== 'study') {
+                startX = startRect.right + 2;
+                startY = startRect.top + (startRect.height / 2);
+                endX = endRect.left - 2;
+                endY = endRect.top + (endRect.height / 2);
+            }
+
+            let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
+            
+            if(state === 'study') { color = '#d97706'; marker = 'url(#arrowhead-study)'; }
+            if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
+            if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
+            
+            if (state === 'study') {
+                const curve = Math.max(20, Math.abs(endX - startX) * 0.15);
+                const lowY = Math.max(startY, endY) + curve;
+                return `<path d="M ${startX},${startY} Q ${(startX+endX)/2},${lowY} ${endX},${endY + 6}" stroke="${color}" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="${marker}"/>`;
+            } else {
+                const curveX = (startX + endX) / 2;
+                return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 6},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
+            }
+        }
+
+        function redrawArrows() {
+            let html = '';
+            
+            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
+                const targetId = activeTrigger.getAttribute('data-target');
+                const targetEl = document.getElementById(targetId);
+                if (targetEl) html += createArrowSVG(activeTrigger, targetEl, 'study');
+            }
+            
+            if (document.getElementById('ex-container-link') && document.getElementById('ex-container-link').classList.contains('block')) {
+                linkUserPairs.forEach(pair => {
+                    const startEl = document.getElementById(`link-start-${pair.startId}`);
+                    const endEl = document.getElementById(`link-end-${pair.endId}`);
+                    if(startEl && endEl) html += createArrowSVG(startEl, endEl, pair.status || 'neutral');
+                });
+            }
+            
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        /* 1. QUIZ DATA */
+        const quizData = [
+            { q: "This smartphone is _____ than my old one.", opts: ["much cheaper", "more cheaper", "cheaper then"], ans: 0, exp: "Use 'much' to quantify a comparative adjective. Always use 'than', never 'then'." },
+            { q: "Ana runs faster than Pat _____.", opts: ["does", "runs", "is"], ans: 0, exp: "Use an auxiliary verb (does) after 'than' rather than repeating the main verb." },
+            { q: "My apartment is not _____ yours.", opts: ["as big as", "less big than", "bigger as"], ans: 0, exp: "For 1-syllable adjectives, use 'not as... as' rather than 'less... than'." },
+            { q: "China is one of the _____ countries in the world.", opts: ["biggest", "most biggest", "bigger"], ans: 0, exp: "'One of the' is followed by a superlative adjective and a plural noun." },
+            { q: "She drives _____ carefully than her brother.", opts: ["more", "the most", "a lot of"], ans: 0, exp: "Use 'more' with adverbs ending in -ly when making comparisons." },
+            { q: "Which spelling is correct for making comparisons?", opts: ["than", "then", "their"], ans: 0, exp: "Always use 'than' for comparative sentences." },
+            { q: "Zara is _____ best friend.", opts: ["my", "the my", "mine"], ans: 0, exp: "A possessive adjective (my) replaces 'the' in a superlative statement." },
+            { q: "I enjoyed shopping at the mall, _____ next week I'll go back.", opts: [", but", "I", "next week"], ans: 0, exp: "Fix run-on sentences using a comma and a conjunction (e.g. ', but')." }
+        ];
+        
+        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        function quizInit() {
+            activeQuiz = shuffleArray(quizData).slice(0, 6);
+            quizCurrent = 0; quizScore = 0;
+            document.getElementById('quiz-btn-reset').classList.add('hidden');
+            quizLoad();
+        }
+
+        function quizLoad() {
+            quizAns = false;
+            const q = activeQuiz[quizCurrent];
+            document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
+            
+            let qText = q.q;
+            if(qText.includes("_____")) {
+                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-amber-700">_____</span>');
+            }
+            document.getElementById('quiz-q-text').innerHTML = qText;
+            
+            const optsCon = document.getElementById('quiz-options');
+            optsCon.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.onclick = () => quizSelect(idx, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-btn-next').classList.add('hidden');
+        }
+
+        function quizSelect(idx, btnElement) {
+            if (quizAns) return;
+            quizAns = true;
+            
+            const q = activeQuiz[quizCurrent];
+            const isCor = idx === q.ans;
+            if (isCor) quizScore++;
+            
+            const allBtns = document.getElementById('quiz-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].classList.add('option-disabled');
+                allBtns[i].onclick = null;
+                const icon = allBtns[i].querySelector('.indicator-icon');
+                
+                if (i === q.ans) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
+                } else if (i === idx && !isCor) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                }
+            }
+            
+            const fb = document.getElementById('quiz-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
+            
+            if (isCor) {
+                fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
+                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+            }
+            
+            document.getElementById('quiz-btn-next').classList.remove('hidden');
+            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+        }
+
+        function quizNext() {
+            if (quizCurrent < activeQuiz.length - 1) {
+                quizCurrent++; quizLoad();
+            } else {
+                document.getElementById('quiz-options').innerHTML = '';
+                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-amber-600 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-progress').textContent = "Done";
+                document.getElementById('quiz-feedback').classList.add('hidden');
+                document.getElementById('quiz-btn-next').classList.add('hidden');
+                document.getElementById('quiz-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        /* 2. FILL DATA */
+        const fillData = [
+            { pre: "This car is much ", blank: "more expensive", post: " than Ellen's.", opts: ["more expensive", "expensiver", "most expensive"] },
+            { pre: "He runs faster than I ", blank: "do", post: ".", opts: ["do", "run", "am"] },
+            { pre: "My new laptop works ", blank: "better", post: " than my old one.", opts: ["better", "gooder", "best"] },
+            { pre: "It is one of the ", blank: "longest rivers", post: " in the world.", opts: ["longest rivers", "longest river", "more long river"] },
+            { pre: "This room is not ", blank: "as big as", post: " the living room.", opts: ["as big as", "less big than", "bigger as"] }
+        ];
+
+        let activeFill = []; let fillCur = 0; let fillAns = false;
+
+        function fillInit() {
+            activeFill = shuffleArray(fillData).slice(0, 5);
+            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAns = false; const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
+            
+            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
+            shuffleArray([...q.opts]).forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'pop-out bg-white border-2 border-amber-200 text-amber-800 font-bold py-3 px-6 rounded-xl hover:bg-amber-50 hover:border-amber-400 shadow-sm text-lg';
+                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                optsCon.appendChild(btn);
+            });
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+        }
+
+        function fillSelect(sel, cor, btn) {
+            if (fillAns) return; fillAns = true;
+            const target = document.getElementById('fill-target');
+            target.textContent = sel; target.classList.add('filled');
+            
+            const isCor = sel === cor;
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
+            
+            const allBtns = document.getElementById('fill-options').children;
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === cor) {
+                    allBtns[i].classList.remove('border-amber-200', 'text-amber-800', 'opacity-50');
+                    allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
+                }
+            }
+
+            if (isCor) {
+                target.classList.add('correct');
+                btn.classList.replace('border-amber-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
+            } else {
+                target.classList.add('incorrect');
+                btn.classList.replace('border-amber-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
+                fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review comparative and superlative rules.";
+            }
+            
+            document.getElementById('fill-btn-next').classList.remove('hidden');
+            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+        }
+
+        function fillNext() {
+            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
+            else {
+                document.getElementById('fill-options').innerHTML = '';
+                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-amber-600 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        /* 3. SPOT ERRORS DATA */
+        const idData = [
+            [{w:"This"}, {w:"phone"}, {w:"is"}, {w:"cheaper"}, {w:"then", isErr:true}, {w:"that"}, {w:"one."}],
+            [{w:"I"}, {w:"enjoyed"}, {w:"shopping,"}, {w:"next week", isErr:true}, {w:"I'll"}, {w:"go"}, {w:"back."}], // Run-on error
+            [{w:"China"}, {w:"is"}, {w:"one"}, {w:"of"}, {w:"the"}, {w:"biggest"}, {w:"country", isErr:true}, {w:"in"}, {w:"Asia."}],
+            [{w:"My"}, {w:"room"}, {w:"is"}, {w:"less big than", isErr:true}, {w:"yours."}]
+        ];
+        
+        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        function idInit() {
+            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+        }
+
+        function idLoad() {
+            idSelected.clear(); idAns = false;
+            document.getElementById('id-current').textContent = idCurrent + 1;
+            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
+            
+            idData[idCurrent].forEach((item, idx) => {
+                const span = document.createElement('span');
+                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.dataset.isErr = item.isErr ? "true" : "false";
+                span.onclick = () => {
+                    if(idAns) return;
+                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
+                    else { idSelected.add(idx); span.classList.add('selected'); }
+                };
+                con.appendChild(span);
+            });
+            document.getElementById('id-feedback').classList.add('hidden');
+            document.getElementById('id-btn-check').classList.remove('hidden');
+            document.getElementById('id-btn-next').classList.add('hidden');
+        }
+
+        function idCheck() {
+            if(idAns) return; idAns = true;
+            const spans = document.querySelectorAll('#id-sentence-container .click-word');
+            let cor = 0; let tot = idData[idCurrent].filter(i => i.isErr).length; let err = false;
+
+            spans.forEach((span, idx) => {
+                const isTar = span.dataset.isErr === "true"; const isSel = idSelected.has(idx);
+                span.classList.remove('selected', 'bg-slate-100');
+                if(isTar && isSel) { span.classList.add('correct'); cor++; }
+                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
+                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
+                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+            });
+
+            const fb = document.getElementById('id-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
+            
+            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You found the error."; } 
+            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `Watch out for 'then' vs 'than', run-on sentences, 'less' with 1-syllable adjectives, or singular nouns after 'one of the'.`; }
+
+            document.getElementById('id-btn-check').classList.add('hidden');
+            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
+            else document.getElementById('id-btn-reset').classList.remove('hidden');
+        }
+        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
+
+        /* 4. MATCH DATA */
+        const matchPool = [
+            { id: 1, left: "Good / Well", right: "Better (Comparative) & Best (Superlative)" },
+            { id: 2, left: "Bad / Badly", right: "Worse (Comparative) & Worst (Superlative)" },
+            { id: 3, left: "Not as big as", right: "1-Syllable Adjective Comparison" },
+            { id: 4, left: "One of the biggest", right: "Requires Plural Noun Following" },
+            { id: 5, left: "Than", right: "Spelling for Comparison (Not Then)" }
+        ];
+
+        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+
+        function matchInit() {
+            mSelLeft = null; mSelRight = null; matchCount = 0;
+            activeMatch = shuffleArray([...matchPool]);
+            
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            document.getElementById('match-feedback').textContent = '';
+            
+            const lCol = document.getElementById('match-col-left');
+            const rCol = document.getElementById('match-col-right');
+            lCol.innerHTML = ''; rCol.innerHTML = '';
+
+            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.left, side: 'left' })));
+            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.right, side: 'right' })));
+
+            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+        }
+
+        function createMBtn(item) {
+            const btn = document.createElement('button');
+            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm text-xs sm:text-sm';
+            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
+            btn.onclick = () => handleMClick(btn, item);
+            return btn;
+        }
+
+        function handleMClick(btn, item) {
+            if(btn.classList.contains('matched')) return;
+            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+
+            if(item.side === 'left') {
+                if(mSelLeft) mSelLeft.el.classList.remove('selected');
+                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            } else {
+                if(mSelRight) mSelRight.el.classList.remove('selected');
+                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+            }
+
+            if(mSelLeft && mSelRight) checkMatch();
+        }
+
+        function checkMatch() {
+            const fb = document.getElementById('match-feedback');
+            if(mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.classList.replace('selected', 'matched');
+                mSelRight.el.classList.replace('selected', 'matched');
+                fb.textContent = `Correct!`;
+                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
+                matchCount++; mSelLeft = null; mSelRight = null;
+
+                if(matchCount === activeMatch.length) {
+                    setTimeout(() => {
+                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> All matched!`;
+                        document.getElementById('match-btn-reset').classList.remove('hidden');
+                    }, 500);
+                }
+            } else {
+                fb.textContent = 'Try again!';
+                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
+                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
+                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
+                mSelLeft = null; mSelRight = null;
+                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+            }
+        }
+
+        /* 5. LINK DATA */
+        const linkData = [
+            { id: 1, left: "I enjoyed shopping at the mall,", right: "but I spent too much." },
+            { id: 2, left: "This smartphone is much cheaper", right: "than that model." },
+            { id: 3, left: "Ana runs faster", right: "than Pat does." },
+            { id: 4, left: "China is one of the biggest", right: "countries in the world." }
+        ];
+
+        let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
+
+        function linkInit() {
+            linkUserPairs = []; linkSelLeft = null; linkChecked = false;
+            
+            const lCol = document.getElementById('link-col-left');
+            const rCol = document.getElementById('link-col-right');
+            lCol.innerHTML = ''; rCol.innerHTML = '';
+
+            const activeLinks = shuffleArray([...linkData]);
+
+            const lItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.left, type: 'start' })));
+            const rItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.right, type: 'end' })));
+
+            lItems.forEach(item => lCol.appendChild(createLinkBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createLinkBtn(item)));
+
+            document.getElementById('link-feedback').classList.add('hidden');
+            document.getElementById('link-btn-check').classList.remove('hidden');
+            document.getElementById('link-btn-reset').classList.add('hidden');
+            
+            redrawArrows();
+        }
+
+        function createLinkBtn(item) {
+            const btn = document.createElement('div');
+            btn.id = `link-${item.type}-${item.id}`;
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-amber-300 transition-all z-10 relative text-xs sm:text-sm';
+            btn.textContent = item.text;
+            btn.dataset.id = item.id;
+            btn.dataset.type = item.type;
+            btn.onclick = () => handleLinkClick(btn, item);
+            return btn;
+        }
+
+        function handleLinkClick(btn, item) {
+            if(linkChecked) return;
+
+            if (item.type === 'start') {
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-amber-300', 'bg-amber-50');
+                if (linkSelLeft && linkSelLeft.id === item.id) {
+                    linkSelLeft = null; // deselect
+                } else {
+                    linkSelLeft = { el: btn, id: item.id };
+                    btn.classList.add('ring-4', 'ring-amber-300', 'bg-amber-50');
+                }
+            } else if (item.type === 'end' && linkSelLeft) {
+                linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
+                linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
+                linkSelLeft.el.classList.remove('ring-4', 'ring-amber-300', 'bg-amber-50');
+                linkSelLeft = null;
+                redrawArrows();
+            }
+        }
+
+        function linkCheck() {
+            if(linkChecked) return;
+            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-amber-300', 'bg-amber-50'); linkSelLeft = null; }
+            
+            linkChecked = true;
+            let corCount = 0;
+
+            linkUserPairs.forEach(up => {
+                if (up.startId === up.endId) {
+                    up.status = 'correct'; corCount++;
+                } else {
+                    up.status = 'incorrect';
+                }
+            });
+
+            const fb = document.getElementById('link-feedback');
+            fb.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-amber-600');
+            
+            if (corCount === linkData.length) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
+            } else {
+                fb.classList.add('text-amber-600');
+                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check clause structure and run-on corrections.`;
+            }
+
+            redrawArrows();
+            document.getElementById('link-btn-check').classList.add('hidden');
+            document.getElementById('link-btn-reset').classList.remove('hidden');
+        }
+
+        window.onload = () => { 
+            setupStudyInteractive(); 
+            populateVoiceList();
+        };
+
+        /* Built-in TTS Web Speech API Integration */
+        let synth = window.speechSynthesis;
+        let voices = [];
+        let currentUtterance = null;
+
+        function populateVoiceList() {
+            if (!synth) return;
+            voices = synth.getVoices();
+            const voiceSelect = document.getElementById('tts-voice-select');
+            
+            if (voices.length === 0) return;
+
+            voiceSelect.innerHTML = '';
+            let defaultVoiceIndex = 0;
+            
+            for (let i = 0; i < voices.length; i++) {
+                const option = document.createElement('option');
+                option.textContent = `${voices[i].name} (${voices[i].lang})`;
+                option.setAttribute('data-lang', voices[i].lang);
+                option.setAttribute('data-name', voices[i].name);
+                voiceSelect.appendChild(option);
+
+                if (voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
+                    defaultVoiceIndex = i;
+                } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
+                    defaultVoiceIndex = i;
+                } else if (defaultVoiceIndex === 0 && voices[i].lang.startsWith('en')) {
+                    defaultVoiceIndex = i;
+                }
+            }
+            
+            if (voiceSelect.options.length > 0) {
+                voiceSelect.selectedIndex = defaultVoiceIndex;
+            }
+        }
+
+        if (synth && synth.onvoiceschanged !== undefined) {
+            synth.onvoiceschanged = populateVoiceList;
+        }
+
+        function toggleAudioSummary() {
+            if (!synth) return;
+            const icon = document.getElementById('tts-icon');
+            const text = document.getElementById('tts-text');
+
+            if (synth.speaking || synth.pending) {
+                synth.cancel();
+                icon.className = "fa-solid fa-play";
+                text.textContent = "Listen";
+                return;
+            }
+
+            const summaryPrompt = "Welcome to Unit 8: Consumer Society. In this lesson, you will master comparative and superlative adjectives and adverbs. Use 'than' when comparing two items, and remember to use 'the' before superlatives. Expressions like 'not as... as' share the same meaning as 'less... than'. Finally, ensure you avoid run-on sentences by dividing clauses with a period or connecting them with a comma and a conjunction!";
+            
+            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
+            window._ttsUtterance = currentUtterance;
+            
+            const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
+            if (selectedOption && selectedOption.hasAttribute('data-name')) {
+                const selectedVoice = selectedOption.getAttribute('data-name');
+                const voice = voices.find(v => v.name === selectedVoice);
+                if (voice) {
+                    currentUtterance.voice = voice;
+                    currentUtterance.lang = voice.lang;
+                }
+            } else {
+                currentUtterance.lang = 'en-US';
+            }
+
+            currentUtterance.onstart = () => {
+                icon.className = "fa-solid fa-square";
+                text.textContent = "Stop";
+            };
+
+            currentUtterance.onend = () => {
+                icon.className = "fa-solid fa-play";
+                text.textContent = "Listen";
+            };
+
+            currentUtterance.onerror = (e) => {
+                if (e.error !== 'interrupted' && e.error !== 'canceled') {
+                    console.error('SpeechSynthesis Error:', e);
+                }
+                icon.className = "fa-solid fa-play";
+                text.textContent = "Listen";
+            };
+
+            synth.speak(currentUtterance);
+        }
+    </script>
+</body>
+</html>

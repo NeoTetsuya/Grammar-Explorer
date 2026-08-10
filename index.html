@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Explorer Hub | Complete Interactive English Grammar Series</title>
+    <meta name="description" content="Master English grammar from Foundation to Advanced level with Grammar Explorer 1, 2, and 3. Interactive lessons, practice drills, favorites, and progress tracking.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-hover-effect {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -5px rgba(0, 0, 0, 0.1), 0 12px 15px -5px rgba(0, 0, 0, 0.04);
+        }
+        .shimmer-bar {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+        kbd {
+            background-color: rgba(241, 245, 249, 1);
+            border: 1px solid rgba(203, 213, 225, 1);
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            color: #475569;
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1;
+            padding: 0.2rem 0.4rem;
+        }
+        .dark kbd {
+            background-color: rgba(30, 41, 59, 1);
+            border-color: rgba(71, 85, 105, 1);
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Top Announcement / Resume Banner (JS Dynamic) -->
+    <div id="resume-banner" class="hidden bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 text-white text-xs font-semibold py-2.5 px-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-2 truncate">
+                <span class="px-2 py-0.5 rounded bg-white/20 text-[10px] uppercase font-bold tracking-wider shrink-0">Resume Learning</span>
+                <span id="resume-lesson-title" class="truncate font-medium">Continue where you left off</span>
+            </div>
+            <div class="flex items-center space-x-3 shrink-0">
+                <a id="resume-lesson-btn" href="#" class="px-3 py-1 bg-white text-indigo-700 font-bold rounded-lg text-[11px] hover:bg-slate-100 transition flex items-center space-x-1">
+                    <span>Continue</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+                <button id="close-resume-banner" class="text-white/80 hover:text-white p-1">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/20">
+                    <i class="fa-solid fa-book-bookmark text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-display font-extrabold text-xl text-slate-900 dark:text-white tracking-tight">Grammar Explorer <span class="text-sky-600 dark:text-sky-400">Hub</span></span>
+                    <span class="hidden sm:inline-block text-xs font-semibold px-2.5 py-0.5 ml-2 bg-gradient-to-r from-sky-100 to-indigo-100 dark:from-sky-950 dark:to-indigo-950 text-sky-800 dark:text-sky-200 rounded-full border border-sky-200 dark:border-sky-800">Complete Series</span>
+                </div>
+            </div>
+
+            <!-- Header Controls -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <a href="#series-overview" class="hidden md:flex items-center space-x-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 hover:bg-sky-100 dark:hover:bg-sky-900 transition">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Levels</span>
+                </a>
+                <a href="#global-search-section" class="hidden sm:flex items-center space-x-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Search</span>
+                    <kbd class="ml-1 hidden lg:inline">/</kbd>
+                </a>
+                <button id="favorites-btn" class="flex items-center space-x-1.5 text-xs font-semibold px-3 py-2 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900 transition" title="View Favorites">
+                    <i class="fa-solid fa-star text-amber-500"></i>
+                    <span class="hidden md:inline">Bookmarks</span>
+                    <span id="fav-count-badge" class="px-1.5 py-0.2 rounded-full bg-amber-200 dark:bg-amber-900 text-amber-900 dark:text-amber-200 text-[10px] font-bold">0</span>
+                </button>
+                <button id="shortcuts-btn" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition hidden sm:block" title="Keyboard Shortcuts (?)">
+                    <i class="fa-solid fa-keyboard text-base"></i>
+                </button>
+                <button id="settings-btn" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Course Data Options">
+                    <i class="fa-solid fa-gear text-base"></i>
+                </button>
+                <button id="theme-toggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none" title="Toggle Dark/Light Mode (T)">
+                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg hidden dark:block text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-sky-50 via-indigo-50/40 to-slate-50 dark:from-slate-900 dark:via-slate-900/80 dark:to-slate-950 pt-12 pb-16 border-b border-slate-200/60 dark:border-slate-800/80">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-sky-400/10 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-24 w-80 h-80 bg-purple-400/10 dark:bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 text-xs font-semibold mb-5 border border-sky-200 dark:border-sky-800 shadow-xs">
+                <i class="fa-solid fa-graduation-cap text-sky-500"></i>
+                <span>Complete 3-Level Interactive English Curriculum</span>
+            </div>
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-5 leading-tight">
+                Master English Grammar from <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 dark:from-sky-400 dark:via-indigo-400 dark:to-purple-400">Foundation to Advanced</span>
+            </h1>
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                Welcome to the official <strong>Grammar Explorer Series Hub</strong>. Access interactive digital masterclasses, structured real-world context, self-check drills, and comprehensive progress tracking across all 3 levels.
+            </p>
+
+            <!-- Overall Stats Bar with JS Counter Animation -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto">
+                <div class="glass-card p-4 rounded-2xl text-center shadow-xs">
+                    <div class="text-3xl font-extrabold text-sky-600 dark:text-sky-400 font-display counter-num" data-target="3">0</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">Course Levels</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center shadow-xs">
+                    <div class="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 font-display counter-num" data-target="48">0</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">Curriculum Units</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center shadow-xs">
+                    <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">250+</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">Interactive Drills</div>
+                </div>
+                <div class="glass-card p-4 rounded-2xl text-center shadow-xs">
+                    <div class="text-3xl font-extrabold text-purple-600 dark:text-purple-400 font-display" id="total-progress-display">0%</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">Overall Completion</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow space-y-16">
+
+        <!-- Series Overview: The 3 Course Levels -->
+        <section id="series-overview">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800">Select Your Level</span>
+                <h2 class="font-display text-3xl font-extrabold text-slate-900 dark:text-white mt-3">Grammar Explorer Curriculum</h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">Choose a level below to open its full interactive lesson directory and progress dashboard.</p>
+            </div>
+
+            <!-- Level Cards Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Grammar Explorer 1 Card -->
+                <div class="glass-card card-hover-effect rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden border-t-4 border-t-sky-500">
+                    <div class="space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 text-xs font-bold rounded-lg bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 uppercase tracking-wider">
+                                Level 1 • Elementary
+                            </span>
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">17 Units</span>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white flex items-center justify-center font-bold text-2xl shadow-lg shadow-sky-500/20">
+                                1
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white">Grammar Explorer 1</h3>
+                                <p class="text-xs font-medium text-sky-600 dark:text-sky-400">Foundations & Core Structures</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Master foundational English grammar concepts: verb <em>be</em>, simple present, question formation, count/non-count nouns, prepositions of time/place, present progressive, simple past, and basic modals.
+                        </p>
+
+                        <!-- Key Topics List -->
+                        <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <div class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">Core Competencies:</div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-sky-500 mr-2"></i> Verb 'Be' & Simple Present Tenses
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-sky-500 mr-2"></i> Wh- Questions & Prepositions of Place/Time
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-sky-500 mr-2"></i> Count vs. Non-Count Nouns & Food Grammar
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-sky-500 mr-2"></i> Simple Past & Adjective Order Basics
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar GE1 -->
+                        <div class="pt-2">
+                            <div class="flex justify-between text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                                <span>GE1 Completion</span>
+                                <span id="ge1-progress-text">0 of 17</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div id="ge1-progress-bar" class="bg-sky-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-800">
+                        <a href="./Grammar Explorer 1/index.html" class="w-full inline-flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-sky-600 hover:bg-sky-700 dark:bg-sky-500 dark:hover:bg-sky-600 text-white font-bold text-sm shadow-md shadow-sky-500/20 transition group">
+                            <span>Open Explorer 1 Portal</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grammar Explorer 2 Card -->
+                <div class="glass-card card-hover-effect rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden border-t-4 border-t-emerald-500">
+                    <div class="space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 text-xs font-bold rounded-lg bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 uppercase tracking-wider">
+                                Level 2 • Intermediate
+                            </span>
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">16 Units</span>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 text-white flex items-center justify-center font-bold text-2xl shadow-lg shadow-emerald-500/20">
+                                2
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white">Grammar Explorer 2</h3>
+                                <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400">Intermediate Accuracy & Fluency</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Develop fluency with present perfect, future forms, gerunds & infinitives, relative clauses, phrasal verbs, comparatives & superlatives, and passive voice.
+                        </p>
+
+                        <!-- Key Topics List -->
+                        <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <div class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">Core Competencies:</div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-emerald-500 mr-2"></i> Present Perfect Tense & Time Expressions
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-emerald-500 mr-2"></i> Gerunds, Infinitives & Verb Patterns
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-emerald-500 mr-2"></i> Relative Clauses & Phrasal Verbs
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-emerald-500 mr-2"></i> Passive Voice & Participial Adjectives
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar GE2 -->
+                        <div class="pt-2">
+                            <div class="flex justify-between text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                                <span>GE2 Completion</span>
+                                <span id="ge2-progress-text">0 of 16</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div id="ge2-progress-bar" class="bg-emerald-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-800">
+                        <a href="./Grammar Explorer 2/index.html" class="w-full inline-flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white font-bold text-sm shadow-md shadow-emerald-500/20 transition group">
+                            <span>Open Explorer 2 Portal</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Grammar Explorer 3 Card -->
+                <div class="glass-card card-hover-effect rounded-3xl p-7 flex flex-col justify-between relative overflow-hidden border-t-4 border-t-purple-500">
+                    <div class="space-y-5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 text-xs font-bold rounded-lg bg-purple-100 dark:bg-purple-950/80 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 uppercase tracking-wider">
+                                Level 3 • Advanced
+                            </span>
+                            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">15 Units</span>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-500 to-pink-600 text-white flex items-center justify-center font-bold text-2xl shadow-lg shadow-purple-500/20">
+                                3
+                            </div>
+                            <div>
+                                <h3 class="font-display font-bold text-2xl text-slate-900 dark:text-white">Grammar Explorer 3</h3>
+                                <p class="text-xs font-medium text-purple-600 dark:text-purple-400">Advanced Academic Mastery</p>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Master complex grammar: perfect progressive tenses, past modals, tag questions, conditionals & wish, noun clauses, reported speech, and discourse transitions.
+                        </p>
+
+                        <!-- Key Topics List -->
+                        <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <div class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">Core Competencies:</div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-purple-500 mr-2"></i> Perfect Progressive Tenses & Past Modals
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-purple-500 mr-2"></i> Complex Conditionals (0-3 & Mixed) & Wish
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-purple-500 mr-2"></i> Noun Clauses & Reported Speech Systems
+                            </div>
+                            <div class="flex items-center text-xs text-slate-600 dark:text-slate-400">
+                                <i class="fa-solid fa-check text-purple-500 mr-2"></i> Transition Words & Academic Discourse
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar GE3 -->
+                        <div class="pt-2">
+                            <div class="flex justify-between text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                                <span>GE3 Completion</span>
+                                <span id="ge3-progress-text">0 of 15</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                                <div id="ge3-progress-bar" class="bg-purple-500 h-full rounded-full transition-all duration-500" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-800">
+                        <a href="./Grammar Explorer 3/index.html" class="w-full inline-flex items-center justify-center space-x-2 py-3 px-4 rounded-xl bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-bold text-sm shadow-md shadow-purple-500/20 transition group">
+                            <span>Open Explorer 3 Portal</span>
+                            <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Global Cross-Series Search Section -->
+        <section id="global-search-section" class="glass-card rounded-3xl p-8 shadow-sm">
+            <div class="max-w-2xl mx-auto text-center space-y-4">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">Smart Search</span>
+                <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Search All 48 Grammar Lessons</h2>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Search by grammar rule, topic, or unit title across Grammar Explorer 1, 2, and 3.</p>
+
+                <!-- Level Filters for Search -->
+                <div class="flex flex-wrap justify-center gap-2 pt-2" id="search-level-filters">
+                    <button data-level="ALL" class="search-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs">All Levels</button>
+                    <button data-level="GE1" class="search-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">Level 1</button>
+                    <button data-level="GE2" class="search-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">Level 2</button>
+                    <button data-level="GE3" class="search-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">Level 3</button>
+                </div>
+
+                <!-- Search Input Box -->
+                <div class="relative w-full max-w-xl mx-auto pt-2">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-base"></i>
+                    <input type="text" id="global-search-input" placeholder="Type a concept (e.g. Gerunds, Passive, Present Perfect, Modals...)"
+                        class="w-full pl-11 pr-10 py-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 shadow-sm transition">
+                    <button id="clear-global-search" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Global Search Results Container -->
+            <div id="global-results-container" class="hidden mt-8 max-w-4xl mx-auto border-t border-slate-200 dark:border-slate-800 pt-6">
+                <div class="flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400 mb-4">
+                    <span id="results-count-badge">Matching Lessons:</span>
+                    <span class="text-[11px] text-slate-400">Click star to bookmark lesson</span>
+                </div>
+                <div id="global-results-list" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Results rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Bookmarked / Favorite Lessons Section -->
+        <section id="favorites-section" class="glass-card rounded-3xl p-8 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-xl text-slate-900 dark:text-white">Bookmarked Lessons</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Quick access to your saved topics across all 3 levels</p>
+                    </div>
+                </div>
+                <button id="clear-all-favs" class="hidden text-xs font-semibold text-rose-500 hover:text-rose-700 dark:hover:text-rose-400 transition">
+                    Clear Favorites
+                </button>
+            </div>
+
+            <div id="favorites-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Favorites rendered dynamically -->
+            </div>
+            <div id="no-favorites-msg" class="text-center py-8 text-slate-400 text-xs">
+                No bookmarked lessons yet. Click the star icon next to any lesson in the search results to pin it here!
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal: Keyboard Shortcuts Legend -->
+    <div id="shortcuts-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-keyboard text-sky-500"></i>
+                    <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Keyboard Shortcuts</h3>
+                </div>
+                <button id="close-shortcuts-btn" class="text-slate-400 hover:text-slate-600 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600 dark:text-slate-300">Focus Global Search</span>
+                    <kbd>/</kbd>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600 dark:text-slate-300">Toggle Dark / Light Mode</span>
+                    <kbd>T</kbd>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600 dark:text-slate-300">Clear Search / Close Modals</span>
+                    <kbd>Esc</kbd>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-slate-600 dark:text-slate-300">Show Keyboard Shortcuts</span>
+                    <kbd>?</kbd>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Settings & Progress Options -->
+    <div id="settings-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-gear text-indigo-500"></i>
+                    <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Course Data & Progress Options</h3>
+                </div>
+                <button id="close-settings-btn" class="text-slate-400 hover:text-slate-600 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-3">
+                <button id="export-data-btn" class="w-full text-left p-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-200">
+                    <span class="flex items-center space-x-2">
+                        <i class="fa-solid fa-download text-sky-500"></i>
+                        <span>Export Progress Summary (JSON)</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                </button>
+                <button id="mark-all-btn" class="w-full text-left p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 transition flex items-center justify-between text-xs font-semibold text-emerald-700 dark:text-emerald-300">
+                    <span class="flex items-center space-x-2">
+                        <i class="fa-solid fa-check-double text-emerald-500"></i>
+                        <span>Mark All 48 Lessons Completed</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+                <button id="reset-all-btn" class="w-full text-left p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 transition flex items-center justify-between text-xs font-semibold text-rose-600 dark:text-rose-400">
+                    <span class="flex items-center space-x-2">
+                        <i class="fa-solid fa-trash-can text-rose-500"></i>
+                        <span>Reset All Progress Data</span>
+                    </span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 mt-auto py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-500 to-indigo-600 text-white flex items-center justify-center font-bold text-xs">
+                    GE
+                </div>
+                <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Grammar Explorer Hub • Comprehensive English Curriculum</span>
+            </div>
+            <div class="text-xs text-slate-400 dark:text-slate-500">
+                Created for ESL / EFL Interactive Learning & Classroom Instruction
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Script -->
+    <script>
+        // Master Catalog of all 48 lessons across GE1, GE2, GE3
+        const masterCatalog = [
+            // GE1
+            { id: "ge1_1", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_1_2_the_verb_be_basics.html", title: "Unit 1 & 2: The Verb Be & Basic Grammar", tag: "Units 1 & 2", topics: ["Am / Is / Are", "Subject Pronouns", "Questions"] },
+            { id: "ge1_2", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_3_4_simple_present_daily_life.html", title: "Units 3 & 4: Simple Present & Daily Life", tag: "Units 3 & 4", topics: ["Simple Present", "Routines", "Frequency Adverbs"] },
+            { id: "ge1_3", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/wh_questions.html", title: "Wh- Questions Masterclass", tag: "Masterclass", topics: ["Who/What/Where", "Subject vs Object"] },
+            { id: "ge1_4", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_5_food_and_hospitality.html", title: "Unit 5: Food & Hospitality (Nouns)", tag: "Unit 5", topics: ["Count/Non-Count", "Quantifiers", "Food Nouns"] },
+            { id: "ge1_5", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_6_homes_and_communities.html", title: "Unit 6: Homes & Communities", tag: "Unit 6", topics: ["There is/are", "Too & Enough", "Indefinite Pronouns"] },
+            { id: "ge1_6", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/there_is_there_are_and_it.html", title: "There Is / There Are & It", tag: "Masterclass", topics: ["Existence", "Weather", "Distance"] },
+            { id: "ge1_7", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/prepositions_of_place_time.html", title: "Prepositions of Place and Time", tag: "Masterclass", topics: ["In / On / At", "Spatial Rules"] },
+            { id: "ge1_8", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/count_and_non_count_nouns.html", title: "Count and Non-Count Nouns", tag: "Masterclass", topics: ["Partitives", "Some / Any / No"] },
+            { id: "ge1_9", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_7_present_progressive.html", title: "Unit 7: Extremes (Present Progressive)", tag: "Unit 7", topics: ["Be + Verb-ing", "Ongoing Actions"] },
+            { id: "ge1_10", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/action_vs_non_action_verbs.html", title: "Action vs Non-Action Verbs", tag: "Masterclass", topics: ["Stative Verbs", "Dynamic Verbs"] },
+            { id: "ge1_11", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/simple_present_vs_present_progressive.html", title: "Simple Present vs. Present Progressive", tag: "Masterclass", topics: ["Habits vs Right Now", "Signal Words"] },
+            { id: "ge1_12", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_8_9_the_past.html", title: "Units 8 & 9: The Past (Parts 1 & 2)", tag: "Units 8 & 9", topics: ["Was / Were", "Regular & Irregular Verbs"] },
+            { id: "ge1_13", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/simple_past_past_progressive.html", title: "Simple Past & Past Progressive", tag: "Masterclass", topics: ["When & While", "Interrupted Past"] },
+            { id: "ge1_14", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_10_mastering_adjectives.html", title: "Unit 10: Adjectives & Adverbs", tag: "Unit 10", topics: ["Adjective Order", "Adverbs of Manner"] },
+            { id: "ge1_15", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_12_comparatives_superlatives.html", title: "Unit 12: Comparatives, Superlatives & Possessives", tag: "Unit 12", topics: ["-er / more", "-est / most", "Possessives"] },
+            { id: "ge1_16", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_11_13_modals_and_conjunctions.html", title: "Units 11 & 13: Modals & Conjunctions", tag: "Units 11 & 13", topics: ["Can / Should", "Conjunctions"] },
+            { id: "ge1_17", level: "GE1", folder: "Grammar Explorer 1", file: "Grammar Explorer 1/unit_14_the_future_education_learning.html", title: "Unit 14: Education & Learning (The Future)", tag: "Unit 14", topics: ["Will vs Going to", "Future Clauses"] },
+
+            // GE2
+            { id: "ge2_1", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_1_customs_traditions_the_present.html", title: "Unit 1: Customs & Traditions (The Present)", tag: "Unit 1", topics: ["Simple Present", "Present Progressive", "Habits"] },
+            { id: "ge2_2", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_2_survival_the_past.html", title: "Unit 2: Survival (The Past)", tag: "Unit 2", topics: ["Simple Past", "Past Progressive", "Used to"] },
+            { id: "ge2_3", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_3_health_fitness_nouns.html", title: "Unit 3: Health & Fitness (Nouns)", tag: "Unit 3", topics: ["Count/Non-count", "Quantifiers", "Articles"] },
+            { id: "ge2_4", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_4_going_places_pronouns_prepositions_and_articles.html", title: "Unit 4: Going Places (Pronouns, Prepositions & Articles)", tag: "Unit 4", topics: ["Pronouns", "Prepositions", "Articles"] },
+            { id: "ge2_5", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_5_a_changing_world_the_present_perfect.html", title: "Unit 5: A Changing World (The Present Perfect)", tag: "Unit 5", topics: ["Present Perfect", "For/Since", "Past Simple Contrast"] },
+            { id: "ge2_6", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_6_appearances_and_behavior_adjectives_and_adverbs.html", title: "Unit 6: Appearances and Behavior (Adjectives & Adverbs)", tag: "Unit 6", topics: ["Adjectives", "Adverbs", "Order"] },
+            { id: "ge2_7", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_7_tomorrow_and_beyond_the_future.html", title: "Unit 7: Tomorrow and Beyond (The Future)", tag: "Unit 7", topics: ["Will", "Going to", "Future Progressive"] },
+            { id: "ge2_8", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_8_consumer_society_comparatives_and_superlatives.html", title: "Unit 8: Consumer Society (Comparatives & Superlatives)", tag: "Unit 8", topics: ["Comparatives", "Superlatives", "As...as"] },
+            { id: "ge2_9", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_9_conjunctions_and_adverb_clauses.html", title: "Unit 9: The Natural World (Conjunctions & Adverb Clauses)", tag: "Unit 9", topics: ["Adverb Clauses", "Time/Reason Clauses", "Conjunctions"] },
+            { id: "ge2_10", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_10_work_and_play_gerunds_and_infinitives.html", title: "Unit 10: Work and Play (Gerunds and Infinitives)", tag: "Unit 10", topics: ["Gerunds", "Infinitives", "Verb Patterns"] },
+            { id: "ge2_11", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_11_people_and_places.html", title: "Unit 11: People and Places (Relative Clauses)", tag: "Unit 11", topics: ["Who/Which/That", "Relative Clauses"] },
+            { id: "ge2_12", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_12_art_and_music_modals_part_1.html", title: "Unit 12: Art and Music (Modals Part 1)", tag: "Unit 12", topics: ["Can/Could/May", "Permission & Ability"] },
+            { id: "ge2_13", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_13_sports_modals_part_2.html", title: "Unit 13: Sports (Modals Part 2)", tag: "Unit 13", topics: ["Must/Should/Have to", "Obligation & Advice"] },
+            { id: "ge2_14", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_14_innovations_verbs_phrasal_verbs.html", title: "Unit 14: Innovations (Verbs & Phrasal Verbs)", tag: "Unit 14", topics: ["Phrasal Verbs", "Separable", "Inseparable"] },
+            { id: "ge2_15", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_15_windows_on_the_past.html", title: "Unit 15: Windows on the Past (Passive Voice)", tag: "Unit 15", topics: ["Passive Voice", "Participial Adjectives"] },
+            { id: "ge2_16", level: "GE2", folder: "Grammar Explorer 2", file: "Grammar Explorer 2/unit_16_exploration.html", title: "Unit 16: Exploration (Noun Clauses & Reported Speech)", tag: "Unit 16", topics: ["Noun Clauses", "Reported Speech"] },
+
+            // GE3
+            { id: "ge3_1", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_1_present_and_past.html", title: "Unit 1: Present & Past Tenses", tag: "Unit 1", topics: ["Present/Past Review", "Aspects"] },
+            { id: "ge3_2", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_2_perfect_tenses.html", title: "Unit 2: Perfect & Perfect Progressive Tenses", tag: "Unit 2", topics: ["Present Perfect Prog", "Past Perfect Prog"] },
+            { id: "ge3_3", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_3_the_future.html", title: "Unit 3: A Look Into the Future", tag: "Unit 3", topics: ["Future Perfect", "Future Prog"] },
+            { id: "ge3_4", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_4_exploration.html", title: "Unit 4: Exploration (Tag & Negative Questions)", tag: "Unit 4", topics: ["Tag Questions", "Negative Questions"] },
+            { id: "ge3_5", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_5_stages_of_life.html", title: "Unit 5: Stages of Life (Nouns, Articles, S-V Agreement)", tag: "Unit 5", topics: ["Subject-Verb Agreement", "Article Nuances"] },
+            { id: "ge3_6", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_6_gerunds_and_infinitives.html", title: "Unit 6: Wellness (Gerunds and Infinitives)", tag: "Unit 6", topics: ["Passive Gerunds", "Complex Infinitives"] },
+            { id: "ge3_7", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_7_globetrotting.html", title: "Unit 7: Globetrotting (Modals Part 1)", tag: "Unit 7", topics: ["Modals of Certainty", "Possibility"] },
+            { id: "ge3_8", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_8_our_mysterious_world.html", title: "Unit 8: Our Mysterious World (Modals Part 2)", tag: "Unit 8", topics: ["Past Modals", "Should/Must Have"] },
+            { id: "ge3_9", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_9_the_natural_world.html", title: "Unit 9: The Natural World (The Passive)", tag: "Unit 9", topics: ["Academic Passive", "Modal Passives"] },
+            { id: "ge3_10", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_10_beauty_and_appearance.html", title: "Unit 10: Beauty and Appearance (Adjectives & Adverbs)", tag: "Unit 10", topics: ["Participial Adjectives", "Sentence Adverbs"] },
+            { id: "ge3_11", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_11_the_power_of_images.html", title: "Unit 11: The Power of Images (Relative Clauses)", tag: "Unit 11", topics: ["Non-defining Clauses", "Preposition Placement"] },
+            { id: "ge3_12", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_12_adverb_clauses.html", title: "Unit 12: The Rise of the City (Adverb Clauses)", tag: "Unit 12", topics: ["Reduced Clauses", "Contrast & Cause"] },
+            { id: "ge3_13", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_13_choices.html", title: "Unit 13: Choices (Conditionals and Wish)", tag: "Unit 13", topics: ["Conditionals 0-3", "Mixed Conditionals", "Wish"] },
+            { id: "ge3_14", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_14_noun_clauses_and_reported_speech.html", title: "Unit 14: Noun Clauses & Reported Speech", tag: "Unit 14", topics: ["Backshifting", "Indirect Questions"] },
+            { id: "ge3_15", level: "GE3", folder: "Grammar Explorer 3", file: "Grammar Explorer 3/unit_15_transitions_prepositional_phrases.html", title: "Unit 15: Learning (Combining Ideas)", tag: "Unit 15", topics: ["Transition Words", "Cohesive Devices"] }
+        ];
+
+        // State Management
+        let favorites = JSON.parse(localStorage.getItem('ge_favorites') || '[]');
+        let activeLevelFilter = 'ALL';
+
+        // Initialize Theme
+        function initTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Resume Last Opened Lesson Banner Logic
+        function checkLastOpened() {
+            const lastFile = localStorage.getItem('ge_last_opened_file');
+            const lastTitle = localStorage.getItem('ge_last_opened_title');
+
+            if (lastFile && lastTitle) {
+                document.getElementById('resume-lesson-title').textContent = lastTitle;
+                document.getElementById('resume-lesson-btn').setAttribute('href', lastFile);
+                document.getElementById('resume-banner').classList.remove('hidden');
+            }
+        }
+
+        document.getElementById('close-resume-banner').addEventListener('click', () => {
+            document.getElementById('resume-banner').classList.add('hidden');
+        });
+
+        window.trackLessonOpen = function(file, title) {
+            localStorage.setItem('ge_last_opened_file', file);
+            localStorage.setItem('ge_last_opened_title', title);
+        };
+
+        // Number Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-num');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+                let current = 0;
+                const step = Math.max(1, Math.ceil(target / 20));
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = current;
+                }, 40);
+            });
+        }
+
+        // Progress Calculations
+        function updateProgressDisplays() {
+            const ge1Completed = JSON.parse(localStorage.getItem('ge1_completed_units') || '[]');
+            const ge2Completed = JSON.parse(localStorage.getItem('ge2_completed_units') || '[]');
+            const ge3Completed = JSON.parse(localStorage.getItem('ge3_completed_units') || '[]');
+
+            const ge1Total = 17, ge2Total = 16, ge3Total = 15;
+            const ge1Pct = Math.round((ge1Completed.length / ge1Total) * 100);
+            const ge2Pct = Math.round((ge2Completed.length / ge2Total) * 100);
+            const ge3Pct = Math.round((ge3Completed.length / ge3Total) * 100);
+
+            document.getElementById('ge1-progress-bar').style.width = ge1Pct + '%';
+            document.getElementById('ge1-progress-text').textContent = `${ge1Completed.length} of ${ge1Total}`;
+
+            document.getElementById('ge2-progress-bar').style.width = ge2Pct + '%';
+            document.getElementById('ge2-progress-text').textContent = `${ge2Completed.length} of ${ge2Total}`;
+
+            document.getElementById('ge3-progress-bar').style.width = ge3Pct + '%';
+            document.getElementById('ge3-progress-text').textContent = `${ge3Completed.length} of ${ge3Total}`;
+
+            const totalCompleted = ge1Completed.length + ge2Completed.length + ge3Completed.length;
+            const grandTotal = ge1Total + ge2Total + ge3Total;
+            const grandPct = Math.round((totalCompleted / grandTotal) * 100);
+
+            document.getElementById('total-progress-display').textContent = grandPct + '%';
+        }
+
+        // Favorites / Bookmarks System
+        function updateFavoritesUI() {
+            const list = document.getElementById('favorites-list');
+            const noMsg = document.getElementById('no-favorites-msg');
+            const badge = document.getElementById('fav-count-badge');
+            const clearBtn = document.getElementById('clear-all-favs');
+
+            badge.textContent = favorites.length;
+            list.innerHTML = '';
+
+            if (favorites.length === 0) {
+                noMsg.classList.remove('hidden');
+                clearBtn.classList.add('hidden');
+                return;
+            }
+
+            noMsg.classList.add('hidden');
+            clearBtn.classList.remove('hidden');
+
+            const favItems = masterCatalog.filter(item => favorites.includes(item.id));
+            favItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "glass-card p-4 rounded-xl border border-amber-200 dark:border-amber-900/50 flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300">
+                                ${item.level} • ${item.tag}
+                            </span>
+                            <button onclick="toggleFavorite('${item.id}', event)" class="text-amber-500 hover:text-amber-600 p-1" title="Remove Bookmark">
+                                <i class="fa-solid fa-star text-sm"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white">
+                            <a href="${item.file}" onclick="trackLessonOpen('${item.file}', '${item.title}')" class="hover:underline hover:text-amber-600 transition">${item.title}</a>
+                        </h4>
+                    </div>
+                    <div class="pt-3 mt-3 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+                        <a href="${item.file}" onclick="trackLessonOpen('${item.file}', '${item.title}')" class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center space-x-1">
+                            <span>Study Now</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+
+        window.toggleFavorite = function(id, event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            if (favorites.includes(id)) {
+                favorites = favorites.filter(fId => fId !== id);
+            } else {
+                favorites.push(id);
+            }
+            localStorage.setItem('ge_favorites', JSON.stringify(favorites));
+            updateFavoritesUI();
+            renderSearchResults();
+        };
+
+        document.getElementById('clear-all-favs').addEventListener('click', () => {
+            if (confirm("Are you sure you want to clear all bookmarked lessons?")) {
+                favorites = [];
+                localStorage.setItem('ge_favorites', JSON.stringify(favorites));
+                updateFavoritesUI();
+                renderSearchResults();
+            }
+        });
+
+        // Search & Filter Logic
+        const searchInput = document.getElementById('global-search-input');
+        const clearBtn = document.getElementById('clear-global-search');
+        const resultsContainer = document.getElementById('global-results-container');
+        const resultsList = document.getElementById('global-results-list');
+        const countBadge = document.getElementById('results-count-badge');
+        const searchFilterBtns = document.querySelectorAll('.search-filter-btn');
+
+        searchFilterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                searchFilterBtns.forEach(b => {
+                    b.className = 'search-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition';
+                });
+                btn.className = 'search-filter-btn px-3 py-1 rounded-xl text-xs font-bold bg-indigo-600 text-white shadow-xs';
+                activeLevelFilter = btn.getAttribute('data-level');
+                renderSearchResults();
+            });
+        });
+
+        function renderSearchResults() {
+            const q = searchInput.value.trim().toLowerCase();
+            if (!q) {
+                clearBtn.classList.add('hidden');
+                resultsContainer.classList.add('hidden');
+                return;
+            }
+
+            clearBtn.classList.remove('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            const matches = masterCatalog.filter(item => {
+                const matchesLevel = activeLevelFilter === 'ALL' || item.level === activeLevelFilter;
+                const matchesQuery = item.title.toLowerCase().includes(q) ||
+                    item.tag.toLowerCase().includes(q) ||
+                    item.level.toLowerCase().includes(q) ||
+                    item.topics.some(t => t.toLowerCase().includes(q));
+                return matchesLevel && matchesQuery;
+            });
+
+            countBadge.textContent = `Found ${matches.length} matching lesson(s) in ${activeLevelFilter === 'ALL' ? 'all levels' : activeLevelFilter}:`;
+            resultsList.innerHTML = '';
+
+            if (matches.length === 0) {
+                resultsList.innerHTML = `<div class="col-span-full text-center py-6 text-slate-400 text-sm">No matching lessons found. Try adjusting search filters or terms.</div>`;
+                return;
+            }
+
+            matches.forEach(item => {
+                const isFav = favorites.includes(item.id);
+                const badgeColor = item.level === 'GE1' ? 'bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300' :
+                                 item.level === 'GE2' ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' :
+                                 'bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300';
+                
+                const card = document.createElement('div');
+                card.className = "glass-card p-4 rounded-xl hover:border-indigo-400 transition flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded ${badgeColor}">${item.level} • ${item.tag}</span>
+                            <button onclick="toggleFavorite('${item.id}', event)" class="p-1 text-slate-400 hover:text-amber-500 transition" title="${isFav ? 'Remove Bookmark' : 'Bookmark Lesson'}">
+                                <i class="fa-solid fa-star ${isFav ? 'text-amber-500' : ''}"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 transition">
+                            <a href="${item.file}" onclick="trackLessonOpen('${item.file}', '${item.title}')">${item.title}</a>
+                        </h4>
+                    </div>
+                    <div class="flex flex-wrap gap-1 mt-3">
+                        ${item.topics.map(t => `<span class="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 px-1.5 py-0.5 rounded">${t}</span>`).join('')}
+                    </div>
+                `;
+                resultsList.appendChild(card);
+            });
+        }
+
+        searchInput.addEventListener('input', renderSearchResults);
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            renderSearchResults();
+        });
+
+        // Modals Controls
+        const shortcutsModal = document.getElementById('shortcuts-modal');
+        const settingsModal = document.getElementById('settings-modal');
+
+        document.getElementById('shortcuts-btn').addEventListener('click', () => shortcutsModal.classList.remove('hidden'));
+        document.getElementById('close-shortcuts-btn').addEventListener('click', () => shortcutsModal.classList.add('hidden'));
+
+        document.getElementById('settings-btn').addEventListener('click', () => settingsModal.classList.remove('hidden'));
+        document.getElementById('close-settings-btn').addEventListener('click', () => settingsModal.classList.add('hidden'));
+
+        // Settings Actions
+        document.getElementById('export-data-btn').addEventListener('click', () => {
+            const data = {
+                ge1: JSON.parse(localStorage.getItem('ge1_completed_units') || '[]'),
+                ge2: JSON.parse(localStorage.getItem('ge2_completed_units') || '[]'),
+                ge3: JSON.parse(localStorage.getItem('ge3_completed_units') || '[]'),
+                favorites: JSON.parse(localStorage.getItem('ge_favorites') || '[]'),
+                exportDate: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'grammar_explorer_progress.json';
+            a.click();
+        });
+
+        document.getElementById('mark-all-btn').addEventListener('click', () => {
+            if (confirm("Mark all 48 lessons across Grammar Explorer 1, 2, and 3 as completed?")) {
+                const ge1All = ["unit_1_2", "unit_3_4", "wh_questions", "unit_5", "unit_6", "there_is_are", "prepositions", "count_noncount", "unit_7", "action_verbs", "simple_vs_prog", "unit_8_9", "past_prog", "unit_10", "unit_12_comp", "modals_conj", "unit_14_future"];
+                const ge2All = ["ge2_unit_1", "ge2_unit_2", "ge2_unit_3", "ge2_unit_4", "ge2_unit_5", "ge2_unit_6", "ge2_unit_7", "ge2_unit_8", "ge2_unit_9", "ge2_unit_10", "ge2_unit_11", "ge2_unit_12", "ge2_unit_13", "ge2_unit_14", "ge2_unit_15", "ge2_unit_16"];
+                const ge3All = ["ge3_unit_1", "ge3_unit_2", "ge3_unit_3", "ge3_unit_4", "ge3_unit_5", "ge3_unit_6", "ge3_unit_7", "ge3_unit_8", "ge3_unit_9", "ge3_unit_10", "ge3_unit_11", "ge3_unit_12", "ge3_unit_13", "ge3_unit_14", "ge3_unit_15"];
+
+                localStorage.setItem('ge1_completed_units', JSON.stringify(ge1All));
+                localStorage.setItem('ge2_completed_units', JSON.stringify(ge2All));
+                localStorage.setItem('ge3_completed_units', JSON.stringify(ge3All));
+
+                updateProgressDisplays();
+                settingsModal.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('reset-all-btn').addEventListener('click', () => {
+            if (confirm("Are you sure you want to reset ALL completed progress data across all levels?")) {
+                localStorage.removeItem('ge1_completed_units');
+                localStorage.removeItem('ge2_completed_units');
+                localStorage.removeItem('ge3_completed_units');
+                localStorage.removeItem('ge_last_opened_file');
+                localStorage.removeItem('ge_last_opened_title');
+                
+                updateProgressDisplays();
+                checkLastOpened();
+                settingsModal.classList.add('hidden');
+            }
+        });
+
+        // Global Keyboard Listeners
+        window.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                if (e.key === 'Escape') {
+                    searchInput.value = '';
+                    renderSearchResults();
+                    searchInput.blur();
+                }
+                return;
+            }
+
+            if (e.key === '/') {
+                e.preventDefault();
+                searchInput.focus();
+            } else if (e.key.toLowerCase() === 't') {
+                document.getElementById('theme-toggle').click();
+            } else if (e.key === '?') {
+                shortcutsModal.classList.toggle('hidden');
+            } else if (e.key === 'Escape') {
+                shortcutsModal.classList.add('hidden');
+                settingsModal.classList.add('hidden');
+            }
+        });
+
+        // Initialization
+        initTheme();
+        animateCounters();
+        updateProgressDisplays();
+        checkLastOpened();
+        updateFavoritesUI();
+    </script>
+</body>
+</html>

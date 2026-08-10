@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6: Wellness (Gerunds and Infinitives)</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff1f2; /* Rose 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #e11d48; /* Rose 600 */
+            color: #be123c; /* Rose 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-gerund {
+            background-color: #ffe4e6; color: #e11d48; border-color: #f43f5e; border-style: solid;
+        }
+        .grammar-toggle.state-inf {
+            background-color: #e0e7ff; color: #4f46e5; border-color: #6366f1; border-style: solid;
+        }
+        .grammar-toggle.state-err {
+            background-color: #fee2e2; color: #991b1b; border-color: #ef4444; border-style: solid; text-decoration: line-through;
+        }
+
+        .subtab-active {
+            background-color: #e11d48; color: white; box-shadow: 0 4px 6px -1px rgba(225, 29, 72, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #e11d48; background-color: #fff1f2; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 80px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #e11d48; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #e11d48; background-color: #fff1f2; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-rose-500 to-fuchsia-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-heart-pulse text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 6: Gerunds & Infinitives</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 6</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Mastering Verb Forms</h2>
+                <p class="text-lg text-slate-600">Discover when a verb acts as a noun (Gerund), when to use "to" + base verb (Infinitive), and the tricky verbs that completely change meaning depending on which form you choose.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-rose-50 text-rose-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-rose-200">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-rose-500 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal their rules!
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-rose-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-file-word text-2xl"></i>
+                    <h3 class="text-2xl font-bold">1. Gerunds (Verb + ing)</h3>
+                </div>
+                
+                <div class="p-6 md:p-8 space-y-8">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 border-b pb-2">Roles & Rules</h4>
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li><strong class="text-rose-700 block">As Subjects and Objects:</strong> A gerund acts as a noun. When it is the subject, it <strong>always takes a singular verb</strong>. <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 border border-slate-100">
+                                        <span class="grammar-toggle" data-type="gerund" data-exp="Gerund subject takes singular verb">Smoking is</span> bad for you.
+                                    </div>
+                                </li>
+                                <li><strong class="text-rose-700 block">Negative Gerunds:</strong> Place <em>not</em> before the gerund. <br>
+                                    <div class="bg-slate-50 p-2 rounded mt-1 border border-slate-100">
+                                        I recommend <span class="grammar-toggle" data-type="gerund" data-exp="not + gerund">not eating</span> late.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 border-b pb-2">Objects of Prepositions</h4>
+                            <p class="text-sm text-slate-600 mb-3">A gerund is the <strong>only verb form</strong> that can follow a preposition (in, on, at, about, for, of, by).</p>
+                            <div class="grid grid-cols-2 gap-2 text-sm">
+                                <div class="bg-rose-50 p-2 rounded border border-rose-100 text-rose-800 font-medium">succeed <strong class="text-rose-600">in</strong> passing</div>
+                                <div class="bg-rose-50 p-2 rounded border border-rose-100 text-rose-800 font-medium">believe <strong class="text-rose-600">in</strong> trying</div>
+                                <div class="bg-rose-50 p-2 rounded border border-rose-100 text-rose-800 font-medium">afraid <strong class="text-rose-600">of</strong> failing</div>
+                                <div class="bg-rose-50 p-2 rounded border border-rose-100 text-rose-800 font-medium">tired <strong class="text-rose-600">of</strong> waiting</div>
+                                <div class="bg-rose-50 p-2 rounded border border-rose-100 text-rose-800 font-medium">advantage <strong class="text-rose-600">of</strong> studying</div>
+                                <div class="bg-rose-50 p-2 rounded border border-rose-100 text-rose-800 font-medium">reason <strong class="text-rose-600">for</strong> leaving</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-3"><i class="fa-solid fa-list-check text-rose-500 mr-2"></i>Verbs & Expressions Followed by Gerunds</h4>
+                        <div class="flex flex-wrap gap-2 text-sm mb-4">
+                            <span class="bg-white px-3 py-1 rounded shadow-sm border border-slate-200 font-medium text-slate-700">avoid</span>
+                            <span class="bg-white px-3 py-1 rounded shadow-sm border border-slate-200 font-medium text-slate-700">consider</span>
+                            <span class="bg-white px-3 py-1 rounded shadow-sm border border-slate-200 font-medium text-slate-700">dislike / enjoy</span>
+                            <span class="bg-white px-3 py-1 rounded shadow-sm border border-slate-200 font-medium text-slate-700">finish / quit</span>
+                            <span class="bg-white px-3 py-1 rounded shadow-sm border border-slate-200 font-medium text-slate-700">keep / mind</span>
+                            <span class="bg-white px-3 py-1 rounded shadow-sm border border-slate-200 font-medium text-slate-700">practice / suggest</span>
+                        </div>
+                        <p class="text-sm text-slate-600 border-t border-slate-200 pt-3">
+                            <strong class="text-rose-700">Special Noun/Time Expressions:</strong> 
+                            have fun/trouble/experience, spend time/money, waste time/money. <br>
+                            <span class="italic mt-1 block">"I <strong class="text-slate-800">spend time reading</strong> every night."</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-indigo-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-link text-2xl"></i>
+                    <h3 class="text-2xl font-bold">2. Infinitives (to + base verb)</h3>
+                </div>
+                
+                <div class="p-6 md:p-8 space-y-8">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 border-b pb-2">Common Verb Patterns</h4>
+                            
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-indigo-50/50 p-3 rounded-lg border border-indigo-100">
+                                    <strong class="text-indigo-700 block mb-1">Verb + Infinitive:</strong> afford, decide, hope, plan, promise, seem, want, would like.
+                                    <div class="mt-1 font-medium bg-white px-2 py-1 rounded">I <span class="grammar-toggle" data-type="inf" data-exp="Verb followed directly by infinitive">hope to pass</span>.</div>
+                                </li>
+                                <li class="bg-indigo-50/50 p-3 rounded-lg border border-indigo-100">
+                                    <strong class="text-indigo-700 block mb-1">Verb + Object + Infinitive:</strong> advise, allow, convince, encourage, remind, tell, warn.
+                                    <div class="mt-1 font-medium bg-white px-2 py-1 rounded">He <span class="grammar-toggle" data-type="inf" data-exp="Object (me) comes before the infinitive">reminded me to call</span>.</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 border-b pb-2">Subject "It" & Adjectives</h4>
+                            <p class="text-sm text-slate-600 mb-3">When using the placeholder subject <em>it</em>, the infinitive phrase often goes at the end.</p>
+                            
+                            <div class="space-y-2 text-sm">
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                    <span class="font-bold text-indigo-700 block mb-1">It + Verb/Adj + Infinitive:</span>
+                                    <span class="italic">"It costs a lot <strong class="text-slate-800">to take</strong> the course."</span><br>
+                                    <span class="italic">"It is easy <strong class="text-slate-800">to make</strong> mistakes."</span>
+                                </div>
+                                <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                    <span class="font-bold text-indigo-700 block mb-1">Attitude Adjectives:</span>
+                                    Adjectives showing feelings (glad, lucky, willing, afraid) precede an infinitive.<br>
+                                    <span class="italic">"I am glad <strong class="text-slate-800">to help</strong>."</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
+                            <h4 class="font-bold text-slate-800 mb-3"><i class="fa-solid fa-arrows-left-right text-indigo-500 mr-2"></i>Too and Enough</h4>
+                            <ul class="text-sm text-slate-600 space-y-3">
+                                <li><strong class="text-slate-800">Too (Excessive):</strong> Comes <em>before</em> the adjective.<br>
+                                    <span class="bg-white px-2 py-1 rounded border border-slate-200 mt-1 inline-block">He is <strong class="text-indigo-600">too tired to study</strong>.</span>
+                                </li>
+                                <li><strong class="text-slate-800">Enough (Sufficient):</strong> Comes <em>after</em> adjectives, but <em>before</em> nouns.<br>
+                                    <span class="bg-white px-2 py-1 rounded border border-slate-200 mt-1 inline-block">Old <strong class="text-indigo-600">enough to drive</strong>.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200 flex flex-col justify-center">
+                            <h4 class="font-bold text-slate-800 mb-3"><i class="fa-solid fa-bullseye text-indigo-500 mr-2"></i>Infinitives of Purpose</h4>
+                            <p class="text-sm text-slate-600 mb-3">Explain <em>why</em> someone does something.</p>
+                            <div class="bg-red-50 p-3 rounded-lg border border-red-100 text-sm">
+                                <i class="fa-solid fa-triangle-exclamation text-red-500 mr-1"></i> Never use "for + gerund" to express purpose.<br>
+                                <span class="grammar-toggle state-err cursor-default mt-2">I study for learning.</span><br>
+                                <strong class="text-green-700 mt-1 block">Correct: I study to learn.</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative">
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-signs-post text-amber-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">3. The Crossroads: Verbs taking both</h3>
+                    </div>
+
+                    <div class="bg-white/10 p-5 rounded-2xl border border-white/20 mb-8">
+                        <h4 class="font-bold text-emerald-400 text-lg mb-3">No Change in Meaning</h4>
+                        <p class="text-sm text-slate-300 mb-3">You can use either form after these verbs without changing the message: <em>begin, (not) bother, can't stand, continue, hate, like, love, prefer, start</em>.</p>
+                        <p class="text-sm font-medium text-slate-200 bg-black/20 p-2 rounded">"I love to swim" is the same as "I love swimming".</p>
+                    </div>
+
+                    <h4 class="font-bold text-amber-400 text-2xl mb-4 text-center border-b border-amber-500/30 pb-3">Drastic Change in Meaning</h4>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- STOP -->
+                        <div class="bg-slate-950/50 p-5 rounded-2xl border border-amber-500/30">
+                            <h5 class="font-bold text-amber-300 text-xl mb-4 text-center">Stop</h5>
+                            <div class="space-y-4 text-sm">
+                                <div class="bg-slate-800 p-3 rounded-lg">
+                                    <strong class="text-rose-400 block mb-1">+ Gerund</strong>
+                                    Ending an activity entirely.
+                                    <div class="mt-2 text-slate-300 italic">"He stopped smoking." (He quit)</div>
+                                </div>
+                                <div class="bg-slate-800 p-3 rounded-lg">
+                                    <strong class="text-indigo-400 block mb-1">+ Infinitive</strong>
+                                    Interrupting an action in order to do something else (purpose).
+                                    <div class="mt-2 text-slate-300 italic">"He stopped to smoke." (He paused walking in order to smoke)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REMEMBER -->
+                        <div class="bg-slate-950/50 p-5 rounded-2xl border border-amber-500/30">
+                            <h5 class="font-bold text-amber-300 text-xl mb-4 text-center">Remember</h5>
+                            <div class="space-y-4 text-sm">
+                                <div class="bg-slate-800 p-3 rounded-lg">
+                                    <strong class="text-rose-400 block mb-1">+ Gerund</strong>
+                                    Recalling a memory of a past event.
+                                    <div class="mt-2 text-slate-300 italic">"I remember locking the door." (I have a memory of doing it)</div>
+                                </div>
+                                <div class="bg-slate-800 p-3 rounded-lg">
+                                    <strong class="text-indigo-400 block mb-1">+ Infinitive</strong>
+                                    Remembering a task you need to perform.
+                                    <div class="mt-2 text-slate-300 italic">"I remembered to lock the door." (I didn't forget my obligation)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- FORGET -->
+                        <div class="bg-slate-950/50 p-5 rounded-2xl border border-amber-500/30">
+                            <h5 class="font-bold text-amber-300 text-xl mb-4 text-center">Forget</h5>
+                            <div class="space-y-4 text-sm">
+                                <div class="bg-slate-800 p-3 rounded-lg">
+                                    <strong class="text-rose-400 block mb-1">+ Gerund</strong>
+                                    Losing the memory of a past event (usually used in negative).
+                                    <div class="mt-2 text-slate-300 italic">"I will never forget visiting Paris."</div>
+                                </div>
+                                <div class="bg-slate-800 p-3 rounded-lg">
+                                    <strong class="text-indigo-400 block mb-1">+ Infinitive</strong>
+                                    Failing to complete a required task.
+                                    <div class="mt-2 text-slate-300 italic">"I forgot to buy milk." (I didn't do the chore)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-teal-50 border border-teal-200 rounded-2xl p-6 flex gap-4 items-start">
+                <i class="fa-solid fa-pen-nib text-3xl text-teal-600 mt-1"></i>
+                <div>
+                    <h4 class="font-bold text-teal-900 text-lg mb-1">Writing Connection: Comma Splices</h4>
+                    <p class="text-sm text-teal-800 mb-3">A comma splice is a major error where two independent clauses (full sentences) are glued together with just a comma.</p>
+                    <div class="bg-white p-3 rounded border border-teal-100 text-sm space-y-2">
+                        <div class="text-red-600 line-through">He loves swimming, he goes every day.</div>
+                        <div class="font-bold text-slate-700">Fix 1: Conjunction &rarr; <span class="font-normal">He loves swimming, <strong class="text-teal-600">so</strong> he goes every day.</span></div>
+                        <div class="font-bold text-slate-700">Fix 2: Period &rarr; <span class="font-normal">He loves swimming<strong class="text-teal-600">. He</strong> goes every day.</span></div>
+                        <div class="font-bold text-slate-700">Fix 3: Semicolon &rarr; <span class="font-normal">He loves swimming<strong class="text-teal-600">;</strong> he goes every day.</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Choose Form
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Prepositions
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-brain mr-2"></i>Meaning Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Gerund or Infinitive?</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct verb form based on the preceding verb or rule.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-rose-100 text-rose-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Preposition + Gerund</h3>
+                                    <p class="text-slate-500 text-sm">Type the correct preposition that pairs with the adjective or verb.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-rose-100 text-rose-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-rose-500 focus:outline-none focus:ring-4 focus:ring-rose-500/20 transition-all" placeholder="Type preposition..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Meaning Matcher</h3>
+                                <p class="text-slate-500 mt-2">Read the sentence using stop, remember, or forget. What does it mean?</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Sentence</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options generated dynamically -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-gerund')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-gerund';
+                        } else if (t.dataset.baseClass.includes('state-inf')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-inf';
+                        } else if (t.dataset.baseClass.includes('state-err')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-err';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: CHOOSE TENSE
+        // ==========================================
+
+        const chooseData = [
+            { q: "We must avoid ______ mistakes on the final exam.", opts: ["to make", "making"], ans: 1, exp: "The verb 'avoid' is followed by a gerund." },
+            { q: "She decided ______ a new car instead of a used one.", opts: ["to buy", "buying"], ans: 0, exp: "The verb 'decide' is followed by an infinitive." },
+            { q: "______ is excellent for cardiovascular health.", opts: ["To swim", "Swimming"], ans: 1, exp: "Gerunds act as nouns and are commonly used as subjects." },
+            { q: "I use this application ______ my language skills.", opts: ["to improve", "for improving"], ans: 0, exp: "Use the infinitive of purpose. Do not use 'for + gerund' to explain why." },
+            { q: "He warned us ______ too close to the edge.", opts: ["not going", "not to go"], ans: 1, exp: "Negative infinitives are formed with 'not to + base verb'." },
+            { q: "They had a hard time ______ the hidden path.", opts: ["to find", "finding"], ans: 1, exp: "The expression 'have a hard time' is followed by a gerund." },
+            { q: "It is important ______ plenty of water every day.", opts: ["drinking", "to drink"], ans: 1, exp: "When 'It' is the subject followed by an adjective (important), use an infinitive." },
+            { q: "She is too tired ______ studying tonight.", opts: ["to continue", "continuing"], ans: 0, exp: "The 'too + adjective' structure is followed by an infinitive." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.textContent = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-e11d48', 'hover:bg-fff1f2');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-rose-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS
+        // ==========================================
+
+        const fillData = [
+            { q: "She is very interested [___] taking that photography class.", ans: ["in"] },
+            { q: "We are tired [___] waiting for the bus every morning.", ans: ["of"] },
+            { q: "He finally succeeded [___] passing his final exams.", ans: ["in"] },
+            { q: "I am worried [___] failing the driving test.", ans: ["about"] },
+            { q: "They are afraid [___] swimming in the deep ocean.", ans: ["of"] },
+            { q: "She always dreams [___] traveling the world.", ans: ["about", "of"] } 
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 5);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-rose-600 border-b-2 border-rose-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(document.getElementById('fill-target')) document.getElementById('fill-target').className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                if(document.getElementById('fill-target')) document.getElementById('fill-target').className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-rose-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 3: RULE MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "I stopped smoking last year.", ans: "Ended an activity entirely.", exp: "Stop + Gerund" },
+            { q: "While driving, he stopped to look at the view.", ans: "Interrupted an action to do something else.", exp: "Stop + Infinitive (Purpose)" },
+            { q: "I remember locking the door before I left.", ans: "Recalling a memory of a past event.", exp: "Remember + Gerund" },
+            { q: "Please remember to lock the door when you leave.", ans: "Recalling a task you must perform.", exp: "Remember + Infinitive" },
+            { q: "I forgot to buy milk at the store.", ans: "Failing to complete a required task.", exp: "Forget + Infinitive" },
+            { q: "I will never forget seeing the ocean for the first time.", ans: "Losing the memory of a past event.", exp: "Forget + Gerund" }
+        ];
+        
+        const matchOptionsList = [
+            "Ended an activity entirely.",
+            "Interrupted an action to do something else.",
+            "Recalling a memory of a past event.",
+            "Recalling a task you must perform.",
+            "Failing to complete a required task.",
+            "Losing the memory of a past event."
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').innerHTML = `"${q.q}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            // Generate 3 random options including the correct one
+            let opts = [q.ans];
+            while(opts.length < 4) {
+                let randomOpt = matchOptionsList[Math.floor(Math.random() * matchOptionsList.length)];
+                if(!opts.includes(randomOpt)) opts.push(randomOpt);
+            }
+            opts = shuffleArray(opts);
+            
+            opts.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-slate-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-e11d48', 'hover:bg-fff1f2');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Incorrect Concept.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-rose-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            document.getElementById('match-options').innerHTML = '';
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>

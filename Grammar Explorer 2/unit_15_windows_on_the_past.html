@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 15: Windows on the Past (Passive Voice & Participial Adjectives)</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafaf9; /* Stone 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #d97706; /* Amber 600 */
+            color: #b45309; /* Amber 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e7e5e4;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #78716c;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #d6d3d1; }
+        .grammar-toggle.state-passive {
+            background-color: #fef3c7; color: #b45309; border-color: #f59e0b; border-style: solid;
+        }
+        .grammar-toggle.state-modal {
+            background-color: #e0e7ff; color: #3730a3; border-color: #6366f1; border-style: solid;
+        }
+        .grammar-toggle.state-adj {
+            background-color: #fce7f3; color: #be185d; border-color: #ec4899; border-style: solid;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #d97706; color: white; box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.4);
+        }
+        .subtab-inactive { background-color: #f5f5f4; color: #57534e; border: 1px solid #e7e5e4; }
+        .subtab-inactive:hover { background-color: #e7e5e4; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e7e5e4; }
+        .opt-btn:hover:not(:disabled) { border-color: #d97706; background-color: #fffbeb; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #d97706; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #d97706; background-color: #fffbeb; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-stone-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-amber-600 to-stone-700 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-hourglass-half text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-stone-800 hidden sm:block tracking-tight">Unit 15: Windows on the Past</h1>
+                    <h1 class="text-xl font-extrabold text-stone-800 sm:hidden">Unit 15</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-stone-900 mb-4 tracking-tight">Passive Voice & Participial Adjectives</h2>
+                <p class="text-lg text-stone-600">Shift focus from the action's doer to its receiver, master modal passives, and distinguish feelings (-ed) from characteristics (-ing).</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-amber-100/70 text-amber-900 px-5 py-2.5 rounded-full text-sm font-semibold border border-amber-300 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-amber-600 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal structural rules!
+                </div>
+            </div>
+
+            <!-- LESSON 1: PASSIVE VOICE BASICS & TENSES -->
+            <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden mt-8">
+                <div class="bg-stone-800 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-arrows-left-right-to-line text-2xl text-amber-400"></i>
+                    <h3 class="text-2xl font-bold">1. Active vs. Passive Voice & Tense Forms</h3>
+                </div>
+                
+                <div class="p-8 space-y-8">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-user-tag text-amber-600"></i> Active vs. Passive Role
+                            </h4>
+                            <ul class="space-y-4 text-sm text-stone-700">
+                                <li class="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
+                                    <strong class="text-stone-900 block mb-1">Active Voice:</strong>
+                                    Subject is the <strong class="text-amber-700">agent / doer</strong> performing the action. <br>
+                                    <span class="italic text-stone-600">"Archaeologists <span class="grammar-toggle state-passive" data-exp="Active: Subject (Archaeologists) performs action">discovered</span> the artifact."</span>
+                                </li>
+                                <li class="bg-stone-50 p-3.5 rounded-xl border border-stone-200">
+                                    <strong class="text-stone-900 block mb-1">Passive Voice (be + Past Participle):</strong>
+                                    Subject is the <strong class="text-amber-700">receiver</strong> of the action. <br>
+                                    <span class="italic text-stone-600">"The artifact <span class="grammar-toggle state-passive" data-exp="Passive: Subject (artifact) receives action">was discovered</span>."</span>
+                                </li>
+                                <li class="bg-amber-50/60 p-3.5 rounded-xl border border-amber-200 text-xs text-amber-900">
+                                    <strong class="font-bold block mb-1"><i class="fa-solid fa-shield-halved mr-1"></i> Avoiding Blame Technique</strong>
+                                    Useful when you want to describe an error or issue without pointing fingers: <br>
+                                    <em>"The procedure wasn't followed."</em> (vs. "You made a mistake.")
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-ban text-rose-500"></i> Transitive Verb Constraint
+                            </h4>
+                            <div class="space-y-4 text-sm">
+                                <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl text-rose-900">
+                                    <strong class="block mb-1 flex items-center gap-2">
+                                        <i class="fa-solid fa-circle-exclamation text-rose-600"></i> Transitive Verbs ONLY!
+                                    </strong>
+                                    Only verbs taking a direct object in the active voice can become passive! <br>
+                                    <strong class="text-stone-800 block mt-2">Intransitive Verbs (NO passive form):</strong> arrive, sleep, come, fall, happen, disappear. <br>
+                                    <span class="text-emerald-800 font-bold block mt-1"><i class="fa-solid fa-check"></i> "Our taxi arrived early."</span>
+                                    <span class="line-through text-rose-700 block mt-0.5"><i class="fa-solid fa-xmark"></i> "Our taxi was arrived early."</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tenses Table -->
+                    <div class="pt-6 border-t border-stone-200 space-y-4">
+                        <h4 class="font-bold text-stone-800 text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-clock-rotate-left text-amber-600"></i> Passive Forms Across Tenses
+                        </h4>
+
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1">
+                                <strong class="text-amber-900 block font-bold">Present Passive</strong>
+                                <span class="text-xs font-mono text-stone-500 block mb-2">is / are (not) + Past Participle</span>
+                                <span class="italic text-stone-700 block">&bull; "These cars <span class="grammar-toggle state-passive" data-exp="is/are + PP">aren't made</span> in Germany."</span>
+                                <span class="italic text-stone-700 block">&bull; <strong class="text-amber-700">Question:</strong> "Is this car made in Korea?"</span>
+                            </div>
+
+                            <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1">
+                                <strong class="text-amber-900 block font-bold">Past Passive</strong>
+                                <span class="text-xs font-mono text-stone-500 block mb-2">was / were (not) + Past Participle</span>
+                                <span class="italic text-stone-700 block">&bull; "The meeting <span class="grammar-toggle state-passive" data-exp="was/were + PP">was canceled</span>."</span>
+                                <span class="italic text-stone-700 block">&bull; <strong class="text-amber-700">Question:</strong> "Where were the cars made?"</span>
+                            </div>
+
+                            <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 space-y-1">
+                                <strong class="text-amber-900 block font-bold">Future Passive</strong>
+                                <span class="text-xs font-mono text-stone-500 block mb-2">will / won't be + Past Participle</span>
+                                <span class="italic text-stone-700 block">&bull; "The plans <span class="grammar-toggle state-passive" data-exp="will be + PP">won't be changed</span>."</span>
+                                <span class="italic text-stone-700 block">&bull; <strong class="text-amber-700">Question:</strong> "Where will the food be kept?"</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LESSON 2: MODAL PASSIVES & BY PHRASE -->
+            <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden mt-8">
+                <div class="bg-indigo-700 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-puzzle-piece text-2xl text-indigo-200"></i>
+                    <h3 class="text-2xl font-bold">2. Passive Voice with Modals & The "By" Phrase</h3>
+                </div>
+                
+                <div class="p-8 space-y-8">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Modals -->
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-key text-indigo-600"></i> Modal Passives
+                            </h4>
+                            <p class="text-xs text-stone-500 mb-3">Formula: <strong>Subject + Modal (not) + be + Past Participle</strong></p>
+
+                            <ul class="space-y-3 text-sm text-stone-700">
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <strong class="text-indigo-900 block mb-0.5">Present / General:</strong>
+                                    "The topics <span class="grammar-toggle state-modal" data-exp="can + be + past participle">can be researched</span> online."
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <strong class="text-indigo-900 block mb-0.5">Future Possibility:</strong>
+                                    "The report <span class="grammar-toggle state-modal" data-exp="might not + be + past participle">might not be finished</span> on time."
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                                    <strong class="text-indigo-900 block mb-0.5">Past Ability:</strong>
+                                    "The ship <span class="grammar-toggle state-modal" data-exp="couldn't + be + past participle">couldn't be seen</span> in the storm."
+                                </li>
+                                <li class="bg-indigo-50 p-3 rounded-xl border border-indigo-200 text-indigo-950 font-medium">
+                                    <strong class="block mb-0.5"><i class="fa-solid fa-question text-indigo-600 mr-1"></i> Questions with Modals:</strong>
+                                    Place modal before subject: <em>"When should the project be finished?"</em>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- By Phrase -->
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-user-tag text-indigo-600"></i> When to Use or Omit "By + Agent"
+                            </h4>
+                            
+                            <div class="space-y-3 text-sm">
+                                <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-emerald-900">
+                                    <strong class="block mb-1 text-emerald-950 font-bold"><i class="fa-solid fa-check mr-1"></i> INCLUDE the "By" Phrase when:</strong>
+                                    It states vital, specific new information or a famous creator/number: <br>
+                                    <span class="italic">&bull; "The sunken ship was found <strong class="text-emerald-700">by some divers</strong>."</span>
+                                </div>
+
+                                <div class="bg-rose-50 border border-rose-200 p-3.5 rounded-xl text-rose-900">
+                                    <strong class="block mb-1 text-rose-950 font-bold"><i class="fa-solid fa-ban mr-1"></i> OMIT the "By" Phrase when:</strong>
+                                    The agent is unknown or clear from context (e.g., government, police, people): <br>
+                                    <span class="italic">&bull; "The items were stolen late last night." <span class="text-xs text-rose-700">(Unknown agent)</span></span> <br>
+                                    <span class="italic">&bull; "New laws were passed yesterday." <span class="text-xs text-rose-700">(Obvious: by government)</span></span>
+                                </div>
+
+                                <div class="bg-slate-900 text-white p-3 rounded-xl text-xs">
+                                    <strong class="text-indigo-300 block mb-0.5"><i class="fa-solid fa-circle-question mr-1"></i> Agent Questions</strong>
+                                    In passive questions asking about the agent, place <em>by</em> at the very end: <br>
+                                    <em>"Who was it written <strong class="text-amber-300">by</strong>?"</em>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- LESSON 3: PARTICIPIAL ADJECTIVES -->
+            <div class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden mt-8">
+                <div class="bg-pink-700 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-face-smile text-2xl text-pink-200"></i>
+                    <h3 class="text-2xl font-bold">3. Participial Adjectives: Feelings (-ed) vs. Characteristics (-ing)</h3>
+                </div>
+                
+                <div class="p-8 space-y-8">
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        
+                        <!-- Past Participial Adjectives -->
+                        <div class="bg-pink-50/60 border border-pink-200 rounded-2xl p-5 space-y-3">
+                            <h4 class="font-bold text-pink-900 text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-heart text-pink-600"></i> Past Participial Adjectives (-ed)
+                            </h4>
+                            <p class="text-xs text-pink-800 font-medium">Describes a person's <strong class="underline">FEELINGS</strong> or mental states (passive effect on the person).</p>
+
+                            <div class="bg-white p-3.5 rounded-xl border border-pink-200 shadow-sm text-sm space-y-1">
+                                <div>&bull; "People are <span class="grammar-toggle state-adj" data-exp="Describes human feeling/state">fascinated</span> by the news."</div>
+                                <div>&bull; "I was <span class="grammar-toggle state-adj" data-exp="Describes feeling of confusion">confused</span> by the instructions."</div>
+                                <div class="text-xs text-slate-500 mt-2 italic">*Can be regular (-ed) or irregular (e.g. broken, forgotten).</div>
+                            </div>
+                        </div>
+
+                        <!-- Present Participial Adjectives -->
+                        <div class="bg-purple-50/60 border border-purple-200 rounded-2xl p-5 space-y-3">
+                            <h4 class="font-bold text-purple-900 text-lg flex items-center gap-2">
+                                <i class="fa-solid fa-sparkles text-purple-600"></i> Present Participial Adjectives (-ing)
+                            </h4>
+                            <p class="text-xs text-purple-800 font-medium">Describes the <strong class="underline">CHARACTERISTICS</strong> or cause of feelings (a person, place, or thing).</p>
+
+                            <div class="bg-white p-3.5 rounded-xl border border-purple-200 shadow-sm text-sm space-y-1">
+                                <div>&bull; "This is a <span class="grammar-toggle state-adj" data-exp="Describes characteristic of movie">fascinating</span> movie."</div>
+                                <div>&bull; "Her trip to China sounded <span class="grammar-toggle state-adj" data-exp="Describes characteristic of trip">exciting</span>."</div>
+                                <div class="text-xs text-slate-500 mt-2 italic">*Placed before nouns or after linking verbs (be, sound, look).</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="bg-stone-900 text-white rounded-2xl p-6">
+                        <h4 class="font-bold text-amber-400 text-base mb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-scale-balanced"></i> The Feelings (-ed) vs. Characteristics (-ing) Matrix
+                        </h4>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4 text-sm font-medium">
+                            <div class="bg-stone-800 p-3.5 rounded-xl border border-stone-700">
+                                <span class="text-pink-300 block mb-1">Human Feeling (-ed)</span>
+                                "The history students are <strong class="text-white">interested</strong>." <br>
+                                <span class="text-xs text-stone-400">(They experience interest in their minds)</span>
+                            </div>
+
+                            <div class="bg-stone-800 p-3.5 rounded-xl border border-stone-700">
+                                <span class="text-purple-300 block mb-1">Thing/Person Characteristic (-ing)</span>
+                                "The history teacher is <strong class="text-white">interesting</strong>." <br>
+                                <span class="text-xs text-stone-400">(The teacher creates interest in others)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- WRITING FOCUS: CONCLUDING SENTENCES -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 flex gap-4 items-start mt-8">
+                <i class="fa-solid fa-pen-nib text-3xl text-amber-600 mt-1"></i>
+                <div class="w-full">
+                    <h4 class="font-bold text-amber-900 text-lg mb-2">Writing Focus: Strong Concluding Sentences</h4>
+                    <p class="text-sm text-amber-800 mb-3">When writing a historical narrative or memory essay, always end each paragraph with a strong, definitive concluding sentence to signal paragraph completion.</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-quote-left text-amber-600 mr-1"></i> State an Opinion</strong>
+                            Conclude by reflecting on personal perspective. <br>
+                            <span class="italic text-stone-600 mt-1 block font-medium">&bull; "It seems he was rarely without his pen."</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm">
+                            <strong class="text-amber-900 block mb-1"><i class="fa-solid fa-list-check text-amber-600 mr-1"></i> Provide a Clear Summary</strong>
+                            Summarize main points or importance. <br>
+                            <span class="italic text-stone-600 mt-1 block font-medium">&bull; "It is one of the most important memories of my life."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-stone-200 overflow-hidden">
+                    
+                    <div class="bg-stone-50 border-b border-stone-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Multiple Choice
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Passive Engine
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-sliders mr-2"></i>Participial Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: MULTIPLE CHOICE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-stone-800">Passive Tenses & Adjectives</h3>
+                                    <p class="text-stone-500 text-sm">Select the grammatically correct option based on unit rules.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-stone-50 p-8 rounded-2xl border-2 border-stone-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-stone-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-stone-800 hover:bg-stone-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-stone-200 text-stone-800 font-bold py-3 px-8 rounded-xl hover:bg-stone-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN THE BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-stone-800">Passive Voice Conjugation</h3>
+                                    <p class="text-stone-500 text-sm">Type the exact correct passive phrase or modal structure.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-amber-100 text-amber-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-stone-50 p-8 rounded-2xl border-2 border-stone-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-xl md:text-2xl font-medium text-stone-800 leading-relaxed"></p>
+                                <p id="fill-hint" class="mt-4 text-sm font-bold text-amber-800 bg-amber-50 inline-block px-3 py-1 rounded-full border border-amber-200"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-stone-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-500/20 transition-all" placeholder="Type answer..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-stone-800 hover:bg-stone-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-stone-200 text-stone-800 font-bold py-3 px-10 rounded-xl hover:bg-stone-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: PARTICIPIAL MATCHING -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-stone-800">Participial Adjective Matcher</h3>
+                                <p class="text-stone-500 mt-2">Does the sentence describe a human <strong>Feeling (-ed)</strong> or a thing's <strong>Characteristic (-ing)</strong>?</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-stone-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-stone-900 py-2 text-xs font-bold tracking-widest uppercase text-stone-400">Grammar Scenario</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options injected via JS -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-stone-200 text-stone-800 font-bold py-3 px-10 rounded-xl hover:bg-stone-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-passive')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-passive';
+                        } else if (t.dataset.baseClass.includes('state-modal')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-modal';
+                        } else if (t.dataset.baseClass.includes('state-adj')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-adj';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-stone-200 border-stone-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        const chooseData = [
+            { q: "Our taxi ______ early at the hotel.", opts: ["arrived", "was arrived"], ans: 0, exp: "'Arrive' is an intransitive verb and cannot be used in the passive voice!" },
+            { q: "The sunken treasure ______ by divers last week.", opts: ["was found", "found"], ans: 0, exp: "Use past passive 'was found' because the treasure received the action." },
+            { q: "The research topics ______ online by students.", opts: ["can be researched", "can research"], ans: 0, exp: "Modal passive formula: modal + be + past participle." },
+            { q: "Who was this famous book written ______?", opts: ["by", "with"], ans: 0, exp: "Agent questions in the passive place 'by' at the very end of the question." },
+            { q: "The students are very ______ in ancient history.", opts: ["interested", "interesting"], ans: 0, exp: "Use '-ed' participial adjectives to describe human feelings." },
+            { q: "The history lecture was extremely ______.", opts: ["interesting", "interested"], ans: 0, exp: "Use '-ing' participial adjectives to describe characteristics of things." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 5);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-stone-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-stone-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.innerHTML = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.innerHTML = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-amber-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-stone-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-stone-500">Great job on Unit 15!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        const fillData = [
+            { q: "These cars [___] in Germany.", hint: "Present passive negative of 'make'", ans: ["aren't made", "are not made"] },
+            { q: "The report [___] on time due to delays.", hint: "Future modal passive negative of 'finish' (might)", ans: ["might not be finished"] },
+            { q: "The meeting [___] yesterday.", hint: "Past passive of 'cancel'", ans: ["was canceled", "was cancelled"] },
+            { q: "The tests can [___] at home.", hint: "Modal passive of 'complete'", ans: ["be completed"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 4);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-amber-600 border-b-2 border-amber-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-hint').innerHTML = `<i class="fa-solid fa-lightbulb mr-2"></i>Rule: ${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return;
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-amber-500 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-stone-800 mb-2">Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-hint').classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        const matchData = [
+            { q: "We were amazed by the ancient artifacts.", ans: "Human Feeling (-ed)", exp: "Describes the internal feeling/emotion experienced by people." },
+            { q: "The documentary on ancient Rome was amazing.", ans: "Thing Characteristic (-ing)", exp: "Describes the characteristic or quality of the documentary." },
+            { q: "I was confused by the complex instructions.", ans: "Human Feeling (-ed)", exp: "Describes a human mental state or feeling." },
+            { q: "The trip to the historical monument sounded exciting.", ans: "Thing Characteristic (-ing)", exp: "Describes the exciting nature or characteristic of the trip." },
+            { q: "She felt disappointed when the tour was canceled.", ans: "Human Feeling (-ed)", exp: "Describes a personal feeling of disappointment." }
+        ];
+
+        const matchOptionsList = [
+            "Human Feeling (-ed)",
+            "Thing Characteristic (-ing)"
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').textContent = `"${q.q}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            matchOptionsList.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-stone-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-stone-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-stone-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Not quite.</span><span class="text-sm text-stone-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-amber-500 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.add('hidden');
+            }
+
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+    </script>
+</body>
+</html>

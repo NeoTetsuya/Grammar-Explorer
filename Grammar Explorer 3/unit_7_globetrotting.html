@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 7: Globetrotting (Modals Part 1)</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f9ff; /* Sky 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #0284c7; /* Sky 600 */
+            color: #0369a1; /* Sky 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-rule {
+            background-color: #e0f2fe; color: #0284c7; border-color: #0ea5e9; border-style: solid;
+        }
+        .grammar-toggle.state-warn {
+            background-color: #fee2e2; color: #e11d48; border-color: #f43f5e; border-style: solid;
+        }
+        .grammar-toggle.state-advice {
+            background-color: #fef3c7; color: #d97706; border-color: #f59e0b; border-style: solid;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #0284c7; color: white; box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #0284c7; background-color: #f0f9ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #0284c7; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #0284c7; background-color: #f0f9ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-sky-400 to-blue-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-plane-departure text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 7: Globetrotting</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 7</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Mastering Modals (Part 1)</h2>
+                <p class="text-lg text-slate-600">Travel the world with confidence by learning how to express rules, expectations, abilities, advice, and regrets.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-sky-50 text-sky-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-sky-200 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-sky-500 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal their rules!
+                </div>
+            </div>
+
+            <!-- 1. Necessity & Prohibition -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-blue-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-passport text-2xl"></i>
+                    <h3 class="text-2xl font-bold">1. Rules of the Road: Necessity & Prohibition</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i> Necessity (Required)
+                            </h4>
+                            <ul class="space-y-4 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-blue-700 block mb-1">Must:</strong> Strict rules, laws, and commands. (Rarely used in questions). <br>
+                                    <span class="mt-1 inline-block font-medium">You <span class="grammar-toggle state-rule" data-exp="Law/Strict rule">must show</span> your passport.</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-blue-700 block mb-1">Have to:</strong> General necessity. Can change tense (had to, will have to, has had to). <br>
+                                    <span class="mt-1 inline-block font-medium">She <span class="grammar-toggle state-rule" data-exp="Present singular necessity">has to pack</span> her bags.</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-blue-700 block mb-1">Have got to:</strong> Informal necessity. Affirmative statements only. <br>
+                                    <span class="mt-1 inline-block font-medium">We <span class="grammar-toggle state-rule" data-exp="Informal / Affirmative only">have got to leave</span> now!</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-ban text-red-500"></i> Prohibition vs. Lack of Necessity
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                                    <strong class="text-red-700 block text-base mb-1">Must Not (Prohibition)</strong>
+                                    <p class="text-sm text-red-900 mb-2">You are NOT allowed to do this. It is a strict rule against the action.</p>
+                                    <span class="font-bold text-red-600 bg-white px-2 py-1 rounded border border-red-200">You must not smoke on the plane.</span>
+                                </div>
+                                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                                    <strong class="text-emerald-700 block text-base mb-1">Don't Have To (Lack of Necessity)</strong>
+                                    <p class="text-sm text-emerald-900 mb-2">You have a choice. You can do it, but it is not required.</p>
+                                    <span class="font-bold text-emerald-600 bg-white px-2 py-1 rounded border border-emerald-200">You don't have to tip the waiter.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 text-white rounded-2xl p-5 border border-slate-700 flex flex-col md:flex-row gap-6">
+                        <div class="flex-1">
+                            <h4 class="font-bold text-amber-400 mb-2"><i class="fa-solid fa-clock-rotate-left mr-2"></i>Past Obligation Constraint</h4>
+                            <p class="text-sm text-slate-300">Never use <span class="line-through text-red-400">must have</span> to express a past necessity. You must use <strong>had to</strong>.</p>
+                            <p class="text-sm mt-2"><i class="fa-solid fa-check text-green-400 mr-2"></i> Yesterday, I <strong class="text-white bg-slate-700 px-1 rounded">had to</strong> renew my visa.</p>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-sky-400 mb-2"><i class="fa-solid fa-calendar-check mr-2"></i>Expectations (Be Supposed To)</h4>
+                            <p class="text-sm text-slate-300">Shows an obligation based on cultural rules or expectations. Use <strong>was/were supposed to</strong> for unfulfilled past expectations.</p>
+                            <p class="text-sm mt-2"><i class="fa-solid fa-check text-green-400 mr-2"></i> I <strong class="text-white bg-slate-700 px-1 rounded">was supposed to</strong> meet him, but he didn't show up.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Ability -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-teal-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-person-hiking text-2xl"></i>
+                    <h3 class="text-2xl font-bold">2. The Power to Do: Ability</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-teal-50 border border-teal-200 rounded-xl p-5">
+                            <h4 class="font-bold text-teal-900 text-lg mb-2">Present</h4>
+                            <p class="text-sm text-teal-800 mb-3"><strong>Can</strong> (frequent) or <strong>be able to</strong> (formal).</p>
+                            <div class="bg-white p-2 rounded text-sm shadow-sm font-medium">I <span class="text-teal-600">can</span> speak Spanish.</div>
+                            <div class="bg-white p-2 rounded text-sm shadow-sm font-medium mt-2">She <span class="text-teal-600">is able to</span> assist you.</div>
+                        </div>
+                        <div class="bg-sky-50 border border-sky-200 rounded-xl p-5">
+                            <h4 class="font-bold text-sky-900 text-lg mb-2">Past</h4>
+                            <p class="text-sm text-sky-800 mb-3"><strong>Could</strong> (general ability) or <strong>was/were able to</strong>.</p>
+                            <div class="bg-white p-2 rounded text-sm shadow-sm font-medium">I <span class="text-sky-600">could</span> run fast as a kid.</div>
+                            <div class="bg-white p-2 rounded text-sm shadow-sm font-medium mt-2">We <span class="text-sky-600">were able to</span> find the hotel.</div>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-5">
+                            <h4 class="font-bold text-amber-900 text-lg mb-2">Future</h4>
+                            <p class="text-sm text-amber-800 mb-3">Use <strong>will be able to</strong> for a *new* ability. Use <strong>can</strong> if it's already possible.</p>
+                            <div class="bg-white p-2 rounded text-sm shadow-sm font-medium">I <span class="text-amber-600">will be able to</span> speak it soon.</div>
+                            <div class="bg-red-50 p-2 rounded text-sm shadow-sm font-medium mt-2 text-red-700 line-through">I will can speak it.</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-3"><i class="fa-solid fa-puzzle-piece text-teal-500 mr-2"></i>Advanced "Be Able To" Formats</h4>
+                        <ul class="text-sm text-slate-700 space-y-3">
+                            <li class="flex items-center gap-3"><span class="bg-teal-100 text-teal-800 px-2 py-1 rounded font-bold uppercase text-xs w-24 text-center">Gerund</span> <span>I enjoy <strong class="text-slate-900">being able to</strong> travel freely.</span></li>
+                            <li class="flex items-center gap-3"><span class="bg-teal-100 text-teal-800 px-2 py-1 rounded font-bold uppercase text-xs w-24 text-center">Infinitive</span> <span>I want <strong class="text-slate-900">to be able to</strong> fly a plane.</span></li>
+                            <li class="flex items-center gap-3"><span class="bg-teal-100 text-teal-800 px-2 py-1 rounded font-bold uppercase text-xs w-24 text-center">With Modals</span> <span>You should <strong class="text-slate-900">be able to</strong> see the Eiffel Tower from here.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Advice, Regret, Criticism -->
+            <div class="bg-gradient-to-r from-amber-500 to-orange-600 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative">
+                <div class="absolute top-0 right-0 p-6 opacity-10">
+                    <i class="fa-solid fa-comments text-9xl"></i>
+                </div>
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-lightbulb text-yellow-300 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">3. If I Were You: Advice & Regrets</h3>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
+                            <h4 class="font-bold text-yellow-300 text-xl mb-3">General Advice</h4>
+                            <p class="text-sm text-amber-50 mb-3">Use <strong>should</strong> (common) or <strong>ought to</strong>. Use <em>should</em> to ask questions.</p>
+                            <div class="bg-black/20 p-3 rounded-xl shadow-inner font-medium mb-3">
+                                You <span class="grammar-toggle state-advice" data-exp="General advice">should book</span> the tickets early.
+                            </div>
+                            <div class="bg-black/20 p-3 rounded-xl shadow-inner font-medium">
+                                <span class="grammar-toggle state-advice" data-exp="Asking for advice">Should we pack</span> jackets?
+                            </div>
+                        </div>
+
+                        <div class="bg-white/10 p-6 rounded-2xl border border-white/20 backdrop-blur-sm">
+                            <h4 class="font-bold text-red-300 text-xl mb-3">Strong Advice / Warnings</h4>
+                            <p class="text-sm text-amber-50 mb-3">Use <strong>had better</strong>. Implies negative consequences if ignored. <em>(Refers to Present/Future, NOT Past).</em></p>
+                            <div class="bg-black/20 p-3 rounded-xl shadow-inner font-medium mb-3">
+                                We <span class="grammar-toggle state-warn" data-exp="Strong warning (Present/Future)">had better leave</span> now, or we'll miss the flight.
+                            </div>
+                            <div class="bg-black/20 p-3 rounded-xl shadow-inner font-medium">
+                                You <span class="grammar-toggle state-warn" data-exp="Negative form">had better not lose</span> your passport.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 p-6 rounded-2xl border border-white/10">
+                        <h4 class="font-bold text-white text-xl mb-3 flex items-center gap-2"><i class="fa-solid fa-rotate-left text-sky-400"></i> Past Regret & Criticism</h4>
+                        <p class="text-sm text-amber-100 mb-4">Structure: <strong>Should (not) have + Past Participle</strong>. Used to express personal regret or criticize someone's past actions.</p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                                <strong class="text-sky-300 block mb-1">Regret (Self)</strong>
+                                "I <span class="grammar-toggle state-rule" data-exp="Regret about a past action">should have studied</span> the map. Now we're lost."
+                            </div>
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                                <strong class="text-rose-400 block mb-1">Criticism (Others)</strong>
+                                "You <span class="grammar-toggle state-rule" data-exp="Criticism of a past mistake">shouldn't have trusted</span> that taxi driver."
+                            </div>
+                        </div>
+                        <p class="text-xs text-amber-200 mt-4 italic">Short Answer Format: "Did you buy insurance?" &rarr; "No, but I should have." (Drop the past participle).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex gap-4 items-start">
+                <i class="fa-solid fa-pen-nib text-3xl text-emerald-600 mt-1"></i>
+                <div>
+                    <h4 class="font-bold text-emerald-900 text-lg mb-1">Writing Connection: Informative Texts & Bullets</h4>
+                    <p class="text-sm text-emerald-800 mb-3">When writing an informative guide (like a travel brochure):</p>
+                    <ul class="list-disc pl-5 text-sm text-emerald-700 space-y-2 mb-3">
+                        <li>Use <strong>be supposed to</strong> for cultural norms, <strong>don't have to</strong> for optional things, and <strong>should</strong> for helpful tips.</li>
+                        <li><strong>Bullet Points:</strong> Introduce points with a bolded word and a colon. Ensure parallel grammar across all bullets.</li>
+                    </ul>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-emerald-100 text-sm">
+                        <strong class="text-slate-800 block mb-2">Tipping Customs in Japan:</strong>
+                        <ul class="list-none space-y-1">
+                            <li><strong>Restaurants:</strong> You don't have to tip the waiter.</li>
+                            <li><strong>Taxis:</strong> You shouldn't tip the driver; it can cause confusion.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Choose Modal
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Conjugate
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-brain mr-2"></i>Concept Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: MULTIPLE CHOICE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct modal based on context and grammatical constraints.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-sky-100 text-sky-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Conjugation Practice</h3>
+                                    <p class="text-slate-500 text-sm">Type the correct modal phrase based on the verb provided in parentheses.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-sky-100 text-sky-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <div class="mt-6">
+                                   <span class="text-slate-400 text-sm font-bold uppercase tracking-wide">Base Verbs:</span>
+                                   <span id="fill-base-verb" class="ml-2 bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-mono font-bold border border-slate-200"></span>
+                                </div>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-500/20 transition-all" placeholder="Type answer here..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: RULE MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Concept Matcher</h3>
+                                <p class="text-slate-500 mt-2">Read the sentence. What specific grammatical function does the modal serve?</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Sentence Context</div>
+                                    <div id="match-question" class="text-2xl md:text-3xl font-medium mt-6 mb-2"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options generated dynamically -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-rule')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-rule';
+                        } else if (t.dataset.baseClass.includes('state-warn')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-warn';
+                        } else if (t.dataset.baseClass.includes('state-advice')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-advice';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: CHOOSE MODAL
+        // ==========================================
+
+        const chooseData = [
+            { q: "You ______ smoke on the airplane. It's against the law.", opts: ["don't have to", "must not"], ans: 1, exp: "Must not expresses prohibition (not allowed)." },
+            { q: "Breakfast is included at the hotel, so we ______ pay for it.", opts: ["must not", "don't have to"], ans: 1, exp: "Don't have to expresses a lack of necessity (you have a choice, it's not required)." },
+            { q: "You ______ forget your passport, or they won't let you board!", opts: ["shouldn't", "had better not"], ans: 1, exp: "'Had better not' gives a strong warning about serious negative consequences." },
+            { q: "Next year, I hope I ______ speak Italian fluently.", opts: ["will can", "will be able to"], ans: 1, exp: "Never use 'will' and 'can' together. Use 'will be able to' for future ability." },
+            { q: "Yesterday, I ______ renew my passport at the embassy.", opts: ["must have", "had to"], ans: 1, exp: "Use 'had to' to express past obligation/necessity. Do not use 'must have'." },
+            { q: "I'm exhausted today. I ______ stayed up so late last night.", opts: ["shouldn't have", "shouldn't"], ans: 0, exp: "Use 'should (not) have + past participle' to express regret about a past action." },
+            { q: "We ______ meet at 8 PM, but he never showed up.", opts: ["are supposed to", "were supposed to"], ans: 1, exp: "Use 'was/were supposed to' for an expectation in the past that did not happen." },
+            { q: "I enjoy ______ travel the world freely.", opts: ["can", "being able to"], ans: 1, exp: "Use 'being able to' when a gerund is grammatically required (like after 'enjoy')." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            blank.textContent = q.opts[idx];
+            blank.classList.add('filled');
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-0284c7', 'hover:bg-f0f9ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-sky-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS
+        // ==========================================
+
+        const fillData = [
+            { q: "I [___] an umbrella. I got completely soaked!", base: "should / bring", ans: ["should have brought", "should've brought"] },
+            { q: "You [___] tip in Japan. It is not required.", base: "not / have to", ans: ["don't have to", "do not have to"] },
+            { q: "She [___] me yesterday, but she forgot.", base: "be supposed to / call", ans: ["was supposed to call"] },
+            { q: "I didn't have my car, so I [___] the bus.", base: "have to / take", ans: ["had to take"] },
+            { q: "He [___] right now instead of playing video games.", base: "ought to / be / study", ans: ["ought to be studying"] },
+            { q: "You [___] that door! It's highly dangerous.", base: "must / not / open", ans: ["must not open", "mustn't open"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 5);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-sky-600 border-b-2 border-sky-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-base-verb').textContent = `(${q.base})`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-sky-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-base-verb').parentElement.classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 3: CONCEPT MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "You must not enter this room.", ans: "Prohibition (Rule)", exp: "The action is strictly not allowed." },
+            { q: "You don't have to pay for the water.", ans: "Lack of Necessity", exp: "It is optional; you have a choice." },
+            { q: "You had better leave right now.", ans: "Strong Advice / Warning", exp: "Implies a negative consequence if ignored." },
+            { q: "I should have studied more for the test.", ans: "Past Regret", exp: "Wishing a past action had been different." },
+            { q: "She was supposed to call me at 5 PM.", ans: "Unfulfilled Expectation", exp: "An expected action in the past that did not happen." },
+            { q: "I will have to buy a new train ticket.", ans: "Future Necessity", exp: "Using 'have to' conjugated for the future." }
+        ];
+        
+        const matchOptionsList = [
+            "Prohibition (Rule)",
+            "Lack of Necessity",
+            "Strong Advice / Warning",
+            "Past Regret",
+            "Unfulfilled Expectation",
+            "Future Necessity"
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            // Highlight modal in question
+            let displayQ = q.q;
+            const modalsToHighlight = ["must not", "don't have to", "had better", "should have", "was supposed to", "will have to"];
+            modalsToHighlight.forEach(m => {
+                if(displayQ.toLowerCase().includes(m)) {
+                    // case insensitive replace
+                    const regex = new RegExp(m, "i");
+                    displayQ = displayQ.replace(regex, `<span class="text-sky-400 font-bold underline decoration-sky-500/50 underline-offset-4">$&</span>`);
+                }
+            });
+
+            document.getElementById('match-question').innerHTML = `"${displayQ}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            // Generate 3 random options including the correct one
+            let opts = [q.ans];
+            while(opts.length < 4) {
+                let randomOpt = matchOptionsList[Math.floor(Math.random() * matchOptionsList.length)];
+                if(!opts.includes(randomOpt)) opts.push(randomOpt);
+            }
+            opts = shuffleArray(opts);
+            
+            opts.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-slate-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-0284c7', 'hover:bg-f0f9ff');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Incorrect Concept.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-sky-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            document.getElementById('match-options').innerHTML = '';
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>

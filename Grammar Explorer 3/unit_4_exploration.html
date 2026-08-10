@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 4: Exploration (Tag & Negative Questions)</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f3ff; /* Violet 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #4f46e5; /* Indigo 600 */
+            color: #3730a3; /* Indigo 800 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-pos {
+            background-color: #dcfce7; color: #166534; border-color: #22c55e; border-style: solid;
+        }
+        .grammar-toggle.state-neg {
+            background-color: #fee2e2; color: #991b1b; border-color: #ef4444; border-style: solid;
+        }
+        .grammar-toggle.state-info {
+            background-color: #e0f2fe; color: #0369a1; border-color: #0ea5e9; border-style: solid;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #4f46e5; color: white; box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #4f46e5; background-color: #eef2ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #4f46e5; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #4f46e5; background-color: #eef2ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-compass text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 4: Exploration</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 4</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Asking with Attitude</h2>
+                <p class="text-lg text-slate-600">Discover how to use <strong>Negative Yes/No Questions</strong>, informal <strong>Statement Questions</strong>, and <strong>Tag Questions</strong> to express surprise, confirm information, and manage conversations.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-indigo-200 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-indigo-500 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal their rules!
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-indigo-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-face-surprise text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">Negative Yes/No Questions</h3>
+                        </div>
+                        <p class="text-indigo-100 font-medium">Expectations, Surprise, and Frustration.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Structure</h4>
+                            <p class="text-sm text-slate-600 mb-3">Attach the contracted <strong>-n't</strong> to the auxiliary verb at the very beginning of the question.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm space-y-2 font-medium">
+                                <div><span class="text-indigo-600 font-bold text-lg">Isn't</span> he a student?</div>
+                                <div><span class="text-indigo-600 font-bold text-lg">Didn't</span> she know the answer?</div>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-500 bg-white p-2 border border-slate-100 rounded">
+                                <i class="fa-solid fa-pen-nib mr-1"></i><strong>Formal (Uncontracted):</strong> Auxiliary + Subject + Not (e.g., <em>Did she not know?</em>)
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Why use them?</h4>
+                            <ul class="space-y-3">
+                                <li class="flex gap-3 items-start bg-blue-50/50 p-3 rounded-xl border border-blue-100">
+                                    <i class="fa-solid fa-check-double text-blue-500 mt-0.5"></i>
+                                    <div>
+                                        <strong class="text-slate-800 text-sm block">Expecting Agreement</strong>
+                                        <span class="text-sm text-slate-600 italic">"Isn't it a beautiful day?"</span>
+                                    </div>
+                                </li>
+                                <li class="flex gap-3 items-start bg-amber-50/50 p-3 rounded-xl border border-amber-100">
+                                    <i class="fa-solid fa-bolt text-amber-500 mt-0.5"></i>
+                                    <div>
+                                        <strong class="text-slate-800 text-sm block">Expressing Surprise / Annoyance</strong>
+                                        <span class="text-sm text-slate-600 italic">"Haven't you finished that yet?!"</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100 text-sm shadow-inner">
+                            <h4 class="font-bold text-indigo-900 mb-1 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-indigo-500"></i> How to Answer</h4>
+                            <p class="text-indigo-800 leading-relaxed">In English, answers agree with the <strong>facts of reality</strong>, not the negative phrasing of the question.<br>
+                            <em>"Didn't you go to the party?"</em><br>
+                            &rarr; <strong>Yes.</strong> (I went to the party.)<br>
+                            &rarr; <strong>No.</strong> (I didn't go.)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-violet-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-comments text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">Statement Questions</h3>
+                        </div>
+                        <p class="text-violet-100 font-medium">Informal conversational confirmations.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Structure & Intonation</h4>
+                            <p class="text-sm text-slate-600 mb-3">These are Yes/No questions that maintain <strong>normal statement word order</strong>. They rely entirely on your voice going up (rising intonation) at the end.</p>
+                            
+                            <div class="bg-violet-50 p-4 rounded-xl border border-violet-100 space-y-4">
+                                <div>
+                                    <span class="text-xs font-bold text-violet-500 uppercase tracking-wider block mb-1">Standard Question (Inverted)</span>
+                                    <div class="text-slate-700 font-medium line-through decoration-slate-400">Did you go to Antarctica?</div>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-violet-600 uppercase tracking-wider block mb-1">Statement Question (Normal Order)</span>
+                                    <div class="text-violet-900 font-bold text-lg flex items-center gap-2">
+                                        You went to Antarctica?! <i class="fa-solid fa-arrow-trend-up text-violet-500"></i>
+                                    </div>
+                                </div>
+                                <div class="pt-2 border-t border-violet-200/50">
+                                    <span class="text-xs font-bold text-violet-600 uppercase tracking-wider block mb-1">Negative Statement Question</span>
+                                    <div class="text-violet-900 font-bold text-lg flex items-center gap-2">
+                                        You didn't pack the tent?! <i class="fa-solid fa-arrow-trend-up text-violet-500"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 text-sm text-slate-700">
+                            <strong>Usage:</strong> Exclusively for informal speech. Used to express shock or rapidly confirm information you just heard. Answers follow standard Yes/No patterns (e.g., "Yes, I did.").
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative border-2 border-slate-700">
+                <div class="absolute top-0 right-0 p-6 opacity-5">
+                    <i class="fa-solid fa-tags text-9xl"></i>
+                </div>
+                
+                <div class="p-8 relative z-10 border-b border-slate-700">
+                    <div class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-tag text-emerald-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">Tag Questions: The Polarity Rule</h3>
+                    </div>
+                    <p class="text-slate-300 text-lg">A statement followed by a short two-word question tag, separated by a comma.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-700">
+                    
+                    <!-- Affirmative -> Negative -->
+                    <div class="p-8 bg-slate-900/50 hover:bg-slate-900/80 transition-colors">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="bg-emerald-500/20 border border-emerald-500 text-emerald-400 px-3 py-1 rounded text-lg font-bold">[ + ] Affirmative Statement</div>
+                            <i class="fa-solid fa-arrow-right text-slate-500"></i>
+                            <div class="bg-rose-500/20 border border-rose-500 text-rose-400 px-3 py-1 rounded text-lg font-bold">[ - ] Negative Tag</div>
+                        </div>
+                        
+                        <div class="space-y-4 text-lg">
+                            <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                                You <span class="text-emerald-400 font-bold">are</span> an explorer, <span class="grammar-toggle state-neg" data-exp="Negative tag 'aren't' matches affirmative 'are'">aren't you</span>?
+                            </div>
+                            <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                                She <span class="text-emerald-400 font-bold">likes</span> hiking, <span class="grammar-toggle state-neg" data-exp="Action verb requires 'do/does'. Negative tag is 'doesn't'">doesn't she</span>?
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-4"><i class="fa-solid fa-circle-info mr-1"></i> Expects an affirmative answer: "Yes, I am."</p>
+                    </div>
+
+                    <!-- Negative -> Affirmative -->
+                    <div class="p-8 bg-slate-900/50 hover:bg-slate-900/80 transition-colors">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="bg-rose-500/20 border border-rose-500 text-rose-400 px-3 py-1 rounded text-lg font-bold">[ - ] Negative Statement</div>
+                            <i class="fa-solid fa-arrow-right text-slate-500"></i>
+                            <div class="bg-emerald-500/20 border border-emerald-500 text-emerald-400 px-3 py-1 rounded text-lg font-bold">[ + ] Affirmative Tag</div>
+                        </div>
+                        
+                        <div class="space-y-4 text-lg">
+                            <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                                You <span class="text-rose-400 font-bold">didn't</span> pack the map, <span class="grammar-toggle state-pos" data-exp="Affirmative tag 'did' matches negative 'didn't'">did you</span>?
+                            </div>
+                            <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                                There <span class="text-rose-400 font-bold">aren't</span> any bears, <span class="grammar-toggle state-pos" data-exp="Keep 'there' as the subject pronoun in the tag">are there</span>?
+                            </div>
+                        </div>
+                        <p class="text-sm text-slate-400 mt-4"><i class="fa-solid fa-circle-info mr-1"></i> Expects a negative answer: "No, I didn't."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-4"><i class="fa-solid fa-list-check text-indigo-500 mr-2"></i>Advanced Tag Rules & Exceptions</h4>
+                    <ul class="space-y-3 text-sm text-slate-700">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-green-500 mt-0.5"></i>
+                            <span><strong>Verb Agreement:</strong> If the statement uses a simple present/past action verb (not 'be'), use <em>do, does,</em> or <em>did</em> in the tag. <br><span class="text-slate-500 italic">He walked far, didn't he?</span></span>
+                        </li>
+                        <li class="flex items-start gap-2 border-l-2 border-amber-400 pl-3 bg-amber-50 py-1.5 rounded-r">
+                            <i class="fa-solid fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                            <span><strong>Negative Adverbs:</strong> Words like <em>never, rarely, seldom, hardly</em> make the statement negative, so the tag MUST be affirmative. <br><span class="text-slate-500 italic">He never listens, <strong class="text-emerald-600">does he?</strong></span></span>
+                        </li>
+                        <li class="flex items-start gap-2 border-l-2 border-amber-400 pl-3 bg-amber-50 py-1.5 rounded-r">
+                            <i class="fa-solid fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                            <span><strong>The 'I am' Exception:</strong> The negative tag for "I am" in standard speech is "aren't I?". <br><span class="text-slate-500 italic">I am late, <strong class="text-rose-600">aren't I?</strong></span></span>
+                        </li>
+                        <li class="flex items-start gap-2 border-l-2 border-amber-400 pl-3 bg-amber-50 py-1.5 rounded-r">
+                            <i class="fa-solid fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                            <span><strong>Indefinite Pronouns:</strong> Use the pronoun <em>they</em> for words like everyone, somebody, or nobody. <br><span class="text-slate-500 italic">Everyone is here, <strong class="text-indigo-600">aren't they?</strong></span></span>
+                        </li>
+                        <li class="flex items-start gap-2 border-l-2 border-amber-400 pl-3 bg-amber-50 py-1.5 rounded-r">
+                            <i class="fa-solid fa-exclamation-triangle text-amber-500 mt-0.5"></i>
+                            <span><strong>Imperatives & Let's:</strong> Use <em>will you/would you</em> for commands, and <em>shall we</em> for suggestions. <br><span class="text-slate-500 italic">Open the door, <strong class="text-cyan-600">will you?</strong> / Let's go, <strong class="text-cyan-600">shall we?</strong></span></span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-4"><i class="fa-solid fa-microphone-lines text-fuchsia-500 mr-2"></i>Intonation & Meaning</h4>
+                    <p class="text-sm text-slate-600 mb-4">How you say the tag question completely changes its meaning!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-arrow-trend-down text-2xl text-blue-500"></i>
+                                <strong class="text-slate-800">Falling Intonation</strong>
+                            </div>
+                            <p class="text-sm text-slate-600">The speaker is <strong>certain</strong> of the answer and simply expects you to agree with them.</p>
+                        </div>
+
+                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <div class="flex items-center gap-2 mb-1">
+                                <i class="fa-solid fa-arrow-trend-up text-2xl text-rose-500"></i>
+                                <strong class="text-slate-800">Rising Intonation</strong>
+                            </div>
+                            <p class="text-sm text-slate-600">The speaker is <strong>not certain</strong> and is genuinely asking to confirm information.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex gap-4 items-start">
+                <i class="fa-solid fa-quote-left text-3xl text-emerald-600 mt-1 opacity-50"></i>
+                <div>
+                    <h4 class="font-bold text-emerald-900 text-lg mb-1">Writing Connection: Dialogue Punctuation</h4>
+                    <p class="text-sm text-emerald-800 mb-3">When writing a scene from a story, you must punctuate quotes correctly.</p>
+                    <ul class="list-disc pl-5 text-sm text-emerald-700 space-y-2 mb-3 font-medium">
+                        <li>Punctuation (commas, periods, question marks) generally goes <strong>inside</strong> the quotation marks.</li>
+                        <li>If a reporting verb (e.g., <em>she said, he asked</em>) interrupts a quote, use commas before and after the reporting block.</li>
+                    </ul>
+                    <div class="bg-white p-4 rounded-xl shadow-sm border border-emerald-100 text-sm">
+                        <div class="text-slate-700"><span class="text-emerald-600 font-bold text-xl">"</span>Look,<span class="text-emerald-600 font-bold text-xl">"</span> says Pierre slowly<span class="text-emerald-600 font-bold text-xl">, "</span>I don't want to fight.<span class="text-emerald-600 font-bold text-xl">"</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Multiple Choice
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Type the Tag
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-ear-listen mr-2"></i>Concept Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: MULTIPLE CHOICE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Choose the Correct Structure</h3>
+                                    <p class="text-slate-500 text-sm">Select the correct tag or negative question form.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-indigo-100 text-indigo-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Generate the Tag Question</h3>
+                                    <p class="text-slate-500 text-sm">Type the correct two-word tag (e.g., "isn't she", "do they"). Do not type the question mark.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-indigo-100 text-indigo-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-indigo-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/20 transition-all" placeholder="Type tag here..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: CONCEPT MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Concept Matcher</h3>
+                                <p class="text-slate-500 mt-2">Read the sentence or vocal cue and determine the <strong>implied meaning or structure</strong>.</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Context Cue</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options generated dynamically -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-pos')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-pos';
+                        } else if (t.dataset.baseClass.includes('state-neg')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-neg';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-info';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: MULTIPLE CHOICE
+        // ==========================================
+
+        const chooseData = [
+            { q: "She went to the museum, ______?", opts: ["didn't she", "did she", "doesn't she"], ans: 0, exp: "Affirmative action verb (went). Use negative tag with 'did' (didn't she)." },
+            { q: "______ you study for the test? (Expressing annoyance/surprise)", opts: ["Did", "Didn't", "Do"], ans: 1, exp: "Use a Negative Yes/No Question ('Didn't') to express strong feelings like surprise or annoyance." },
+            { q: "They aren't coming with us, ______?", opts: ["aren't they", "are they", "do they"], ans: 1, exp: "Negative statement ('aren't') requires an affirmative tag ('are')." },
+            { q: "He never listens to my advice, ______?", opts: ["does he", "doesn't he", "is he"], ans: 0, exp: "The word 'never' makes the statement negative, so the tag MUST be affirmative ('does he')." },
+            { q: "I am going to pass this class, ______?", opts: ["am not I", "aren't I", "don't I"], ans: 1, exp: "The negative tag for 'I am' is always 'aren't I?'." },
+            { q: "(With rising intonation): You met the President?!", opts: ["Statement Question", "Negative Question", "Tag Question"], ans: 0, exp: "Maintains normal statement word order but uses rising intonation to express surprise." },
+            { q: "Everyone is here, ______?", opts: ["isn't everyone", "aren't they", "isn't they"], ans: 1, exp: "Use 'they' for indefinite pronouns like 'everyone'. Since 'they' is plural, the verb changes to 'aren't'." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.textContent = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-4f46e5', 'hover:bg-eef2ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-indigo-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS
+        // ==========================================
+
+        const fillData = [
+            { q: "You are coming to the party, [___]?", ans: ["aren't you"] },
+            { q: "She didn't see the sign, [___]?", ans: ["did she"] },
+            { q: "We play soccer on Tuesdays, [___]?", ans: ["don't we"] },
+            { q: "There aren't any tickets left, [___]?", ans: ["are there"] },
+            { q: "I am next in line, [___]?", ans: ["aren't i", "aren't I"] },
+            { q: "Nobody called, [___]?", ans: ["did they"] },
+            { q: "Let's go home, [___]?", ans: ["shall we"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 6);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace(/\[___\]/, `<span id="fill-target" class="text-indigo-600 border-b-2 border-indigo-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            // Clean up user input: remove question marks, extra spaces, lowercase
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ').replace(/\?+/g, '');
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-indigo-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 3: CONCEPT MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "Falling intonation on a tag question.", ans: "Expects Agreement (Certainty)", exp: "The speaker is certain and expects you to say 'yes'." },
+            { q: "Rising intonation on a tag question.", ans: "Confirming Info (Uncertainty)", exp: "The speaker is not certain and genuinely needs to know." },
+            { q: "You lost the tickets?!", ans: "Informal Surprise (Statement Q)", exp: "Normal word order with a rising tone to show shock." },
+            { q: "Didn't you bring your wallet?", ans: "Negative Yes/No Question", exp: "Using a negative auxiliary at the start to express surprise/expectation." },
+            { q: "There is a delay, isn't there?", ans: "The 'There' Rule", exp: "Maintaining 'there' in the tag instead of a normal pronoun." },
+            { q: "He rarely smiles, does he?", ans: "Negative Adverb Rule", exp: "Words like 'rarely' make the statement negative, requiring an affirmative tag." }
+        ];
+        
+        const matchOptionsList = [
+            "Expects Agreement (Certainty)",
+            "Confirming Info (Uncertainty)",
+            "Informal Surprise (Statement Q)",
+            "Negative Yes/No Question",
+            "The 'There' Rule",
+            "Negative Adverb Rule"
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 6);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').innerHTML = `"${q.q}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            const shuffledOpts = shuffleArray(matchOptionsList);
+            
+            shuffledOpts.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-slate-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-4f46e5', 'hover:bg-eef2ff');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Incorrect Concept.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); // 3 seconds to read explanation
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-indigo-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            document.getElementById('match-options').innerHTML = '';
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: A Look Into the Future</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdfa; /* Teal 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #0284c7; /* Sky 600 */
+            color: #0369a1; /* Sky 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-will {
+            background-color: #e0f2fe; color: #0284c7; border-color: #0ea5e9; border-style: solid;
+        }
+        .grammar-toggle.state-going {
+            background-color: #ccfbf1; color: #0f766e; border-color: #14b8a6; border-style: solid;
+        }
+        .grammar-toggle.state-clause {
+            background-color: #fef08a; color: #a16207; border-color: #eab308; border-style: solid;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #0284c7; color: white; box-shadow: 0 4px 6px -1px rgba(2, 132, 199, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #0284c7; background-color: #f0f9ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #0284c7; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #0284c7; background-color: #f0f9ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-sky-400 to-blue-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-robot text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 3: A Look Into the Future</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 3</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Navigating Tomorrow</h2>
+                <p class="text-lg text-slate-600">Master the nuances between <em>Will</em> and <em>Be Going To</em>, learn the strict rules of Future Time Clauses, and explore advanced perfect and progressive futures.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-sky-50 text-sky-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-sky-200 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-sky-500 text-lg"></i>
+                    Tap the dashed grammar words in the examples to reveal their rules!
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-sky-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-bolt text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">Will vs. Be Going To</h3>
+                        </div>
+                        <p class="text-sky-100 font-medium">Predictions, Decisions, and Plans.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Will <span class="text-sm font-normal text-slate-500">(Spontaneous & Offers)</span></h4>
+                            <p class="text-sm text-slate-600 mb-2">Use for sudden decisions made at the moment of speaking, promises, and requests.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm">
+                                "The phone is ringing!" &rarr; "I <span class="grammar-toggle state-will" data-exp="Spontaneous decision">will answer</span> it."
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Be Going To <span class="text-sm font-normal text-slate-500">(Plans & Evidence)</span></h4>
+                            <p class="text-sm text-slate-600 mb-2">Use for actions already decided upon (intentions) or predictions based on existing present evidence.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm space-y-2">
+                                <div>Look at those clouds. It <span class="grammar-toggle state-going" data-exp="Prediction based on physical evidence">is going to rain</span>.</div>
+                                <div>Next year, I <span class="grammar-toggle state-going" data-exp="Pre-made plan/intention">am going to study</span> in Japan.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-amber-50 p-3 rounded-lg border border-amber-200 text-sm text-amber-800">
+                            <strong>Note:</strong> Both can be used for general predictions (e.g., "Robots will/are going to take over jobs").
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="bg-teal-600 p-6 text-white">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i class="fa-solid fa-calendar-check text-2xl opacity-80"></i>
+                            <h3 class="text-2xl font-bold">Present Tenses for the Future</h3>
+                        </div>
+                        <p class="text-teal-100 font-medium">Schedules and Definite Arrangements.</p>
+                    </div>
+                    <div class="p-6 flex-grow space-y-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Simple Present <span class="text-sm font-normal text-slate-500">(Schedules)</span></h4>
+                            <p class="text-sm text-slate-600 mb-2">Used for future events that are part of a fixed timetable or schedule (flights, meetings, store hours).</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm">
+                                The train <span class="grammar-toggle state-will" data-exp="Fixed timetable">leaves</span> at 8:00 AM tomorrow.
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg border-b pb-2 mb-3">Present Progressive <span class="text-sm font-normal text-slate-500">(Definite Plans)</span></h4>
+                            <p class="text-sm text-slate-600 mb-2">Used for definite plans, usually in the near future, where time/place details are known.</p>
+                            <div class="bg-slate-50 p-3 rounded-lg border border-slate-100 text-sm">
+                                I <span class="grammar-toggle state-going" data-exp="Definite arrangement">am meeting</span> Sarah for lunch at noon.
+                            </div>
+                        </div>
+
+                        <div class="bg-teal-50 p-3 rounded-lg border border-teal-200 text-sm text-teal-800">
+                            <strong class="text-teal-900">Verb Constraint:</strong> With the verbs <em>go</em> and <em>come</em>, the present progressive is preferred over <em>be going to</em>. <br>
+                            <span class="text-xs opacity-75 mt-1 block">Prefer "We are going to the movies" over "We are going to go..."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative border-4 border-red-500/30">
+                <div class="absolute top-0 right-0 p-6 opacity-10">
+                    <i class="fa-solid fa-triangle-exclamation text-9xl text-red-500"></i>
+                </div>
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-hourglass-end text-red-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">Future Time Clauses: The Golden Rule</h3>
+                    </div>
+                    
+                    <p class="text-slate-200 text-lg mb-6 max-w-3xl">
+                        An adverbial future time clause tells <em>when</em> a main action will happen. <strong class="text-yellow-300">Never use a future form (will/going to) inside the time clause itself!</strong>
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700">
+                            <h4 class="font-bold text-slate-300 text-sm uppercase tracking-wider mb-3">Incorrect Structure</h4>
+                            <div class="flex items-center gap-3 bg-red-950/30 p-3 rounded-xl border border-red-900/50">
+                                <i class="fa-solid fa-xmark text-red-500 text-xl"></i>
+                                <span class="text-slate-400 line-through">As soon as he will arrive, we will eat.</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900/50 p-5 rounded-2xl border border-slate-700">
+                            <h4 class="font-bold text-slate-300 text-sm uppercase tracking-wider mb-3">Correct Structure</h4>
+                            <div class="flex items-center gap-3 bg-green-950/30 p-3 rounded-xl border border-green-900/50">
+                                <i class="fa-solid fa-check text-green-500 text-xl"></i>
+                                <span><span class="text-yellow-300 font-bold">As soon as he arrives</span>, we will eat.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-3 gap-4 text-sm">
+                        <div class="bg-white/10 p-4 rounded-xl">
+                            <strong class="text-sky-300 block mb-1">Time Clause First</strong>
+                            Use <em>after, when, as soon as, once</em>. Comma required! <br>
+                            <span class="opacity-75 italic">"Once I finish, I'll call you."</span>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl">
+                            <strong class="text-sky-300 block mb-1">Boundary (Until)</strong>
+                            Action continues up to the time clause. <br>
+                            <span class="opacity-75 italic">"I will wait until she calls."</span>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-xl border border-yellow-500/30">
+                            <strong class="text-yellow-300 block mb-1">Completion Emphasis</strong>
+                            Use Present Perfect in the clause! <br>
+                            <span class="opacity-75 italic">"After I <strong class="text-white">have finished</strong>, I will leave."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-indigo-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-forward-fast text-2xl"></i>
+                    <h3 class="text-2xl font-bold">Progressive & Perfect Futures</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        
+                        <div class="bg-indigo-50 rounded-2xl p-5 border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 text-lg mb-2">Future Progressive</h4>
+                            <p class="text-xs font-mono bg-white p-1 rounded text-center text-slate-500 mb-3">will be + verb-ing</p>
+                            <p class="text-sm text-slate-600 mb-3">Actions actively in progress at a specific time in the future.</p>
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border border-slate-100">
+                                This time tomorrow, I <span class="grammar-toggle state-will" data-exp="In progress at a future moment">will be flying</span> to London.
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-50 rounded-2xl p-5 border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 text-lg mb-2">Future Perfect</h4>
+                            <p class="text-xs font-mono bg-white p-1 rounded text-center text-slate-500 mb-3">will have + past participle</p>
+                            <p class="text-sm text-slate-600 mb-3">An action fully completed <em>before</em> a specific future time.</p>
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border border-slate-100">
+                                <span class="text-indigo-600 font-bold">By 2050</span>, we <span class="grammar-toggle state-will" data-exp="Completed prior to 2050">will have built</span> a base on Mars.
+                            </div>
+                        </div>
+
+                        <div class="bg-indigo-50 rounded-2xl p-5 border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 text-lg mb-2">Future Perfect Prog.</h4>
+                            <p class="text-xs font-mono bg-white p-1 rounded text-center text-slate-500 mb-3">will have been + verb-ing</p>
+                            <p class="text-sm text-slate-600 mb-3">Duration of an ongoing action up until a future time.</p>
+                            <div class="bg-white p-3 rounded shadow-sm text-sm border border-slate-100">
+                                <span class="text-indigo-600 font-bold">By December</span>, I <span class="grammar-toggle state-will" data-exp="Duration up to a future point">will have been working</span> here for 5 years.
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 flex gap-4 items-start">
+                <i class="fa-solid fa-pen-nib text-3xl text-emerald-600 mt-1"></i>
+                <div>
+                    <h4 class="font-bold text-emerald-900 text-lg mb-1">Writing Connection: Opinions & Fragments</h4>
+                    <p class="text-sm text-emerald-800 mb-2">When writing about the future:</p>
+                    <ul class="list-disc pl-5 text-sm text-emerald-700 space-y-1 mb-3">
+                        <li>Use <strong>believe</strong> and <strong>think</strong> to express structured opinions.</li>
+                        <li>Use <strong>hope</strong> to express a future wish or desire.</li>
+                    </ul>
+                    <div class="bg-white p-3 rounded border border-emerald-100 text-sm">
+                        <strong class="text-red-500"><i class="fa-solid fa-triangle-exclamation"></i> Fragment Warning:</strong> An <em>if clause</em> must always be attached to a main clause.<br>
+                        <span class="line-through text-slate-400">If robots take our jobs. We will need basic income.</span> <br>
+                        <span class="text-emerald-700 font-bold">If robots take our jobs, we will need basic income.</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Choose Future Form
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-keyboard mr-2"></i>Conjugate
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-brain mr-2"></i>Concept Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: CHOOSE FUTURE FORM -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice</h3>
+                                    <p class="text-slate-500 text-sm">Select the most appropriate future tense or time clause structure.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-sky-100 text-sky-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: FILL IN BLANKS -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Conjugation Practice</h3>
+                                    <p class="text-slate-500 text-sm">Type the correct future form based on the hints provided.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-sky-100 text-sky-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <div class="mt-6 flex flex-col items-center gap-2">
+                                   <div class="text-slate-400 text-sm font-bold uppercase tracking-wide">Base Verb: <span id="fill-base-verb" class="ml-2 bg-white px-3 py-1 rounded shadow-sm text-slate-700 font-mono font-bold border border-slate-200"></span></div>
+                                   <div id="fill-hint" class="text-sky-600 text-sm font-semibold bg-sky-50 px-3 py-1 rounded-full border border-sky-100"></div>
+                                </div>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-500/20 transition-all" placeholder="Type answer here..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: RULE MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Concept Matcher</h3>
+                                <p class="text-slate-500 mt-2">Read the sentence and determine <strong>why</strong> that specific future tense was used.</p>
+                            </div>
+                            
+                            <div class="max-w-3xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Sentence</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid sm:grid-cols-2 gap-4">
+                                    <!-- Options generated dynamically -->
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-will')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-will';
+                        } else if (t.dataset.baseClass.includes('state-going')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-going';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: CHOOSE FUTURE FORM
+        // ==========================================
+
+        const chooseData = [
+            { q: "The phone is ringing. I ______ answer it!", opts: ["will", "am going to"], ans: 0, exp: "Use 'will' for spontaneous decisions made at the moment of speaking." },
+            { q: "Look at those dark clouds! It ______ rain.", opts: ["will", "is going to"], ans: 1, exp: "Use 'be going to' when a prediction is based on physical evidence present right now." },
+            { q: "My flight ______ at 6:00 AM tomorrow.", opts: ["leaves", "will leave"], ans: 0, exp: "Use the Simple Present for events that are part of a fixed schedule or timetable." },
+            { q: "As soon as she ______, we will start the meeting.", opts: ["will arrive", "arrives"], ans: 1, exp: "Never use a future form inside a time clause. Use Simple Present." },
+            { q: "By the time you wake up, I ______ breakfast.", opts: ["will make", "will have made"], ans: 1, exp: "Use Future Perfect to show an action will be completed BEFORE a specific future time." },
+            { q: "I ______ the dentist tomorrow at 3 PM.", opts: ["am seeing", "will see"], ans: 0, exp: "Use Present Progressive for definite plans and arrangements in the near future." },
+            { q: "We ______ to the movies tonight.", opts: ["are going", "are going to go"], ans: 0, exp: "With the verbs 'go' and 'come', it is better style to use the Present Progressive." },
+            { q: "This time next week, I ______ on a beach in Hawaii.", opts: ["will relax", "will be relaxing"], ans: 1, exp: "Use Future Progressive for an action actively in progress at a specific future moment." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            blank.textContent = q.opts[idx];
+            blank.classList.add('filled');
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-0284c7', 'hover:bg-f0f9ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-sky-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS
+        // ==========================================
+
+        const fillData = [
+            { q: "By 2030, scientists ___ a cure.", base: "find", hint: "Completed before a future time (Future Perfect)", ans: ["will have found"] },
+            { q: "When I ___ him, I will tell him.", base: "see", hint: "Inside a time clause", ans: ["see"] },
+            { q: "I have the tickets! I ___ to Tokyo next week.", base: "fly", hint: "Definite plan (Present Progressive)", ans: ["am flying", "'m flying"] },
+            { q: "At 8 PM tonight, I ___ a movie.", base: "watch", hint: "In progress at future time (Future Progressive)", ans: ["will be watching", "'ll be watching"] },
+            { q: "We ___ visit them next summer.", base: "be going to", hint: "Plan / Intention", ans: ["are going to", "'re going to"] },
+            { q: "The concert ___ at 7:30 PM.", base: "start", hint: "Fixed schedule", ans: ["starts"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 5);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            const qHtml = q.q.replace('___', `<span id="fill-target" class="text-sky-600 border-b-2 border-sky-300 font-bold px-2">______</span>`);
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-base-verb').textContent = `(${q.base})`;
+            document.getElementById('fill-hint').textContent = `Hint: ${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correct!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-sky-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Typing Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-base-verb').parentElement.classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // EXERCISE 3: CONCEPT MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "I'll help you carry those bags.", ans: "Spontaneous Decision (Will)", exp: "Made at the moment of speaking as an offer." },
+            { q: "Look out! That tree is going to fall!", ans: "Evidence-based Prediction (Be going to)", exp: "Based on physical evidence present right now." },
+            { q: "The flight leaves at 6 AM.", ans: "Fixed Schedule (Simple Present)", exp: "Part of a public timetable or schedule." },
+            { q: "I am meeting John at 5 PM.", ans: "Definite Plan (Present Progressive)", exp: "A specific arrangement for the near future." },
+            { q: "By next year, she will have graduated.", ans: "Future Completion (Future Perfect)", exp: "Action fully completed BEFORE a specific future time." }
+        ];
+        
+        const matchOptionsList = [
+            "Spontaneous Decision (Will)",
+            "Evidence-based Prediction (Be going to)",
+            "Fixed Schedule (Simple Present)",
+            "Definite Plan (Present Progressive)",
+            "Future Completion (Future Perfect)"
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            document.getElementById('match-question').innerHTML = `"${q.q}"`;
+            
+            const optsContainer = document.getElementById('match-options');
+            optsContainer.innerHTML = '';
+            
+            const shuffledOpts = shuffleArray(matchOptionsList);
+            
+            shuffledOpts.forEach((opt) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-800 font-semibold py-4 px-4 rounded-xl text-sm md:text-base w-full text-center shadow-sm border-2 border-slate-200';
+                btn.textContent = opt;
+                btn.onclick = () => matchSelect(opt, btn, q.ans);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedOpt, btn, correctOpt) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedOpt === correctOpt;
+            if(isCorrect) matchCorrects++;
+            
+            const allBtns = document.getElementById('match-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-0284c7', 'hover:bg-f0f9ff');
+                const textVal = allBtns[i].textContent;
+                
+                if(textVal === correctOpt) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (textVal === selectedOpt && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                    btn.classList.add('shake-err');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Correct Concept!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Incorrect Concept.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3000); // 3 seconds to read explanation
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-sky-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            document.getElementById('match-options').innerHTML = '';
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>

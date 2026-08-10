@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 11: The Power of Images (Relative Clauses)</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdf4ff; /* Fuchsia 50 */
+        }
+
+        /* Tabs */
+        .tab-active {
+            border-bottom-width: 4px;
+            border-color: #c026d3; /* Fuchsia 600 */
+            color: #a21caf; /* Fuchsia 700 */
+            font-weight: 700;
+        }
+        .tab-inactive {
+            border-bottom-width: 4px;
+            border-color: transparent;
+            color: #64748b;
+        }
+        .tab-inactive:hover {
+            color: #475569;
+            border-color: #cbd5e1;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .pop-out { transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .pop-out:hover:not(:disabled) {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shake-err { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+        }
+
+        /* Interactive Study Element */
+        .grammar-toggle {
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            transition: all 0.3s;
+            user-select: none;
+            display: inline-block;
+            border-bottom: 2px dashed #94a3b8;
+            font-weight: 600;
+        }
+        .grammar-toggle:hover { background-color: #cbd5e1; }
+        .grammar-toggle.state-subj {
+            background-color: #e0e7ff; color: #4338ca; border-color: #6366f1; border-style: solid;
+        }
+        .grammar-toggle.state-obj {
+            background-color: #fae8ff; color: #a21caf; border-color: #d946ef; border-style: solid;
+        }
+        .grammar-toggle.state-warn {
+            background-color: #fee2e2; color: #b91c1c; border-color: #ef4444; border-style: solid; text-decoration: line-through;
+        }
+
+        /* Subtabs & Exercise Styles */
+        .subtab-active {
+            background-color: #c026d3; color: white; box-shadow: 0 4px 6px -1px rgba(192, 38, 211, 0.4);
+        }
+        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #e2e8f0; }
+
+        .opt-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
+        .opt-btn:hover:not(:disabled) { border-color: #c026d3; background-color: #fdf4ff; transform: translateY(-2px); }
+        .opt-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .opt-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        
+        .fill-blank {
+            display: inline-block; min-width: 100px; height: 36px; border-bottom: 3px dashed #cbd5e1;
+            margin: 0 6px; vertical-align: bottom; text-align: center; color: #c026d3; font-weight: bold; transition: all 0.3s;
+        }
+        .fill-blank.filled { border-bottom-style: solid; border-bottom-color: #c026d3; background-color: #fdf4ff; border-radius: 4px 4px 0 0; }
+        .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
+        .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-br from-fuchsia-500 to-purple-600 text-white p-2 rounded-xl shadow-sm">
+                        <i class="fa-solid fa-camera-retro text-xl w-6 text-center"></i>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 11: The Power of Images</h1>
+                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 11</h1>
+                </div>
+                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
+                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+                    </button>
+                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- ============================================== -->
+        <!-- STUDY SECTION -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-6">
+                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Relative Clauses</h2>
+                <p class="text-lg text-slate-600">Also known as adjective clauses, these powerful structures help you add descriptive details about people, places, and things.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-fuchsia-50 text-fuchsia-700 px-5 py-2.5 rounded-full text-sm font-semibold border border-fuchsia-200 shadow-sm">
+                    <i class="fa-solid fa-hand-pointer animate-pulse text-fuchsia-500 text-lg"></i>
+                    Tap the dashed grammar words to reveal structural rules!
+                </div>
+            </div>
+
+            <!-- 1. Subject Relative Clauses -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-indigo-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-user-tag text-2xl"></i>
+                    <h3 class="text-2xl font-bold">1. Subject Relative Clauses</h3>
+                </div>
+                
+                <div class="p-8">
+                    <p class="text-slate-600 mb-6 font-medium">In a subject relative clause, the relative pronoun functions as the <strong>subject</strong> of the clause. It directly performs the action.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-link text-indigo-500"></i> The Pronouns
+                            </h4>
+                            <ul class="space-y-3 text-sm text-slate-700">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-700 block mb-1">Who / That (People)</strong>
+                                    "The photographer <span class="grammar-toggle state-subj" data-exp="Relative pronoun (subject) + verb">who won</span> the award is here."
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-700 block mb-1">Which / That (Things/Animals)</strong>
+                                    "There is an app <span class="grammar-toggle state-subj" data-exp="Pronoun (subject) + verb">that shows</span> you how to edit." <br>
+                                    <span class="text-xs text-slate-500 mt-1 italic block">*Note: 'that' is more common than 'which' in conversation.</span>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                    <strong class="text-indigo-700 block mb-1">Whose (Possession)</strong>
+                                    "The boy <span class="grammar-toggle state-subj" data-exp="Whose + Noun">whose feet</span> dangle over the water..." <br>
+                                    <span class="text-xs text-red-500 mt-1 block"><i class="fa-solid fa-xmark mr-1"></i> Never repeat the pronoun: "whose his feet"</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-scale-balanced text-indigo-500"></i> Verb Agreement
+                            </h4>
+                            <p class="text-sm text-slate-600 mb-4">The verb within the relative clause must agree in number with the noun it describes.</p>
+                            
+                            <div class="space-y-3">
+                                <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100 text-sm">
+                                    <span class="font-bold text-indigo-800">Singular Noun:</span><br>
+                                    There is an <strong class="text-indigo-600">app</strong> that <strong class="text-indigo-600">shows</strong>...
+                                </div>
+                                <div class="bg-indigo-50 p-3 rounded-lg border border-indigo-100 text-sm">
+                                    <span class="font-bold text-indigo-800">Plural Noun:</span><br>
+                                    There are <strong class="text-indigo-600">apps</strong> that <strong class="text-indigo-600">show</strong>...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 rounded-2xl p-6 border border-amber-200">
+                        <h4 class="font-bold text-amber-900 text-lg mb-4 text-center border-b border-amber-200 pb-2">Identifying vs. Non-Identifying Clauses</h4>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="font-bold text-amber-800 mb-2">Identifying (Restrictive)</h5>
+                                <p class="text-sm text-amber-900/80 mb-3">Provides essential information. Tells you exactly <em>which</em> person or thing we mean. <strong>No commas.</strong></p>
+                                <div class="bg-white p-3 rounded shadow-sm text-sm border border-amber-100 font-medium">
+                                    "My uncle <span class="text-amber-600 underline decoration-amber-300">who lives in New York</span> owns a restaurant."<br>
+                                    <span class="text-xs text-slate-500 font-normal mt-1 block">(Implies I have more than one uncle, and I am specifying which one).</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-amber-800 mb-2">Non-Identifying (Non-Restrictive)</h5>
+                                <p class="text-sm text-amber-900/80 mb-3">Provides extra, non-essential information. <strong>Requires commas.</strong> You <strong>cannot use "that"</strong>.</p>
+                                <div class="bg-white p-3 rounded shadow-sm text-sm border border-amber-100 font-medium">
+                                    "My uncle<strong class="text-amber-600 text-lg">,</strong> <span class="text-amber-600 underline decoration-amber-300">who lives in New York</span><strong class="text-amber-600 text-lg">,</strong> owns a restaurant."<br>
+                                    <span class="text-xs text-slate-500 font-normal mt-1 block">(Implies I only have one uncle; the location is just extra info).</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Object Relative Clauses -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl shadow-xl overflow-hidden mt-8 text-white relative border border-slate-700">
+                <div class="absolute top-0 right-0 p-6 opacity-10">
+                    <i class="fa-solid fa-arrows-to-eye text-9xl"></i>
+                </div>
+                <div class="p-8 relative z-10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-bullseye text-fuchsia-400 text-3xl"></i>
+                        <h3 class="text-3xl font-bold">2. Object Relative Clauses</h3>
+                    </div>
+                    <p class="text-slate-300 mb-6 font-medium">The relative pronoun serves as the direct object of the verb within the clause.</p>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-fuchsia-300 text-lg mb-3">Structure & Omission</h4>
+                            <p class="text-sm text-slate-400 mb-4">You can use <em>that, which, who,</em> or <em>whom</em> (formal). The verb in the clause agrees with its own subject, not the modified noun.</p>
+                            
+                            <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700 mb-4">
+                                <strong class="text-emerald-400 block mb-2 text-sm"><i class="fa-solid fa-scissors"></i> The Omission Rule</strong>
+                                <p class="text-sm text-slate-300">In <strong>identifying</strong> clauses, you can drop the relative pronoun entirely.</p>
+                                <div class="mt-2 text-sm font-medium bg-black/30 p-2 rounded">
+                                    "The man <span class="grammar-toggle state-obj" data-exp="Can be omitted">(that)</span> she was interviewing is famous."
+                                </div>
+                                <p class="text-sm text-rose-400 mt-2 italic">*You cannot omit the pronoun in non-identifying clauses.</p>
+                            </div>
+                            
+                            <div class="bg-rose-950/30 p-4 rounded-xl border border-rose-900/50">
+                                <strong class="text-rose-400 block mb-1 text-sm"><i class="fa-solid fa-triangle-exclamation"></i> Object Repetition Error</strong>
+                                <p class="text-sm text-slate-300">Do not repeat the object pronoun at the end of the clause.</p>
+                                <div class="mt-2 text-sm">
+                                    <i class="fa-solid fa-xmark text-red-500 mr-1"></i> <span class="grammar-toggle state-warn" data-exp="Do not repeat the object!">Where's the man you were helping him?</span><br>
+                                    <i class="fa-solid fa-check text-green-500 mr-1"></i> <span class="font-bold text-slate-200">Where's the man you were helping?</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-fuchsia-300 text-lg mb-3">Clauses with Prepositions</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                                    <strong class="text-white block mb-1 text-sm">Informal Usage</strong>
+                                    <p class="text-sm text-slate-400 mb-2">The preposition stays at the end of the clause. The pronoun is often omitted.</p>
+                                    <span class="text-sm font-medium bg-black/30 p-2 rounded inline-block">"The movie <span class="text-slate-500">(that)</span> we were talking <strong class="text-fuchsia-400">about</strong>..."</span>
+                                </div>
+                                
+                                <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-700">
+                                    <strong class="text-white block mb-1 text-sm">Formal Usage</strong>
+                                    <p class="text-sm text-slate-400 mb-2">The preposition moves to the beginning of the clause. It MUST go before <strong>whom</strong> (people) or <strong>which</strong> (things).</p>
+                                    <span class="text-sm font-medium bg-black/30 p-2 rounded inline-block">"The article <strong class="text-fuchsia-400">to which</strong> you are referring..."</span>
+                                </div>
+                                
+                                <p class="text-sm text-rose-300 bg-rose-950/20 p-2 rounded border border-rose-900/30">
+                                    <i class="fa-solid fa-ban mr-1"></i> You can <strong>never</strong> place a preposition directly before <em>who</em> or <em>that</em> (e.g., "to who" or "of that").
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Reduced Clauses & Where/When -->
+            <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mt-8">
+                <div class="bg-teal-600 p-6 text-white flex items-center gap-3">
+                    <i class="fa-solid fa-compress text-2xl"></i>
+                    <h3 class="text-2xl font-bold">3. Reduced Clauses & Where/When</h3>
+                </div>
+                
+                <div class="p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        
+                        <!-- Reduced Clauses -->
+                        <div>
+                            <h4 class="font-bold text-teal-800 text-lg mb-3 border-b border-teal-100 pb-2">Reduced Relative Clauses</h4>
+                            <p class="text-sm text-slate-600 mb-4">Subject relative clauses can be shortened into phrases.</p>
+                            
+                            <ul class="space-y-4">
+                                <li>
+                                    <strong class="text-slate-800 block text-sm mb-1">With the verb "Be"</strong>
+                                    <p class="text-xs text-slate-500 mb-2">Omit the relative pronoun and the "be" verb.</p>
+                                    <div class="bg-teal-50 p-3 rounded-lg border border-teal-100 text-sm font-medium text-slate-700">
+                                        "The girl <span class="line-through text-slate-400 font-normal">who was</span> riding the bike..." &rarr; <br>"The girl <strong class="text-teal-700">riding</strong> the bike..."
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong class="text-slate-800 block text-sm mb-1">With Active Verbs</strong>
+                                    <p class="text-xs text-slate-500 mb-2">Omit the pronoun and change the verb to the <strong>-ing</strong> form.</p>
+                                    <div class="bg-teal-50 p-3 rounded-lg border border-teal-100 text-sm font-medium text-slate-700">
+                                        "Anyone <span class="line-through text-slate-400 font-normal">who wants</span> to learn..." &rarr; <br>"Anyone <strong class="text-teal-700">wanting</strong> to learn..."
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="text-xs text-amber-600 mt-3 font-medium">*Non-identifying reduced clauses must keep their commas.</p>
+                        </div>
+
+                        <!-- Where and When -->
+                        <div>
+                            <h4 class="font-bold text-teal-800 text-lg mb-3 border-b border-teal-100 pb-2">Using Where and When</h4>
+                            <p class="text-sm text-slate-600 mb-4">Relative adverbs used for places and times.</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                    <strong class="text-teal-700 block text-sm mb-1">Where (Places)</strong>
+                                    <p class="text-sm text-slate-700 font-medium">"Istanbul is a city <strong class="text-teal-600">where</strong> Europe and Asia meet."</p>
+                                    <p class="text-xs text-slate-500 mt-1">Formal alternative: "...a city <strong>in which</strong> Europe and Asia meet."</p>
+                                </li>
+                                <li class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                    <strong class="text-teal-700 block text-sm mb-1">When (Times)</strong>
+                                    <p class="text-sm text-slate-700 font-medium">"I’ll never forget the summer <strong class="text-teal-600">when</strong> our team won."</p>
+                                    <p class="text-xs text-slate-500 mt-1">Formal alternative: "...the summer <strong>in which</strong> our team won."</p>
+                                </li>
+                            </ul>
+                            <div class="bg-red-50 p-3 rounded-lg border border-red-100 mt-4 text-sm">
+                                <strong class="text-red-700"><i class="fa-solid fa-triangle-exclamation"></i> Preposition Warning:</strong> Never use a preposition directly before or inside a clause with where/when.<br>
+                                <span class="line-through text-slate-500 font-medium text-xs">"the time during when..."</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================== -->
+        <!-- PRACTICE SECTION -->
+        <!-- ============================================== -->
+        <section id="section-practice" class="hidden fade-in">
+            <div class="max-w-4xl mx-auto">
+                
+                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                    
+                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
+                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Test Your Knowledge</h2>
+                        
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <button id="ex-tab-choose" onclick="switchExTab('choose')" class="subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-list-check mr-2"></i>Choose the Clause
+                            </button>
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-compress mr-2"></i>Reduce the Clause
+                            </button>
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out">
+                                <i class="fa-solid fa-magnifying-glass mr-2"></i>Identifying Matcher
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-6 md:p-10">
+                        
+                        <!-- EXERCISE 1: MULTIPLE CHOICE -->
+                        <div id="ex-container-choose" class="block fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Grammar Rules</h3>
+                                    <p class="text-slate-500 text-sm">Select the grammatically correct option to complete the sentence.</p>
+                                </div>
+                                <span id="choose-progress" class="bg-fuchsia-100 text-fuchsia-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+                            
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="choose-q-text" class="text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                            </div>
+
+                            <div id="choose-options" class="grid sm:grid-cols-2 gap-4 mb-6">
+                                <!-- Options injected via JS -->
+                            </div>
+
+                            <div id="choose-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+
+                            <div class="flex justify-end gap-3">
+                                <button id="choose-btn-next" onclick="chooseNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="choose-btn-reset" onclick="chooseInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 2: REDUCE THE CLAUSE -->
+                        <div id="ex-container-fill" class="hidden fade-in">
+                            <div class="flex justify-between items-center mb-6">
+                                <div>
+                                    <h3 class="font-bold text-xl text-slate-800">Reduce the Clause</h3>
+                                    <p class="text-slate-500 text-sm">Type the reduced form of the highlighted relative clause.</p>
+                                </div>
+                                <span id="fill-progress" class="bg-fuchsia-100 text-fuchsia-700 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                            </div>
+
+                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
+                                <p id="fill-q-text" class="text-xl md:text-2xl font-medium text-slate-800 leading-relaxed"></p>
+                                <p id="fill-hint" class="mt-4 text-sm font-bold text-fuchsia-600 bg-fuchsia-100 inline-block px-3 py-1 rounded-full"></p>
+                            </div>
+
+                            <div class="max-w-md mx-auto mb-6">
+                                <form id="fill-form" onsubmit="fillCheck(event)" class="flex gap-3">
+                                    <input type="text" id="fill-input" class="flex-grow bg-white border-2 border-slate-300 rounded-xl px-4 py-3 text-lg font-medium focus:border-fuchsia-500 focus:outline-none focus:ring-4 focus:ring-fuchsia-500/20 transition-all" placeholder="Type reduced phrase..." autocomplete="off">
+                                    <button type="submit" id="fill-btn-check" class="bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-bold px-6 rounded-xl pop-out">
+                                        Check
+                                    </button>
+                                </form>
+                            </div>
+
+                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-medium transition-all max-w-md mx-auto"></div>
+
+                            <div class="flex justify-center">
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
+                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                </button>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- EXERCISE 3: IDENTIFYING MATCHER -->
+                        <div id="ex-container-match" class="hidden fade-in">
+                            <div class="text-center mb-8">
+                                <h3 class="font-bold text-2xl text-slate-800">Identifying vs. Non-Identifying</h3>
+                                <p class="text-slate-500 mt-2">Read the sentence. Does the relative clause <strong>identify</strong> a specific noun, or just provide <strong>extra</strong> information?</p>
+                            </div>
+                            
+                            <div class="max-w-2xl mx-auto">
+                                
+                                <div class="bg-slate-800 text-white p-10 rounded-3xl shadow-lg text-center relative overflow-hidden mb-8">
+                                    <div class="absolute top-0 left-0 w-full bg-slate-900 py-2 text-xs font-bold tracking-widest uppercase text-slate-400">Sentence</div>
+                                    <div id="match-question" class="text-2xl font-medium mt-6 mb-2 leading-relaxed"></div>
+                                </div>
+
+                                <div id="match-options" class="grid grid-cols-2 gap-4">
+                                    <button onclick="matchSelect('Identifying')" class="opt-btn pop-out bg-indigo-50 border-2 border-indigo-200 text-indigo-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2">
+                                        <i class="fa-solid fa-filter text-3xl"></i>
+                                        <span>Identifying</span>
+                                    </button>
+                                    <button onclick="matchSelect('Non-Identifying')" class="opt-btn pop-out bg-fuchsia-50 border-2 border-fuchsia-200 text-fuchsia-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2">
+                                        <i class="fa-solid fa-plus text-3xl"></i>
+                                        <span>Non-Identifying</span>
+                                    </button>
+                                </div>
+                                
+                                <div id="match-feedback" class="h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity"></div>
+
+                                <div class="flex justify-center mt-4">
+                                    <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
+                                        Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // ==========================================
+        // UI Navigation & Interactive Logic
+        // ==========================================
+
+        function switchMainTab(tabId) {
+            document.getElementById('tab-study').className = tabId === 'study' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            document.getElementById('tab-practice').className = tabId === 'practice' ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
+            
+            if (tabId === 'study') {
+                document.getElementById('section-study').classList.remove('hidden');
+                document.getElementById('section-practice').classList.add('hidden');
+            } else {
+                document.getElementById('section-study').classList.add('hidden');
+                document.getElementById('section-practice').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Init exercises if first time
+                if(chooseCurrent === 0 && fillCurrent === 0) {
+                    chooseInit(); fillInit(); matchInit();
+                }
+            }
+        }
+
+        function switchExTab(exId) {
+            const tabs = ['choose', 'fill', 'match'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`ex-tab-${t}`);
+                const container = document.getElementById(`ex-container-${t}`);
+                if (t === exId) {
+                    btn.className = 'subtab-active px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('hidden');
+                    container.classList.add('block');
+                } else {
+                    btn.className = 'subtab-inactive px-6 py-3 rounded-xl font-bold text-sm transition-all pop-out';
+                    container.classList.remove('block');
+                    container.classList.add('hidden');
+                }
+            });
+        }
+
+        function setupGrammarToggles() {
+            const toggles = document.querySelectorAll('.grammar-toggle');
+            toggles.forEach(t => {
+                t.addEventListener('click', () => {
+                    // Reset others
+                    toggles.forEach(other => {
+                        if(other !== t && other.dataset.original) {
+                            other.textContent = other.dataset.original;
+                            other.className = other.dataset.baseClass || 'grammar-toggle';
+                        }
+                    });
+
+                    if(!t.dataset.original) {
+                        t.dataset.original = t.textContent;
+                        t.dataset.baseClass = t.className;
+                    }
+
+                    if(t.textContent === t.dataset.original) {
+                        t.textContent = t.dataset.exp;
+                        
+                        if (t.dataset.baseClass.includes('state-subj')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-subj';
+                        } else if (t.dataset.baseClass.includes('state-obj')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-obj';
+                        } else if (t.dataset.baseClass.includes('state-warn')) {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 state-warn';
+                        } else {
+                            t.className = 'grammar-toggle font-bold text-sm px-3 bg-slate-200 border-slate-400 border-solid';
+                        }
+                    } else {
+                        t.textContent = t.dataset.original;
+                        t.className = t.dataset.baseClass;
+                    }
+                });
+            });
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // ==========================================
+        // EXERCISE 1: MULTIPLE CHOICE
+        // ==========================================
+
+        const chooseData = [
+            { q: "The woman ______ the award is my sister.", opts: ["that she won", "who won"], ans: 1, exp: "'Who' is the subject of the relative clause. Do not add an extra pronoun ('she')." },
+            { q: "Where is the man ______ you were helping?", opts: ["that", "whom him"], ans: 0, exp: "Do not repeat the object pronoun ('him') in the relative clause." },
+            { q: "My brother, ______ lives in London, is visiting next week.", opts: ["who", "that"], ans: 0, exp: "You cannot use 'that' in a non-identifying (comma-separated) relative clause." },
+            { q: "The article ______ you are referring was written in 2010.", opts: ["which", "to which"], ans: 1, exp: "In formal English, the preposition moves before 'which'." },
+            { q: "The photographer ______ camera was stolen is very upset.", opts: ["who's", "whose"], ans: 1, exp: "Use 'whose' to show possession (the photographer's camera)." },
+            { q: "There are many apps ______ you how to edit photos.", opts: ["that shows", "that show"], ans: 1, exp: "The verb must agree with the plural noun 'apps' (show)." },
+            { q: "I will never forget the time ______ we got lost in the city.", opts: ["during when", "when"], ans: 1, exp: "Never use a preposition directly before 'when'." },
+            { q: "The person ______ I spoke was very helpful.", opts: ["to who", "to whom"], ans: 1, exp: "Prepositions must be followed by 'whom', never 'who'." }
+        ];
+
+        let choosePool = [];
+        let chooseCurrent = 0;
+        let chooseAnswered = false;
+        let chooseScore = 0;
+
+        function chooseInit() {
+            choosePool = shuffleArray(chooseData).slice(0, 6);
+            chooseCurrent = 0;
+            chooseScore = 0;
+            document.getElementById('choose-btn-reset').classList.add('hidden');
+            chooseLoad();
+        }
+
+        function chooseLoad() {
+            chooseAnswered = false;
+            const q = choosePool[chooseCurrent];
+            
+            document.getElementById('choose-progress').textContent = `${chooseCurrent + 1} / ${choosePool.length}`;
+            
+            const qHtml = q.q.replace('______', `<span id="choose-blank" class="fill-blank text-slate-300">______</span>`);
+            document.getElementById('choose-q-text').innerHTML = qHtml;
+            
+            const optsContainer = document.getElementById('choose-options');
+            optsContainer.innerHTML = '';
+            
+            q.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'opt-btn pop-out bg-white text-slate-700 font-bold py-4 px-6 rounded-2xl text-lg w-full text-center shadow-sm';
+                btn.textContent = opt;
+                btn.onclick = () => chooseSelect(idx, btn);
+                optsContainer.appendChild(btn);
+            });
+            
+            document.getElementById('choose-feedback').classList.add('hidden');
+            document.getElementById('choose-btn-next').classList.add('hidden');
+        }
+
+        function chooseSelect(idx, btn) {
+            if(chooseAnswered) return;
+            chooseAnswered = true;
+            
+            const q = choosePool[chooseCurrent];
+            const isCorrect = idx === q.ans;
+            if(isCorrect) chooseScore++;
+            
+            const blank = document.getElementById('choose-blank');
+            if(blank) {
+                blank.textContent = q.opts[idx];
+                blank.classList.add('filled');
+            }
+            
+            const allBtns = document.getElementById('choose-options').children;
+            for(let i=0; i<allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                allBtns[i].classList.remove('pop-out', 'hover:border-c026d3', 'hover:bg-fdf4ff');
+                
+                if(i === q.ans) {
+                    allBtns[i].classList.add('opt-correct');
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].classList.add('opt-incorrect');
+                } else {
+                    allBtns[i].classList.add('opacity-50');
+                }
+            }
+            
+            const fb = document.getElementById('choose-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                if(blank) blank.classList.add('correct');
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-check mr-2"></i> Correct! ${q.exp}`;
+            } else {
+                if(blank) blank.classList.add('incorrect');
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                btn.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('choose-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (chooseCurrent === choosePool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next Question <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function chooseNext() {
+            if (chooseCurrent < choosePool.length - 1) {
+                chooseCurrent++;
+                chooseLoad();
+            } else {
+                document.getElementById('choose-options').innerHTML = '';
+                document.getElementById('choose-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-award text-7xl text-fuchsia-500 mb-6 animate-bounce"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Score: ${chooseScore}/${choosePool.length}</h3>
+                        <p class="text-slate-500">Great practice!</p>
+                    </div>`;
+                document.getElementById('choose-progress').textContent = "Done";
+                document.getElementById('choose-feedback').classList.add('hidden');
+                document.getElementById('choose-btn-next').classList.add('hidden');
+                document.getElementById('choose-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 2: FILL IN THE BLANKS (REDUCE)
+        // ==========================================
+
+        const fillData = [
+            { q: "The woman [who is standing] by the door is the manager.", hint: "Omit pronoun & 'be'", ans: ["standing"] },
+            { q: "Anyone [who wants] a ticket should line up.", hint: "Active verb -> -ing", ans: ["wanting"] },
+            { q: "The film [that was shown] last night won an award.", hint: "Omit pronoun & 'be'", ans: ["shown"] },
+            { q: "People [who live] in the city use public transport.", hint: "Active verb -> -ing", ans: ["living"] },
+            { q: "The boy [who was riding] the bike fell off.", hint: "Omit pronoun & 'be'", ans: ["riding"] }
+        ];
+
+        let fillPool = [];
+        let fillCurrent = 0;
+        let fillAnswered = false;
+
+        function fillInit() {
+            fillPool = shuffleArray(fillData).slice(0, 4);
+            fillCurrent = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
+            document.getElementById('fill-form').classList.remove('hidden');
+            fillLoad();
+        }
+
+        function fillLoad() {
+            fillAnswered = false;
+            const q = fillPool[fillCurrent];
+            
+            document.getElementById('fill-progress').textContent = `${fillCurrent + 1} / ${fillPool.length}`;
+            
+            // Highlight the phrase to be reduced
+            const qHtml = q.q.replace(/\[(.*?)\]/, `<span class="bg-fuchsia-100 text-fuchsia-800 px-2 py-1 rounded line-through decoration-fuchsia-400">$1</span> <span id="fill-target" class="text-fuchsia-600 border-b-2 border-fuchsia-300 font-bold px-2 inline-block min-w-[80px]">______</span>`);
+            
+            document.getElementById('fill-q-text').innerHTML = qHtml;
+            document.getElementById('fill-hint').innerHTML = `<i class="fa-solid fa-compress mr-2"></i>${q.hint}`;
+            
+            const input = document.getElementById('fill-input');
+            input.value = '';
+            input.disabled = false;
+            document.getElementById('fill-btn-check').disabled = false;
+            
+            document.getElementById('fill-feedback').classList.add('hidden');
+            document.getElementById('fill-btn-next').classList.add('hidden');
+            
+            setTimeout(() => input.focus(), 100);
+        }
+
+        function fillCheck(e) {
+            e.preventDefault();
+            if(fillAnswered) return;
+            
+            const input = document.getElementById('fill-input');
+            const userAns = input.value.trim().toLowerCase();
+            if(!userAns) return; 
+            
+            fillAnswered = true;
+            input.disabled = true;
+            document.getElementById('fill-btn-check').disabled = true;
+            
+            const q = fillPool[fillCurrent];
+            const isCorrect = q.ans.includes(userAns);
+            
+            const target = document.getElementById('fill-target');
+            target.textContent = userAns;
+            
+            const fb = document.getElementById('fill-feedback');
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-800', 'border-green-200', 'bg-red-50', 'text-red-800', 'border-red-200');
+            
+            if(isCorrect) {
+                target.className = "text-green-600 border-b-2 border-green-500 font-bold px-2 bg-green-50";
+                input.className = "flex-grow bg-green-50 border-2 border-green-400 rounded-xl px-4 py-3 text-lg font-medium text-green-800";
+                fb.classList.add('bg-green-50', 'text-green-800', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-check text-xl mr-2"></i> Correctly reduced!`;
+            } else {
+                target.className = "text-red-600 border-b-2 border-red-500 font-bold px-2 bg-red-50 line-through";
+                input.className = "flex-grow bg-red-50 border-2 border-red-400 rounded-xl px-4 py-3 text-lg font-medium text-red-800";
+                fb.classList.add('bg-red-50', 'text-red-800', 'border-red-200');
+                fb.innerHTML = `<i class="fa-solid fa-xmark text-xl mr-2"></i> Incorrect. Expected: <strong class="text-red-900">${q.ans[0]}</strong>`;
+                input.classList.add('shake-err');
+            }
+            
+            const nextBtn = document.getElementById('fill-btn-next');
+            nextBtn.classList.remove('hidden');
+            if (fillCurrent === fillPool.length - 1) nextBtn.innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-2"></i>';
+            else nextBtn.innerHTML = 'Next <i class="fa-solid fa-arrow-right ml-2"></i>';
+        }
+
+        function fillNext() {
+            if (fillCurrent < fillPool.length - 1) {
+                fillCurrent++;
+                fillLoad();
+            } else {
+                document.getElementById('fill-q-text').innerHTML = `
+                    <div class="py-8">
+                        <i class="fa-solid fa-keyboard text-7xl text-fuchsia-400 mb-6"></i>
+                        <h3 class="text-3xl font-extrabold text-slate-800 mb-2">Practice Complete!</h3>
+                    </div>`;
+                document.getElementById('fill-hint').classList.add('hidden');
+                document.getElementById('fill-form').classList.add('hidden');
+                document.getElementById('fill-progress').textContent = "Done";
+                document.getElementById('fill-feedback').classList.add('hidden');
+                document.getElementById('fill-btn-next').classList.add('hidden');
+                document.getElementById('fill-btn-reset').classList.remove('hidden');
+            }
+        }
+
+
+        // ==========================================
+        // EXERCISE 3: IDENTIFYING MATCHER
+        // ==========================================
+
+        const matchData = [
+            { q: "My brother, who lives in London, is visiting.", ans: "Non-Identifying", exp: "Commas indicate it is extra information. I have one brother." },
+            { q: "The students who study hard will pass.", ans: "Identifying", exp: "No commas. Tells us exactly WHICH students will pass." },
+            { q: "Paris, which is the capital of France, is beautiful.", ans: "Non-Identifying", exp: "Commas used. Paris is a specific place already." },
+            { q: "I like the car that is parked outside.", ans: "Identifying", exp: "Restricts the meaning to a specific car. Uses 'that'." },
+            { q: "The boy whose shoes are red won the race.", ans: "Identifying", exp: "Identifies exactly which boy won." },
+            { q: "Dr. Smith, whose research is famous, gave a speech.", ans: "Non-Identifying", exp: "Provides extra background info about Dr. Smith." }
+        ];
+
+        let matchPool = [];
+        let matchCurrent = 0;
+        let matchAnswered = false;
+        let matchCorrects = 0;
+
+        function matchInit() {
+            matchPool = shuffleArray(matchData).slice(0, 5);
+            matchCurrent = 0;
+            matchCorrects = 0;
+            document.getElementById('match-btn-reset').classList.add('hidden');
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.remove('hidden');
+            }
+            matchLoad();
+        }
+
+        function matchLoad() {
+            matchAnswered = false;
+            const q = matchPool[matchCurrent];
+            
+            // Highlight the clause
+            let displayQ = q.q;
+            if(displayQ.includes(",")) {
+               displayQ = displayQ.replace(/,(.*?),/, `,<span class="text-fuchsia-400 font-bold">$1</span>,`);
+            } else {
+               // naive highlighting for identifying clauses
+               displayQ = displayQ.replace(/(who|that|whose|which)(.*?)(will|won|is parked)/, `<span class="text-indigo-400 font-bold">$1$2</span>$3`);
+            }
+
+            document.getElementById('match-question').innerHTML = `"${displayQ}"`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'shake-err', 'scale-95', 'border-green-500', 'bg-green-100', 'border-red-500', 'bg-red-100');
+                if(btn.textContent.includes('Non')) {
+                    btn.className = 'opt-btn pop-out bg-fuchsia-50 border-2 border-fuchsia-200 text-fuchsia-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2';
+                } else {
+                    btn.className = 'opt-btn pop-out bg-indigo-50 border-2 border-indigo-200 text-indigo-800 font-bold py-6 px-6 rounded-2xl text-xl w-full text-center shadow-sm flex flex-col items-center gap-2';
+                }
+            }
+            
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-lg flex flex-col items-center justify-center opacity-0 transition-opacity';
+        }
+
+        function matchSelect(selectedAns) {
+            if(matchAnswered) return;
+            matchAnswered = true;
+            
+            const q = matchPool[matchCurrent];
+            const isCorrect = selectedAns === q.ans;
+            if(isCorrect) matchCorrects++;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.disabled = true;
+                btn.classList.remove('pop-out');
+                
+                const isBtnNon = btn.textContent.includes('Non');
+                const isBtnIdent = !isBtnNon;
+                
+                const isSelectedBtn = (selectedAns === 'Non-Identifying' && isBtnNon) || (selectedAns === 'Identifying' && isBtnIdent);
+                const isTheRightAnswerBtn = (q.ans === 'Non-Identifying' && isBtnNon) || (q.ans === 'Identifying' && isBtnIdent);
+                
+                if (isTheRightAnswerBtn) {
+                    btn.classList.add('border-green-500', 'bg-green-100');
+                    btn.classList.replace('text-indigo-800', 'text-green-800');
+                    btn.classList.replace('text-fuchsia-800', 'text-green-800');
+                } else {
+                    btn.classList.add('opacity-50', 'scale-95');
+                }
+
+                if (isSelectedBtn && !isCorrect) {
+                     btn.classList.add('shake-err', 'border-red-500', 'bg-red-100');
+                     btn.classList.remove('opacity-50'); 
+                }
+            }
+            
+            const fb = document.getElementById('match-feedback');
+            fb.classList.remove('opacity-0');
+            
+            if(isCorrect) {
+                fb.classList.add('text-green-600');
+                fb.innerHTML = `<span>Spot on!</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            } else {
+                fb.classList.add('text-red-600');
+                fb.innerHTML = `<span>Not quite.</span><span class="text-sm text-slate-500 font-normal mt-1">${q.exp}</span>`;
+            }
+            
+            setTimeout(() => {
+                if (matchCurrent < matchPool.length - 1) {
+                    matchCurrent++;
+                    matchLoad();
+                } else {
+                    showMatchEnd();
+                }
+            }, 3500); 
+        }
+
+        function showMatchEnd() {
+            document.getElementById('match-question').innerHTML = `<i class="fa-solid fa-check-double text-6xl text-fuchsia-400 mb-4 block"></i> ${matchCorrects}/${matchPool.length}`;
+            
+            const btns = document.getElementById('match-options').children;
+            for(let btn of btns) {
+                btn.classList.add('hidden');
+            }
+
+            document.getElementById('match-feedback').className = 'h-16 mt-6 text-center font-bold text-xl flex items-center justify-center opacity-0';
+            document.getElementById('match-btn-reset').classList.remove('hidden');
+        }
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+        window.onload = function() {
+            setupGrammarToggles();
+        };
+
+    </script>
+</body>
+</html>
