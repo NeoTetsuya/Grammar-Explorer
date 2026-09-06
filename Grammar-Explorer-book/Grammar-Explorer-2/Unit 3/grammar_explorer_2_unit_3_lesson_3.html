@@ -11,9 +11,6 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #0b1329 0%, #1d2b4f 50%, #152238 100%);
-      min-height: 100vh;
-      color: #1e293b;
     }
     .font-serif {
       font-family: 'Playfair Display', Georgia, serif;
@@ -35,7 +32,7 @@
     @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-teal-500 selection:text-white">
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
 
   <!-- TOP APP HEADER -->
   <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
@@ -72,11 +69,11 @@
           <span>Quantity Words (pp. 76–77)</span>
         </button>
         <button onclick="switchExTab('tab-measurement')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-measurement">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5</span>
-          <span>Measurement Words (p. 77)</span>
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5, 6</span>
+          <span>Measurement Words (pp. 77–78)</span>
         </button>
         <button onclick="switchExTab('tab-practice')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-practice">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7–9</span>
           <span>Practice: Diets & Nutrition (pp. 78–80)</span>
         </button>
 
@@ -116,6 +113,7 @@
   </div>
 </div>
 <!-- End Audio Player [CD1-21] -->
+
 
 <!-- Manchester City FC Photo -->
 <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-900 group">
@@ -313,6 +311,64 @@
 </div>
 </div>
 </div>
+      <div class="max-w-4xl mx-auto space-y-6">
+  
+<!-- EXERCISE 6: COMPLETE WITH WORDS FROM THE BOX (PP. 77-78) -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l3-ex6">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">6</span>
+<div>
+<h3 class="font-bold text-slate-800 text-sm sm:text-base">Complete Sentences with Word Box</h3>
+<span class="text-[11px] text-slate-500 font-medium">Pages 77–78 • Quantity &amp; Measurement Phrases</span>
+</div>
+</div>
+<span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+</div>
+<!-- WORD BOX -->
+<div class="bg-slate-50 border border-slate-200 rounded-xl p-3 flex flex-wrap items-center justify-center gap-2 text-xs font-bold text-slate-700">
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">a bar</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">a bowl</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">a few</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">a jar</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">a lot of</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">a piece</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">any</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">much</span>
+<span class="px-2.5 py-1 bg-white rounded-lg border border-slate-200 shadow-2xs">some</span>
+</div>
+<div class="space-y-3 text-xs sm:text-sm">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">1.</span> A calorie is a measure of energy in food. High-sugar foods have 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-28 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="a lot of" placeholder="..." type="text"/> calories.
+        </div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">2.</span> We need to buy food with protein. How about a small 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-20 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="jar" placeholder="..." type="text"/> of peanut butter and a 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-20 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="few" placeholder="..." type="text"/> eggs?
+        </div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">3.</span> If you don’t want to eat 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-20 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="any" placeholder="..." type="text"/> grains, then you can’t eat that 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="bowl" placeholder="..." type="text"/> of cereal or that 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="piece" placeholder="..." type="text"/> of cake!
+        </div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">4.</span> There isn’t 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-20 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="much" placeholder="..." type="text"/> milk left. I’ll get 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-20 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="some" placeholder="..." type="text"/> later.
+        </div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">5.</span> I used to eat a big 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-20 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="bar" placeholder="..." type="text"/> of milk chocolate every day. Now I only eat a few pieces of dark chocolate occasionally.
+        </div>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-slate-100">
+<button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l3-ex6')">Check Answers</button>
+</div>
+</div>
+
+</div>
     </div>
     <div id="tab-practice" class="ex-tab-pane hidden space-y-6">
       <div class="max-w-4xl mx-auto space-y-6">
@@ -338,6 +394,136 @@
 <button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex7-l3-card')" type="button">Check Ex 7</button>
 </div>
 </div>
+</div>
+      <div class="max-w-4xl mx-auto space-y-6">
+  
+<!-- EXERCISE 8: LISTEN & COMPARE DIETS (P. 79) -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l3-ex8">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">8</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-slate-800 text-sm sm:text-base">LISTEN &amp; COMPARE. Diet Comparisons</h3>
+<span class="badge-cd">CD1-22</span>
+</div>
+<span class="text-[11px] text-slate-500 font-medium">Page 79 • Listening Comprehension</span>
+</div>
+</div>
+<span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600">Listen to three friends talk about their diets. Which kinds of food are OK to eat on each diet? Select <strong class="text-emerald-700">✓ (OK)</strong>, <strong class="text-rose-700">✗ (Not OK)</strong>, or <strong class="text-amber-700">? (Not sure)</strong>.</p>
+<div class="overflow-x-auto">
+<table class="w-full text-xs sm:text-sm text-left border-collapse">
+<thead>
+<tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+<th class="p-3">Diet Category</th>
+<th class="p-3 text-center">Low-Fat Diet</th>
+<th class="p-3 text-center">Vegetarian Diet</th>
+<th class="p-3 text-center">Vegan Diet</th>
+<th class="p-3 text-center">Paleo Diet</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="p-3 font-semibold text-slate-800">Vegetables</td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+</tr>
+<tr>
+<td class="p-3 font-semibold text-slate-800">Fruit</td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+</tr>
+<tr>
+<td class="p-3 font-semibold text-slate-800">Grain (rice, bread)</td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✗"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+</tr>
+<tr>
+<td class="p-3 font-semibold text-slate-800">Meat / Poultry / Fish</td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✗"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✗"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+</tr>
+<tr>
+<td class="p-3 font-semibold text-slate-800">Dairy (milk, cheese)</td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✗"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="?"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+</tr>
+<tr>
+<td class="p-3 font-semibold text-slate-800">Sugar / Sweets</td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✗"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✓"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+<td class="p-2 text-center"><select class="select-check text-xs font-bold px-2 py-1 rounded border border-slate-300" data-ans="✗"><option value="">-</option><option value="✓">✓</option><option value="✗">✗</option><option value="?">?</option></select></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-slate-100">
+<button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkSelectCard('card-l3-ex8')">Check Answers</button>
+</div>
+</div>
+
+</div>
+      <div class="max-w-4xl mx-auto space-y-6">
+  
+<!-- EXERCISE 9: EDIT - MY NEW FITNESS PROGRAM (P. 80) -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l3-ex9">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">9</span>
+<div>
+<h3 class="font-bold text-slate-800 text-sm sm:text-base">EDIT. My New Fitness Program</h3>
+<span class="text-[11px] text-slate-500 font-medium">Page 80 • Quantity &amp; Measurement Errors</span>
+</div>
+</div>
+<span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600">Read the paragraph about a fitness program. Find and correct seven more errors with quantity words and measurement words.</p>
+<div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 text-xs sm:text-sm leading-loose text-slate-800 space-y-3 font-serif">
+<h4 class="font-sans font-bold text-sm text-slate-900">My New Fitness Program</h4>
+<p>
+          I wasn’t always fit. I used to eat 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">many</span><span class="font-bold text-teal-700">a lot of</span> <span class="text-[10px] text-slate-400">(Example)</span></span> 
+          fast food, such as hamburgers and pizza, and I didn’t get 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">many</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-16" data-ans="much" placeholder="error" type="text"/></span> 
+          exercise. I wasn’t very happy. I wanted to lose 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">any</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-16" data-ans="some" placeholder="error" type="text"/></span> 
+          weight and feel fit and healthy.
+        </p>
+<p>
+          I didn’t want to go on a special diet. 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">Much</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-20" data-ans="Many,A lot of" placeholder="error" type="text"/></span> 
+          diets have a lot of rules, and I want to enjoy a 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">sheet</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-16" data-ans="slice" placeholder="error" type="text"/></span> 
+          of pizza or a 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">jar</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-20" data-ans="carton,bowl,dish,pint,cup" placeholder="error" type="text"/></span> 
+          of ice cream sometimes.
+        </p>
+<p>
+          Then, a 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">little</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-16" data-ans="few" placeholder="error" type="text"/></span> 
+          months ago, I found a great new fitness plan online. The plan lets me eat different kinds of food. I even have dessert a 
+          <span class="edit-pill font-sans"><span class="line-through text-rose-500 mr-1">little</span><input class="cloze-input input-clean px-1.5 py-0.5 text-xs border border-slate-300 rounded font-semibold w-16" data-ans="few" placeholder="error" type="text"/></span> 
+          times a week. I take a walk or ride my bike every morning. Now I’m fit and healthy, and I feel great!
+        </p>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-slate-100">
+<button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l3-ex9')">Check Answers</button>
+</div>
+</div>
+
 </div>
     </div>
 
@@ -610,7 +796,7 @@
     if (essayBox && wordCountDisplay) {
       essayBox.addEventListener('input', () => {
         const text = essayBox.value.trim();
-        const count = text ? text.split(/\s+/).length : 0;
+        const count = text ? text.split(/\\s+/).length : 0;
         wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
       });
     }

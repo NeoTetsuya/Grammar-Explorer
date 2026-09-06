@@ -11,9 +11,6 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #0b1329 0%, #1d2b4f 50%, #152238 100%);
-      min-height: 100vh;
-      color: #1e293b;
     }
     .font-serif {
       font-family: 'Playfair Display', Georgia, serif;
@@ -35,7 +32,7 @@
     @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
   </style>
 </head>
-<body class="bg-slate-900 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-teal-500 selection:text-white">
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
 
   <!-- TOP APP HEADER -->
   <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
@@ -80,8 +77,8 @@
           <span>Possessive Nouns (p. 63)</span>
         </button>
         <button onclick="switchExTab('tab-another-other')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-another-other">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
-          <span>Another / Other (p. 64)</span>
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9–13</span>
+          <span>Another / Other (pp. 64–66)</span>
         </button>
         <button onclick="switchExTab('tab-pronunciation')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-pronunciation">
           <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">12</span>
@@ -249,6 +246,7 @@
   </div>
 </div>
 <!-- End Audio Player [CD1-16] -->
+
 
 <!-- Reading Body -->
 <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
@@ -503,6 +501,211 @@
 </div>
 </div>
 </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-6">
+    <!-- EXERCISE 10: ONE OR ONES (PP. 64-65) -->
+    <div id="card-l1-ex10" class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">10</span>
+          <div>
+            <h3 class="font-bold text-slate-800 text-sm sm:text-base">Complete with one or ones</h3>
+            <span class="text-[11px] text-slate-500 font-medium">Pages 64–65 • Singular & Plural Substitutes</span>
+          </div>
+        </div>
+        <span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-600">Complete each sentence with <strong class="text-teal-700">one</strong> or <strong class="text-teal-700">ones</strong>.</p>
+      
+      <div class="space-y-3 text-xs sm:text-sm">
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">1.</span> Leyla takes one vitamin every morning and another <span class="font-bold text-teal-700 underline">one</span> at night. <span class="text-[10px] text-slate-400 font-semibold">(Example)</span>
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">2.</span> There are three hospitals in my city. One is near my apartment. The other 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> are downtown.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">3.</span> Brett doesn’t like his doctor. He wants to find another 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="...">.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">4.</span> I missed my doctor’s appointment this morning, so I made another 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..."> for next week.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">5.</span> A few of the articles in that health magazine are about nutrition. The other 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> are about exercise.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">6.</span> Dan has two appointments next week. One is on Monday. The other 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..."> is on Thursday.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">7.</span> I prefer these eyeglasses. The other 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> aren’t very attractive.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">8.</span> Use this elevator. The other 
+          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> are broken.
+        </div>
+      </div>
+
+      <div class="pt-2 flex items-center justify-between border-t border-slate-100">
+        <button onclick="checkClozeCard('card-l1-ex10')" class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition">Check Answers</button>
+      </div>
+    </div>
+    </div>
+        <div class="lg:col-span-6">
+    <!-- EXERCISE 11: CHOOSE THE CORRECT WORD (P. 65) -->
+    <div id="card-l1-ex11" class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div class="flex items-center gap-2.5">
+          <span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">11</span>
+          <div>
+            <h3 class="font-bold text-slate-800 text-sm sm:text-base">Choose the Correct Word</h3>
+            <span class="text-[11px] text-slate-500 font-medium">Page 65 • Noun Forms & Possessives</span>
+          </div>
+        </div>
+        <span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-600">Select the correct word to complete each sentence.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">1.</span> The 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="doctor’s">
+            <option value="">Select...</option>
+            <option value="doctor’s">doctor’s</option>
+            <option value="doctors">doctors</option>
+          </select> schedule is very full this week.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">2.</span> My 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="baby’s">
+            <option value="">Select...</option>
+            <option value="babies">babies</option>
+            <option value="baby’s">baby’s</option>
+          </select> health is very important to me.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">3.</span> Doctor Chen has a lot of 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="patients">
+            <option value="">Select...</option>
+            <option value="patients">patients</option>
+            <option value="patient’s">patient’s</option>
+          </select>.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">4.</span> The hospital lost the 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="man’s">
+            <option value="">Select...</option>
+            <option value="men">men</option>
+            <option value="man’s">man’s</option>
+          </select> x-rays.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">5.</span> The 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="teachers">
+            <option value="">Select...</option>
+            <option value="teacher’s">teacher’s</option>
+            <option value="teachers">teachers</option>
+          </select> are having a meeting today.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">6.</span> Some 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="people">
+            <option value="">Select...</option>
+            <option value="person">person</option>
+            <option value="people">people</option>
+          </select> watch a lot of TV.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">7.</span> The 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="children’s">
+            <option value="">Select...</option>
+            <option value="child’s">child’s</option>
+            <option value="children’s">children’s</option>
+          </select> father took them to the park.
+        </div>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+          <span class="font-bold text-slate-400 mr-1.5">8.</span> That building is over 1000 
+          <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="feet">
+            <option value="">Select...</option>
+            <option value="foot">foot</option>
+            <option value="feet">feet</option>
+          </select> high.
+        </div>
+      </div>
+
+      <div class="pt-2 flex items-center justify-between border-t border-slate-100">
+        <button onclick="checkSelectCard('card-l1-ex11')" class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition">Check Answers</button>
+      </div>
+    </div>
+    </div>
+      </div>
+      <div class="max-w-4xl mx-auto space-y-6">
+  
+<!-- EXERCISE 13: SITUATIONS WITH ANOTHER / OTHER / THE OTHER (P. 66) -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l1-ex13">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">13</span>
+<div>
+<h3 class="font-bold text-slate-800 text-sm sm:text-base">Situations: Another, The Other, or Other</h3>
+<span class="text-[11px] text-slate-500 font-medium">Page 66 • Completing Situational Sentences</span>
+</div>
+</div>
+<span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600">Read each situation and complete the sentence about it. Use <strong class="text-teal-700">another</strong>, <strong class="text-teal-700">the other</strong>, or <strong class="text-teal-700">other</strong> and the noun in parentheses.</p>
+<div class="space-y-3 text-xs sm:text-sm">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: Your father saw one of his two doctors last week.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">1.</span> He saw <span class="font-bold text-teal-700 underline">the other doctor</span> (doctor) this morning. <span class="text-[10px] text-slate-400 font-semibold">(Example)</span></div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: My bottle of vitamins is almost empty.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">2.</span> I need to buy 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-56 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another bottle of vitamins" placeholder="another bottle of vitamins" type="text"/> (bottle of vitamins) soon.</div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: You bought six oranges. Four of them were sweet and delicious.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">3.</span>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-44 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="The other oranges,Other oranges" placeholder="The other oranges" type="text"/> (oranges) were sour.</div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: Emma found three errors on her homework assignment. Then, she found one more.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">4.</span> Emma just found 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another error" placeholder="another error" type="text"/> (error) on her homework assignment.</div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: I invited ten people to my party. Seven people came.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">5.</span>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="The other people,Other people" placeholder="The other people" type="text"/> (people) did not come.</div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: Carol is a nurse. She doesn’t have the same schedule every week. Some weeks she works during the day.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">6.</span>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-36 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="Other weeks" placeholder="Other weeks" type="text"/> (weeks) she works at night or on the weekends.</div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: My coat is old, and it’s not very warm.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">7.</span> I need 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-36 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another coat" placeholder="another coat" type="text"/> (coat).</div>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: The students at my school study different things. Some students are studying science.</div>
+<div><span class="font-bold text-slate-400 mr-1.5">8.</span>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="Other students" placeholder="Other students" type="text"/> (students) are studying history, math, or languages.</div>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-slate-100">
+<button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l1-ex13')">Check Answers</button>
+</div>
+</div>
+
+</div>
     </div>
     <div id="tab-pronunciation" class="ex-tab-pane hidden space-y-6">
       <div class="max-w-4xl mx-auto space-y-6">
@@ -515,7 +718,7 @@
                 </h4>
 <p class="text-xs text-slate-500">Listen and circle final sound: /s/, /z/, or /ez/</p>
 </div>
-<span class="badge-cd">CD1-18</span>
+<span class="badge-cd mr-1">CD1-17</span><span class="badge-cd">CD1-18</span>
 </div>
 <!-- Audio Player [CD1-18] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-18">
@@ -524,6 +727,7 @@
   </div>
 </div>
 <!-- End Audio Player [CD1-18] -->
+
 
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>1. nurses:</span><select class="select-check border rounded p-1 text-xs input-clean" data-ans="/ez/"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
@@ -842,7 +1046,7 @@
     if (essayBox && wordCountDisplay) {
       essayBox.addEventListener('input', () => {
         const text = essayBox.value.trim();
-        const count = text ? text.split(/\s+/).length : 0;
+        const count = text ? text.split(/\\s+/).length : 0;
         wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
       });
     }
