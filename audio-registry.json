@@ -494,23 +494,23 @@
   "CD1-20": {
     "trackId": "CD1-20",
     "title": "Health Benefits of Superfoods",
-    "driveLink": "",
-    "directUrl": "",
+    "driveLink": "https://drive.google.com/open?id=1wVYnYJx2KCVzCwUHY4DQqhJp09eGGqE-&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1wVYnYJx2KCVzCwUHY4DQqhJp09eGGqE-",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_2.html"
     ],
-    "hasPlayer": false
+    "hasPlayer": true
   },
   "CD1-22": {
     "trackId": "CD1-22",
     "title": "Diet Comparisons (Caveman / Paleo Diet)",
-    "driveLink": "",
-    "directUrl": "",
+    "driveLink": "https://drive.google.com/open?id=1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_3.html"
     ],
-    "hasPlayer": false
+    "hasPlayer": true
   }
 }
