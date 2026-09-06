@@ -285,7 +285,7 @@ function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
     const escapedTrack = trackId.replace(/[-]/g, '[-_\\s]*');
     const badgeRegex = /<(?:span|div)[^>]*class="[^"]*badge-cd[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div)>/gi;
     
-    const matches = [];
+    const rawMatches = [];
     let m;
     while ((m = badgeRegex.exec(content)) !== null) {
       const badgeText = m[1].replace(/<[^>]+>/g, '').trim();
@@ -294,11 +294,18 @@ function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
       if (!hasTrack) continue;
       if (isOverviewBadge(content, m.index, badgeText)) continue;
 
+      const snippet = content.slice(Math.max(0, m.index - 500), m.index);
+      const isTabHeader = snippet.includes('<h2') && !snippet.includes('<h3') && !snippet.includes('<h4');
+
       const badgeEnd = m.index + m[0].length;
       const nextDivEnd = content.indexOf('</div>', badgeEnd);
       const insertPos = (nextDivEnd !== -1) ? (nextDivEnd + '</div>'.length) : badgeEnd;
-      matches.push({ pos: insertPos, text: badgeText });
+      rawMatches.push({ pos: insertPos, text: badgeText, isTabHeader });
     }
+
+    // Prefer card-level badges (inside exercise/reading cards) over top tab header banners to avoid duplicate players
+    const hasCardBadges = rawMatches.some(b => !b.isTabHeader);
+    const matches = hasCardBadges ? rawMatches.filter(b => !b.isTabHeader) : rawMatches;
 
     if (matches.length > 0) {
       // Sort descending by position so insertions don't alter earlier indexes
