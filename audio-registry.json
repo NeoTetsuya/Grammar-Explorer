@@ -101,13 +101,13 @@
   "CD1-11": {
     "trackId": "CD1-11",
     "title": "Surviving an Avalanche",
-    "driveLink": "",
-    "directUrl": "",
+    "driveLink": "https://drive.google.com/open?id=1FCO6aX7-i1A6iILbKtVfsqAoPFbhy7YW&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1FCO6aX7-i1A6iILbKtVfsqAoPFbhy7YW",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 2/GE2 - U2.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 2/grammar_explorer_2_unit_2_lesson_3.html"
     ],
-    "hasPlayer": false
+    "hasPlayer": true
   },
   "CD1-12": {
     "trackId": "CD1-12",
