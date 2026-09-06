@@ -20,6 +20,8 @@ Grammar-Explorer/
 ├── index.html                      # Master Hub & Curriculum Directory
 ├── auto-sort.js / auto-sort.bat    # Automated Sorter & Unit Organizer
 ├── update-index.js / update-index.bat # Automated Index & Catalog Synchronizer
+├── manage-audio.js / manage-audio.bat # Audio Track Identifier & Drive Integrator
+├── audio-registry.json             # Centralized Audio Track Registry
 ├── Grammar Explorer 1/             # Level 1 Foundation Units
 ├── Grammar Explorer 2/             # Level 2 Intermediate Units
 ├── Grammar Explorer 3/             # Level 3 Advanced Units
@@ -46,6 +48,17 @@ Grammar-Explorer/
   - `update-index.bat` or `node update-index.js`
   - Crawls all curriculum directories, extracts lesson titles, tags, and topics, creates an automated pre-execution backup in `_backups/`, and synchronizes the searchable `masterCatalog` in `index.html`.
   - Supports `--dry-run` to preview catalog items.
+
+- **Audio Track Manager & Google Drive Integrator**:
+  - `manage-audio.bat` or `node manage-audio.js`
+  - Scans lesson files to identify all CD audio tracks (`CD1-02`, `CD1-03`, etc.).
+  - Converts standard Google Drive sharing links to direct streaming audio URLs.
+  - Automatically injects, updates, or removes HTML5 audio player widgets in lesson files.
+  - Commands:
+    - `node manage-audio.js --list` : View all 46 tracks and link status
+    - `node manage-audio.js --add <TRACK_ID> "<DRIVE_URL>"` : Attach Drive link and inject player
+    - `node manage-audio.js --apply` : Bulk inject all configured audio tracks from `audio-registry.json`
+    - `node manage-audio.js --remove <TRACK_ID>` : Safely remove player from files
 
 ---
 
