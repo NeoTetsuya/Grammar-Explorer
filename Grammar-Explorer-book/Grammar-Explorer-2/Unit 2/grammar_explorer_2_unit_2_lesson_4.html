@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Explorer 2 — Unit 2: Lesson 4 (Repeated Past Actions: Used To and Would)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grammar Explorer 2 — Unit 2: Lesson 4 (Repeated Past Actions: Used To and Would)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -20,7 +21,7 @@
       }
     }
   </script>
-  <style>
+<style>
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #f5f3ff; }
     ::-webkit-scrollbar-thumb { background: #ddd6fe; border-radius: 9999px; }
@@ -38,86 +39,79 @@
   </style>
 </head>
 <body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-purple-100 selection:text-purple-900">
-
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-8 bg-purple-500 rounded-sm shadow-sm"></div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-purple-400 uppercase">National Geographic Learning</span>
-              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 4</span>
-            </div>
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+<header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-3">
+<div class="w-2.5 h-8 bg-purple-500 rounded-sm shadow-sm"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] sm:text-xs font-bold tracking-widest text-purple-400 uppercase">National Geographic Learning</span>
+<span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 4</span>
+</div>
+<h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
               Unit 2: Survival <span class="text-slate-500 font-light">|</span> <span class="text-purple-400">Lesson 4: Used To and Would</span>
-            </h1>
-          </div>
-        </div>
-
-        <button onclick="resetLesson4()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-purple-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Lesson</span>
-        </button>
-      </div>
-
-      <!-- EXERCISE TAB NAVIGATION -->
-      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-purple-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
-          <span class="w-5 h-5 rounded-full bg-purple-500 text-white flex items-center justify-center text-[10px] font-bold">1–3</span>
-          <span>Explore: Parthenon Marbles (pp. 46–47)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex4')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
-          <span>Ex 4: Used To Statements (p. 48)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex5')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex5">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5–6</span>
-          <span>Ex 5–6: Used To Questions (p. 49)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex7')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
-          <span>Ex 7: Repeated Actions with Would (p. 50)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex8')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
-          <span>Ex 8: The Alpine Iceman (p. 51)</span>
-        </button>
-        <button onclick="switchExTab('tab-apply')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-apply">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
-          <span>Ex 9 & Apply: 5,000 Years Ago (p. 52)</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 1: EXPLORE (Reading & Exercises 2–3, Pages 46–47) -->
-    <!-- ============================================================ -->
-    <div id="tab-explore" class="ex-tab-pane block space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Explore • Pages 46–47</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Who Owns the Past?</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Split-view: dialogue at the British Museum on the left, True/False & Single vs. Repeated actions on the right</p>
-        </div>
-        <span class="badge-cd">Track CD1-13</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
-        <!-- LEFT PANE: Sticky Reading -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div>
-              <span class="text-xs font-semibold px-2 py-0.5 bg-purple-100 text-purple-800 rounded">1. READ</span>
-              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Who Owns the Past?</h3>
-              <p class="text-xs text-slate-500">British Museum, London: The Parthenon Marbles</p>
-            </div>
-            <span class="badge-cd">CD1-13</span>
-          </div>
+</h1>
+</div>
+</div>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-purple-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm" onclick="resetLesson4()">
+<svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset Lesson</span>
+</button>
+</div>
+<!-- EXERCISE TAB NAVIGATION -->
+<nav aria-label="Exercise Tabs" class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800">
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-purple-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore" onclick="switchExTab('tab-explore')">
+<span class="w-5 h-5 rounded-full bg-purple-500 text-white flex items-center justify-center text-[10px] font-bold">1–3</span>
+<span>Explore: Parthenon Marbles (pp. 46–47)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4" onclick="switchExTab('tab-ex4')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+<span>Ex 4: Used To Statements (p. 48)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex5" onclick="switchExTab('tab-ex5')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5–6</span>
+<span>Ex 5–6: Used To Questions (p. 49)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7" onclick="switchExTab('tab-ex7')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
+<span>Ex 7: Repeated Actions with Would (p. 50)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8" onclick="switchExTab('tab-ex8')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
+<span>Ex 8: The Alpine Iceman (p. 51)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-apply" onclick="switchExTab('tab-apply')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
+<span>Ex 9 &amp; Apply: 5,000 Years Ago (p. 52)</span>
+</button>
+</nav>
+</div>
+</header>
+<main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+<!-- ============================================================ -->
+<!-- TAB PANE 1: EXPLORE (Reading & Exercises 2–3, Pages 46–47) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane block space-y-6" id="tab-explore">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-purple-600">Explore • Pages 46–47</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Who Owns the Past?</h2>
+<p class="text-xs text-slate-500 mt-0.5">Split-view: dialogue at the British Museum on the left, True/False &amp; Single vs. Repeated actions on the right</p>
+</div>
+<span class="badge-cd">Track CD1-13</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Sticky Reading -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div>
+<span class="text-xs font-semibold px-2 py-0.5 bg-purple-100 text-purple-800 rounded">1. READ</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Who Owns the Past?</h3>
+<p class="text-xs text-slate-500">British Museum, London: The Parthenon Marbles</p>
+</div>
+<span class="badge-cd">CD1-13</span>
+</div>
 <!-- Audio Player [CD1-13] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-13">
   <div style="width: calc(100% + 56px); margin-right: -56px;">
@@ -126,507 +120,466 @@
 </div>
 <!-- End Audio Player [CD1-13] -->
 
-          <div class="flex justify-center my-3">
-            <div class="w-full max-w-[320px] sm:max-w-[380px] aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
-              <img 
-                src="https://media.newyorker.com/photos/5dd44dfbac14140008e0f90b/master/w_2560%2Cc_limit/Norris-ParthenonMarbles-1.jpg" 
-                alt="Parthenon Sculptures at the British Museum" 
-                class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/700x440/581c87/f3e8ff?text=Parthenon+Marbles+%E2%80%A2+British+Museum';"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
-                <span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Parthenon Statues • Acropolis, Athens</span>
-                <span class="text-purple-300 font-mono text-[10px]">pp. 46–47</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
-            <p><strong>Cho:</strong> These statues are beautiful. Where are they from?</p>
-            <p><strong>Noriko:</strong> They’re from Athens, Greece. I think they <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">used to be</strong> a part of the Parthenon.</p>
-            <p><strong>Cho:</strong> Well, it’s wonderful to see them, but why are they here in London? They should be back in Greece with the rest of the Parthenon.</p>
-            <p><strong>Noriko:</strong> A lot of people agree with you. Lord Elgin, a British diplomat,¹ brought these statues to London in the early nineteenth century.</p>
-            <p><strong>Cho:</strong> You mean he just took them?</p>
-            <p><strong>Noriko:</strong> Well, I don’t know. I’m not sure what really happened. Back then archaeologists² <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">used to do</strong> things like that. They <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">would explore</strong> a historic site and bring objects from the site back to their home countries. Then, they <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">would study</strong> them and put them on display in museums. Sometimes, that’s the only reason treasures like these survived.</p>
-            <p><strong>Cho:</strong> But didn’t the Greek people try to stop Lord Elgin?</p>
-            <p><strong>Noriko:</strong> Sure, there were a lot of complaints. Was it right or wrong to take these statues? It’s a difficult question. I love to visit museums and see things from around the world and learn about them.</p>
-            <p><strong>Cho:</strong> Hmm . . . I understand what you’re saying, but it still seems wrong to me, somehow.</p>
-          </div>
-
-          <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
-            <p><strong>¹ diplomat:</strong> a person who acts as the official representative of his or her country in a foreign country</p>
-            <p><strong>² archaeologist:</strong> a person who studies the past by looking at items such as buried houses, tools, pots, etc.</p>
-          </div>
-        </div>
-
-        <!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
-        <div class="lg:col-span-6 space-y-5">
-          <!-- Exercise 2: CHECK True / False -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l4-card">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+<div class="flex justify-center my-3">
+<div class="w-full max-w-[320px] sm:max-w-[380px] aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
+<img alt="Parthenon Sculptures at the British Museum" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/700x440/581c87/f3e8ff?text=Parthenon+Marbles+%E2%80%A2+British+Museum';" src="https://media.newyorker.com/photos/5dd44dfbac14140008e0f90b/master/w_2560%2Cc_limit/Norris-ParthenonMarbles-1.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
+<span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Parthenon Statues • Acropolis, Athens</span>
+<span class="text-purple-300 font-mono text-[10px]">pp. 46–47</span>
+</div>
+</div>
+</div>
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+<p><strong>Cho:</strong> These statues are beautiful. Where are they from?</p>
+<p><strong>Noriko:</strong> They’re from Athens, Greece. I think they <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">used to be</strong> a part of the Parthenon.</p>
+<p><strong>Cho:</strong> Well, it’s wonderful to see them, but why are they here in London? They should be back in Greece with the rest of the Parthenon.</p>
+<p><strong>Noriko:</strong> A lot of people agree with you. Lord Elgin, a British diplomat,¹ brought these statues to London in the early nineteenth century.</p>
+<p><strong>Cho:</strong> You mean he just took them?</p>
+<p><strong>Noriko:</strong> Well, I don’t know. I’m not sure what really happened. Back then archaeologists² <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">used to do</strong> things like that. They <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">would explore</strong> a historic site and bring objects from the site back to their home countries. Then, they <strong class="text-slate-900 bg-purple-50 px-1 rounded font-sans">would study</strong> them and put them on display in museums. Sometimes, that’s the only reason treasures like these survived.</p>
+<p><strong>Cho:</strong> But didn’t the Greek people try to stop Lord Elgin?</p>
+<p><strong>Noriko:</strong> Sure, there were a lot of complaints. Was it right or wrong to take these statues? It’s a difficult question. I love to visit museums and see things from around the world and learn about them.</p>
+<p><strong>Cho:</strong> Hmm . . . I understand what you’re saying, but it still seems wrong to me, somehow.</p>
+</div>
+<div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+<p><strong>¹ diplomat:</strong> a person who acts as the official representative of his or her country in a foreign country</p>
+<p><strong>² archaeologist:</strong> a person who studies the past by looking at items such as buried houses, tools, pots, etc.</p>
+</div>
+</div>
+<!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
+<div class="lg:col-span-6 space-y-5">
+<!-- Exercise 2: CHECK True / False -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l4-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
                 CHECK. True or False? (Page 47)
               </h4>
-              <span class="text-xs text-slate-400">Based on "Who Owns the Past?"</span>
-            </div>
-            <p class="text-xs text-slate-500">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then click Check Answers:</p>
-
-            <div class="space-y-2.5">
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
-                <span class="text-slate-700">1. The statues are from Italy.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
-                <span class="text-slate-700">2. The statues came to England in the 20th century.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
-                <span class="text-slate-700">3. Cho thinks the statues should go back to Greece.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
-                <span class="text-slate-700">4. In the past, it was not unusual for archaeologists to bring discoveries home.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
-                <span class="text-slate-700">5. Cho and Noriko agree about the future of the statues.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkTFCard('ex2-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
-            </div>
-          </div>
-
-          <!-- Exercise 3: DISCOVER Single vs Repeated Action -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l4-card">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+<span class="text-xs text-slate-400">Based on "Who Owns the Past?"</span>
+</div>
+<p class="text-xs text-slate-500">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then click Check Answers:</p>
+<div class="space-y-2.5">
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+<span class="text-slate-700">1. The statues are from Italy.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+<span class="text-slate-700">2. The statues came to England in the 20th century.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+<span class="text-slate-700">3. Cho thinks the statues should go back to Greece.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+<span class="text-slate-700">4. In the past, it was not unusual for archaeologists to bring discoveries home.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+<span class="text-slate-700">5. Cho and Noriko agree about the future of the statues.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkTFCard('ex2-l4-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+<!-- Exercise 3: DISCOVER Single vs Repeated Action -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l4-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
               DISCOVER. Single Action vs Repeated Action (Page 47)
             </h4>
-            <p class="text-xs text-slate-500">Decide whether the bold verb in each sentence refers to a <strong>Single action (S)</strong> or a <strong>Repeated action (R)</strong>:</p>
-
-            <div class="space-y-2.5 text-xs">
-              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                <span>1. Lord Elgin . . . <strong>brought</strong> these statues to London in the early 19th century.</span>
-                <select data-ans="S" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                  <option value="">Select form</option>
-                  <option value="S">S (Single action)</option>
-                  <option value="R">R (Repeated action)</option>
-                </select>
-              </div>
-
-              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                <span>2. You mean he just <strong>took</strong> them?</span>
-                <select data-ans="S" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                  <option value="">Select form</option>
-                  <option value="S">S (Single action)</option>
-                  <option value="R">R (Repeated action)</option>
-                </select>
-              </div>
-
-              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                <span>3. Back then archaeologists <strong>used to do</strong> things like that.</span>
-                <select data-ans="R" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                  <option value="">Select form</option>
-                  <option value="S">S (Single action)</option>
-                  <option value="R">R (Repeated action)</option>
-                </select>
-              </div>
-
-              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                <span>4. They <strong>would explore</strong> a historic site and bring objects back...</span>
-                <select data-ans="R" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                  <option value="">Select form</option>
-                  <option value="S">S (Single action)</option>
-                  <option value="R">R (Repeated action)</option>
-                </select>
-              </div>
-
-              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                <span>5. Then, they <strong>would study</strong> them and put them on display in museums.</span>
-                <select data-ans="R" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                  <option value="">Select form</option>
-                  <option value="S">S (Single action)</option>
-                  <option value="R">R (Repeated action)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkSelectCard('ex3-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-end pt-2">
-            <button type="button" onclick="switchExTab('tab-ex4')" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 4 (Used To Statements)</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 2: CHART 2.7 & EXERCISE 4 (Page 48) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex4" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Learn & Practice • Page 48</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.7 & Exercise 4: Used To Statements</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Expressing past habits or states that no longer exist; forming negatives with didn't use to</p>
-        </div>
-        <span class="badge-cd">Chart 2.7</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.7 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.7 Used To: Affirmative & Negative</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 48</span>
-          </div>
-
-          <div class="space-y-3 text-xs">
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-              <strong class="text-slate-800 block">Affirmative (used to + base form):</strong>
-              <p>• I / She / They <strong>used to study</strong> history.</p>
-              <p class="text-slate-500 italic text-[11px]">Meaning: In the past, but not anymore.</p>
-            </div>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-              <strong class="text-slate-800 block">Negative (didn't use to + base form):</strong>
-              <p>• I / She / They <strong>didn't use to study</strong> math.</p>
-              <p class="text-slate-500 italic text-[11px]">Meaning: Did not happen in the past, but happens now.</p>
-            </div>
-            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-950 space-y-1">
-              <strong class="text-amber-900 block">Spelling Guardrail:</strong>
-              <p>In negative statements, write <strong>didn’t use to</strong> without the final <em>d</em>.</p>
-              <p class="text-emerald-800">✓ <em>I didn't use to love math.</em></p>
-              <p class="text-rose-700">✗ <em>I didn't used to love math.</em></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Exercise 4: Rewrite Sentences (All 8 items) -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l4-card">
-          <div class="flex items-center justify-between">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+<p class="text-xs text-slate-500">Decide whether the bold verb in each sentence refers to a <strong>Single action (S)</strong> or a <strong>Repeated action (R)</strong>:</p>
+<div class="space-y-2.5 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>1. Lord Elgin . . . <strong>brought</strong> these statues to London in the early 19th century.</span>
+<select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="S">
+<option value="">Select form</option>
+<option value="S">S (Single action)</option>
+<option value="R">R (Repeated action)</option>
+</select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>2. You mean he just <strong>took</strong> them?</span>
+<select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="S">
+<option value="">Select form</option>
+<option value="S">S (Single action)</option>
+<option value="R">R (Repeated action)</option>
+</select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>3. Back then archaeologists <strong>used to do</strong> things like that.</span>
+<select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="R">
+<option value="">Select form</option>
+<option value="S">S (Single action)</option>
+<option value="R">R (Repeated action)</option>
+</select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>4. They <strong>would explore</strong> a historic site and bring objects back...</span>
+<select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="R">
+<option value="">Select form</option>
+<option value="S">S (Single action)</option>
+<option value="R">R (Repeated action)</option>
+</select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>5. Then, they <strong>would study</strong> them and put them on display in museums.</span>
+<select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="R">
+<option value="">Select form</option>
+<option value="S">S (Single action)</option>
+<option value="R">R (Repeated action)</option>
+</select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex3-l4-card')" type="button">Check Ex 3</button>
+</div>
+</div>
+<div class="flex items-center justify-end pt-2">
+<button class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex4')" type="button">
+<span>Next: Ex 4 (Used To Statements)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 2: CHART 2.7 & EXERCISE 4 (Page 48) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex4">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-purple-600">Learn &amp; Practice • Page 48</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.7 &amp; Exercise 4: Used To Statements</h2>
+<p class="text-xs text-slate-500 mt-0.5">Expressing past habits or states that no longer exist; forming negatives with didn't use to</p>
+</div>
+<span class="badge-cd">Chart 2.7</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.7 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.7 Used To: Affirmative &amp; Negative</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 48</span>
+</div>
+<div class="space-y-3 text-xs">
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+<strong class="text-slate-800 block">Affirmative (used to + base form):</strong>
+<p>• I / She / They <strong>used to study</strong> history.</p>
+<p class="text-slate-500 italic text-[11px]">Meaning: In the past, but not anymore.</p>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+<strong class="text-slate-800 block">Negative (didn't use to + base form):</strong>
+<p>• I / She / They <strong>didn't use to study</strong> math.</p>
+<p class="text-slate-500 italic text-[11px]">Meaning: Did not happen in the past, but happens now.</p>
+</div>
+<div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-950 space-y-1">
+<strong class="text-amber-900 block">Spelling Guardrail:</strong>
+<p>In negative statements, write <strong>didn’t use to</strong> without the final <em>d</em>.</p>
+<p class="text-emerald-800">✓ <em>I didn't use to love math.</em></p>
+<p class="text-rose-700">✗ <em>I didn't used to love math.</em></p>
+</div>
+</div>
+</div>
+<!-- Exercise 4: Rewrite Sentences (All 8 items) -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l4-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
               Rewrite with Used To / Didn’t Use To (Page 48)
             </h4>
-            <span class="text-xs text-slate-400">Items 1–8</span>
-          </div>
-          <p class="text-xs text-slate-500">Rewrite each sentence with <strong>used to</strong> or <strong>didn’t use to</strong> and the verb in bold:</p>
-
-          <div class="space-y-2.5 text-xs sm:text-sm">
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">1. Archaeologists <strong>removed</strong> objects from historic sites.</div>
-              <input type="text" data-ans="Archaeologists used to remove objects from historic sites.,Archaeologists used to remove objects from historic sites" value="Archaeologists used to remove objects from historic sites." readonly class="border rounded px-2.5 py-1 text-xs w-full bg-slate-200 font-semibold text-slate-700">
+<span class="text-xs text-slate-400">Items 1–8</span>
+</div>
+<p class="text-xs text-slate-500">Rewrite each sentence with <strong>used to</strong> or <strong>didn’t use to</strong> and the verb in bold:</p>
+<div class="space-y-2.5 text-xs sm:text-sm">
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">1. Archaeologists <strong>removed</strong> objects from historic sites.</div>
+<input class="border rounded px-2.5 py-1 text-xs w-full bg-slate-200 font-semibold text-slate-700" data-ans="Archaeologists used to remove objects from historic sites.,Archaeologists used to remove objects from historic sites" readonly="" type="text" value="Archaeologists used to remove objects from historic sites."/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">2. I <strong>went</strong> to museums every weekend when I lived in Berlin.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="I used to go to museums every weekend when I lived in Berlin.,I used to go to museums every weekend when I lived in Berlin" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">3. My cousin lived across the street, but I <strong>didn’t see</strong> him much.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="My cousin lived across the street, but I didn't use to see him much.,My cousin lived across the street, but I didn't use to see him much,My cousin lived across the street, but I did not use to see him much" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">4. Jim <strong>didn’t like</strong> math when he was in school.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="Jim didn't use to like math when he was in school.,Jim did not use to like math when he was in school.,Jim didn't use to like math when he was in school" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">5. There <strong>was</strong> a supermarket near my home until last year.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="There used to be a supermarket near my home until last year.,There used to be a supermarket near my home until last year" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">6. Carole <strong>played</strong> in a band in college.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="Carole used to play in a band in college.,Carole used to play in a band in college" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">7. I <strong>didn’t drive</strong> much when I lived downtown.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="I didn't use to drive much when I lived downtown.,I did not use to drive much when I lived downtown.,I didn't use to drive much when I lived downtown" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="text-slate-700">8. Mike <strong>worked</strong> in a bank before he got his new job.</div>
+<input class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" data-ans="Mike used to work in a bank before he got his new job.,Mike used to work in a bank before he got his new job" placeholder="Type rewritten sentence..." type="text"/>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-explore')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Explore</span>
+</button>
+<button class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex4-l4-card')" type="button">Check Ex 4</button>
+<button class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex5')" type="button">
+<span>Next: Ex 5–6</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 3: CHART 2.8 & EXERCISES 5–6 (Page 49) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex5">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-purple-600">Learn &amp; Practice • Page 49</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.8 &amp; Exercises 5–6: Used To Questions</h2>
+<p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions with used to</p>
+</div>
+<span class="badge-cd">Chart 2.8</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.8 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.8 Used To: Questions &amp; Answers</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 49</span>
+</div>
+<div class="space-y-2.5 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+<strong>Yes / No:</strong> <em>Did he use to get good grades?</em> → Yes, he did. / No, he didn't.
             </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">2. I <strong>went</strong> to museums every weekend when I lived in Berlin.</div>
-              <input type="text" data-ans="I used to go to museums every weekend when I lived in Berlin.,I used to go to museums every weekend when I lived in Berlin" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
+<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+<strong>Wh- Object:</strong> <em>Where did she use to live?</em> → In Mexico.
             </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">3. My cousin lived across the street, but I <strong>didn’t see</strong> him much.</div>
-              <input type="text" data-ans="My cousin lived across the street, but I didn't use to see him much.,My cousin lived across the street, but I didn't use to see him much,My cousin lived across the street, but I did not use to see him much" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
-            </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">4. Jim <strong>didn’t like</strong> math when he was in school.</div>
-              <input type="text" data-ans="Jim didn't use to like math when he was in school.,Jim did not use to like math when he was in school.,Jim didn't use to like math when he was in school" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
-            </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">5. There <strong>was</strong> a supermarket near my home until last year.</div>
-              <input type="text" data-ans="There used to be a supermarket near my home until last year.,There used to be a supermarket near my home until last year" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
-            </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">6. Carole <strong>played</strong> in a band in college.</div>
-              <input type="text" data-ans="Carole used to play in a band in college.,Carole used to play in a band in college" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
-            </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">7. I <strong>didn’t drive</strong> much when I lived downtown.</div>
-              <input type="text" data-ans="I didn't use to drive much when I lived downtown.,I did not use to drive much when I lived downtown.,I didn't use to drive much when I lived downtown" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
-            </div>
-
-            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
-              <div class="text-slate-700">8. Mike <strong>worked</strong> in a bank before he got his new job.</div>
-              <input type="text" data-ans="Mike used to work in a bank before he got his new job.,Mike used to work in a bank before he got his new job" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-full input-clean font-semibold" placeholder="Type rewritten sentence...">
-            </div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <div class="flex items-center gap-2">
-              <button type="button" onclick="switchExTab('tab-explore')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                <span>Back: Explore</span>
-              </button>
-              <button type="button" onclick="checkClozeCard('ex4-l4-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
-              <button type="button" onclick="switchExTab('tab-ex5')" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-                <span>Next: Ex 5–6</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 3: CHART 2.8 & EXERCISES 5–6 (Page 49) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex5" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Learn & Practice • Page 49</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.8 & Exercises 5–6: Used To Questions</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions with used to</p>
-        </div>
-        <span class="badge-cd">Chart 2.8</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.8 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.8 Used To: Questions & Answers</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 49</span>
-          </div>
-
-          <div class="space-y-2.5 text-xs">
-            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-              <strong>Yes / No:</strong> <em>Did he use to get good grades?</em> → Yes, he did. / No, he didn't.
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-              <strong>Wh- Object:</strong> <em>Where did she use to live?</em> → In Mexico.
-            </div>
-            <div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 text-purple-950 space-y-1">
-              <strong class="text-purple-900 block">Who/What as Subject:</strong>
-              <p>• <em>Who <strong>used to</strong> teach this class?</em> (Professor Ortiz.)</p>
-              <p class="text-[11px] text-purple-900">⚠️ When Who or What is the subject, use <strong>used to</strong> (NOT <em>use to</em>, and do NOT use <em>did</em>!).</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Exercises 5 & 6 Column -->
-        <div class="lg:col-span-7 space-y-5">
-          <!-- Exercise 5: Complete Questions -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l4-card">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+<div class="p-2.5 bg-purple-50 rounded-xl border border-purple-200 text-purple-950 space-y-1">
+<strong class="text-purple-900 block">Who/What as Subject:</strong>
+<p>• <em>Who <strong>used to</strong> teach this class?</em> (Professor Ortiz.)</p>
+<p class="text-[11px] text-purple-900">⚠️ When Who or What is the subject, use <strong>used to</strong> (NOT <em>use to</em>, and do NOT use <em>did</em>!).</p>
+</div>
+</div>
+</div>
+<!-- Exercises 5 & 6 Column -->
+<div class="lg:col-span-7 space-y-5">
+<!-- Exercise 5: Complete Questions -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l4-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
                 Complete Each Question with Used To (Page 49)
               </h4>
-              <span class="text-xs text-slate-400">Items 1–8</span>
-            </div>
-            <p class="text-xs text-slate-500">Complete each question with the words in parentheses and the correct form of used to:</p>
-
-            <div class="space-y-2 text-xs sm:text-sm">
-              <div class="p-2 bg-slate-50 rounded-lg">
-                1. <input type="text" data-ans="Did you use to ride" value="Did you use to ride" readonly class="border rounded px-2 py-0.5 text-xs w-40 bg-slate-200 font-semibold text-slate-700"> (you / ride) a bike when you were a child?
+<span class="text-xs text-slate-400">Items 1–8</span>
+</div>
+<p class="text-xs text-slate-500">Complete each question with the words in parentheses and the correct form of used to:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2 bg-slate-50 rounded-lg">
+                1. <input class="border rounded px-2 py-0.5 text-xs w-40 bg-slate-200 font-semibold text-slate-700" data-ans="Did you use to ride" readonly="" type="text" value="Did you use to ride"/> (you / ride) a bike when you were a child?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                2. What <input type="text" data-ans="did you use to do" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" placeholder="you / do"> after school when you were a child?
+<div class="p-2 bg-slate-50 rounded-lg">
+                2. What <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" data-ans="did you use to do" placeholder="you / do" type="text"/> after school when you were a child?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                3. <input type="text" data-ans="Did your family use to live" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 input-clean font-semibold" placeholder="your family / live"> in a different place?
+<div class="p-2 bg-slate-50 rounded-lg">
+                3. <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 input-clean font-semibold" data-ans="Did your family use to live" placeholder="your family / live" type="text"/> in a different place?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                4. Where <input type="text" data-ans="did your mother use to work" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 input-clean font-semibold" placeholder="your mother / work">?
+<div class="p-2 bg-slate-50 rounded-lg">
+                4. Where <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 input-clean font-semibold" data-ans="did your mother use to work" placeholder="your mother / work" type="text"/>?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                5. What <input type="text" data-ans="did your family use to do" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 input-clean font-semibold" placeholder="your family / do"> on the weekends when you were a child?
+<div class="p-2 bg-slate-50 rounded-lg">
+                5. What <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 input-clean font-semibold" data-ans="did your family use to do" placeholder="your family / do" type="text"/> on the weekends when you were a child?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                6. Who <input type="text" data-ans="used to be" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="be"> your English teacher?
+<div class="p-2 bg-slate-50 rounded-lg">
+                6. Who <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="used to be" placeholder="be" type="text"/> your English teacher?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                7. <input type="text" data-ans="Did you use to visit" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" placeholder="you / visit"> your friends often?
+<div class="p-2 bg-slate-50 rounded-lg">
+                7. <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" data-ans="Did you use to visit" placeholder="you / visit" type="text"/> your friends often?
               </div>
-              <div class="p-2 bg-slate-50 rounded-lg">
-                8. Where <input type="text" data-ans="did you use to go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" placeholder="you / go"> on vacation?
+<div class="p-2 bg-slate-50 rounded-lg">
+                8. Where <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" data-ans="did you use to go" placeholder="you / go" type="text"/> on vacation?
               </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkClozeCard('ex5-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
-            </div>
-          </div>
-
-          <!-- Exercise 6: SPEAK -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex5-l4-card')" type="button">Check Ex 5</button>
+</div>
+</div>
+<!-- Exercise 6: SPEAK -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
               SPEAK. Childhood Habits (Page 49)
             </h4>
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1">
-              <p><strong>A:</strong> Did you use to ride a bike when you were a child?</p>
-              <p><strong>B:</strong> Yes, I did. I used to ride my bike everywhere with my friends.</p>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between pt-2">
-            <button type="button" onclick="switchExTab('tab-ex4')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 4</span>
-            </button>
-            <button type="button" onclick="switchExTab('tab-ex7')" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 7 (Would)</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 4: CHART 2.9 & EXERCISE 7 (Page 50) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex7" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Learn & Practice • Page 50</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.9 & Exercise 7: Repeated Actions with Would</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Using would + base form for repeated past actions, and distinguishing actions from past states</p>
-        </div>
-        <span class="badge-cd">Chart 2.9</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.9 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.9 Would: Repeated Past Actions</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 50</span>
-          </div>
-
-          <div class="space-y-3 text-xs">
-            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
-              <strong class="text-slate-800 block">Affirmative & Negative:</strong>
-              <p>• <em>When I was in high school, I <strong>would ride</strong> my bike to school.</em></p>
-              <p>• <em>When Scott was a child, he <strong>would not eat</strong> any vegetables.</em></p>
-            </div>
-            <div class="p-3 bg-rose-50 rounded-xl border border-rose-200 text-rose-950 space-y-1">
-              <strong class="text-rose-900 block">Critical Distinction: Actions vs. States</strong>
-              <p>Do <strong>not</strong> use <em>would</em> for past situations or states that no longer exist. Use <strong>used to</strong> instead!</p>
-              <p class="text-emerald-800">✓ <em>There used to be a library on this street.</em></p>
-              <p class="text-rose-700">✗ <em>There would be a library on this street.</em></p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Exercise 7: Complete with Would (All 10 items) -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l4-card">
-          <div class="flex items-center justify-between">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1">
+<p><strong>A:</strong> Did you use to ride a bike when you were a child?</p>
+<p><strong>B:</strong> Yes, I did. I used to ride my bike everywhere with my friends.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex4')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 4</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex7')" type="button">
+<span>Next: Ex 7 (Would)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 4: CHART 2.9 & EXERCISE 7 (Page 50) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex7">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-purple-600">Learn &amp; Practice • Page 50</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.9 &amp; Exercise 7: Repeated Actions with Would</h2>
+<p class="text-xs text-slate-500 mt-0.5">Using would + base form for repeated past actions, and distinguishing actions from past states</p>
+</div>
+<span class="badge-cd">Chart 2.9</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.9 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.9 Would: Repeated Past Actions</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 50</span>
+</div>
+<div class="space-y-3 text-xs">
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+<strong class="text-slate-800 block">Affirmative &amp; Negative:</strong>
+<p>• <em>When I was in high school, I <strong>would ride</strong> my bike to school.</em></p>
+<p>• <em>When Scott was a child, he <strong>would not eat</strong> any vegetables.</em></p>
+</div>
+<div class="p-3 bg-rose-50 rounded-xl border border-rose-200 text-rose-950 space-y-1">
+<strong class="text-rose-900 block">Critical Distinction: Actions vs. States</strong>
+<p>Do <strong>not</strong> use <em>would</em> for past situations or states that no longer exist. Use <strong>used to</strong> instead!</p>
+<p class="text-emerald-800">✓ <em>There used to be a library on this street.</em></p>
+<p class="text-rose-700">✗ <em>There would be a library on this street.</em></p>
+</div>
+</div>
+</div>
+<!-- Exercise 7: Complete with Would (All 10 items) -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l4-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
               Complete with Would (Page 50)
             </h4>
-            <span class="text-xs text-slate-400">Items 1–10</span>
-          </div>
-          <p class="text-xs text-slate-500">Complete each sentence with <strong>would</strong> or <strong>would not / wouldn't</strong> and the verb in parentheses:</p>
+<span class="text-xs text-slate-400">Items 1–10</span>
+</div>
+<p class="text-xs text-slate-500">Complete each sentence with <strong>would</strong> or <strong>would not / wouldn't</strong> and the verb in parentheses:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2 bg-slate-50 rounded-lg">
+              1. When I was a child, my father <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would take" placeholder="take" type="text"/> me to the zoo about once a month.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              2. In high school, my brother <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="would not start,wouldn't start" placeholder="not start" type="text"/> his homework until around midnight.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              3. When Alicia was a child, she <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would play" placeholder="play" type="text"/> with her friends after school.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              4. When my parents were in school, they <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would eat" placeholder="eat" type="text"/> lunch at home every day.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              5. In college, I often <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="would not go,wouldn't go" placeholder="not go" type="text"/> to bed until 3:00 a.m.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              6. My grandfather used to work very hard during the week, but on the weekends he <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would relax" placeholder="relax" type="text"/>.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              7. In college, Sandra <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would study" placeholder="study" type="text"/> for about six hours every day.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              8. When I was in high school, I <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would sit" placeholder="sit" type="text"/> in the back of the classroom and draw in my notebook.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              9. When Kyle was on the soccer team, he <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="would run" placeholder="run" type="text"/> five miles every morning before school.
+            </div>
+<div class="p-2 bg-slate-50 rounded-lg">
+              10. We <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="would go" placeholder="go" type="text"/> to the market every day when we lived in France.
+            </div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex5')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 5–6</span>
+</button>
+<button class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex7-l4-card')" type="button">Check Ex 7</button>
+<button class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex8')" type="button">
+<span>Next: Ex 8</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 5: EXERCISE 8 (Page 51) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex8">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-purple-600">Practice • Page 51</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 8: The Alpine Iceman</h2>
+<p class="text-xs text-slate-500 mt-0.5">Complete the 5,000-year-old archaeological investigation with used to, would, or simple past</p>
+</div>
+<span class="badge-cd">Track CD1-14</span>
+</div>
 
-          <div class="space-y-2 text-xs sm:text-sm">
-            <div class="p-2 bg-slate-50 rounded-lg">
-              1. When I was a child, my father <input type="text" data-ans="would take" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="take"> me to the zoo about once a month.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              2. In high school, my brother <input type="text" data-ans="would not start,wouldn't start" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="not start"> his homework until around midnight.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              3. When Alicia was a child, she <input type="text" data-ans="would play" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="play"> with her friends after school.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              4. When my parents were in school, they <input type="text" data-ans="would eat" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="eat"> lunch at home every day.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              5. In college, I often <input type="text" data-ans="would not go,wouldn't go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="not go"> to bed until 3:00 a.m.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              6. My grandfather used to work very hard during the week, but on the weekends he <input type="text" data-ans="would relax" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="relax">.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              7. In college, Sandra <input type="text" data-ans="would study" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="study"> for about six hours every day.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              8. When I was in high school, I <input type="text" data-ans="would sit" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="sit"> in the back of the classroom and draw in my notebook.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              9. When Kyle was on the soccer team, he <input type="text" data-ans="would run" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="run"> five miles every morning before school.
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg">
-              10. We <input type="text" data-ans="would go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="go"> to the market every day when we lived in France.
-            </div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <div class="flex items-center gap-2">
-              <button type="button" onclick="switchExTab('tab-ex5')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                <span>Back: Ex 5–6</span>
-              </button>
-              <button type="button" onclick="checkClozeCard('ex7-l4-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
-              <button type="button" onclick="switchExTab('tab-ex8')" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-                <span>Next: Ex 8</span>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 5: EXERCISE 8 (Page 51) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex8" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Practice • Page 51</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 8: The Alpine Iceman</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Complete the 5,000-year-old archaeological investigation with used to, would, or simple past</p>
-        </div>
-        <span class="badge-cd">Track CD1-14</span>
-      </div>
+<div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex8-l4-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            The Iceman Story (CD1-14)
+          <span class="badge-cd">Track CD1-14</span></h4>
+<span class="text-xs text-slate-400">Word Bank Fill-in</span>
+</div>
 <!-- Audio Player [CD1-14] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-14">
   <div style="width: calc(100% + 56px); margin-right: -56px;">
@@ -634,196 +587,172 @@
   </div>
 </div>
 <!-- End Audio Player [CD1-14] -->
-
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex8-l4-card">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
-            The Iceman Story (CD1-14)
-          </h4>
-          <span class="text-xs text-slate-400">Word Bank Fill-in</span>
-        </div>
-
-        <!-- Word Box -->
-        <div class="p-3 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-2 text-slate-700">
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-purple-900">used to hunt</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-purple-900">used to think</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-sky-900">would go</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-sky-900">wouldn't come</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">didn't grow</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">didn't spend</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">discovered</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">found</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">killed</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">used</span>
-        </div>
-
-        <!-- Narrative Passage -->
-        <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
-          <p>
-            Back in 1991, hikers in the mountains near the border of Austria and Italy <strong>(1)</strong> 
-            <input type="text" data-ans="discovered" value="discovered" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold font-sans text-slate-700"> 
+<!-- Word Box -->
+<div class="p-3 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-2 text-slate-700">
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-purple-900">used to hunt</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-purple-900">used to think</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-sky-900">would go</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-sky-900">wouldn't come</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">didn't grow</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">didn't spend</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">discovered</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">found</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">killed</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold text-slate-800">used</span>
+</div>
+<!-- Narrative Passage -->
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
+<p>
+            Back in 1991, hikers in the mountains near the border of Austria and Italy <strong>(1)</strong>
+<input class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold font-sans text-slate-700" data-ans="discovered" readonly="" type="text" value="discovered"/> 
             the body of a man in the ice. Scientists soon learned that the body was over 5000 years old. They called the man the “Iceman.”
           </p>
-          <p>
-            Scientists <strong>(2)</strong> 
-            <input type="text" data-ans="used to think" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" placeholder="verb"> 
-            that the Iceman died from the cold. Five thousand years ago, people of central Europe <strong>(3)</strong> 
-            <input type="text" data-ans="used to hunt" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" placeholder="verb"> 
-            wild animals for food. They <strong>(4)</strong> 
-            <input type="text" data-ans="would go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-sans font-semibold" placeholder="verb"> 
-            up into the mountains in all kinds of weather, and sometimes they <strong>(5)</strong> 
-            <input type="text" data-ans="wouldn't come,would not come" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-sans font-semibold" placeholder="verb"> 
+<p>
+            Scientists <strong>(2)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" data-ans="used to think" placeholder="verb" type="text"/> 
+            that the Iceman died from the cold. Five thousand years ago, people of central Europe <strong>(3)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" data-ans="used to hunt" placeholder="verb" type="text"/> 
+            wild animals for food. They <strong>(4)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-sans font-semibold" data-ans="would go" placeholder="verb" type="text"/> 
+            up into the mountains in all kinds of weather, and sometimes they <strong>(5)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-sans font-semibold" data-ans="wouldn't come,would not come" placeholder="verb" type="text"/> 
             back.
           </p>
-          <p>
-            Then, in 2001, scientists found part of an arrow in the Iceman’s body. Somebody <strong>(6)</strong> 
-            <input type="text" data-ans="killed" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-sans font-semibold" placeholder="verb"> 
+<p>
+            Then, in 2001, scientists found part of an arrow in the Iceman’s body. Somebody <strong>(6)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-sans font-semibold" data-ans="killed" placeholder="verb" type="text"/> 
             the Iceman, and we will probably never know why.
           </p>
-          <p>
-            After more recent tests, scientists now think the Iceman was not just a hunter. They think he probably had a higher position in society, and <strong>(7)</strong> 
-            <input type="text" data-ans="didn't spend,did not spend" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" placeholder="verb"> 
-            a lot of time in the mountains. Before the most recent tests, scientists believed that people in the Iceman’s community <strong>(8)</strong> 
-            <input type="text" data-ans="didn't grow,did not grow" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" placeholder="verb"> 
-            crops. However, they <strong>(9)</strong> 
-            <input type="text" data-ans="found" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-sans font-semibold" placeholder="verb"> 
-            small pieces of stone in the Iceman’s stomach. This suggests that the Iceman’s people <strong>(10)</strong> 
-            <input type="text" data-ans="used" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-sans font-semibold" placeholder="verb"> 
+<p>
+            After more recent tests, scientists now think the Iceman was not just a hunter. They think he probably had a higher position in society, and <strong>(7)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" data-ans="didn't spend,did not spend" placeholder="verb" type="text"/> 
+            a lot of time in the mountains. Before the most recent tests, scientists believed that people in the Iceman’s community <strong>(8)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-sans font-semibold" data-ans="didn't grow,did not grow" placeholder="verb" type="text"/> 
+            crops. However, they <strong>(9)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-sans font-semibold" data-ans="found" placeholder="verb" type="text"/> 
+            small pieces of stone in the Iceman’s stomach. This suggests that the Iceman’s people <strong>(10)</strong>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-sans font-semibold" data-ans="used" placeholder="verb" type="text"/> 
             stones to grind flour for some kind of bread.
           </p>
-        </div>
-
-        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <span class="ex-score text-xs font-bold text-slate-500"></span>
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="switchExTab('tab-ex7')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 7</span>
-            </button>
-            <button type="button" onclick="checkClozeCard('ex8-l4-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
-            <button type="button" onclick="switchExTab('tab-apply')" class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 9 & Apply</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 6: EXERCISE 9 & APPLY (Page 52) -->
-    <!-- ============================================================ -->
-    <div id="tab-apply" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Compare & Apply • Page 52</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 9 & Apply: 5,000 Years Ago vs. Today</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Synthesizing used to, didn't use to, and would for societal and personal changes</p>
-        </div>
-        <span class="badge-cd">Page 52</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Exercise 9: Comparison Generator -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex7')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 7</span>
+</button>
+<button class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex8-l4-card')" type="button">Check Ex 8</button>
+<button class="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-apply')" type="button">
+<span>Next: Ex 9 &amp; Apply</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 6: EXERCISE 9 & APPLY (Page 52) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-apply">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-purple-600">Compare &amp; Apply • Page 52</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 9 &amp; Apply: 5,000 Years Ago vs. Today</h2>
+<p class="text-xs text-slate-500 mt-0.5">Synthesizing used to, didn't use to, and would for societal and personal changes</p>
+</div>
+<span class="badge-cd">Page 52</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Exercise 9: Comparison Generator -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
               WRITE. 5,000 Years Ago vs. People Today
             </h4>
-            <span class="text-xs bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">Historical Comparison</span>
-          </div>
-
-          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2">
-            <div class="grid grid-cols-2 gap-2">
-              <div class="bg-white p-2 rounded border">
-                <strong class="text-slate-900 block mb-1">People 5000 Years Ago:</strong>
-                <p>• Hunt animals, gather nuts</p>
-                <p>• Cook over fire</p>
-                <p>• Live in caves / shelters</p>
-                <p>• Use animal skins for clothing</p>
-              </div>
-              <div class="bg-white p-2 rounded border">
-                <strong class="text-slate-900 block mb-1">People Today:</strong>
-                <p>• Buy food in grocery stores</p>
-                <p>• Cook with stoves</p>
-                <p>• Live in houses / apartments</p>
-                <p>• Buy clothing made from cloth</p>
-              </div>
-            </div>
-          </div>
-
-          <p class="text-xs text-slate-600">Write sentences comparing the two eras using <em>used to</em>, <em>didn't use to</em>, or <em>would</em>:</p>
-
-          <div class="space-y-2 text-xs">
-            <div class="p-2 bg-slate-50 rounded-lg text-slate-700">
-              <em>Example: People didn’t use to buy food in a grocery store.</em>
-            </div>
-            <input type="text" placeholder="1. People used to hunt animals and gather fruit and nuts..." class="w-full border rounded-lg p-2 text-xs">
-            <input type="text" placeholder="2. They would cook their food over a fire..." class="w-full border rounded-lg p-2 text-xs">
-            <input type="text" placeholder="3. People didn't use to live in houses or apartments..." class="w-full border rounded-lg p-2 text-xs">
-            <input type="text" placeholder="4. They used to live in caves or simple shelters..." class="w-full border rounded-lg p-2 text-xs">
-            <input type="text" placeholder="5. People would wear animal skins for clothing..." class="w-full border rounded-lg p-2 text-xs">
-          </div>
-        </div>
-
-        <!-- Apply: Life Changes -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs">10</span>
+<span class="text-xs bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">Historical Comparison</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-2">
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-white p-2 rounded border">
+<strong class="text-slate-900 block mb-1">People 5000 Years Ago:</strong>
+<p>• Hunt animals, gather nuts</p>
+<p>• Cook over fire</p>
+<p>• Live in caves / shelters</p>
+<p>• Use animal skins for clothing</p>
+</div>
+<div class="bg-white p-2 rounded border">
+<strong class="text-slate-900 block mb-1">People Today:</strong>
+<p>• Buy food in grocery stores</p>
+<p>• Cook with stoves</p>
+<p>• Live in houses / apartments</p>
+<p>• Buy clothing made from cloth</p>
+</div>
+</div>
+</div>
+<p class="text-xs text-slate-600">Write sentences comparing the two eras using <em>used to</em>, <em>didn't use to</em>, or <em>would</em>:</p>
+<div class="space-y-2 text-xs">
+<div class="p-2 bg-slate-50 rounded-lg text-slate-700">
+<em>Example: People didn’t use to buy food in a grocery store.</em>
+</div>
+<input class="w-full border rounded-lg p-2 text-xs" placeholder="1. People used to hunt animals and gather fruit and nuts..." type="text"/>
+<input class="w-full border rounded-lg p-2 text-xs" placeholder="2. They would cook their food over a fire..." type="text"/>
+<input class="w-full border rounded-lg p-2 text-xs" placeholder="3. People didn't use to live in houses or apartments..." type="text"/>
+<input class="w-full border rounded-lg p-2 text-xs" placeholder="4. They used to live in caves or simple shelters..." type="text"/>
+<input class="w-full border rounded-lg p-2 text-xs" placeholder="5. People would wear animal skins for clothing..." type="text"/>
+</div>
+</div>
+<!-- Apply: Life Changes -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs">10</span>
               APPLY. Personal Life Changes
             </h4>
-            <span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Speaking & Reflection</span>
-          </div>
-
-          <!-- Brian's Model -->
-          <div class="p-3 bg-purple-50 rounded-xl border border-purple-200 text-xs space-y-1.5">
-            <strong class="text-purple-950 block font-bold">Model: Brian's Life Changes</strong>
-            <div class="grid grid-cols-3 gap-1.5 text-[11px] text-slate-700">
-              <div class="bg-white p-1.5 rounded border border-purple-100"><strong>Past:</strong> Lonely, few friends</div>
-              <div class="bg-white p-1.5 rounded border border-purple-100"><strong>Change:</strong> Joined band</div>
-              <div class="bg-white p-1.5 rounded border border-purple-100"><strong>Now:</strong> Happy, has friends</div>
-              <div class="bg-white p-1.5 rounded border border-purple-100"><strong>Past:</strong> Unhealthy</div>
-              <div class="bg-white p-1.5 rounded border border-purple-100"><strong>Change:</strong> Bought bike</div>
-              <div class="bg-white p-1.5 rounded border border-purple-100"><strong>Now:</strong> Healthy</div>
-            </div>
-            <p class="text-purple-900 text-[11px] italic mt-1">"Brian used to be unhappy, and he didn't have many friends. Now, he plays in a band and has lots of friends..."</p>
-          </div>
-
-          <textarea rows="5" placeholder="Write about changes you have made in your own life using used to, didn't use to, and would:
-A couple of years ago, I used to feel tired all the time. I would stay up late studying or surfing the internet. Then I started exercising..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-purple-400 leading-relaxed"></textarea>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <button type="button" onclick="switchExTab('tab-ex8')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 8</span>
-            </button>
-            <button type="button" onclick="switchExTab('tab-explore')" class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Return to Explore</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <div class="w-2 h-4 bg-purple-400 rounded-xs"></div>
-        <p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 4</p>
-      </div>
-      <p class="mt-2 sm:mt-0 text-slate-500">Repeated Past Actions (Used To & Would) Student Workbench</p>
-    </div>
-  </footer>
-
-  <!-- SCRIPT LOGIC -->
-  <script>
+<span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Speaking &amp; Reflection</span>
+</div>
+<!-- Brian's Model -->
+<div class="p-3 bg-purple-50 rounded-xl border border-purple-200 text-xs space-y-1.5">
+<strong class="text-purple-950 block font-bold">Model: Brian's Life Changes</strong>
+<div class="grid grid-cols-3 gap-1.5 text-[11px] text-slate-700">
+<div class="bg-white p-1.5 rounded border border-purple-100"><strong>Past:</strong> Lonely, few friends</div>
+<div class="bg-white p-1.5 rounded border border-purple-100"><strong>Change:</strong> Joined band</div>
+<div class="bg-white p-1.5 rounded border border-purple-100"><strong>Now:</strong> Happy, has friends</div>
+<div class="bg-white p-1.5 rounded border border-purple-100"><strong>Past:</strong> Unhealthy</div>
+<div class="bg-white p-1.5 rounded border border-purple-100"><strong>Change:</strong> Bought bike</div>
+<div class="bg-white p-1.5 rounded border border-purple-100"><strong>Now:</strong> Healthy</div>
+</div>
+<p class="text-purple-900 text-[11px] italic mt-1">"Brian used to be unhappy, and he didn't have many friends. Now, he plays in a band and has lots of friends..."</p>
+</div>
+<textarea class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-purple-400 leading-relaxed" placeholder="Write about changes you have made in your own life using used to, didn't use to, and would:
+A couple of years ago, I used to feel tired all the time. I would stay up late studying or surfing the internet. Then I started exercising..." rows="5"></textarea>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex8')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 8</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-explore')" type="button">
+<span>Return to Explore</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+<div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+<div class="flex items-center justify-center sm:justify-start gap-2">
+<div class="w-2 h-4 bg-purple-400 rounded-xs"></div>
+<p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 4</p>
+</div>
+<p class="mt-2 sm:mt-0 text-slate-500">Repeated Past Actions (Used To &amp; Would) Student Workbench</p>
+</div>
+</footer>
+<!-- SCRIPT LOGIC -->
+<script>
     function switchExTab(tabId) {
       document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
       const target = document.getElementById(tabId);

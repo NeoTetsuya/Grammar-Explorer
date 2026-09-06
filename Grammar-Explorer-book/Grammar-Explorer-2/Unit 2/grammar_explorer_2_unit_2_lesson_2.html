@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Explorer 2 — Unit 2: Lesson 2 (Past Progressive and Simple Past)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grammar Explorer 2 — Unit 2: Lesson 2 (Past Progressive and Simple Past)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -20,7 +21,7 @@
       }
     }
   </script>
-  <style>
+<style>
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
@@ -39,88 +40,81 @@
   </style>
 </head>
 <body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-emerald-100 selection:text-emerald-900">
-
-  <!-- HEADER -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-8 bg-emerald-400 rounded-sm shadow-sm"></div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 uppercase">National Geographic Learning</span>
-              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 2</span>
-            </div>
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+<!-- HEADER -->
+<header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-3">
+<div class="w-2.5 h-8 bg-emerald-400 rounded-sm shadow-sm"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 uppercase">National Geographic Learning</span>
+<span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 2</span>
+</div>
+<h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
               Unit 2: Survival <span class="text-slate-500 font-light">|</span> <span class="text-emerald-400">Lesson 2: Past Progressive and Simple Past</span>
-            </h1>
-          </div>
-        </div>
-
-        <button onclick="resetLesson2()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-emerald-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Lesson</span>
-        </button>
-      </div>
-
-      <!-- EXERCISE TAB NAVIGATION -->
-      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-emerald-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
-          <span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
-          <span>Explore: Radio Maya (pp. 33–34)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex4-5')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4-5">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4–5</span>
-          <span>Ex 4 & 5: Progressive Statements (pp. 35–36)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex6-7')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex6-7">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6–7</span>
-          <span>Ex 6 & 7: Progressive Questions (pp. 36–37)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex8')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
-          <span>Ex 8: Past vs. Progressive (p. 37)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex9')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
-          <span>Ex 9: Word Box Fill-in (pp. 37–38)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex10-apply')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex10-apply">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">10–11</span>
-          <span>Ex 10 & Apply: Siberia Language (p. 38)</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 1: EXPLORE (Reading & Exercises 2–3, Pages 33–34) -->
-    <!-- ============================================================ -->
-    <div id="tab-explore" class="ex-tab-pane block space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Explore • Pages 33–34</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Community Radio in Guatemala</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Split-view: interview on the left, Multiple Choice & Discover tasks on the right</p>
-        </div>
-        <span class="badge-cd">Track CD1-10</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
-        <!-- LEFT PANE: Sticky Reading -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div>
-              <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
-              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Community Radio in Guatemala</h3>
-              <p class="text-xs text-slate-500">Helping indigenous Maya languages survive</p>
-            </div>
-            <span class="badge-cd">CD1-10</span>
-          </div>
+</h1>
+</div>
+</div>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-emerald-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm" onclick="resetLesson2()">
+<svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset Lesson</span>
+</button>
+</div>
+<!-- EXERCISE TAB NAVIGATION -->
+<nav aria-label="Exercise Tabs" class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800">
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-emerald-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore" onclick="switchExTab('tab-explore')">
+<span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+<span>Explore: Radio Maya (pp. 33–34)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4-5" onclick="switchExTab('tab-ex4-5')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4–5</span>
+<span>Ex 4 &amp; 5: Progressive Statements (pp. 35–36)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex6-7" onclick="switchExTab('tab-ex6-7')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6–7</span>
+<span>Ex 6 &amp; 7: Progressive Questions (pp. 36–37)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8" onclick="switchExTab('tab-ex8')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
+<span>Ex 8: Past vs. Progressive (p. 37)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9" onclick="switchExTab('tab-ex9')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
+<span>Ex 9: Word Box Fill-in (pp. 37–38)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex10-apply" onclick="switchExTab('tab-ex10-apply')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">10–11</span>
+<span>Ex 10 &amp; Apply: Siberia Language (p. 38)</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- MAIN CONTAINER -->
+<main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+<!-- ============================================================ -->
+<!-- TAB PANE 1: EXPLORE (Reading & Exercises 2–3, Pages 33–34) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane block space-y-6" id="tab-explore">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Explore • Pages 33–34</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Community Radio in Guatemala</h2>
+<p class="text-xs text-slate-500 mt-0.5">Split-view: interview on the left, Multiple Choice &amp; Discover tasks on the right</p>
+</div>
+<span class="badge-cd">Track CD1-10</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Sticky Reading -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div>
+<span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Community Radio in Guatemala</h3>
+<p class="text-xs text-slate-500">Helping indigenous Maya languages survive</p>
+</div>
+<span class="badge-cd">CD1-10</span>
+</div>
 <!-- Audio Player [CD1-10] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-10">
   <div style="width: calc(100% + 56px); margin-right: -56px;">
@@ -129,725 +123,704 @@
 </div>
 <!-- End Audio Player [CD1-10] -->
 
-          <div class="flex justify-center my-3">
-            <div class="w-full max-w-[360px] sm:max-w-[420px] aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
-              <img 
-                src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&fit=crop&w=800&q=80" 
-                alt="Two Guatemalan musicians with accordion and guitar" 
-                class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/700x440/064e3b/a7f3d0?text=Guatemalan+Musicians+%E2%80%A2+Maya+Heritage';"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
-                <span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Traditional Maya musicians with instruments</span>
-                <span class="text-emerald-300 font-mono text-[10px]">p. 33</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
-            <p><strong>Interviewer:</strong> So, Angelica, you work as a volunteer¹ at a community² radio station. Why is that an important job in Guatemala today?</p>
-            <p><strong>Angelica:</strong> When I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was growing up</strong>, you almost never heard Maya languages on the radio or TV. Some Maya languages <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">were dying</strong>. Then, community stations started presenting shows in Maya languages. They help keep the languages and the culture alive.</p>
-            <p><strong>Interviewer:</strong> Now, let’s go back to when you got the job. Why did the radio station choose you?</p>
-            <p><strong>Angelica:</strong> I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was teaching</strong> my local language, Tzuthil. Oh, and I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was playing</strong> traditional music in a band.</p>
-            <p><strong>Interviewer:</strong> Were they looking for a musician, then?</p>
-            <p><strong>Angelica:</strong> No, not exactly. They <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">were trying</strong> to find someone to present a show about Maya music. I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was waiting</strong> for an opportunity like that.</p>
-            <p><strong>Interviewer:</strong> Is the survival of Maya languages still in danger?</p>
-            <p><strong>Angelica:</strong> Yes, but community radio stations help. They encourage people to preserve Maya languages and culture.</p>
-          </div>
-
-          <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
-            <p><strong>¹ volunteer:</strong> a person who does work without being paid for it</p>
-            <p><strong>² community:</strong> a group of people who live in the same area and have common interests</p>
-            <p class="text-slate-500 italic mt-1"><strong>Cultural Note:</strong> The Maya people have lived in Guatemala and parts of Central America for thousands of years.</p>
-          </div>
-        </div>
-
-        <!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
-        <div class="lg:col-span-6 space-y-5">
-          <!-- Exercise 2: CHECK Multiple Choice -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+<div class="flex justify-center my-3">
+<div class="w-full max-w-[360px] sm:max-w-[420px] aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
+<img alt="Two Guatemalan musicians with accordion and guitar" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/700x440/064e3b/a7f3d0?text=Guatemalan+Musicians+%E2%80%A2+Maya+Heritage';" src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
+<span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Traditional Maya musicians with instruments</span>
+<span class="text-emerald-300 font-mono text-[10px]">p. 33</span>
+</div>
+</div>
+</div>
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+<p><strong>Interviewer:</strong> So, Angelica, you work as a volunteer¹ at a community² radio station. Why is that an important job in Guatemala today?</p>
+<p><strong>Angelica:</strong> When I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was growing up</strong>, you almost never heard Maya languages on the radio or TV. Some Maya languages <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">were dying</strong>. Then, community stations started presenting shows in Maya languages. They help keep the languages and the culture alive.</p>
+<p><strong>Interviewer:</strong> Now, let’s go back to when you got the job. Why did the radio station choose you?</p>
+<p><strong>Angelica:</strong> I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was teaching</strong> my local language, Tzuthil. Oh, and I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was playing</strong> traditional music in a band.</p>
+<p><strong>Interviewer:</strong> Were they looking for a musician, then?</p>
+<p><strong>Angelica:</strong> No, not exactly. They <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">were trying</strong> to find someone to present a show about Maya music. I <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">was waiting</strong> for an opportunity like that.</p>
+<p><strong>Interviewer:</strong> Is the survival of Maya languages still in danger?</p>
+<p><strong>Angelica:</strong> Yes, but community radio stations help. They encourage people to preserve Maya languages and culture.</p>
+</div>
+<div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+<p><strong>¹ volunteer:</strong> a person who does work without being paid for it</p>
+<p><strong>² community:</strong> a group of people who live in the same area and have common interests</p>
+<p class="text-slate-500 italic mt-1"><strong>Cultural Note:</strong> The Maya people have lived in Guatemala and parts of Central America for thousands of years.</p>
+</div>
+</div>
+<!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
+<div class="lg:col-span-6 space-y-5">
+<!-- Exercise 2: CHECK Multiple Choice -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
                 CHECK. Multiple Choice (Page 34)
               </h4>
-              <span class="text-xs text-slate-400">Based on Radio Interview</span>
-            </div>
-            <p class="text-xs text-slate-500">Choose the correct answer for each question:</p>
-
-            <div class="space-y-3 text-xs sm:text-sm">
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <div class="font-semibold text-slate-800">1. Why is community radio important in Guatemala?</div>
-                <select data-ans="b" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select answer...</option>
-                  <option value="a">a. It provides jobs for people.</option>
-                  <option value="b">b. It helps the Maya culture survive.</option>
-                  <option value="c">c. It plays a lot of music.</option>
-                </select>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <div class="font-semibold text-slate-800">2. What was Angelica doing when she got her job on the radio?</div>
-                <select data-ans="c" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select answer...</option>
-                  <option value="a">a. studying her local language</option>
-                  <option value="b">b. traveling around Guatemala</option>
-                  <option value="c">c. playing traditional music</option>
-                </select>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <div class="font-semibold text-slate-800">3. Who was the radio station looking for?</div>
-                <select data-ans="a" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select answer...</option>
-                  <option value="a">a. a presenter</option>
-                  <option value="b">b. a musician</option>
-                  <option value="c">c. a teacher</option>
-                </select>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <div class="font-semibold text-slate-800">4. What was happening to some Maya languages before community radio?</div>
-                <select data-ans="c" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select answer...</option>
-                  <option value="a">a. They were growing.</option>
-                  <option value="b">b. They were changing.</option>
-                  <option value="c">c. They were dying.</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkSelectCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
-            </div>
-          </div>
-
-          <!-- Exercise 3: DISCOVER Action in Progress -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+<span class="text-xs text-slate-400">Based on Radio Interview</span>
+</div>
+<p class="text-xs text-slate-500">Choose the correct answer for each question:</p>
+<div class="space-y-3 text-xs sm:text-sm">
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<div class="font-semibold text-slate-800">1. Why is community radio important in Guatemala?</div>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="b">
+<option value="">Select answer...</option>
+<option value="a">a. It provides jobs for people.</option>
+<option value="b">b. It helps the Maya culture survive.</option>
+<option value="c">c. It plays a lot of music.</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<div class="font-semibold text-slate-800">2. What was Angelica doing when she got her job on the radio?</div>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="c">
+<option value="">Select answer...</option>
+<option value="a">a. studying her local language</option>
+<option value="b">b. traveling around Guatemala</option>
+<option value="c">c. playing traditional music</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<div class="font-semibold text-slate-800">3. Who was the radio station looking for?</div>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="a">
+<option value="">Select answer...</option>
+<option value="a">a. a presenter</option>
+<option value="b">b. a musician</option>
+<option value="c">c. a teacher</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<div class="font-semibold text-slate-800">4. What was happening to some Maya languages before community radio?</div>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="c">
+<option value="">Select answer...</option>
+<option value="a">a. They were growing.</option>
+<option value="b">b. They were changing.</option>
+<option value="c">c. They were dying.</option>
+</select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex2-l2-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+<!-- Exercise 3: DISCOVER Action in Progress -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
               DISCOVER. Action in Progress (Page 35)
             </h4>
-            <p class="text-xs text-slate-500">Choose the sentence in each pair that describes an action that was in progress at a certain time in the past:</p>
-
-            <div class="space-y-3 text-xs">
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <span class="font-semibold text-slate-800 block">Pair 1:</span>
-                <select data-ans="b" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select sentence in progress...</option>
-                  <option value="a">a. The radio station chose Angelica.</option>
-                  <option value="b">b. Angelica was teaching Tzuthil in the evenings.</option>
-                </select>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <span class="font-semibold text-slate-800 block">Pair 2:</span>
-                <select data-ans="a" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select sentence in progress...</option>
-                  <option value="a">a. The radio station was looking for a new presenter.</option>
-                  <option value="b">b. They decided to speak to Angelica.</option>
-                </select>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
-                <span class="font-semibold text-slate-800 block">Pair 3:</span>
-                <select data-ans="a" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
-                  <option value="">Select sentence in progress...</option>
-                  <option value="a">a. Several Maya languages were dying.</option>
-                  <option value="b">b. Community radio stations started to present shows in Maya languages.</option>
-                </select>
-              </div>
+<p class="text-xs text-slate-500">Choose the sentence in each pair that describes an action that was in progress at a certain time in the past:</p>
+<div class="space-y-3 text-xs">
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<span class="font-semibold text-slate-800 block">Pair 1:</span>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="b">
+<option value="">Select sentence in progress...</option>
+<option value="a">a. The radio station chose Angelica.</option>
+<option value="b">b. Angelica was teaching Tzuthil in the evenings.</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<span class="font-semibold text-slate-800 block">Pair 2:</span>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="a">
+<option value="">Select sentence in progress...</option>
+<option value="a">a. The radio station was looking for a new presenter.</option>
+<option value="b">b. They decided to speak to Angelica.</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+<span class="font-semibold text-slate-800 block">Pair 3:</span>
+<select class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="a">
+<option value="">Select sentence in progress...</option>
+<option value="a">a. Several Maya languages were dying.</option>
+<option value="b">b. Community radio stations started to present shows in Maya languages.</option>
+</select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex3-l2-card')" type="button">Check Ex 3</button>
+</div>
+</div>
+<div class="flex items-center justify-end pt-2">
+<button class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex4-5')" type="button">
+<span>Next: Ex 4 &amp; 5 (Statements)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 2: CHART 2.3 & EXERCISES 4 & 5 (Pages 35–36) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex4-5">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn &amp; Practice • Pages 35–36</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.3 &amp; Exercises 4–5: Progressive Statements</h2>
+<p class="text-xs text-slate-500 mt-0.5">Forming affirmative and negative past progressive statements with was/were + verb-ing</p>
+</div>
+<span class="badge-cd">Chart 2.3</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.3 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.3 Past Progressive: Statements</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 35</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+<strong class="text-slate-800 block mb-1">Affirmative (was/were + verb-ing)</strong>
+<p>• I / He / She / It <strong>was working</strong>.</p>
+<p>• You / We / They <strong>were working</strong>.</p>
+</div>
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+<strong class="text-slate-800 block mb-1">Negative (was/were not / wasn't/weren't + verb-ing)</strong>
+<p>• I / He / She / It <strong>wasn't sleeping</strong>.</p>
+<p>• You / We / They <strong>weren't sleeping</strong>.</p>
+</div>
+<div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50 text-amber-950">
+<strong>Non-action verbs:</strong> Stative verbs are <strong>not</strong> usually progressive. (✓ <em>I saw an accident last night.</em> ✗ <em>I was seeing an accident last night.</em>)
             </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkSelectCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-end pt-2">
-            <button type="button" onclick="switchExTab('tab-ex4-5')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 4 & 5 (Statements)</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 2: CHART 2.3 & EXERCISES 4 & 5 (Pages 35–36) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex4-5" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn & Practice • Pages 35–36</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.3 & Exercises 4–5: Progressive Statements</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Forming affirmative and negative past progressive statements with was/were + verb-ing</p>
-        </div>
-        <span class="badge-cd">Chart 2.3</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.3 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.3 Past Progressive: Statements</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 35</span>
-          </div>
-
-          <div class="space-y-2 text-xs">
-            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
-              <strong class="text-slate-800 block mb-1">Affirmative (was/were + verb-ing)</strong>
-              <p>• I / He / She / It <strong>was working</strong>.</p>
-              <p>• You / We / They <strong>were working</strong>.</p>
-            </div>
-            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
-              <strong class="text-slate-800 block mb-1">Negative (was/were not / wasn't/weren't + verb-ing)</strong>
-              <p>• I / He / She / It <strong>wasn't sleeping</strong>.</p>
-              <p>• You / We / They <strong>weren't sleeping</strong>.</p>
-            </div>
-            <div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50 text-amber-950">
-              <strong>Non-action verbs:</strong> Stative verbs are <strong>not</strong> usually progressive. (✓ <em>I saw an accident last night.</em> ✗ <em>I was seeing an accident last night.</em>)
-            </div>
-          </div>
-          
-          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
-            <strong>Real English:</strong> The past progressive is often used to describe a scene in the past: <em>The café was full. A band was playing, and people were talking loudly.</em>
-          </div>
-        </div>
-
-        <!-- Exercise 4 & 5 Column -->
-        <div class="lg:col-span-7 space-y-5">
-          <!-- Exercise 4: Complete with Past Progressive -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
-            <div class="flex items-center justify-between">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600">
+<strong>Real English:</strong> The past progressive is often used to describe a scene in the past: <em>The café was full. A band was playing, and people were talking loudly.</em>
+</div>
+</div>
+<!-- Exercise 4 & 5 Column -->
+<div class="lg:col-span-7 space-y-5">
+<!-- Exercise 4: Complete with Past Progressive -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
                 Complete with Past Progressive (Page 35)
               </h4>
-              <span class="text-xs text-slate-400">Items 1–8</span>
-            </div>
-            <p class="text-xs text-slate-500">Fill in the past progressive form of the verb(s) in parentheses:</p>
-
-            <div class="space-y-2 text-xs sm:text-sm">
-              <div class="p-2 bg-slate-50 rounded-lg">1. Angelica <input type="text" data-ans="was teaching" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="teach"> her local language in the evenings.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">2. At 6:00 p.m. many people in town <input type="text" data-ans="were listening" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="listen"> to Angelica’s show.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">3. The radio <input type="text" data-ans="was playing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="play"> loud dance music last night.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">4. We <input type="text" data-ans="were talking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="talk"> to Carlos, but he <input type="text" data-ans="was not listening,wasn't listening" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="not listen"> to us.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">5. Pedro <input type="text" data-ans="was looking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="look"> for a job at a radio station, but he didn’t find one.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">6. Tom and Karen <input type="text" data-ans="were living" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="live"> in Guatemala last year.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">7. The people next to us <input type="text" data-ans="were speaking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="speak"> Spanish. I think they were Mexican.</div>
-              <div class="p-2 bg-slate-50 rounded-lg">8. Steve <input type="text" data-ans="was sitting" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="sit"> in the library, but he <input type="text" data-ans="was not studying,wasn't studying" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="not study">. He <input type="text" data-ans="was reading" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="read"> a magazine.</div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkClozeCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
-            </div>
-          </div>
-
-          <!-- Exercise 5: Personal Time Anchors Prompts -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
-              WRITE & SPEAK. Time Anchors (Page 36)
+<span class="text-xs text-slate-400">Items 1–8</span>
+</div>
+<p class="text-xs text-slate-500">Fill in the past progressive form of the verb(s) in parentheses:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2 bg-slate-50 rounded-lg">1. Angelica <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="was teaching" placeholder="teach" type="text"/> her local language in the evenings.</div>
+<div class="p-2 bg-slate-50 rounded-lg">2. At 6:00 p.m. many people in town <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="were listening" placeholder="listen" type="text"/> to Angelica’s show.</div>
+<div class="p-2 bg-slate-50 rounded-lg">3. The radio <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="was playing" placeholder="play" type="text"/> loud dance music last night.</div>
+<div class="p-2 bg-slate-50 rounded-lg">4. We <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="were talking" placeholder="talk" type="text"/> to Carlos, but he <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="was not listening,wasn't listening" placeholder="not listen" type="text"/> to us.</div>
+<div class="p-2 bg-slate-50 rounded-lg">5. Pedro <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="was looking" placeholder="look" type="text"/> for a job at a radio station, but he didn’t find one.</div>
+<div class="p-2 bg-slate-50 rounded-lg">6. Tom and Karen <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="were living" placeholder="live" type="text"/> in Guatemala last year.</div>
+<div class="p-2 bg-slate-50 rounded-lg">7. The people next to us <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="were speaking" placeholder="speak" type="text"/> Spanish. I think they were Mexican.</div>
+<div class="p-2 bg-slate-50 rounded-lg">8. Steve <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="was sitting" placeholder="sit" type="text"/> in the library, but he <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="was not studying,wasn't studying" placeholder="not study" type="text"/>. He <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="was reading" placeholder="read" type="text"/> a magazine.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex4-l2-card')" type="button">Check Ex 4</button>
+</div>
+</div>
+<!-- Exercise 5: Personal Time Anchors Prompts -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              WRITE &amp; SPEAK. Time Anchors (Page 36)
             </h4>
-            <p class="text-xs text-slate-500">Complete these sentences with your own activities in the past progressive:</p>
-
-            <div class="space-y-2 text-xs">
-              <div class="p-2.5 bg-slate-50 rounded-lg">
-                <span class="font-semibold text-slate-700 block mb-1">1. Last night at 9:00:</span>
-                <input type="text" placeholder="e.g. I was having dinner with my family / I was watching a documentary..." class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white">
-              </div>
-              <div class="p-2.5 bg-slate-50 rounded-lg">
-                <span class="font-semibold text-slate-700 block mb-1">2. At 5:00 this morning:</span>
-                <input type="text" placeholder="e.g. I was sleeping soundly in bed..." class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white">
-              </div>
-              <div class="p-2.5 bg-slate-50 rounded-lg">
-                <span class="font-semibold text-slate-700 block mb-1">3. Last August:</span>
-                <input type="text" placeholder="e.g. I was traveling to the coast with my friends..." class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white">
-              </div>
-              <div class="p-2.5 bg-slate-50 rounded-lg">
-                <span class="font-semibold text-slate-700 block mb-1">4. Two years ago:</span>
-                <input type="text" placeholder="e.g. I was studying for my entrance exams..." class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white">
-              </div>
+<p class="text-xs text-slate-500">Complete these sentences with your own activities in the past progressive:</p>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-lg">
+<span class="font-semibold text-slate-700 block mb-1">1. Last night at 9:00:</span>
+<input class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white" placeholder="e.g. I was having dinner with my family / I was watching a documentary..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+<span class="font-semibold text-slate-700 block mb-1">2. At 5:00 this morning:</span>
+<input class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white" placeholder="e.g. I was sleeping soundly in bed..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+<span class="font-semibold text-slate-700 block mb-1">3. Last August:</span>
+<input class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white" placeholder="e.g. I was traveling to the coast with my friends..." type="text"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+<span class="font-semibold text-slate-700 block mb-1">4. Two years ago:</span>
+<input class="border border-slate-300 rounded px-2.5 py-1 text-xs w-full bg-white" placeholder="e.g. I was studying for my entrance exams..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-explore')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Explore</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex6-7')" type="button">
+<span>Next: Ex 6 &amp; 7 (Questions)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 3: CHART 2.4 & EXERCISES 6 & 7 (Pages 36–37) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex6-7">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn &amp; Practice • Pages 36–37</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.4 &amp; Exercises 6–7: Questions and Answers</h2>
+<p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions in the past progressive</p>
+</div>
+<span class="badge-cd">Chart 2.4</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.4 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.4 Past Progressive: Questions</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 36</span>
+</div>
+<div class="space-y-2.5 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+<strong>Yes / No:</strong> <em>Were you eating dinner?</em> → Yes, I was. / No, I wasn't.
             </div>
-          </div>
-
-          <div class="flex items-center justify-between pt-2">
-            <button type="button" onclick="switchExTab('tab-explore')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Explore</span>
-            </button>
-            <button type="button" onclick="switchExTab('tab-ex6-7')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 6 & 7 (Questions)</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 3: CHART 2.4 & EXERCISES 6 & 7 (Pages 36–37) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex6-7" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn & Practice • Pages 36–37</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.4 & Exercises 6–7: Questions and Answers</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions in the past progressive</p>
-        </div>
-        <span class="badge-cd">Chart 2.4</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.4 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.4 Past Progressive: Questions</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 36</span>
-          </div>
-
-          <div class="space-y-2.5 text-xs">
-            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-              <strong>Yes / No:</strong> <em>Were you eating dinner?</em> → Yes, I was. / No, I wasn't.
+<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+<strong>Wh- Object:</strong> <em>What was he doing at 3:00?</em> → He was working.
             </div>
-            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-              <strong>Wh- Object:</strong> <em>What was he doing at 3:00?</em> → He was working.
-            </div>
-            <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-950">
-              <strong>Who/What as Subject:</strong> <em>Who was singing last night?</em> (Alex and Rui were.)<br>
+<div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-200 text-emerald-950">
+<strong>Who/What as Subject:</strong> <em>Who was singing last night?</em> (Alex and Rui were.)<br/>
               Notice: The subject question uses third-person singular <em>was</em> + <em>verb-ing</em>.
             </div>
-          </div>
-        </div>
-
-        <!-- Exercise 6: Questions and Answers (All 8 items) -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l2-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+</div>
+</div>
+<!-- Exercise 6: Questions and Answers (All 8 items) -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
             Questions and Answers in Past Progressive (Pages 36–37)
           </h4>
-          <p class="text-xs text-slate-500">Complete each question and answer using the cues in parentheses:</p>
-
-          <div class="space-y-2 text-xs sm:text-sm">
-            <div class="p-2 bg-slate-50 rounded-lg">1. A: What <input type="text" data-ans="was Berta doing" value="was Berta doing" readonly class="border rounded px-1.5 py-0.5 text-xs w-32 bg-slate-200 font-semibold text-slate-700"> (Berta / do) in the evenings? <br>B: <input type="text" data-ans="She was teaching" value="She was teaching" readonly class="border rounded px-1.5 py-0.5 text-xs w-36 bg-slate-200 font-semibold text-slate-700"> (she / teach).</div>
-            <div class="p-2 bg-slate-50 rounded-lg">2. A: <input type="text" data-ans="Were they speaking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="they / speak"> Spanish? <br>B: No, <input type="text" data-ans="they weren't,they were not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">3. A: <input type="text" data-ans="Were you waiting" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="you / wait"> for me? <br>B: Yes, <input type="text" data-ans="I was,we were" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">4. A: Where <input type="text" data-ans="were you going" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="you / go"> after class yesterday? <br>B: <input type="text" data-ans="I was going,We were going" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="I / go"> home.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">5. A: Who <input type="text" data-ans="was Jane talking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="Jane / talk"> to? <br>B: <input type="text" data-ans="She was talking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="she / talk"> to her math teacher.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">6. A: Why <input type="text" data-ans="were those people cheering" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 input-clean font-semibold" placeholder="those people / cheer">? <br>B: Because <input type="text" data-ans="their team was playing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" placeholder="their team / play"> really well.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">7. A: What <input type="text" data-ans="were you doing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="you / do"> at 8:00 last night? <br>B: <input type="text" data-ans="I was cooking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="I / cook"> dinner.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">8. A: <input type="text" data-ans="Was it snowing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="it / snow"> last night? <br>B: No, <input type="text" data-ans="it wasn't,it was not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex6-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
-        <button type="button" onclick="switchExTab('tab-ex4-5')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          <span>Back: Ex 4 & 5</span>
-        </button>
-        <button type="button" onclick="switchExTab('tab-ex8')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-          <span>Next: Ex 8 (Situations)</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 4: EXERCISE 8 (Page 37) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex8" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Practice • Page 37</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 8: Simple Past or Past Progressive</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Distinguishing sequential completed events from background actions in three narrative situations</p>
-        </div>
-        <span class="badge-cd">Page 37</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex8-l2-card">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+<p class="text-xs text-slate-500">Complete each question and answer using the cues in parentheses:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2 bg-slate-50 rounded-lg">1. A: What <input class="border rounded px-1.5 py-0.5 text-xs w-32 bg-slate-200 font-semibold text-slate-700" data-ans="was Berta doing" readonly="" type="text" value="was Berta doing"/> (Berta / do) in the evenings? <br/>B: <input class="border rounded px-1.5 py-0.5 text-xs w-36 bg-slate-200 font-semibold text-slate-700" data-ans="She was teaching" readonly="" type="text" value="She was teaching"/> (she / teach).</div>
+<div class="p-2 bg-slate-50 rounded-lg">2. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Were they speaking" placeholder="they / speak" type="text"/> Spanish? <br/>B: No, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="they weren't,they were not" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">3. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Were you waiting" placeholder="you / wait" type="text"/> for me? <br/>B: Yes, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="I was,we were" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">4. A: Where <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="were you going" placeholder="you / go" type="text"/> after class yesterday? <br/>B: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="I was going,We were going" placeholder="I / go" type="text"/> home.</div>
+<div class="p-2 bg-slate-50 rounded-lg">5. A: Who <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="was Jane talking" placeholder="Jane / talk" type="text"/> to? <br/>B: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="She was talking" placeholder="she / talk" type="text"/> to her math teacher.</div>
+<div class="p-2 bg-slate-50 rounded-lg">6. A: Why <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 input-clean font-semibold" data-ans="were those people cheering" placeholder="those people / cheer" type="text"/>? <br/>B: Because <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" data-ans="their team was playing" placeholder="their team / play" type="text"/> really well.</div>
+<div class="p-2 bg-slate-50 rounded-lg">7. A: What <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="were you doing" placeholder="you / do" type="text"/> at 8:00 last night? <br/>B: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="I was cooking" placeholder="I / cook" type="text"/> dinner.</div>
+<div class="p-2 bg-slate-50 rounded-lg">8. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Was it snowing" placeholder="it / snow" type="text"/> last night? <br/>B: No, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="it wasn't,it was not" placeholder="short answer" type="text"/>.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex6-l2-card')" type="button">Check Ex 6</button>
+</div>
+</div>
+</div><div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-12">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex7-l2-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-amber-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">7</span>
+<h4 class="font-bold text-slate-800 text-sm">SPEAK. Past Progressive Questions &amp; Answers (Page 37)</h4>
+</div>
+<span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-100">Partner Speaking</span>
+</div>
+<p class="text-xs text-slate-600">Work with a partner. Take turns asking and answering questions 4, 7, and 8 from exercise 6. Use your own answers, not the answers in the book:</p>
+<div class="space-y-3 text-xs">
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+<div class="font-semibold text-slate-800 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-[10px]">Q4</span>
+<span>Where were you going after class yesterday?</span>
+</div>
+<input class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-slate-700 placeholder-slate-400" placeholder="e.g., I was going to the gym / I was walking home." type="text"/>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+<div class="font-semibold text-slate-800 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-[10px]">Q7</span>
+<span>What were you doing at 8:00 yesterday evening?</span>
+</div>
+<input class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-slate-700 placeholder-slate-400" placeholder="e.g., I was eating dinner with my family." type="text"/>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-100 space-y-1.5">
+<div class="font-semibold text-slate-800 flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-[10px]">Q8</span>
+<span>Was it raining when you woke up this morning?</span>
+</div>
+<input class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1 text-slate-700 placeholder-slate-400" placeholder="e.g., No, it wasn't. The sun was shining." type="text"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-200">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex4-5')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 4 &amp; 5</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex8')" type="button">
+<span>Next: Ex 8 (Situations)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 4: EXERCISE 8 (Page 37) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex8">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Practice • Page 37</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 8: Simple Past or Past Progressive</h2>
+<p class="text-xs text-slate-500 mt-0.5">Distinguishing sequential completed events from background actions in three narrative situations</p>
+</div>
+<span class="badge-cd">Page 37</span>
+</div>
+<div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex8-l2-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
             Choose Simple Past or Past Progressive (Situations 1–3)
           </h4>
-          <span class="text-xs text-slate-400">18 verb choices</span>
-        </div>
-        <p class="text-xs text-slate-500">Select the correct verb form to complete each situation narrative:</p>
-
-        <div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
-          <!-- Situation 1 -->
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-            <span class="font-bold text-slate-900 block uppercase tracking-wide text-xs">Situation 1: Concert Experience</span>
-            <p>
+<span class="text-xs text-slate-400">18 verb choices</span>
+</div>
+<p class="text-xs text-slate-500">Select the correct verb form to complete each situation narrative:</p>
+<div class="space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+<!-- Situation 1 -->
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+<span class="font-bold text-slate-900 block uppercase tracking-wide text-xs">Situation 1: Concert Experience</span>
+<p>
               We (1) 
-              <select data-ans="listened" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were listening">were listening</option>
-                <option value="listened">listened</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="listened">
+<option value="">select</option>
+<option value="were listening">were listening</option>
+<option value="listened">listened</option>
+</select> 
               to a great band last night. They (2) 
-              <select data-ans="played" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were playing">were playing</option>
-                <option value="played">played</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="played">
+<option value="">select</option>
+<option value="were playing">were playing</option>
+<option value="played">played</option>
+</select> 
               three songs, and then they (3) 
-              <select data-ans="stopped" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were stopping">were stopping</option>
-                <option value="stopped">stopped</option>
-              </select>. We (4) 
-              <select data-ans="wanted" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were wanting">were wanting</option>
-                <option value="wanted">wanted</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="stopped">
+<option value="">select</option>
+<option value="were stopping">were stopping</option>
+<option value="stopped">stopped</option>
+</select>. We (4) 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="wanted">
+<option value="">select</option>
+<option value="were wanting">were wanting</option>
+<option value="wanted">wanted</option>
+</select> 
               them to play more songs, but they didn’t. We (5) 
-              <select data-ans="left" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were leaving">were leaving</option>
-                <option value="left">left</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="left">
+<option value="">select</option>
+<option value="were leaving">were leaving</option>
+<option value="left">left</option>
+</select> 
               and (6) 
-              <select data-ans="asked" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were asking">were asking</option>
-                <option value="asked">asked</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="asked">
+<option value="">select</option>
+<option value="were asking">were asking</option>
+<option value="asked">asked</option>
+</select> 
               for our money back.
             </p>
-          </div>
-
-          <!-- Situation 2 -->
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-            <span class="font-bold text-slate-900 block uppercase tracking-wide text-xs">Situation 2: The Subway Accident</span>
-            <p>
+</div>
+<!-- Situation 2 -->
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+<span class="font-bold text-slate-900 block uppercase tracking-wide text-xs">Situation 2: The Subway Accident</span>
+<p>
               Lily’s watch (7) 
-              <select data-ans="broke" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was breaking">was breaking</option>
-                <option value="broke">broke</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="broke">
+<option value="">select</option>
+<option value="was breaking">was breaking</option>
+<option value="broke">broke</option>
+</select> 
               yesterday morning. It (8) 
-              <select data-ans="fell" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was falling">was falling</option>
-                <option value="fell">fell</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="fell">
+<option value="">select</option>
+<option value="was falling">was falling</option>
+<option value="fell">fell</option>
+</select> 
               off her wrist on her way to work. She (9) 
-              <select data-ans="was walking" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was walking">was walking</option>
-                <option value="walked">walked</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="was walking">
+<option value="">select</option>
+<option value="was walking">was walking</option>
+<option value="walked">walked</option>
+</select> 
               out of the subway station at the time, and someone (10) 
-              <select data-ans="stepped" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was stepping">was stepping</option>
-                <option value="stepped">stepped</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="stepped">
+<option value="">select</option>
+<option value="was stepping">was stepping</option>
+<option value="stepped">stepped</option>
+</select> 
               on it. Last night after work, she (11) 
-              <select data-ans="bought" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was buying">was buying</option>
-                <option value="bought">bought</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="bought">
+<option value="">select</option>
+<option value="was buying">was buying</option>
+<option value="bought">bought</option>
+</select> 
               a new one.
             </p>
-          </div>
-
-          <!-- Situation 3 -->
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-            <span class="font-bold text-slate-900 block uppercase tracking-wide text-xs">Situation 3: In the Student Center</span>
-            <p>
+</div>
+<!-- Situation 3 -->
+<div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+<span class="font-bold text-slate-900 block uppercase tracking-wide text-xs">Situation 3: In the Student Center</span>
+<p>
               I (12) 
-              <select data-ans="was sitting" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was sitting">was sitting</option>
-                <option value="sat">sat</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="was sitting">
+<option value="">select</option>
+<option value="was sitting">was sitting</option>
+<option value="sat">sat</option>
+</select> 
               at the student center yesterday afternoon. Several students (13) 
-              <select data-ans="were studying" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were studying">were studying</option>
-                <option value="studied">studied</option>
-              </select>. Others (14) 
-              <select data-ans="were using" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="were using">were using</option>
-                <option value="used">used</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="were studying">
+<option value="">select</option>
+<option value="were studying">were studying</option>
+<option value="studied">studied</option>
+</select>. Others (14) 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="were using">
+<option value="">select</option>
+<option value="were using">were using</option>
+<option value="used">used</option>
+</select> 
               their phones. Then I (15) 
-              <select data-ans="saw" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was seeing">was seeing</option>
-                <option value="saw">saw</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="saw">
+<option value="">select</option>
+<option value="was seeing">was seeing</option>
+<option value="saw">saw</option>
+</select> 
               my friend, Phil. He (16) 
-              <select data-ans="was eating" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was eating">was eating</option>
-                <option value="ate">ate</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="was eating">
+<option value="">select</option>
+<option value="was eating">was eating</option>
+<option value="ate">ate</option>
+</select> 
               lunch alone, so (17) I 
-              <select data-ans="went" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was going">was going</option>
-                <option value="went">went</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="went">
+<option value="">select</option>
+<option value="was going">was going</option>
+<option value="went">went</option>
+</select> 
               over and (18) 
-              <select data-ans="sat" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
-                <option value="">select</option>
-                <option value="was sitting">was sitting</option>
-                <option value="sat">sat</option>
-              </select> 
+              <select class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold" data-ans="sat">
+<option value="">select</option>
+<option value="was sitting">was sitting</option>
+<option value="sat">sat</option>
+</select> 
               with him.
             </p>
-          </div>
-        </div>
-
-        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <span class="ex-score text-xs font-bold text-slate-500"></span>
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="switchExTab('tab-ex6-7')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 6 & 7</span>
-            </button>
-            <button type="button" onclick="checkSelectCard('ex8-l2-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
-            <button type="button" onclick="switchExTab('tab-ex9')" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 9</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 5: EXERCISE 9 (Pages 37–38) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex9" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Practice • Pages 37–38</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 9: Word Box Fill-in</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Complete sentences with simple past or past progressive forms of selected verbs</p>
-        </div>
-        <span class="badge-cd">Pages 37–38</span>
-      </div>
-
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex9-l2-card">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex6-7')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 6 &amp; 7</span>
+</button>
+<button class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex8-l2-card')" type="button">Check Ex 8</button>
+<button class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex9')" type="button">
+<span>Next: Ex 9</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 5: EXERCISE 9 (Pages 37–38) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex9">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Practice • Pages 37–38</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 9: Word Box Fill-in</h2>
+<p class="text-xs text-slate-500 mt-0.5">Complete sentences with simple past or past progressive forms of selected verbs</p>
+</div>
+<span class="badge-cd">Pages 37–38</span>
+</div>
+<div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex9-l2-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
             Complete with the Verbs from the Box
           </h4>
-          <span class="text-xs text-slate-400">Items 1–8</span>
-        </div>
-
-        <div class="p-3 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-2 text-slate-700">
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">arrive</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">die</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">open</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">own</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">see</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">sleep</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">think</span>
-          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">walk</span>
-        </div>
-
-        <div class="space-y-3 text-xs sm:text-sm">
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            1. The language <input type="text" data-ans="was dying" value="was dying" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700">. Only a few people spoke it.
+<span class="text-xs text-slate-400">Items 1–8</span>
+</div>
+<div class="p-3 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-2 text-slate-700">
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">arrive</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">die</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">open</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">own</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">see</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">sleep</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">think</span>
+<span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">walk</span>
+</div>
+<div class="space-y-3 text-xs sm:text-sm">
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            1. The language <input class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700" data-ans="was dying" readonly="" type="text" value="was dying"/>. Only a few people spoke it.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            2. I saw street musicians when I <input type="text" data-ans="was walking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="verb"> home last night.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            2. I saw street musicians when I <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="was walking" placeholder="verb" type="text"/> home last night.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            3. Debbie <input type="text" data-ans="owned" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> a nice car, but she didn’t drive it much.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            3. Debbie <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="owned" placeholder="verb" type="text"/> a nice car, but she didn’t drive it much.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            4. I’m surprised Kumiko is here today. I <input type="text" data-ans="thought" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="verb"> she was on vacation.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            4. I’m surprised Kumiko is here today. I <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="thought" placeholder="verb" type="text"/> she was on vacation.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            5. Marcia <input type="text" data-ans="arrived" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> to the meeting 15 minutes late. Her boss was very angry.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            5. Marcia <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="arrived" placeholder="verb" type="text"/> to the meeting 15 minutes late. Her boss was very angry.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            6. I <input type="text" data-ans="saw" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> Andy yesterday. He was talking to some friends.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            6. I <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" data-ans="saw" placeholder="verb" type="text"/> Andy yesterday. He was talking to some friends.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            7. My sister called me at midnight last night. I <input type="text" data-ans="was sleeping" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="verb">, and she woke me up.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            7. My sister called me at midnight last night. I <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="was sleeping" placeholder="verb" type="text"/>, and she woke me up.
           </div>
-          <div class="p-2.5 bg-slate-50 rounded-xl">
-            8. The professor <input type="text" data-ans="opened" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> the door and left the room.
+<div class="p-2.5 bg-slate-50 rounded-xl">
+            8. The professor <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="opened" placeholder="verb" type="text"/> the door and left the room.
           </div>
-        </div>
-
-        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <span class="ex-score text-xs font-bold text-slate-500"></span>
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="switchExTab('tab-ex8')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 8</span>
-            </button>
-            <button type="button" onclick="checkClozeCard('ex9-l2-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
-            <button type="button" onclick="switchExTab('tab-ex10-apply')" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 10 & Apply</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 6: EXERCISE 10 & APPLY (Page 38) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex10-apply" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Edit & Apply • Page 38</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 10 & Apply: Dr. Anderson in Siberia</h2>
-          <p class="text-xs text-slate-500 mt-0.5">In-situ text editor correcting simple past vs. past progressive, followed by interview speaking prompts</p>
-        </div>
-        <span class="badge-cd">Page 38</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- In-Situ Paragraph Editor -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border-2 border-emerald-300 p-6 reader-card space-y-4" id="ex10-l2-card">
-          <div class="flex items-center justify-between border-b border-emerald-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs">10</span>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex8')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 8</span>
+</button>
+<button class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex9-l2-card')" type="button">Check Ex 9</button>
+<button class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex10-apply')" type="button">
+<span>Next: Ex 10 &amp; Apply</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 6: EXERCISE 10 & APPLY (Page 38) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex10-apply">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Edit &amp; Apply • Page 38</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 10 &amp; Apply: Dr. Anderson in Siberia</h2>
+<p class="text-xs text-slate-500 mt-0.5">In-situ text editor correcting simple past vs. past progressive, followed by interview speaking prompts</p>
+</div>
+<span class="badge-cd">Page 38</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- In-Situ Paragraph Editor -->
+<div class="lg:col-span-7 bg-white rounded-2xl border-2 border-emerald-300 p-6 reader-card space-y-4" id="ex10-l2-card">
+<div class="flex items-center justify-between border-b border-emerald-100 pb-2">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs">10</span>
               EDIT. Dr. Anderson in Siberia (Page 38)
             </h4>
-            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded">In-Situ Text Editor</span>
-          </div>
-          <p class="text-xs text-slate-600">
+<span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded">In-Situ Text Editor</span>
+</div>
+<p class="text-xs text-slate-600">
             Read the passage below. Find and correct the five more errors with the simple past and the past progressive. Type your corrections directly into each blank:
           </p>
-
-          <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-5 bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/20 rounded-2xl border border-slate-200 shadow-inner space-y-3.5">
-            <h5 class="font-sans font-bold text-slate-900 text-base">Dr. Anderson in Siberia</h5>
-            <p>
+<div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-5 bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/20 rounded-2xl border border-slate-200 shadow-inner space-y-3.5">
+<h5 class="font-sans font-bold text-slate-900 text-base">Dr. Anderson in Siberia</h5>
+<p>
               Dr. Anderson and his team made some interesting discoveries during a trip to Siberia in Russia. They were studying Xyzyl (<em>hizzle</em>), a local language there. They 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">were visiting</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <span class="font-bold text-emerald-700">visited</span> (Example)
+<span class="line-through text-rose-600 font-bold">were visiting</span>
+<span class="text-slate-400 text-xs">➔</span>
+<span class="font-bold text-emerald-700">visited</span> (Example)
               </span> 
               five villages during their trip, and they found that 50 to 60 people in those communities spoke Xyzyl in their daily lives. In one village, they 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">were talking</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="talked" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">were talking</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" data-ans="talked" placeholder="corr..." type="text"/>
+</span> 
               to an eleven-year-old girl called Kristina. She 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">was knowing</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="knew" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">was knowing</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" data-ans="knew" placeholder="corr..." type="text"/>
+</span> 
               how to speak Xyzyl. Her grandmother was teaching her. Kristina was the youngest Xyzyl speaker in the village.
             </p>
-            <p>
+<p>
               Most of the other Xyzyl speakers 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">got</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="were getting,were getting old" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">got</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-white input-clean font-sans font-semibold" data-ans="were getting,were getting old" placeholder="corr..." type="text"/>
+</span> 
               old. Many of them were 60 years old or older. It was clear that the Xyzyl language 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">died</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="was dying" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span>. Dr. Anderson and his team studied the language, and they 
+<span class="line-through text-rose-600 font-bold">died</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 bg-white input-clean font-sans font-semibold" data-ans="was dying" placeholder="corr..." type="text"/>
+</span>. Dr. Anderson and his team studied the language, and they 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">were making</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="made" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">were making</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" data-ans="made" placeholder="corr..." type="text"/>
+</span> 
               recordings to help it survive.
             </p>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex10-l2-card')" class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition shadow-sm flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition shadow-sm flex items-center gap-1.5" onclick="checkClozeCard('ex10-l2-card')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
               Check Passage
             </button>
-          </div>
-        </div>
-
-        <!-- Apply Speaking & Interview Activity -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+</div>
+</div>
+<!-- Apply Speaking & Interview Activity -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
               APPLY (Page 38)
             </h4>
-            <span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Radio Interview Role-Play</span>
-          </div>
-
-          <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-950 space-y-2.5">
-            <p class="font-bold text-emerald-900">Form questions for Dr. Anderson using the simple past or past progressive:</p>
-            <ul class="space-y-1.5 text-emerald-950">
-              <li>• <strong>where / your team go:</strong> <em>Where did your team go?</em> (Example)</li>
-              <li>• <strong>how many villages / you / visit:</strong> <em>How many villages did you visit?</em></li>
-              <li>• <strong>who / you / talk to in the village:</strong> <em>Who did you talk to in the village?</em></li>
-              <li>• <strong>what / you / do in the village:</strong> <em>What were you doing in the village?</em></li>
-            </ul>
-          </div>
-
-          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
-            <span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">Role-Play Prompt:</span>
-            <p><strong>A:</strong> So, tell us about your trip, Dr. Anderson. Where did your team go?</p>
-            <p><strong>B:</strong> We went to Siberia to study an endangered language called Xyzyl...</p>
-          </div>
-
-          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-            <button type="button" onclick="switchExTab('tab-ex9')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 9</span>
-            </button>
-            <button type="button" onclick="switchExTab('tab-explore')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Return to Explore</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <div class="w-2 h-4 bg-emerald-400 rounded-xs"></div>
-        <p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 2</p>
-      </div>
-      <p class="mt-2 sm:mt-0 text-slate-500">Past Progressive and Simple Past Interactive Student Workbench</p>
-    </div>
-  </footer>
-
-  <script>
+<span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Radio Interview Role-Play</span>
+</div>
+<div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-950 space-y-2.5">
+<p class="font-bold text-emerald-900">Form questions for Dr. Anderson using the simple past or past progressive:</p>
+<ul class="space-y-1.5 text-emerald-950">
+<li>• <strong>where / your team go:</strong> <em>Where did your team go?</em> (Example)</li>
+<li>• <strong>how many villages / you / visit:</strong> <em>How many villages did you visit?</em></li>
+<li>• <strong>who / you / talk to in the village:</strong> <em>Who did you talk to in the village?</em></li>
+<li>• <strong>what / you / do in the village:</strong> <em>What were you doing in the village?</em></li>
+</ul>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-600 space-y-1.5">
+<span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">Role-Play Prompt:</span>
+<p><strong>A:</strong> So, tell us about your trip, Dr. Anderson. Where did your team go?</p>
+<p><strong>B:</strong> We went to Siberia to study an endangered language called Xyzyl...</p>
+</div>
+<div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex9')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 9</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-explore')" type="button">
+<span>Return to Explore</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+<div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+<div class="flex items-center justify-center sm:justify-start gap-2">
+<div class="w-2 h-4 bg-emerald-400 rounded-xs"></div>
+<p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 2</p>
+</div>
+<p class="mt-2 sm:mt-0 text-slate-500">Past Progressive and Simple Past Interactive Student Workbench</p>
+</div>
+</footer>
+<script>
     function switchExTab(tabId) {
       document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
       const target = document.getElementById(tabId);

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Explorer 2 — Unit 2: Lesson 1 (Simple Past)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grammar Explorer 2 — Unit 2: Lesson 1 (Simple Past)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -20,7 +21,7 @@
       }
     }
   </script>
-  <style>
+<style>
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
@@ -39,156 +40,140 @@
   </style>
 </head>
 <body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-100 selection:text-amber-900">
-
-  <!-- HEADER -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-8 bg-amber-400 rounded-sm shadow-sm"></div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase">National Geographic Learning</span>
-              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 1</span>
-            </div>
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+<!-- HEADER -->
+<header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-3">
+<div class="w-2.5 h-8 bg-amber-400 rounded-sm shadow-sm"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase">National Geographic Learning</span>
+<span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 1</span>
+</div>
+<h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
               Unit 2: Survival <span class="text-slate-500 font-light">|</span> <span class="text-amber-400">Lesson 1: Simple Past</span>
-            </h1>
-          </div>
-        </div>
-
-        <button onclick="resetLesson1()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-amber-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Lesson</span>
-        </button>
-      </div>
-
-      <!-- EXERCISE TAB NAVIGATION -->
-      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-        <button onclick="switchExTab('tab-opener')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-amber-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener">
-          <span class="w-5 h-5 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">pp. 24–25</span>
-          <span>Unit Opener</span>
-        </button>
-        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
-          <span>Explore: Lion Guardians (pp. 26–27)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex4')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
-          <span>Ex 4: Statements (p. 28)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex5')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex5">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5</span>
-          <span>Ex 5: Questions & Answers (p. 29)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex7-8')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7-8">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7–8</span>
-          <span>Ex 7 & 8: Questions & Whale Rescue (p. 30)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex9')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
-          <span>Ex 9: Antarctic Penguins (p. 31)</span>
-        </button>
-        <button onclick="switchExTab('tab-ex10-apply')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex10-apply">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">10</span>
-          <span>Ex 10 & Apply: Panda Dialogue (p. 32)</span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 1: UNIT OPENER SPOTLIGHT (Pages 24–25) -->
-    <!-- ============================================================ -->
-    <div id="tab-opener" class="ex-tab-pane block space-y-6">
-      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-          <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 mb-2">
+</h1>
+</div>
+</div>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-amber-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm" onclick="resetLesson1()">
+<svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset Lesson</span>
+</button>
+</div>
+<!-- EXERCISE TAB NAVIGATION -->
+<nav aria-label="Exercise Tabs" class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800">
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-amber-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener" onclick="switchExTab('tab-opener')">
+<span class="w-5 h-5 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">pp. 24–25</span>
+<span>Unit Opener</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore" onclick="switchExTab('tab-explore')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
+<span>Explore: Lion Guardians (pp. 26–27)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4" onclick="switchExTab('tab-ex4')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+<span>Ex 4: Statements (p. 28)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex5" onclick="switchExTab('tab-ex5')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5</span>
+<span>Ex 5: Questions &amp; Answers (p. 29)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7-8" onclick="switchExTab('tab-ex7-8')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7–8</span>
+<span>Ex 7 &amp; 8: Questions &amp; Whale Rescue (p. 30)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9" onclick="switchExTab('tab-ex9')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
+<span>Ex 9: Antarctic Penguins (p. 31)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex10-apply" onclick="switchExTab('tab-ex10-apply')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">10</span>
+<span>Ex 10 &amp; Apply: Panda Dialogue (p. 32)</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- MAIN CONTAINER -->
+<main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+<!-- ============================================================ -->
+<!-- TAB PANE 1: UNIT OPENER SPOTLIGHT (Pages 24–25) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane block space-y-6" id="tab-opener">
+<section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+<div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 mb-2">
               Pages 24–25 • Unit Opener
             </div>
-            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 2: Survival (The Past)</h2>
-            <p class="text-slate-500 mt-1 text-base">The Parthenon, Acropolis, Athens, Greece • Enduring Through History</p>
-          </div>
-          <span class="badge-cd">Tracks CD1-08, 09</span>
-        </div>
-
-        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 reader-card">
-            <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-950 group">
-              <img 
-                src="https://cdn.britannica.com/54/150954-050-F8D14782/Night-view-Parthenon-Athens.jpg" 
-                alt="Parthenon in Athens at night" 
-                class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/38bdf8?text=The+Parthenon+%E2%80%A2+Athens';"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-black/40 pointer-events-none"></div>
-              <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-amber-400 px-2.5 py-1 rounded-md border border-amber-400/30 flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+<h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 2: Survival (The Past)</h2>
+<p class="text-slate-500 mt-1 text-base">The Parthenon, Acropolis, Athens, Greece • Enduring Through History</p>
+</div>
+<span class="badge-cd">Tracks CD1-08, 09</span>
+</div>
+<div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 reader-card">
+<div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-950 group">
+<img alt="Parthenon in Athens at night" class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/38bdf8?text=The+Parthenon+%E2%80%A2+Athens';" src="https://cdn.britannica.com/54/150954-050-F8D14782/Night-view-Parthenon-Athens.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-black/40 pointer-events-none"></div>
+<div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+<span class="text-[11px] font-bold uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-amber-400 px-2.5 py-1 rounded-md border border-amber-400/30 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                   Unit Opener • pp. 24–25
                 </span>
-                <span class="text-[11px] bg-slate-900/85 backdrop-blur-md text-slate-300 px-2.5 py-1 rounded-md border border-slate-700">
+<span class="text-[11px] bg-slate-900/85 backdrop-blur-md text-slate-300 px-2.5 py-1 rounded-md border border-slate-700">
                   Athens, Greece
                 </span>
-              </div>
-            </div>
-            <div class="p-5 sm:p-6 space-y-2">
-              <h3 class="text-xl font-bold text-white">Survival Against the Elements</h3>
-              <p class="font-serif text-sm leading-relaxed text-slate-300">
+</div>
+</div>
+<div class="p-5 sm:p-6 space-y-2">
+<h3 class="text-xl font-bold text-white">Survival Against the Elements</h3>
+<p class="font-serif text-sm leading-relaxed text-slate-300">
                 How do humans, wildlife, and monuments survive extreme conditions and historical transformations? In this lesson, we explore the courage and ingenuity of Maasai warriors who transitioned from hunting lions to becoming their protectors in Kenya.
               </p>
-            </div>
-          </div>
-
-          <div class="md:col-span-5 space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs text-slate-700">
-            <h4 class="font-bold text-slate-900 text-sm">Lesson 1 Scope & Goals (pp. 26–32)</h4>
-            <ul class="space-y-2 list-disc list-inside">
-              <li><strong>Grammar 2.1:</strong> Simple Past Affirmative and Negative Statements with regular (<em>-ed</em>) and irregular verbs.</li>
-              <li><strong>Grammar 2.2:</strong> Simple Past Questions (Yes/No, Wh- Objects, and Who/What Subject questions without <em>did</em>).</li>
-              <li><strong>Explore:</strong> Reading <em>The Lion Guardians Project, Kenya</em> + Exercises 2 (True/False) & 3 (Verb Forms).</li>
-              <li><strong>Practice:</strong> Whale rescue dialogue, Antarctic emperor penguin survival (CD1-09), and in-situ Panda Assignment Editor.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-end pt-4 border-t border-slate-100 mt-4">
-          <button type="button" onclick="switchExTab('tab-explore')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-            <span>Next: Explore (The Lion Guardians Project)</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </section>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 2: EXPLORE (Reading & Exercises 2–3, Pages 26–27) -->
-    <!-- ============================================================ -->
-    <div id="tab-explore" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Explore • Pages 26–27</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">The Lion Guardians Project, Kenya</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Split-view: text on the left, True/False & Verb Analysis on the right</p>
-        </div>
-        <span class="badge-cd">Track CD1-08</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
-        <!-- LEFT PANE: Sticky Reading -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <div>
-              <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
-              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Lion Guardians Project, Kenya</h3>
-              <p class="text-xs text-slate-500">Protecting lions with Maasai warriors</p>
-            </div>
-            <span class="badge-cd">CD1-08</span>
-          </div>
+</div>
+</div>
+<div class="md:col-span-5 space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs text-slate-700">
+<h4 class="font-bold text-slate-900 text-sm">Lesson 1 Scope &amp; Goals (pp. 26–32)</h4>
+<ul class="space-y-2 list-disc list-inside">
+<li><strong>Grammar 2.1:</strong> Simple Past Affirmative and Negative Statements with regular (<em>-ed</em>) and irregular verbs.</li>
+<li><strong>Grammar 2.2:</strong> Simple Past Questions (Yes/No, Wh- Objects, and Who/What Subject questions without <em>did</em>).</li>
+<li><strong>Explore:</strong> Reading <em>The Lion Guardians Project, Kenya</em> + Exercises 2 (True/False) &amp; 3 (Verb Forms).</li>
+<li><strong>Practice:</strong> Whale rescue dialogue, Antarctic emperor penguin survival (CD1-09), and in-situ Panda Assignment Editor.</li>
+</ul>
+</div>
+</div>
+<div class="flex items-center justify-end pt-4 border-t border-slate-100 mt-4">
+<button class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-explore')" type="button">
+<span>Next: Explore (The Lion Guardians Project)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</section>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 2: EXPLORE (Reading & Exercises 2–3, Pages 26–27) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-explore">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">Explore • Pages 26–27</span>
+<h2 class="text-2xl font-extrabold text-slate-900">The Lion Guardians Project, Kenya</h2>
+<p class="text-xs text-slate-500 mt-0.5">Split-view: text on the left, True/False &amp; Verb Analysis on the right</p>
+</div>
+<span class="badge-cd">Track CD1-08</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Sticky Reading -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div>
+<span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Lion Guardians Project, Kenya</h3>
+<p class="text-xs text-slate-500">Protecting lions with Maasai warriors</p>
+</div>
+<span class="badge-cd">CD1-08</span>
+</div>
 <!-- Audio Player [CD1-08] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-08">
   <div style="width: calc(100% + 56px); margin-right: -56px;">
@@ -197,439 +182,421 @@
 </div>
 <!-- End Audio Player [CD1-08] -->
 
-          <div class="flex justify-center my-3">
-            <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
-              <img 
-                src="https://ellamckendrick.com/wp-content/uploads/2025/03/maasai-mara-kenya-p1011809-1024x769.webp" 
-                alt="Maasai Mara, Kenya" 
-                class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/576x1024/1e293b/f59e0b?text=Maasai+Mara+%E2%80%A2+Kenya';"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
-              <div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
-                <span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">A lion in Maasai Mara Game Reserve</span>
-                <span class="text-amber-300 font-mono text-[10px]">p. 26</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
-            <p>
+<div class="flex justify-center my-3">
+<div class="w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
+<img alt="Maasai Mara, Kenya" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/576x1024/1e293b/f59e0b?text=Maasai+Mara+%E2%80%A2+Kenya';" src="https://ellamckendrick.com/wp-content/uploads/2025/03/maasai-mara-kenya-p1011809-1024x769.webp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
+<span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">A lion in Maasai Mara Game Reserve</span>
+<span class="text-amber-300 font-mono text-[10px]">p. 26</span>
+</div>
+</div>
+</div>
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+<p>
               Cattle¹ are basic to the lives of the Maasai people of Kenya. In fact, the Maasai have a saying, “Without the land and the cattle, there are no Maasai people.” In 2006, Maasai cattle herders² in Kenya <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">had</strong> a problem. Lions regularly <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">killed</strong> their cows. The herders <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">sent</strong> warriors³ to hunt and kill the lions. Many lions <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">died</strong>. The Maasai <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">were</strong> a big threat to the survival of lions in Kenya.
             </p>
-            <p>
+<p>
               A local organization, Living with Lions, <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">wanted</strong> to save lions. They <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">helped</strong> train Maasai warriors to protect lions, not kill them. The warriors <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">learned</strong> to track the lions with modern technology. They <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">warned</strong> herders before the lions <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">got</strong> near their cows. The warriors <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">didn’t kill</strong> any more lions. Instead, they <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">became</strong> Lion Guardians.⁴
             </p>
-            <p>
+<p>
               The Guardians <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">persuaded</strong> the herders not to hunt the lions. They <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">gave</strong> each lion a Maasai name, and <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">taught</strong> the herders and villagers about them. Local people <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">began</strong> to see the lions as individuals. Now, there are more than 30 Lion Guardians. Because of the Guardians’ work, the number of lions that die in their part of Kenya is falling fast.
             </p>
-          </div>
-
-          <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
-            <p><strong>¹ cattle:</strong> cows and bulls</p>
-            <p><strong>² herder:</strong> a person who cares for a large group of one kind of animal</p>
-            <p><strong>³ warrior:</strong> a fighter or soldier</p>
-            <p><strong>⁴ guardian:</strong> a person who protects other people or property</p>
-          </div>
-        </div>
-
-        <!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
-        <div class="lg:col-span-6 space-y-5">
-          <!-- Exercise 2: CHECK True / False -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l1-card">
-            <div class="flex items-center justify-between mb-2">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+</div>
+<div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+<p><strong>¹ cattle:</strong> cows and bulls</p>
+<p><strong>² herder:</strong> a person who cares for a large group of one kind of animal</p>
+<p><strong>³ warrior:</strong> a fighter or soldier</p>
+<p><strong>⁴ guardian:</strong> a person who protects other people or property</p>
+</div>
+</div>
+<!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
+<div class="lg:col-span-6 space-y-5">
+<!-- Exercise 2: CHECK True / False -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l1-card">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
                 CHECK. True or False? (Page 27)
               </h4>
-              <span class="text-xs text-slate-400">Based on "Lion Guardians"</span>
-            </div>
-            <p class="text-xs text-slate-500 mb-3">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then click Check Answers:</p>
-
-            <div class="space-y-2.5">
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
-                <span class="text-slate-700">1. Cattle are not important to the Maasai people.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
-                <span class="text-slate-700">2. The Living with Lions organization wanted to protect the lions.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
-                <span class="text-slate-700">3. Cattle herders educated Maasai warriors about lions.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
-                <span class="text-slate-700">4. Lion Guardians use technology to protect cattle.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-
-              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
-                <span class="text-slate-700">5. Local people learned more about lions from the Lion Guardians.</span>
-                <div class="flex items-center gap-1 shrink-0 ml-2">
-                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
-                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
-                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkTFCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
-            </div>
-          </div>
-
-          <!-- Exercise 3: DISCOVER Regular vs. Irregular Simple Past -->
-          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-l1-card">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+<span class="text-xs text-slate-400">Based on "Lion Guardians"</span>
+</div>
+<p class="text-xs text-slate-500 mb-3">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then click Check Answers:</p>
+<div class="space-y-2.5">
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+<span class="text-slate-700">1. Cattle are not important to the Maasai people.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+<span class="text-slate-700">2. The Living with Lions organization wanted to protect the lions.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+<span class="text-slate-700">3. Cattle herders educated Maasai warriors about lions.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+<span class="text-slate-700">4. Lion Guardians use technology to protect cattle.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+<span class="text-slate-700">5. Local people learned more about lions from the Lion Guardians.</span>
+<div class="flex items-center gap-1 shrink-0 ml-2">
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'T')" type="button">T</button>
+<button class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition" onclick="selectTF(this, 'F')" type="button">F</button>
+<span class="status-icon hidden ml-1 font-bold text-xs"></span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkTFCard('ex2-l1-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+<!-- Exercise 3: DISCOVER Regular vs. Irregular Simple Past -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-l1-card">
+<div>
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
                 DISCOVER. Regular vs. Irregular Past Verbs (Page 27)
               </h4>
-              <p class="text-xs text-slate-500 mt-0.5">Find the simple past form of these verbs from the article:</p>
-            </div>
-
-            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50 space-y-2">
-              <span class="text-xs font-bold text-slate-700 block">Group A: Regular Verbs (-ed / -d)</span>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                <div>kill → <input type="text" data-ans="killed" value="killed" readonly class="border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700"></div>
-                <div>die → <input type="text" data-ans="died" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-                <div>want → <input type="text" data-ans="wanted" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-                <div>learn → <input type="text" data-ans="learned" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-                <div>persuade → <input type="text" data-ans="persuaded" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-              </div>
-            </div>
-
-            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50 space-y-2">
-              <span class="text-xs font-bold text-slate-700 block">Group B: Irregular Verbs</span>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                <div>have → <input type="text" data-ans="had" value="had" readonly class="border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700"></div>
-                <div>send → <input type="text" data-ans="sent" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-                <div>get → <input type="text" data-ans="got" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-                <div>become → <input type="text" data-ans="became" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-                <div>teach → <input type="text" data-ans="taught" placeholder="past form" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold"></div>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkClozeCard('ex3-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
-            </div>
-          </div>
-
-          <div class="flex items-center justify-between pt-2">
-            <button type="button" onclick="switchExTab('tab-opener')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Unit Opener</span>
-            </button>
-            <button type="button" onclick="switchExTab('tab-ex4')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 4 (Statements)</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 3: CHART 2.1 & EXERCISE 4 (Page 28) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex4" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn & Practice • Page 28</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.1 & Exercise 4: Simple Past Statements</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Regular and irregular verbs; forming negative statements with didn't + base verb</p>
-        </div>
-        <span class="badge-cd">Chart 2.1</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.1 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.1 Simple Past: Statements</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 28</span>
-          </div>
-
-          <div class="space-y-3 text-xs">
-            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
-              <span class="font-bold text-slate-800 block mb-1">Affirmative</span>
-              <p>• I / You / He / She / It / We / They <strong>helped</strong> the animals.</p>
-              <p>• I / You / He / She / It / We / They <strong>went</strong> to Africa.</p>
-            </div>
-            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
-              <span class="font-bold text-slate-800 block mb-1">Negative (did not / didn't + base form)</span>
-              <p>• I / You / He / She / It / We / They <strong>didn’t help</strong> them.</p>
-              <p>• I / You / He / She / It / We / They <strong>didn’t go</strong> to China.</p>
-            </div>
-            <div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50 text-amber-950">
-              <strong>Was / Were:</strong> Do <strong>not</strong> use <em>did not</em> with <em>was/were</em>.<br>
+<p class="text-xs text-slate-500 mt-0.5">Find the simple past form of these verbs from the article:</p>
+</div>
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50 space-y-2">
+<span class="text-xs font-bold text-slate-700 block">Group A: Regular Verbs (-ed / -d)</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+<div>kill → <input class="border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700" data-ans="killed" readonly="" type="text" value="killed"/></div>
+<div>die → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="died" placeholder="past form" type="text"/></div>
+<div>want → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="wanted" placeholder="past form" type="text"/></div>
+<div>learn → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="learned" placeholder="past form" type="text"/></div>
+<div>persuade → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="persuaded" placeholder="past form" type="text"/></div>
+</div>
+</div>
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50 space-y-2">
+<span class="text-xs font-bold text-slate-700 block">Group B: Irregular Verbs</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+<div>have → <input class="border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700" data-ans="had" readonly="" type="text" value="had"/></div>
+<div>send → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="sent" placeholder="past form" type="text"/></div>
+<div>get → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="got" placeholder="past form" type="text"/></div>
+<div>become → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="became" placeholder="past form" type="text"/></div>
+<div>teach → <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="taught" placeholder="past form" type="text"/></div>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex3-l1-card')" type="button">Check Ex 3</button>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-opener')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Unit Opener</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex4')" type="button">
+<span>Next: Ex 4 (Statements)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 3: CHART 2.1 & EXERCISE 4 (Page 28) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex4">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn &amp; Practice • Page 28</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.1 &amp; Exercise 4: Simple Past Statements</h2>
+<p class="text-xs text-slate-500 mt-0.5">Regular and irregular verbs; forming negative statements with didn't + base verb</p>
+</div>
+<span class="badge-cd">Chart 2.1</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.1 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.1 Simple Past: Statements</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 28</span>
+</div>
+<div class="space-y-3 text-xs">
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+<span class="font-bold text-slate-800 block mb-1">Affirmative</span>
+<p>• I / You / He / She / It / We / They <strong>helped</strong> the animals.</p>
+<p>• I / You / He / She / It / We / They <strong>went</strong> to Africa.</p>
+</div>
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+<span class="font-bold text-slate-800 block mb-1">Negative (did not / didn't + base form)</span>
+<p>• I / You / He / She / It / We / They <strong>didn’t help</strong> them.</p>
+<p>• I / You / He / She / It / We / They <strong>didn’t go</strong> to China.</p>
+</div>
+<div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50 text-amber-950">
+<strong>Was / Were:</strong> Do <strong>not</strong> use <em>did not</em> with <em>was/were</em>.<br/>
               (✓ <em>I wasn't late for class yesterday.</em> ✗ <em>I didn't was late...</em>)
             </div>
-          </div>
-        </div>
-
-        <!-- Exercise 4 (All 10 items) -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
-          <div class="flex items-center justify-between">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+</div>
+</div>
+<!-- Exercise 4 (All 10 items) -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
               Complete with Simple Past (Page 28)
             </h4>
-            <span class="text-xs text-slate-400">Items 1–10</span>
-          </div>
-          <p class="text-xs text-slate-500">Fill in each blank with the simple past form of the verb:</p>
-
-          <div class="space-y-2 text-xs sm:text-sm">
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>1. Herders in Kenya <input type="text" data-ans="weren't,were not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="not be"> able to protect their cattle.</span>
+<span class="text-xs text-slate-400">Items 1–10</span>
+</div>
+<p class="text-xs text-slate-500">Fill in each blank with the simple past form of the verb:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>1. Herders in Kenya <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="weren't,were not" placeholder="not be" type="text"/> able to protect their cattle.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>2. For years, lions <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="killed" placeholder="kill" type="text"/> many cows in Kenya.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>3. The herders <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="sent" placeholder="send" type="text"/> warriors to hunt the lions.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>4. Living with Lions <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="started" placeholder="start" type="text"/> a new program in 2007.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>5. At first, some Maasai <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="were not,weren't" placeholder="not be" type="text"/> happy about the program.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>6. The organization <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="gave" placeholder="give" type="text"/> every Guardian a cell phone.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>7. When a Lion Guardian <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="saw" placeholder="see" type="text"/> a lion nearby, he <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="called" placeholder="call" type="text"/> his neighbor.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>8. The Lion Guardians project <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="did not change,didn't change" placeholder="not change" type="text"/> the situation in Kenya immediately. It <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="took" placeholder="take" type="text"/> time.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>9. Scientists <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="studied" placeholder="study" type="text"/> the lion population.</span>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+<span>10. The Lion Guardians <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="did not save,didn't save" placeholder="not save" type="text"/> all the lions.</span>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex4-l1-card')" type="button">Check Ex 4</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-200">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-explore')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Explore</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex5')" type="button">
+<span>Next: Ex 5 (Questions &amp; Answers)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 4: CHART 2.2 & EXERCISE 5 (Page 29) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex5">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn &amp; Practice • Page 29</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Chart 2.2 &amp; Exercise 5: Questions and Answers</h2>
+<p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions</p>
+</div>
+<span class="badge-cd">Chart 2.2</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Chart 2.2 -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">2.2 Simple Past: Questions and Answers</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 29</span>
+</div>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+<strong>Yes / No:</strong> <em>Did they help?</em> → Yes, she did. / No, she didn't.
             </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>2. For years, lions <input type="text" data-ans="killed" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="kill"> many cows in Kenya.</span>
+<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+<strong>Wh- Object:</strong> <em>When did you call?</em> → This morning.
             </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>3. The herders <input type="text" data-ans="sent" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="send"> warriors to hunt the lions.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>4. Living with Lions <input type="text" data-ans="started" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="start"> a new program in 2007.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>5. At first, some Maasai <input type="text" data-ans="were not,weren't" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="not be"> happy about the program.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>6. The organization <input type="text" data-ans="gave" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="give"> every Guardian a cell phone.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>7. When a Lion Guardian <input type="text" data-ans="saw" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="see"> a lion nearby, he <input type="text" data-ans="called" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="call"> his neighbor.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>8. The Lion Guardians project <input type="text" data-ans="did not change,didn't change" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="not change"> the situation in Kenya immediately. It <input type="text" data-ans="took" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="take"> time.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>9. Scientists <input type="text" data-ans="studied" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="study"> the lion population.</span>
-            </div>
-            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <span>10. The Lion Guardians <input type="text" data-ans="did not save,didn't save" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="not save"> all the lions.</span>
-            </div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex4-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
-        <button type="button" onclick="switchExTab('tab-explore')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          <span>Back: Explore</span>
-        </button>
-        <button type="button" onclick="switchExTab('tab-ex5')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-          <span>Next: Ex 5 (Questions & Answers)</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 4: CHART 2.2 & EXERCISE 5 (Page 29) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex5" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn & Practice • Page 29</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.2 & Exercise 5: Questions and Answers</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions</p>
-        </div>
-        <span class="badge-cd">Chart 2.2</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Chart 2.2 -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.2 Simple Past: Questions and Answers</h4>
-            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 29</span>
-          </div>
-
-          <div class="space-y-2 text-xs">
-            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-              <strong>Yes / No:</strong> <em>Did they help?</em> → Yes, she did. / No, she didn't.
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-              <strong>Wh- Object:</strong> <em>When did you call?</em> → This morning.
-            </div>
-            <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-950">
-              <strong>Who/What as Subject:</strong> <em>Who called?</em> (My sister.)<br>
+<div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-950">
+<strong>Who/What as Subject:</strong> <em>Who called?</em> (My sister.)<br/>
               ⚠️ Do <strong>not</strong> use <em>did</em>! (NOT: <em>Who did call?</em>)
             </div>
-          </div>
-        </div>
-
-        <!-- Exercise 5: Questions & Short Answers (8 items) -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l1-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+</div>
+</div>
+<!-- Exercise 5: Questions & Short Answers (8 items) -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
             Questions and Short Answers (Page 29)
           </h4>
-          <p class="text-xs text-slate-500">Write the question and short answer with the cues in parentheses:</p>
-
-          <div class="space-y-2 text-xs sm:text-sm">
-            <div class="p-2 bg-slate-50 rounded-lg">1. A: <input type="text" data-ans="Did your phone ring" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" placeholder="your phone / ring"> just now? <br>B: Yes, <input type="text" data-ans="it did" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">2. A: <input type="text" data-ans="Did your parents give" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" placeholder="your parents / give"> you any money last month? <br>B: No, <input type="text" data-ans="they didn't,they did not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">3. A: <input type="text" data-ans="Did the teacher send" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" placeholder="the teacher / send"> you an e-mail? <br>B: No, <input type="text" data-ans="she didn't,he didn't,he/she didn't,she did not,he did not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">4. A: <input type="text" data-ans="Did your friend pay" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" placeholder="your friend / pay"> for your lunch yesterday? <br>B: Yes, <input type="text" data-ans="he did,she did" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">5. A: <input type="text" data-ans="Did you do" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="you / do"> anything fun last night? <br>B: No, <input type="text" data-ans="I didn't,I did not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">6. A: <input type="text" data-ans="Did I disturb" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="I / disturb"> you? <br>B: No, <input type="text" data-ans="you didn't,you did not" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">7. A: <input type="text" data-ans="Did it rain" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="it / rain"> yesterday? <br>B: Yes, <input type="text" data-ans="it did" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-            <div class="p-2 bg-slate-50 rounded-lg">8. A: <input type="text" data-ans="Did we have" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="we / have"> homework last night? <br>B: Yes, <input type="text" data-ans="we did" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="short answer">.</div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex5-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
-        <button type="button" onclick="switchExTab('tab-ex4')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          <span>Back: Ex 4</span>
-        </button>
-        <button type="button" onclick="switchExTab('tab-ex7-8')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-          <span>Next: Ex 7 & 8 (Whale Rescue)</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 5: EXERCISES 7 & 8 (Page 30) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex7-8" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Practice • Page 30</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercises 7 & 8: Questions & The Whale Rescue</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Formulating past Wh- and Yes/No questions and completing natural narrative dialogue</p>
-        </div>
-        <span class="badge-cd">Page 30</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Exercise 7 -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+<p class="text-xs text-slate-500">Write the question and short answer with the cues in parentheses:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2 bg-slate-50 rounded-lg">1. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" data-ans="Did your phone ring" placeholder="your phone / ring" type="text"/> just now? <br/>B: Yes, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="it did" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">2. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" data-ans="Did your parents give" placeholder="your parents / give" type="text"/> you any money last month? <br/>B: No, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="they didn't,they did not" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">3. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" data-ans="Did the teacher send" placeholder="the teacher / send" type="text"/> you an e-mail? <br/>B: No, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="she didn't,he didn't,he/she didn't,she did not,he did not" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">4. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 input-clean font-semibold" data-ans="Did your friend pay" placeholder="your friend / pay" type="text"/> for your lunch yesterday? <br/>B: Yes, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="he did,she did" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">5. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Did you do" placeholder="you / do" type="text"/> anything fun last night? <br/>B: No, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="I didn't,I did not" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">6. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Did I disturb" placeholder="I / disturb" type="text"/> you? <br/>B: No, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="you didn't,you did not" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">7. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Did it rain" placeholder="it / rain" type="text"/> yesterday? <br/>B: Yes, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="it did" placeholder="short answer" type="text"/>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">8. A: <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Did we have" placeholder="we / have" type="text"/> homework last night? <br/>B: Yes, <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="we did" placeholder="short answer" type="text"/>.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex5-l1-card')" type="button">Check Ex 5</button>
+</div>
+</div>
+</div><div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-12">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex6-l1-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2">
+<span class="w-7 h-7 rounded-lg bg-amber-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">6</span>
+<h4 class="font-bold text-slate-800 text-sm">SPEAK. Simple Past Questions &amp; Answers (Page 29)</h4>
+</div>
+<span class="text-xs font-semibold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-100">Partner Speaking</span>
+</div>
+<p class="text-xs text-slate-600">Work with a partner. Take turns asking and answering the questions from exercise 5 using your own real answers:</p>
+<div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100 text-xs space-y-1 text-slate-700">
+<p><strong class="text-amber-900">A:</strong> Did your parents give you any money last month?</p>
+<p><strong class="text-amber-900">B:</strong> Yes, they did. / No, they didn't.</p>
+<p><strong class="text-amber-900">A:</strong> Did you do anything fun last night?</p>
+<p><strong class="text-amber-900">B:</strong> Yes, I watched a movie with my friends.</p>
+</div>
+<div class="space-y-1.5">
+<label class="block text-xs font-bold text-slate-600">Partner's Answers / Notes:</label>
+<input class="w-full bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 placeholder-slate-400" placeholder="Record what your partner said..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-200">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex4')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 4</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex7-8')" type="button">
+<span>Next: Ex 7 &amp; 8 (Whale Rescue)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 5: EXERCISES 7 & 8 (Page 30) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex7-8">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">Practice • Page 30</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercises 7 &amp; 8: Questions &amp; The Whale Rescue</h2>
+<p class="text-xs text-slate-500 mt-0.5">Formulating past Wh- and Yes/No questions and completing natural narrative dialogue</p>
+</div>
+<span class="badge-cd">Page 30</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Exercise 7 -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
             Write Questions with Simple Past (Page 30)
           </h4>
-          <p class="text-xs text-slate-500">Write questions for each answer using the cues in parentheses:</p>
-
-          <div class="space-y-2.5 text-xs">
-            <div class="p-2.5 bg-slate-50 rounded-lg">
-              1. Why <input type="text" data-ans="did you go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="you / go"> to Kenya? <br>
-              <span class="text-slate-500 italic">(Because we wanted to see the wildlife there.)</span>
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-lg">
-              2. How often <input type="text" data-ans="did you see" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="you / see"> lions when you were in Kenya? <br>
-              <span class="text-slate-500 italic">(Almost every day.)</span>
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-lg">
-              3. Who <input type="text" data-ans="did the camera belong to" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 input-clean font-semibold" placeholder="the camera / belong to">? <br>
-              <span class="text-slate-500 italic">(It belonged to our guide.)</span>
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-lg">
-              4. <input type="text" data-ans="Did Katya write" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="Katya / write"> in her journal last night? <br>
-              <span class="text-slate-500 italic">(Yes, she did.)</span>
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-lg">
-              5. Who <input type="text" data-ans="gave" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="give"> the presentation yesterday? <br>
-              <span class="text-slate-500 italic">(Sheila.)</span>
-            </div>
-            <div class="p-2.5 bg-slate-50 rounded-lg">
-              6. When <input type="text" data-ans="did the plane arrive" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" placeholder="the plane / arrive">? <br>
-              <span class="text-slate-500 italic">(A few minutes ago.)</span>
-            </div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex7-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
-          </div>
-        </div>
-
-        <!-- Exercise 8 -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l1-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+<p class="text-xs text-slate-500">Write questions for each answer using the cues in parentheses:</p>
+<div class="space-y-2.5 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-lg">
+              1. Why <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="did you go" placeholder="you / go" type="text"/> to Kenya? <br/>
+<span class="text-slate-500 italic">(Because we wanted to see the wildlife there.)</span>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+              2. How often <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="did you see" placeholder="you / see" type="text"/> lions when you were in Kenya? <br/>
+<span class="text-slate-500 italic">(Almost every day.)</span>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+              3. Who <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 input-clean font-semibold" data-ans="did the camera belong to" placeholder="the camera / belong to" type="text"/>? <br/>
+<span class="text-slate-500 italic">(It belonged to our guide.)</span>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+              4. <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="Did Katya write" placeholder="Katya / write" type="text"/> in her journal last night? <br/>
+<span class="text-slate-500 italic">(Yes, she did.)</span>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+              5. Who <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="gave" placeholder="give" type="text"/> the presentation yesterday? <br/>
+<span class="text-slate-500 italic">(Sheila.)</span>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">
+              6. When <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-40 input-clean font-semibold" data-ans="did the plane arrive" placeholder="the plane / arrive" type="text"/>? <br/>
+<span class="text-slate-500 italic">(A few minutes ago.)</span>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex7-l1-card')" type="button">Check Ex 7</button>
+</div>
+</div>
+<!-- Exercise 8 -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
             The Whale Rescue (Page 30)
           </h4>
-          <p class="text-xs text-slate-500">Complete the conversation with the simple past:</p>
-
-          <div class="space-y-2 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed text-slate-700">
-            <p><strong>Amy:</strong> (1) <input type="text" data-ans="Did you read" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="you / read"> Jinny’s e-mail about the whale rescue?</p>
-            <p><strong>Josh:</strong> No, I didn’t. (2) <input type="text" data-ans="What did she say" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="what / she / say">?</p>
-            <p><strong>Amy:</strong> Well, the whale (3) <input type="text" data-ans="came" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="come"> too close to the shore, and some fishermen (4) <input type="text" data-ans="found" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="find"> it in their net.</p>
-            <p><strong>Josh:</strong> That’s terrible! (5) <input type="text" data-ans="Did it survive" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="it / survive">?</p>
-            <p><strong>Amy:</strong> Yeah, it did, but according to Jinny, the rescue (6) <input type="text" data-ans="took" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="take"> about an hour.</p>
-            <p><strong>Josh:</strong> So, (7) <input type="text" data-ans="did she take" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="she / take"> any photos of it?</p>
-            <p><strong>Amy:</strong> Yes, (8) <input type="text" data-ans="she took" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="she / take"> a lot. (9) <input type="text" data-ans="She sent" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="she / send"> a few of them with her e-mail. They’re amazing!</p>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex8-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
-        <button type="button" onclick="switchExTab('tab-ex5')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-          <span>Back: Ex 5</span>
-        </button>
-        <button type="button" onclick="switchExTab('tab-ex9')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-          <span>Next: Ex 9 (Antarctic Penguins)</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 6: EXERCISE 9 (Audio CD1-09, Page 31) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex9" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Listen & Write • Page 31</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 9: Emperor Penguins in Antarctica</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Filmmaker interview questions and winter survival summary paragraph</p>
-        </div>
-        <span class="badge-cd">Track CD1-09</span>
-      </div>
+<p class="text-xs text-slate-500">Complete the conversation with the simple past:</p>
+<div class="space-y-2 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed text-slate-700">
+<p><strong>Amy:</strong> (1) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" data-ans="Did you read" placeholder="you / read" type="text"/> Jinny’s e-mail about the whale rescue?</p>
+<p><strong>Josh:</strong> No, I didn’t. (2) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="What did she say" placeholder="what / she / say" type="text"/>?</p>
+<p><strong>Amy:</strong> Well, the whale (3) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" data-ans="came" placeholder="come" type="text"/> too close to the shore, and some fishermen (4) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" data-ans="found" placeholder="find" type="text"/> it in their net.</p>
+<p><strong>Josh:</strong> That’s terrible! (5) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="Did it survive" placeholder="it / survive" type="text"/>?</p>
+<p><strong>Amy:</strong> Yeah, it did, but according to Jinny, the rescue (6) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" data-ans="took" placeholder="take" type="text"/> about an hour.</p>
+<p><strong>Josh:</strong> So, (7) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="did she take" placeholder="she / take" type="text"/> any photos of it?</p>
+<p><strong>Amy:</strong> Yes, (8) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="she took" placeholder="she / take" type="text"/> a lot. (9) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" data-ans="She sent" placeholder="she / send" type="text"/> a few of them with her e-mail. They’re amazing!</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex8-l1-card')" type="button">Check Ex 8</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 border-t border-slate-200">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex5')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 5</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex9')" type="button">
+<span>Next: Ex 9 (Antarctic Penguins)</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 6: EXERCISE 9 (Audio CD1-09, Page 31) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex9">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">Listen &amp; Write • Page 31</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 9: Emperor Penguins in Antarctica</h2>
+<p class="text-xs text-slate-500 mt-0.5">Filmmaker interview questions and winter survival summary paragraph</p>
+</div>
+<span class="badge-cd">Track CD1-09</span>
+</div>
 <!-- Audio Player [CD1-09] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-09">
   <div style="width: calc(100% + 56px); margin-right: -56px;">
@@ -638,226 +605,213 @@
 </div>
 <!-- End Audio Player [CD1-09] -->
 
-      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 reader-card space-y-6" id="ex9-l1-card">
-        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+
+<div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 reader-card space-y-6" id="ex9-l1-card">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
             Penguins in Antarctica (CD1-09)
           </h4>
-          <span class="badge-cd">Parts A & C</span>
-        </div>
-
-        <!-- Part A -->
-        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-2 text-xs">
-          <span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">A. Complete the questions from the interview:</span>
-          <div class="space-y-1.5">
-            <div>1. How long <input type="text" data-ans="did it take" value="did it take" readonly class="border rounded px-1.5 py-0.5 text-xs w-24 bg-slate-200 font-semibold text-slate-700"> (it / take) to make your last nature film?</div>
-            <div>2. Why <input type="text" data-ans="did you choose" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="you / choose"> Antarctica?</div>
-            <div>3. So, what <input type="text" data-ans="did you see" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="you / see">?</div>
-            <div>4. Why <input type="text" data-ans="did they walk" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="they / walk"> so far?</div>
-            <div>5. When <input type="text" data-ans="did the females return" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean font-semibold" placeholder="the females / return">?</div>
+<span class="badge-cd">Parts A &amp; C</span>
+</div>
+<!-- Part A -->
+<div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-2 text-xs">
+<span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">A. Complete the questions from the interview:</span>
+<div class="space-y-1.5">
+<div>1. How long <input class="border rounded px-1.5 py-0.5 text-xs w-24 bg-slate-200 font-semibold text-slate-700" data-ans="did it take" readonly="" type="text" value="did it take"/> (it / take) to make your last nature film?</div>
+<div>2. Why <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="did you choose" placeholder="you / choose" type="text"/> Antarctica?</div>
+<div>3. So, what <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="did you see" placeholder="you / see" type="text"/>?</div>
+<div>4. Why <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-semibold" data-ans="did they walk" placeholder="they / walk" type="text"/> so far?</div>
+<div>5. When <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean font-semibold" data-ans="did the females return" placeholder="the females / return" type="text"/>?</div>
+</div>
+</div>
+<!-- Part C -->
+<div class="space-y-3 text-xs">
+<span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">C. Complete the summary with verbs from the box (Simple Past):</span>
+<div class="p-2.5 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-1.5 text-slate-700">
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">begin</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">climb</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">come</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">crowd</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">fall</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">keep</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">lay</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">return</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">survive</span>
+<span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">walk</span>
+</div>
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed text-slate-700 font-serif text-sm space-y-2">
+            The emperor penguins (1) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" data-ans="climbed" placeholder="verb" type="text"/> onto the sea ice and (2) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" data-ans="walked" placeholder="verb" type="text"/> 50 miles to mainland Antarctica. The females each (3) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" data-ans="laid" placeholder="verb" type="text"/> one egg and (4) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" data-ans="returned" placeholder="verb" type="text"/> to the sea. The males (5) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" data-ans="kept" placeholder="verb" type="text"/> the eggs safe through the terrible winter. They (6) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" data-ans="crowded" placeholder="verb" type="text"/> together to keep warm. The temperature (7) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" data-ans="fell" placeholder="verb" type="text"/> to –40 degrees Fahrenheit, but the males (8) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" data-ans="survived" placeholder="verb" type="text"/>. In the spring, the females (9) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" data-ans="came" placeholder="verb" type="text"/> back. Then the sea ice (10) <input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" data-ans="began" placeholder="verb" type="text"/> to melt.
           </div>
-        </div>
-        
-        <!-- Part C -->
-        <div class="space-y-3 text-xs">
-          <span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">C. Complete the summary with verbs from the box (Simple Past):</span>
-          <div class="p-2.5 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-1.5 text-slate-700">
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">begin</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">climb</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">come</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">crowd</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">fall</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">keep</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">lay</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">return</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">survive</span>
-            <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">walk</span>
-          </div>
-
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed text-slate-700 font-serif text-sm space-y-2">
-            The emperor penguins (1) <input type="text" data-ans="climbed" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" placeholder="verb"> onto the sea ice and (2) <input type="text" data-ans="walked" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" placeholder="verb"> 50 miles to mainland Antarctica. The females each (3) <input type="text" data-ans="laid" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" placeholder="verb"> one egg and (4) <input type="text" data-ans="returned" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" placeholder="verb"> to the sea. The males (5) <input type="text" data-ans="kept" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" placeholder="verb"> the eggs safe through the terrible winter. They (6) <input type="text" data-ans="crowded" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" placeholder="verb"> together to keep warm. The temperature (7) <input type="text" data-ans="fell" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" placeholder="verb"> to –40 degrees Fahrenheit, but the males (8) <input type="text" data-ans="survived" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 font-sans input-clean font-semibold" placeholder="verb">. In the spring, the females (9) <input type="text" data-ans="came" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" placeholder="verb"> back. Then the sea ice (10) <input type="text" data-ans="began" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-sans input-clean font-semibold" placeholder="verb"> to melt.
-          </div>
-        </div>
-
-        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-          <span class="ex-score text-xs font-bold text-slate-500"></span>
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="switchExTab('tab-ex7-8')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 7 & 8</span>
-            </button>
-            <button type="button" onclick="checkClozeCard('ex9-l1-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
-            <button type="button" onclick="switchExTab('tab-ex10-apply')" class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Next: Ex 10</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================ -->
-    <!-- TAB PANE 7: EXERCISE 10 & APPLY (Page 32) -->
-    <!-- ============================================================ -->
-    <div id="tab-ex10-apply" class="ex-tab-pane hidden space-y-6">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Practice & Apply • Page 32</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 10 & Apply: Panda Assignment & Research</h2>
-          <p class="text-xs text-slate-500 mt-0.5">Correct simple past errors in conversation and formulate interview questions</p>
-        </div>
-        <span class="badge-cd">Page 32</span>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Exercise 10: In-Situ Dialogue Editor -->
-        <div class="lg:col-span-7 bg-white rounded-2xl border-2 border-amber-300 p-6 reader-card space-y-4" id="ex10-l1-card">
-          <div class="flex items-center justify-between border-b border-amber-100 pb-2">
-            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs">10</span>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex7-8')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 7 &amp; 8</span>
+</button>
+<button class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex9-l1-card')" type="button">Check Ex 9</button>
+<button class="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-ex10-apply')" type="button">
+<span>Next: Ex 10</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ============================================================ -->
+<!-- TAB PANE 7: EXERCISE 10 & APPLY (Page 32) -->
+<!-- ============================================================ -->
+<div class="ex-tab-pane hidden space-y-6" id="tab-ex10-apply">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-amber-600">Practice &amp; Apply • Page 32</span>
+<h2 class="text-2xl font-extrabold text-slate-900">Exercise 10 &amp; Apply: Panda Assignment &amp; Research</h2>
+<p class="text-xs text-slate-500 mt-0.5">Correct simple past errors in conversation and formulate interview questions</p>
+</div>
+<span class="badge-cd">Page 32</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Exercise 10: In-Situ Dialogue Editor -->
+<div class="lg:col-span-7 bg-white rounded-2xl border-2 border-amber-300 p-6 reader-card space-y-4" id="ex10-l1-card">
+<div class="flex items-center justify-between border-b border-amber-100 pb-2">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs">10</span>
               EDIT. Animal Survival Assignment (Page 32)
             </h4>
-            <span class="text-xs bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">In-Situ Text Editor</span>
-          </div>
-          <p class="text-xs text-slate-600">
+<span class="text-xs bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">In-Situ Text Editor</span>
+</div>
+<p class="text-xs text-slate-600">
             Read the conversation below. Find and correct seven more errors with the simple past. Type your corrections directly in the text:
           </p>
-
-          <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 rounded-xl border border-slate-200 shadow-inner space-y-3">
-            <p>
-              <strong>Rolf:</strong> Hi, Jun. Did you 
+<div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 rounded-xl border border-slate-200 shadow-inner space-y-3">
+<p>
+<strong>Rolf:</strong> Hi, Jun. Did you 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">finished</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <span class="font-bold text-emerald-700">finish</span> (Example)
+<span class="line-through text-rose-600 font-bold">finished</span>
+<span class="text-slate-400 text-xs">➔</span>
+<span class="font-bold text-emerald-700">finish</span> (Example)
               </span> 
               your assignment about animal survival yesterday?
             </p>
-            <p>
-              <strong>Jun:</strong> Hi, Rolf. Yes, I did. I 
+<p>
+<strong>Jun:</strong> Hi, Rolf. Yes, I did. I 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">write</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="wrote" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">write</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" data-ans="wrote" placeholder="corr..." type="text"/>
+</span> 
               about giant pandas in China.
             </p>
-            <p>
-              <strong>Rolf:</strong> That’s an interesting choice. How did it go?
+<p>
+<strong>Rolf:</strong> That’s an interesting choice. How did it go?
             </p>
-            <p>
-              <strong>Jun:</strong> Oh, it didn’t 
+<p>
+<strong>Jun:</strong> Oh, it didn’t 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">went</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">went</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans font-semibold" data-ans="go" placeholder="corr..." type="text"/>
+</span> 
               very well.
             </p>
-            <p>
-              <strong>Rolf:</strong> What 
+<p>
+<strong>Rolf:</strong> What 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">did go</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="went" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">did go</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" data-ans="went" placeholder="corr..." type="text"/>
+</span> 
               wrong?
             </p>
-            <p>
-              <strong>Jun:</strong> Well, I did a lot of research, but I didn’t 
+<p>
+<strong>Jun:</strong> Well, I did a lot of research, but I didn’t 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">found</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="find" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">found</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" data-ans="find" placeholder="corr..." type="text"/>
+</span> 
               much new information. Everyone else’s assignments were at least five pages, but my assignment was only two pages.
             </p>
-            <p>
-              <strong>Rolf:</strong> What 
+<p>
+<strong>Rolf:</strong> What 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">Professor Blake said</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="did Professor Blake say" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span>?
+<span class="line-through text-rose-600 font-bold">Professor Blake said</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 bg-white input-clean font-sans font-semibold" data-ans="did Professor Blake say" placeholder="corr..." type="text"/>
+</span>?
             </p>
-            <p>
-              <strong>Jun:</strong> She didn’t say anything—she just 
+<p>
+<strong>Jun:</strong> She didn’t say anything—she just 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">look</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="looked" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">look</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans font-semibold" data-ans="looked" placeholder="corr..." type="text"/>
+</span> 
               at me.
             </p>
-            <p>
-              <strong>Rolf:</strong> Well, don’t worry too much. I gave her the shortest assignment last week and got the highest grade in the class. She 
+<p>
+<strong>Rolf:</strong> Well, don’t worry too much. I gave her the shortest assignment last week and got the highest grade in the class. She 
               <span class="edit-pill">
-                <span class="line-through text-rose-600 font-bold">sayed</span> 
-                <span class="text-slate-400 text-xs">➔</span> 
-                <input type="text" data-ans="said" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" placeholder="corr...">
-              </span> 
+<span class="line-through text-rose-600 font-bold">sayed</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans font-semibold" data-ans="said" placeholder="corr..." type="text"/>
+</span> 
               it was excellent!
             </p>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex10-l1-card')" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition shadow-sm flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition shadow-sm flex items-center gap-1.5" onclick="checkClozeCard('ex10-l1-card')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
               Check Dialogue
             </button>
-          </div>
-        </div>
-
-        <!-- Apply Activity -->
-        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+</div>
+</div>
+<!-- Apply Activity -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
               APPLY (Page 32)
             </h4>
-            <span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Speaking & Writing</span>
-          </div>
-
-          <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-950 space-y-2">
-            <p class="font-bold text-amber-900">Ask a classmate about a recent project or assignment:</p>
-            <ul class="list-disc list-inside space-y-1 text-amber-900">
-              <li><em>What did you write about?</em></li>
-              <li><em>Where did you find information?</em></li>
-              <li><em>How long did it take you?</em></li>
-              <li><em>Who did you talk to or interview?</em></li>
-            </ul>
-          </div>
-
-          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-            <button type="button" onclick="switchExTab('tab-ex9')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-              <span>Back: Ex 9</span>
-            </button>
-            <button type="button" onclick="switchExTab('tab-opener')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
-              <span>Return to Opener</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <div class="w-2 h-4 bg-amber-400 rounded-xs"></div>
-        <p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 1</p>
-      </div>
-      <p class="mt-2 sm:mt-0 text-slate-500">Simple Past Interactive Student Workbench</p>
-    </div>
-  </footer>
-
-  <script>
+<span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Speaking &amp; Writing</span>
+</div>
+<div class="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-950 space-y-2">
+<p class="font-bold text-amber-900">Ask a classmate about a recent project or assignment:</p>
+<ul class="list-disc list-inside space-y-1 text-amber-900">
+<li><em>What did you write about?</em></li>
+<li><em>Where did you find information?</em></li>
+<li><em>How long did it take you?</em></li>
+<li><em>Who did you talk to or interview?</em></li>
+</ul>
+</div>
+<div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+<button class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5" onclick="switchExTab('tab-ex9')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Back: Ex 9</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm" onclick="switchExTab('tab-opener')" type="button">
+<span>Return to Opener</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 10l7-7m0 0l7 7m-7-7v18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+<div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+<div class="flex items-center justify-center sm:justify-start gap-2">
+<div class="w-2 h-4 bg-amber-400 rounded-xs"></div>
+<p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 1</p>
+</div>
+<p class="mt-2 sm:mt-0 text-slate-500">Simple Past Interactive Student Workbench</p>
+</div>
+</footer>
+<script>
     function switchExTab(tabId) {
       document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
       const target = document.getElementById(tabId);
