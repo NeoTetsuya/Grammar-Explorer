@@ -252,7 +252,7 @@ function generateBookCatalog() {
  */
 function formatCatalogItem(item) {
   const topicsJson = JSON.stringify(item.topics);
-  return `            { id: "${item.id}", level: "${item.level}", folder: "${item.folder}", file: "${item.file}", title: "${item.title.replace(/"/g, '\\"')}", tag: "${item.tag}", topics: ${topicsJson} }`;
+  return `            { id: "${item.id}", level: "${item.level}", folder: "${item.folder}", file: "${item.file}", title: "${item.title.replace(/"/g, '\\"')}", tag: "${item.tag}", topics: ${topicsJson} },`;
 }
 
 /**
