@@ -1,0 +1,533 @@
+[0] P: UNIT UNIT 3   Health   and   Fitness
+[1] P: Nouns
+[58] P: Residents   of   Shanghai,   China,   exercise   with   fans.
+[65] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[66] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[117] P: Lesson   1
+[118] P: page   60
+[119] P: Plural and  Possessive  Nouns;   Another  and  Other
+[120] P: Lesson   2
+[121] P: page   68
+[122] P: Count  and  Non-Count  Nouns
+[123] P: Lesson   3
+[124] P: page   74
+[125] P: Quantity and  Measurement Words
+[126] P: Review   the   Grammar
+[127] P: page   81
+[128] P: Connect the  Grammar   to   Writing
+[129] P: page   84
+[130] P: UNIT   3   LESSON   1   59 UNIT   3   LESSON   1   59 59
+[132] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[133] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[135] P: LESSON   1 LESSON   1    Plural   and   Possessive   Nouns;   Another   and   Other
+[137] P: EXPLORE
+[142] P: CD1- 16
+[143] P: 1   READ   the   article   about   sangomas ,   traditional   African   healers.   Notice   the   words in  bold .
+[145] P: Sangomas of Southern  Africa
+[146] P: Sangomas   are   traditional   healers   of   southern   Africa.   They   use
+[147] P: plants, songs,  and  dances  to help  people  who are sick. Many people in southern   Africa   prefer   traditional   healers   to   modern   medicine.   Women , for example, may see a sangoma instead of a doctor when their  babies  are born. Often, however, modern medicine and traditional medicine work together. Using one kind of medicine doesn’t mean ignoring  the other kind .
+[148] P: A   sangoma’s   goal   is   to   make   his   or   her   patient 1   feel   better.   To   help their  patients, sangomas  perform different  ceremonies . In one ceremony, the sangoma throws  shells  and animal  bones  on
+[149] P: the ground. The  shells  and  bones  form a pattern. The   pattern helps the sangoma understand the patient.
+[150] P: Other   methods   of   helping   patients   include   special  drinks , drumming, and singing.
+[151] P: Scientists  are studying the  methods  used by  sangomas . They hope to learn new  ways  to keep  people  healthy.
+[154] P: 1   patient:   a   person   who   is   cared   for   by   a   doctor
+[181] P: 60   NOUNS
+[182] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[183] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[186] TBL: [['2 CHECK. Read the statements. Circle T for true or F for false.', ''], ['1. Modern medicine has replaced traditional healers in Africa.', 'T', 'F'], ['2. Sangomas perform different kinds of ceremonies.', 'T', 'F'], ['3. The pattern formed by shells and bones helps patients understand the sangoma.', 'T', 'F'], ['4. Sangomas sometimes sing to help their patients.', 'T', 'F'], ['5. Modern scientists don’t think traditional medicine is useful.', 'T', 'F']]
+[189] P: DISCOVER .   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[190] P: In   the   article,   each   of   these   nouns   is   used   in   the   plural.   Find   the   correct   plural   form   of   each  noun   in   the   article   and   write   it   on   the   line   next   to   its   singular   form.
+[192] TBL: [['Singular1. healer', 'Pluralhealers'], ['2. dance', ''], ['3. person', ''], ['4. woman', ''], ['5. baby', ''], ['6. patient', ''], ['7. ceremony', ''], ['8. drink', ''], ['9. bone', ''], ['10. scientist', '']]
+[194] P: Notice   the   different   ways   the   plural   nouns   in   exercise   A
+[195] P: are   formed.   Discuss   them   with   a   partner.
+[203] P: A   traditional   African   healer
+[217] P: UNIT   3   LESSON   1   61
+[218] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[219] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[221] P: LEARN
+[222] P: Spelling   Rules   for   Regular   and   Irregular   Plural   Nouns
+[226] P: Add   -s   to   most   singular   nouns   to   form   the  plural.
+[228] P: Add   -es   to   nouns   that   end in   -s,   -sh,   -ch ,   or
+[229] P: - x.
+[230] P: For   nouns   that   end   in   a   consonant   +   - y,
+[231] P: change   the   - y   to   -i   and   add   - es .
+[232] P: For   some   nouns   that   end   in   - o ,   add   - s .  For other nouns that end in - o , add
+[233] P: - es .   Learn   the   spelling   of   each   noun  separately.
+[234] P: For   most   nouns   that   end   in   -f   or   - fe,
+[235] P: change   the   ending   to   - ves.
+[236] P: For   other   nouns   that   end   in   -f ,   add   - s.
+[237] P: Some   nouns   have   irregular   plural   forms.*  Irregular   plural   nouns   include   nouns   with
+[238] P: a   vowel   change
+[239] P: an   irregular   ending
+[240] P: no   change   (often   animals)
+[241] P: Singular
+[242] P: apple  scientist  boy
+[243] P: class,   dish,  inch,   tax
+[244] P: party,   city
+[246] P: photo  potato
+[249] P: leaf,   wife  belief,   roof
+[251] P: man,   foot,   tooth
+[252] P: child
+[253] P: fish,   deer
+[254] P: Plural
+[255] P: apple s  scientist s  boy s
+[256] P: class es,   dish es,  inch es,  tax es
+[257] P: part ies ,   cit ies
+[259] P: photo s  potato es
+[262] P: lea ves,   wi ves  belief s,   roof s
+[264] P: m e n,   f ee t,   t ee th
+[265] P: child ren
+[266] P: fish,   deer
+[269] P: *See   page   A2   for   a   list   of   common   irregular   plural   nouns.
+[272] P: REAL   ENGLISH A few nouns have no  singular   form.   They   are  used   only   in   the   plural. Some examples are:  clothes,   glasses,   jeans . I'm   wearing   my   new  jeans  today. REAL   ENGLISH A few nouns have no  singular   form.   They   are  used   only   in   the   plural. Some examples are:  clothes,   glasses,   jeans . I'm   wearing   my   new  jeans  today. Complete   each   sentence   with   the   plural   form   of   the   noun   in   parentheses.
+[273] P: Scientists   (Scientist)   are   interested   in   traditional   medicine.
+[275] P: The healer told    (story)   about   the   life   of   her   patient.
+[277] P: In   some   countries,   most     (baby) are born at home.
+[279] P: The   mother   took   her   three     (child)   to   the   doctor.
+[281] P: Healers work to improve the   (life) of their patients.
+[283] P: The   dentist   says   my     (tooth)   are   in   very   good   condition.
+[285] P: The   doctor   told   me   to   eat   more     (banana).
+[287] P: I   think   I   eat   too   many     (potato).
+[289] P: Our   school   offers   healthy     (lunch)   every   day.
+[291] P: Different   cultures   have   different     (belief)   about   health.
+[300] P: 62   NOUN S
+[301] P: Work   with   a   partner.   Partner   B   closes   his   or   her   book.   Partner   A   reads   a   singular   noun   from chart   3.1.   Partner   B   says   the   plural   form   of   the   word   and   spells   it.   Switch   roles   after   five   or  six words.
+[302] P: A:   apple B:   apples:   a,   p,   p,   l,   e,   s
+[304] P: Possessive   Nouns
+[305] P: Singular Possessive   Form  Noun girl The   girl’s   bicycle   is   blue. child The   child’s   room   is   messy. Plural  Noun girls children Possessive   Form The   girls’   bicycles   are   blue. The   children’s   rooms   are   messy. Singular Possessive   Form  Noun girl The   girl’s   bicycle   is   blue. child The   child’s   room   is   messy. Plural  Noun girls children Possessive   Form The   girls’   bicycles   are   blue. The   children’s   rooms   are   messy.
+[307] TBL: [['1. Use possessive nouns to show ownership or a relationship.', 'The writer’s house is in New York.Mark’s father is very strong.'], ['2. To make singular nouns possessive, add an apostrophe (’) + -s (’s).', 'The child’s mother is over there.'], ['To make plural nouns possessiveadd an apostrophe to regular plural nounsadd an apostrophe + -s to most irregular plural nouns', 'The boys’ parents are here.The children’s teacher is kind.'], ['4. To make a noun phrase with two nouns possessive, add an apostrophe + -s to the second noun only.', 'John and Tina’s father is sick.']]
+[310] P: Circle   the   correct   word   to   complete   each   sentence.
+[311] P: Maria’s   /   Marias’   daughter   is   in   the   hospital.
+[313] P: The   nurses’s   /   nurse’s   name   is   Meg.
+[315] P: The   students’   /   students’s   goal   is   to   become   doctors.
+[317] P: The   childrens’   /   children’s   section   of   the   hospital   is   bright   and   cheerful.
+[319] P: You   can   find   many   doctor’s   /   doctors’   phone   numbers   online.
+[321] P: My   baby’s   /   babies’   cold   is   getting   worse.
+[323] P: Peoples’   /   People’s   health   is   getting   better.
+[325] P: The   Internet   has   increased   parent’s   /   parents’   concerns   about   their   children.
+[328] P: Write   the   correct   possessive   form   of   the   word   in   parentheses.
+[329] P: Is your  dentist’s   (dentist)   office   in   this   building?
+[331] P: The    (building)   elevator   is   broken.
+[333] P: (Mrs.   Achebe)   house   is   across   the   street   from   the   hospital.
+[335] P: The    (doctors)   white   coats   are   in   the   closet.
+[337] P: Julian   and     (Amy)   baby   is   six   weeks   old.
+[339] P: This    (city)   hospitals   are   excellent.
+[341] P: Marta   is   a   coach   for   the     (women)   swim   team.
+[343] P: (Mark and Sam) apartment is on the second floor.
+[345] P: UNIT   3   LESSON   1   63
+[347] P: Work   in   a   small   group.   Take   turns   talking   about   things   that   belong   to   members   of   your   group.
+[348] P: Paul’s   backpack   is   black. Ava’s   hair   is   long.
+[350] P: 9   Complete   the   sentences   with   another, other,  or  the other. I   took one pill early this morning. I  need to take  another   pill after lunch. Some   people   exercise   every   day.  people never exercise. REAL   ENGLISH Another   and   the   other   are   also   used alone as pronouns. These   pears   are   delicious.   I’m   going  to   have   another .   ( another   =   pear) Ken owns two apartments. One  apartment   is   in   Chicago.   The   other  is   in   Miami.   ( the   other   =   apartment) 9   Complete   the   sentences   with   another, other,  or  the other. I   took one pill early this morning. I  need to take  another   pill after lunch. Some   people   exercise   every   day.  people never exercise. REAL   ENGLISH Another   and   the   other   are   also   used alone as pronouns. These   pears   are   delicious.   I’m   going  to   have   another .   ( another   =   pear) Ken owns two apartments. One  apartment   is   in   Chicago.   The   other  is   in   Miami.   ( the   other   =   apartment) Another   and   Other
+[352] TBL: [['1. Another + a singular noun means one more person or thing of the same group.Another can also refer to a different person or thing.Use another to refer to a person or thing that is not specific.', 'I’ve already had two pieces of pizza, but I’m going to have another piece.This pen doesn’t work. I need another pen.My car is very old. I need to buy another car soon.'], ['2. The other + a singular noun means the second of two people or things of a specific group.The other + a plural noun means the rest of the people or things of a specific group.', 'There are two hotels in this area. One hotel is on Main Street. The other hotel is on Oak Street.We had three assignments. I did one last night and did the other assignments this morning.'], ['3. Other + a plural noun means some, but not all, of the remaining people or things in a group.', 'Some people like to talk. Other people prefer to listen.'], ['4. The pronoun one or ones can replace the noun after another or (the) other.', 'Lydia’s watch broke, so she bought another one. (one = watch)These earrings are pretty, but I prefer the other ones. (ones = earrings)']]
+[362] P: Eight   nurses   work   here.   Six   of   them   are   very   experienced.     two   are   new.
+[364] P: Many   doctors   work   in   hospitals,   but     doctors   have   their   own   offices.
+[366] P: My brother had a soccer game on Saturday, and on Sunday he had    one.
+[368] P: I have two exams tomorrow. One exam is in the morning.    one   is   in   the  afternoon.
+[369] P: I saw two movies on Saturday. The first one was great, but    movie   was  terrible.
+[370] P: This   glass   is   dirty.   Could   I   have     one,   please?
+[377] P: 64   NOUNS
+[379] P: Complete   the   sentences   with   one   or   ones .
+[380] P: Leyla   takes   one   vitamin   every   morning   and   another   one   at   night.
+[382] P: There are three hospitals in my city. One is near my apartment. The other    are downtown.
+[383] P: Brett   doesn’t   like   his   doctor.   He   wants   to   find   another     .
+[385] P: I missed my doctor’s appointment this morning, so I made another    for next week.
+[386] P: A   few   of   the   articles   in   that   health   magazine   are   about   nutrition.   The  other
+[387] P: are   about   exercise.
+[389] P: Dan has two appointments next week. One is on Monday. The other    is   on  Thursday.
+[390] P: I   prefer   these   eyeglasses.   The   other     aren’t very attractive.
+[392] P: Use   this   elevator.   The   other    are broken.
+[395] P: PRACTICE
+[397] P: Circle   the   correct   word   to   complete   each   sentence.
+[398] P: The   doctor’s   /   doctors   schedule   is   very   full   this   week.
+[400] P: My   babies   /   baby’s   health   is   very   important   to   me.
+[402] P: Doctor   Chen   has   a   lot   of   patients   /   patient’s .
+[404] P: The   hospital   lost   the   men   /   man’s   x- rays.
+[406] P: The   teacher’s   /   teachers   are   having   a   meeting   today.
+[408] P: Some   person   /   people   watch   a   lot   of   TV.
+[410] P: The   child’s   /   children’s   father   took   them   to   the   park.
+[412] P: That   building   is   over   1000   foot   /   feet   high.
+[415] P: PRONUNCIATION Nouns:   - s   and   - es   Endings PRONUNCIATION Nouns:   - s   and   - es   Endings Many   plural   nouns   and   possessives   end   in   - s   or   - es .   The   endings   have  one   of   three   sounds:   / s /,   / z /,   or   / ez /. 1.   Pronounce   -s   as   / s /   after   the   consonant sounds   / f /,   / k /,   / p /,   / t /,   and   / 8 /. sho p’s ,   tes ts ,   belie fs ,  bi ke’s ,   mon ths 2.   Pronounce   -s   as   / z /   after   the   consonant sounds   / b /,   / d /,   / g /,   / l /,   / m /,   / n /,   / y /, / r /,   / v /,   or   any   vowel   sound. lo gs , jo bs,  hea d’s ,  so ngs ,   wiv es,   d ay’s 3.   Pronounce   -es   as   / ez /   after   / s /,   / z /, / C /, / dy /, / tC /, or   /ks/ sounds. kis ses , disea ses , wi shes ,  ju dge ’ s ,   wat ches ,  ta xes Many   plural   nouns   and   possessives   end   in   - s   or   - es .   The   endings   have  one   of   three   sounds:   / s /,   / z /,   or   / ez /. 1.   Pronounce   -s   as   / s /   after   the   consonant sounds   / f /,   / k /,   / p /,   / t /,   and   / 8 /. sho p’s ,   tes ts ,   belie fs ,  bi ke’s ,   mon ths 2.   Pronounce   -s   as   / z /   after   the   consonant sounds   / b /,   / d /,   / g /,   / l /,   / m /,   / n /,   / y /, / r /,   / v /,   or   any   vowel   sound. lo gs , jo bs,  hea d’s ,  so ngs ,   wiv es,   d ay’s 3.   Pronounce   -es   as   / ez /   after   / s /,   / z /, / C /, / dy /, / tC /, or   /ks/ sounds. kis ses , disea ses , wi shes ,  ju dge ’ s ,   wat ches ,  ta xes PRONUNCIATION.   Read   the   chart   and   listen   to   the   examples.   Then   complete   the   exercises.
+[420] P: CD1- 17
+[440] P: UNIT   3   LESSON   1   65
+[443] P: CD1- 18
+[444] P: A   Listen   and   circle   the   final   sound   you   hear   for   each   word.
+[446] TBL: [['1. nurses', '/s/', '/z/', '/ez/', '7. boy’s', '/s/', '/z/', '/ez/'], ['2. patient’s', '/s/', '/z/', '/ez/', '8. beds', '/s/', '/z/', '/ez/'], ['3. doctor’s', '/s/', '/z/', '/ez/', '9. jobs', '/s/', '/z/', '/ez/'], ['4. cups', '/s/', '/z/', '/ez/', '10. bridges', '/s/', '/z/', '/ez/'], ['5. book’s', '/s/', '/z/', '/ez/', '11. boxes', '/s/', '/z/', '/ez/'], ['6. hospitals', '/s/', '/z/', '/ez/', '12. dishes', '/s/', '/z/', '/ez/']]
+[449] P: Read   each   situation   and   complete   the   sentence   about   it.   Use   another ,   the   other ,   or   other  and the noun in parentheses.
+[450] P: Situation:   Your   father   saw   one   of   his   two   doctors   last   week.
+[451] P: He saw  the   other   doctor   (doctor)   this   morning.
+[453] P: Situation:   My   bottle   of   vitamins   is   almost   empty .
+[455] P: I   need   to   buy     (bottle   of   vitamins)   soon.
+[457] P: Situation:   You   bought   six   oranges.   Four   of   them   were   sweet   and   delicious.
+[459] P: (oranges) were sour.
+[461] P: Situation:   Emma   found   three   errors   on   her   homework   assignment.   Then,   she   found   one   more .
+[463] P: Emma   just   found     (error)   on   her   homework   assignment.
+[465] P: Situation:   I   invited   ten   people   to   my   party.   Seven   people   came.
+[467] P: (people)   did   not   come.
+[469] P: Situation:   Carol   is   a   nurse.   She   doesn’t   have   the   same   schedule   every   week.   Some   weeks   she works during the day .
+[470] P: (weeks)   she   works   at   night   or   on   the   weekends.
+[472] P: Situation:   My coat is   old, and it’s   not very  warm.
+[474] P: I   need     (coat).
+[476] P: Situation:   The   students   at   my   school   study   different   things.   Some   students   are   studying   science.
+[478] P: (students)   are   studying   history,   math,   or   languages.
+[493] P: 66   NOUNS
+[495] P: EDIT.   Read   the   information   about   the   human   body   in   extreme   situations.   Find   and   correct  eight   more   errors   with   plural   nouns   and   possessive   nouns.
+[496] P: body’s The human body is amazing, but it has limits. Do you know your bodies limits in these extreme situations? Here are some helpful facts: HEAT:   When   a   person   body   temperature   reaches   107.6   degrees   Fahrenheit (42 degrees Celsius), he or she can die. In a burning building, adultes can breathe air at 300 degrees F (149 degrees C) for ten minutes. Children’s bodys are not as strong. COLD:  Low temperature’s are also very dangerous. In cold water, the human body   loses heat very quickly. People usually don’t survive for more than 30 minute in water that’s 40 degrees Fahrenheit (4.4 degrees Celsius). ALTITUDE:   Altitude   is   the   measurement   of   height   above   the   level   of   the   sea. Many people find it difficult to breathe at 15,000 foot (4572 meters). Mountain   climber’s sometimes have serious health problemes at very high altitudes. body’s The human body is amazing, but it has limits. Do you know your bodies limits in these extreme situations? Here are some helpful facts: HEAT:   When   a   person   body   temperature   reaches   107.6   degrees   Fahrenheit (42 degrees Celsius), he or she can die. In a burning building, adultes can breathe air at 300 degrees F (149 degrees C) for ten minutes. Children’s bodys are not as strong. COLD:  Low temperature’s are also very dangerous. In cold water, the human body   loses heat very quickly. People usually don’t survive for more than 30 minute in water that’s 40 degrees Fahrenheit (4.4 degrees Celsius). ALTITUDE:   Altitude   is   the   measurement   of   height   above   the   level   of   the   sea. Many people find it difficult to breathe at 15,000 foot (4572 meters). Mountain   climber’s sometimes have serious health problemes at very high altitudes.
+[498] P: APPLY.
+[499] P: In   your   notebook,   write   six   sentences   using   singular   and   plural   nouns,   and   possessive   nouns.
+[500] P: Use   the   words   from   the   box   or   your   own   ideas.
+[501] P: camera car children clothes diet dog health job sister TV camera car children clothes diet dog health job sister TV
+[502] P: My   sister’s   children   are   in   high   school.
+[503] P: Work   with   a   partner.   Share   your   sentences   from   exercise   A .   Ask   questions   to   keep   the  conversation   going.   Pay   attention   to   possessive   nouns   and   plural   nouns.
+[504] P: A:   My   sister’s   children   are   in   high   school.
+[505] P: B:   Where   do   they   go   to   school?
+[508] P: UNIT   3   LESSON   1   67
+[510] P: LESSON   2 LESSON   2    Count   and   Non-Count   Nouns
+[517] P: CD1- 19
+[635] P: 68   NOUN S
+[636] P: EXPLORE
+[637] P: READ  the   article   about   three   different   superfoods.   Notice   the   words   in   bold .
+[640] P: Superfoods
+[642] TBL: [['', ''], ['Argan Oil', 'The Acai Palm', 'Ginseng'], ['The oil from argan nuts is very important to the people of southwestern Morocco.It has many different uses.It adds flavor 1 to food, it prevents dry skin, and it keeps hair soft. Now it is popular in other countries, too, and it is becoming more expensive. The production of argan oil cannot increase very quickly, because argan trees don’t produce nuts until they are about 20 years old.1 flavor: a specific taste', 'The acai palm tree of Central and South America has round purple fruit. Acai is very important to someof the tribes in the Amazon Rainforest. In fact, it is a very large part of their diet.2 People make both sweetand salty dishes with acai. Now some companies say that acai helps people lose weight.2 diet: a person’s regular food and drink', 'Ginseng is a plant that grows in Asia and North America. There are many different types of ginseng plants. Chinese medicine started using ginseng thousands of years ago to treat all kinds of diseases. According to some scientific studies, ginseng may help manage stress.3 Be careful, though! Too much ginseng can keep you awake at night.3 stress: mental or physical difficulty caused by work, worries, and so on']]
+[644] P: Goats in Morocco like argan nuts so  much   that   they  climb trees to find   them. UNIT   3   LESSON   2   69 Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it. Goats in Morocco like argan nuts so  much   that   they  climb trees to find   them. UNIT   3   LESSON   2   69 Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[647] P: CHECK.   Match   each   statement   with   the   correct   tree   or   plant.   Write   the   letter   on   the   line.
+[648] P: You can use it in sweet and salty meals.     b   a.   argan   oil
+[650] P: It keeps hair soft.   b.   acai   palm
+[652] P: Tests   suggest   it   can   help   you   relax.   c.   ginseng
+[654] P: It is becoming more expensive.
+[656] P: According   to   some   companies,   it   helps   you   lose   weight.
+[658] P: Some   people   don’t   sleep   well   because   of   it.
+[661] P: DISCOVER.   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[662] P: Look   at   these   sentences   from   the   article   in   exercise   1 .   Notice   the   nouns   in   bold .   Circle the   nouns   that   name   things   you   can   count.   Underline   the   nouns   that   name   things   you cannot count.
+[663] P: The   oil   from   argan   nuts   is   very   important   to   the   people   of   southwestern   Morocco.
+[665] P: It   adds   flavor   to   food,   prevents   dry   skin,   and   keeps   hair   soft.
+[667] P: Now   some   companies   say   that   acai   helps   people   lose   weight .
+[669] P: Work   with   a   partner.   Compare   your   answers   from   exercise   A .
+[671] P: LEARN
+[672] P: Non-   Count   Nouns Count   Nouns Non-   Count   Nouns Count   Nouns Count   Nouns   and   Non-Count   Nouns
+[673] P: Noun Verb A doctor is   coming. Many doctors are   coming. Noun Verb A doctor is   coming. Many doctors are   coming. Noun Verb Health is important. The   coffee tastes good. Noun Verb Health is important. The   coffee tastes good.
+[675] TBL: [['1. Count nouns name things that can be counted. They have a singular and plural form.', 'I ate an orange for breakfast.I bought four oranges yesterday.'], ['Use a or an before a singular count noun or an adjective + a singular count noun.', 'a buildingan apartmenta small apartment'], ['2. Non-count nouns name things that cannot be counted. They do not have a plural form.', 'happiness, beauty, information, science, snow, waterAlaska gets a lot of snow.✗ Alaska gets a lot of snows.'], ['Do not use a or an before a non-count noun.', 'I need information.✗ I need an information.'], ['3. Use singular pronouns and verb forms with non-count nouns.', 'Rice is cheap, but I don’t like it.✗ Rice are cheap, but I don’t like them.']]
+[676] P: REAL   ENGLISH Some nouns can be count with one meaning and non-count with a different meaning. She   goes   to   the   gym   three   times   a   week .   (count) I   don’t   have   time   to   go   to   the   gym   today .   (non-count)  We   had   three   exercises   for   homework   last   night .   (count)  Exercise   is   important   for   good   health .   (non-count) REAL   ENGLISH Some nouns can be count with one meaning and non-count with a different meaning. She   goes   to   the   gym   three   times   a   week .   (count) I   don’t   have   time   to   go   to   the   gym   today .   (non-count)  We   had   three   exercises   for   homework   last   night .   (count)  Exercise   is   important   for   good   health .   (non-count)
+[678] P: Circle   the   correct   word(s)   to   complete   each   sentence.
+[679] P: Some   people   use   argan   oil   to   keep   their   hair   /   hairs   soft.
+[681] P: Some   companies   says   /   say   that   acai   helps   people   lose   weight.
+[683] P: Chinese   medicine   is   /   are   over   2000   years   old.
+[685] P: Science   is   /   are   a   difficult   subject,   but   I   enjoy   it   /   them .
+[687] P: The   store   /   stores   on   that   street   are   sometimes   expensive.
+[689] P: Apartment   /   An   apartment   is   a   convenient   place   to   live.
+[691] P: Do   you   have   any   time   /   times   to   help   me   with   my   assignment?
+[693] P: Hans   goes   to   Germany   three   or   four   time   /   times   a   year.
+[697] P: 70   NOUNS
+[699] P: This   information   is   /   informations   are   incorrect.
+[701] P: Last   night’s   homework   was   /   were   very   difficult.
+[703] P: That   furniture   is   /   are   ugly.   I   don’t   know   why   I   bought   it   /   them!
+[705] P: Did   you   have   any   interesting   experience   /   experiences   on   your   vacation?
+[707] P: More   Non-Count   Nouns
+[708] P: Categories   of   Non-   Count   Nouns Some non-count nouns name a  category   of   related   items.   The   related  items are often count nouns. Some   non-count   nouns   name   things that do not have separate parts or pieces that can be counted. Some   non-count   nouns   are   abstract nouns. An abstract noun names an idea, a feeling, or a quality. The   names   of   subjects   of   study   are  usually non-count nouns. clothing   (pants,   sweaters,   shoes)  fruit   (apples,   oranges,   bananas)  furniture  (tables, chairs, desks) homework   (essays,   exercises,   assignments)  jewelry  (necklaces, rings, bracelets)  money  (nickels, dimes, quarters) mail  (letters, packages, postcards)  weather   (hurricanes,   storms,   tornadoes) air,   cheese,   coffee,   fish,   flour,   hair,   ice,   juice,   meat,  milk,   oil,   rice,   skin,   soup,   sugar,   tea,   water,   wind advice,   beauty,   energy,   experience,   fun,   happiness,  health,   help,   honesty,   intelligence,   knowledge,   love,  nature,   work biology,   chemistry,   geometry,   history,   math,   science Categories   of   Non-   Count   Nouns Some non-count nouns name a  category   of   related   items.   The   related  items are often count nouns. Some   non-count   nouns   name   things that do not have separate parts or pieces that can be counted. Some   non-count   nouns   are   abstract nouns. An abstract noun names an idea, a feeling, or a quality. The   names   of   subjects   of   study   are  usually non-count nouns. clothing   (pants,   sweaters,   shoes)  fruit   (apples,   oranges,   bananas)  furniture  (tables, chairs, desks) homework   (essays,   exercises,   assignments)  jewelry  (necklaces, rings, bracelets)  money  (nickels, dimes, quarters) mail  (letters, packages, postcards)  weather   (hurricanes,   storms,   tornadoes) air,   cheese,   coffee,   fish,   flour,   hair,   ice,   juice,   meat,  milk,   oil,   rice,   skin,   soup,   sugar,   tea,   water,   wind advice,   beauty,   energy,   experience,   fun,   happiness,  health,   help,   honesty,   intelligence,   knowledge,   love,  nature,   work biology,   chemistry,   geometry,   history,   math,   science
+[710] P: Read   the   sentences.   Circle   the   non-count   nouns.   Then   write   the   number   of   the   correct category   above   each   non-count   noun.   ( 1   =   a   category   of   related   items,   2   =   something   that does   not   have   separate   parts,   3  =   an   abstract   noun,   4  =   a   subject   of   study).
+[711] P: 4
+[712] P: I’m   taking   six   classes   this   semester,   but   I’m   not   taking   biology.
+[714] P: I   have   a   lot   of   homework   this   weekend.   I   have   an   essay   due   on   Monday   and   two   exams   on  Tuesday.
+[715] P: Please   do   not   bring   food   or   drinks   into   the   museum,   and   please   turn   off   your   cell   phones.
+[717] P: My   uncle   often   has   cheese   and   crackers   before   dinner.
+[719] P: I   eat   a   lot   of   fruit.   I   usually   have   a   banana,   an   orange,   and   two   apples   every   day.
+[721] P: The   café   across   the   street   has   great   coffee   and   delicious   pastries.
+[723] P: For   some   jobs,   experience   isn’t   very   important.
+[725] P: I   usually   call   my   sister   when   I   have   a   problem.   She   always   gives   me   good   advice.
+[727] P: We   need   to   put   money   in   the   parking   machine.   It   takes   coins   and   dollar   bills.
+[729] P: Sarah   has   a   lot   of   energy.   She   works   six   days   a   week   and   takes   classes   at   night.
+[731] P: Your   mail   is   on   the   table.   You   got   two   letters   and   a   package   today.
+[734] P: UNIT   3   LESSON   2   71
+[736] P: PRACTICE
+[737] P: Circle   the   correct   word(s)   to   complete   the   conversations.
+[738] P: Conversation   1
+[739] P: Lori: Did   you   go   to   the   supermarket?
+[740] P: Stan: Yes   I   did,   but   look!   (1)   The   fruit   is   /   fruit   are   rotten.
+[741] P: Lori: Let’s   see   .   .   .   Oh,   yes,   (2)   it   smells   /   they   smell   bad.
+[742] P: Stan: The   food   in   that   store   just   (3)   isn’t   /   aren’t   good   anymore.   I’ve   been   there   four   or   five
+[743] P: (4)   time   /   times   recently   and   there   is   always   a   problem.
+[744] P: Lori: Wait   a   minute,   though.   The   bananas   (5)   look   /   looks   all   right.
+[745] P: Stan: You’re   right.   (6)   It   does   /   They   do.   But   I’m   going   to   take   the   rest   back.
+[746] P: Conversation   2
+[747] P: Tina: Are   you   doing   your   physics   (7)   homework   /   homeworks,   Brendan?
+[748] P: Brendan: Yes,   but   I   need   some   (8)   help   /   helps.   I   like   physics,   but   (9)   it’s   /   they’re   difficult.
+[749] P: Tina: Well,   I   have   some   (10)   time   /   times   now.   I   can   help   you.
+[750] P: Brendan: Thanks,   Tina.   I   don't   understand   this   (11)   exercise   /   exercises.   These   instructions
+[751] P: (12)   isn’t   /   aren’t   very   clear.
+[754] P: Complete   the   conversations   with   the   nouns   from   the   boxes.   Make   the   nouns   plural   if  necessary. You will need to use one noun twice.
+[755] P: advice assignment class fun homework time advice assignment class fun homework time
+[756] P: Alex: Hey,   Bruce.   Do   you   want   to   go   to   the   basketball   game   tonight?
+[757] P: Bruce: No,   sorry.   I   don’t   have   (1)   time .   I   have   a   lot   of
+[758] P: (2)    tonight.
+[759] P: Alex: That’s   too   bad.   How   many   (3)     are   you   taking   this   semester?
+[760] P: Bruce: Five. And I have an (4)   for each of them.
+[761] P: Alex: Ugh!   That   is   a   lot.   You   need   to   study   less   and   have   more   (5)     .
+[762] P: Bruce: That   seems   like   good   (6)     .   Enjoy   the   game   tonight!
+[763] P: energy exercise health time energy exercise health time
+[781] P: 72   NOUN S
+[782] P: Ellen: Hi,   Junko.   Where   are   you   going?
+[783] P: Junko: To   the   gym.   I   was   sitting   in   a   meeting   all   day   today.   I   need   to   get   some   (7)     !
+[784] P: Ellen: Good   for   you!   I’m   so   busy   these   days.   I   don’t   have   (8)     to exercise.
+[785] P: How   often   do   you   go   to   the   gym?
+[786] P: Junko: Oh, about three (9)    a   week.   I   often   go   early   in   the   morning   before   work.
+[787] P: Ellen: Really?   Do   you   feel   tired   afterwards?
+[788] P: Junko: No, I actually have more (10)    after I work out.
+[789] P: Ellen: That’s   great.   And   it’s   good   for   your   (11)     ,   too.
+[796] P: CD1- 20
+[797] P: LISTEN,   WRITE   &   SPEAK.
+[798] P: Listen   to   an   interview   with   a   doctor   about   the health   benefits   of   certain   kinds   of   food.   Check   the kinds of food you hear.
+[802] P: green   vegetables beans
+[803] P: apples lettuce
+[804] P: oranges squash
+[805] P: cabbage fish
+[806] P: nuts meat
+[817] P: Vegetables provide almost everything the human body needs.
+[821] P: CD1- 20
+[822] P: What   are   the   health   benefits   of   the   kinds   of   food   you   heard   in   exercise   A ?   Listen   again.
+[823] P: Then   write   the   name   of   each   kind   of   food   next   to   the   correct   health   benefit(s).
+[824] P: important   for   our   eyes
+[825] P: good for your skin
+[826] P: a   great   source   of   energy
+[827] P: strong   muscles
+[828] P: Vitamin   K
+[829] P: strong   bones
+[831] P: In   your   notebook,   write   five   sentences   about   the   different   kinds   of   food   in   exercise   A .
+[832] P: Squash   is   good   for   your  eyes.
+[833] P: Work   with   a   partner.   Compare   your   sentences   from   exercise   C .   Do   you   know   of   any   other  kinds   of   food   that   have   special   health   benefits?   Tell   your   partner.
+[834] P: A:   Carrots   are   good   for   your   eyes. B:   Milk   makes   bones   strong.
+[836] P: APPLY.
+[837] P: Think   about   the   kinds   of   food   and   drink   you   buy.   Write   five   items   of   food   or   drink   in   each   column  of   the   chart.   Next   to   each   item,   write   C   if   it   is   a   count   noun   or   NC   if   it   is   a   non-count   noun.
+[839] TBL: [['What items of food and drink do you buy?'], ['Often', 'Sometimes', 'Rarely'], ['coffee (NC)', 'carrots (C)', 'soda (NC)']]
+[840] P: Work   with   a   partner.   Talk   about   the   items   in   your   chart   from   exercise   A .   Pay   attention   to   the  verb   forms   and   pronouns   you   use   with   count   and   non-count   nouns.
+[841] P: A:   I   sometimes   buy   carrots.   I   put   them   in   salads.    B:   Oh,   I   never   buy   them.   They   taste   terrible!
+[843] P: In   your   notebook,   write   five   or   six   sentences   about   the   items   in   your   chart   from   exercise   A .   Pay  attention   to   the   verb   forms   and   pronouns   you   use   with   count   and   non-count   nouns.
+[845] P: UNIT   3   LESSON   2   73
+[847] P: LESSON   3 LESSON   3    Quantity   and   Measurement   Words
+[859] P: CD1- 21
+[892] P: Manchester City is one of the top soccer teams in England. Here the players celebrate their 2012 Premier League   success.
+[893] P: EXPLORE
+[894] P: READ   the   article   about   sports   science.   Notice   the   words   in   bold .
+[897] P: The   Science   of   Sports
+[898] P: When   Manchester   City   soccer   team   won   the   English   Premier   League in 2012, there were  many  reasons for its success. The owners spent  a lot   of   money   on   star   players.   The   team   also   had   a   very   good   head   coach.
+[899] P: However,   one   reason   for   the   team’s   success   was   less   obvious.   A   lot   of  teams   lose   their   star   players   for   weeks   or   months   because   of   injuries. 1   Thanks to sports science, Manchester City players did not get hurt frequently, and did not lose  much  playing time.
+[900] P: During practice each Manchester City player wears a GPS monitor. 2   Sports scientists then use the information provided by the monitor. They analyze each player’s movements, effort, and recovery. 3   When   practice   is   over,   each   player   gets   some   vitamins. They   also   get   a   large   bottle   of   a   special   drink.   Each   player’s   drink is created especially for him. The drinks help keep the players  healthy.
+[901] P: Some  teams still do not take sports science seriously. However, spending  a little  money on sports science can greatly improve a team’s performance. Manchester City’s story is proof  4   of this.
+[905] P: 1   injury:   damage   to   a   person’s   body
+[906] P: 2   GPS   monitor:   a   small   computer   that   records   a   person’s   movements
+[907] P: 3   recovery:   return   to   usual   condition
+[908] P: 4   proof:   something   that   shows   that   something   is   true
+[934] P: 74   NOUNS
+[935] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[936] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[938] P: CHECK.   Choose   the   correct   answer   to   complete   each   statement.
+[940] P: One   reason   for   Manchester   City’s   success   in   2012   was     .
+[941] P: a.   having   good   luck b.   buying star   players c. playing   against   weak   teams
+[943] P: Compared to other teams, Manchester City players    .
+[944] P: a.   were   younger b.   did   not   play   as   much c.   had   fewer   injuries
+[946] P: Players wear GPS monitors to    .
+[947] P: a.   record   their   performance b.   stop   them   from   getting   lost c.   make   them   work   hard
+[949] P: After   practice,   each   player   gets     .
+[950] P: a.   his   favorite   cold   drink b. a bottle   of a   special  drink c. a   large bottle   of  water
+[953] P: DISCOVER.   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[954] P: Find   these   sentences   in   the   article   from   exercise   1 .   Write   the   missing   words.
+[955] P: . . . there were  many    for its success.
+[957] P: The   owners   spent   a   lot   of     on   star   players.
+[959] P: A   lot   of     lose   their   star   players   for   weeks   or   months   because   of   injuries.
+[961] P: .   .   .   Manchester   City   players   did   not   get   hurt   frequently,   and   did   not   lose   much     .
+[963] P: However, spending  a little    on sports science can greatly improve a  team’s  performance.
+[965] P: Look   at   each   sentence   in   exercise   A .   Is   the   noun   after   the   bold   word(s)   a   count   noun   or   a non-count   noun?   Write   C  for   count   noun   or   NC  for   non-count   noun   after   each   sentence.
+[966] P: Work   with   a   partner.   Compare   your   answers   in   exercise   B .   Then   choose   the   correct  phrase to complete each statement.
+[968] TBL: [['1. We use much with .', 'a. count nouns', 'b. non-count nouns'], ['2. We use many with .', 'a. count nouns', 'b. non-count nouns'], ['3. We use a little with .', 'a. count nouns', 'b. non-count nouns'], ['4. We use a lot of with .', 'a. count nouns', 'b. count nouns and non-count nouns']]
+[978] P: 75
+[979] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[980] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[982] P: LEARN
+[983] P: Count   Nouns Non-   Count   Nouns Count   Nouns Non-   Count   Nouns Quantity   Words   with   Count   and   Non-Count   Nouns
+[984] P: Quantity   Words some We   have a   few a   lot   of  many dishes.  flowers. any glasses. We   don’t   have a   lot   of many Quantity   Words some We   have a   few a   lot   of  many dishes.  flowers. any glasses. We   don’t   have a   lot   of many Quantity   Words We   have some   a little a   lot   of money.  time. work. We   don’t   have any a   lot   of  much Quantity   Words We   have some   a little a   lot   of money.  time. work. We   don’t   have any a   lot   of  much
+[986] TBL: [['1. Use some with count and non-count nouns in affirmative statements.', 'We need some bananas.I left some fruit on the table.'], ['2. Use any with count and non-count nouns in negative statements.', 'Maria doesn’t want any oranges.I don’t have any homework.'], ['3. Use a few and many with count nouns.', 'I have a few questions.Did you buy many apples?'], ['4. Use a little and much with non-count nouns.', 'Give the plants a little water. We don’t have much homework tonight.'], ['5. Use a lot of with both count and non-count nouns.', 'We bought a lot of vegetables.She eats a lot of sugar.']]
+[989] P: Circle   the   correct   word(s)   to   complete   each   statement   or   question.
+[990] P: Manchester   City   has   some   /   any   star   players.
+[992] P: Much   /   Many   soccer   teams   lose   players   because   of   injury.
+[994] P: I   usually   go   to   a   few   /   a   little   soccer   games   every   year.
+[996] P: Michel   didn’t   score   any   /   some   goals   in   the   last   game.
+[998] P: We   didn’t   get   much   /   many   exercise   last   week.
+[1000] P: A   lot   of   /   Much   people   left   the   game   early.
+[1002] P: Sally   bought   any   /   some   new   running   shoes   yesterday.
+[1004] P: Marie   wants   to   go   ride   her   bike   when   she   has   a   few   /   some   time.
+[1006] P: Were   there   much   /   many   people   in   your   yoga   class   this   morning?
+[1008] P: I   didn’t   find   many   /   much   mistakes   in   your   assignment.
+[1010] P: There   is   a   little   /   a   few   ice   cream   left   in   the   freezer.
+[1012] P: Do   you   have   much   /   many   homework   this   weekend?
+[1016] P: 76   NOUNS
+[1018] P: Measurement   Words   with   Non-Count   Nouns
+[1034] P: Other a   piece   of   jewelry a  piece  of mail Shape a   bar   of   chocolate a  bar  of soap a  loaf  of bread   a   sheet   of   paper a  stick  of butter a   tube   of   toothpaste Portion a  piece  of cake a  piece  of pie   a   slice   of   bread a  slice  of pizza Measurement a   gallon   of   milk a  pint  of ice cream a   pound   of   meat a  quart  of oil a   tablespoon   of  sugar a   teaspoon   of   salt Container a   bag   of   rice a   bottle   of   juice a   bowl   of   cereal a  box  of cereal a  can  of soda a   carton   of   milk a  cup  of coffee a   glass   of   water a  jar  of jam Other a   piece   of   jewelry a  piece  of mail Shape a   bar   of   chocolate a  bar  of soap a  loaf  of bread   a   sheet   of   paper a  stick  of butter a   tube   of   toothpaste Portion a  piece  of cake a  piece  of pie   a   slice   of   bread a  slice  of pizza Measurement a   gallon   of   milk a  pint  of ice cream a   pound   of   meat a  quart  of oil a   tablespoon   of  sugar a   teaspoon   of   salt Container a   bag   of   rice a   bottle   of   juice a   bowl   of   cereal a  box  of cereal a  can  of soda a   carton   of   milk a  cup  of coffee a   glass   of   water a  jar  of jam Use   a   measurement   word   +   of   to   talk about   a   specific   quantity   of   a   non-count  noun.
+[1035] P: Do   not   use   a   number   before   a   non-count noun. Use a measurement word.
+[1036] P: He   drank   a   bottle   of   juice .
+[1037] P: I   bought   three   loaves   of   bread .
+[1039] P: Put   two   bars   of   soap   in   the   bathroom.
+[1040] P: ✗   Put   two   soap   in   the   bathroom.
+[1045] P: Circle   the   correct   measurement   word   to   complete   each   sentence.
+[1046] P: Clive   cut   three   slices   /   bars   of   pizza   and   put   them   on   his   plate.
+[1048] P: I   need   to   buy   a   new   bar   /   tube   of   toothpaste.
+[1050] P: Do   you   have   a   sheet   /   slice   of   paper?   I   need   to   write   a   shopping   list.
+[1052] P: Would   you   like   a   piece   /   loaf   of   pie   for   dessert?
+[1054] P: This   cake   uses   six   bars   /   sticks   of   butter.
+[1056] P: We   will   need   three   cartons   /   loaves   of   bread   for   the   party.
+[1058] P: I   put   a   new   bar   /   stick   of   soap   in   the   bathroom.
+[1060] P: Helena   had   a   glass   /   bowl   of   cereal   for   breakfast.
+[1062] P: Yoko   is   wearing   five   different   slices   /   pieces   of   jewelry   today.
+[1064] P: Add   two   pounds   /   gallons   of   milk   to   the   shopping   list,   please.
+[1066] P: I   didn’t   get   a   single   piece   /   sheet   of   mail   today.
+[1068] P: The   mechanic   put   a   quart   /   carton   of   oil   in   my   car.
+[1071] P: SPEAK.   Work   with   a   partner.   Student   B   closes   his   or   her   book.   Student   A   reads   measurement  words   from   chart   3.7.   Student   B   says   any   correct   noun   for   each   measurement   word.   Switch  roles   after   five   or   six   measurement   words.
+[1072] P: A:   a   can   of   .   .   .
+[1073] P: B:   a   can   of   beans
+[1076] P: UNIT   3   LESSON   3   77
+[1078] P: PRACTICE
+[1079] P: Circle   the   correct   word   or   phrase   to   complete   the   blog   post.
+[1080] P: Help!   What   Can   I   Eat? [posted   by   runnergirl   at   8:22pm,   Jan.   2] I   am   a   runner,   so   I   take   (1)   many   /   much   /   a   lot   of   interest   in   my   diet,   but   sometimes it   can   be   so   confusing!   For   years,   doctors   said,   “You   need   to   drink   eight   8-ounce (2)   cans   /   glasses   /   tubes   of   water   every   day,”   but   now   (3)   some   /   a   little   /   any   researchers don’t   agree.   Also,   I   hear   about   a   new   diet   almost   every   day.   “To   lose   weight   and   stay   healthy, don’t   eat   (4)   much   /   a   few   /   any   grains.”   Or,   “You   can   eat   (5)   a   little   /   any   /   some   grains,   but (6)   not   much   /   not   many   /   any .   For   example,   if   you   eat   a   sandwich,   use   only   one   (7)   sheet   /  loaf   /   slice   of   bread.”   How   do   I   do   that?   I   already   know   I   shouldn’t   eat   (8)   a   little   /   many   /  much   sugar.   I   won’t   drink   even   one   (9)   bowl   /   can   /   carton   of   soda   because   there   are around   nine   (10)   teaspoons   /   bars   /   pieces   of   sugar   in   each   can.   But   what   about   juice? I   bought   a   (11)   jar   /   glass   /   bottle   of   juice   last   week,   and   it   had   more   sugar   than   the   soda.   Is that   OK?   Please   help   me. Help!   What   Can   I   Eat? [posted   by   runnergirl   at   8:22pm,   Jan.   2] I   am   a   runner,   so   I   take   (1)   many   /   much   /   a   lot   of   interest   in   my   diet,   but   sometimes it   can   be   so   confusing!   For   years,   doctors   said,   “You   need   to   drink   eight   8-ounce (2)   cans   /   glasses   /   tubes   of   water   every   day,”   but   now   (3)   some   /   a   little   /   any   researchers don’t   agree.   Also,   I   hear   about   a   new   diet   almost   every   day.   “To   lose   weight   and   stay   healthy, don’t   eat   (4)   much   /   a   few   /   any   grains.”   Or,   “You   can   eat   (5)   a   little   /   any   /   some   grains,   but (6)   not   much   /   not   many   /   any .   For   example,   if   you   eat   a   sandwich,   use   only   one   (7)   sheet   /  loaf   /   slice   of   bread.”   How   do   I   do   that?   I   already   know   I   shouldn’t   eat   (8)   a   little   /   many   /  much   sugar.   I   won’t   drink   even   one   (9)   bowl   /   can   /   carton   of   soda   because   there   are around   nine   (10)   teaspoons   /   bars   /   pieces   of   sugar   in   each   can.   But   what   about   juice? I   bought   a   (11)   jar   /   glass   /   bottle   of   juice   last   week,   and   it   had   more   sugar   than   the   soda.   Is that   OK?   Please   help   me.
+[1081] P: SPEAK.   Work   with   a   partner.   Discuss   the   advice   you   might   give   to   the   writer.   Use   quantity  and   measurement   words   with   the   kinds   of   food   and   drink   she   writes   about   in   exercise   7 .
+[1082] P: A:   I   think   it’s   a   good   idea   to   drink   a   lot   of   water.
+[1083] P: B:   I   agree.   The   writer   shouldn’t   drink   much   juice.   It’s   better   to   eat   a   piece   of   fruit.
+[1086] P: Complete   the   sentences   with   the   words   or   phrases   from   the   box.
+[1088] TBL: [['a little', 'any', 'bowl', 'much', 'pound'], ['a lot of', 'bar', 'jar', 'piece', 'some']]
+[1089] P: A calorie is a measure of energy in food. High-sugar foods have  a   lot   of   calories.
+[1091] P: We need to buy food with protein. How about a small    of   peanut   butter and a    of sliced turkey from the deli?
+[1092] P: If you don’t want to eat    grains,   then   you   can’t   eat   that
+[1093] P: of cereal or that   of cake!
+[1095] P: There isn’t    milk   left.   I’ll   get     later.
+[1097] P: I used to eat a big    of   milk   chocolate   every   day.   Now   I   only   eat
+[1098] P: dark chocolate occasionally.
+[1101] P: 78   NOUNS
+[1109] P: CD1- 22
+[1110] P: LISTEN,   WRITE   &   SPEAK.
+[1111] P: Work   with   a   partner.   Look   at   the   different   kinds   of   diets   and   food   listed   in   the   chart.   What   do  you   know   about   them?   Tell   your   partner.
+[1112] P: Listen   to   three   friends   talk   about   their   diets.   Which   kinds   of   food   are   OK   to   eat   on   each   diet?
+[1113] P: Put   ✓   in   the   chart   if   it   is   OK,   put   X   if   it   is   not   OK,   and   put  ?   if   you   are   not   sure.
+[1115] TBL: [['Do You Want to Eat Like a Caveman?'], ['Diet Comparisons', 'Low-Fat Diet', 'Vegetarian Diet', 'Vegan Diet', 'Paleo Diet'], ['vegetables', '', '', '', ''], ['fruit', '', '', '', ''], ['grain', '', '', '', ''], ['meat/protein', '', '', '✗', ''], ['dairy', '', '', '', '?'], ['sugar', '', '', '', '']]
+[1117] P: Compare   your   chart   from   exercise   B   with   a   partner.   Then   write   six   sentences   about   the   diets  in   your   notebook.   Use   much ,   many ,   a   few ,   a   little ,   some ,   and   a   lot   of .
+[1118] P: On   the   Paleo   diet,   people   don’t   eat   any   grains.   They   eat   some  fruit,   but   they   don't   eat   candy   or   other   sweets.
+[1119] P: Share   your   sentences   from   exercise   C   with   a   partner.   Then   discuss   any   other   information   you  remember from the conversation.
+[1120] P: Work   in   a   small   group.   Discuss   your   thoughts   and   opinions   about   the   different   diets.
+[1122] P: A:   I   don’t   think   low-fat   diets   are   a   good   idea.   I   think   eating   a   lot   of   sugar   is   a   bigger   problem.
+[1123] P: B:   I   agree.   Even   organic   sweets   can   have   too   much   sugar.   They   seem   healthy,   but   they   aren’t.
+[1125] P: The Paleo diet is sometimes called the “caveman diet.” People believe you should eat whole foods, not processed or fast foods. (Graffiti art   by   Banksy,   Los   Angeles,   CA). UNIT   3   LESSON   3   79 Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it. The Paleo diet is sometimes called the “caveman diet.” People believe you should eat whole foods, not processed or fast foods. (Graffiti art   by   Banksy,   Los   Angeles,   CA). UNIT   3   LESSON   3   79 Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1127] P: EDIT   &  SPEAK.
+[1128] P: My   New   Fitness   Program a   lot   of I   wasn’t   always   fit.   I   used   to   eat   many   fast   food,   such   as   hamburgers   and   pizza,   and   I   didn’t get   many   exercise.   I   wasn’t   very   happy.   I   wanted   to   lose   any   weight   and   feel   fit   and   healthy. I   didn’t   want   to   go   on   a   special   diet.   Much   diets   have   a   lot   of   rules,   and   I   want   to   enjoy   a   sheet   of pizza or a jar of ice cream sometimes. Then, a little months ago, I found a great new fitness plan online. The plan lets me eat different kinds of food. I even have dessert a little times a week. I   take   a   walk   or   ride   my   bike   every   morning.   Now   I’m   fit   and   healthy,   and   I   feel   great! My   New   Fitness   Program a   lot   of I   wasn’t   always   fit.   I   used   to   eat   many   fast   food,   such   as   hamburgers   and   pizza,   and   I   didn’t get   many   exercise.   I   wasn’t   very   happy.   I   wanted   to   lose   any   weight   and   feel   fit   and   healthy. I   didn’t   want   to   go   on   a   special   diet.   Much   diets   have   a   lot   of   rules,   and   I   want   to   enjoy   a   sheet   of pizza or a jar of ice cream sometimes. Then, a little months ago, I found a great new fitness plan online. The plan lets me eat different kinds of food. I even have dessert a little times a week. I   take   a   walk   or   ride   my   bike   every   morning.   Now   I’m   fit   and   healthy,   and   I   feel   great! Read   the   paragraph   about   a   fitness   program.   Find   and   correct   seven   more   errors   with  quantity words and measurement words.
+[1129] P: Work in   a small   group.   Discuss the   following   questions.
+[1130] P: Do   you   think   the   writer’s   fitness   plan   from   exercise   A   sounds   like   a   good   one?   Why,   or   why   not?
+[1132] P: Do   you   know   about   any   special   diets   or   fitness   plans?   Do   you   think   they   work?   Why   or   why   not?
+[1135] P: APPLY.
+[1136] P: How   fit   and   healthy   are   you?   Complete   the   chart   with   sentences   about   some   of   your   healthy and   unhealthy   habits.   Use   quantity   words   and   measurement   words.
+[1138] TBL: [['Healthy HabitsUnhealthy Habits'], ['I eat a lot of vegetables.', 'I have a bowl of ice cream for dessert every night.']]
+[1140] P: Work   with   a   partner.   Share   the   information   from   your   chart   in   exercise   A .   Ask   your   partner  questions   for   more   information   about   his   or   her   healthy   or   unhealthy   habits.
+[1141] P: A:   I   eat   a   lot   of   vegetables.
+[1142] P: B:   What   do   you   usually   have   for   lunch?
+[1143] P: A:   A   salad   or   a   bowl   of   soup.
+[1144] P: Form   a   group   with   another   pair   of   students.   Take   turns   talking   about   some   of   your   partner’s  healthy   and   unhealthy   habits.   Use   quantity   words   and   measurement   words.
+[1145] P: Antonio   gets   a   lot   of   exercise.   He   goes   to   the   gym   about   five   times   a   week.   He   also   eats   a   lot   of vegetables, but he usually drinks one or two cans of soda every day . . .
+[1147] P: 80   NOUNS
+[1148] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1149] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1155] P: UNIT   3 Review   the   Grammar UNIT   3 Review   the   Grammar Charts  3.4,   3.6
+[1185] P: Charts  3.1,   3.4–
+[1186] P: 3.6
+[1208] P: Charts  3.4,   3.6
+[1209] P: Complete   the   conversations   with   a,   an,   or   some .
+[1211] P: Conversation   1
+[1212] P: Piet: I just bought (1)  a   new   bike.
+[1213] P: Mauro: Oh, that’s (2)    good idea.
+[1214] P: Piet: Yes, I really need to get (3)    exercise.
+[1215] P: Mauro: Hmm, well, I have (4)    time   off   tomorrow.   Do   you   want   to go for (5)    ride together?
+[1216] P: Conversation   2
+[1217] P: June: Would you like (6)   cup of coffee?
+[1218] P: Belinda: No,   thanks.   I   just   had   (7)     coffee about fifteen minutes ago.
+[1219] P: June: Would   you   like   (8)     glass   of   lemonade   instead?
+[1220] P: Belinda: Yes,   that   would   be   great.
+[1221] P: June: I also have (9)   fruit. I have apples, oranges, and pears.
+[1222] P: Belinda: I’d love (10)    orange.   Thanks,   June.
+[1225] P: Complete   the   sentences   with   one   of   the   nouns   in   parentheses.   Make   the   noun   plural   if  necessary.
+[1226] P: This   gym   has   many   new   machines   (machine   /   equipment).
+[1228] P: My   old   gym   didn’t   have   much     (machine   /   equipment).
+[1230] P: Taylor’s   children   don’t   eat   much     (fruit  /  apple).
+[1232] P: How   many     (fruit   /   apple)   did   you   use   in   the   pie?
+[1234] P: I   learned   an   interesting     (fact   /   information)   about   nutrition   yesterday.
+[1236] P: There   was   a   lot   of   interesting     (fact   /   information)   on   the   website.
+[1238] P: My   doctor   gave   me   a   few   good     (advice   /   suggestion)   about   my   diet.
+[1240] P: Doctor   Carson   didn’t   give   me   much     (advice   /   suggestion)   about   exercise.
+[1243] P: Circle   the   correct   word(s)   to   complete   each   statement   or   question.
+[1244] P: Do   you   play   much   /   many   different   sports?
+[1246] P: My   father   rides   his   bike   a   few   /   a   little   times   a   week.
+[1248] P: Much   /   Many   people   like   to   exercise   in   the   morning.
+[1250] P: I   don’t   take   any   /   some   vitamins,   but   I   have   a   healthy   diet.
+[1252] P: Elsie   spends   a   lot   of   /   many   time   at   the   gym.   She’s   very   fit.
+[1254] P: UNIT   3   REVIEW   THE   GRAMMAR   81
+[1255] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1256] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1262] P: UNIT   3 UNIT   3 Review   the   Grammar UNIT   3 Review   the   Grammar UNIT   3 Only   a   few   /   a   little   people   were   at   the   gym   last   night.   It   was   almost   empty.
+[1264] P: She   gave   us   any   /   some   advice   about   yoga   classes.
+[1266] P: I   found   a   few   /   a   little   information   about   that   diet   online,   but   not   much.
+[1268] P: I   asked   Paula   about   fitness   classes.   She   gave   me   any   /   some   good   suggestions.
+[1270] P: How   much   /   many   pieces   of   fruit   do   you   usually   eat   a   day?
+[1273] P: Charts  3.4– 3.6
+[1274] P: EDIT.   Read   the   information   about   the   health   of   Siamese   crocodiles.   Find   and   correct   eight  more   errors   with   count   and   non-count   nouns   and   quantity   words.
+[1277] P: Why   the   Health   of   Siamese   Crocodiles   Matters
+[1278] P: Many
+[1279] P: Much species of wild animals are dying out. 1   This is huge problem. The healths of one group of living things often depends on another group of living things. This is true for humans, too.
+[1280] P: An good example of this is in Cambodia. In 2000, scientist Jenny Daltry took a team of scientist into Cambodia’s Cardamom Mountains. She wanted to make a list of the different kinds of animals there. Daltry’s team discovered much Siamese crocodiles there. There were 150!
+[1281] P: The crocodiles live in marshes. Marshes are soft wet areas of land with much plants. The   crocodiles   help   keep   the   marsh   areas   wet   and   alive.   They   dig   mud 2   out   of   the   marshes and   help   keep   a   water   there,   even   during   the   dry   season.   As   a   result,   other   animals   have   a good source of waters. This is also helpful to humans.
+[1283] P: 1   die   out:   disappear   forever
+[1284] P: 2   mud:   a   mixture   of   earth   and   water
+[1286] P: Siamese crocodiles are in danger of dying out.
+[1304] P: 82 NOUNS
+[1305] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1306] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1308] P: Charts  3.1– 3.6
+[1310] P: CD1-23– 27
+[1311] P: LISTEN   &   SPEAK.
+[1312] P: Listen   to   five   people   talk   about   their   fitness   activities.   Match   the   information   in   Column   B   with  the   correct   speaker   in   Column   A.   Write   the   letters   on   the   lines.
+[1316] P: Column   A
+[1317] P: Speaker 1     c         Speaker 2            Speaker   3
+[1318] P: Speaker 4   Speaker 5
+[1319] P: Column   B
+[1320] P: plays   many   different   sports
+[1321] P: enjoys   a   dangerous   sport
+[1322] P: is training   for a   race
+[1323] P: roommate’s   father   is   a   coach
+[1324] P: is   using   someone   else’s   bike
+[1325] P: gets   a lot of  injuries
+[1326] P: doesn’t   do   much   running
+[1327] P: isn’t   interested   in   team   sports
+[1330] P: Work   with   a   partner.   Compare   your   answers   from   exercise   A .   Then   talk   about   each   of   the speakers.   Use   the   information   from   exercise   A   and   any   other   information   you   remember.
+[1331] P: Speaker   1   is   starting   a   new   sport.   She   rode   her   friend’s   bike   three   times   last   week.
+[1333] P: Look   at   the   list   of   sports   and   other   fitness   activities   from   exercise   A   in   the   box   below.   Which   of  these   activities   do   you   enjoy?   Do   you   like   to   watch   any   of   these   sports   or   activities?   What   do  you   know   about   them?   Discuss   your   answers   with   your   partner.   Use   quantity   words,   another ,  other , and  the other  when appropriate.
+[1335] TBL: [['basketball', 'football', 'skiing', 'volleyball'], ['cycling', 'running', 'swimming', 'yoga']]
+[1336] P: I   swim   a   few   times   a   week.   It’s   really   good   exercise.
+[1337] P: I also like to watch football. It’s interesting, but  there are   a   lot   of   rules.   I   don’t   understand   many   of   them! I like a lot of other sports, too...
+[1357] P: A   group   of   athletes   competing   in   a   triathlon
+[1359] P: 83
+[1360] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1361] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1367] P: Connect   the   Grammar   to   Writing Connect   the   Grammar   to   Writing READ   &   NOTICE   THE   GRAMMAR.
+[1368] P: Work   with   a   partner.   What   do   you   think   is   the   best   way   to   stay   fit?   Discuss   your   ideas   with  your   partner.   Then   read   the   text.
+[1369] P: Staying   Fit Exercise   is   important   if   you   want   to   stay   fit.   You don’t   need   any   fancy   machines   or   a   lot   of   expensive clothing.   The   best   exercise,   in   my   opinion,   is   to   take a   long   walk   every   day.   Walking   is   inexpensive,   easy, and safe. All you need for a walk are comfortable shoes, appropriate clothing, and 30 minutes to an hour of your   time.   If   it’s   warm   and   you   live   near   a   beach,   you don’t even need any shoes! Walking takes very little time and money. A walk is also a safe way to stay fit. Often people get   hurt   when   they   exercise.   Some   people   run   several miles a week and then complain of knee or back   pain. Other people do a lot of drills 1   and then ache for   a   week.   Walking   is   relaxing   and   does   not   put   a   lot of stress on your body. It provides exercise without additional   pain.   Walking   keeps   your   body— and   your mind—healthy. Go take a walk! 1   drill:   a   practice   exercise   that   you   repeat   again   and   again Staying   Fit Exercise   is   important   if   you   want   to   stay   fit.   You don’t   need   any   fancy   machines   or   a   lot   of   expensive clothing.   The   best   exercise,   in   my   opinion,   is   to   take a   long   walk   every   day.   Walking   is   inexpensive,   easy, and safe. All you need for a walk are comfortable shoes, appropriate clothing, and 30 minutes to an hour of your   time.   If   it’s   warm   and   you   live   near   a   beach,   you don’t even need any shoes! Walking takes very little time and money. A walk is also a safe way to stay fit. Often people get   hurt   when   they   exercise.   Some   people   run   several miles a week and then complain of knee or back   pain. Other people do a lot of drills 1   and then ache for   a   week.   Walking   is   relaxing   and   does   not   put   a   lot of stress on your body. It provides exercise without additional   pain.   Walking   keeps   your   body— and   your mind—healthy. Go take a walk! 1   drill:   a   practice   exercise   that   you   repeat   again   and   again
+[1371] P: GRAMMAR   FOCUS
+[1372] P: In   the   text,   the   writer   uses   singular   and   plural   count   nouns   and   non-count   nouns   both with   and   without   adjectives   and   quantity   words.   Notice   the   articles   and   quantity   words.
+[1374] TBL: [['Count Nouns', 'Singular with a/an: Plural:Quantity word:', 'The best exercise, . . . is to take a long walk . . .All you need . . . are comfortable shoes . . .You don’t need any fancy machines . . .'], ['Non-Count Nouns', '(No a/an): Quantity word:', 'Exercise is important if you want to stay fit.You don’t need . . . a lot of expensive clothing.']]
+[1376] P: Read   the   text   in   exercise  A  again.   Complete   the   chart   with   count   and   non-count   nouns.  Include   possessive   adjectives   or   quantity   words.   Find   at   least   one   more   for   each   category.
+[1378] TBL: [['Nouns', '(Adjective) + Noun (with or without a/an)', 'Quantity Word + (Adjective) + Noun'], ['Count', 'your body', 'any shoes'], ['Non-Count', 'The best exercise', 'little time']]
+[1379] P: 84 NOUNS
+[1380] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1381] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1383] P: WRITING   FOCUS Subject-Verb   Agreement   with   Count   and   Non-Count   Nouns When   using   nouns   in   the   subject   position,   be   sure   to   use   the   correct   singular   or   plural   form  of   the   verb.   With   non-count   nouns   as   subjects,   use   a   singular   verb. Singular   Count: A   walk   is   also   a   safe   way   to   stay   fit. Plural   Count: Often,   people   get   hurt   when   they   exercise. Non- Count: Exercise   is   important   if   you   want   to   stay   fit. WRITING   FOCUS Subject-Verb   Agreement   with   Count   and   Non-Count   Nouns When   using   nouns   in   the   subject   position,   be   sure   to   use   the   correct   singular   or   plural   form  of   the   verb.   With   non-count   nouns   as   subjects,   use   a   singular   verb. Singular   Count: A   walk   is   also   a   safe   way   to   stay   fit. Plural   Count: Often,   people   get   hurt   when   they   exercise. Non- Count: Exercise   is   important   if   you   want   to   stay   fit. Write   Opinion   Paragraphs
+[1385] P: In   exercise   A ,   the   writer   states   an   opinion   and   the   reasons   for   it.   Then   she   uses   facts   to  support   her   reasons.   Complete   the   chart   with   her   reasons   and   supporting   facts.
+[1387] TBL: [['Opinion: The best way to stay fit is to take a long walk.'], ['Reason 1: It’s easy and inexpensive.'], ['Supporting Facts: 1. You only need a comfortable pair of shoes and some appropriate clothing.2.'], ['Reason 2:'], ['Supporting Facts:']]
+[1389] P: BEFORE   YOU   WRITE.
+[1390] P: Work   with   a   partner.   What   type   of   exercise   or   diet   do   you   feel   is   best?   Discuss   your   ideas   with  a partner.
+[1391] P: Make   a   chart   in   your   notebook   like   the   one   in   exercise   1C .   Complete   the   chart   with   your opinion   about   a   good   way   to   stay   fit   and   your   supporting   facts.   Use   the   ideas   you   and   your partner discussed.
+[1394] P: WRITE   your   opinion   about   a   good   way   to   stay   fit.   Write   three   paragraphs   and   give   at   least  two   reasons   for   your   opinion.   Be   sure   to   give   support.   Use   the   information   in   your   chart   from  exercise   2B  and   the   text   in   exercise   1A  to   help   you.
+[1405] P: SELF ASSESS.   Read   your   paragraphs   and   underline   the   count   nouns,   non-count   nouns,  and   quantity   words.   Then   use   the   checklist   to   assess   your   work.
+[1406] P: I   used   a   or   an   before   singular   count   nouns.   [3.4]
+[1407] P: I did not use  a  or  an  before plural count nouns and non-count nouns.  [3.4]   I used  some  in affirmative statements and  any  in negative statements.  [3.6]   I   used   the   correct   singular   or   plural   form   of   verbs.   [WRITING   FOCUS]
+[1408] P: UNIT   3    CONNECT THE   GRAMMAR   TO   WRITING    85
+[1409] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1410] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.

@@ -4,293 +4,719 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 3: Health & Fitness (Nouns)</title>
-    <!-- Tailwind CSS for modern responsive layout -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0fdf4; /* Emerald 50 */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7faf8;
         }
         
-        /* Navigation Tabs */
-        .tab-active {
-            border-bottom-width: 4px;
-            border-color: #059669; /* Emerald 600 */
-            color: #047857; /* Emerald 700 */
+        /* Main Navigation Tabs */
+        .main-tab-active {
+            border-bottom: 3px solid #059669;
+            color: #064e3b;
             font-weight: 800;
         }
-        .tab-inactive {
-            border-bottom-width: 4px;
-            border-color: transparent;
+        .main-tab-inactive {
+            border-bottom: 3px solid transparent;
             color: #64748b;
+            font-weight: 600;
         }
-        .tab-inactive:hover { color: #047857; border-color: #cbd5e1; }
+        .main-tab-inactive:hover {
+            color: #064e3b;
+            border-color: #cbd5e1;
+        }
+
+        /* Grammar Guide Category Tabs */
+        .grammar-nav-btn {
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+        .grammar-nav-active {
+            background-color: #059669;
+            color: #ffffff;
+            box-shadow: 0 4px 12px -2px rgba(5, 150, 105, 0.35);
+        }
+        .grammar-nav-inactive {
+            background-color: #ffffff;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .grammar-nav-inactive:hover {
+            background-color: #ecfdf5;
+            color: #047857;
+            border-color: #a7f3d0;
+        }
 
         /* Animations */
-        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .pop-out { transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .pop-out:hover:not(:disabled) {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(5, 150, 105, 0.3), 0 4px 6px -2px rgba(5, 150, 105, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(5, 150, 105, 0.2);
         }
-        
-        /* Interactive Triggers and Target Connections */
-        .interactive-group { position: relative; display: inline-block; }
+
+        /* Interactive Highlights */
         .interactive-trigger {
-            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
-            text-decoration-color: #059669; padding: 2px 4px; border-radius: 4px;
-            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-decoration-color: #059669;
+            text-underline-offset: 4px;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 700;
         }
         .interactive-target {
-            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: 1px dashed transparent;
+            font-weight: 700;
         }
         .interactive-active-trigger {
-            background-color: #dcfce7; color: #047857; text-decoration-color: transparent;
+            background-color: #059669;
+            color: #ffffff !important;
+            text-decoration: none;
         }
         .interactive-active-target {
-            background-color: #fef08a; color: #854d0e;
-            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+            background-color: #fef08a;
+            color: #854d0e;
+            border-color: #eab308;
+            box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
         }
 
-        /* Exercise Sub-Tabs */
-        .subtab-active { background-color: #059669; color: white; box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.4); }
-        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-        .subtab-inactive:hover { background-color: #e2e8f0; }
+        /* Practice Subtabs */
+        .subtab-active { background-color: #0f172a; color: white; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25); }
+        .subtab-inactive { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #f1f5f9; color: #0f172a; }
 
-        /* Quiz Options */
+        /* Quiz Buttons */
         .option-btn { transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #059669; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #059669; box-shadow: 0 4px 8px rgba(5, 150, 105, 0.1); }
         .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
-        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+        .option-disabled { opacity: 0.65; cursor: not-allowed; }
 
-        /* Clickable Words for Identification */
+        /* Spot Error Tokens */
         .click-word {
-            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
-            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+            display: inline-block; padding: 2px 8px; margin: 3px 2px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.12rem; user-select: none; border: 2px solid transparent;
         }
-        .click-word:hover { background-color: #e2e8f0; }
-        .click-word.selected { background-color: #059669; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(5, 150, 105, 0.4); border-color: #047857; }
+        .click-word:hover { background-color: #d1fae5; }
+        .click-word.selected { background-color: #059669; color: white; transform: scale(1.04); }
         .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
-        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
-        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
-
-        /* Matching Buttons */
-        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
-        .match-btn:hover:not(:disabled) { border-color: #059669; background-color: #f0fdf4; transform: translateY(-2px); }
-        .match-btn.selected { background-color: #dcfce7; border-color: #059669; color: #047857; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.2); }
-        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
-        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #b91c1c; }
+        .click-word.missed { border-color: #f59e0b; border-style: dashed; background-color: #fef3c7; color: #92400e; }
 
         /* Fill Blanks */
         .fill-blank {
-            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
-            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #059669;
+            display: inline-block; min-width: 100px; height: 34px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: 800; color: #059669;
         }
-        .fill-blank.filled { border-bottom-style: solid; background-color: #dcfce7; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #059669; }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #d1fae5; border-radius: 6px 6px 0 0; padding: 0 10px; border-bottom-color: #059669; }
         .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
         .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            50% { transform: translateX(6px); }
+            75% { transform: translateX(-6px); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
     <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
         <defs>
-            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#059669" />
+            <marker id="arrowhead-study" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#059669" />
             </marker>
-            <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            <marker id="arrowhead-neutral" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+            </marker>
+            <marker id="arrowhead-correct" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#16a34a" />
+            </marker>
+            <marker id="arrowhead-incorrect" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#dc2626" />
             </marker>
         </defs>
         <g id="svg-paths-container"></g>
     </svg>
 
-    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-emerald-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white p-2.5 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-heart-pulse text-xl w-6 text-center"></i>
+    <header class="bg-white sticky top-0 z-40 border-b border-emerald-100 shadow-xs backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-gradient-to-tr from-emerald-600 to-teal-500 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shadow-md shadow-emerald-600/20">
+                        <i class="fa-solid fa-heart-pulse text-lg sm:text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 3: Health & Fitness</h1>
-                        <p class="text-xs text-slate-500 hidden sm:block font-medium">Grammar Focus: Plural, Possessive & Non-Count Nouns</p>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-extrabold tracking-wider uppercase bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-md">Grammar Explorer</span>
+                            <span class="text-[11px] text-slate-500 font-medium">Unit 3</span>
+                        </div>
+                        <h1 class="text-base sm:text-xl font-black text-slate-900 tracking-tight">Health & Fitness <span class="font-normal text-slate-500 hidden sm:inline">(Nouns)</span></h1>
                     </div>
-                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 3: Nouns</h1>
                 </div>
-                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
-                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
-                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+
+                <!-- Primary View Navigation -->
+                <nav class="flex space-x-2 sm:space-x-8 h-full">
+                    <button id="main-tab-study" class="main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open text-emerald-600"></i>
+                        <span>Grammar Guide</span>
                     </button>
-                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
-                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    <button id="main-tab-practice" class="main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Exercises</span>
                     </button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         
-        <section id="section-study" class="fade-in block space-y-8">
+        <section id="section-study" class="fade-in block space-y-6">
             
-            <div class="text-center max-w-4xl mx-auto mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Mastering Nouns, Quantities & Subject-Verb Agreement</h2>
-                <p class="text-lg text-slate-600">Comprehensive intermediate guide to regular & foreign plurals, possessive nuances, <em>another / other / others</em>, count vs. non-count categories, dual-meaning nouns, partitive units, and agreement rules.</p>
-                
-                <!-- Built-in TTS Audio Player Bar -->
-                <div class="mt-6 bg-white p-4 rounded-2xl border border-emerald-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 text-left">
-                        <div class="bg-emerald-100 text-emerald-700 p-3 rounded-xl">
-                            <i class="fa-solid fa-volume-high text-xl"></i>
+            <!-- Audio Companion & Topic Banner -->
+            <div class="bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200 rounded-2xl p-4 sm:p-6 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>Unit Grammar Reference & Rules</span>
+                        <span class="bg-emerald-200 text-emerald-900 text-xs px-2.5 py-0.5 rounded-full font-bold">Comprehensive</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 mt-1">Select a grammar topic below to explore plural rules, possessives, another/other, count vs non-count nouns, partitive measurements, and subject-verb agreement.</p>
+                </div>
+
+                <!-- Text-to-Speech Companion -->
+                <div class="bg-white/90 border border-emerald-200 p-2.5 sm:p-3 rounded-xl shadow-xs flex items-center gap-2.5 self-stretch md:self-auto justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-headphones"></i>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Spoken Audio Overview</h4>
-                            <p class="text-xs text-slate-500">Listen to key intermediate noun & agreement rules</p>
+                        <div class="hidden sm:block">
+                            <p class="text-xs font-bold text-slate-800">Audio Guide</p>
+                            <p class="text-[10px] text-slate-500 leading-tight">Listen to spoken summary</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-emerald-500 focus:border-emerald-500 font-medium max-w-[160px] truncate">
-                            <option value="">Loading voices...</option>
+                    <div class="flex items-center gap-2">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 max-w-[140px] truncate focus:outline-none focus:ring-1 focus:ring-emerald-500">
+                            <option value="">Voice Loading...</option>
                         </select>
-                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
-                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3.5 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all pop-out shadow-xs">
+                            <i class="fa-solid fa-play" id="tts-icon"></i>
+                            <span id="tts-text">Listen</span>
                         </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-4 inline-flex items-center gap-2 bg-emerald-50 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold border border-emerald-200">
-                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
-                    Tap the dashed words in the examples to reveal grammar connections!
+            <!-- Grammar Module Navigation Tabs -->
+            <div class="border-b border-slate-200 pb-2">
+                <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+                    <button id="gtab-btn-plurals" onclick="switchGrammarTab('plurals')" class="grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-shapes"></i>
+                        <span>1. Plural & Irregular Nouns</span>
+                    </button>
+                    <button id="gtab-btn-poss" onclick="switchGrammarTab('poss')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-tag"></i>
+                        <span>2. Possessives & Another / Other</span>
+                    </button>
+                    <button id="gtab-btn-count" onclick="switchGrammarTab('count')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-apple-whole"></i>
+                        <span>3. Count vs. Non-Count</span>
+                    </button>
+                    <button id="gtab-btn-quant" onclick="switchGrammarTab('quant')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-bottle-water"></i>
+                        <span>4. Quantity & Partitive Measures</span>
+                    </button>
+                    <button id="gtab-btn-agreement" onclick="switchGrammarTab('agreement')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span>5. Subject-Verb Agreement</span>
+                    </button>
+                    <button id="gtab-btn-matrix" onclick="switchGrammarTab('matrix')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <span>6. Comparison Matrix</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 1: Plurals, Foreign Roots, Possessives & Another/Other -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-emerald-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-layer-group absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Plurals, Possessives & Determiners</h3>
-                        <p class="text-emerald-100 font-medium relative z-10">Irregulars, Foreign Plurals, Joint Ownership & Substitutions</p>
-                    </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">A. Plural Spelling & Foreign Roots</h4>
-                            <div>• <strong>Regular Rules:</strong> Add <em>-s</em> (athletes), <em>-es</em> after s/sh/ch/x (dishes, classes), <em>-ies</em> after consonant+y (facilities).</div>
-                            <div>• <strong>-f / -fe Endings:</strong> leaf &rarr; leaves, knife &rarr; knives (Exceptions: <em>roofs, beliefs, chiefs</em>).</div>
-                            <div>• <strong>Foreign & Scientific Plurals (Latin/Greek):</strong> <br>
-                                <span class="interactive-trigger text-emerald-700" data-target="target-foreign">Scientific analyses</span> <span id="target-foreign" class="interactive-target">show</span> clear results. <br>
-                                • <em>analysis &rarr; analyses</em> | <em>diagnosis &rarr; diagnoses</em> | <em>thesis &rarr; theses</em> <br>
-                                • <em>bacterium &rarr; bacteria</em> | <em>criterion &rarr; criteria</em> | <em>datum &rarr; data</em> | <em>stimulus &rarr; stimuli</em>
-                            </div>
-                            <div>• <strong>Compound Nouns:</strong> Modify head noun: <em>mothers-in-law, passers-by, runners-up</em> (BUT <em>fitness centers, spoonfuls</em>).</div>
-                            <div>• <strong>Pair Nouns (Plural-Only):</strong> <em>scissors, shorts, leggings, tights, glasses</em> &rarr; Take plural verb, or use <span class="interactive-trigger text-emerald-700" data-target="target-pair">a pair of shorts</span> <span id="target-pair" class="interactive-target">is</span>.</div>
-                            <div>• <strong>Singular -s Nouns:</strong> <em>diabetes, news, gymnastics, athletics, physics</em> &rarr; Take singular verbs.</div>
-                        </div>
-
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">B. Possessive Nouns & Special Forms</h4>
-                            <div>• <strong>Singular Noun:</strong> <span class="interactive-trigger text-emerald-700" data-target="target-poss1">the child's</span> <span id="target-poss1" class="interactive-target">room</span> ('s).</div>
-                            <div>• <strong>Plural (-s):</strong> <span class="interactive-trigger text-emerald-700" data-target="target-poss2">the girls'</span> <span id="target-poss2" class="interactive-target">bicycles</span> (apostrophe after -s). Irregular plural: <em>the children's room</em>.</div>
-                            <div>• <strong>Joint Possession (Shared):</strong> <span class="italic font-semibold text-emerald-800">"John and Tina's father"</span> (One father for both &rarr; 's on 2nd noun only).</div>
-                            <div>• <strong>Separate Possession (Distinct):</strong> <span class="italic font-semibold text-emerald-800">"John's and Tina's trainers"</span> (Two different pairs of trainers &rarr; 's on BOTH nouns).</div>
-                            <div>• <strong>Time & Distance Possessives:</strong> <em>"a minute's rest"</em>, <em>"thirty minutes' cardio"</em>, <em>"a mile's walk"</em>.</div>
-                        </div>
-
-                        <div class="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-xs text-emerald-950 space-y-2">
-                            <h4 class="font-bold uppercase tracking-wide border-b border-emerald-200 pb-1 flex items-center justify-between">
-                                <span><i class="fa-solid fa-code-compare mr-1 text-emerald-700"></i> Another vs. Other vs. Others Matrix</span>
-                            </h4>
-                            <div class="grid grid-cols-2 gap-2 text-[11px]">
-                                <div class="bg-white p-2 rounded border border-emerald-200">
-                                    <strong>Another + Singular Count:</strong><br>
-                                    "another workout / piece" (indefinite: one more)
-                                </div>
-                                <div class="bg-white p-2 rounded border border-emerald-200">
-                                    <strong>The other + Singular Count:</strong><br>
-                                    "the other doctor" (definite: 2nd of two)
-                                </div>
-                                <div class="bg-white p-2 rounded border border-emerald-200">
-                                    <strong>Other + Plural / Non-Count:</strong><br>
-                                    "other athletes / advice" (indefinite)
-                                </div>
-                                <div class="bg-white p-2 rounded border border-emerald-200">
-                                    <strong>The other + Plural / Non-Count:</strong><br>
-                                    "the other shoes / equipment" (definite remaining)
-                                </div>
-                            </div>
-                            <div class="text-[11px] pt-1">
-                                • <strong>Standalone Pronouns:</strong> <em>others</em> ("Some exercise; others rest."), <em>the others</em> ("Three finished; the others failed.").<br>
-                                • <strong>Idioms:</strong> <em>every other day</em> (alternate days), <em>one after another</em>.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Lesson 2: Count and Non-Count Nouns -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-teal-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-apple-whole absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Count vs. Non-Count Nouns</h3>
-                        <p class="text-teal-100 font-medium relative z-10">6 Non-Count Categories & Dual Meaning Shifts</p>
-                    </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Core Distinction</h4>
-                            <div>• <strong>Count Nouns:</strong> Countable units (an apple / three apples). Singular requires <em>a/an/the/my</em>.</div>
-                            <div>• <strong>Non-Count Nouns:</strong> Uncountable mass/concepts. <strong class="text-red-700">NO plural -s! NO a/an!</strong> ALWAYS takes singular verbs.</div>
-                        </div>
-
+            <div id="gpanel-plurals" class="fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
                         <div>
-                            <h4 class="font-bold text-slate-800 text-xs border-b pb-1 mb-2 uppercase tracking-wide">The 6 Non-Count Categories</h4>
-                            <div class="grid grid-cols-2 gap-2 text-[11px]">
-                                <div class="bg-slate-50 border p-2 rounded"><strong>1. Aggregates / Collections:</strong> clothing, equipment, furniture, luggage, machinery, trash, advice, news.</div>
-                                <div class="bg-slate-50 border p-2 rounded"><strong>2. Liquids & Nutrients:</strong> water, blood, oxygen, protein, fat, iron, calcium, rice, sugar.</div>
-                                <div class="bg-slate-50 border p-2 rounded"><strong>3. Abstract Concepts:</strong> health, fitness, progress, research, knowledge, evidence, stress, patience.</div>
-                                <div class="bg-slate-50 border p-2 rounded"><strong>4. Fields of Study & Sports:</strong> cardiology, nutrition, biology, gymnastics, swimming, yoga.</div>
-                                <div class="bg-slate-50 border p-2 rounded"><strong>5. Natural Phenomena:</strong> weather, heat, sunlight, climate, lightning.</div>
-                                <div class="bg-slate-50 border p-2 rounded"><strong>6. Languages & General:</strong> English, French, vocabulary.</div>
+                            <span class="text-xs font-black tracking-widest text-emerald-600 uppercase">Lesson 1 &bull; Chart 3.1</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Plural Nouns: Regular, Irregular & Foreign Patterns</h3>
+                        </div>
+                        <span class="bg-emerald-50 text-emerald-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Spelling Rules &bull; Pronunciation &bull; Plural-Only Nouns</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Spelling Rules & Formations -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-circle-dot text-emerald-600 text-xs"></i> Systematic Plural Spelling Rules
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Rule / Ending</th>
+                                            <th class="p-3">Singular Form</th>
+                                            <th class="p-3">Plural Form</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold text-slate-800">General (+ -s)</td>
+                                            <td class="p-3 italic">apple, scientist, boy</td>
+                                            <td class="p-3 font-mono font-bold text-emerald-700">apples, scientists, boys</td>
+                                        </tr>
+                                        <tr class="bg-emerald-50/30">
+                                            <td class="p-3 font-semibold text-slate-800">-s, -sh, -ch, -x (+ -es)</td>
+                                            <td class="p-3 italic">class, dish, inch, tax</td>
+                                            <td class="p-3 font-mono font-bold text-emerald-700">classes, dishes, inches, taxes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold text-slate-800">Consonant + -y &rarr; -ies</td>
+                                            <td class="p-3 italic">party, city, baby</td>
+                                            <td class="p-3 font-mono font-bold text-emerald-700">parties, cities, babies</td>
+                                        </tr>
+                                        <tr class="bg-emerald-50/30">
+                                            <td class="p-3 font-semibold text-slate-800">-o Endings</td>
+                                            <td class="p-3 italic">photo, potato</td>
+                                            <td class="p-3 font-mono font-bold text-emerald-700">photos (-s), potatoes (-es)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold text-slate-800">-f / -fe &rarr; -ves</td>
+                                            <td class="p-3 italic">leaf, wife, life, calf</td>
+                                            <td class="p-3 font-mono font-bold text-emerald-700">leaves, wives, lives, calves</td>
+                                        </tr>
+                                        <tr class="bg-emerald-50/30">
+                                            <td class="p-3 font-semibold text-slate-800">-f Exceptions (+ -s only)</td>
+                                            <td class="p-3 italic">belief, roof, chief</td>
+                                            <td class="p-3 font-mono font-bold text-emerald-700">beliefs, roofs, chiefs</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">Pronunciation of -s / -es Endings</strong>
+                                <div class="space-y-1.5 text-slate-700">
+                                    <p><strong>1. /s/:</strong> After voiceless consonants /f/, /k/, /p/, /t/, /θ/ &rarr; <em>beliefs, books, cups, tests, months</em>.</p>
+                                    <p><strong>2. /z/:</strong> After voiced consonants /b/, /d/, /g/, /l/, /m/, /n/, /r/, /v/ or vowels &rarr; <em>beds, dogs, calls, songs, wives, days</em>.</p>
+                                    <p><strong>3. /əz/ or /ɪz/:</strong> After sibilants /s/, /z/, /ʃ/, /tʃ/, /dʒ/, /ks/ &rarr; <em>classes, dishes, watches, judge's, boxes, diseases</em>.</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="bg-teal-50 border border-teal-200 p-3.5 rounded-xl text-xs text-teal-950 space-y-2">
-                            <h4 class="font-bold uppercase tracking-wide border-b border-teal-200 pb-1"><i class="fa-solid fa-[#0d9488] fa-arrows-split-up-and-left mr-1"></i> Dual-Meaning Nouns (Count vs. Non-Count Shift)</h4>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]">
-                                <div class="bg-white p-2 rounded border border-teal-200">
-                                    • <strong>exercise:</strong> [U] General activity ("Exercise is essential") vs. [C] Specific routine ("Do 3 exercises").
+                        <!-- Right Column: Irregular, Plural-Only & Latin/Greek Roots -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-shapes text-emerald-600 text-xs"></i> Irregular, Compound & Scientific Plurals
+                            </h4>
+
+                            <!-- Irregular vowel changes and zero plurals -->
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">Irregular Germanic Plurals & Zero Plural</strong>
+                                <div class="grid sm:grid-cols-2 gap-2 text-slate-700">
+                                    <div>
+                                        <span class="block text-slate-500 font-semibold">Vowel Change:</span>
+                                        man &rarr; <strong>men</strong>, woman &rarr; <strong>women</strong><br>
+                                        foot &rarr; <strong>feet</strong>, tooth &rarr; <strong>teeth</strong>
+                                    </div>
+                                    <div>
+                                        <span class="block text-slate-500 font-semibold">Irregular Ending / Zero Change:</span>
+                                        child &rarr; <strong>children</strong>, person &rarr; <strong>people</strong><br>
+                                        fish &rarr; <strong>fish</strong>, deer &rarr; <strong>deer</strong>, sheep &rarr; <strong>sheep</strong>
+                                    </div>
                                 </div>
-                                <div class="bg-white p-2 rounded border border-teal-200">
-                                    • <strong>time:</strong> [U] Duration ("I don't have time") vs. [C] Occasions ("I worked out 4 times").
+                            </div>
+
+                            <!-- Scientific & Foreign Plurals -->
+                            <div class="bg-white border-2 border-emerald-200 rounded-xl p-4 text-xs space-y-2.5 shadow-xs">
+                                <div class="flex items-center justify-between border-b border-emerald-100 pb-2">
+                                    <strong class="text-slate-900 text-xs font-bold">Academic & Medical Roots (Latin / Greek)</strong>
+                                    <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2 py-0.5 rounded uppercase">Advanced Exam Point</span>
                                 </div>
-                                <div class="bg-white p-2 rounded border border-teal-200">
-                                    • <strong>experience:</strong> [U] Knowledge over time ("10 years of experience") vs. [C] Event ("a great experience").
+                                <div class="grid sm:grid-cols-2 gap-2 font-mono text-[11px] text-slate-700">
+                                    <div>
+                                        • analysis &rarr; <strong class="text-emerald-800">analyses</strong><br>
+                                        • diagnosis &rarr; <strong class="text-emerald-800">diagnoses</strong><br>
+                                        • crisis &rarr; <strong class="text-emerald-800">crises</strong>
+                                    </div>
+                                    <div>
+                                        • bacterium &rarr; <strong class="text-emerald-800">bacteria</strong><br>
+                                        • criterion &rarr; <strong class="text-emerald-800">criteria</strong><br>
+                                        • stimulus &rarr; <strong class="text-emerald-800">stimuli</strong>
+                                    </div>
                                 </div>
-                                <div class="bg-white p-2 rounded border border-teal-200">
-                                    • <strong>hair:</strong> [U] Head of hair ("She has dark hair") vs. [C] Individual strand ("two hairs on the sofa").
+                                <p class="text-[11px] text-slate-500 italic mt-1">"The laboratory analyses <span class="font-bold text-emerald-800">show</span> normal blood sugar levels." (Plural verb!)</p>
+                            </div>
+
+                            <!-- Plural-Only & Compound Nouns -->
+                            <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-1.5">
+                                <strong class="text-amber-900 block font-bold text-xs uppercase tracking-wide">
+                                    <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> Plural-Only (Pair Nouns) & Singular -s Nouns
+                                </strong>
+                                <p>• <strong>Pair Nouns (Plural Verb):</strong> <em>clothes, glasses, jeans, pants, scissors, shorts</em> &rarr; <span class="text-emerald-800 font-bold">"My shorts are dirty."</span></p>
+                                <p>• <strong>Using "A pair of" (Singular Verb):</strong> <span class="text-emerald-800 font-bold">"A pair of jeans is in the closet."</span> (Head noun is 'pair'!).</p>
+                                <p>• <strong>Nouns Ending in -s with Singular Meaning:</strong> <em>diabetes, physics, gymnastics, news</em> &rarr; <span class="text-emerald-800 font-bold">"Diabetes is manageable."</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-poss" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-teal-600 uppercase">Lesson 1 &bull; Charts 3.2 - 3.3</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Possessive Nouns & The Matrix of Another / Other</h3>
+                        </div>
+                        <span class="bg-teal-50 text-teal-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Ownership &bull; Joint vs Separate &bull; Quantifying Determiners</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Possessive Forms & Traps -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-tag text-teal-600 text-xs"></i> Formation of Possessive Nouns
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Noun Type</th>
+                                            <th class="p-3">Formation Rule</th>
+                                            <th class="p-3">Textbook Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold">Singular Noun</td>
+                                            <td class="p-3 font-mono font-bold text-teal-700">noun + 's</td>
+                                            <td class="p-3 italic">"A <span class="font-bold text-teal-800">sangoma's</span> goal is to heal." / "The <span class="font-bold text-teal-800">child's</span> mother."</td>
+                                        </tr>
+                                        <tr class="bg-teal-50/30">
+                                            <td class="p-3 font-semibold">Regular Plural (ends in -s)</td>
+                                            <td class="p-3 font-mono font-bold text-teal-700">plural noun + '</td>
+                                            <td class="p-3 italic">"The <span class="font-bold text-teal-800">girls'</span> bicycles." / "The <span class="font-bold text-teal-800">doctors'</span> white coats."</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Irregular Plural (no -s)</td>
+                                            <td class="p-3 font-mono font-bold text-teal-700">plural noun + 's</td>
+                                            <td class="p-3 italic">"The <span class="font-bold text-teal-800">children's</span> section." / "The <span class="font-bold text-teal-800">women's</span> swim team."</td>
+                                        </tr>
+                                        <tr class="bg-teal-50/30">
+                                            <td class="p-3 font-semibold">Joint Possession (Shared)</td>
+                                            <td class="p-3 font-mono font-bold text-teal-700">'s on 2nd noun only</td>
+                                            <td class="p-3 italic">"<span class="font-bold text-teal-800">John and Tina's</span> father is a doctor." (One shared father)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Separate Possession</td>
+                                            <td class="p-3 font-mono font-bold text-teal-700">'s on BOTH nouns</td>
+                                            <td class="p-3 italic">"<span class="font-bold text-teal-800">John's and Tina's</span> test results are ready." (Two distinct tests)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="bg-rose-50 border border-rose-200 p-3.5 rounded-xl text-xs text-rose-950 space-y-1">
+                                <strong class="text-rose-900 block font-bold"><i class="fa-solid fa-triangle-exclamation text-rose-600 mr-1"></i> Common Apostrophe Mistakes</strong>
+                                <p><span class="text-rose-700 line-through">✗ Doctor Chen has a lot of patient's.</span> &rarr; <span class="text-emerald-800 font-bold">✓ Doctor Chen has a lot of patients.</span> (Simple plural, no ownership!)</p>
+                                <p><span class="text-rose-700 line-through">✗ Do you know your bodies limits?</span> &rarr; <span class="text-emerald-800 font-bold">✓ Do you know your body's limits?</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Another, Other, The Other Matrix -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-arrows-left-right text-teal-600 text-xs"></i> Another vs. Other vs. The Other Matrix
+                            </h4>
+
+                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Indefinite Singular</span>
+                                    <strong class="text-slate-900 block text-xs">another + singular count</strong>
+                                    <p class="text-slate-600 text-[11px]">One more of the same, or an alternative person/thing.</p>
+                                    <p class="italic text-teal-800 font-semibold">"I need another glass of water."</p>
                                 </div>
-                                <div class="bg-white p-2 rounded border border-teal-200">
-                                    • <strong>paper:</strong> [U] Material ("made of paper") vs. [C] Academic essay/newspaper ("publish two papers").
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Definite Singular</span>
+                                    <strong class="text-slate-900 block text-xs">the other + singular count</strong>
+                                    <p class="text-slate-600 text-[11px]">The second of two specific persons/things.</p>
+                                    <p class="italic text-teal-800 font-semibold">"One knee hurts; the other knee is fine."</p>
                                 </div>
-                                <div class="bg-white p-2 rounded border border-teal-200">
-                                    • <strong>work:</strong> [U] Labor/job ("a lot of work") vs. [C] Artistic/literary creations ("works of art").
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Indefinite Plural</span>
+                                    <strong class="text-slate-900 block text-xs">other + plural count</strong>
+                                    <p class="text-slate-600 text-[11px]">Some, but not all, remaining persons/things.</p>
+                                    <p class="italic text-teal-800 font-semibold">"Other patients prefer traditional healing."</p>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Definite Plural</span>
+                                    <strong class="text-slate-900 block text-xs">the other + plural count</strong>
+                                    <p class="text-slate-600 text-[11px]">All the rest of a specific known group.</p>
+                                    <p class="italic text-teal-800 font-semibold">"Two nurses are new; the other six are experienced."</p>
+                                </div>
+                            </div>
+
+                            <!-- Standalone Pronouns & Replacement by One/Ones -->
+                            <div class="bg-teal-50 border border-teal-200 p-3.5 rounded-xl text-xs space-y-1.5 text-teal-950">
+                                <strong class="font-bold text-teal-900 block flex items-center gap-1.5">
+                                    <i class="fa-solid fa-star text-teal-600"></i> Pronoun Usage (One / Ones & Others)
+                                </strong>
+                                <p>&bull; <strong>Replacement:</strong> <em>"Lydia's watch broke, so she bought another one."</em> | <em>"These shoes are worn out; I prefer the other ones."</em></p>
+                                <p>&bull; <strong>Standalone Pronouns:</strong> <em>"Some runners sprinted; <span class="font-bold underline">others</span> jogged slowly."</em> (Never say <span class="line-through text-rose-600">other people jogged slowly</span> when using the pronoun <em>others</em>!).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-count" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-indigo-600 uppercase">Lesson 2 &bull; Charts 3.4 - 3.5</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Count vs. Non-Count Nouns: 4 Core Categories & Dual Meanings</h3>
+                        </div>
+                        <span class="bg-indigo-50 text-indigo-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Grammar Rules &bull; Superfoods &bull; Meaning Shifts</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Fundamental Rules & 4 Non-Count Categories -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-scale-balanced text-indigo-600 text-xs"></i> 3 Foundational Grammar Rules for Non-Count Nouns
+                            </h4>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2 text-slate-700">
+                                <p><strong>1. No Plural -s:</strong> Non-count nouns name whole masses or concepts without separate items. <br><span class="text-rose-700 line-through">✗ She gave me many informations.</span> &rarr; <span class="text-emerald-800 font-bold">✓ She gave me a lot of information.</span></p>
+                                <p><strong>2. Never Use A / An:</strong> Do not place <em>a</em> or <em>an</em> directly before a non-count noun. <br><span class="text-rose-700 line-through">✗ I need an advice.</span> &rarr; <span class="text-emerald-800 font-bold">✓ I need some advice. / I need a piece of advice.</span></p>
+                                <p><strong>3. Always Use Singular Verbs & Pronouns:</strong> <br><span class="text-emerald-800 font-bold">✓ Rice is cheap, but I don’t like it.</span> (<span class="text-rose-700 line-through">✗ Rice are cheap, I don't like them</span>).</p>
+                            </div>
+
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2 pt-2">
+                                <i class="fa-solid fa-list-check text-indigo-600 text-xs"></i> The 4 Non-Count Classification Categories
+                            </h4>
+
+                            <div class="grid sm:grid-cols-2 gap-2 text-xs">
+                                <div class="bg-indigo-50/50 border border-indigo-200 p-3 rounded-xl">
+                                    <strong class="text-indigo-900 block font-bold mb-1">1. Category Aggregates</strong>
+                                    clothing, furniture, homework, jewelry, luggage, mail, money, traffic, weather, equipment, trash.
+                                </div>
+                                <div class="bg-indigo-50/50 border border-indigo-200 p-3 rounded-xl">
+                                    <strong class="text-indigo-900 block font-bold mb-1">2. Solids, Liquids & Gases</strong>
+                                    air, cheese, coffee, flour, hair, ice, juice, meat, milk, oil, rice, skin, soup, sugar, tea, water.
+                                </div>
+                                <div class="bg-indigo-50/50 border border-indigo-200 p-3 rounded-xl">
+                                    <strong class="text-indigo-900 block font-bold mb-1">3. Abstract Concepts</strong>
+                                    advice, energy, experience, fun, health, help, honesty, intelligence, knowledge, progress, stress, work.
+                                </div>
+                                <div class="bg-indigo-50/50 border border-indigo-200 p-3 rounded-xl">
+                                    <strong class="text-indigo-900 block font-bold mb-1">4. Fields of Study & Sports</strong>
+                                    biology, chemistry, geometry, history, math, physics, science, yoga, athletics.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Dual-Meaning Nouns (Count vs Non-Count Shift) -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-code-branch text-indigo-600 text-xs"></i> Dual-Meaning Nouns: Contextual Meaning Shifts
+                            </h4>
+                            <p class="text-xs text-slate-600">Several common nouns in health and fitness change from non-count (broad mass/concept) to count (specific instance, event, or portion):</p>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs bg-white rounded-xl border border-indigo-200 overflow-hidden">
+                                    <thead class="bg-indigo-50 text-indigo-950 font-bold border-b border-indigo-200">
+                                        <tr>
+                                            <th class="p-3">Noun</th>
+                                            <th class="p-3">Non-Count Meaning (Mass / General)</th>
+                                            <th class="p-3">Count Meaning (Specific Instance / Unit)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-bold font-mono text-indigo-900">exercise</td>
+                                            <td class="p-3">General physical activity:<br><span class="italic text-slate-600">"Exercise is important for health."</span></td>
+                                            <td class="p-3">Specific workout routine/task:<br><span class="italic text-emerald-800 font-semibold">"We had three exercises for homework."</span></td>
+                                        </tr>
+                                        <tr class="bg-slate-50/50">
+                                            <td class="p-3 font-bold font-mono text-indigo-900">time</td>
+                                            <td class="p-3">Duration / clock time:<br><span class="italic text-slate-600">"I don’t have time to go to the gym."</span></td>
+                                            <td class="p-3">Occasions / repeated events:<br><span class="italic text-emerald-800 font-semibold">"She swims four times a week."</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold font-mono text-indigo-900">experience</td>
+                                            <td class="p-3">Knowledge accumulated over time:<br><span class="italic text-slate-600">"He has ten years of clinical experience."</span></td>
+                                            <td class="p-3">A specific life event or trip:<br><span class="italic text-emerald-800 font-semibold">"Hiking the Andes was a memorable experience."</span></td>
+                                        </tr>
+                                        <tr class="bg-slate-50/50">
+                                            <td class="p-3 font-bold font-mono text-indigo-900">hair</td>
+                                            <td class="p-3">Entire head of hair:<br><span class="italic text-slate-600">"Argan oil keeps your hair soft."</span></td>
+                                            <td class="p-3">Individual strands:<br><span class="italic text-emerald-800 font-semibold">"I found two dog hairs on my workout jacket."</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold font-mono text-indigo-900">paper</td>
+                                            <td class="p-3">Material in bulk:<br><span class="italic text-slate-600">"This cup is made of paper."</span></td>
+                                            <td class="p-3">An academic essay or daily newspaper:<br><span class="italic text-emerald-800 font-semibold">"She wrote a scientific paper on nutrition."</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-quant" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-amber-600 uppercase">Lesson 3 &bull; Charts 3.6 - 3.7</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Quantity Words & Partitive Measurement Structures</h3>
+                        </div>
+                        <span class="bg-amber-50 text-amber-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Quantifiers &bull; Positive vs Negative Nuance &bull; Containers & Units</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Quantifier Rules -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-chart-pie text-amber-600 text-xs"></i> Quantifier Distribution Rules
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Quantifier</th>
+                                            <th class="p-3">Used With</th>
+                                            <th class="p-3">Sentence Types & Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-bold text-amber-800">some</td>
+                                            <td class="p-3">Count (pl.) & Non-Count</td>
+                                            <td class="p-3">Affirmative: <em>"We need some bananas and some water."</em></td>
+                                        </tr>
+                                        <tr class="bg-amber-50/30">
+                                            <td class="p-3 font-bold text-amber-800">any</td>
+                                            <td class="p-3">Count (pl.) & Non-Count</td>
+                                            <td class="p-3">Negatives & Questions: <em>"We don't have any milk or any apples."</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold text-emerald-800">many / a few</td>
+                                            <td class="p-3 font-semibold text-emerald-700">Count Nouns ONLY</td>
+                                            <td class="p-3"><em>"Many athletes entered." / "I have a few questions."</em></td>
+                                        </tr>
+                                        <tr class="bg-amber-50/30">
+                                            <td class="p-3 font-bold text-sky-800">much / a little</td>
+                                            <td class="p-3 font-semibold text-sky-700">Non-Count Nouns ONLY</td>
+                                            <td class="p-3"><em>"Don't drink much soda." / "Add a little olive oil."</em></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold text-slate-800">a lot of / lots of</td>
+                                            <td class="p-3">Both Count & Non-Count</td>
+                                            <td class="p-3">Informal & Common: <em>"a lot of vegetables / a lot of sugar"</em></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Subtle Nuance Alert: A few vs Few / A little vs Little -->
+                            <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs text-amber-950 space-y-2">
+                                <strong class="text-amber-900 block font-bold text-xs uppercase tracking-wide">
+                                    <i class="fa-solid fa-lightbulb text-amber-600 mr-1"></i> Advanced Nuance: "A Few / A Little" vs. "Few / Little"
+                                </strong>
+                                <div class="grid sm:grid-cols-2 gap-2 pt-1 text-[11px]">
+                                    <div class="bg-white p-2.5 rounded border border-amber-200">
+                                        <strong class="text-emerald-700 block">Positive Nuance (Some / Sufficient):</strong>
+                                        • <em>a few:</em> "He has a few friends at the gym." (He is content).<br>
+                                        • <em>a little:</em> "There is a little water left." (Enough to drink).
+                                    </div>
+                                    <div class="bg-white p-2.5 rounded border border-amber-200">
+                                        <strong class="text-rose-700 block">Negative Nuance (Almost None / Lacking):</strong>
+                                        • <em>few:</em> "He has few friends at the gym." (He feels lonely).<br>
+                                        • <em>little:</em> "There is little water left." (We are dangerously thirsty).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Measurement Words (Partitives) -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-box-open text-amber-600 text-xs"></i> Measurement Words with Non-Count Nouns (Partitives)
+                            </h4>
+                            <p class="text-xs text-slate-600">To count or measure non-count items, place a <strong>measurement/container noun + of</strong> before the non-count noun. Never put a raw number before a non-count noun!</p>
+
+                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1.5">
+                                    <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider text-amber-900">Containers</strong>
+                                    <p>&bull; a bag of rice</p>
+                                    <p>&bull; a bottle of water / juice</p>
+                                    <p>&bull; a bowl of cereal / soup</p>
+                                    <p>&bull; a can of soda / tuna</p>
+                                    <p>&bull; a carton of milk</p>
+                                    <p>&bull; a jar of peanut butter / jam</p>
+                                </div>
+
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1.5">
+                                    <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider text-amber-900">Portions & Shapes</strong>
+                                    <p>&bull; a slice of pizza / bread</p>
+                                    <p>&bull; a piece of cake / fruit</p>
+                                    <p>&bull; a bar of soap / chocolate</p>
+                                    <p>&bull; a loaf of bread (pl. loaves)</p>
+                                    <p>&bull; a sheet of paper</p>
+                                    <p>&bull; a stick of butter</p>
+                                    <p>&bull; a tube of toothpaste / ointment</p>
+                                </div>
+
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1.5">
+                                    <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider text-amber-900">Standard Units</strong>
+                                    <p>&bull; a gallon of milk</p>
+                                    <p>&bull; a pint of ice cream</p>
+                                    <p>&bull; a pound of meat</p>
+                                    <p>&bull; a quart of motor oil</p>
+                                    <p>&bull; a tablespoon of olive oil</p>
+                                    <p>&bull; a teaspoon of salt / sugar</p>
+                                </div>
+
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1.5">
+                                    <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider text-amber-900">Abstract Counters</strong>
+                                    <p>&bull; a piece of advice</p>
+                                    <p>&bull; a piece of equipment</p>
+                                    <p>&bull; a piece of jewelry</p>
+                                    <p>&bull; a piece of mail</p>
+                                    <p>&bull; an item of news</p>
+                                    <p>&bull; a bit of help</p>
                                 </div>
                             </div>
                         </div>
@@ -298,87 +724,145 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 3: Quantity & Measurement Words -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-slate-800 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-bottle-water absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">3. Quantifiers & Partitive Measurement</h3>
-                        <p class="text-slate-300 font-medium relative z-10">Quantifiers Matrix, Few vs. A Few & Unit Partitioners</p>
+            <div id="gpanel-agreement" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-rose-600 uppercase">Writing Focus &bull; Connect to Writing</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Subject-Verb Agreement with Count and Non-Count Nouns</h3>
+                        </div>
+                        <span class="bg-rose-50 text-rose-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Academic Writing &bull; Concord &bull; Proofreading Checklist</span>
                     </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">A. Quantifiers Distribution Matrix</h4>
-                            <div class="grid grid-cols-2 gap-2 text-slate-700 text-[11px]">
-                                <div class="bg-white p-2.5 rounded border"><strong>Count Only:</strong> a few, few, many, several, a number of, both, each, every</div>
-                                <div class="bg-white p-2.5 rounded border"><strong>Non-Count Only:</strong> a little, little, much, a great deal of, a large amount of</div>
-                                <div class="bg-white p-2.5 rounded border col-span-2"><strong>Both Count & Non-Count:</strong> some, any, a lot of, lots of, plenty of, enough, most, all, no</div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        In formal and academic writing, verbs must strictly agree in number with their subjects. Errors frequently occur when writers confuse non-count mass nouns with plurals or get distracted by prepositional phrases.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-5 text-xs">
+                        <!-- Rule 1 -->
+                        <div class="bg-emerald-50/60 border border-emerald-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-cube"></i>
                             </div>
-                            <div class="bg-amber-50 p-2.5 rounded border border-amber-200 text-amber-900 text-[11px] mt-2">
-                                <strong>Nuance Alert:</strong> <br>
-                                • <em>a few / a little</em> = Positive nuance (some, enough) &rarr; "He has <strong>a few</strong> friends at the gym." <br>
-                                • <em>few / little</em> = Negative nuance (almost none, insufficient) &rarr; "He has <strong>few</strong> friends and feels lonely."
+                            <h4 class="font-bold text-slate-900 text-sm">Non-Count Subjects</h4>
+                            <p class="text-slate-600 text-[11px]">Always take third-person singular verb forms (-s/-es, is, was, has):</p>
+                            <div class="bg-white p-3 rounded-xl border border-emerald-200 space-y-1 font-mono text-[11px]">
+                                <div><span class="text-emerald-700 font-bold">✓ Exercise is</span> essential.</div>
+                                <div><span class="text-emerald-700 font-bold">✓ Fresh fruit tastes</span> great.</div>
+                                <div class="text-rose-600 line-through">✗ Exercise are essential.</div>
                             </div>
                         </div>
 
-                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 text-xs text-emerald-950 space-y-2">
-                            <h4 class="font-bold uppercase tracking-wide border-b border-emerald-200 pb-1"><i class="fa-solid fa-boxes-stacked mr-1 text-emerald-700"></i> B. Partitive Structures (Measurement Word + Of + Non-Count)</h4>
-                            <p>To count non-count items, attach a partitive container, portion, unit, or abstract counter:</p>
-                            <div class="grid grid-cols-2 gap-2 text-[11px] font-medium bg-white p-2.5 rounded border border-emerald-200">
-                                <div>• <strong>Containers:</strong> a bottle of water, a carton of milk, a tube of ointment, a jar of honey, a can of tuna</div>
-                                <div>• <strong>Portions / Shapes:</strong> a slice of bread, a bar of soap, a stick of butter, a scoop of protein powder, a clove of garlic</div>
-                                <div>• <strong>Abstract Counters:</strong> a piece of advice, an item of news, a stroke of luck, a fit of coughing, a bit of help</div>
-                                <div>• <strong>Standard Units:</strong> a gram of protein, a liter of water, a pinch of salt, a tablespoon of oil, a dose of medicine</div>
+                        <!-- Rule 2 -->
+                        <div class="bg-sky-50/60 border border-sky-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-cubes"></i>
                             </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Plural Count Subjects</h4>
+                            <p class="text-slate-600 text-[11px]">Take plural verb forms (base form, are, were, have):</p>
+                            <div class="bg-white p-3 rounded-xl border border-sky-200 space-y-1 font-mono text-[11px]">
+                                <div><span class="text-sky-700 font-bold">✓ Many athletes get</span> hurt.</div>
+                                <div><span class="text-sky-700 font-bold">✓ These shoes are</span> comfortable.</div>
+                                <div class="text-rose-600 line-through">✗ Many athletes gets hurt.</div>
+                            </div>
+                        </div>
+
+                        <!-- Rule 3 -->
+                        <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-percent"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Quantifiers with "Of"</h4>
+                            <p class="text-slate-600 text-[11px]">With <em>most of, all of, half of, 50% of</em>, the verb agrees with the noun after <em>of</em>:</p>
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 space-y-1 font-mono text-[11px]">
+                                <div>&bull; Most of the <span class="underline">water</span> <span class="text-emerald-700 font-bold">is</span> clean.</div>
+                                <div>&bull; Most of the <span class="underline">players</span> <span class="text-emerald-700 font-bold">are</span> ready.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Subject-Verb Rules Grid -->
+                    <div class="grid sm:grid-cols-2 gap-4 text-xs mt-4">
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-1.5">
+                            <strong class="text-slate-900 font-bold block"><i class="fa-solid fa-ruler-combined text-teal-600 mr-1"></i> Quantities of Distance, Time, Money, Weight</strong>
+                            <p class="text-slate-600">When expressing a unified total quantity, use a singular verb:</p>
+                            <p class="font-mono text-emerald-800 font-semibold">"Five kilometers is a long run."</p>
+                            <p class="font-mono text-emerald-800 font-semibold">"Thirty minutes of walking was enough."</p>
+                        </div>
+                        <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 space-y-1.5">
+                            <strong class="text-slate-900 font-bold block"><i class="fa-solid fa-user-check text-teal-600 mr-1"></i> "One of the" Construction</strong>
+                            <p class="text-slate-600">The true grammatical subject is <em>one</em>, requiring a singular verb:</p>
+                            <p class="font-mono text-emerald-800 font-semibold">"One of the players is injured." (NOT: are)</p>
+                            <p class="font-mono text-emerald-800 font-semibold">"One of my favorite foods is salmon."</p>
+                        </div>
+                    </div>
+
+                    <!-- Proofreading checklist -->
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 text-xs mt-4">
+                        <strong class="text-slate-900 uppercase tracking-wide block mb-2 font-bold">Health & Fitness Opinion Writing Checklist:</strong>
+                        <div class="grid sm:grid-cols-2 gap-2 text-slate-700">
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used <em>a</em> or <em>an</em> before singular count nouns (<em>a walk, an apple</em>).</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Avoided <em>a / an</em> and plural <em>-s</em> with non-count nouns (<em>exercise, clothing</em>).</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used <em>some</em> in affirmative and <em>any</em> in negative statements.</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Checked that non-count subjects have singular verbs (<em>The food isn't good</em>).</div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Writing Focus: Subject-Verb Agreement -->
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
-                    <div class="p-6 relative z-10 flex flex-col h-full space-y-5">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-pen-to-square text-amber-400 text-3xl"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-amber-400">Writing Focus</h3>
-                                <p class="text-xs text-slate-300">8 Essential Subject-Verb Agreement Rules</p>
-                            </div>
+            <div id="gpanel-matrix" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-slate-500 uppercase">Unit 3 Synthesis & Master Review</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Noun Categories, Quantifiers & Agreement Matrix</h3>
                         </div>
+                        <span class="bg-slate-100 text-slate-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Master Reference</span>
+                    </div>
 
-                        <div class="space-y-2.5 text-xs bg-slate-800/90 p-4 rounded-xl border border-slate-700 text-slate-200">
-                            <div>
-                                <strong class="text-emerald-300 block">1. Non-Count Nouns &rarr; Singular Verb</strong>
-                                • <span class="interactive-trigger text-teal-300" data-target="target-sv1">Exercise</span> <span id="target-sv1" class="interactive-target text-amber-300 font-bold">is</span> essential. | Fresh fruit <strong class="text-amber-300">tastes</strong> delicious.
-                            </div>
-                            <div class="border-t border-slate-700 pt-2">
-                                <strong class="text-emerald-300 block">2. Plural Count Nouns &rarr; Plural Verb</strong>
-                                • <span class="interactive-trigger text-teal-300" data-target="target-sv2">Many athletes</span> <span id="target-sv2" class="interactive-target text-amber-300 font-bold">get</span> injured. | Three slices <strong class="text-amber-300">are</strong> enough.
-                            </div>
-                            <div class="border-t border-slate-700 pt-2">
-                                <strong class="text-emerald-300 block">3. Singular Meaning in -s &rarr; Singular Verb</strong>
-                                • Diabetes <strong class="text-amber-300">is</strong> manageable. | The news <strong class="text-amber-300">was</strong> encouraging.
-                            </div>
-                            <div class="border-t border-slate-700 pt-2">
-                                <strong class="text-emerald-300 block">4. Quantifiers with "Of" (half of, 80% of, most of, all of)</strong>
-                                • Agrees with the noun after <em>of</em>: "Most of the <em>water</em> <strong class="text-amber-300">is</strong> clean" vs. "Most of the <em>runners</em> <strong class="text-amber-300">are</strong> ready".
-                            </div>
-                            <div class="border-t border-slate-700 pt-2">
-                                <strong class="text-emerald-300 block">5. "One of" + Plural Noun &rarr; Singular Verb</strong>
-                                • One of the players <strong class="text-amber-300">has</strong> won the marathon.
-                            </div>
-                            <div class="border-t border-slate-700 pt-2">
-                                <strong class="text-emerald-300 block">6. Quantities of Distance, Time, Weight, Money &rarr; Singular Verb</strong>
-                                • Five kilometers <strong class="text-amber-300">is</strong> a long run. | 100 grams of protein <strong class="text-amber-300">is</strong> required daily.
-                            </div>
-                        </div>
-
-                        <div class="bg-amber-900/30 p-3.5 rounded-xl border border-amber-500/30 text-xs text-slate-200 space-y-1 mt-auto">
-                            <div class="font-bold text-amber-300 flex items-center gap-2">
-                                <i class="fa-solid fa-lightbulb"></i> Pro-Tip for Academic Writing
-                            </div>
-                            <p class="text-slate-300">Never add an '-s' to <em>equipment, advice, information, research, furniture</em>. To make them plural in counting, use partitives like <em>"three pieces of equipment"</em> or <em>"items of advice"</em>!</p>
-                        </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 rounded-xl overflow-hidden">
+                            <thead class="bg-slate-100 text-slate-800 font-black border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3.5 w-1/5">Grammar Concept</th>
+                                    <th class="p-3.5 w-1/4 text-emerald-800 bg-emerald-50/50">Primary Rule & Features</th>
+                                    <th class="p-3.5 w-1/4">Supported Quantifiers</th>
+                                    <th class="p-3.5 w-1/3">Key Examples & Common Traps</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-xs">
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Count Nouns (Singular)</td>
+                                    <td class="p-3.5 text-slate-700">Individual countable item; must have an article (a/an/the) or determiner.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">a, an, one, each, every, another</td>
+                                    <td class="p-3.5 italic text-slate-600">"Take <span class="font-bold text-emerald-700">an</span> orange." / "<span class="font-bold text-emerald-700">A</span> walk is safe." <br><span class="text-rose-600 font-sans font-bold">Trap: Never leave singular count nouns bare!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Count Nouns (Plural)</td>
+                                    <td class="p-3.5 text-slate-700">Two or more separate items; takes plural verb; regular or irregular endings.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">many, a few, few, several, both, (the) other, two, three</td>
+                                    <td class="p-3.5 italic text-slate-600">"Many <span class="font-bold text-emerald-700">athletes</span> train daily." / "Children's <span class="font-bold text-emerald-700">teeth</span>." <br><span class="text-slate-500 font-sans">Foreign: analyses, criteria, bacteria.</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Non-Count Nouns</td>
+                                    <td class="p-3.5 text-slate-700">Masses, liquids, concepts; NO plural -s; NO a/an; always takes singular verb.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">much, a little, little, a great deal of, a piece of</td>
+                                    <td class="p-3.5 italic text-slate-600">"Argan <span class="font-bold text-emerald-700">oil keeps</span> hair soft." / "Homework <span class="font-bold text-emerald-700">is</span> hard." <br><span class="text-rose-600 font-sans font-bold">Trap: Never say equipments or advices!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Universal Quantifiers</td>
+                                    <td class="p-3.5 text-slate-700">Work smoothly with BOTH count (plural) and non-count nouns.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">some, any, a lot of, lots of, plenty of, most, all, no</td>
+                                    <td class="p-3.5 italic text-slate-600">"some <span class="font-bold text-emerald-700">water</span>" / "some <span class="font-bold text-emerald-700">bananas</span>"<br>"a lot of <span class="font-bold text-emerald-700">sugar</span>" / "a lot of <span class="font-bold text-emerald-700">drills</span>"</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Partitive Measure Phrases</td>
+                                    <td class="p-3.5 text-slate-700">Countable unit/container + <em>of</em> + non-count mass noun.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">slice, bar, loaf, bottle, glass, can, piece, scoop</td>
+                                    <td class="p-3.5 italic text-slate-600">"three <span class="font-bold text-emerald-700">slices of</span> pizza" / "two <span class="font-bold text-emerald-700">pieces of</span> advice" / "a <span class="font-bold text-emerald-700">bar of</span> soap"</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -387,168 +871,160 @@
 
         <section id="section-practice" class="hidden fade-in">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
                     
-                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Health & Fitness Noun Exercises</h2>
+                    <!-- Exercise Navigation Sub-tab bar -->
+                    <div class="bg-slate-50 border-b border-slate-200 p-5 text-center">
+                        <span class="text-xs font-black tracking-wider uppercase text-emerald-600 block mb-1">Interactive Learning Lab</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-800 mb-4">Unit 3 Mastery Exercises</h2>
                         
-                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
-                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-list-check mr-2"></i>Knowledge Check
+                        <div class="flex flex-wrap justify-center gap-1.5 p-1 bg-white border border-slate-200 rounded-2xl shadow-xs">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-list-check mr-1.5"></i>Knowledge Check
                             </button>
-                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-keyboard mr-2"></i>Form the Noun
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-keyboard mr-1.5"></i>Form the Noun
                             </button>
-                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-bug mr-2"></i>Spot Errors
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-spell-check mr-1.5"></i>Spot Errors & Agreement
                             </button>
-                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-layer-group mr-2"></i>Category Matcher
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-puzzle-piece mr-1.5"></i>Category Matcher
                             </button>
-                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-diagram-project mr-2"></i>Measurement Linker
+                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-diagram-project mr-1.5"></i>Measurement Linker
                             </button>
                         </div>
                     </div>
 
                     <div class="p-6 md:p-10">
                         
-                        <!-- 1. QUIZ EXERCISE -->
                         <div id="ex-container-quiz" class="block fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                    <h3 class="font-black text-xl text-slate-800">Nouns & Agreement Syntax Quiz</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Test plurals, non-count categories, possessives, quantifiers, and agreement.</p>
                                 </div>
-                                <span id="quiz-progress" class="bg-emerald-100 text-emerald-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="quiz-progress" class="bg-emerald-100 text-emerald-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
                             
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="quiz-q-text" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="quiz-options" class="grid gap-3 mb-6">
+                                <!-- Dynamic Options -->
                             </div>
 
-                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+                            <div id="quiz-feedback" class="hidden p-4 rounded-xl border text-sm font-medium transition-all"></div>
 
-                            <div class="flex justify-end gap-3">
-                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                            <div class="flex justify-end gap-3 mt-4">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl pop-out text-sm shadow-md">
                                     Next <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Restart Quiz <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 2. FORM THE WORD / FILL BLANKS -->
                         <div id="ex-container-fill" class="hidden fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Form the Noun / Measurement</h3>
-                                    <p class="text-slate-500 text-sm">Select the correct noun form, quantifier, or container phrase.</p>
+                                    <h3 class="font-black text-xl text-slate-800">Form the Correct Noun or Measure</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Choose the correct noun form, partitive phrase, or determiner.</p>
                                 </div>
-                                <span id="fill-progress" class="bg-emerald-100 text-emerald-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="fill-progress" class="bg-emerald-100 text-emerald-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
 
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="fill-sentence" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-3 mb-6">
+                                <!-- Injected options -->
                             </div>
 
-                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+                            <div id="fill-feedback" class="hidden p-4 rounded-xl border text-center font-bold text-sm transition-all mb-4"></div>
 
                             <div class="flex justify-center">
-                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-10 rounded-xl pop-out text-sm shadow-md">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-10 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 3. SPOT ERRORS -->
                         <div id="ex-container-identify" class="hidden fade-in">
-                            <div class="mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Spot Noun & Agreement Errors</h3>
-                                <p class="text-sm text-slate-600 mt-1">Click on the word or phrase that contains a <strong>grammatical error</strong> in the sentence.</p>
+                            <div class="mb-4">
+                                <h3 class="font-black text-xl text-slate-800">Spot Noun & Agreement Errors</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">Click the word or phrase that violates noun morphology, countability, or subject-verb agreement.</p>
                             </div>
 
                             <div class="flex justify-between items-center mb-2">
-                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                                <span class="text-xs font-bold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">4</span></span>
                             </div>
 
-                            <div class="bg-white border-2 border-emerald-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
-                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            <div class="bg-white border-2 border-emerald-100 shadow-inner rounded-2xl p-6 sm:p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-base sm:text-lg font-medium"></div>
                             </div>
 
-                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-bold text-xs sm:text-sm"></div>
 
                             <div class="flex justify-center gap-4">
-                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(5,150,105,0.4)] pop-out">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Answer <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
+                                    Next Sentence <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
-                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out text-sm">
+                                    Try Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 4. CATEGORY MATCHER -->
                         <div id="ex-container-match" class="hidden fade-in">
                             <div class="text-center mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Noun Category Matcher</h3>
-                                <p class="text-slate-500 text-sm mt-1">Connect the noun/phrase (left) to its correct grammatical category or container (right).</p>
+                                <h3 class="font-black text-xl text-slate-800">Noun Category & Structure Matcher</h3>
+                                <p class="text-slate-500 text-xs mt-1">Select an expression on the left, then click its corresponding grammar label on the right.</p>
                             </div>
                             
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-4 md:gap-8 max-w-2xl mx-auto mb-6">
                                 <div id="match-col-left" class="space-y-3"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="match-col-right" class="space-y-3"></div>
                             </div>
 
-                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="match-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-2"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-4">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 5. SENTENCE LINKER (Measurement Words) -->
                         <div id="ex-container-link" class="hidden fade-in">
-                            <div class="mb-6 text-center">
-                                <h3 class="font-bold text-xl text-slate-800">Measurement Phrase Linker</h3>
-                                <p class="text-sm text-slate-600 mt-1">Connect the container/unit starter (left) to the correct non-count noun (right).</p>
+                            <div class="text-center mb-6">
+                                <h3 class="font-black text-xl text-slate-800">Partitive Measurement Linker</h3>
+                                <p class="text-slate-500 text-xs mt-1">Click a measurement phrase start (left), then click its logically correct food/item completion (right) to link them with arrows.</p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-6 md:gap-16 max-w-2xl mx-auto mb-6 relative">
                                 <div id="link-col-left" class="space-y-4"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="link-col-right" class="space-y-4"></div>
                             </div>
 
-                            <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="link-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-4"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-6 gap-3">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Connections <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm">
+                                    Reset Connections <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
@@ -559,247 +1035,212 @@
         </section>
     </main>
 
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+        <p>Unit 3: Health & Fitness (Nouns) &bull; Interactive Grammar Companion</p>
+    </footer>
+
     <script>
-        // Main Tab Navigation Switcher
+        /* ======================================================== */
+        /* 1. TAB CONTROLLERS                                       */
+        /* ======================================================== */
         function switchMainTab(tabId) {
             const isStudy = tabId === 'study';
-            
-            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            
+            document.getElementById('main-tab-study').className = isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+            document.getElementById('main-tab-practice').className = !isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+
             if (isStudy) {
                 document.getElementById('section-study').classList.remove('hidden');
                 document.getElementById('section-practice').classList.add('hidden');
-                setTimeout(redrawArrows, 50);
+                hideArrows();
             } else {
                 document.getElementById('section-study').classList.add('hidden');
                 document.getElementById('section-practice').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
                 if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
                     quizInit(); fillInit(); idInit(); matchInit(); linkInit();
                 }
-                setTimeout(redrawArrows, 50);
+                setTimeout(redrawArrows, 60);
             }
         }
 
-        // Sub-Tab Navigation for Practice Exercises
+        const grammarTabs = ['plurals', 'poss', 'count', 'quant', 'agreement', 'matrix'];
+        function switchGrammarTab(gId) {
+            grammarTabs.forEach(tab => {
+                const btn = document.getElementById(`gtab-btn-${tab}`);
+                const panel = document.getElementById(`gpanel-${tab}`);
+                if (tab === gId) {
+                    btn.className = 'grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = 'grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.add('hidden');
+                }
+            });
+            hideArrows();
+        }
+
+        const practiceTabs = ['quiz', 'fill', 'identify', 'match', 'link'];
         function switchExTab(exId) {
-            const tabs = ['quiz', 'fill', 'identify', 'match', 'link'];
-            tabs.forEach(t => {
+            practiceTabs.forEach(t => {
                 const btn = document.getElementById(`ex-tab-${t}`);
                 const container = document.getElementById(`ex-container-${t}`);
                 if (t === exId) {
-                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
-                    container.classList.remove('hidden'); container.classList.add('block');
+                    btn.className = 'subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.remove('hidden');
                 } else {
-                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
-                    container.classList.remove('block'); container.classList.add('hidden');
+                    btn.className = 'subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.add('hidden');
                 }
             });
-            setTimeout(redrawArrows, 50);
+            setTimeout(redrawArrows, 60);
         }
 
-        let activeTrigger = null;
-
-        function setupStudyInteractive() {
-            const triggers = document.querySelectorAll('.interactive-trigger');
-            triggers.forEach(trig => {
-                trig.addEventListener('mouseenter', () => activateLink(trig));
-                trig.addEventListener('mouseleave', () => deactivateLink(trig));
-                trig.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
-                    else {
-                        triggers.forEach(t => deactivateLink(t));
-                        activateLink(trig);
-                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
-                    }
-                });
-            });
-            window.addEventListener('scroll', hideArrows);
-            window.addEventListener('resize', redrawArrows);
-        }
-
-        function activateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.add('interactive-active-target');
-                trig.classList.add('interactive-active-trigger');
-                activeTrigger = trig;
-                redrawArrows();
-            }
-        }
-
-        function deactivateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.remove('interactive-active-target');
-                trig.classList.remove('interactive-active-trigger');
-            }
-            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
-        }
-
-        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
-
-        function createArrowSVG(startEl, endEl, state) {
-            if (!startEl || !endEl) return '';
-            const startRect = startEl.getBoundingClientRect();
-            const endRect = endEl.getBoundingClientRect();
-            
-            let startX = startRect.left + (startRect.width / 2);
-            let startY = startRect.bottom + 2;
-            let endX = endRect.left + (endRect.width / 2);
-            let endY = endRect.bottom + 2;
-            
-            if (state !== 'study') {
-                startX = startRect.right + 2;
-                startY = startRect.top + (startRect.height / 2);
-                endX = endRect.left - 2;
-                endY = endRect.top + (endRect.height / 2);
-            }
-
-            let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
-            
-            if(state === 'study') { color = '#059669'; marker = 'url(#arrowhead-study)'; }
-            if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
-            if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
-            
-            if (state === 'study') {
-                const curve = Math.max(20, Math.abs(endX - startX) * 0.15);
-                const lowY = Math.max(startY, endY) + curve;
-                return `<path d="M ${startX},${startY} Q ${(startX+endX)/2},${lowY} ${endX},${endY + 6}" stroke="${color}" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="${marker}"/>`;
-            } else {
-                const curveX = (startX + endX) / 2;
-                return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 6},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
-            }
-        }
-
-        function redrawArrows() {
-            let html = '';
-            
-            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
-                const targetId = activeTrigger.getAttribute('data-target');
-                const targetEl = document.getElementById(targetId);
-                if (targetEl) html += createArrowSVG(activeTrigger, targetEl, 'study');
-            }
-            
-            if (document.getElementById('ex-container-link') && document.getElementById('ex-container-link').classList.contains('block')) {
-                linkUserPairs.forEach(pair => {
-                    const startEl = document.getElementById(`link-start-${pair.startId}`);
-                    const endEl = document.getElementById(`link-end-${pair.endId}`);
-                    if(startEl && endEl) html += createArrowSVG(startEl, endEl, pair.status || 'neutral');
-                });
-            }
-            
-            document.getElementById('svg-paths-container').innerHTML = html;
-            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
-        }
-
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
-
-        /* 1. QUIZ DATA */
         const quizData = [
-            { q: "Recent laboratory _____ indicate that the patient has fully recovered.", opts: ["analyses", "analysises", "analysis"], ans: 0, exp: "'Analysis' has a Greek root; its correct plural form is 'analyses'." },
-            { q: "John and Tina's father _____ a professional triathlon coach.", opts: ["is", "are", "be"], ans: 0, exp: "Joint possession (John and Tina's) indicates one shared father, so we use the singular verb 'is'." },
-            { q: "John's and Tina's running shoes _____ drying by the door.", opts: ["are", "is", "was"], ans: 0, exp: "Separate possession (John's and Tina's) refers to two distinct pairs of shoes, so we use the plural verb 'are'." },
-            { q: "A pair of gym shorts _____ lying on the bench.", opts: ["is", "are", "were"], ans: 0, exp: "While 'shorts' is a plural pair noun, the head noun of the subject phrase is 'A pair', which requires the singular verb 'is'." },
-            { q: "He has _____ friends in the running club, so he never feels lonely.", opts: ["a few", "few", "a little"], ans: 0, exp: "'A few' has a positive nuance (some/enough) for plural count nouns, whereas 'few' carries a negative nuance (hardly any)." },
-            { q: "Five kilometers _____ a standard distance for beginner runners.", opts: ["is", "are", "were"], ans: 0, exp: "Quantities of measurement, distance, time, and money treated as a single total take a singular verb." },
-            { q: "One of the top marathon runners _____ collapsed near the finish line.", opts: ["has", "have", "are"], ans: 0, exp: "In 'One of + plural noun', the subject is 'One', which demands a singular verb ('has')." },
-            { q: "She bought three new pieces of _____ for her gym.", opts: ["equipment", "equipments", "an equipment"], ans: 0, exp: "'Equipment' is a non-count aggregate noun and can never take an '-s' or 'a/an'." },
-            { q: "Most of the drinking water in this reservoir _____ purified.", opts: ["is", "are", "were"], ans: 0, exp: "With fraction/percentage quantifiers + of, agreement depends on the noun object ('water' is non-count &rarr; singular verb 'is')." },
-            { q: "Diabetes _____ a condition that requires careful blood sugar monitoring.", opts: ["is", "are", "were"], ans: 0, exp: "Nouns like 'diabetes' or 'gymnastics' end in '-s' but represent a single condition/field, requiring a singular verb." }
+            { 
+                q: "Recent laboratory _____ indicate that the patient's blood pressure is normal.", 
+                opts: ["analyses", "analysises", "analysis"], 
+                ans: 0, 
+                exp: "'Analysis' is a Greek-derived noun; its correct plural is 'analyses'." 
+            },
+            { 
+                q: "John and Tina's father _____ a physical therapy clinic in town.", 
+                opts: ["manages", "manage", "managing"], 
+                ans: 0, 
+                exp: "Joint possession (apostrophe on 2nd noun only) denotes one shared father &rarr; singular verb 'manages'." 
+            },
+            { 
+                q: "A pair of workout shorts _____ in the gym locker.", 
+                opts: ["is hanging", "are hanging", "were hanging"], 
+                ans: 0, 
+                exp: "Although 'shorts' is a plural pair noun, the grammatical head of the subject phrase is 'A pair', which takes a singular verb ('is')." 
+            },
+            { 
+                q: "The sports clinic bought three new pieces of _____ for the training facility.", 
+                opts: ["equipment", "equipments", "an equipment"], 
+                ans: 0, 
+                exp: "'Equipment' is an aggregate non-count noun. It never takes an '-s' or 'a/an'; use partitives like 'pieces of equipment'." 
+            },
+            { 
+                q: "He has _____ friends in the running club, so he never feels isolated during training.", 
+                opts: ["a few", "few", "a little"], 
+                ans: 0, 
+                exp: "'A few' expresses a positive nuance (some / sufficient), whereas 'few' carries a negative nuance (hardly any)." 
+            },
+            { 
+                q: "Five kilometers _____ a standard daily distance for beginner runners.", 
+                opts: ["is", "are", "were"], 
+                ans: 0, 
+                exp: "Quantities of measurement, distance, time, and money treated as a single total take a singular verb." 
+            },
+            { 
+                q: "One of the soccer players _____ a GPS monitor during every practice.", 
+                opts: ["wears", "wear", "are wearing"], 
+                ans: 0, 
+                exp: "In 'One of the + plural noun', the subject is 'One', requiring the singular verb 'wears'." 
+            },
+            { 
+                q: "I have two pairs of running shoes. One pair is black, and _____ is blue.", 
+                opts: ["the other", "another", "others"], 
+                ans: 0, 
+                exp: "Use 'the other' when referring to the specific second of two known items." 
+            }
         ];
-        
-        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        let activeQuiz = [];
+        let quizCurrent = 0;
+        let quizScore = 0;
+        let quizAnswered = false;
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
 
         function quizInit() {
-            activeQuiz = shuffleArray(quizData).slice(0, 7);
-            quizCurrent = 0; quizScore = 0;
+            activeQuiz = shuffle(quizData).slice(0, 6);
+            quizCurrent = 0;
+            quizScore = 0;
             document.getElementById('quiz-btn-reset').classList.add('hidden');
             quizLoad();
         }
 
         function quizLoad() {
-            quizAns = false;
+            quizAnswered = false;
             const q = activeQuiz[quizCurrent];
             document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
             
-            let qText = q.q;
-            if(qText.includes("_____")) {
-                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-emerald-600">_____</span>');
-            }
-            document.getElementById('quiz-q-text').innerHTML = qText;
-            
+            let qHtml = q.q.replace('_____', '<span class="border-b-2 border-emerald-500 font-bold px-3 text-emerald-600">_____</span>');
+            document.getElementById('quiz-q-text').innerHTML = qHtml;
+
             const optsCon = document.getElementById('quiz-options');
             optsCon.innerHTML = '';
-            
+
             q.opts.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
-                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-semibold text-slate-700 flex items-center justify-between text-sm sm:text-base shadow-xs';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
                 btn.onclick = () => quizSelect(idx, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('quiz-feedback').classList.add('hidden');
             document.getElementById('quiz-btn-next').classList.add('hidden');
         }
 
-        function quizSelect(idx, btnElement) {
-            if (quizAns) return;
-            quizAns = true;
-            
+        function quizSelect(idx, btn) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
             const q = activeQuiz[quizCurrent];
-            const isCor = idx === q.ans;
-            if (isCor) quizScore++;
-            
+            const isCorrect = idx === q.ans;
+            if (isCorrect) quizScore++;
+
             const allBtns = document.getElementById('quiz-options').children;
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].classList.add('option-disabled');
                 allBtns[i].onclick = null;
-                const icon = allBtns[i].querySelector('.indicator-icon');
-                
+                const icon = allBtns[i].querySelector('i');
                 if (i === q.ans) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
-                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
-                } else if (i === idx && !isCor) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
-                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-correct text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-lg';
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-incorrect text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-lg';
                 }
             }
-            
+
             const fb = document.getElementById('quiz-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
-            
-            if (isCor) {
+            if (isCorrect) {
                 fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
-                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-check mr-1.5"></i> <strong>Correct!</strong> ${q.exp}`;
             } else {
                 fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
-                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-1.5"></i> <strong>Incorrect.</strong> ${q.exp}`;
             }
-            
-            document.getElementById('quiz-btn-next').classList.remove('hidden');
-            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+
+            const nextBtn = document.getElementById('quiz-btn-next');
+            nextBtn.classList.remove('hidden');
+            nextBtn.innerHTML = quizCurrent === activeQuiz.length - 1 ? 'Finish Quiz <i class="fa-solid fa-flag-checkered ml-1.5"></i>' : 'Next Question <i class="fa-solid fa-arrow-right ml-1.5"></i>';
         }
 
         function quizNext() {
             if (quizCurrent < activeQuiz.length - 1) {
-                quizCurrent++; quizLoad();
+                quizCurrent++;
+                quizLoad();
             } else {
                 document.getElementById('quiz-options').innerHTML = '';
-                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-emerald-600 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-q-text').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-award text-5xl text-emerald-600 mb-3"></i>
+                        <h4 class="text-2xl font-black text-slate-800">Quiz Completed!</h4>
+                        <p class="text-slate-600 text-sm mt-1">You achieved: <strong class="text-emerald-600 text-xl">${quizScore} / ${activeQuiz.length}</strong></p>
+                    </div>
+                `;
                 document.getElementById('quiz-progress').textContent = "Done";
                 document.getElementById('quiz-feedback').classList.add('hidden');
                 document.getElementById('quiz-btn-next').classList.add('hidden');
@@ -807,80 +1248,95 @@
             }
         }
 
-        /* 2. FILL DATA */
         const fillData = [
-            { pre: "He added a ", blank: "scoop of", post: " whey protein powder to his smoothie.", opts: ["scoop of", "slice of", "loaf of"] },
-            { pre: "The doctor provided three valuable ", blank: "pieces of advice", post: " regarding nutrition.", opts: ["pieces of advice", "advices", "piece of advices"] },
-            { pre: "Medical ", blank: "diagnoses", post: " must be confirmed by laboratory tests.", opts: ["diagnoses", "diagnosis", "diagnosises"] },
-            { pre: "I have two water bottles; one is stainless steel and ", blank: "the other", post: " is glass.", opts: ["the other", "another", "others"] },
-            { pre: "Some runners prefer trail running, while ", blank: "others", post: " enjoy track workouts.", opts: ["others", "another", "the other"] },
-            { pre: "My ", blank: "sister-in-law's", post: " personal fitness routine is very intense.", opts: ["sister-in-law's", "sister-in-laws'", "sisters-in-law"] }
+            { pre: "The doctor gave me three valuable ", blank: "pieces of advice", post: " about diet and exercise.", opts: ["pieces of advice", "advices", "piece of advices"] },
+            { pre: "He poured a tall ", blank: "glass of", post: " fresh orange juice after his run.", opts: ["glass of", "loaf of", "sheet of"] },
+            { pre: "Some athletes prefer endurance sports, while ", blank: "others", post: " focus on weight training.", opts: ["others", "another", "the other"] },
+            { pre: "Medical ", blank: "diagnoses", post: " must always be confirmed by laboratory tests.", opts: ["diagnoses", "diagnosis", "diagnosises"] },
+            { pre: "The football coach bought a new ", blank: "tube of", post: " antiseptic ointment for injuries.", opts: ["tube of", "bar of", "slice of"] }
         ];
 
-        let activeFill = []; let fillCur = 0; let fillAns = false;
+        let activeFill = [];
+        let fillCur = 0;
+        let fillAns = false;
 
         function fillInit() {
-            activeFill = shuffleArray(fillData).slice(0, 5);
-            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            activeFill = shuffle(fillData);
+            fillCur = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
             fillLoad();
         }
 
         function fillLoad() {
-            fillAns = false; const q = activeFill[fillCur];
-            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
-            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
-            
-            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
-            shuffleArray([...q.opts]).forEach((opt) => {
+            fillAns = false;
+            const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1} / ${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-400">_____</span>${q.post}`;
+
+            const optsCon = document.getElementById('fill-options');
+            optsCon.innerHTML = '';
+            shuffle(q.opts).forEach(opt => {
                 const btn = document.createElement('button');
-                btn.className = 'pop-out bg-white border-2 border-emerald-200 text-emerald-700 font-bold py-3 px-6 rounded-xl hover:bg-emerald-50 hover:border-emerald-400 shadow-sm text-lg';
-                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                btn.className = 'pop-out bg-white border-2 border-emerald-200 text-emerald-800 font-bold py-2.5 px-6 rounded-xl hover:bg-emerald-50 hover:border-emerald-400 shadow-xs text-sm sm:text-base';
+                btn.textContent = opt;
+                btn.onclick = () => fillSelect(opt, q.blank, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('fill-feedback').classList.add('hidden');
             document.getElementById('fill-btn-next').classList.add('hidden');
         }
 
-        function fillSelect(sel, cor, btn) {
-            if (fillAns) return; fillAns = true;
+        function fillSelect(choice, correct, btn) {
+            if (fillAns) return;
+            fillAns = true;
+
             const target = document.getElementById('fill-target');
-            target.textContent = sel; target.classList.add('filled');
-            
-            const isCor = sel === cor;
+            target.textContent = choice;
+            target.classList.add('filled');
+
+            const isCorrect = choice === correct;
             const fb = document.getElementById('fill-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
-            
+
             const allBtns = document.getElementById('fill-options').children;
             for (let i = 0; i < allBtns.length; i++) {
-                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
-                if (allBtns[i].textContent === cor) {
-                    allBtns[i].classList.remove('border-emerald-200', 'text-emerald-700', 'opacity-50');
+                allBtns[i].disabled = true;
+                allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === correct) {
+                    allBtns[i].classList.remove('border-emerald-200', 'text-emerald-800', 'opacity-50');
                     allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
                 }
             }
 
-            if (isCor) {
+            if (isCorrect) {
                 target.classList.add('correct');
-                btn.classList.replace('border-emerald-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
                 fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct! Well done.";
             } else {
                 target.classList.add('incorrect');
-                btn.classList.replace('border-emerald-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
                 fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review plural, possessive, or measurement rules.";
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review non-count partitives and plurals.";
             }
-            
+
             document.getElementById('fill-btn-next').classList.remove('hidden');
-            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+            if (fillCur === activeFill.length - 1) {
+                document.getElementById('fill-btn-next').innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-1.5"></i>';
+            }
         }
 
         function fillNext() {
-            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
-            else {
+            if (fillCur < activeFill.length - 1) {
+                fillCur++;
+                fillLoad();
+            } else {
                 document.getElementById('fill-options').innerHTML = '';
-                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-emerald-600 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-sentence').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-2"></i>
+                        <h4 class="text-xl font-black text-slate-800">All Completed!</h4>
+                    </div>
+                `;
                 document.getElementById('fill-progress').textContent = "Done";
                 document.getElementById('fill-feedback').classList.add('hidden');
                 document.getElementById('fill-btn-next').classList.add('hidden');
@@ -888,169 +1344,238 @@
             }
         }
 
-        /* 3. SPOT ERRORS DATA */
         const idData = [
-            [{w:"Exercise"}, {w:"are", isErr:true}, {w:"essential"}, {w:"for"}, {w:"building"}, {w:"cardiovascular"}, {w:"endurance."}],
-            [{w:"The"}, {w:"gym"}, {w:"purchased"}, {w:"several"}, {w:"new"}, {w:"equipments", isErr:true}, {w:"this"}, {w:"morning."}],
-            [{w:"A"}, {w:"pair"}, {w:"of"}, {w:"running"}, {w:"shorts"}, {w:"are", isErr:true}, {w:"hanging"}, {w:"in"}, {w:"the"}, {w:"locker."}],
-            [{w:"Detailed"}, {w:"analysises", isErr:true}, {w:"were"}, {w:"conducted"}, {w:"on"}, {w:"the"}, {w:"blood"}, {w:"samples."}],
-            [{w:"John's"}, {w:"and"}, {w:"Tina's", isErr:false}, {w:"father"}, {w:"are", isErr:true}, {w:"a"}, {w:"well-known"}, {w:"nutritionist."}]
+            {
+                tokens: [{w:"The"}, {w:"gym"}, {w:"purchased"}, {w:"many"}, {w:"new"}, {w:"equipments", isErr:true}, {w:"yesterday."}],
+                explanation: "'Equipment' is an aggregate non-count noun. Never add -s! Say 'pieces of equipment'."
+            },
+            {
+                tokens: [{w:"A"}, {w:"pair"}, {w:"of"}, {w:"running"}, {w:"shorts"}, {w:"are", isErr:true}, {w:"in"}, {w:"the"}, {w:"locker."}],
+                explanation: "The head of the subject is 'A pair', which requires the singular verb 'is' ('A pair of shorts is...')."
+            },
+            {
+                tokens: [{w:"Detailed"}, {w:"analysises", isErr:true}, {w:"were"}, {w:"conducted"}, {w:"on"}, {w:"the"}, {w:"blood"}, {w:"samples."}],
+                explanation: "The plural of Greek-rooted 'analysis' is 'analyses', not 'analysises'."
+            },
+            {
+                tokens: [{w:"Doctor Chen"}, {w:"cares"}, {w:"for"}, {w:"many"}, {w:"patient's", isErr:true}, {w:"at"}, {w:"the"}, {w:"hospital."}],
+                explanation: "This is a basic plural noun ('patients'), NOT a possessive noun! Remove the apostrophe."
+            }
         ];
-        
-        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        let idCurrent = 0;
+        let idSelected = new Set();
+        let idAnswered = false;
 
         function idInit() {
-            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
-            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+            idCurrent = 0;
+            document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden');
+            idLoad();
         }
 
         function idLoad() {
-            idSelected.clear(); idAns = false;
+            idSelected.clear();
+            idAnswered = false;
             document.getElementById('id-current').textContent = idCurrent + 1;
-            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
-            
-            idData[idCurrent].forEach((item, idx) => {
+            const container = document.getElementById('id-sentence-container');
+            container.innerHTML = '';
+
+            idData[idCurrent].tokens.forEach((item, idx) => {
                 const span = document.createElement('span');
-                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.textContent = item.w;
+                span.className = 'click-word bg-slate-100 text-slate-800';
                 span.dataset.isErr = item.isErr ? "true" : "false";
                 span.onclick = () => {
-                    if(idAns) return;
-                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
-                    else { idSelected.add(idx); span.classList.add('selected'); }
+                    if (idAnswered) return;
+                    if (idSelected.has(idx)) {
+                        idSelected.delete(idx);
+                        span.classList.remove('selected');
+                    } else {
+                        idSelected.add(idx);
+                        span.classList.add('selected');
+                    }
                 };
-                con.appendChild(span);
+                container.appendChild(span);
             });
+
             document.getElementById('id-feedback').classList.add('hidden');
             document.getElementById('id-btn-check').classList.remove('hidden');
             document.getElementById('id-btn-next').classList.add('hidden');
         }
 
         function idCheck() {
-            if(idAns) return; idAns = true;
+            if (idAnswered) return;
+            idAnswered = true;
+
             const spans = document.querySelectorAll('#id-sentence-container .click-word');
-            let cor = 0; let tot = idData[idCurrent].filter(i => i.isErr).length; let err = false;
+            let correctCount = 0;
+            let totalErrors = idData[idCurrent].tokens.filter(t => t.isErr).length;
+            let falseSelected = false;
 
             spans.forEach((span, idx) => {
-                const isTar = span.dataset.isErr === "true"; const isSel = idSelected.has(idx);
+                const isTarget = span.dataset.isErr === "true";
+                const isChosen = idSelected.has(idx);
                 span.classList.remove('selected', 'bg-slate-100');
-                if(isTar && isSel) { span.classList.add('correct'); cor++; }
-                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
-                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
-                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+
+                if (isTarget && isChosen) {
+                    span.classList.add('correct');
+                    correctCount++;
+                } else if (!isTarget && isChosen) {
+                    span.classList.add('incorrect');
+                    falseSelected = true;
+                } else if (isTarget && !isChosen) {
+                    span.classList.add('missed');
+                } else {
+                    span.classList.add('text-slate-400');
+                    span.style.cursor = 'default';
+                }
             });
 
             const fb = document.getElementById('id-feedback');
-            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
-            
-            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You spotted the error."; } 
-            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `Watch out for non-count subject verb agreement, non-count plurals like 'equipments', foreign plurals ('analyses'), or head-noun agreement ('a pair of shorts is').`; }
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-800', 'border-amber-200');
+
+            if (!falseSelected && correctCount === totalErrors) {
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-star mr-1.5"></i> <strong>Spot on!</strong> ${idData[idCurrent].explanation}`;
+            } else {
+                fb.classList.add('bg-amber-50', 'text-amber-800', 'border-amber-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-1.5"></i> <strong>Grammar Note:</strong> ${idData[idCurrent].explanation}`;
+            }
 
             document.getElementById('id-btn-check').classList.add('hidden');
-            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
-            else document.getElementById('id-btn-reset').classList.remove('hidden');
+            if (idCurrent < idData.length - 1) {
+                document.getElementById('id-btn-next').classList.remove('hidden');
+            } else {
+                document.getElementById('id-btn-reset').classList.remove('hidden');
+            }
         }
-        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
 
-        /* 4. MATCH DATA */
+        function idNext() {
+            if (idCurrent < idData.length - 1) {
+                idCurrent++;
+                idLoad();
+            }
+        }
+
         const matchPool = [
-            { id: 1, left: "Equipment / Advice", right: "Aggregate Non-Count Nouns" },
-            { id: 2, left: "Analyses / Diagnoses", right: "Greek/Latin Foreign Plurals" },
+            { id: 1, left: "Equipment / Advice", right: "Aggregate Non-Count Noun" },
+            { id: 2, left: "Analyses / Diagnoses", right: "Greek / Latin Foreign Plural" },
             { id: 3, left: "John and Tina's father", right: "Joint Possession (1 Shared Entity)" },
             { id: 4, left: "A pair of shorts is", right: "Singular Verb with 'A pair of'" },
-            { id: 5, left: "A scoop of protein", right: "Partitive Portion Counter" },
-            { id: 6, left: "100 grams of protein is", right: "Measurement Quantity (Singular Verb)" }
+            { id: 5, left: "Five kilometers is", right: "Distance Quantity (Singular Verb)" },
+            { id: 6, left: "One of the players has", right: "'One of' Rule (Singular Verb)" }
         ];
 
-        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+        let activeMatch = [];
+        let mSelLeft = null;
+        let mSelRight = null;
+        let matchCount = 0;
 
         function matchInit() {
-            mSelLeft = null; mSelRight = null; matchCount = 0;
-            activeMatch = shuffleArray([...matchPool]);
-            
+            mSelLeft = null;
+            mSelRight = null;
+            matchCount = 0;
+            activeMatch = shuffle([...matchPool]);
+
             document.getElementById('match-btn-reset').classList.add('hidden');
             document.getElementById('match-feedback').textContent = '';
-            
+
             const lCol = document.getElementById('match-col-left');
             const rCol = document.getElementById('match-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.left, side: 'left' })));
-            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.right, side: 'right' })));
+            const lItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.left, side: 'left' })));
+            const rItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.right, side: 'right' })));
 
-            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
-            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+            lItems.forEach(item => lCol.appendChild(createMatchBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMatchBtn(item)));
         }
 
-        function createMBtn(item) {
+        function createMatchBtn(item) {
             const btn = document.createElement('button');
-            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm text-xs sm:text-sm';
-            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
-            btn.onclick = () => handleMClick(btn, item);
+            btn.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm text-slate-700 bg-white border-2 border-slate-200 pop-out shadow-xs';
+            btn.textContent = item.text;
+            btn.dataset.id = item.id;
+            btn.dataset.side = item.side;
+            btn.onclick = () => handleMatchClick(btn, item);
             return btn;
         }
 
-        function handleMClick(btn, item) {
-            if(btn.classList.contains('matched')) return;
-            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+        function handleMatchClick(btn, item) {
+            if (btn.classList.contains('bg-green-100')) return;
 
-            if(item.side === 'left') {
-                if(mSelLeft) mSelLeft.el.classList.remove('selected');
-                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            if (item.side === 'left') {
+                if (mSelLeft) mSelLeft.el.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-700');
+                mSelLeft = { el: btn, id: item.id };
+                btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-700');
             } else {
-                if(mSelRight) mSelRight.el.classList.remove('selected');
-                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+                if (mSelRight) mSelRight.el.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-700');
+                mSelRight = { el: btn, id: item.id };
+                btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-700');
             }
 
-            if(mSelLeft && mSelRight) checkMatch();
+            if (mSelLeft && mSelRight) checkMatchPair();
         }
 
-        function checkMatch() {
+        function checkMatchPair() {
             const fb = document.getElementById('match-feedback');
-            if(mSelLeft.id === mSelRight.id) {
-                mSelLeft.el.classList.replace('selected', 'matched');
-                mSelRight.el.classList.replace('selected', 'matched');
-                fb.textContent = `Correct!`;
-                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
-                matchCount++; mSelLeft = null; mSelRight = null;
+            if (mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                mSelRight.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                fb.textContent = 'Correct Match!';
+                fb.className = 'text-center h-8 font-bold text-sm text-green-600 mt-2';
+                matchCount++;
+                mSelLeft = null;
+                mSelRight = null;
 
-                if(matchCount === activeMatch.length) {
+                if (matchCount === activeMatch.length) {
                     setTimeout(() => {
-                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> All matched!`;
+                        fb.innerHTML = '<i class="fa-solid fa-circle-check text-green-600 mr-2"></i> All noun concepts paired successfully!';
                         document.getElementById('match-btn-reset').classList.remove('hidden');
-                    }, 500);
+                    }, 400);
                 }
             } else {
-                fb.textContent = 'Try again!';
-                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
-                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
-                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
-                mSelLeft = null; mSelRight = null;
-                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+                fb.textContent = 'Not a match. Try again!';
+                fb.className = 'text-center h-8 font-bold text-sm text-red-500 mt-2';
+                const el1 = mSelLeft.el;
+                const el2 = mSelRight.el;
+                el1.classList.add('animate-pulse');
+                el2.classList.add('animate-pulse');
+                setTimeout(() => {
+                    el1.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-700', 'animate-pulse');
+                    el2.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-700', 'animate-pulse');
+                }, 600);
+                mSelLeft = null;
+                mSelRight = null;
             }
         }
 
-        /* 5. LINK DATA */
         const linkData = [
             { id: 1, left: "A scoop of", right: "whey protein powder" },
-            { id: 2, left: "Two loaves of", right: "whole wheat bread" },
-            { id: 3, left: "A piece of", right: "medical advice" },
-            { id: 4, left: "Three gallons of", right: "purified water" },
-            { id: 5, left: "A tube of", right: "antiseptic ointment" }
+            { id: 2, left: "Three loaves of", right: "whole grain bread" },
+            { id: 3, left: "A valuable piece of", right: "medical advice" },
+            { id: 4, left: "A fresh tube of", right: "antiseptic ointment" }
         ];
 
-        let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
+        let linkUserPairs = [];
+        let linkSelLeft = null;
+        let linkChecked = false;
 
         function linkInit() {
-            linkUserPairs = []; linkSelLeft = null; linkChecked = false;
-            
+            linkUserPairs = [];
+            linkSelLeft = null;
+            linkChecked = false;
+
             const lCol = document.getElementById('link-col-left');
             const rCol = document.getElementById('link-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const activeLinks = shuffleArray([...linkData]);
-
-            const lItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.left, type: 'start' })));
-            const rItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.right, type: 'end' })));
+            const shuffled = shuffle([...linkData]);
+            const lItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.left, type: 'start' })));
+            const rItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.right, type: 'end' })));
 
             lItems.forEach(item => lCol.appendChild(createLinkBtn(item)));
             rItems.forEach(item => rCol.appendChild(createLinkBtn(item)));
@@ -1058,14 +1583,13 @@
             document.getElementById('link-feedback').classList.add('hidden');
             document.getElementById('link-btn-check').classList.remove('hidden');
             document.getElementById('link-btn-reset').classList.add('hidden');
-            
             redrawArrows();
         }
 
         function createLinkBtn(item) {
             const btn = document.createElement('div');
             btn.id = `link-${item.type}-${item.id}`;
-            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-emerald-300 transition-all z-10 relative text-xs sm:text-sm';
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-3.5 font-bold text-slate-700 text-center cursor-pointer hover:border-emerald-400 transition-all text-xs sm:text-sm select-none shadow-xs';
             btn.textContent = item.text;
             btn.dataset.id = item.id;
             btn.dataset.type = item.type;
@@ -1074,49 +1598,47 @@
         }
 
         function handleLinkClick(btn, item) {
-            if(linkChecked) return;
+            if (linkChecked) return;
 
             if (item.type === 'start') {
-                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-emerald-300', 'bg-emerald-50');
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-emerald-200', 'bg-emerald-50');
                 if (linkSelLeft && linkSelLeft.id === item.id) {
-                    linkSelLeft = null; // deselect
+                    linkSelLeft = null;
                 } else {
                     linkSelLeft = { el: btn, id: item.id };
-                    btn.classList.add('ring-4', 'ring-emerald-300', 'bg-emerald-50');
+                    btn.classList.add('ring-4', 'ring-emerald-200', 'bg-emerald-50');
                 }
             } else if (item.type === 'end' && linkSelLeft) {
                 linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
                 linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
-                linkSelLeft.el.classList.remove('ring-4', 'ring-emerald-300', 'bg-emerald-50');
+                linkSelLeft.el.classList.remove('ring-4', 'ring-emerald-200', 'bg-emerald-50');
                 linkSelLeft = null;
                 redrawArrows();
             }
         }
 
         function linkCheck() {
-            if(linkChecked) return;
-            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-emerald-300', 'bg-emerald-50'); linkSelLeft = null; }
-            
+            if (linkChecked) return;
             linkChecked = true;
-            let corCount = 0;
+            let correctCount = 0;
 
-            linkUserPairs.forEach(up => {
-                if (up.startId === up.endId) {
-                    up.status = 'correct'; corCount++;
+            linkUserPairs.forEach(pair => {
+                if (pair.startId === pair.endId) {
+                    pair.status = 'correct';
+                    correctCount++;
                 } else {
-                    up.status = 'incorrect';
+                    pair.status = 'incorrect';
                 }
             });
 
             const fb = document.getElementById('link-feedback');
-            fb.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-amber-600');
-            
-            if (corCount === linkData.length) {
+            fb.classList.remove('hidden', 'text-green-600', 'text-amber-600');
+            if (correctCount === linkData.length) {
                 fb.classList.add('text-green-600');
-                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
+                fb.innerHTML = "<i class='fa-solid fa-star mr-1.5'></i> Perfect! All partitive measurement units joined correctly.";
             } else {
                 fb.classList.add('text-amber-600');
-                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the logical unit or container for each non-count item.`;
+                fb.innerHTML = `You connected ${correctCount} of ${linkData.length} correctly. Check containers, shapes, and units.`;
             }
 
             redrawArrows();
@@ -1124,12 +1646,53 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
-        window.onload = () => { 
-            setupStudyInteractive(); 
-            populateVoiceList();
-        };
+        function createArrowSVG(startEl, endEl, state) {
+            if (!startEl || !endEl) return '';
+            const sRect = startEl.getBoundingClientRect();
+            const eRect = endEl.getBoundingClientRect();
 
-        /* Built-in TTS Web Speech API Integration */
+            const startX = sRect.right + 2;
+            const startY = sRect.top + (sRect.height / 2);
+            const endX = eRect.left - 2;
+            const endY = eRect.top + (eRect.height / 2);
+
+            let color = '#94a3b8';
+            let marker = 'url(#arrowhead-neutral)';
+
+            if (state === 'correct') {
+                color = '#16a34a';
+                marker = 'url(#arrowhead-correct)';
+            } else if (state === 'incorrect') {
+                color = '#dc2626';
+                marker = 'url(#arrowhead-incorrect)';
+            }
+
+            const curveX = (startX + endX) / 2;
+            return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 5},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
+        }
+
+        function redrawArrows() {
+            let html = '';
+            const linkContainer = document.getElementById('ex-container-link');
+            if (linkContainer && !linkContainer.classList.contains('hidden')) {
+                linkUserPairs.forEach(pair => {
+                    const s = document.getElementById(`link-start-${pair.startId}`);
+                    const e = document.getElementById(`link-end-${pair.endId}`);
+                    if (s && e) html += createArrowSVG(s, e, pair.status || 'neutral');
+                });
+            }
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function hideArrows() {
+            document.getElementById('svg-paths-container').innerHTML = '';
+            document.getElementById('connection-svg').classList.add('hidden');
+        }
+
+        window.addEventListener('resize', redrawArrows);
+        window.addEventListener('scroll', redrawArrows);
+
         let synth = window.speechSynthesis;
         let voices = [];
         let currentUtterance = null;
@@ -1137,32 +1700,24 @@
         function populateVoiceList() {
             if (!synth) return;
             voices = synth.getVoices();
-            const voiceSelect = document.getElementById('tts-voice-select');
-            
+            const sel = document.getElementById('tts-voice-select');
             if (voices.length === 0) return;
 
-            voiceSelect.innerHTML = '';
-            let defaultVoiceIndex = 0;
-            
-            for (let i = 0; i < voices.length; i++) {
-                const option = document.createElement('option');
-                option.textContent = `${voices[i].name} (${voices[i].lang})`;
-                option.setAttribute('data-lang', voices[i].lang);
-                option.setAttribute('data-name', voices[i].name);
-                voiceSelect.appendChild(option);
+            sel.innerHTML = '';
+            let defaultIdx = 0;
 
-                if (voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang.startsWith('en')) {
-                    defaultVoiceIndex = i;
+            voices.forEach((v, idx) => {
+                const opt = document.createElement('option');
+                opt.textContent = `${v.name} (${v.lang})`;
+                opt.setAttribute('data-name', v.name);
+                sel.appendChild(opt);
+
+                if (v.name.includes('Natural') || v.name.includes('Google UK English Male') || v.lang === 'en-US') {
+                    defaultIdx = idx;
                 }
-            }
-            
-            if (voiceSelect.options.length > 0) {
-                voiceSelect.selectedIndex = defaultVoiceIndex;
-            }
+            });
+
+            sel.selectedIndex = defaultIdx;
         }
 
         if (synth && synth.onvoiceschanged !== undefined) {
@@ -1172,52 +1727,45 @@
         function toggleAudioSummary() {
             if (!synth) return;
             const icon = document.getElementById('tts-icon');
-            const text = document.getElementById('tts-text');
+            const txt = document.getElementById('tts-text');
 
             if (synth.speaking || synth.pending) {
                 synth.cancel();
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
                 return;
             }
 
-            const summaryPrompt = "Welcome to Unit 3: Health and Fitness. In this expanded intermediate lesson, you will master regular and foreign plurals like analysis and analyses, joint versus separate possession, the complete matrix of another, other, and others, and six non-count noun categories. Pay close attention to dual-meaning nouns like exercise and time, partitive unit structures, and crucial subject-verb agreement rules for non-count nouns, pair nouns, and measurement totals!";
-            
-            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
-            window._ttsUtterance = currentUtterance;
-            
-            const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
-            if (selectedOption && selectedOption.hasAttribute('data-name')) {
-                const selectedVoice = selectedOption.getAttribute('data-name');
-                const voice = voices.find(v => v.name === selectedVoice);
-                if (voice) {
-                    currentUtterance.voice = voice;
-                    currentUtterance.lang = voice.lang;
-                }
-            } else {
-                currentUtterance.lang = 'en-US';
+            const promptText = "Welcome to Unit 3: Health and Fitness. In this unit, we explore nouns. Remember: regular plural nouns take -s, -es, or -ies, while foreign nouns like analysis become analyses. For possessives, add apostrophe s to singular nouns and an apostrophe after plural s. In joint ownership like John and Tina's father, add apostrophe s only to the second noun. Use 'another' for one more indefinite item, 'the other' for the second of two, and 'others' as a plural pronoun. Non-count nouns like exercise, equipment, and advice never take a plural -s and require singular verbs. To count them, use measurement words such as a piece of advice or a bottle of water. Finally, make sure verbs agree with their subjects: non-count nouns, quantities of measurement, and 'one of the' constructions take singular verbs!";
+
+            currentUtterance = new SpeechSynthesisUtterance(promptText);
+            const sel = document.getElementById('tts-voice-select');
+            const selectedOpt = sel.selectedOptions[0];
+            if (selectedOpt) {
+                const vName = selectedOpt.getAttribute('data-name');
+                const matched = voices.find(v => v.name === vName);
+                if (matched) currentUtterance.voice = matched;
             }
 
             currentUtterance.onstart = () => {
                 icon.className = "fa-solid fa-square";
-                text.textContent = "Stop";
+                txt.textContent = "Stop";
             };
-
             currentUtterance.onend = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
-
-            currentUtterance.onerror = (e) => {
-                if (e.error !== 'interrupted' && e.error !== 'canceled') {
-                    console.error('SpeechSynthesis Error:', e);
-                }
+            currentUtterance.onerror = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
 
             synth.speak(currentUtterance);
         }
+
+        window.onload = () => {
+            populateVoiceList();
+        };
     </script>
 </body>
 </html>

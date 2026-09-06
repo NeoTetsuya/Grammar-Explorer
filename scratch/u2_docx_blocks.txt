@@ -1,0 +1,617 @@
+[0] P: UNIT UNIT Survival
+[1] P: The   Past
+[100] P: 24   THE   PAST 24   THE   PAST Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[101] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[103] P: The   Parthenon,   Acropolis,   Athens,   Greece
+[157] P: Lesson   1
+[158] P: page   26
+[159] P: Simple   Past
+[160] P: Lesson   2
+[161] P: page   33
+[162] P: Past   Progressive  and   Simple   Past
+[163] P: Lesson   3
+[164] P: page   39
+[165] P: Past   Time  Clauses
+[166] P: Lesson   4
+[167] P: page   46
+[168] P: Repeated   Past  Actions:   Used To  and   Would
+[169] P: Review   the   Grammar
+[170] P: page   53
+[171] P: Connect the  Grammar   to   Writing
+[172] P: page   56 25
+[174] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[175] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[177] P: LESSON   1 LESSON   1    Simple   Past
+[178] P: EXPLORE
+[180] P: CD1- 08
+[182] P: 1   READ   the   article   about   a   project   to   protect   lions   in   Kenya.   Notice   the words in  bold .
+[184] P: The Lion  Guardians  Project,   Kenya
+[185] P: Cattle 1   are basic to the lives of the Maasai people of Kenya. In fact, the Maasai have a saying, “Without the land and the cattle, there are no Maasai people.” In 2006, Maasai cattle herders 2   in Kenya  had   a   problem.   Lions   regularly   killed   their   cows.   The   herders   sent   warriors 3   to   hunt   and   kill   the   lions. Many lions  died . The Maasai  were  a big threat to the survival of lions in Kenya.
+[187] P: A local organization, Living with Lions,  wanted  to save   lions.   They   helped   train   Maasai   warriors   to   protect
+[188] P: lions,   not   kill   them.   The   warriors   learned   to   track   the   lions with modern technology. They  warned  herders before the lions  got  near their cows. The warriors  didn’t kill  any more lions. Instead, they  became  Lion
+[189] P: Guardians. 4
+[190] P: The Guardians  persuaded  the herders   not   to   hunt   the   lions.   They   gave  each lion a Maasai name, and  taught  the herders and villagers about them.
+[191] P: Local people  began  to see the lions as individuals.   Now,   there   are   more   than   30  Lion   Guardians.   Because   of   the   Guardians’  work,   the   number   of   lions   that   die   in   their part of Kenya is falling fast.
+[193] P: A   lion   in   the   Maasai   Mara Game Reserve, Kenya
+[196] P: 1   cattle:   cows   and   bulls
+[197] P: 2   herder:  a person who cares for a large group of one kind of animal
+[198] P: 3   warrior:   a   fighter   or   soldier
+[199] P: 4   guardian:  a person who protects other people or  property
+[217] P: 26   THE   PAST
+[218] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[219] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[222] TBL: [['2 CHECK. Read the statements. Circle T for true or F for false.', ''], ['1. Cattle are not important to the Maasai people.', 'T', 'F'], ['2. The Living with Lions organization wanted to protect the lions.', 'T', 'F'], ['3. Cattle herders educated Maasai warriors about lions.', 'T', 'F'], ['4. Lion Guardians use technology to protect cattle.', 'T', 'F'], ['5. Local people learned more about lions from the Lion Guardians.', 'T', 'F']]
+[225] P: DISCOVER.   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[226] P: Find   the   simple   past   form   of   these   verbs   in   the   article   from   exercise   1 .   Then   write   them  in the charts.
+[227] P: Group   A Present Simple   Past kill die want  learn persuade killed Group   A Present Simple   Past kill die want  learn persuade killed Group   B Present Simple   Past have send   get  become teach had Group   B Present Simple   Past have send   get  become teach had
+[228] P: Look   at   the   simple   past   forms   of   the   verbs   in   Group   A.   Compare   them   with   the   verbs   in  Group   B.   How   are   they   different?   Discuss   your   answer   with   your   classmates   and   teacher.
+[237] P: A Maasai man uses a cell phone to help guard his cattle.
+[260] P: UNIT   2   LESSON   1   27
+[261] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[262] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[264] P: LEARN
+[265] P: help them. go to   China. You/We/They   went to   Africa. You/We/They   didn’t did   not helped    the   animals. I/He/She I/He/She Negative Affirmative Did   Not/ Base Didn’t Form Subject Verb Subject help them. go to   China. You/We/They   went to   Africa. You/We/They   didn’t did   not helped    the   animals. I/He/She I/He/She Negative Affirmative Did   Not/ Base Didn’t Form Subject Verb Subject Simple   Past:   Affirmative   and   Negative   Statements
+[273] TBL: [['Use the simple past for:a completed action or eventa regular or repeated action or event in the pastpast states or feelings', 'She called me yesterday.I worked every day last week.He felt sick this morning.'], ['2. To form the simple past, add -ed or -d to the base form of most regular verbs.1', 'play ➔ played dance ➔ danced'], ['3. Be careful! Many common verbs have irregular', 'eat ➔ ate'], ['past forms.2', 'make ➔ made'], ['', 'go ➔ went'], ['', 'see ➔ saw'], ['4. The simple past forms of be are was and were.Do not use did not or didn’t with was and were in the negative.', 'It was warm. It wasn’t cold.They were at work. They weren’t at home.'], ['', 'I wasn’t late for class yesterday.✗ I didn’t was late for class yesterday.']]
+[276] P: 1   See   page   A2   for   spelling   rules   for   the   simple   past.
+[277] P: 2   See   page   A4   for   a   list   of   irregular   verbs.
+[280] P: Complete   each   sentence   with   the   simple   past   form   of   the   verb(s)   in   parentheses.
+[281] P: Herders   in   Kenya   weren’t   (not   be)   able   to   protect   their   cattle.
+[283] P: For years, lions    (kill)   many   cows   in   Kenya.
+[285] P: The   herders     (send)   warriors   to   hunt   the   lions.
+[287] P: Living   with   Lions     (start)   a   new   program   in   2007.
+[289] P: At   first,   some   Maasai     (not   be)   happy   about   the   program.
+[291] P: The   organization     (give)   every   Guardian   a   cell   phone.
+[293] P: When a Lion Guardian    (see) a lion nearby, he    (call) his neighbor.
+[294] P: The Lion Guardians project    (not   change)   the   situation   in   Kenya immediately. It    (take) time.
+[295] P: Scientists    (study)   the   lion   population.
+[297] P: The Lion Guardians    (not   save)   all   the   lions.
+[300] P: 28   THE   PAST
+[302] P: Yes/No   Questions Short   Answers Did we/you/they help ? Yes ,   she   did .   /   No ,   she   didn’t . Yes ,   they   did .   /   No ,   they   didn’t . Wh-   Questions Short   Answers This   morning. Because   she   had   a   meeting. Nick and Sarah. Who   or   What   as   Subject Short   Answers Who What called ? happened ? My   sister. I   missed   the   train. Whom   is   sometimes   used   as   the   object   in   very  formal speaking or writing. Remember:  Who  or  What  can take the place  of   the   subject   in   a   Wh-   question.   When   Who   or  What  is the subject, do not use  did . Whom   did   you   ask? Who   called? ✗   Who   did   call? Verb Wh-   Word Base   Form Did Subject I/he/she/it Yes/No   Questions Short   Answers Did we/you/they help ? Yes ,   she   did .   /   No ,   she   didn’t . Yes ,   they   did .   /   No ,   they   didn’t . Wh-   Questions Short   Answers This   morning. Because   she   had   a   meeting. Nick and Sarah. Who   or   What   as   Subject Short   Answers Who What called ? happened ? My   sister. I   missed   the   train. Whom   is   sometimes   used   as   the   object   in   very  formal speaking or writing. Remember:  Who  or  What  can take the place  of   the   subject   in   a   Wh-   question.   When   Who   or  What  is the subject, do not use  did . Whom   did   you   ask? Who   called? ✗   Who   did   call? Verb Wh-   Word Base   Form Did Subject I/he/she/it Simple   Past:   Questions   and   Answers
+[310] TBL: [['Wh- Word', 'Did', 'Subject', 'Base Form'], ['When', 'did', 'you', 'call?'], ['Why', '', 'she', 'leave?'], ['Who(m)', '', 'they', 'see?']]
+[327] P: Complete   the   short   conversations   with   the   words   in   parentheses.   Write   simple   past   questions  and then write the answers.
+[328] P: A:     Did your phone ring   (your   phone   /   ring)   just   now?  B:   Yes,    it  did .
+[329] P: A:    (your parents  /  give) you any money  last   month?
+[330] P: B:   No,    .
+[332] P: A:     (the teacher  /  send) you an e- mail? B:   No,    .
+[333] P: A:     (your friend  /  pay) for your lunch yesterday? B:   Yes,    .
+[334] P: REAL   ENGLISH Time   expressions   such   as   last   night,  last week, six months ago,  or   in 2011  are   often   used   with   the   simple   past. I   saw   Kim   two   days   ago. She   swam   every   day   last   year. REAL   ENGLISH Time   expressions   such   as   last   night,  last week, six months ago,  or   in 2011  are   often   used   with   the   simple   past. I   saw   Kim   two   days   ago. She   swam   every   day   last   year. A:
+[335] P: (you   /   do   )   anything   fun   last   night?
+[336] P: B:   No,    .
+[338] P: A:
+[339] P: (I   /   disturb)   you?
+[340] P: B:   No,    .
+[343] P: UNIT   2   LESSON   1   29
+[345] P: A:     (it   /   rain)   yesterday? B:   Yes,    .
+[346] P: A:     (we  /  have) homework last  night? B:   Yes,    .
+[348] P: SPEAK.   Work   with   a   partner.   Take   turns   asking   and   answering   the   questions   from   exercise   5 .  Use   your   own   answers,   not   the   answers   in   the   book.
+[350] P: Complete   the   conversations.   Use   the   words   in   parentheses   to   write   simple   past   questions.
+[351] P: A:   Why    did you go   (you  /  go) to  Kenya? B:   Because we wanted to see the wildlife there.
+[352] P: A.   How often    (you   /  see)   lions   when   you   were in Kenya?
+[353] P: B:   Almost   every  day.
+[355] P: A:   Who    (the camera  /  belong  to)? B:   It belonged to our guide.
+[356] P: A.     (Katya  /  write) in her journal last  night? B:   Yes, she did.
+[357] P: A.   Who    (give) the presentation  yesterday? B:   Sheila.
+[358] P: A.   When    (the   plane   /   arrive)? B:   A few minutes ago.
+[360] P: PRACTICE
+[361] P: Complete   the   conversation   with   the   words   in   parentheses.   Use   the   simple   past.
+[362] P: Amy: (1)  Did   you   read   (you   /   read)   Jinny’s   e-mail   about   the   whale   rescue?
+[363] P: Josh: No,   I   didn’t.   (2)    (what  /  she  /  say)?
+[364] P: Amy: Well, the whale (3)    (come) too close to the shore, and some fishermen (4)    (find) it in their net.
+[365] P: Josh: That’s   terrible!   (5)     (it  /  survive)?
+[366] P: Amy: Yeah, it did, but according to Jinny, the rescue (6)    (take)   about  an hour.
+[367] P: Josh: So,   (7)    (she  /  take) any photos of it?
+[368] P: Amy: Yes, (8)   (she  /  take) a lot. (9)   (she   /   send)   a   few   of   them   with   her   e-mail.   They’re   amazing!
+[370] P: 30   THE   PAST
+[394] P: LISTEN   &   WRITE.
+[395] P: Emperor penguins crowd together to keep warm.
+[400] P: CD1- 09
+[412] P: CD1- 09
+[413] P: Listen to an interview with a nature filmmaker. Then complete the questions from the interview  with   the   verbs   in   parentheses.   Use   the   simple   past.
+[414] P: How   long      did   it   take   (it   /   take)   to   make   your   last   nature   film?
+[416] P: Why    (you   /   choose)   Antarctica?
+[418] P: So,   what    (you  /  see)?
+[420] P: Why    (they   /   walk)   so   far?
+[422] P: When    (the   females   /   return)?
+[424] P: Listen   again   and   check   your   answers.
+[426] P: Read   the   summary   of   the   last   part   of   the   interview.   Then   complete   the   paragraph   with   the  verbs   in   the   box.   Use   the   simple   past.
+[429] P: begin climb come crowd fall keep lay return survive walk begin climb come crowd fall keep lay return survive walk
+[430] P: The   emperor   penguins   (1)   climbed   onto   the   sea   ice   and
+[431] P: (2)    50 miles to mainland Antarctica. The females each (3)    one egg and (4)    to the sea. The males (5)    the eggs safe through the terrible winter. They (6)    together to keep warm. The temperature
+[432] P: (7)    to  – 40 degrees Fahrenheit, but the males (8)    .   In   the spring, the females (9)    back. Then the sea ice (10)    to  melt.
+[436] P: CD1- 09
+[437] P: Work   with   a   partner.   Compare   your   answers   from   exercise   C .   Then   listen   again   and   check  your answers.
+[440] P: UNIT   2   LESSON   1   31
+[463] P: EDIT.   Read   the   conversation.   Find   and   correct   seven   more   errors   with   the   simple   past.
+[465] P: Rolf: Hi,   Jun.   Did   you   finished   your   assignment   about   animal   survival   yesterday?
+[466] P: Jun: Hi,   Rolf.   Yes,   I   did.   I   write   about   giant   pandas   in   China.
+[467] P: Rolf: That’s   an   interesting   choice.   How   did   it   go?
+[468] P: Jun: Oh,   it   didn’t   went   very   well.
+[469] P: Rolf: What   did   go   wrong?
+[470] P: Jun: Well,   I   did   a   lot   of   research,   but   I   didn’t   found   much   new   information.   Everyone   else’s assignments were at least five pages, but my assignment was only two pages.
+[471] P: Rolf: What   Professor   Blake   said?
+[472] P: Jun: She   didn’t   say   anything—she   just   look   at   me.
+[473] P: Rolf: Well, don’t worry too much. I gave her the shortest assignment last week and got the   highest grade in the class. She sayed it was excellent!
+[475] P: APPLY.
+[476] P: Write   interview   questions   to   ask   a   classmate   about   a   recent   project   or   assignment.   Use   the  words in the box to help you.
+[478] TBL: [['Did you . . . ?', 'What did you . . . ?', 'Where did you . . . ?', 'Who did you . . . ?'], ['When did you . . . ?', 'Why did you . . . ?', 'How did you . . . ?', '']]
+[481] P: A   giant   panda   bear eating   bamboo A   giant   panda   bear eating   bamboo
+[494] P: 32   THE   PAS T
+[495] P: Work   with   a   partner.   Ask   and   answer   your   questions   from   exercise   A .   Take   notes   on   your  partner’s answers in your notebook.
+[496] P: A:   What   did   you   write   about ? B:   I   wrote   about   sports   in   schools.
+[498] P: Write   a   paragraph   of   four   or   five   sentences   about   your   partner’s   assignment   or   project.
+[499] P: Alain   wrote   a   paper   about   sports   in   schools.   He   did   a   lot   of   research.   He asked all his friends for their opinions. He also interviewed the football and  baseball   coaches.
+[503] P: Past   Progressive   and   Simple   Past LESSON   2 Past   Progressive   and   Simple   Past LESSON   2 EXPLORE
+[508] P: CD1- 10
+[509] P: READ   a   radio   interview   with   a   woman   who   works   to   help   Maya  languages survive in Guatemala. Notice the words in  bold .
+[510] P: Community   Radio   in  Guatemala
+[511] P: Interviewer: So,   Angelica,   you   work   as   a   volunteer 1   at   a   community 2   radio   station.   Why   is   that an important job in Guatemala today?
+[512] P: Angelica: When I  was growing up , you almost never heard Maya languages on the radio or TV.   Some   Maya   languages   were dying .   Then,   community   stations   started   presenting shows in Maya languages. They help keep the
+[513] P: languages   and   the   culture  alive.
+[514] P: Interviewer: Now,   let’s   go   back   to   when   you   got   the   job.
+[515] P: Why   did   the   radio   station   choose   you?
+[516] P: Angelica: I  was teaching  my local language, Tzuthil. Oh, and I  was playing  traditional music in a  band.
+[517] P: Interviewer: Were   they   looking   for   a   musician,   then?
+[518] P: Angelica: No, not exactly. They  were trying  to find someone to present a show about Maya   music. I  was waiting  for an opportunity like  that.
+[519] P: Interviewer: Is   the   survival   of   Maya   languages   still   in   danger?
+[520] P: Angelica: Yes, but community radio stations help.  They encourage people to preserve Maya   languages and culture.
+[522] P: 1   volunteer:  a person who does work without being paid for it
+[523] P: 2   community:  a group of people who live in the same area and have common interests
+[531] P: The Maya have lived in Guatemala for thousands of years.
+[542] P: UNIT   2   LESSON   2   33
+[543] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[544] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[546] P: CHECK.   Choose   the   correct   answer   for   each   question.
+[549] P: Why   is   community   radio   important   in  Guatemala?
+[550] P: It   provides   jobs   for   people.
+[551] P: It   helps   the   Maya   culture   survive.
+[552] P: It   plays   a   lot   of   music.
+[554] P: What was Angelica doing when she  got her job on the radio?
+[555] P: studying   her   local   language
+[556] P: traveling   around   Guatemala
+[557] P: playing   traditional   music
+[558] P: Who   was   the   radio   station   looking   for?
+[559] P: a   presenter
+[560] P: a   musician
+[561] P: a   teacher
+[563] P: What   was   happening   to   some   Maya languages   before   community   radio?
+[564] P: They   were   growing.
+[565] P: They   were   changing.
+[566] P: They   were   dying.
+[568] P: Two   Guatemalan   musicians   sit with   their   instruments. 34 Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it. Two   Guatemalan   musicians   sit with   their   instruments. 34 Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[570] P: DISCOVER.   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[571] P: Read   the   pairs   of   sentences   about   the   interview   from   exercise   1  and   notice   the   verbs   in   bold .  Choose   the   sentence   in   each   pair   that   describes   an   action   that   was   in   progress   at   a   certain time in the past.
+[572] P: a.    The radio station  chose  Angelica.
+[573] P: Angelica   was   teaching   Tzuthil   in   the   evenings.
+[575] P: a.    The   radio   station   was   looking   for   a   new   presenter.
+[576] P: They   decided   to   speak   to   Angelica.
+[578] P: a.    Several Maya   languages   were   dying .
+[579] P: Community   radio   stations   started   to   present   shows   in   Maya   languages.
+[581] P: Work   with   a   partner.   Compare   your   answers   from   exercise   A .   Which   verb   form   is   used   to  describe   actions   that   were   in   progress   at   a   certain   time   in   the   past?
+[583] P: LEARN
+[584] P: Past   Progressive:   Affirmative   and   Negative   Statements
+[585] P: Subject Was/  Were Verb   +   - ing I/He/She/It was working. You/We/They were Subject Was/  Were Verb   +   - ing I/He/She/It was working. You/We/They were Subject Was   Not/  Were   Not Verb   +   - ing I/He/She/It was   not  wasn’t sleeping. You/We/They were   not weren’t Subject Was   Not/  Were   Not Verb   +   - ing I/He/She/It was   not  wasn’t sleeping. You/We/They were   not weren’t
+[588] P: Negative Affirmative Negative Affirmative Use   the   past   progressive   to   talk   about   an  action that was in progress at a certain time in the past.
+[590] P: Remember:  Use the simple past for completed   or   repeated   past   actions, events, states, and feelings.
+[591] P: Remember:   Non-action   verbs   are   not usually used with the progressive.
+[592] P: were   studying
+[593] P: 9:00 now
+[594] P: They   were   studying   at   9:00   last   night.  Yesterday   I   rode   my   bike   to   work.
+[595] P: She   swam   every   day   last   week.
+[596] P: He   didn’t   like   the   movie.
+[597] P: I   saw   an   accident   last   night.
+[598] P: ✗   I   was   seeing   an   accident   last   night.
+[602] P: See   page   A1   for   spelling   rules   for   the   -ing   form   of   verbs.
+[605] P: Complete   each   sentence   with   the   past   progressive   form   of   the   verb(s)   in   parentheses.
+[606] P: Angelica  was   teaching   (teach)   her   local   language   in   the   evenings.
+[608] P: At   6:00   p.m.   many   people   in   town     (listen)   to   Angelica’s   show.
+[610] P: The radio    (play)   loud   dance   music   last   night.
+[612] P: We    (talk) to Carlos, but he    (not listen) to us.
+[613] P: Pedro    (look)   for   a   job   at   a   radio   station,   but   he   didn’t   find   one.
+[615] P: Tom and Karen    (live) in Guatemala last year.
+[617] P: The people next to us    (speak)   Spanish.   I   think   they   were  Mexican.
+[618] P: Steve    (sit) in the library, but he    (not study). He    (read) a magazine.
+[619] P: REAL   ENGLISH The   past   progressive   is   often   used   to  describe a scene in the past. The   café   was   full.   A   band   was   playing ,  and people  were talking  loudly. Everyone   was   enjoying   the   evening. REAL   ENGLISH The   past   progressive   is   often   used   to  describe a scene in the past. The   café   was   full.   A   band   was   playing ,  and people  were talking  loudly. Everyone   was   enjoying   the   evening.
+[622] P: UNIT   2   LESSON   2   35
+[624] P: WRITE   &   SPEAK.   Complete   the   sentences.   Use   the   past   progressive.   Make   two   of   your  sentences   negative.   Then   share   your   sentences   with   a   partner.
+[625] P: Last   night   at   9:00,     I   was   having   dinner   with   my   friends .
+[626] P: At   5:00   this   morning     .
+[628] P: Last  August    .
+[630] P: On Sunday morning    .
+[632] P: Two years ago    .
+[634] P: Yes/No   Questions Short   Answers Yes ,   she   was .   /   No ,   she   wasn’t . Yes ,   they  were . /   No , they  weren’t . Wh-   Questions Short   Answers He   was   working. At   the   library. Who   or   What   as   Subject Short   Answers Rita. My   car. Remember:  Who  or  What  can take the A:   Who   was   playing   that   loud   music   last   night? place of the subject in a  Wh - question. B: Alex and Rui. Yes/No   Questions Short   Answers Yes ,   she   was .   /   No ,   she   wasn’t . Yes ,   they  were . /   No , they  weren’t . Wh-   Questions Short   Answers He   was   working. At   the   library. Who   or   What   as   Subject Short   Answers Rita. My   car. Remember:  Who  or  What  can take the A:   Who   was   playing   that   loud   music   last   night? place of the subject in a  Wh - question. B: Alex and Rui. Past   Progressive:   Questions   and   Answers
+[636] TBL: [['Was/ Were', 'Subject', 'Verb + -ing', ''], ['Was', 'I/he/she', 'listening', 'to music?'], ['Were', 'you/we/they', 'eating', 'dinner?']]
+[639] TBL: [['Wh- Word', 'Was/ Were', 'Subject', 'Verb + -ing', ''], ['What', 'was', 'he', 'doing', 'at 3:00?'], ['Where', 'were', 'you', 'studying', 'last night?']]
+[642] TBL: [['Wh- Word', 'Was', 'Verb + -ing', ''], ['Who', 'was', 'singing', 'last night?'], ['What', 'was', 'making', 'that noise?']]
+[649] P: Use   the   words   in   parentheses   to   complete   the   questions   and   answers.   Use   the   past progressive.
+[650] P: A:   What  was Berta doing   (Berta   /   do)   in   the   evenings?  B:   She was teaching   (she  /  teach).
+[651] P: A:     (they  /  speak)  Spanish? B:   No,    .
+[652] P: A:     (you   /  wait)   for   me? B:   Yes,    .
+[653] P: A:   Where   (you  /  go) after class  yesterday?   B:    (I  /  go) home.
+[656] P: 36   THE   PAST
+[658] P: A:   Who     (Jane   /   talk)   to?
+[659] P: B:     (she   /   talk)   to   her   math   teacher.
+[661] P: A:   Why   (those people  /  cheer)? B:   Because   (their team  /  play) really well.
+[662] P: A:   What   (you  /  do) at 8:00 last  night? B:    (I  /  cook) dinner.
+[663] P: A:     (it   /  snow)   last   night? B:   No,    .
+[665] P: SPEAK.   Work   with   a   partner.   Take   turns   asking   and   answering   questions   4,   7,   and   8   from  exercise   6 .   Use   your   own   answers,   not   the   answers   from   the   book.
+[666] P: A:   Where   were   you   going   after   class   yesterday? B:   I   was   going   to   the   gym.
+[668] P: PRACTICE
+[669] P: Circle   the   correct   verb   forms   to   complete   each   situation.
+[670] P: We   (1)   were   listening   /   listened   to   a   great   band   last   night.   They   (2)   were   playing   /   played  three   songs,   and   then   they   (3)   were   stopping   /   stopped.   We   (4)   were   wanting   /   wanted   them to   play   more   songs,   but   they   didn’t.   We   (5)   were   leaving   /   left   and   (6)   were   asking   /   asked   for our money back.
+[671] P: Lily’s   watch   (7)   was   breaking   /   broke   yesterday   morning.   It   (8)   was   falling   /   fell   off   her
+[672] P: wrist   on   her   way   to   work.   She   (9)   was   walking   /   walked   out   of   the   subway   station   at   the   time, and   someone   (10)   was   stepping   /   stepped   on   it.   Last   night   after   work,   she   (11)   was   buying   /  bought  a new one.
+[673] P: I (12)  was sitting  /  sat  at the student center yesterday afternoon. Several students (13)  were studying  /  studied . Others (14)  were using  /  used  their phones. Then I (15)  was seeing  /  saw  my   friend,   Phil.   He   (16)   was   eating   /   ate   lunch   alone,   so   (17)   I   was   going   /   went   over   and
+[674] P: (18)   was   sitting   /   sat   with   him.
+[677] P: Complete   each   sentence   with   the   past   progressive   or   the   simple   past   form   of   a   verb   from  the box.
+[678] P: arrive die open own see sleep think walk arrive die open own see sleep think walk
+[679] P: The language  was   dying   .   Only   a   few   people   spoke   it.
+[681] P: I   saw   street   musicians   when   I     home last night.
+[683] P: Debbie    a   nice   car,   but   she   didn’t   drive   it   much.
+[684] P: UNIT   2   LESSON   2   37
+[686] P: I’m   surprised   Kumiko   is   here   today.   I     she was on vacation.
+[688] P: Marcia    to   the   meeting   15   minutes   late.   Her   boss   was   very   angry.
+[690] P: I    Andy   yesterday.   He   was   talking   to   some   friends.
+[692] P: My sister called me at midnight last night. I    ,   and   she   woke   me   up.
+[694] P: The   professor     the   door   and   left   the   room.
+[697] P: EDIT.   Read   the   information   about   Dr.   Gregory   Anderson’s   work   in   Siberia.   Find   and   correct  five   more   errors   with   the   simple   past   and   the   past   progressive.
+[715] P: Dr.   Anderson   in   Siberia
+[716] P: Dr. Anderson and his team made some interesting   discoveries   during   a   trip   to   Siberia   in
+[717] P: Russia.   They   were   studying   Xyzyl   ( hizzle ),   a   local
+[718] P: visited
+[719] P: language   there.   They   were   visiting   five   villages
+[720] P: during   their   trip,   and   they   found   that   50   to   60
+[721] P: people in those communities spoke Xyzyl in their daily lives. In one village, they were talking to an eleven-year-old girl called Kristina. She was knowing how to speak Xyzyl. Her grandmother was teaching   her.   Kristina   was   the   youngest   Xyzyl   speaker   in   the   village.
+[723] P: Most   of   the   other   Xyzyl   speakers   got   old.   Many   of   them   were   60   years   old   or   older.   It   was   clear that   the   Xyzyl   language   died.   Dr.   Anderson   and   his   team   studied   the   language,   and   they   were making recordings to help it survive.
+[727] P: APPLY.
+[728] P: Work   with   a   partner.   Write   interview   questions   for   Dr.   Anderson.   Use   the   information   from  exercise   10   and   the   words   below   to   help   you.   Use   the   simple   past   or   the   past   progressive.
+[729] P: where  /  your team go  Where   did   your   team   go?
+[730] P: how   many   villages   /   you   /   visit
+[732] P: who   /   you   /   talk   to   in   the   village
+[734] P: what   /   you   /   do   in   the   village
+[736] P: your   idea:
+[738] P: Role-play   a   radio   interview   with   Dr.   Anderson.   Partner   A   is   the   interviewer.   Partner   B   is   Dr. Anderson. Use your questions from exercise  A , the information from exercise  10 , and  your imagination.
+[745] P: 38   THE   PAS T
+[746] P: A:   So,   tell   us   about   your   trip,   Dr.   Anderson.   Where   did   your   team   go?
+[747] P: B:   We   went   to   Siberia.
+[751] P: Past   Time   Clauses LESSON   3 Past   Time   Clauses LESSON   3 EXPLORE
+[756] P: CD1- 11
+[757] P: READ   the   article   about   Jimmy   Chin,   a   mountain   climber   and   photographer. Notice the words in  bold .
+[759] P: Surviving   an   Avalanche
+[760] P: Jimmy Chin is one of the few people to survive a Class 4   avalanche—an   avalanche   big   enough   to   destroy   buildings. In 2011,  while he was skiing in the Teton Mountains ,
+[761] P: an avalanche started behind him. Chin was going down   the mountain  when, in his own words, “the whole   mountainside came down.”
+[762] P: The   avalanche   buried   Chin   under   tons   of   snow   and   carried him downhill. Halfway down, the rolling snow threw him to the surface. However, Chin was not safe.  When he looked
+[764] P: Jimmy Chin has climbed up  and skied down Mount Everest, the world’s highest mountain.
+[765] P: up ,   trees   were   snapping   all   around   him.   The   snow   was   still moving fast. Soon the avalanche buried him again.
+[767] P: “I   knew   I   was   going   to   the   bottom   of   the   valley,”   he   remembers.   Amazingly, 1   when   the  avalanche   reached   the   bottom   of   the   mountain,   Chin   was   pushed   to   the   surface!   He   was   alive  and   on   top   of   the   snow   when   his   very   surprised   friends   reached   the   bottom   of   the   valley .
+[768] P: After   this   experience,   Chin   took   a   month   off   from   work.   “It’s   important   to   do   what’s meaningful to you,” he says. “You don’t want to take your time for granted.” 2
+[770] P: 1   amazingly:   (very)   surprisingly
+[771] P: 2   take   something   for   granted:   not   be   grateful   enough   for   something
+[777] P: An avalanche carries hundreds of tons of snow down a mountain.
+[799] P: UNIT   2   LESSON   3   39
+[800] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[801] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[803] P: 4 4 CHECK.   Read   the   statements.   Circle   T   for   true   or   F   for   false .   Then   correct   the   false   statements  to make them true.
+[805] TBL: [['1. A Class 1 avalanche can destroy buildings.', 'T', 'F'], ['2. Jimmy Chin was skiing alone in the Tetons.', 'T', 'F'], ['3. The avalanche buried Chin at first.', 'T', 'F'], ['4. Chin’s friends had to dig him out of the snow.', 'T', 'F'], ['5. Chin decided to take a break after this experience.', 'T', 'F']]
+[808] P: DISCOVER.   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[809] P: Look   at   the   two   underlined   events   in   each   sentence   from   the   article   in   exercise   1 .   Write   1
+[810] P: above   the   event   that   started   first.
+[811] P: In   2011,   while   he   was   skiing   in   the   Teton   Mountains ,   an   avalanche   started   behind   him .
+[813] P: When   he   looked   up ,   trees   were   snapping   all   around   him .
+[815] P: Circle   the   correct   answer   to   complete   each   statement.
+[816] P: The   simple   past   /   past   progressive   form   is   used   for   the   event   that   starts   first.
+[818] P: The   simple   past   /   past   progressive   form   is   used   for   the   event   that   interrupted   another   event.
+[826] P: Jimmy   Chin climbing in  California
+[856] P: 40   THE   PAST
+[857] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[858] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[860] P: LEARN
+[861] P: When The   storm   began   when   I   was   driving   home . While The   storm   began   while   we   were   walking   home . Main   Clause Past   Time   Clause Main   Clause Past   Time   Clause When   I   was   driving   home ,   the   storm   began. While   we   were   walking   home ,   the   storm   began. Past   Time   Clause Main   Clause Past   Time   Clause Main   Clause I   was   sleeping   when   you   texted   me . You   texted   me   while   I   was   sleeping . Main   Clause Past   Time   Clause Main   Clause Past   Time   Clause When The   storm   began   when   I   was   driving   home . While The   storm   began   while   we   were   walking   home . Main   Clause Past   Time   Clause Main   Clause Past   Time   Clause When   I   was   driving   home ,   the   storm   began. While   we   were   walking   home ,   the   storm   began. Past   Time   Clause Main   Clause Past   Time   Clause Main   Clause I   was   sleeping   when   you   texted   me . You   texted   me   while   I   was   sleeping . Main   Clause Past   Time   Clause Main   Clause Past   Time   Clause Past   Time   Clauses   with   When   and   While
+[872] TBL: [['1. A clause is a group of words with a subject and a verb. A main clause can stand alone as a complete sentence.', 'Elena called last night while I was cooking dinner.Main ClausePast Time Clause'], ['2. A past time clause tells when an action or event happened. A past time clause can come before or after the main clause.', 'When it started to snow, I was walking home. It started to snow while I was walking home.'], ['3. Use while or when + the past progressive to show that one action was in progress when another action happened.', 'I broke my leg when I was skiing.Second ActionAction in ProgressIris called while I was cooking dinner.Second ActionAction in Progress'], ['4. Use when + the simple past for an action or event that happened at a specific point in the past.', 'I was painting the living room when I fell off the ladder.Action in ProgressAction at a Point in the Past'], ['5. Use a comma when the time clause comes at the beginning of a sentence.', 'When we were taking the exam, the lights went out. The lights went out when we were taking the exam.']]
+[875] P: Circle   the   correct   form   of   the   verb(s)   to   complete   each   sentence.
+[876] P: Jimmy   Chin   skied   /   was   skiing   when   the   avalanche   began   /   was   beginning .
+[878] P: When   Chin’s   friends   reached   /   were   reaching   him,   he   lay   /   was   lying   on   top   of   the   snow.
+[880] P: Terry   lost   /   was   losing   his   watch   when   he   swam   /   was   swimming   in   the   ocean.
+[882] P: Mark   and   Dan’s   boat   sank   /   was   sinking   while   they   fished   /   were   fishing .
+[884] P: I   cut   /   was   cutting   my   finger   when   I   cooked   /   was   cooking   dinner.
+[886] P: While   Jean   shopped   /   was   shopping ,   the   fire   alarm   went   off   /   was   going   off   in   the   store.
+[888] P: Carla   found   /   was   finding   fifty   dollars   when   she   walked   /   was   walking   home   yesterday.
+[890] P: Andre   prepared   /   was   preparing   for   the   party   when   he   suddenly   felt   /   was   feeling   sick.
+[892] P: My   pencil   broke   /   was   breaking   while   I   took   /   was   taking   the   exam.
+[894] P: Padma  heard  /  was hearing  a strange noise when she  hiked  /  was hiking  in  the woods yesterday afternoon.
+[898] P: UNIT   2   LESSON   3   41
+[900] P: Past   Time   Clauses   with   When :   Events   in   Sequence
+[902] TBL: [['1. When two actions happened one after the other, use the simple past in the past time clause and the main clause. Use when to introduce the past time clause.', 'When her phone rang, she answered it. Past Time ClauseMain Clause'], ['2. The past time clause can come first or second in the sentence. The action or event in the past time clause happened first.', 'When I got home, I took a shower. First EventSecond EventI took a shower when I got home.Second EventFirst Event'], ['3. Remember: Use a comma when the past time clause comes first in the sentence.', 'When Joe saw the accident, he called the police.']]
+[905] P: Read   each   sentence.   Which   action   or   event   happened   first?   Which   action   or   event   happened second?   Write   1   for   first   and   2   for   second   below   each   action.   Add   a   comma   if   necessary.
+[906] P: ( 1 ) , ( 2 ) ( 1 ) , ( 2 ) When   the   storm   ended   the   workers   began   to   clean   up.
+[909] P: When   Tuan   got   out   of   the   hospital   he   made   plans   for   a   vacation .
+[910] P: (    ) (    )
+[912] P: We looked out the window  when  we heard the  noise .   (   ) (   )
+[913] P: When   she   saw   the   fire   in   her   kitchen   Michelle   screamed   for   help .
+[914] P: (    ) (    )
+[916] P: My   son   called   me   when   his   plane   landed . (   ) (   )
+[917] P: The   music   started   when   the   bride   and   groom   walked   into   the   room . (   ) (   )
+[918] P: When   the   phone   rang   Isabelle   turned   the   TV   off .
+[919] P: (    ) (    )
+[921] P: I called my parents  when  I received my exam  results .   (   ) (   )
+[923] P: Complete   each   sentence   with   the   correct   form   of   the   verb   in   parentheses.
+[924] P: Eric   finished   his   assignment   when   he   got   (get)  home.
+[926] P: When Vicky    (put)   her   bag   on   the   floor,   a   thief   stole   it.
+[928] P: When   Max’s   car   broke   down,   he     (walk)   to   the   nearest   gas   station.
+[930] P: My   sister   laughed   when   I     (tell)   her   the   joke.
+[932] P: Juanita   smiled   when   she     (hear)   the   good   news.
+[936] P: 42   THE   PAST
+[938] P: We    (buy)   our   tickets   when   we   got   to   the   station.
+[940] P: Sylvie   closed   the   window   when   it     (start) to rain.
+[942] P: I   lit   some   candles   when   the   electricity     (go) out.
+[945] P: SPEAK.   Work   with   a   partner.   Complete   the   sentences.
+[946] P: When   I   woke   up   this   morning   .   .   .   When   I   woke   up   this   morning,   I   called   my   parents.
+[947] P: When   I   got   to   class   .   .   .
+[948] P: When   I   finished   my   homework   .   .   .
+[950] P: PRACTICE
+[951] P: Look   at   the   time   line   about   a   mine   accident   in   Chile.   Then   complete  each   sentence   with   the   simple   past   or   past   progressive   form   of   a   verb  from the box.
+[954] P: 0 Aug   5:   33   miners   were   trapped   underground   in   a   mine.   (Day   1)
+[955] P: 10 Aug   22:   Rescuers   discovered   that   all   33   miners   were   alive.   (Day   17)
+[956] P: 20 Aug 30:   The   drills 1   started   to   work.   (Day   26)
+[957] P: 30
+[958] P: DAY DAY 40
+[959] P: 50
+[960] P: Oct   9:   One   of   the   drills   reached   the   miners.   (Day   66)
+[961] P: 60
+[962] P: Oct   13:   Rescuers   lifted   all   33   miners   to   safety.   (Day   69)
+[963] P: 70
+[964] P: 80 Oct   24:   National   celebration   for   the   miners   in   Santiago,   Chile   (Day   80)
+[967] P: 1 drill:   a   machine   that   makes   a   round   hole
+[968] P: arrive attach begin complete fall read wait watch arrive attach begin complete fall read wait watch
+[970] P: On   August   5,   2010,   when   33   miners   were   working   in   a   mine   in   Chile,   the   roof
+[971] P: fell and   trapped   them.
+[973] P: While the miners’ families anxiously for news, the mining  company began its rescue attempts.
+[974] P: When those attempts failed, the government    a huge  rescue  operation.
+[975] P: When the necessary equipment    at the scene, the rescue  team started to search for the miners.
+[976] P: When   one   of   the   drills   reached   the   miners,   the   miners     a   note   to   it.
+[979] P: UNIT   2   LESSON   3   43
+[981] P: When the rescue team    the note, they discovered that all 33 of the  miners were alive.
+[982] P: When the rescue team    the escape route, they began to lift the miners  out   of the mine.
+[983] P: Millions of people all over the world    on   TV   when   the   rescue   workers lifted the last man out of the mine.
+[989] P: CD1- 12
+[996] P: CD1- 12
+[997] P: LISTEN.
+[998] P: Listen   to   the   conversation   about   Ernest   Shackleton.   Then   answer   the   questions.
+[999] P: How   many   men   were   with   Shackleton   on   the   ship?
+[1001] P: In   what   year   did   Shackleton’s   ship   become   trapped   in   the   ice?
+[1003] P: Did the men all survive?
+[1005] P: Complete   each   sentence   with   the   simple   past   or   the   past   progressive   form   of   the   verb(s)   in  parentheses. Then listen again and check your answers.
+[1006] P: The  Endurance  was   approaching   (approach)   Antarctica   in   January   1915   when   it
+[1007] P: (become)   locked   in   the   ice.
+[1009] P: When   the   ocean   water    (freeze), ice
+[1010] P: (surround)   the   ship.
+[1012] P: Shackleton and his men    (stay)   on   the   Endurance   at   first,   and then they    (make) a camp on the ice.
+[1013] P: They    (wait)   for   nine   months,   but   the   ice
+[1015] P: (not   release)   the   ship. The   crew   of   the   Endurance   plays   soccer   to pass   the   time.   Their   ship   is   in   the   background. 44   THE   PAST Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.   (not   release)   the   ship. The   crew   of   the   Endurance   plays   soccer   to pass   the   time.   Their   ship   is   in   the   background. 44   THE   PAST Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s). Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1017] P: Then one day, while some of the men    (arrange) supplies on  the ice, the ship    (begin) to break up.
+[1018] P: When the  Endurance    (start)   to   sink,   Shackleton
+[1019] P: (decide)   to   take   his   men   across   the   ice   on   foot.
+[1021] P: While Shackleton and five of his men    (try)   to   reach   the   island of South Georgia to find help, the others    (spend)   several   more  months at the camp on the ice.
+[1022] P: When Shackleton and his men    (arrive) in Chile, they
+[1023] P: (receive) a hero’s welcome.
+[1026] P: APPLY.
+[1027] P: Read   Marta’s   blog   entry.   Underline   the   past   time   clauses.
+[1028] P: You won’t believe what happened to me tonight!   While I was   crossing Newton Street, a truck went through a red light. The driver was texting when the light changed. He wasn’t looking   at   the   road.   When   I   jumped   out   of   the   way,   I   fell   onto the sidewalk and cut my knee. I was wearing my new jeans, too!   When   I   got   home,   I   took   care   of   my   knee   and   then   called the   police.   Fortunately,   I   got   the   truck’s   license   number   while I was lying in the street. You won’t believe what happened to me tonight!   While I was   crossing Newton Street, a truck went through a red light. The driver was texting when the light changed. He wasn’t looking   at   the   road.   When   I   jumped   out   of   the   way,   I   fell   onto the sidewalk and cut my knee. I was wearing my new jeans, too!   When   I   got   home,   I   took   care   of   my   knee   and   then   called the   police.   Fortunately,   I   got   the   truck’s   license   number   while I was lying in the street.
+[1030] P: Work   with   a   partner.   Close   your   books   and   take   turns   retelling   the   story   about   Marta’s  accident. Use past time clauses.
+[1031] P: Think   of   an   accident   that   you   or   someone   you   know   had.   Take   notes   in   the   chart.   Use   the  questions to help you.
+[1033] TBL: [['When did the accident happen?', ''], ['Where were you?', ''], ['What were you doing?', ''], ['What happened?', ''], ['What happened next?', '']]
+[1035] P: In   your   notebook,   write   a   paragraph   about   your   accident.   Use   your   notes   from   exercise   C  and   Marta’s   blog   entry   as   a   model.   Use   at   least   five   past   time   clauses.   When   you   are   finished,  read   your   story   to   a   partner   or   small   group.
+[1036] P: UNIT   2   LESSON   3   45
+[1037] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1038] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1040] P: LESSON   4 LESSON   4    Repeated   Past   Actions:   Used   To   and   Would
+[1042] P: EXPLORE
+[1047] P: CD1- 13
+[1048] P: READ  the   conversation   between   two   visitors   to   the   British  Museum in London, England. Notice the words in  bold .
+[1049] P: Who   Owns   the   Past?
+[1050] P: Cho: These   statues   are   beautiful.   Where   are   they   from?
+[1051] P: Noriko: They’re   from Athens, Greece. I think   they  used   to   be  a   part of the  Parthenon.
+[1052] P: Cho: Well, it’s wonderful to see them, but why are they here in London? They should   be   back   in   Greece   with   the   rest   of   the   Parthenon.
+[1053] P: Noriko: A   lot   of   people   agree   with   you.   Lord   Elgin,   a   British   diplomat, 1   brought   these statues to London in the early nineteenth century.
+[1054] P: Cho: You   mean   he   just   took   them?
+[1055] P: Noriko: Well, I don’t know. I’m not sure what really happened. Back then archaeologists 2   used   to   do   things   like   that.   They   would   explore   a   historic   site   and   bring objects   from   the   site   back   to   their   home   countries.   Then,   they   would   study  them and put them on display in museums. Sometimes, that’s the only reason treasures like these survived.
+[1056] P: Cho: But   didn’t   the   Greek   people   try   to   stop   Lord   Elgin?
+[1057] P: Noriko: Sure, there were a lot of complaints. Was it right or wrong to take these statues?   It’s   a   difficult   question.   I   love   to   visit   museums   and   see   things   from around the world and learn about them.
+[1058] P: Cho: Hmm   . . . I understand what you’re saying,  but
+[1059] P: it   still   seems   wrong   to   me,   somehow. 1   diplomat:   a   person   who   acts   as  the
+[1060] P: official   representative   of   his   or   her
+[1061] P: country   in   a   foreign   country
+[1062] P: 2  archaeologist:  a person who studies the past by looking at items such as buried houses, tools, pots, etc.
+[1072] P: A statue of a horse’s   head from the Parthenon,
+[1073] P: Acropolis, Athens, Greece 447-432 B.C.
+[1082] P: 46   THE   PAST
+[1115] P: A   carving   from   the   Parthenon,   Acropolis,   Athens,   Greece
+[1117] P: CHECK.   Read   the   statements.   Circle   T   for   true   or   F   for   false .
+[1118] P: The   statues   are   from   Italy. T F
+[1119] P: The   statues   came   to   England   in   the   20th   century. T F
+[1120] P: Cho   thinks   the   statues   should   go   back   to   Greece. T F
+[1121] P: In   the   past,   it   was   not   unusual   for   archaeologists   to   bring   discoveries   home. T F
+[1122] P: Cho   and   Noriko   agree   about   the   future   of   the   statues. T F
+[1125] P: DISCOVER.   Complete   the   exercises   to   learn   about   the   grammar   in   this   lesson.
+[1126] P: Look   at   these   sentences   from   the   conversation   in   exercise   1 .   Decide   whether   the   bold   verb   in  each   sentence   refers   to   a   single   action   (S)  or   a   repeated   action   (R) .   Write   S   or   R .
+[1127] P: S     Lord   Elgin   .   .   .   brought   these   statues   to   London   in   the   early   nineteenth   century.
+[1129] P: You mean he just  took  them?
+[1131] P: Back   then   archaeologists   used to do   things   like   that.
+[1133] P: They  would   explore  a historic site and bring objects from the site back to their   home countries.
+[1134] P: Then,   they   would study   them   and   put   them   on   display   in   museums.
+[1136] P: Look   at   the   sentences   from   exercise   A .   Which   verb   forms   are   used   for   repeated   actions?
+[1137] P: Discuss   your   answer   with   your   classmates   and   teacher.
+[1142] P: UNIT   2   LESSON   4   47
+[1144] P: LEARN
+[1145] P: Used   To:   Affirmative   and   Negative   Statements
+[1146] P: REAL   ENGLISH Use  used to  instead of the simple past to emphasize that  the   habit   or   state   is   not   true   now. When   I   was   young,   I   used   to  go  to the beach every day. Didn’t   Use   To Base   Form Subject Used   To Base   Form Subject REAL   ENGLISH Use  used to  instead of the simple past to emphasize that  the   habit   or   state   is   not   true   now. When   I   was   young,   I   used   to  go  to the beach every day. Didn’t   Use   To Base   Form Subject Used   To Base   Form Subject Affirmative Negative
+[1148] P: I/She/They used   to study history. I/She/They didn’t   use   to study math.
+[1151] P: Used   to   expresses   a   habit   or   state   in  the past that no longer exists.
+[1153] P: In   negative   statements   use   use   to ,  not  used to .
+[1154] P: I   used to run   several   times   a   week.   (Now,   I   don’t.)  I   used   to   live   in   a   small   town.   (I   live   in   a   city   now.)  I  didn’t   use   to   eat   meat.   (I   do   now.)
+[1155] P: I   didn’t   use   to   love   math.
+[1168] P: Rewrite   each   sentence   with   used   to   or   didn’t   use   to   and   the   verb   in   bold .
+[1169] P: Archaeologists   removed   objects   from   historic   sites.
+[1170] P: Archaeologists   used   to   remove   objects   from   historic   sites.
+[1172] P: I   went   to   museums   every   weekend   when   I   lived   in   Berlin.
+[1175] P: My   cousin   lived   across   the   street,   but   I   didn’t   see   him   much.
+[1178] P: Jim   didn’t   like  math   when he was in  school.
+[1181] P: There   was   a   supermarket   near   my   home   until   last   year.
+[1184] P: Carole   played  in a band in  college.
+[1187] P: I   didn’t   drive   much   when   I   lived   downtown.
+[1190] P: Mike   worked   in   a   bank   before   he   got   his   new   job.
+[1194] P: 48   THE   PAST
+[1196] P: Yes/No   Questions Answers Yes ,   he   did .   /   No ,   he   didn’t . Yes ,   they   did .   /   No ,   they   didn’t . Wh-   Questions Answers In   Mexico. My   friend,   Felix. Who   or   What   as   Subject Answers Professor   Ortiz. A   shoe   store. When   a   question   includes   did ,   use   use   to ,   not Did   you   use   to   live   here? used   to . Where   did   she   use   to   work? Remember:  Who  or  What  can take the place of ✓   Who   used   to   live   in   that   house?  the subject in a  Wh - question. ✗   Who   use   to   live   in   that   house? Be   careful!   When   Who   or   What   is   the   subject   of the question, use  used to , not  use to . Yes/No   Questions Answers Yes ,   he   did .   /   No ,   he   didn’t . Yes ,   they   did .   /   No ,   they   didn’t . Wh-   Questions Answers In   Mexico. My   friend,   Felix. Who   or   What   as   Subject Answers Professor   Ortiz. A   shoe   store. When   a   question   includes   did ,   use   use   to ,   not Did   you   use   to   live   here? used   to . Where   did   she   use   to   work? Remember:  Who  or  What  can take the place of ✓   Who   used   to   live   in   that   house?  the subject in a  Wh - question. ✗   Who   use   to   live   in   that   house? Be   careful!   When   Who   or   What   is   the   subject   of the question, use  used to , not  use to . Used   To:   Questions   and   Answers
+[1198] TBL: [['Did', 'Subject', 'Use To', 'Base Form', ''], ['Did', 'he', 'use to', 'get', 'good grades?'], ['', 'they', '', '', '']]
+[1200] TBL: [['Wh- Word', 'Did', 'Subject', 'Use To', 'Base Form', ''], ['Where', 'did', 'she', 'use to', 'live?', ''], ['Who', '', 'you', '', 'study', 'with?']]
+[1203] TBL: [['Wh- Word', 'Used To', 'Base Form', ''], ['Who', 'used to', 'teach', 'this class?'], ['What', '', 'be', 'here?']]
+[1215] P: Complete   each   question   with   the   words   in   parentheses.   Use   the   correct   form   of   used   to .
+[1216] P: Did   you   use   to   ride   (you   /   ride)   a   bike   when   you   were   a   child?
+[1218] P: What    (you  /  do) after school when  you were a child?
+[1219] P: (your   family   /   live)   in   a   different   place?
+[1221] P: Where    (your   mother   /   work)?
+[1223] P: What    (your family  /  do) on the  weekends when you were a child?
+[1224] P: Who    (be)   your   English   teacher?
+[1226] P: (you   /   visit)   your   friends   often?
+[1228] P: Where    (you   /   go)   on   vacation?
+[1231] P: REAL   ENGLISH When   the   phrases   used   to   or   use   to  are   used   to   talk   about   the   past,   they  are often pronounced / yusta /. REAL   ENGLISH When   the   phrases   used   to   or   use   to  are   used   to   talk   about   the   past,   they  are often pronounced / yusta /. SPEAK.   Work   with   a   partner.   Ask   and   answer   the   questions   from   exercise   5 .
+[1232] P: A:   Did   you   use   to   ride   a   bike   when   you   were   a   child?
+[1233] P: B:   Yes,   I   did.
+[1237] P: UNIT   2   LESSON   4   49
+[1239] P: Affirmative   and   Negative   Statements Would  expresses a repeated past action or habit In   high   school,   we   would   play   soccer   every that no longer exists. afternoon. As   a   child,   I   wouldn’t   study ,   but   I   would   get  good   grades. Be careful!  Do not use  would  for past situations ✓ There   used   to   be   a   library   on   this   street.  or states that no longer exist. Use  used to  or ✗   There   would   be   a   library   on   this   street.  use   to . ✓ He  didn’t use to live  on Palm Street. ✗   He   wouldn’t   live   on   Palm   Street. Affirmative   and   Negative   Statements Would  expresses a repeated past action or habit In   high   school,   we   would   play   soccer   every that no longer exists. afternoon. As   a   child,   I   wouldn’t   study ,   but   I   would   get  good   grades. Be careful!  Do not use  would  for past situations ✓ There   used   to   be   a   library   on   this   street.  or states that no longer exist. Use  used to  or ✗   There   would   be   a   library   on   this   street.  use   to . ✓ He  didn’t use to live  on Palm Street. ✗   He   wouldn’t   live   on   Palm   Street. Would :   Repeated   Past   Actions
+[1241] TBL: [['', 'Subject', 'Would/ Would Not', 'Base Form', ''], ['When I was in high school,', 'I', 'would ’d', 'ride', 'my bike to school.'], ['When Scott was a child,', 'he', 'would not wouldn’t', 'eat', 'any vegetables.']]
+[1252] P: Complete   each   sentence.   Use   would   and   the   verb   in   parentheses.
+[1253] P: When   I   was   a   child,   my   father     (take)   me   to   the   zoo   about   once   a   month.
+[1255] P: In high school, my brother    (not   start)   his   homework   until   around  midnight.
+[1256] P: When   Alicia   was   a   child,   she     (play)   with   her   friends   after   school.
+[1258] P: When   my   parents   were   in   school,   they     (eat)   lunch   at   home   every   day.
+[1260] P: In   college,   I   often     (not   go)   to   bed   until   3:00   a.m.
+[1262] P: My   grandfather   used   to   work   very   hard   during   the   week,   but   on   the   weekends   he
+[1263] P: (relax).
+[1265] P: In college, Sandra    (study)   for   about   six   hours   every   day.
+[1267] P: When I was in high school, I    (sit)   in   the   back   of   the   classroom   and   draw in my notebook.
+[1268] P: When Kyle was on the soccer team, he    (run)   five   miles   every   morning  before school.
+[1269] P: We    (go)   to   the   market   every   day   when   we   lived   in   France.
+[1282] P: 50   THE   PAST
+[1284] P: PRACTICE
+[1289] P: CD1- 14
+[1290] P: Complete   the   article   about   the   Iceman   with   the   words   and   phrases   from   the   chart.   Use   each word   or   phrase   only   once.   Then   listen   and   check   your   answers.
+[1292] TBL: [['Used To', 'Would', '', 'Simple Past'], ['used to hunt used to think', 'wouldn’t come would go', 'didn’t grow discovered', 'didn’t spend found', 'killed used']]
+[1294] P: The   Iceman
+[1295] P: Back   in   1991,   hikers   in   the   mountains   near   the   border   of   Austria   and   Italy   (1)     discovered   the   body   of   a   man   in   the   ice.   Scientists   soon   learned   that   the   body   was   over   5000   years   old.   They called the man the “Iceman.”
+[1296] P: Scientists (2)    that the Iceman died from the cold. Five   thousand years ago, people of central Europe (3)    wild animals   for food. They (4)    up into the mountains in all kinds of weather,   and sometimes they (5)    back. Then, in 2001, scientists found part of an arrow in the Iceman’s body. Somebody (6)    the Iceman, and we will probably never know why.
+[1297] P: After more recent tests, scientists now think the Iceman was not just a hunter. They   think he probably had a higher position in society, and (7)    a   lot   of   time   in   the   mountains.   Before   the   most   recent   tests,   scientists   believed   that   people in the Iceman’s community (8)    crops. 1   However, they
+[1298] P: (9)    small pieces of stone in the Iceman’s stomach. This suggests   that the Iceman’s people (10)    stones to grind 2   flour for some kind of bread.
+[1299] P: Even   though   the   Iceman   died   over   5000   years   ago,   we   know   a   lot   about   his   life   thanks   to scientific research.
+[1301] P: 1   crops:   plants   that   people   grow   for   food
+[1302] P: 2   grind:   to   rub   something   until   it   becomes   a   powder
+[1309] P: How   the   Iceman died used to be   a mystery. Now scientists think they have the  answer.
+[1318] P: UNIT   2   LESSON   4   51
+[1319] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1320] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1322] P: WRITE.   Look   at   the   information   in   the   chart   about   people   5000   years   ago   and   people   today. Then   write   six   sentences   using   used   to ,   didn’t   use   to ,   or   would .
+[1324] TBL: [['People 5000 Years AgoPeople Today'], ['hunt animals, gather fruit and nuts cook over firelive in caves or simple shelters use animal skins for clothing', 'buy food in grocery stores cook with stoveslive in houses or apartmentsbuy clothing in stores or make clothing from cloth']]
+[1325] P: People   didn’t   use   to   buy   food   in   a   grocery   store.
+[1326] P: 1.
+[1328] P: 2.
+[1330] P: 3.
+[1332] P: 4.
+[1334] P: 5.
+[1336] P: 6.
+[1339] P: APPLY.
+[1340] P: A   few   years   ago   Brian   was   not   happy,   so   he   made   some   changes.   Look   at   the   chart.   What changes did he make? Discuss them with a partner.
+[1341] P: Brian   used   to   be   unhappy,   and   he   didn’t   have   many   friends .   He   joined   a   band   last   year.   Now   .   .   .
+[1343] TBL: [['Brian'], ['In the Past', 'Change', 'Now'], ['lonely, didn’t have many friends', 'joined a band last year', 'happy, has new friends'], ['unhealthy', 'bought a bike a few months ago', 'healthy'], ['always arrived late for class and work', 'learned to drive last month', 'always arrives on time']]
+[1345] P: Think   about   some   changes   you   have   made   in   your   life.   In   your   notebook,   make   a   chart   like  the   one   in   exercise   A  and   write   notes   about   three   of   these   changes.
+[1346] P: Work   with   a   partner.   Take   turns   talking   about   the   changes   in   your   life.   Use   used   to ,   didn’t   use  to , and  would .
+[1347] P: In   your   notebook,   write   a   short   paragraph   of   four   or   five   sentences   about   one   of   the   changes  you made.
+[1349] P: A   couple   of   years   ago,   I   used   to   feel   lonely   all   the   time.   I   would   stay   home   at  night   and   watch   TV   .   .   .
+[1357] P: 52   THE   PAST
+[1358] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1359] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1365] P: UNIT   2 Review   the   Grammar UNIT   2 Review   the   Grammar Charts  2.1– 2.9
+[1393] P: Charts  2.1– 2.7
+[1394] P: Circle   the   correct   word(s)   or   phrase(s)   to   complete   each   sentence.
+[1395] P: Hundreds   of   years   ago,   people   used   to   believe   /   would   believe   that   the   Earth   was   flat.
+[1397] P: My   brother   put   /   was   putting   the   phone   down   while   I   talked   /   was   talking   to   him.
+[1399] P: When   the   plane   landed   /   was   landing   safely,   everyone   started   /   was   starting   to   clap.
+[1401] P: When   my   grandfather   was   young,   he   was   walking   /   would   walk   five   miles   to   school   every   day.
+[1403] P: How   many   reports   did   Malik   write   /   did   Malik   use   to   write   last   week?
+[1405] P: Lisa   used   to   live   /   would   live   in   Miami,   but   then   she   moved   /   was   moving   to   Paris.
+[1407] P: Were   you   going   /   Did   you   use   to   go   to   Central   Park   a   lot   when   you   were   living   /   would   live
+[1408] P: in New   York?
+[1410] P: Yuri   drove   /   was   driving   home   when   his   car   broke   down   /   was   breaking   down .
+[1412] P: I   wanted   /   used   to   want   to   see   the   show,   but   I   couldn’t   get   a   ticket.
+[1414] P: Did   you   use   to   play   /   Were   you   playing   tennis   when   you   hurt   /   were   hurting   your   arm?
+[1417] P: Complete   each   sentence   or   question   with   the   word(s)   in   parentheses.   Use   the   simple   past,  the   past   progressive,   or   used   to .   There   is   more   than   one   correct   answer   for   some   items.
+[1418] P: While I  was   siting   (sit) in the airport lounge, I  saw   (see)  a famous actor.
+[1419] P: Irina    (write)   poems,   but   now   she   writes   short   stories   instead.
+[1421] P: Martin    (try)   to   turn   on   his   computer,   but   nothing
+[1422] P: (happen).
+[1424] P: When   my   brother   and   I     (be)   young,   we
+[1425] P: (play)   games   with   my   parents   in   the   evenings.
+[1427] P: (you   /   have)   trouble   with   the   alphabet   when   you
+[1428] P: (learn) Arabic?
+[1430] P: We    (go)   to   the   movies   three   times   last   week.
+[1432] P: I    (work) when you    (call), so I    (not answer) the phone.
+[1433] P: When Stephanie was a child, she    (visit) her  grandparents twice a month.
+[1441] P: UNIT   2   REVIEW   THE   GRAMMAR   53
+[1442] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1443] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1449] P: Review   the   Grammar UNIT   2 Review   the   Grammar UNIT   2 Charts  2.1,   2.3,
+[1450] P: 2.5,   2.9
+[1451] P: EDIT.   Read   the   paragraph   about   stepped   wells   in   India.   Find   and   correct   six   more   errors   with  the   simple   past,   the   past   progressive,   and   would .
+[1453] P: Stepped   Wells   in   India
+[1454] P: Northern   India   is   very   hot.   The   area   gets   a   lot   of   rain,   but   the   water   disappears   very   quickly
+[1455] P: began
+[1456] P: because   of   the   heat.   Around   1500   years   ago,   the   people   of   northern   India   used   to   begin   to
+[1457] P: build   stepped   wells   to   provide   water   for   the   population.   They   dug   deep   holes   to   reach   water underground, and they were making rock walls for the wells. In each well, they builded stone steps   and   passages   to   help   people   reach   the   water   easily.   They   often   were   decorating   the   walls   of the passages with beautiful designs.
+[1458] P: The   stepped   wells   were   long   and   narrow.   They   were   cool,   dark   places,   and   they   were   often having   special   rooms   away   from   the   heat.   While   people   were   collecting   water,   they   would   took some time out of their busy days and talk with their neighbors. The wells becomed important social centers.
+[1469] P: A visitor   walks  into a stepped well in northern India.
+[1475] P: Charts  2.1,   2.3,
+[1476] P: 2.5
+[1478] P: CD1- 15
+[1479] P: LISTEN   &   WRITE.
+[1480] P: Eric   Nerhus Ben   Nyaumbe Kootoo   Shaw James   Morrow Activity diving Animal polar   bear Place Kenya Reason   for   Survival his   face  mask  protected  him Eric   Nerhus Ben   Nyaumbe Kootoo   Shaw James   Morrow Activity diving Animal polar   bear Place Kenya Reason   for   Survival his   face  mask  protected  him Look   at   the   photos   on   page   55.   Then   listen   to   the   stories   of   four   people   who   survived   attacks  by   wild   animals.   Complete   the   chart   with   information   about   each   person’s   story.
+[1498] P: 54   THE   PAST
+[1499] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1500] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1502] P: an   alligator a   python
+[1517] P: a   shark a   polar   bear
+[1532] P: CD1- 15
+[1533] P: Write   sentences   about   each   story   from   exercise   A .   Use   the   information   in   the   chart,   the  simple   past,   the   past   progressive,   and   past   time   clauses.   Then   listen   again   and   check your sentences.
+[1534] P: While   Eric   Nerhus   was   diving   in   Australia,   a   shark   atacked   him.   He   survived  because   the   shark   bit   his   belt.
+[1552] P: Charts  2.1– 2.6
+[1553] P: SPEAK.
+[1554] P: Think   of   a   dangerous   situation   that   you   or   someone   you   know   was   in.   What   happened?   What  did   you   or   this   person   do?   How   did   you   or   this   person   survive?   Write   notes   in   your   notebook.
+[1556] P: Work   with   a   partner.   Take   turns   telling   your   stories   from   exercise   A .   Use   the   simple   past,   the  past   progressive,   and   past   time   clauses.   Ask   your   partner   questions   for   more   information  about his or her story.
+[1560] P: UNIT   2   REVIEW   THE   GRAMMAR   55
+[1561] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1562] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1568] P: Connect   the   Grammar   to   Writing Connect   the   Grammar   to   Writing READ   &   NOTICE   THE   GRAMMAR.
+[1569] P: Read   the   story.   What   difficult   experience   did   the   writer   have?   How   did   she   survive?   Discuss   the  writer’s   experience   with   a   partner.
+[1572] P: A   flooded   river   in York, England
+[1573] P: Remembering   a  Spring Flood
+[1574] P: GRAMMAR   FOCUS In   the   story,   the   writer   uses   the   simple   past   to   talk   about   completed   actions   and   events. I   looked   out   my   window. My parents  came   and  got   me. The   writer   uses   the   past   progressive   to   describe   a   scene   in   the   past. The   river   was   rising   very   quickly. The   writer   uses   past   time   clauses   to   describe   when   actions   or   events   happened. When   I   was   a   young   girl,   we   lived   near   a   river. GRAMMAR   FOCUS In   the   story,   the   writer   uses   the   simple   past   to   talk   about   completed   actions   and   events. I   looked   out   my   window. My parents  came   and  got   me. The   writer   uses   the   past   progressive   to   describe   a   scene   in   the   past. The   river   was   rising   very   quickly. The   writer   uses   past   time   clauses   to   describe   when   actions   or   events   happened. When   I   was   a   young   girl,   we   lived   near   a   river. When   I   was   a   young   girl,   we   lived   near   a   river.
+[1575] P: Every   spring   when   the   snow   melted,   it   caused   the   river  to   rise   a   few   feet.   Then   the   level   of   the   river   would   fall again. One spring, however, the river kept rising.
+[1576] P: One   day   that   spring,   I   looked   out   my   window.
+[1577] P: The river was rising very quickly. My parents came   and got me. While the water was rising higher, we climbed onto the roof of our house. From the roof, I   looked   down   at   the   river.   It   was   covering   everything in   its   path.   My   family   and   I   waited   on   our   roof   for help. I was losing hope when we were finally rescued.
+[1594] P: Read   the   story   from   exercise   A   again.   Circle   the   simple   past,   underline   the   past   progressive,  and   double   underline   the   past   time   clauses.   Then   work   with   a   partner   and   compare   your  answers.
+[1596] P: Complete   the   chart   with   information   from   the   story   in   exercise   A .   Add   more   boxes   to   the  chart if necessary.
+[1598] TBL: [['Event 1', 'Event 2', 'Event 3', 'Event 4'], ['One spring, theMy parentsriver near mycame and got house kept rising.me.']]
+[1600] P: 56   THE   PAST
+[1601] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1602] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.
+[1604] P: WRITING   FOCUS Identifying   and   Correcting   Sentence   Fragments A   sentence   fragment   is   missing   an   important   part   of   a   sentence,   such   as   a subject or verb. My   family   and   I   waited   on   our   roof   for   help. ✗   Waited   on   our   roof   for   help.   (no   subject) It   was   covering   everything   in   its   path. ✗   Everything   in   its   path.   (no   subject   and   no   verb) Make   sure   each   of   your   sentences   has   a   subject   and   a   verb. WRITING   FOCUS Identifying   and   Correcting   Sentence   Fragments A   sentence   fragment   is   missing   an   important   part   of   a   sentence,   such   as   a subject or verb. My   family   and   I   waited   on   our   roof   for   help. ✗   Waited   on   our   roof   for   help.   (no   subject) It   was   covering   everything   in   its   path. ✗   Everything   in   its   path.   (no   subject   and   no   verb) Make   sure   each   of   your   sentences   has   a   subject   and   a   verb. Write   about   a   Difficult   Experience
+[1607] P: BEFORE   YOU   WRITE.
+[1608] P: Brainstorm   a   list   of   difficult   experiences   you   have   had.
+[1610] P: Choose   one   experience   to   write   about.   Use   the   chart   below   to   describe   your   experience.
+[1611] P: Add   more   boxes   to   your   chart   if   necessary.
+[1613] TBL: [['Event 1', 'Event 2', 'Event 3', 'Event 4'], ['']]
+[1616] P: WRITE  about   your   difficult   experience.   Use   the   information   from   your   chart   from   exercise   2B
+[1617] P: and   the   story   from   exercise   1A   to   help   you.
+[1632] P: SELF   ASSESS.  Read   your   story   and   underline   the   simple   past,   the   past   progressive,   and   past  time   clauses.   Then   use   the   checklist   to   assess   your   work.
+[1633] P: I   used   the   simple   past   to   talk   about   completed   actions   and   events.   [2.1]  I used the past progressive to describe a scene in the past.  [2.3]
+[1634] P: I   used   past   time   clauses   to   tell   when   an   action   or   event   happened.   [2.5,   2.6]  I checked for and corrected sentence fragments.  [WRITING FOCUS]
+[1642] P: UNIT   2    CONNECT THE   GRAMMAR   TO   WRITING    57
+[1643] P: Copyright 2015 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or  eChapter(s).
+[1644] P: Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require  it.

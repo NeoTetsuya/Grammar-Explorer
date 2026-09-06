@@ -4,472 +4,902 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 2: Survival (The Past)</title>
-    <!-- Tailwind CSS for modern responsive styling -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0fdfa; /* Teal 50 */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f7fafc;
         }
         
         /* Main Navigation Tabs */
-        .tab-active {
-            border-bottom-width: 4px;
-            border-color: #0d9488; /* Teal 600 */
-            color: #0f766e; /* Teal 700 */
+        .main-tab-active {
+            border-bottom: 3px solid #0d9488;
+            color: #0f172a;
             font-weight: 800;
         }
-        .tab-inactive {
-            border-bottom-width: 4px;
-            border-color: transparent;
+        .main-tab-inactive {
+            border-bottom: 3px solid transparent;
             color: #64748b;
+            font-weight: 600;
         }
-        .tab-inactive:hover { color: #0f766e; border-color: #cbd5e1; }
+        .main-tab-inactive:hover {
+            color: #0f172a;
+            border-color: #cbd5e1;
+        }
+
+        /* Grammar Topic Category Tabs */
+        .grammar-nav-btn {
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+        .grammar-nav-active {
+            background-color: #0d9488;
+            color: #ffffff;
+            box-shadow: 0 4px 12px -2px rgba(13, 148, 136, 0.35);
+        }
+        .grammar-nav-inactive {
+            background-color: #ffffff;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .grammar-nav-inactive:hover {
+            background-color: #f0fdfa;
+            color: #0f766e;
+            border-color: #99f6e4;
+        }
 
         /* Animations */
-        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .pop-out { transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .pop-out:hover:not(:disabled) {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.3), 0 4px 6px -2px rgba(13, 148, 136, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(13, 148, 136, 0.2);
         }
-        
-        /* Interactive Triggers and Target Connections */
-        .interactive-group { position: relative; display: inline-block; }
+
+        /* Interactive Example Highlights */
         .interactive-trigger {
-            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
-            text-decoration-color: #0d9488; padding: 2px 4px; border-radius: 4px;
-            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dashed;
+            text-decoration-color: #0d9488;
+            text-underline-offset: 4px;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-weight: 700;
         }
         .interactive-target {
-            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: 1px dashed transparent;
+            font-weight: 700;
         }
         .interactive-active-trigger {
-            background-color: #ccfbf1; color: #0f766e; text-decoration-color: transparent;
+            background-color: #0d9488;
+            color: #ffffff !important;
+            text-decoration: none;
         }
         .interactive-active-target {
-            background-color: #fef08a; color: #854d0e;
-            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+            background-color: #fef08a;
+            color: #854d0e;
+            border-color: #eab308;
+            box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.35);
         }
 
-        /* Sub-Tabs for Exercises */
-        .subtab-active { background-color: #0d9488; color: white; box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.4); }
-        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-        .subtab-inactive:hover { background-color: #e2e8f0; }
+        /* Practice Subtabs */
+        .subtab-active { background-color: #0f172a; color: white; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25); }
+        .subtab-inactive { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #f1f5f9; color: #0f172a; }
 
-        /* Quiz Options */
+        /* Quiz Buttons */
         .option-btn { transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0d9488; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0d9488; box-shadow: 0 4px 8px rgba(13, 148, 136, 0.1); }
         .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
-        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+        .option-disabled { opacity: 0.65; cursor: not-allowed; }
 
-        /* Clickable Words for Identification */
+        /* Spot Error Tokens */
         .click-word {
-            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
-            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+            display: inline-block; padding: 2px 8px; margin: 3px 2px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.12rem; user-select: none; border: 2px solid transparent;
         }
-        .click-word:hover { background-color: #e2e8f0; }
-        .click-word.selected { background-color: #0d9488; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(13, 148, 136, 0.4); border-color: #0f766e; }
+        .click-word:hover { background-color: #ccfbf1; }
+        .click-word.selected { background-color: #0d9488; color: white; transform: scale(1.04); }
         .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
-        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
-        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
-
-        /* Matching Buttons */
-        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
-        .match-btn:hover:not(:disabled) { border-color: #0d9488; background-color: #f0fdfa; transform: translateY(-2px); }
-        .match-btn.selected { background-color: #ccfbf1; border-color: #0d9488; color: #0f766e; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(13, 148, 136, 0.2); }
-        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
-        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #b91c1c; }
+        .click-word.missed { border-color: #f59e0b; border-style: dashed; background-color: #fef3c7; color: #92400e; }
 
         /* Fill Blanks */
         .fill-blank {
-            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
-            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #0d9488;
+            display: inline-block; min-width: 100px; height: 34px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: 800; color: #0d9488;
         }
-        .fill-blank.filled { border-bottom-style: solid; background-color: #ccfbf1; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #0d9488; }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #ccfbf1; border-radius: 6px 6px 0 0; padding: 0 10px; border-bottom-color: #0d9488; }
         .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
         .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            50% { transform: translateX(6px); }
+            75% { transform: translateX(-6px); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
     <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
         <defs>
-            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#0d9488" />
+            <marker id="arrowhead-study" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#0d9488" />
             </marker>
-            <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            <marker id="arrowhead-neutral" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+            </marker>
+            <marker id="arrowhead-correct" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#16a34a" />
+            </marker>
+            <marker id="arrowhead-incorrect" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#dc2626" />
             </marker>
         </defs>
         <g id="svg-paths-container"></g>
     </svg>
 
-    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-teal-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-teal-600 to-emerald-700 text-white p-2.5 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-person-shelter text-xl w-6 text-center"></i>
+    <header class="bg-white sticky top-0 z-40 border-b border-teal-100 shadow-xs backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-gradient-to-tr from-teal-600 to-emerald-500 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shadow-md shadow-teal-600/20">
+                        <i class="fa-solid fa-mountain-sun text-lg sm:text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 2: Survival</h1>
-                        <p class="text-xs text-slate-500 hidden sm:block font-medium">Grammar Focus: The Past, Time Clauses & Used To / Would</p>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-extrabold tracking-wider uppercase bg-teal-100 text-teal-800 px-2 py-0.5 rounded-md">Grammar Explorer</span>
+                            <span class="text-[11px] text-slate-500 font-medium">Unit 2</span>
+                        </div>
+                        <h1 class="text-base sm:text-xl font-black text-slate-900 tracking-tight">Survival <span class="font-normal text-slate-500 hidden sm:inline">(The Past)</span></h1>
                     </div>
-                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 2: Survival</h1>
                 </div>
-                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
-                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
-                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+
+                <!-- Primary View Tabs -->
+                <nav class="flex space-x-2 sm:space-x-8 h-full">
+                    <button id="main-tab-study" class="main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open text-teal-600"></i>
+                        <span>Grammar Guide</span>
                     </button>
-                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
-                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    <button id="main-tab-practice" class="main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Exercises</span>
                     </button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         
-        <section id="section-study" class="fade-in block space-y-8">
+        <!-- ============================================== -->
+        <!-- SECTION: GRAMMAR GUIDE (TAB LAYOUT)           -->
+        <!-- ============================================== -->
+        <section id="section-study" class="fade-in block space-y-6">
             
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Expressing Past Events & Survival Stories</h2>
-                <p class="text-lg text-slate-600">Master Simple Past, Past Progressive, Time Clauses (<em>when/while</em>), Repeated Past Actions (<em>used to / would</em>), and Fragment Corrections.</p>
-                
-                <!-- Built-in TTS Audio Player Bar -->
-                <div class="mt-6 bg-white p-4 rounded-2xl border border-teal-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 text-left">
-                        <div class="bg-teal-100 text-teal-700 p-3 rounded-xl">
-                            <i class="fa-solid fa-volume-high text-xl"></i>
+            <!-- Audio Companion & Topic Banner -->
+            <div class="bg-gradient-to-r from-teal-50 via-emerald-50 to-teal-50 border border-teal-200 rounded-2xl p-4 sm:p-6 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>Unit Grammar Reference & Rules</span>
+                        <span class="bg-teal-200 text-teal-900 text-xs px-2.5 py-0.5 rounded-full font-bold">Comprehensive</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 mt-1">Select a grammar topic below to explore rules, sentence formulas, authentic textbook narratives, and common pitfalls.</p>
+                </div>
+
+                <!-- Text-to-Speech Companion -->
+                <div class="bg-white/90 border border-teal-200 p-2.5 sm:p-3 rounded-xl shadow-xs flex items-center gap-2.5 self-stretch md:self-auto justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-teal-100 text-teal-700 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-headphones"></i>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Spoken Audio Overview</h4>
-                            <p class="text-xs text-slate-500">Listen to key grammar rules for Unit 2</p>
+                        <div class="hidden sm:block">
+                            <p class="text-xs font-bold text-slate-800">Audio Guide</p>
+                            <p class="text-[10px] text-slate-500 leading-tight">Listen to spoken summary</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-teal-500 focus:border-teal-500 font-medium max-w-[160px] truncate">
-                            <option value="">Loading voices...</option>
+                    <div class="flex items-center gap-2">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 max-w-[140px] truncate focus:outline-none focus:ring-1 focus:ring-teal-500">
+                            <option value="">Voice Loading...</option>
                         </select>
-                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
-                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold px-3.5 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all pop-out shadow-xs">
+                            <i class="fa-solid fa-play" id="tts-icon"></i>
+                            <span id="tts-text">Listen</span>
                         </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-4 inline-flex items-center gap-2 bg-teal-50 text-teal-800 px-4 py-2 rounded-full text-sm font-semibold border border-teal-200">
-                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
-                    Tap the dashed words in the examples to reveal grammar connections!
+            <div class="border-b border-slate-200 pb-2">
+                <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+                    <button id="gtab-btn-sp" onclick="switchGrammarTab('sp')" class="grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        <span>1. Simple Past</span>
+                    </button>
+                    <button id="gtab-btn-prog" onclick="switchGrammarTab('prog')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-spinner"></i>
+                        <span>2. Past Progressive</span>
+                    </button>
+                    <button id="gtab-btn-clauses" onclick="switchGrammarTab('clauses')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-timeline"></i>
+                        <span>3. Past Time Clauses</span>
+                    </button>
+                    <button id="gtab-btn-habits" onclick="switchGrammarTab('habits')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-repeat"></i>
+                        <span>4. Used To vs. Would</span>
+                    </button>
+                    <button id="gtab-btn-writing" onclick="switchGrammarTab('writing')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>5. Sentence Fragments</span>
+                    </button>
+                    <button id="gtab-btn-matrix" onclick="switchGrammarTab('matrix')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <span>6. Comparison Matrix</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 1: Simple Past vs. Past Progressive -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-teal-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-clock-rotate-left absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Simple Past & Past Progressive</h3>
-                        <p class="text-teal-100 font-medium relative z-10">Completed Actions, Interrupted Actions & Background Scenes</p>
-                    </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Form & Auxiliary Rules</h4>
-                            <div>• <strong>Simple Past:</strong> Subject + regular (-ed) / irregular verb (<span class="italic">ate, spoke, built</span>). Negative: <em>didn't + base verb</em>.</div>
-                            <div>• <strong>Past Progressive:</strong> Subject + <em>was/were (not) + verb-ing</em>.</div>
-                            <div>• <strong>Subject Questions:</strong> <span class="interactive-trigger text-teal-700" data-target="target-subjq">Who</span> <span id="target-subjq" class="interactive-target text-slate-800 font-bold">rescued</span> the survivors? (Do NOT use <em>did</em>!).</div>
+            <!-- TAB 1: SIMPLE PAST -->
+            <div id="gpanel-sp" class="fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-teal-600 uppercase">Lesson 1 &bull; Charts 2.1 - 2.2</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Simple Past: Statements, Forms & Subject Questions</h3>
                         </div>
-
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Interrupted & Parallel Actions</h4>
-                            <div>• <strong>Interrupted Action:</strong> <span id="target-tc1" class="interactive-target">I was sleeping</span> <span class="interactive-trigger text-teal-700" data-target="target-tc1">when the storm struck</span>.</div>
-                            <div>• <strong>Parallel Background Actions:</strong> <em>While the rain was pouring, rescue teams were navigating the flooded streets.</em></div>
-                        </div>
-
-                        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-1">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Stative Verbs Warning</h4>
-                            <div>Stative non-action verbs (*know, love, believe, possess*) cannot be progressive in past tenses (<span class="italic text-slate-700">"We knew the danger"</span>, NOT <span class="line-through text-red-600">were knowing</span>).</div>
-                        </div>
+                        <span class="bg-teal-50 text-teal-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Completed Events &bull; States &bull; Subject Questions</span>
                     </div>
-                </div>
 
-                <!-- Lesson 2: Past Habits (Used to vs. Would) -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-emerald-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-repeat absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Past Habits: Used To & Would</h3>
-                        <p class="text-emerald-100 font-medium relative z-10">Past Habits, Past States & Customary Expressions</p>
-                    </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                                <strong class="text-emerald-700 block mb-1">Used To (Actions & States)</strong>
-                                Past habits AND past states that no longer exist.<br>
-                                <span class="italic font-medium text-slate-600">"I used to live in Tokyo."</span><br>
-                                Negative: <span class="font-bold text-amber-800">didn't use to</span> (no 'd').
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Usage & Statement Structures -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-circle-dot text-teal-600 text-xs"></i> When to Use the Simple Past
+                            </h4>
+                            <ul class="text-xs sm:text-sm space-y-2 text-slate-600">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-green-600 mt-0.5"></i>
+                                    <span><strong>Completed Actions in the Past:</strong> <span class="italic text-slate-800">"In 2006, Maasai cattle herders in Kenya had a problem."</span></span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-green-600 mt-0.5"></i>
+                                    <span><strong>Repeated Actions in the Past:</strong> <span class="italic text-slate-800">"Lions regularly killed their cows."</span></span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-green-600 mt-0.5"></i>
+                                    <span><strong>Past States & Feelings:</strong> <span class="italic text-slate-800">"The Maasai were a big threat to the survival of lions."</span></span>
+                                </li>
+                            </ul>
+
+                            <!-- Statement Structure Table -->
+                            <div class="overflow-x-auto mt-4">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Type</th>
+                                            <th class="p-3">Subject</th>
+                                            <th class="p-3">Verb / Auxiliary</th>
+                                            <th class="p-3">Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100">
+                                        <tr>
+                                            <td class="p-3 font-semibold text-green-700">Affirmative (Regular)</td>
+                                            <td class="p-3">All subjects</td>
+                                            <td class="p-3 font-mono font-bold text-slate-800">verb + -ed / -d</td>
+                                            <td class="p-3 italic text-slate-600">"They <span id="target-sp1" class="interactive-target">helped</span> train Maasai warriors."</td>
+                                        </tr>
+                                        <tr class="bg-teal-50/40">
+                                            <td class="p-3 font-semibold text-green-700">Affirmative (Irregular)</td>
+                                            <td class="p-3">All subjects</td>
+                                            <td class="p-3 font-mono font-bold text-teal-800">irregular past form</td>
+                                            <td class="p-3 italic text-slate-600">"The herders <span class="font-bold text-teal-700">sent</span> warriors to hunt."</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold text-rose-700">Negative (Verbs)</td>
+                                            <td class="p-3">All subjects</td>
+                                            <td class="p-3 font-mono font-bold text-slate-800">did not / didn't + base</td>
+                                            <td class="p-3 italic text-slate-600">"The warriors <span class="font-bold text-rose-600">didn’t kill</span> any more lions."</td>
+                                        </tr>
+                                        <tr class="bg-teal-50/40">
+                                            <td class="p-3 font-semibold text-sky-700">Verb "BE"</td>
+                                            <td class="p-3">I / He / She / It<br>You / We / They</td>
+                                            <td class="p-3 font-mono font-bold text-slate-800">was / wasn't<br>were / weren't</td>
+                                            <td class="p-3 italic text-slate-600">"Herders <span class="font-bold text-sky-700">weren't</span> able to protect cows."</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                                <strong class="text-emerald-700 block mb-1">Would (Actions ONLY)</strong>
-                                Repeated past actions only; CANNOT express past states.<br>
-                                <span class="italic font-medium text-slate-600">"Every winter we would ski."</span>
+
+                            <div class="bg-rose-50 border border-rose-200 rounded-xl p-3 text-xs text-rose-950">
+                                <i class="fa-solid fa-triangle-exclamation text-rose-600 mr-1.5"></i>
+                                <strong>Be careful with "BE":</strong> Never use <em>didn't</em> with <em>was</em> or <em>were</em>! 
+                                <br><span class="text-rose-700 line-through">✗ I didn’t was late for class yesterday.</span> &rarr; <span class="text-emerald-800 font-bold">✓ I wasn’t late for class yesterday.</span>
                             </div>
                         </div>
 
-                        <div class="bg-red-50 border border-red-200 p-3.5 rounded-xl text-xs text-red-950 space-y-1">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-ban text-red-600 mr-1"></i> State Restriction for "Would"</h4>
-                            <div>Do NOT use <em>would</em> for past states or situations!</div>
-                            <div><span class="line-through text-red-600 font-mono text-[11px]">There would be a small wooden cabin here.</span> &rarr; <span class="font-bold text-emerald-800">There used to be a small wooden cabin here.</span></div>
-                        </div>
+                        <!-- Right Column: Question Formation & Subject Questions -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-circle-question text-teal-600 text-xs"></i> Questions & Subject Questions
+                            </h4>
 
-                        <div class="bg-teal-50 border border-teal-200 p-3 rounded-xl text-xs text-teal-950">
-                            <strong>Be / Get Used To + V-ing / Noun:</strong> Means <em>accustomed to</em> (<span class="italic">"She is used to surviving in harsh conditions."</span>).
+                            <!-- Yes / No Questions -->
+                            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-xs space-y-1.5">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">Yes / No Questions & Short Answers</strong>
+                                <p class="font-mono text-slate-700 font-semibold">Did + Subject + Base Form?</p>
+                                <div class="grid sm:grid-cols-2 gap-2 mt-2 pt-2 border-t border-slate-200">
+                                    <div>
+                                        <p class="italic text-slate-700">"Did the whale survive?"</p>
+                                        <p class="font-bold text-green-700">&rarr; Yes, it did. / No, it didn’t.</p>
+                                    </div>
+                                    <div>
+                                        <p class="italic text-slate-700">"Did you finish your assignment?"</p>
+                                        <p class="font-bold text-green-700">&rarr; Yes, I did. / No, I didn’t.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Object Questions vs Subject Questions -->
+                            <div class="bg-white border-2 border-teal-200 rounded-xl p-4 text-xs space-y-3 shadow-xs">
+                                <div class="flex items-center gap-2 border-b border-teal-100 pb-2">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Crucial Exam Focus</span>
+                                    <strong class="text-slate-900 text-xs">Object Questions vs. Subject Questions</strong>
+                                </div>
+
+                                <div>
+                                    <span class="font-bold text-slate-800 block mb-0.5">1. Object Wh- Questions (asking about object/time/reason):</span>
+                                    <p class="font-mono text-teal-800 bg-teal-50 p-2 rounded">Wh- Word + did + Subject + Base Verb?</p>
+                                    <p class="mt-1 text-slate-600 italic">"Why <strong>did you choose</strong> Antarctica?" &rarr; Answer: <em>"To study penguins."</em></p>
+                                    <p class="text-slate-600 italic">"What <strong>did she say</strong> in her email?" &rarr; Answer: <em>"The whale was rescued."</em></p>
+                                </div>
+
+                                <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg text-amber-950">
+                                    <span class="font-bold text-amber-900 block mb-0.5 flex items-center gap-1.5">
+                                        <i class="fa-solid fa-star text-amber-600"></i> 2. Subject Questions (Who / What asks for the subject):
+                                    </span>
+                                    <p class="font-mono text-amber-900 bg-white p-2 rounded border border-amber-200 font-bold">
+                                        Who / What + Simple Past Verb (-ed or irregular)?
+                                    </p>
+                                    <p class="mt-1.5 text-xs">
+                                        &bull; When <strong>Who</strong> or <strong>What</strong> is the subject of the question: <strong class="underline font-bold text-rose-700">DO NOT USE DID!</strong>
+                                    </p>
+                                    <p class="mt-1.5">
+                                        <span class="text-emerald-800 font-bold">✓ Who called?</span> (Answer: <em>"My sister."</em>)
+                                        <br><span class="text-rose-700 line-through">✗ Who did call?</span>
+                                    </p>
+                                    <p class="mt-1">
+                                        <span class="text-emerald-800 font-bold">✓ Who gave the presentation yesterday?</span> (Answer: <em>"Sheila."</em>)
+                                        <br><span class="text-rose-700 line-through">✗ Who did give the presentation?</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 3: Past Perfect Tense -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-slate-800 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-hourglass-start absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">3. Past Perfect Tense</h3>
-                        <p class="text-slate-300 font-medium relative z-10">Had + Past Participle & Time Sequence</p>
+            <!-- TAB 2: PAST PROGRESSIVE -->
+            <div id="gpanel-prog" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-emerald-600 uppercase">Lesson 2 &bull; Charts 2.3 - 2.4</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Past Progressive: Actions in Progress & Past Scene Setting</h3>
+                        </div>
+                        <span class="bg-emerald-50 text-emerald-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">In Progress at Past Time &bull; Scene Descriptions &bull; Non-Action Rule</span>
                     </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Form & Core Function</h4>
-                            <div>• <strong>Formula:</strong> Subject + <em>had (not)</em> + <strong>Past Participle (V3)</strong>.</div>
-                            <div>• <strong>Function:</strong> Expresses an action completed BEFORE another past action or specific past time.</div>
-                            <div class="bg-white p-2.5 rounded border font-mono text-[11px] text-slate-800 mt-1">
-                                By the time help arrived (2nd action), they <strong class="text-teal-700">had built</strong> a shelter (1st earlier action).
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left: Core Uses & Formulas -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-circle-dot text-emerald-600 text-xs"></i> 2 Major Uses of Past Progressive
+                            </h4>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-3">
+                                <div>
+                                    <span class="font-bold text-emerald-800 block text-sm">1. Action in Progress at a Specific Time in the Past:</span>
+                                    <p class="text-slate-600 mt-0.5">"They <strong class="text-emerald-700">were studying</strong> at 9:00 last night."</p>
+                                    <p class="text-slate-600">"At 6:00 p.m., many people in town <strong class="text-emerald-700">were listening</strong> to Angelica’s radio show."</p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <span class="font-bold text-emerald-800 block text-sm">2. Setting the Scene in a Narrative:</span>
+                                    <p class="text-slate-600 mt-0.5">"The café was full. A band <strong class="text-emerald-700">was playing</strong>, and people <strong class="text-emerald-700">were talking</strong> loudly. Everyone was enjoying the evening."</p>
+                                    <p class="text-slate-600">"Several students <strong class="text-emerald-700">were studying</strong> while others <strong class="text-emerald-700">were using</strong> their phones."</p>
+                                </div>
+                            </div>
+
+                            <!-- Formulas Table -->
+                            <div class="bg-emerald-50/70 border border-emerald-200 p-4 rounded-xl text-xs space-y-2 font-mono">
+                                <div><strong class="text-slate-900 font-sans">Affirmative:</strong> Subject + was / were + Verb-ing</div>
+                                <div class="text-slate-600 italic">"Angelica <strong class="text-emerald-700">was teaching</strong> Tzuthil in the evenings."</div>
+                                <div class="border-t border-emerald-200 pt-2"><strong class="text-slate-900 font-sans">Negative:</strong> Subject + was not (wasn't) / were not (weren't) + Verb-ing</div>
+                                <div class="text-slate-600 italic">"He <strong class="text-emerald-700">wasn't studying</strong>; he was reading a magazine."</div>
                             </div>
                         </div>
 
-                        <div class="bg-indigo-50 border border-indigo-200 p-3.5 rounded-xl text-xs text-indigo-950 space-y-1.5">
-                            <h4 class="font-bold uppercase tracking-wide border-b border-indigo-200 pb-1"><i class="fa-solid fa-list-ol mr-1 text-indigo-700"></i> Sequence Conjunctions: By the time, Before, After</h4>
-                            <div>• <strong>By the time / Before + Simple Past</strong>, <strong>Past Perfect</strong> main clause.</div>
-                            <div>• <strong>After + Past Perfect</strong>, <strong>Simple Past</strong> main clause (<span class="italic">"After they had eaten, they continued hiking"</span>).</div>
+                        <!-- Right: Stative Verbs and Questions -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-triangle-exclamation text-amber-600 text-xs"></i> Non-Action (Stative) Verbs in the Past
+                            </h4>
+
+                            <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl text-xs text-rose-950 space-y-2">
+                                <strong class="text-rose-900 font-bold block text-sm">Non-Action Verbs Rule:</strong>
+                                <p>Non-action verbs describing mental states, emotions, senses, or possession (*know, believe, understand, see, love, own, belong*) are <strong class="underline">NOT usually used with the past progressive</strong>.</p>
+                                <div class="space-y-1 pt-1 font-semibold">
+                                    <p><span class="text-emerald-800">✓ She knew how to speak Xyzyl.</span> | <span class="text-rose-700 line-through">✗ She was knowing how to speak...</span></p>
+                                    <p><span class="text-emerald-800">✓ I saw an accident last night.</span> | <span class="text-rose-700 line-through">✗ I was seeing an accident...</span></p>
+                                    <p><span class="text-emerald-800">✓ Debbie owned a nice car.</span> | <span class="text-rose-700 line-through">✗ Debbie was owning a nice car.</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Past Progressive Questions -->
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2">
+                                <strong class="text-slate-900 uppercase font-bold text-xs tracking-wider block">Past Progressive Questions</strong>
+                                <div class="space-y-1.5">
+                                    <p><strong>Yes/No:</strong> <em>"Were they looking for a musician? &rarr; No, they weren't."</em></p>
+                                    <p><strong>Wh- Question:</strong> <em>"Where were you studying last night? &rarr; At the library."</em></p>
+                                    <p><strong>Subject Question:</strong> <em>"Who was singing last night? &rarr; Alex and Rui."</em> <span class="text-slate-500">(Verb is 3rd-person singular 'was').</span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Lesson 4 & Writing Focus: Time Clause Commas & Sentence Fragments -->
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
-                    <div class="p-6 relative z-10 flex flex-col h-full space-y-5">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-pen-nib text-amber-400 text-3xl"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-amber-400">4. Time Clause Commas & Writing</h3>
-                                <p class="text-xs text-slate-300">Punctuation & Fixing Sentence Fragments</p>
+            <!-- TAB 3: PAST TIME CLAUSES -->
+            <div id="gpanel-clauses" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-indigo-600 uppercase">Lesson 3 &bull; Charts 2.5 - 2.6</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Past Time Clauses: When, While & Sequence Rules</h3>
+                        </div>
+                        <span class="bg-indigo-50 text-indigo-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Interrupted Actions &bull; Events in Sequence &bull; Comma Rule</span>
+                    </div>
+
+                    <!-- Clause Definition -->
+                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs sm:text-sm text-slate-700 mb-6 space-y-1">
+                        <p>A <strong>clause</strong> is a group of words containing a subject and a verb. A <strong>main clause</strong> can stand alone as a complete sentence, whereas a <strong>past time clause</strong> begins with a time word (<em>when</em> or <em>while</em>) and tells <em>when</em> the main event took place.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 text-xs sm:text-sm">
+                        <!-- Type 1: Interrupted Actions -->
+                        <div class="border-2 border-indigo-100 rounded-2xl p-5 bg-indigo-50/20 space-y-3">
+                            <span class="bg-indigo-600 text-white font-black px-2.5 py-0.5 rounded text-[10px] uppercase">Pattern 1</span>
+                            <h4 class="font-bold text-slate-900 text-base">Action in Progress Interrupted by an Event</h4>
+                            <p class="text-slate-600 text-xs">
+                                Use <strong>while / when + past progressive</strong> for the action already in progress (longer action), and <strong>when + simple past</strong> for the interrupting event (shorter action).
+                            </p>
+                            
+                            <div class="bg-white p-3.5 rounded-xl border border-indigo-200 font-mono text-xs space-y-2">
+                                <div>
+                                    <span class="text-slate-500 font-sans block text-[11px]">While + Progressive:</span>
+                                    <strong class="text-indigo-800">While he was skiing</strong>, an avalanche started.
+                                </div>
+                                <div class="border-t border-slate-100 pt-2">
+                                    <span class="text-slate-500 font-sans block text-[11px]">When + Simple Past:</span>
+                                    Chin was going down the mountain <strong class="text-indigo-800">when the mountainside came down</strong>.
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-slate-500 italic">The skiing started first; the avalanche interrupted it.</p>
+                        </div>
+
+                        <!-- Type 2: Events in Sequence -->
+                        <div class="border-2 border-indigo-100 rounded-2xl p-5 bg-indigo-50/20 space-y-3">
+                            <span class="bg-indigo-600 text-white font-black px-2.5 py-0.5 rounded text-[10px] uppercase">Pattern 2</span>
+                            <h4 class="font-bold text-slate-900 text-base">Events in Sequence (One After Another)</h4>
+                            <p class="text-slate-600 text-xs">
+                                When two actions happened one after the other, use the <strong>simple past</strong> in BOTH the time clause and the main clause. Use <strong>when</strong> to introduce the first event.
+                            </p>
+
+                            <div class="bg-white p-3.5 rounded-xl border border-indigo-200 font-mono text-xs space-y-2">
+                                <div>
+                                    <strong class="text-indigo-800">When her phone rang</strong> (1st event), she answered it (2nd event).
+                                </div>
+                                <div class="border-t border-slate-100 pt-2">
+                                    <strong class="text-indigo-800">When the ocean water froze</strong> (1st), ice surrounded the Endurance (2nd).
+                                </div>
+                            </div>
+                            <p class="text-[11px] text-slate-500 italic">Both verbs are simple past because one action completed before the second began.</p>
+                        </div>
+                    </div>
+
+                    <!-- Comma Punctuation Rule -->
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl text-xs text-amber-950 space-y-2 mt-4">
+                        <strong class="text-amber-900 font-bold block text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info text-amber-600"></i> Strict Comma Rule for Time Clauses
+                        </strong>
+                        <div class="grid sm:grid-cols-2 gap-3 pt-1">
+                            <div class="bg-white p-3 rounded-lg border border-amber-200">
+                                <span class="font-bold text-slate-900 block mb-0.5">Time Clause FIRST &rarr; Use Comma (,)</span>
+                                <span class="font-mono text-emerald-800 font-semibold">"When it started to snow, I was walking home."</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-amber-200">
+                                <span class="font-bold text-slate-900 block mb-0.5">Main Clause FIRST &rarr; NO Comma</span>
+                                <span class="font-mono text-emerald-800 font-semibold">"I was walking home when it started to snow."</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: REPEATED PAST ACTIONS (USED TO VS WOULD) -->
+            <div id="gpanel-habits" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-amber-600 uppercase">Lesson 4 &bull; Charts 2.7 - 2.9</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Repeated Past Actions: Used To and Would</h3>
+                        </div>
+                        <span class="bg-amber-50 text-amber-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Habits &bull; Past States &bull; "Would" Restrictions</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Used To Box -->
+                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50 space-y-3 text-xs sm:text-sm">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-slate-900 text-base">Used To (Habits AND States)</h4>
+                                <span class="bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded text-[10px]">Universal</span>
+                            </div>
+                            <p class="text-slate-600 text-xs">
+                                Expresses a habit, routine, or condition in the past that <strong>no longer exists</strong> now.
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1.5 font-mono text-xs">
+                                <div>&bull; <strong>Past Habit:</strong> "I <span class="text-amber-800 font-bold">used to run</span> several times a week." (Now I don't).</div>
+                                <div>&bull; <strong>Past State:</strong> "There <span class="text-amber-800 font-bold">used to be</span> a supermarket near my home."</div>
+                                <div>&bull; <strong>Negative:</strong> "I <span class="text-rose-700 font-bold">didn't use to</span> eat meat." <span class="text-slate-500 font-sans text-[11px]">(Note spelling: <em>use to</em>, no 'd'!)</span></div>
+                            </div>
+                            <div class="bg-amber-100/60 p-2.5 rounded-lg border border-amber-200 text-xs text-amber-900">
+                                <strong>Question Forms:</strong> <em>"Did you use to live here?"</em> | Subject: <em>"Who used to teach this class?"</em>
                             </div>
                         </div>
 
-                        <div class="space-y-2.5 text-xs bg-slate-800/90 p-3.5 rounded-xl border border-slate-700 text-slate-200">
-                            <strong class="text-teal-300 block">Comma Rule with Dependent Time Clauses</strong>
-                            <div>• If dependent time clause is <strong>FIRST</strong>: Use a comma! (<span class="italic text-slate-100">"While they were climbing, night fell."</span>)</div>
-                            <div>• If dependent time clause is <strong>LAST</strong>: No comma needed! (<span class="italic text-slate-100">"Night fell while they were climbing."</span>)</div>
+                        <!-- Would Box -->
+                        <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50 space-y-3 text-xs sm:text-sm">
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-slate-900 text-base">Would (Actions ONLY)</h4>
+                                <span class="bg-rose-100 text-rose-900 font-bold px-2 py-0.5 rounded text-[10px]">Actions Only</span>
+                            </div>
+                            <p class="text-slate-600 text-xs">
+                                Expresses a repeated past action or routine that no longer happens.
+                            </p>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 space-y-1.5 font-mono text-xs">
+                                <div>&bull; "In high school, we <span class="text-emerald-800 font-bold">would play</span> soccer every afternoon."</div>
+                                <div>&bull; "They <span class="text-emerald-800 font-bold">would explore</span> a historic site and bring objects back."</div>
+                                <div>&bull; "My father <span class="text-emerald-800 font-bold">would take</span> me to the zoo once a month."</div>
+                            </div>
+                            
+                            <div class="bg-rose-50 p-3 rounded-lg border border-rose-200 text-xs text-rose-950">
+                                <strong class="text-rose-900 block font-bold mb-1"><i class="fa-solid fa-ban text-rose-600 mr-1"></i> CRUCIAL TRAP: "Would" Cannot Express States!</strong>
+                                <p>Do NOT use <em>would</em> for past situations or stative verbs (be, live, own, have):</p>
+                                <p class="mt-1 font-bold">
+                                    <span class="text-emerald-800">✓ There used to be a library on this street.</span><br>
+                                    <span class="text-rose-700 line-through">✗ There would be a library on this street.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: SENTENCE FRAGMENTS (WRITING FOCUS) -->
+            <div id="gpanel-writing" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-rose-600 uppercase">Writing Focus &bull; Connect to Writing</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Identifying & Correcting Sentence Fragments</h3>
+                        </div>
+                        <span class="bg-rose-50 text-rose-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Complete Sentences &bull; Subordinate Clauses</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        A <strong>sentence fragment</strong> is an incomplete sentence masquerading as a full one. In academic English, every sentence MUST have an independent subject, a complete finite verb, and express a finished thought.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-5 text-xs">
+                        <!-- Fragment Type 1 -->
+                        <div class="bg-rose-50/60 border border-rose-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-user-xmark"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Missing Subject Fragment</h4>
+                            <p class="text-slate-600 text-[11px]">The verb is present, but there is no subject performing the action:</p>
+                            <div class="bg-white p-3 rounded-xl border border-rose-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-rose-600 line-through">✗ Waited on our roof for help.</div>
+                                <div class="text-emerald-800 font-bold font-sans">&rarr; Add Subject: "My family and I waited on our roof for help."</div>
+                            </div>
                         </div>
 
-                        <div class="bg-amber-900/30 p-3.5 rounded-xl border border-amber-500/30 text-xs text-slate-200 space-y-2 mt-auto">
-                            <div class="font-bold text-amber-300 flex items-center gap-2">
-                                <i class="fa-solid fa-scissors"></i> Writing Focus: Fixing Sentence Fragments
+                        <!-- Fragment Type 2 -->
+                        <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-gears"></i>
                             </div>
-                            <p class="text-slate-300">A fragment is an incomplete sentence lacking an independent subject or verb.</p>
-                            <div class="bg-slate-900/80 p-2 rounded border border-slate-700 font-mono text-[11px] space-y-1">
-                                <div class="text-red-400 line-through">Fragment: Because the boat lost its motor during the gale.</div>
-                                <div class="text-green-400">Correct: Because the boat lost its motor, the crew called for help.</div>
+                            <h4 class="font-bold text-slate-900 text-sm">Missing Verb Fragment</h4>
+                            <p class="text-slate-600 text-[11px]">The predicate verb is omitted or replaced by a hanging phrase:</p>
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-rose-600 line-through">✗ Everything in its path.</div>
+                                <div class="text-emerald-800 font-bold font-sans">&rarr; Add Verb: "The flood was covering everything in its path."</div>
                             </div>
                         </div>
+
+                        <!-- Fragment Type 3 -->
+                        <div class="bg-teal-50/60 border border-teal-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-link-slash"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Isolated Time Clause Fragment</h4>
+                            <p class="text-slate-600 text-[11px]">A dependent time clause punctuated as an independent sentence:</p>
+                            <div class="bg-white p-3 rounded-xl border border-teal-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-rose-600 line-through">✗ While the water was rising.</div>
+                                <div class="text-emerald-800 font-bold font-sans">&rarr; Connect Main Clause: "While the water was rising, we climbed onto the roof."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proofreading checklist -->
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 text-xs mt-4">
+                        <strong class="text-slate-900 uppercase tracking-wide block mb-2 font-bold">Narrative Writing Proofreading Checklist:</strong>
+                        <div class="grid sm:grid-cols-2 gap-2 text-slate-700">
+                            <div><i class="fa-solid fa-circle-check text-teal-600 mr-1.5"></i> Used simple past for completed narrative actions.</div>
+                            <div><i class="fa-solid fa-circle-check text-teal-600 mr-1.5"></i> Used past progressive to set the background scene.</div>
+                            <div><i class="fa-solid fa-circle-check text-teal-600 mr-1.5"></i> Used commas after introductory past time clauses.</div>
+                            <div><i class="fa-solid fa-circle-check text-teal-600 mr-1.5"></i> Verified that every sentence contains both a subject and a verb.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: COMPARISON MATRIX -->
+            <div id="gpanel-matrix" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-slate-500 uppercase">Unit 2 Synthesis & Review</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Past Tenses & Past Habit Comparison Matrix</h3>
+                        </div>
+                        <span class="bg-slate-100 text-slate-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Master Reference</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 rounded-xl overflow-hidden">
+                            <thead class="bg-slate-100 text-slate-800 font-black border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3.5 w-1/5">Grammar Structure</th>
+                                    <th class="p-3.5 w-1/4 text-teal-800 bg-teal-50/50">Primary Meaning / Function</th>
+                                    <th class="p-3.5 w-1/4">Affirmative Formula</th>
+                                    <th class="p-3.5 w-1/3">Negative & Question Formation</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-xs">
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Simple Past</td>
+                                    <td class="p-3.5 text-slate-700">Completed past events; sequential actions; past states.</td>
+                                    <td class="p-3.5 font-mono font-bold text-teal-700">Subject + Verb-ed / Irregular</td>
+                                    <td class="p-3.5 font-mono text-slate-700">didn't + base; Did + S + base?<br><span class="text-rose-600 font-bold font-sans">Subject Q: Who/What + Past Verb (No did!)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Past Progressive</td>
+                                    <td class="p-3.5 text-slate-700">Action in progress at specific past time; narrative scene setting.</td>
+                                    <td class="p-3.5 font-mono font-bold text-teal-700">Subject + was / were + V-ing</td>
+                                    <td class="p-3.5 font-mono text-slate-700">wasn't / weren't + V-ing;<br>Was / Were + S + V-ing?</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Time Clause (Interrupted)</td>
+                                    <td class="p-3.5 text-slate-700">Longer action in progress interrupted by a shorter action.</td>
+                                    <td class="p-3.5 font-mono font-bold text-indigo-700">While + S + was/were V-ing, S + Past-ed</td>
+                                    <td class="p-3.5 text-slate-700">Comma rule: Time clause first &rarr; use comma. Main clause first &rarr; no comma.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Used To</td>
+                                    <td class="p-3.5 text-slate-700">Past habits AND past states/situations that no longer exist.</td>
+                                    <td class="p-3.5 font-mono font-bold text-amber-700">Subject + used to + Base Verb</td>
+                                    <td class="p-3.5 font-mono text-slate-700">didn't <span class="text-rose-600 font-bold">use to</span> + base;<br>Did + S + <span class="text-rose-600 font-bold">use to</span> + base?</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Would</td>
+                                    <td class="p-3.5 text-slate-700">Repeated past habits / actions only.</td>
+                                    <td class="p-3.5 font-mono font-bold text-amber-700">Subject + would + Base Verb</td>
+                                    <td class="p-3.5 text-slate-700"><span class="text-rose-700 font-bold">STRICT TRAP:</span> Never use <em>would</em> for past states (be, live, own).</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
         </section>
 
+        <!-- ============================================== -->
+        <!-- SECTION: INTERACTIVE PRACTICE & EXERCISES      -->
+        <!-- ============================================== -->
         <section id="section-practice" class="hidden fade-in">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
                     
-                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Survival Grammar Practice</h2>
+                    <!-- Exercise Sub-nav bar -->
+                    <div class="bg-slate-50 border-b border-slate-200 p-5 text-center">
+                        <span class="text-xs font-black tracking-wider uppercase text-teal-600 block mb-1">Interactive Learning Lab</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-800 mb-4">Unit 2 Mastery Exercises</h2>
                         
-                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
-                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-list-check mr-2"></i>Knowledge Check
+                        <div class="flex flex-wrap justify-center gap-1.5 p-1 bg-white border border-slate-200 rounded-2xl shadow-xs">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-list-check mr-1.5"></i>Knowledge Check
                             </button>
-                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-keyboard mr-2"></i>Form the Verb
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-keyboard mr-1.5"></i>Verb Form Fill
                             </button>
-                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-bug mr-2"></i>Spot Fragments & Errors
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-spell-check mr-1.5"></i>Spot Errors & Fragments
                             </button>
-                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-layer-group mr-2"></i>Used To vs. Would
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-puzzle-piece mr-1.5"></i>Habit Matcher
                             </button>
-                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-diagram-project mr-2"></i>Time Clause Linker
+                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-diagram-project mr-1.5"></i>Time Clause Linker
                             </button>
                         </div>
                     </div>
 
                     <div class="p-6 md:p-10">
                         
-                        <!-- 1. QUIZ EXERCISE -->
+                        <!-- EXERCISE 1: QUIZ -->
                         <div id="ex-container-quiz" class="block fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                    <h3 class="font-black text-xl text-slate-800">Survival Grammar & Syntax Quiz</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Test simple past, time clauses, used to vs. would, and subject questions.</p>
                                 </div>
-                                <span id="quiz-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="quiz-progress" class="bg-teal-100 text-teal-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
                             
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="quiz-q-text" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
-                                <!-- Options injected by JS -->
+                            <div id="quiz-options" class="grid gap-3 mb-6">
+                                <!-- Dynamic Options -->
                             </div>
 
-                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+                            <div id="quiz-feedback" class="hidden p-4 rounded-xl border text-sm font-medium transition-all"></div>
 
-                            <div class="flex justify-end gap-3">
-                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                            <div class="flex justify-end gap-3 mt-4">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl pop-out text-sm shadow-md">
                                     Next <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Restart Quiz <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 2. FORM THE WORD / FILL BLANKS -->
+                        <!-- EXERCISE 2: FILL BLANKS -->
                         <div id="ex-container-fill" class="hidden fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Form the Verb / Structure</h3>
-                                    <p class="text-slate-500 text-sm">Select the correct past verb form or habit modifier.</p>
+                                    <h3 class="font-black text-xl text-slate-800">Form the Correct Past Verb</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Choose the correct past form, time clause verb, or habit modifier.</p>
                                 </div>
-                                <span id="fill-progress" class="bg-teal-100 text-teal-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="fill-progress" class="bg-teal-100 text-teal-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
 
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="fill-sentence" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-3 mb-6">
+                                <!-- Injected options -->
                             </div>
 
-                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+                            <div id="fill-feedback" class="hidden p-4 rounded-xl border text-center font-bold text-sm transition-all mb-4"></div>
 
                             <div class="flex justify-center">
-                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-10 rounded-xl pop-out text-sm shadow-md">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-10 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 3. SPOT FRAGMENTS & ERRORS -->
+                        <!-- EXERCISE 3: IDENTIFY ERRORS -->
                         <div id="ex-container-identify" class="hidden fade-in">
-                            <div class="mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Spot Fragments & Grammar Errors</h3>
-                                <p class="text-sm text-slate-600 mt-1">Click on the word or phrase that contains a <strong>grammatical error or causes a fragment</strong>.</p>
+                            <div class="mb-4">
+                                <h3 class="font-black text-xl text-slate-800">Spot Errors & Fragments</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">Click the word or phrase that violates the grammar rules or causes a sentence fragment, then check your answer.</p>
                             </div>
 
                             <div class="flex justify-between items-center mb-2">
-                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                                <span class="text-xs font-bold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">4</span></span>
                             </div>
 
-                            <div class="bg-white border-2 border-teal-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
-                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            <div class="bg-white border-2 border-teal-100 shadow-inner rounded-2xl p-6 sm:p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-base sm:text-lg font-medium"></div>
                             </div>
 
-                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-bold text-xs sm:text-sm"></div>
 
                             <div class="flex justify-center gap-4">
-                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(13,148,136,0.4)] pop-out">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Answer <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
+                                    Next Sentence <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
-                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out text-sm">
+                                    Try Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 4. CATEGORY MATCHER (Used to vs Would) -->
+                        <!-- EXERCISE 4: CATEGORY MATCHER -->
                         <div id="ex-container-match" class="hidden fade-in">
                             <div class="text-center mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Habit Category Matcher</h3>
-                                <p class="text-slate-500 text-sm mt-1">Connect the sentence/phrase (left) to the correct grammatical constraint (right).</p>
+                                <h3 class="font-black text-xl text-slate-800">Grammar Category & Habit Matcher</h3>
+                                <p class="text-slate-500 text-xs mt-1">Select an item on the left, then click its corresponding grammar classification on the right.</p>
                             </div>
                             
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-4 md:gap-8 max-w-2xl mx-auto mb-6">
                                 <div id="match-col-left" class="space-y-3"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="match-col-right" class="space-y-3"></div>
                             </div>
 
-                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="match-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-2"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-4">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 5. SENTENCE LINKER (Time Clauses) -->
+                        <!-- EXERCISE 5: SENTENCE LINKER -->
                         <div id="ex-container-link" class="hidden fade-in">
-                            <div class="mb-6 text-center">
-                                <h3 class="font-bold text-xl text-slate-800">Time Clause Linker</h3>
-                                <p class="text-sm text-slate-600 mt-1">Connect the start of the time clause (left) to the correct main clause (right).</p>
+                            <div class="text-center mb-6">
+                                <h3 class="font-black text-xl text-slate-800">Past Time Clause Linker</h3>
+                                <p class="text-slate-500 text-xs mt-1">Click a time clause start (left), then click its logically correct completion (right) to link them with arrows.</p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-6 md:gap-16 max-w-2xl mx-auto mb-6 relative">
                                 <div id="link-col-left" class="space-y-4"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="link-col-right" class="space-y-4"></div>
                             </div>
 
-                            <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="link-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-4"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-6 gap-3">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Connections <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm">
+                                    Reset Connections <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
@@ -480,245 +910,219 @@
         </section>
     </main>
 
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+        <p>Unit 2: Survival (The Past) &bull; Interactive Grammar Companion</p>
+    </footer>
+
     <script>
-        // Main Tab Navigation Switcher
+        /* ======================================================== */
+        /* 1. TAB CONTROLLERS                                       */
+        /* ======================================================== */
         function switchMainTab(tabId) {
             const isStudy = tabId === 'study';
-            
-            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            
+            document.getElementById('main-tab-study').className = isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+            document.getElementById('main-tab-practice').className = !isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+
             if (isStudy) {
                 document.getElementById('section-study').classList.remove('hidden');
                 document.getElementById('section-practice').classList.add('hidden');
-                setTimeout(redrawArrows, 50);
+                hideArrows();
             } else {
                 document.getElementById('section-study').classList.add('hidden');
                 document.getElementById('section-practice').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
                 if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
                     quizInit(); fillInit(); idInit(); matchInit(); linkInit();
                 }
-                setTimeout(redrawArrows, 50);
+                setTimeout(redrawArrows, 60);
             }
         }
 
-        // Sub-Tab Navigation for Practice Exercises
+        const grammarTabs = ['sp', 'prog', 'clauses', 'habits', 'writing', 'matrix'];
+        function switchGrammarTab(gId) {
+            grammarTabs.forEach(tab => {
+                const btn = document.getElementById(`gtab-btn-${tab}`);
+                const panel = document.getElementById(`gpanel-${tab}`);
+                if (tab === gId) {
+                    btn.className = 'grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = 'grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.add('hidden');
+                }
+            });
+            hideArrows();
+        }
+
+        const practiceTabs = ['quiz', 'fill', 'identify', 'match', 'link'];
         function switchExTab(exId) {
-            const tabs = ['quiz', 'fill', 'identify', 'match', 'link'];
-            tabs.forEach(t => {
+            practiceTabs.forEach(t => {
                 const btn = document.getElementById(`ex-tab-${t}`);
                 const container = document.getElementById(`ex-container-${t}`);
                 if (t === exId) {
-                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
-                    container.classList.remove('hidden'); container.classList.add('block');
+                    btn.className = 'subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.remove('hidden');
                 } else {
-                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
-                    container.classList.remove('block'); container.classList.add('hidden');
+                    btn.className = 'subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.add('hidden');
                 }
             });
-            setTimeout(redrawArrows, 50);
+            setTimeout(redrawArrows, 60);
         }
 
-        let activeTrigger = null;
-
-        function setupStudyInteractive() {
-            const triggers = document.querySelectorAll('.interactive-trigger');
-            triggers.forEach(trig => {
-                trig.addEventListener('mouseenter', () => activateLink(trig));
-                trig.addEventListener('mouseleave', () => deactivateLink(trig));
-                trig.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
-                    else {
-                        triggers.forEach(t => deactivateLink(t));
-                        activateLink(trig);
-                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
-                    }
-                });
-            });
-            window.addEventListener('scroll', hideArrows);
-            window.addEventListener('resize', redrawArrows);
-        }
-
-        function activateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.add('interactive-active-target');
-                trig.classList.add('interactive-active-trigger');
-                activeTrigger = trig;
-                redrawArrows();
-            }
-        }
-
-        function deactivateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.remove('interactive-active-target');
-                trig.classList.remove('interactive-active-trigger');
-            }
-            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
-        }
-
-        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
-
-        function createArrowSVG(startEl, endEl, state) {
-            if (!startEl || !endEl) return '';
-            const startRect = startEl.getBoundingClientRect();
-            const endRect = endEl.getBoundingClientRect();
-            
-            let startX = startRect.left + (startRect.width / 2);
-            let startY = startRect.bottom + 2;
-            let endX = endRect.left + (endRect.width / 2);
-            let endY = endRect.bottom + 2;
-            
-            if (state !== 'study') {
-                startX = startRect.right + 2;
-                startY = startRect.top + (startRect.height / 2);
-                endX = endRect.left - 2;
-                endY = endRect.top + (endRect.height / 2);
-            }
-
-            let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
-            
-            if(state === 'study') { color = '#0d9488'; marker = 'url(#arrowhead-study)'; }
-            if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
-            if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
-            
-            if (state === 'study') {
-                const curve = Math.max(20, Math.abs(endX - startX) * 0.15);
-                const lowY = Math.max(startY, endY) + curve;
-                return `<path d="M ${startX},${startY} Q ${(startX+endX)/2},${lowY} ${endX},${endY + 6}" stroke="${color}" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="${marker}"/>`;
-            } else {
-                const curveX = (startX + endX) / 2;
-                return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 6},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
-            }
-        }
-
-        function redrawArrows() {
-            let html = '';
-            
-            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
-                const targetId = activeTrigger.getAttribute('data-target');
-                const targetEl = document.getElementById(targetId);
-                if (targetEl) html += createArrowSVG(activeTrigger, targetEl, 'study');
-            }
-            
-            if (document.getElementById('ex-container-link') && document.getElementById('ex-container-link').classList.contains('block')) {
-                linkUserPairs.forEach(pair => {
-                    const startEl = document.getElementById(`link-start-${pair.startId}`);
-                    const endEl = document.getElementById(`link-end-${pair.endId}`);
-                    if(startEl && endEl) html += createArrowSVG(startEl, endEl, pair.status || 'neutral');
-                });
-            }
-            
-            document.getElementById('svg-paths-container').innerHTML = html;
-            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
-        }
-
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
-
-        /* 1. QUIZ DATA */
+        /* ======================================================== */
+        /* 2. QUIZ MODULE                                           */
+        /* ======================================================== */
         const quizData = [
-            { q: "_____ rescued the injured mountain climber? The helicopter crew did.", opts: ["Who", "Who did", "Whose"], ans: 0, exp: "When 'Who' asks about the subject, do not use 'did'. Place the simple past verb directly after 'Who'." },
-            { q: "The mountain storm started while they _____ up the steep peak.", opts: ["were climbing", "climbed", "were climb"], ans: 0, exp: "Use 'while' + past progressive for background ongoing actions." },
-            { q: "By the time the rescue team arrived, the hikers _____ a temporary shelter.", opts: ["had built", "built", "have built"], ans: 0, exp: "Use past perfect ('had + V3') for an action completed before another past event." },
-            { q: "There _____ a small wooden cabin here before the forest fire.", opts: ["used to be", "would be", "use to be"], ans: 0, exp: "'Would' CANNOT express past states or conditions; use 'used to' instead." },
-            { q: "Every summer, our guide _____ tell us survival stories around the campfire.", opts: ["would", "used", "use to"], ans: 0, exp: "'Would' expresses repeated past habits and actions." },
-            { q: "He _____ like freeze-dried emergency rations when he first tried them.", opts: ["didn't use to", "didn't used to", "wouldn't to"], ans: 0, exp: "The negative form of used to is 'didn't use to' (without the 'd')." },
-            { q: "They were exhausted because they _____ without water for two days.", opts: ["had traveled", "were traveling", "travel"], ans: 0, exp: "Past perfect explains the earlier reason for a past condition ('were exhausted')." },
-            { q: "Select the sentence with CORRECT punctuation:", opts: ["While we were hiking, it began to snow.", "While we were hiking it began to snow.", "While we were hiking. It began to snow."], ans: 0, exp: "When the dependent time clause comes first, follow it with a comma." }
+            { 
+                q: "_____ the presentation about the penguin expedition yesterday?", 
+                opts: ["Who gave", "Who did give", "Who was give"], 
+                ans: 0, 
+                exp: "When 'Who' asks about the subject, do not use 'did'. The verb directly takes the past form (gave)." 
+            },
+            { 
+                q: "Jimmy Chin was skiing down the mountain when an avalanche _____ behind him.", 
+                opts: ["started", "was starting", "starts"], 
+                ans: 0, 
+                exp: "Use the simple past for the interrupting event that occurs while another action was in progress." 
+            },
+            { 
+                q: "There _____ a small wooden cabin on the mountain before the storm destroyed it.", 
+                opts: ["used to be", "would be", "use to be"], 
+                ans: 0, 
+                exp: "'Would' cannot be used for past situations or stative conditions. Use 'used to be'." 
+            },
+            { 
+                q: "He _____ like freeze-dried rations when he was in high school.", 
+                opts: ["didn't use to", "didn't used to", "wouldn't to"], 
+                ans: 0, 
+                exp: "In negative statements with 'didn't', use the base form 'use to' (without the 'd')." 
+            },
+            { 
+                q: "When I was in college, my roommate _____ study until 3:00 a.m. every night.", 
+                opts: ["would", "was", "used"], 
+                ans: 0, 
+                exp: "'Would' expresses a repeated past action or habitual activity that no longer occurs." 
+            },
+            { 
+                q: "When the rescue team _____ the note, they discovered the miners were alive.", 
+                opts: ["read", "was reading", "were reading"], 
+                ans: 0, 
+                exp: "When two actions occur consecutively in sequence, use the simple past in both clauses." 
+            },
+            { 
+                q: "The linguists discovered that Kristina _____ how to speak Xyzyl.", 
+                opts: ["knew", "was knowing", "did knew"], 
+                ans: 0, 
+                exp: "'Know' is a stative mental verb and cannot be used in the progressive form." 
+            },
+            { 
+                q: "Choose the grammatically correct sentence with proper comma punctuation:", 
+                opts: [
+                    "While we were walking home, the storm began.", 
+                    "While we were walking home the storm began.", 
+                    "The storm began, while we were walking home."
+                ], 
+                ans: 0, 
+                exp: "When the dependent time clause comes at the beginning, it must be followed by a comma." 
+            }
         ];
-        
-        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        let activeQuiz = [];
+        let quizCurrent = 0;
+        let quizScore = 0;
+        let quizAnswered = false;
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
 
         function quizInit() {
-            activeQuiz = shuffleArray(quizData).slice(0, 6);
-            quizCurrent = 0; quizScore = 0;
+            activeQuiz = shuffle(quizData).slice(0, 6);
+            quizCurrent = 0;
+            quizScore = 0;
             document.getElementById('quiz-btn-reset').classList.add('hidden');
             quizLoad();
         }
 
         function quizLoad() {
-            quizAns = false;
+            quizAnswered = false;
             const q = activeQuiz[quizCurrent];
             document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
             
-            let qText = q.q;
-            if(qText.includes("_____")) {
-                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-teal-600">_____</span>');
-            }
-            document.getElementById('quiz-q-text').innerHTML = qText;
-            
+            let qHtml = q.q.replace('_____', '<span class="border-b-2 border-teal-500 font-bold px-3 text-teal-600">_____</span>');
+            document.getElementById('quiz-q-text').innerHTML = qHtml;
+
             const optsCon = document.getElementById('quiz-options');
             optsCon.innerHTML = '';
-            
+
             q.opts.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
-                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-semibold text-slate-700 flex items-center justify-between text-sm sm:text-base shadow-xs';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
                 btn.onclick = () => quizSelect(idx, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('quiz-feedback').classList.add('hidden');
             document.getElementById('quiz-btn-next').classList.add('hidden');
         }
 
-        function quizSelect(idx, btnElement) {
-            if (quizAns) return;
-            quizAns = true;
-            
+        function quizSelect(idx, btn) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
             const q = activeQuiz[quizCurrent];
-            const isCor = idx === q.ans;
-            if (isCor) quizScore++;
-            
+            const isCorrect = idx === q.ans;
+            if (isCorrect) quizScore++;
+
             const allBtns = document.getElementById('quiz-options').children;
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].classList.add('option-disabled');
                 allBtns[i].onclick = null;
-                const icon = allBtns[i].querySelector('.indicator-icon');
-                
+                const icon = allBtns[i].querySelector('i');
                 if (i === q.ans) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
-                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
-                } else if (i === idx && !isCor) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
-                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-correct text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-lg';
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-incorrect text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-lg';
                 }
             }
-            
+
             const fb = document.getElementById('quiz-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
-            
-            if (isCor) {
+            if (isCorrect) {
                 fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
-                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-check mr-1.5"></i> <strong>Correct!</strong> ${q.exp}`;
             } else {
                 fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
-                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-1.5"></i> <strong>Incorrect.</strong> ${q.exp}`;
             }
-            
-            document.getElementById('quiz-btn-next').classList.remove('hidden');
-            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+
+            const nextBtn = document.getElementById('quiz-btn-next');
+            nextBtn.classList.remove('hidden');
+            nextBtn.innerHTML = quizCurrent === activeQuiz.length - 1 ? 'Finish Quiz <i class="fa-solid fa-flag-checkered ml-1.5"></i>' : 'Next Question <i class="fa-solid fa-arrow-right ml-1.5"></i>';
         }
 
         function quizNext() {
             if (quizCurrent < activeQuiz.length - 1) {
-                quizCurrent++; quizLoad();
+                quizCurrent++;
+                quizLoad();
             } else {
                 document.getElementById('quiz-options').innerHTML = '';
-                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-teal-600 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-q-text').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-award text-5xl text-teal-600 mb-3"></i>
+                        <h4 class="text-2xl font-black text-slate-800">Quiz Completed!</h4>
+                        <p class="text-slate-600 text-sm mt-1">You achieved: <strong class="text-teal-600 text-xl">${quizScore} / ${activeQuiz.length}</strong></p>
+                    </div>
+                `;
                 document.getElementById('quiz-progress').textContent = "Done";
                 document.getElementById('quiz-feedback').classList.add('hidden');
                 document.getElementById('quiz-btn-next').classList.add('hidden');
@@ -726,79 +1130,98 @@
             }
         }
 
-        /* 2. FILL DATA */
+        /* ======================================================== */
+        /* 3. FORM THE WORD / FILL IN BLANKS                        */
+        /* ======================================================== */
         const fillData = [
-            { pre: "She ", blank: "didn't use to", post: " like outdoor camping.", opts: ["didn't use to", "didn't used to", "wouldn't"] },
-            { pre: "While we ", blank: "were hiking", post: ", it began to snow.", opts: ["hiked", "were hiking", "are hiking"] },
-            { pre: "Who ", blank: "rescued", post: " the stranded climbers yesterday?", opts: ["rescued", "did rescue", "was rescue"] },
-            { pre: "There ", blank: "used to be", post: " a wooden shelter near the river.", opts: ["used to be", "would be", "use to be"] },
-            { pre: "When the helicopter arrived, they ", blank: "waved", post: " for help.", opts: ["waved", "were waving", "did wave"] }
+            { pre: "While Eric Nerhus was diving in Australia, a shark ", blank: "attacked", post: " him.", opts: ["attacked", "was attacking", "did attacked"] },
+            { pre: "Who ", blank: "called", post: " the coast guard for emergency help?", opts: ["called", "did call", "was call"] },
+            { pre: "She ", blank: "didn't use to", post: " like outdoor winter sports.", opts: ["didn't use to", "didn't used to", "wouldn't"] },
+            { pre: "When the alarm rang, the firefighter ", blank: "woke", post: " up immediately.", opts: ["woke", "was waking", "did wake"] },
+            { pre: "There ", blank: "used to be", post: " an ancient stepped well in this village.", opts: ["used to be", "would be", "use to be"] }
         ];
 
-        let activeFill = []; let fillCur = 0; let fillAns = false;
+        let activeFill = [];
+        let fillCur = 0;
+        let fillAns = false;
 
         function fillInit() {
-            activeFill = shuffleArray(fillData).slice(0, 5);
-            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            activeFill = shuffle(fillData);
+            fillCur = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
             fillLoad();
         }
 
         function fillLoad() {
-            fillAns = false; const q = activeFill[fillCur];
-            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
-            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
-            
-            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
-            shuffleArray([...q.opts]).forEach((opt) => {
+            fillAns = false;
+            const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1} / ${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-400">_____</span>${q.post}`;
+
+            const optsCon = document.getElementById('fill-options');
+            optsCon.innerHTML = '';
+            shuffle(q.opts).forEach(opt => {
                 const btn = document.createElement('button');
-                btn.className = 'pop-out bg-white border-2 border-teal-200 text-teal-700 font-bold py-3 px-6 rounded-xl hover:bg-teal-50 hover:border-teal-400 shadow-sm text-lg';
-                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                btn.className = 'pop-out bg-white border-2 border-teal-200 text-teal-800 font-bold py-2.5 px-6 rounded-xl hover:bg-teal-50 hover:border-teal-400 shadow-xs text-sm sm:text-base';
+                btn.textContent = opt;
+                btn.onclick = () => fillSelect(opt, q.blank, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('fill-feedback').classList.add('hidden');
             document.getElementById('fill-btn-next').classList.add('hidden');
         }
 
-        function fillSelect(sel, cor, btn) {
-            if (fillAns) return; fillAns = true;
+        function fillSelect(choice, correct, btn) {
+            if (fillAns) return;
+            fillAns = true;
+
             const target = document.getElementById('fill-target');
-            target.textContent = sel; target.classList.add('filled');
-            
-            const isCor = sel === cor;
+            target.textContent = choice;
+            target.classList.add('filled');
+
+            const isCorrect = choice === correct;
             const fb = document.getElementById('fill-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
-            
+
             const allBtns = document.getElementById('fill-options').children;
             for (let i = 0; i < allBtns.length; i++) {
-                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
-                if (allBtns[i].textContent === cor) {
-                    allBtns[i].classList.remove('border-teal-200', 'text-teal-700', 'opacity-50');
+                allBtns[i].disabled = true;
+                allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === correct) {
+                    allBtns[i].classList.remove('border-teal-200', 'text-teal-800', 'opacity-50');
                     allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
                 }
             }
 
-            if (isCor) {
+            if (isCorrect) {
                 target.classList.add('correct');
-                btn.classList.replace('border-teal-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
                 fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct! Well done.";
             } else {
                 target.classList.add('incorrect');
-                btn.classList.replace('border-teal-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
                 fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review past tense and habit rules.";
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review simple past vs. progressive and used to rules.";
             }
-            
+
             document.getElementById('fill-btn-next').classList.remove('hidden');
-            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+            if (fillCur === activeFill.length - 1) {
+                document.getElementById('fill-btn-next').innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-1.5"></i>';
+            }
         }
 
         function fillNext() {
-            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
-            else {
+            if (fillCur < activeFill.length - 1) {
+                fillCur++;
+                fillLoad();
+            } else {
                 document.getElementById('fill-options').innerHTML = '';
-                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-teal-600 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-sentence').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-2"></i>
+                        <h4 class="text-xl font-black text-slate-800">All Completed!</h4>
+                    </div>
+                `;
                 document.getElementById('fill-progress').textContent = "Done";
                 document.getElementById('fill-feedback').classList.add('hidden');
                 document.getElementById('fill-btn-next').classList.add('hidden');
@@ -806,166 +1229,247 @@
             }
         }
 
-        /* 3. SPOT ERRORS DATA */
+        /* ======================================================== */
+        /* 4. IDENTIFY ERRORS & FRAGMENTS                           */
+        /* ======================================================== */
         const idData = [
-            [{w:"Who"}, {w:"did called", isErr:true}, {w:"the"}, {w:"coast"}, {w:"guard?"}],
-            [{w:"There"}, {w:"would be", isErr:true}, {w:"a"}, {w:"cabin"}, {w:"here."}],
-            [{w:"She"}, {w:"didn't"}, {w:"used to", isErr:true}, {w:"fear"}, {w:"heights."}],
-            [{w:"Waited"}, {w:"for", isErr:true}, {w:"help", isErr:true}, {w:"all night.", isErr:true}] // Fragment (no subject)
+            {
+                tokens: [{w:"Who"}, {w:"did called", isErr:true}, {w:"the"}, {w:"coast"}, {w:"guard"}, {w:"yesterday?"}],
+                explanation: "Subject questions with 'Who' take the past verb directly ('Who called?'). Never use 'did'."
+            },
+            {
+                tokens: [{w:"There"}, {w:"would be", isErr:true}, {w:"a"}, {w:"large"}, {w:"library"}, {w:"on"}, {w:"this"}, {w:"street."}],
+                explanation: "'Would' cannot express past states or conditions. Use 'used to be'."
+            },
+            {
+                tokens: [{w:"She"}, {w:"didn't"}, {w:"used to", isErr:true}, {w:"fear"}, {w:"dangerous"}, {w:"heights."}],
+                explanation: "Negative form with didn't takes the base form without 'd': 'didn't use to'."
+            },
+            {
+                tokens: [{w:"Waited for help", isErr:true}, {w:"on"}, {w:"the"}, {w:"roof"}, {w:"all"}, {w:"night."}],
+                explanation: "This is a sentence fragment missing a subject! Correct: 'My family and I waited for help...'"
+            }
         ];
-        
-        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        let idCurrent = 0;
+        let idSelected = new Set();
+        let idAnswered = false;
 
         function idInit() {
-            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
-            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+            idCurrent = 0;
+            document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden');
+            idLoad();
         }
 
         function idLoad() {
-            idSelected.clear(); idAns = false;
+            idSelected.clear();
+            idAnswered = false;
             document.getElementById('id-current').textContent = idCurrent + 1;
-            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
-            
-            idData[idCurrent].forEach((item, idx) => {
+            const container = document.getElementById('id-sentence-container');
+            container.innerHTML = '';
+
+            idData[idCurrent].tokens.forEach((item, idx) => {
                 const span = document.createElement('span');
-                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.textContent = item.w;
+                span.className = 'click-word bg-slate-100 text-slate-800';
                 span.dataset.isErr = item.isErr ? "true" : "false";
                 span.onclick = () => {
-                    if(idAns) return;
-                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
-                    else { idSelected.add(idx); span.classList.add('selected'); }
+                    if (idAnswered) return;
+                    if (idSelected.has(idx)) {
+                        idSelected.delete(idx);
+                        span.classList.remove('selected');
+                    } else {
+                        idSelected.add(idx);
+                        span.classList.add('selected');
+                    }
                 };
-                con.appendChild(span);
+                container.appendChild(span);
             });
+
             document.getElementById('id-feedback').classList.add('hidden');
             document.getElementById('id-btn-check').classList.remove('hidden');
             document.getElementById('id-btn-next').classList.add('hidden');
         }
 
         function idCheck() {
-            if(idAns) return; idAns = true;
+            if (idAnswered) return;
+            idAnswered = true;
+
             const spans = document.querySelectorAll('#id-sentence-container .click-word');
-            let cor = 0; let tot = idData[idCurrent].filter(i => i.isErr).length; let err = false;
+            let correctCount = 0;
+            let totalErrors = idData[idCurrent].tokens.filter(t => t.isErr).length;
+            let falseSelected = false;
 
             spans.forEach((span, idx) => {
-                const isTar = span.dataset.isErr === "true"; const isSel = idSelected.has(idx);
+                const isTarget = span.dataset.isErr === "true";
+                const isChosen = idSelected.has(idx);
                 span.classList.remove('selected', 'bg-slate-100');
-                if(isTar && isSel) { span.classList.add('correct'); cor++; }
-                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
-                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
-                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+
+                if (isTarget && isChosen) {
+                    span.classList.add('correct');
+                    correctCount++;
+                } else if (!isTarget && isChosen) {
+                    span.classList.add('incorrect');
+                    falseSelected = true;
+                } else if (isTarget && !isChosen) {
+                    span.classList.add('missed');
+                } else {
+                    span.classList.add('text-slate-400');
+                    span.style.cursor = 'default';
+                }
             });
 
             const fb = document.getElementById('id-feedback');
-            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
-            
-            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You found the error or fragment."; } 
-            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `You missed the error/fragment. Watch for 'did' in Who-subject questions, 'would' with past states, 'didn't use to' spelling, or missing subjects.`; }
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-800', 'border-amber-200');
+
+            if (!falseSelected && correctCount === totalErrors) {
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-star mr-1.5"></i> <strong>Spot on!</strong> ${idData[idCurrent].explanation}`;
+            } else {
+                fb.classList.add('bg-amber-50', 'text-amber-800', 'border-amber-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-1.5"></i> <strong>Grammar Note:</strong> ${idData[idCurrent].explanation}`;
+            }
 
             document.getElementById('id-btn-check').classList.add('hidden');
-            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
-            else document.getElementById('id-btn-reset').classList.remove('hidden');
+            if (idCurrent < idData.length - 1) {
+                document.getElementById('id-btn-next').classList.remove('hidden');
+            } else {
+                document.getElementById('id-btn-reset').classList.remove('hidden');
+            }
         }
-        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
 
-        /* 4. MATCH DATA */
+        function idNext() {
+            if (idCurrent < idData.length - 1) {
+                idCurrent++;
+                idLoad();
+            }
+        }
+
+        /* ======================================================== */
+        /* 5. CATEGORY MATCHER                                      */
+        /* ======================================================== */
         const matchPool = [
-            { id: 1, left: "I used to live near the coast.", right: "Past State / Condition" },
-            { id: 2, left: "My grandfather would tell us stories.", right: "Repeated Past Action (Habit)" },
-            { id: 3, left: "She didn't use to like hiking.", right: "Negative Past Habit (No 'd')" },
-            { id: 4, left: "When the phone rang, I answered.", right: "Consecutive Past Sequence" },
-            { id: 5, left: "While I was sleeping, the storm hit.", right: "Interrupted Action" }
+            { id: 1, left: "Used to be a library", right: "Past State (Used To only)" },
+            { id: 2, left: "Would explore historic sites", right: "Repeated Past Action (Habit)" },
+            { id: 3, left: "Who rescued the miners?", right: "Subject Question (No 'did')" },
+            { id: 4, left: "While the water was rising", right: "Time Clause Fragment (Needs Main)" },
+            { id: 5, left: "Didn't use to", right: "Correct Negative Habit Spelling" },
+            { id: 6, left: "Wasn't late", right: "Past BE Negative (Never 'didn't was')" }
         ];
 
-        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+        let activeMatch = [];
+        let mSelLeft = null;
+        let mSelRight = null;
+        let matchCount = 0;
 
         function matchInit() {
-            mSelLeft = null; mSelRight = null; matchCount = 0;
-            activeMatch = shuffleArray([...matchPool]);
-            
+            mSelLeft = null;
+            mSelRight = null;
+            matchCount = 0;
+            activeMatch = shuffle([...matchPool]);
+
             document.getElementById('match-btn-reset').classList.add('hidden');
             document.getElementById('match-feedback').textContent = '';
-            
+
             const lCol = document.getElementById('match-col-left');
             const rCol = document.getElementById('match-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.left, side: 'left' })));
-            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.right, side: 'right' })));
+            const lItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.left, side: 'left' })));
+            const rItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.right, side: 'right' })));
 
-            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
-            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+            lItems.forEach(item => lCol.appendChild(createMatchBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMatchBtn(item)));
         }
 
-        function createMBtn(item) {
+        function createMatchBtn(item) {
             const btn = document.createElement('button');
-            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm text-xs sm:text-sm';
-            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
-            btn.onclick = () => handleMClick(btn, item);
+            btn.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm text-slate-700 bg-white border-2 border-slate-200 pop-out shadow-xs';
+            btn.textContent = item.text;
+            btn.dataset.id = item.id;
+            btn.dataset.side = item.side;
+            btn.onclick = () => handleMatchClick(btn, item);
             return btn;
         }
 
-        function handleMClick(btn, item) {
-            if(btn.classList.contains('matched')) return;
-            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+        function handleMatchClick(btn, item) {
+            if (btn.classList.contains('bg-green-100')) return;
 
-            if(item.side === 'left') {
-                if(mSelLeft) mSelLeft.el.classList.remove('selected');
-                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            if (item.side === 'left') {
+                if (mSelLeft) mSelLeft.el.classList.remove('bg-teal-600', 'text-white', 'border-teal-700');
+                mSelLeft = { el: btn, id: item.id };
+                btn.classList.add('bg-teal-600', 'text-white', 'border-teal-700');
             } else {
-                if(mSelRight) mSelRight.el.classList.remove('selected');
-                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+                if (mSelRight) mSelRight.el.classList.remove('bg-teal-600', 'text-white', 'border-teal-700');
+                mSelRight = { el: btn, id: item.id };
+                btn.classList.add('bg-teal-600', 'text-white', 'border-teal-700');
             }
 
-            if(mSelLeft && mSelRight) checkMatch();
+            if (mSelLeft && mSelRight) checkMatchPair();
         }
 
-        function checkMatch() {
+        function checkMatchPair() {
             const fb = document.getElementById('match-feedback');
-            if(mSelLeft.id === mSelRight.id) {
-                mSelLeft.el.classList.replace('selected', 'matched');
-                mSelRight.el.classList.replace('selected', 'matched');
-                fb.textContent = `Correct!`;
-                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
-                matchCount++; mSelLeft = null; mSelRight = null;
+            if (mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                mSelRight.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                fb.textContent = 'Correct Match!';
+                fb.className = 'text-center h-8 font-bold text-sm text-green-600 mt-2';
+                matchCount++;
+                mSelLeft = null;
+                mSelRight = null;
 
-                if(matchCount === activeMatch.length) {
+                if (matchCount === activeMatch.length) {
                     setTimeout(() => {
-                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> All matched!`;
+                        fb.innerHTML = '<i class="fa-solid fa-circle-check text-green-600 mr-2"></i> All concepts paired successfully!';
                         document.getElementById('match-btn-reset').classList.remove('hidden');
-                    }, 500);
+                    }, 400);
                 }
             } else {
-                fb.textContent = 'Try again!';
-                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
-                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
-                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
-                mSelLeft = null; mSelRight = null;
-                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+                fb.textContent = 'Not a match. Try again!';
+                fb.className = 'text-center h-8 font-bold text-sm text-red-500 mt-2';
+                const el1 = mSelLeft.el;
+                const el2 = mSelRight.el;
+                el1.classList.add('animate-pulse');
+                el2.classList.add('animate-pulse');
+                setTimeout(() => {
+                    el1.classList.remove('bg-teal-600', 'text-white', 'border-teal-700', 'animate-pulse');
+                    el2.classList.remove('bg-teal-600', 'text-white', 'border-teal-700', 'animate-pulse');
+                }, 600);
+                mSelLeft = null;
+                mSelRight = null;
             }
         }
 
-        /* 5. LINK DATA */
+        /* ======================================================== */
+        /* 6. SENTENCE LINKER (SVG CONNECTORS)                     */
+        /* ======================================================== */
         const linkData = [
             { id: 1, left: "While they were walking,", right: "the storm began." },
-            { id: 2, left: "When the alarm rang,", right: "she woke up immediately." },
-            { id: 3, left: "Who", right: "called for emergency help?" },
+            { id: 2, left: "When the alarm sounded,", right: "the crew reacted immediately." },
+            { id: 3, left: "Who", right: "rescued the injured hiker?" },
             { id: 4, left: "Did you use to", right: "live in the mountains?" }
         ];
 
-        let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
+        let linkUserPairs = [];
+        let linkSelLeft = null;
+        let linkChecked = false;
 
         function linkInit() {
-            linkUserPairs = []; linkSelLeft = null; linkChecked = false;
-            
+            linkUserPairs = [];
+            linkSelLeft = null;
+            linkChecked = false;
+
             const lCol = document.getElementById('link-col-left');
             const rCol = document.getElementById('link-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const activeLinks = shuffleArray([...linkData]);
-
-            const lItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.left, type: 'start' })));
-            const rItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.right, type: 'end' })));
+            const shuffled = shuffle([...linkData]);
+            const lItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.left, type: 'start' })));
+            const rItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.right, type: 'end' })));
 
             lItems.forEach(item => lCol.appendChild(createLinkBtn(item)));
             rItems.forEach(item => rCol.appendChild(createLinkBtn(item)));
@@ -973,14 +1477,13 @@
             document.getElementById('link-feedback').classList.add('hidden');
             document.getElementById('link-btn-check').classList.remove('hidden');
             document.getElementById('link-btn-reset').classList.add('hidden');
-            
             redrawArrows();
         }
 
         function createLinkBtn(item) {
             const btn = document.createElement('div');
             btn.id = `link-${item.type}-${item.id}`;
-            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-teal-300 transition-all z-10 relative text-xs sm:text-sm';
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-3.5 font-bold text-slate-700 text-center cursor-pointer hover:border-teal-400 transition-all text-xs sm:text-sm select-none shadow-xs';
             btn.textContent = item.text;
             btn.dataset.id = item.id;
             btn.dataset.type = item.type;
@@ -989,49 +1492,47 @@
         }
 
         function handleLinkClick(btn, item) {
-            if(linkChecked) return;
+            if (linkChecked) return;
 
             if (item.type === 'start') {
-                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50');
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-teal-200', 'bg-teal-50');
                 if (linkSelLeft && linkSelLeft.id === item.id) {
-                    linkSelLeft = null; // deselect
+                    linkSelLeft = null;
                 } else {
                     linkSelLeft = { el: btn, id: item.id };
-                    btn.classList.add('ring-4', 'ring-teal-300', 'bg-teal-50');
+                    btn.classList.add('ring-4', 'ring-teal-200', 'bg-teal-50');
                 }
             } else if (item.type === 'end' && linkSelLeft) {
                 linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
                 linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
-                linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50');
+                linkSelLeft.el.classList.remove('ring-4', 'ring-teal-200', 'bg-teal-50');
                 linkSelLeft = null;
                 redrawArrows();
             }
         }
 
         function linkCheck() {
-            if(linkChecked) return;
-            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-teal-300', 'bg-teal-50'); linkSelLeft = null; }
-            
+            if (linkChecked) return;
             linkChecked = true;
-            let corCount = 0;
+            let correctCount = 0;
 
-            linkUserPairs.forEach(up => {
-                if (up.startId === up.endId) {
-                    up.status = 'correct'; corCount++;
+            linkUserPairs.forEach(pair => {
+                if (pair.startId === pair.endId) {
+                    pair.status = 'correct';
+                    correctCount++;
                 } else {
-                    up.status = 'incorrect';
+                    pair.status = 'incorrect';
                 }
             });
 
             const fb = document.getElementById('link-feedback');
-            fb.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-amber-600');
-            
-            if (corCount === linkData.length) {
+            fb.classList.remove('hidden', 'text-green-600', 'text-amber-600');
+            if (correctCount === linkData.length) {
                 fb.classList.add('text-green-600');
-                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
+                fb.innerHTML = "<i class='fa-solid fa-star mr-1.5'></i> Perfect! All past clauses correctly joined.";
             } else {
                 fb.classList.add('text-amber-600');
-                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the logical relationship between past clauses.`;
+                fb.innerHTML = `You connected ${correctCount} of ${linkData.length} correctly. Review past time clause punctuation and structures.`;
             }
 
             redrawArrows();
@@ -1039,12 +1540,56 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
-        window.onload = () => { 
-            setupStudyInteractive(); 
-            populateVoiceList();
-        };
+        function createArrowSVG(startEl, endEl, state) {
+            if (!startEl || !endEl) return '';
+            const sRect = startEl.getBoundingClientRect();
+            const eRect = endEl.getBoundingClientRect();
 
-        /* Built-in TTS Web Speech API Integration */
+            const startX = sRect.right + 2;
+            const startY = sRect.top + (sRect.height / 2);
+            const endX = eRect.left - 2;
+            const endY = eRect.top + (eRect.height / 2);
+
+            let color = '#94a3b8';
+            let marker = 'url(#arrowhead-neutral)';
+
+            if (state === 'correct') {
+                color = '#16a34a';
+                marker = 'url(#arrowhead-correct)';
+            } else if (state === 'incorrect') {
+                color = '#dc2626';
+                marker = 'url(#arrowhead-incorrect)';
+            }
+
+            const curveX = (startX + endX) / 2;
+            return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 5},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
+        }
+
+        function redrawArrows() {
+            let html = '';
+            const linkContainer = document.getElementById('ex-container-link');
+            if (linkContainer && !linkContainer.classList.contains('hidden')) {
+                linkUserPairs.forEach(pair => {
+                    const s = document.getElementById(`link-start-${pair.startId}`);
+                    const e = document.getElementById(`link-end-${pair.endId}`);
+                    if (s && e) html += createArrowSVG(s, e, pair.status || 'neutral');
+                });
+            }
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function hideArrows() {
+            document.getElementById('svg-paths-container').innerHTML = '';
+            document.getElementById('connection-svg').classList.add('hidden');
+        }
+
+        window.addEventListener('resize', redrawArrows);
+        window.addEventListener('scroll', redrawArrows);
+
+        /* ======================================================== */
+        /* 7. TEXT-TO-SPEECH (TTS) AUDIO COMPANION                  */
+        /* ======================================================== */
         let synth = window.speechSynthesis;
         let voices = [];
         let currentUtterance = null;
@@ -1052,32 +1597,24 @@
         function populateVoiceList() {
             if (!synth) return;
             voices = synth.getVoices();
-            const voiceSelect = document.getElementById('tts-voice-select');
-            
+            const sel = document.getElementById('tts-voice-select');
             if (voices.length === 0) return;
 
-            voiceSelect.innerHTML = '';
-            let defaultVoiceIndex = 0;
-            
-            for (let i = 0; i < voices.length; i++) {
-                const option = document.createElement('option');
-                option.textContent = `${voices[i].name} (${voices[i].lang})`;
-                option.setAttribute('data-lang', voices[i].lang);
-                option.setAttribute('data-name', voices[i].name);
-                voiceSelect.appendChild(option);
+            sel.innerHTML = '';
+            let defaultIdx = 0;
 
-                if (voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang.startsWith('en')) {
-                    defaultVoiceIndex = i;
+            voices.forEach((v, idx) => {
+                const opt = document.createElement('option');
+                opt.textContent = `${v.name} (${v.lang})`;
+                opt.setAttribute('data-name', v.name);
+                sel.appendChild(opt);
+
+                if (v.name.includes('Natural') || v.name.includes('Google UK English Male') || v.lang === 'en-US') {
+                    defaultIdx = idx;
                 }
-            }
-            
-            if (voiceSelect.options.length > 0) {
-                voiceSelect.selectedIndex = defaultVoiceIndex;
-            }
+            });
+
+            sel.selectedIndex = defaultIdx;
         }
 
         if (synth && synth.onvoiceschanged !== undefined) {
@@ -1087,52 +1624,45 @@
         function toggleAudioSummary() {
             if (!synth) return;
             const icon = document.getElementById('tts-icon');
-            const text = document.getElementById('tts-text');
+            const txt = document.getElementById('tts-text');
 
             if (synth.speaking || synth.pending) {
                 synth.cancel();
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
                 return;
             }
 
-            const summaryPrompt = "Welcome to Unit 2: Survival. In this lesson, you will master the simple past for completed actions, the past progressive for ongoing background events, and time clauses with when and while. Remember: inside Who subject questions, do not use 'did'. For past habits, use 'used to' or 'would', but never use 'would' for past states. Finally, ensure all your sentences have both a subject and a verb to avoid sentence fragments!";
-            
-            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
-            window._ttsUtterance = currentUtterance;
-            
-            const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
-            if (selectedOption && selectedOption.hasAttribute('data-name')) {
-                const selectedVoice = selectedOption.getAttribute('data-name');
-                const voice = voices.find(v => v.name === selectedVoice);
-                if (voice) {
-                    currentUtterance.voice = voice;
-                    currentUtterance.lang = voice.lang;
-                }
-            } else {
-                currentUtterance.lang = 'en-US';
+            const promptText = "Welcome to Unit 2: Survival. In this unit, we explore the past. Use the simple past for completed events and sequential actions. Remember: Who and What subject questions never take 'did'. Use the past progressive for ongoing actions in progress at a specific time in the past or for setting a narrative scene. Stative verbs like know and believe cannot be progressive. For past time clauses with when and while, remember to add a comma when the time clause starts the sentence. Use 'used to' for past habits and states, and 'would' for repeated past actions only, never for past states. Finally, ensure every sentence has both a subject and a verb to avoid sentence fragments.";
+
+            currentUtterance = new SpeechSynthesisUtterance(promptText);
+            const sel = document.getElementById('tts-voice-select');
+            const selectedOpt = sel.selectedOptions[0];
+            if (selectedOpt) {
+                const vName = selectedOpt.getAttribute('data-name');
+                const matched = voices.find(v => v.name === vName);
+                if (matched) currentUtterance.voice = matched;
             }
 
             currentUtterance.onstart = () => {
                 icon.className = "fa-solid fa-square";
-                text.textContent = "Stop";
+                txt.textContent = "Stop";
             };
-
             currentUtterance.onend = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
-
-            currentUtterance.onerror = (e) => {
-                if (e.error !== 'interrupted' && e.error !== 'canceled') {
-                    console.error('SpeechSynthesis Error:', e);
-                }
+            currentUtterance.onerror = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
 
             synth.speak(currentUtterance);
         }
+
+        window.onload = () => {
+            populateVoiceList();
+        };
     </script>
 </body>
 </html>
