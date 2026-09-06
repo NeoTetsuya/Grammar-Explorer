@@ -125,7 +125,34 @@ const BOOK_UNIT_METADATA = {
   },
   4: {
     title: "Unit 4: Going Places (Pronouns, Prepositions, and Articles)",
-    topics: ["Going Places", "Travel", "Object & Indefinite Pronouns", "Prepositions of Place & Movement"]
+    topics: ["Going Places", "Travel", "Personal & Reflexive Pronouns", "Prepositions of Time/Place/Direction", "Articles"],
+    subLessons: {
+      "grammar_explorer_2_unit_4_lesson_1.html": {
+        title: "Unit 4 - Lesson 1: Personal Pronouns, Possessives & Reflexives",
+        tag: "Book U4 L1",
+        topics: ["Subject & Object Pronouns", "Possessive Forms", "Reflexive Pronouns", "Getting Around"]
+      },
+      "grammar_explorer_2_unit_4_lesson_2.html": {
+        title: "Unit 4 - Lesson 2: Prepositions of Time, Place, and Direction",
+        tag: "Book U4 L2",
+        topics: ["Prepositions of Time", "Prepositions of Place", "Direction Prepositions", "Travel Websites"]
+      },
+      "grammar_explorer_2_unit_4_lesson_3.html": {
+        title: "Unit 4 - Lesson 3: Articles: Indefinite and Definite Articles; Generalizations",
+        tag: "Book U4 L3",
+        topics: ["Indefinite Articles", "Definite Article", "Generalizations", "Wilderness Expeditions"]
+      },
+      "grammar_explorer_2_unit_4_lesson_4.html": {
+        title: "Unit 4 - Lesson 4: Articles with Place Names",
+        tag: "Book U4 L4",
+        topics: ["Geographic Names", "Hotels & Buildings", "Streets & Parks", "Travel Blogs"]
+      },
+      "grammar_explorer_2_unit_4_review_writing.html": {
+        title: "Unit 4: Review the Grammar & Connect to Writing",
+        tag: "Book U4 Writing",
+        topics: ["Unit 4 Review", "Misplaced Prepositional Phrases", "Descriptive Paragraphs", "Favorite Places"]
+      }
+    }
   },
   5: {
     title: "Unit 5: A Changing World (The Present Perfect)",

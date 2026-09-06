@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 4: Lesson 2 (Prepositions)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    .edit-pill { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.25rem; padding: 0.15rem 0.45rem; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 0.5rem; vertical-align: middle; margin: 0.15rem 0.2rem; font-family: ui-sans-serif, system-ui, sans-serif; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP APP HEADER -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U4 • Lesson 2</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 4: Going Places <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 2: Prepositions of Time, Place, and Direction</span>
+            </h1>
+          </div>
+        </div>
+        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Bahamas Diving (pp. 96–97)</span>
+        </button>
+        <button onclick="switchExTab('tab-time')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-time">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+          <span>Prepositions of Time (pp. 97–98)</span>
+        </button>
+        <button onclick="switchExTab('tab-place-dir')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-place-dir">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6–7</span>
+          <span>Place & Direction (pp. 99–100)</span>
+        </button>
+        <button onclick="switchExTab('tab-trips')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-trips">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8, 10</span>
+          <span>Trips & Phone Call (pp. 100–101)</span>
+        </button>
+        <button onclick="switchExTab('tab-edit')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-edit">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">11</span>
+          <span>EDIT: Honey Road (p. 102)</span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+    <div id="tab-explore" class="ex-tab-pane  space-y-6">
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-slate-200 pb-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+<span class="text-sm font-bold text-slate-700">Reading &amp; Direct Questions (Pages 96–97)</span>
+</div>
+<span class="text-xs text-slate-500 font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 &amp; 3 (Right)
+          </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Reading "Diving in the Bahamas" -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div>
+<span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Diving in the Bahamas</h3>
+<p class="text-xs text-slate-500">Exploring underwater blue holes and marine environments</p>
+</div>
+<span class="badge-cd">CD1-34</span>
+</div>
+<!-- Audio Player [CD1-34] -->
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-34">
+  <div style="width: calc(100% + 56px); margin-right: -56px;">
+    <iframe src="https://drive.google.com/file/d/1vijnaQ5yMx1DtEHghaoBh0D7VVUdC6J-/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
+  </div>
+</div>
+<!-- End Audio Player [CD1-34] -->
+
+<!-- Bahamas Cave Diver Photo -->
+<div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+<div class="relative w-full bg-slate-950 flex items-center justify-center">
+<img alt="Scuba diver exploring clear turquoise underwater depths in the Bahamas" class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/0284c7?text=Bahamas+Underwater+Diver';" src="https://scubadiverlife.com/wp-content/uploads/2016/02/bahamas_featured.jpg"/>
+</div>
+<div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+<span class="font-medium text-white text-[11px]">Dean's Blue Hole &amp; Caves • Bahamas</span>
+<span class="text-sky-400 font-semibold text-[11px]">p. 96</span>
+</div>
+</div>
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+<p>
+<strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">For many years</strong>, the Bahamas, a group of islands <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">in the Atlantic</strong>, has been a popular vacation spot. The islands attract a lot of divers. Divers from many countries come to see the wide variety of fish <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">in the islands’ clear waters</strong>.
+              </p>
+<p>
+                The fish differ from season to season. <strong>Spring</strong> is the best time to see mahi-mahi. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">In October</strong>, manta rays are more common. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">In the winter</strong>, divers may even see hammerhead sharks.
+              </p>
+<p>
+                For experienced divers, the blue holes of the Bahamas are especially interesting. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">From above</strong>, these blue holes look like deep blue ponds. In fact, they are entrances <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">to underwater caves</strong>. There are over 1000 of these blue holes in the Bahamas. They are one of the most unusual environments <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">on Earth</strong>. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">At the surface</strong>, there is a thin layer of fresh rainwater. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">Below that</strong>, there is salt water because the caves open <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">to the sea</strong>.
+              </p>
+</div>
+</div>
+<!-- RIGHT PANE: Questions 2 & 3 -->
+<div class="lg:col-span-6 space-y-5">
+<!-- Exercise 2: CHECK Multiple Choice -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Multiple Choice (Page 97)
+              </h4>
+<p class="text-xs text-slate-500">Choose the correct answer based on the article:</p>
+<div class="space-y-3 text-xs sm:text-sm">
+<div class="p-3 bg-slate-50 rounded-xl space-y-1">
+<span class="font-medium text-slate-800">1. Where are the Bahamas?</span>
+<select class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="c">
+<option value="">Select answer...</option>
+<option value="a">a. in South America</option>
+<option value="b">b. in the Pacific Ocean</option>
+<option value="c">c. in the Atlantic Ocean</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1">
+<span class="font-medium text-slate-800">2. In the Bahamas, divers can see:</span>
+<select class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="b">
+<option value="">Select answer...</option>
+<option value="a">a. the same fish all year round</option>
+<option value="b">b. mahi-mahi in the spring</option>
+<option value="c">c. manta rays in the spring</option>
+</select>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-1">
+<span class="font-medium text-slate-800">3. The blue holes of the Bahamas are entrances to:</span>
+<select class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean" data-ans="c">
+<option value="">Select answer...</option>
+<option value="a">a. caves on the beach</option>
+<option value="b">b. caves in the mountains</option>
+<option value="c">c. caves under the water</option>
+</select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex2-l2-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+<!-- Exercise 3: DISCOVER Time vs Place Prepositions -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Time vs. Place Prepositions (Page 97)
+              </h4>
+<p class="text-xs text-slate-500">Classify whether each phrase from the text describes <strong>Time</strong> or <strong>Place/Direction</strong>:</p>
+<div class="space-y-2 text-xs">
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>1. <strong>For many years</strong></span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Time"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>2. <strong>in the Atlantic</strong></span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Place/Direction"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>3. <strong>In October</strong></span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Time"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>4. <strong>to underwater caves</strong></span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Place/Direction"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>5. <strong>on Earth</strong></span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Place/Direction"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex3-l2-card')" type="button">Check Ex 3</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+
+    <div id="tab-time" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">4.4 Prepositions of Time</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 97</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Structured Rules & Categories -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. Prepositional Phrases:</strong> A preposition is usually part of a phrase with its object (a noun or noun phrase): <em>Our train leaves <strong>in the morning</strong>.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. Prepositions of Time:</strong> Tell when something happens: <em>She took her vacation <strong>in the summer</strong>. <strong>On Sunday</strong>, he slept late.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>3. at:</strong> Clock times and night: <em><strong>at</strong> nine o’clock, <strong>at</strong> noon, <strong>at</strong> night, <strong>at</strong> midnight.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>4. in:</strong> Periods of time, including parts of a day (except night), seasons, months, and years: <em><strong>in</strong> the morning, <strong>in</strong> the summer, <strong>in</strong> September, <strong>in</strong> 1999.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>5. on:</strong> Dates and days of the week: <em><strong>on</strong> July 15, <strong>on</strong> Sunday, <strong>on</strong> weekdays.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>6. Other Common Prepositions of Time:</strong></p>
+<p class="text-slate-600">• <strong>for</strong> (duration): <em>We took lessons <strong>for three years</strong>.</em></p>
+<p class="text-slate-600">• <strong>from . . . to/until</strong>: <em>Stefan studies <strong>from 6:00 until 10:00</strong>.</em></p>
+<p class="text-slate-600">• <strong>during</strong>: <em>She likes to talk <strong>during class</strong>.</em></p>
+</div>
+</div>
+</div>
+</div>
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Prepositions of Time (Pages 96–97)
+            </h4>
+<p class="text-xs text-slate-500">Circle the correct preposition:</p>
+<div class="space-y-1.5 text-xs">
+<div class="p-1.5 bg-slate-50 rounded-lg">1. Jenny goes on vacation <select class="select-check border rounded p-1 text-xs input-clean" data-ans="for"><option value="">select</option><option value="for">for</option><option value="in">in</option></select> two weeks every summer.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">2. This year she decided to go <select class="select-check border rounded p-1 text-xs input-clean" data-ans="in"><option value="">select</option><option value="on">on</option><option value="in">in</option></select> August.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">3. She started looking online <select class="select-check border rounded p-1 text-xs input-clean" data-ans="in"><option value="">select</option><option value="at">at</option><option value="in">in</option></select> the spring.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">4. She took diving lessons <select class="select-check border rounded p-1 text-xs input-clean" data-ans="on"><option value="">select</option><option value="on">on</option><option value="in">in</option></select> Saturdays from 9:00 <select class="select-check border rounded p-1 text-xs input-clean" data-ans="until"><option value="">select</option><option value="until">until</option><option value="for">for</option></select> noon.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">5. She printed her ticket <select class="select-check border rounded p-1 text-xs input-clean" data-ans="on"><option value="">select</option><option value="on">on</option><option value="in">in</option></select> August 11 <select class="select-check border rounded p-1 text-xs input-clean" data-ans="at"><option value="">select</option><option value="at">at</option><option value="on">on</option></select> midnight.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">6. Her flight left <select class="select-check border rounded p-1 text-xs input-clean" data-ans="at"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> five <select class="select-check border rounded p-1 text-xs input-clean" data-ans="in"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> the evening.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">7. She was on the plane <select class="select-check border rounded p-1 text-xs input-clean" data-ans="for"><option value="">select</option><option value="for">for</option><option value="on">on</option></select> almost eight hours.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">8. She arrived at her hotel late <select class="select-check border rounded p-1 text-xs input-clean" data-ans="at"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> night.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex4-l2-card')" type="button">Check Ex 4</button>
+</div>
+</div>
+      </div>
+    </div>
+
+    <div id="tab-place-dir" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">4.5 Prepositions of Place and Direction</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 99</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Numbered Rules -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. Prepositions of Place:</strong> Tell where someone or something is: <em>near the window, behind the restaurant, outside the cafeteria, under the bridge, across the room.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. in:</strong></p>
+<p class="text-slate-600">• <strong>Inside a container:</strong> <em>Put the book <strong>in</strong> a box. I left the keys <strong>in</strong> the car.</em></p>
+<p class="text-slate-600">• <strong>Countries, states, and cities:</strong> <em>He lives <strong>in</strong> China. They have an apartment <strong>in</strong> Shanghai.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>3. on:</strong></p>
+<p class="text-slate-600">• <strong>Position on a surface:</strong> <em>Put the book <strong>on</strong> the shelf. I left the keys <strong>on</strong> the table.</em></p>
+<p class="text-slate-600">• <strong>Names of streets:</strong> <em>The store is <strong>on</strong> Fifth Avenue. I got lost <strong>on</strong> Brookline Street.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>4. at:</strong></p>
+<p class="text-slate-600">• <strong>Specific point:</strong> <em>Go left <strong>at</strong> the stop sign.</em></p>
+<p class="text-slate-600">• <strong>Addresses:</strong> <em>My brother lives <strong>at</strong> 29 School Street.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>5. Prepositions of Direction:</strong> Tell which way someone or something is going: <em>We walked <strong>toward</strong> the post office. I drove <strong>from</strong> Portland <strong>to</strong> Seattle. I saw Mario <strong>between</strong> the buildings.</em></p>
+</div>
+</div>
+<!-- Real English Box -->
+<div class="bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-amber-950 space-y-1">
+<strong class="text-amber-900 block text-[11px] uppercase tracking-wide">Real English: No Articles with Common Prepositional Phrases</strong>
+<p>A few common phrases do not take <em>a/an/the</em> before the noun:</p>
+<p class="font-medium text-slate-800">• <em>in class, in bed, at home, at school, at work</em></p>
+<p class="italic text-[11px] text-slate-600">e.g., I stayed in bed until 11:00 a.m. / I’ll call him later. He’s at work now.</p>
+</div>
+</div>
+</div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-7" id="ex6-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Complete with in, on, or at (Pages 99–100)
+            </h4>
+<p class="text-xs text-slate-500">Type the correct preposition:</p>
+<div class="space-y-1.5 text-xs">
+<div class="p-1.5 bg-slate-50 rounded-lg">1. Michaela is on vacation <strong>in</strong> Ireland.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">2. The travel guide is <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="on" placeholder="..." type="text"/> the table.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">3. I live <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="at" placeholder="..." type="text"/> 21 Millbrook Road.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">4. There is a restaurant <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="on" placeholder="..." type="text"/> Walker Street.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">5. Your coat is <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="in" placeholder="..." type="text"/> the closet.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">6. Barbara was very busy <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="at" placeholder="..." type="text"/> work yesterday.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">7. Were you <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="in" placeholder="..." type="text"/> class this morning?</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">8. Turn right <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" data-ans="at" placeholder="..." type="text"/> the next traffic light.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex6-l2-card')" type="button">Check Ex 6</button>
+</div>
+</div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Prepositions from the Box (Pages 99–100)
+            </h4>
+<div class="bg-slate-50 p-2 rounded text-xs text-slate-600">
+              Box: <em>across, behind, between, from, near, outside, toward, under</em>
+</div>
+<div class="space-y-1.5 text-xs">
+<div class="p-1.5 bg-slate-50 rounded-lg">1. I want to take your photo with the lake <strong>behind</strong> you.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">2. The sun was too hot for Fiona, so she sat <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="under" placeholder="preposition" type="text"/> a beach umbrella.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">3. My last apartment was <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="across" placeholder="preposition" type="text"/> the street from a restaurant.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">4. Nilesh’s hometown is <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="between" placeholder="preposition" type="text"/> two rivers.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">5. We couldn’t find a taxi, so we started walking <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="toward" placeholder="preposition" type="text"/> the station.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">6. This road goes <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="from" placeholder="preposition" type="text"/> the coast to the top of the mountain.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">7. Jill was surprised when someone left flowers <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="outside,near" placeholder="preposition" type="text"/> her front door.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">8. The police station is on Lewis Street <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="near" placeholder="preposition" type="text"/> the library.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex7-l2-card')" type="button">Check Ex 7</button>
+</div>
+</div>
+    </div>
+
+    <div id="tab-trips" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            Ria’s Trip to Indonesia (Pages 100–101)
+          </h4>
+<p class="text-xs text-slate-500">Choose the correct prepositions:</p>
+<div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+<p>Kim: How was your trip (1) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="to"><option value="">select</option><option value="to">to</option><option value="at">at</option><option value="on">on</option></select> Indonesia? Ria: Great! Were you there (2) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="for"><option value="">select</option><option value="during">during</option><option value="for">for</option><option value="until">until</option></select> a long time? Ria: Yes, from Feb. 28th (3) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="until"><option value="">select</option><option value="for">for</option><option value="during">during</option><option value="until">until</option></select> March 15th. I started (4) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="in"><option value="">select</option><option value="on">on</option><option value="at">at</option><option value="in">in</option></select> Jakarta and stayed (5) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="at"><option value="">select</option><option value="on">on</option><option value="at">at</option><option value="in">in</option></select> my friend’s place. Then I traveled by bus (6) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="from"><option value="">select</option><option value="from">from</option><option value="toward">toward</option></select> Jakarta (7) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="to"><option value="">select</option><option value="on">on</option><option value="to">to</option></select> Bandung. In Bandung, people drive (8) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="on"><option value="">select</option><option value="on">on</option><option value="at">at</option></select> the left, and walking (9) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="across"><option value="">select</option><option value="under">under</option><option value="across">across</option></select> the street is exciting! Cars stop (10) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="at"><option value="">select</option><option value="behind">behind</option><option value="at">at</option></select> lights, and people come (11) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="toward"><option value="">select</option><option value="on">on</option><option value="toward">toward</option></select> you slowly.</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex8-l2-card')" type="button">Check Ex 8</button>
+</div>
+</div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-phone-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+            Alex &amp; Basma Phone Conversation (Page 101)
+          </h4>
+<p class="text-xs text-slate-500">Add the correct preposition before each phrase from the box:</p>
+<div class="bg-slate-50 p-2 rounded text-xs text-slate-600">
+            Box: <em>a new house, three o’clock, the morning, Monday, 24 Oak Road, May 3rd, the airport, night</em>
+</div>
+<div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 font-serif leading-relaxed">
+<p><strong>Alex:</strong> Hi Basma! I’m looking at a flight that arrives (1) <strong>on May 3rd</strong>. Can you pick me up (2) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" data-ans="at the airport" placeholder="prep + phrase" type="text"/>?</p>
+<p><strong>Basma:</strong> Sure. What time?</p>
+<p><strong>Alex:</strong> Well, my plane arrives (3) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" data-ans="at three o'clock,at three oclock,at 3:00" placeholder="prep + phrase" type="text"/> (4) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" data-ans="in the morning" placeholder="prep + phrase" type="text"/>.</p>
+<p><strong>Basma:</strong> What? I’ll be asleep. Why are you flying so late (5) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" data-ans="at night" placeholder="prep + phrase" type="text"/>?</p>
+<p><strong>Alex:</strong> Because the ticket is half price.</p>
+<p><strong>Basma:</strong> Sorry, but I have to work (6) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" data-ans="on Monday" placeholder="prep + phrase" type="text"/> morning. That might be hard.</p>
+<p><strong>Alex:</strong> That’s OK. I can get a taxi. What is your new address? Didn’t you just move (7) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" data-ans="to a new house,into a new house" placeholder="prep + phrase" type="text"/>?</p>
+<p><strong>Basma:</strong> I live (8) <input class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" data-ans="at 24 Oak Road" placeholder="prep + phrase" type="text"/>.</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex10-phone-l2-card')" type="button">Check Ex 10</button>
+</div>
+</div>
+    </div>
+
+    <div id="tab-edit" class="ex-tab-pane hidden space-y-6">
+<div class="bg-white rounded-2xl border-2 border-sky-300 p-5 reader-card space-y-3" id="ex-honey-road-card">
+<div class="flex items-center justify-between border-b border-sky-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-sky-600 text-white flex items-center justify-center text-xs">11</span>
+              EDIT. On the Honey Road (Interactive Paragraph Editing) (Page 101–102)
+            </h4>
+<span class="text-xs bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded">In-Situ Text Editor</span>
+</div>
+<p class="text-xs text-slate-600">
+            Read the article below. Find the seven preposition errors marked in brackets. Type your correction directly into each blank inside the paragraph text, then click <strong>Check Paragraph</strong>:
+          </p>
+<div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 sm:p-5 bg-gradient-to-br from-sky-50/40 via-white to-amber-50/20 rounded-xl border border-slate-200 shadow-inner space-y-3">
+<h5 class="font-sans font-bold text-slate-900 text-base">On the Honey Road</h5>
+<p>
+              Balyolu (pronounced <em>bal-yoll-oo</em>) is Turkish for “honey road.” It is also the name of an unusual tour 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">on</span>
+<span class="text-slate-400 text-xs">➔</span>
+<span class="font-bold text-emerald-700">in</span> (Example)
+              </span> 
+              northeast Turkey.
+            </p>
+<p>
+              Catherine Jaffee is a woman from Colorado in the United States. 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">At</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" data-ans="In" placeholder="corr..." type="text"/>
+</span> 
+              2008, she went to Turkey and traveled for two years. When she reached Kars, a historic region 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">on</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" data-ans="in" placeholder="corr..." type="text"/>
+</span> 
+              Turkey, she thought of an idea for a tour. About 900 years ago, Kars was 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">in</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" data-ans="on" placeholder="corr..." type="text"/>
+</span> 
+              the Silk Road, an important trading route 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">from</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 bg-white input-clean font-sans" data-ans="between" placeholder="corr..." type="text"/>
+</span> 
+              Europe and China. Kars was an important trading center 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">in</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" data-ans="at" placeholder="corr..." type="text"/>
+</span> 
+              that time. Jaffee became fascinated by the way people in Kars earn their living: beekeeping and making honey.
+            </p>
+<p>
+              Jaffee created a travel experience for visitors that also helped local people. On a Balyolu tour, travelers walked several miles a day 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">at</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" data-ans="for" placeholder="corr..." type="text"/>
+</span> 
+              seven days. They passed 
+              <span class="edit-pill">
+<span class="line-through text-rose-600 font-bold">under</span>
+<span class="text-slate-400 text-xs">➔</span>
+<input class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans" data-ans="through" placeholder="corr..." type="text"/>
+</span> 
+              many areas with beautiful scenery. Along the way, the walkers met beekeepers and their families and tasted different kinds of honey. It was the perfect trip for anyone with a sweet tooth!
+            </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-5 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5" onclick="checkClozeCard('ex-honey-road-card')" type="button">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+              Check Paragraph
+            </button>
+</div>
+</div>
+    </div>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>Grammar Explorer 2 — National Geographic Learning • Unit 4: Going Places</span>
+      </div>
+      <div>Interactive Student Workbook & Exercises Suite</div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-teal-500', 'text-white', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-teal-500', 'text-white', 'border-teal-600', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    function checkDiscoverL1() {
+      checkClozeCard('ex3-l1-card');
+      checkSelectCard('ex3-l1-card');
+    }
+
+    function resetCurrentLesson() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-teal-500', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

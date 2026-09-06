@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 4: Lesson 1 (Pronouns & Reflexives)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    .edit-pill { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.25rem; padding: 0.15rem 0.45rem; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 0.5rem; vertical-align: middle; margin: 0.15rem 0.2rem; font-family: ui-sans-serif, system-ui, sans-serif; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- TOP APP HEADER -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U4 • Lesson 1</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 4: Going Places <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 1: Personal Pronouns, Possessives & Reflexives</span>
+            </h1>
+          </div>
+        </div>
+        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        <button onclick="switchExTab('tab-opener')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener">
+          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">86–</span>
+          <span>Unit Opener</span>
+        </button>
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Mexico City (pp. 88–89)</span>
+        </button>
+        <button onclick="switchExTab('tab-subject-object')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-subject-object">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4–5</span>
+          <span>Subject & Object (pp. 89–90)</span>
+        </button>
+        <button onclick="switchExTab('tab-possessives')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-possessives">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6–7</span>
+          <span>Possessives (pp. 90–92)</span>
+        </button>
+        <button onclick="switchExTab('tab-reflexives')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-reflexives">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8–9</span>
+          <span>Reflexive Pronouns (pp. 92–93)</span>
+        </button>
+        <button onclick="switchExTab('tab-cruise')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-cruise">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">11</span>
+          <span>A Cruise to Remember (p. 94)</span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+    <div id="tab-opener" class="ex-tab-pane  space-y-6">
+<div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+<div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-900 mb-2">
+              Pages 86–87 • Scope &amp; Sequence
+            </div>
+<h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 4: Going Places</h2>
+<p class="text-slate-500 mt-1 text-base">Grammar Focus: Pronouns, Prepositions of Time/Place/Direction, and Articles</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 font-bold text-white transition shadow-sm flex items-center gap-2" onclick="switchTab('lesson1')">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+<!-- Spotlight Card: Highway speed past cowboy, North Dakota -->
+<div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+<div class="relative w-full bg-slate-950 group">
+<img alt="Cars speeding past a cowboy at night in North Dakota, USA" class="w-full h-auto max-h-[420px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]" onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/06b6d4?text=Going+Places+%E2%80%A2+North+Dakota+Highway';" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAfpRGeuzO9V2__x56bpMoTPgD_XEa4-whAhclljRNVVRfT37gaLSgnJg&amp;s=10"/>
+<div class="p-3 bg-slate-950/95 border-t border-slate-800 text-xs flex flex-wrap items-center justify-between gap-2 text-slate-300">
+<span class="text-[11px] font-mono text-cyan-300 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                  Night Highway Expedition, North Dakota, USA
+                </span>
+<span class="text-[11px] text-slate-400">
+                  Unit Opener Spotlight • pp. 86–87
+                </span>
+</div>
+</div>
+<!-- Spotlight Discussion and Theme Insight -->
+<div class="p-5 sm:p-6 space-y-3.5">
+<div>
+<h3 class="text-xl font-bold text-white leading-snug">The Journeys That Shape Our World</h3>
+<p class="text-xs text-cyan-400/90 font-medium mt-0.5">Navigating bustling cities, deep oceans, wilderness trails, and cultural landmarks</p>
+</div>
+<p class="font-serif text-sm leading-relaxed text-slate-300">
+                How do we experience the places we travel to? In this unit, we navigate bicycle commutes in Mexico City, dive into the underwater blue caves of the Bahamas, trek 4,678 rugged miles across Alaska and the Yukon with explorer Andrew Skurka, follow travel blogs across American and European landmarks, and write descriptive paragraphs about our favorite coastal hideaways.
+              </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+<div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+<strong class="text-cyan-400 block">Lesson 1</strong>
+<span class="text-slate-400 text-[10px]">Mexico City Bicycles</span>
+</div>
+<div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+<strong class="text-sky-400 block">Lesson 2</strong>
+<span class="text-slate-400 text-[10px]">Bahamas Blue Holes</span>
+</div>
+<div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+<strong class="text-teal-400 block">Lesson 3</strong>
+<span class="text-slate-400 text-[10px]">Alaska-Yukon Trek</span>
+</div>
+<div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+<strong class="text-amber-400 block">Lesson 4</strong>
+<span class="text-slate-400 text-[10px]">World Place Names</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Unit Lessons Index Cards -->
+<div class="md:col-span-5 space-y-3">
+<div class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-cyan-400 hover:bg-cyan-50/30 transition group" onclick="switchTab('lesson1')">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">Lesson 1 (p. 88–95)</span>
+<span class="badge-cd">CD1-28</span>
+</div>
+<h4 class="font-bold text-slate-900 group-hover:text-cyan-600 transition mt-1 text-sm">Personal Pronouns &amp; Possessive Adjectives; Reflexives</h4>
+<p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Getting Around Mexico City</em>. Subject/object pronouns, possessive forms (<em>mine, yours, theirs</em>), and reflexive pronouns (<em>myself, ourselves</em>).
+              </p>
+</div>
+<div class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-sky-400 hover:bg-sky-50/30 transition group" onclick="switchTab('lesson2')">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Lesson 2 (p. 96–102)</span>
+<span class="badge-cd">CD1-34</span>
+</div>
+<h4 class="font-bold text-slate-900 group-hover:text-sky-600 transition mt-1 text-sm">Prepositions of Time, Place, and Direction</h4>
+<p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Diving in the Bahamas</em>. Master <em>in, on, at, for, from...until</em>, direction indicators, Ria’s trip in Indonesia, and the interactive Honey Road editing tour.
+              </p>
+</div>
+<div class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-teal-400 hover:bg-teal-50/30 transition group" onclick="switchTab('lesson3')">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">Lesson 3 (p. 103–109)</span>
+<span class="badge-cd">CD1-36</span>
+</div>
+<h4 class="font-bold text-slate-900 group-hover:text-teal-600 transition mt-1 text-sm">Articles: Indefinite, Definite &amp; Generalizations</h4>
+<p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Andrew Skurka’s Alaska-Yukon Expedition</em>. Using <em>a/an</em>, <em>the</em>, <em>some</em>, and <em>Ø</em> for first mention, unique nouns, and generalizations.
+              </p>
+</div>
+<div class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group" onclick="switchTab('lesson4')">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Lesson 4 (p. 110–115)</span>
+<span class="badge-cd">CD1-40</span>
+</div>
+<h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Articles with Place Names</h4>
+<p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Greg &amp; Maya’s Travel Blogs</em>. Rules for geographic entities, oceans, mountain ranges, hotels, museums, and interactive blog post editing.
+              </p>
+</div>
+<div class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group" onclick="switchTab('review')">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 116–117)</span>
+<span class="text-xs text-slate-400">Synthesis</span>
+</div>
+<h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+<p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Unit 4 integrated conversation practice and in-situ interactive editing of a traveler’s journal about a vacation in Singapore.
+              </p>
+</div>
+<div class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-cyan-400 hover:bg-cyan-50/30 transition group" onclick="switchTab('writing')">
+<div class="flex items-center justify-between">
+<span class="text-xs font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">Writing (p. 118–119)</span>
+<span class="text-xs text-slate-400">Writing Focus</span>
+</div>
+<h4 class="font-bold text-slate-900 group-hover:text-cyan-600 transition mt-1 text-sm">Connect to Writing: A Favorite Place</h4>
+<p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>My Favorite Place</em> (Coastal Italy). Fixing misplaced prepositional phrases, descriptive organizer, and writing workbench.
+              </p>
+</div>
+</div>
+</div>
+</div>
+    </div>
+
+    <div id="tab-explore" class="ex-tab-pane hidden space-y-6">
+<div class="space-y-4">
+<div class="flex items-center justify-between border-b border-slate-200 pb-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+<span class="text-sm font-bold text-slate-700">Reading &amp; Direct Comprehension / Discovery (Pages 88–89)</span>
+</div>
+<span class="text-xs text-slate-500 font-medium bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 &amp; 3 (Right)
+          </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Reading "Getting Around Mexico City" -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div>
+<span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded">1. READ</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Getting Around Mexico City</h3>
+<p class="text-xs text-slate-500">Commuting by bicycle in a modern metropolis</p>
+</div>
+<span class="badge-cd">CD1-28</span>
+</div>
+<!-- Audio Player [CD1-28] -->
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-28">
+  <div style="width: calc(100% + 56px); margin-right: -56px;">
+    <iframe src="https://drive.google.com/file/d/1rO2V8OHcHo42NxjGlki30E915OL7FoCh/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
+  </div>
+</div>
+<!-- End Audio Player [CD1-28] -->
+
+<!-- Mexico City Cycling Photo -->
+<div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+<div class="relative w-full bg-slate-950 flex items-center justify-center">
+<img alt="Cyclists commuting on the grand avenues of Mexico City" class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/06b6d4?text=Mexico+City+Cyclists';" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrByg3hjYAcb4kyate3l42nNrwlU0OQbD_Z-1ayAQxpw5K77LmmP3bz3F&amp;s=10"/>
+</div>
+<div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+<span class="font-medium text-white text-[11px]">Bicycle Commuters • Mexico City</span>
+<span class="text-cyan-400 font-semibold text-[11px]">p. 88</span>
+</div>
+</div>
+<!-- Reading Dialogue -->
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+<p>
+<strong>Peter:</strong> Thanks for meeting us at the airport, Javier. It’s very kind of <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">you</strong>.¹
+              </p>
+<p>
+<strong>Javier:</strong> No problem, Peter. I’m just happy that you and Kate are back in Mexico City. How was your flight?
+              </p>
+<p>
+<strong>Kate:</strong> <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">It</strong>² was great, thanks, Javier. The only problem was that we wanted to sit together, but at first the airline put the children by themselves. It took a long time to find a solution, but in the end, we sat next to each other. Anyway, it’s so good to be here with you again.
+              </p>
+<p>
+<strong>Peter:</strong> The city looks just like it did when we visited you and Alicia a few years ago, but I don’t remember all these bikes. Where did <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">they</strong>³ come from?
+              </p>
+<p>
+<strong>Javier:</strong> Well, bikes are quite popular here now. People use <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">them</strong>⁴ to commute to work.
+              </p>
+<p>
+<strong>Peter:</strong> Hmm, I used to ride my bike to work, but then I had an accident and hurt myself quite badly.
+              </p>
+<p>
+<strong>Javier:</strong> I remember . . . These bikes are mostly pretty basic. I’m sure <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">yours</strong> went a lot faster.
+              </p>
+<p>
+<strong>Kate:</strong> Yes, it did. I was glad when he stopped riding.
+              </p>
+<p>
+<strong>Javier:</strong> Well, people here won’t leave <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">their</strong>⁵ bikes at home any time soon. Bikes make driving more difficult, but they are good for the environment.
+              </p>
+</div>
+<div class="pt-4 border-t border-slate-100 text-xs text-slate-500 bg-slate-50/70 p-3 rounded-xl">
+<strong>Culture Note:</strong> While cycling reduces emissions and traffic, not everyone in Mexico City feels cycling infrastructure is safe alongside fast car traffic.
+            </div>
+</div>
+<!-- RIGHT PANE: Questions 2 & 3 tied directly to reading -->
+<div class="lg:col-span-6 space-y-5">
+<!-- Exercise 2: CHECK Matching -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l1-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. Match Person with Information (Page 89)
+                </h4>
+<span class="text-xs text-slate-400">Based on dialogue</span>
+</div>
+<p class="text-xs text-slate-500">Match each person with the correct statement (a, b, c, or d):</p>
+<div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs text-slate-600 mb-2">
+<strong>a.</strong> was hurt in a bike accident | <strong>b.</strong> was happy when Peter stopped riding bikes | <strong>c.</strong> lives in Mexico City | <strong>d.</strong> asks about the bikes in Mexico City
+              </div>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span class="font-medium text-slate-800">1. Javier:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="c"><option value="">select</option><option value="a">a</option><option value="b">b</option><option value="c">c (lives in Mexico City)</option><option value="d">d</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span class="font-medium text-slate-800">2. Kate:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="b"><option value="">select</option><option value="a">a</option><option value="b">b (happy when Peter stopped riding)</option><option value="c">c</option><option value="d">d</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span class="font-medium text-slate-800">3. Peter:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a (was hurt in a bike accident)</option><option value="b">b</option><option value="c">c</option><option value="d">d (asks about bikes)</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span class="font-medium text-slate-800">4. Alicia:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="c"><option value="">select</option><option value="a">a</option><option value="b">b</option><option value="c">c (lives in Mexico City)</option><option value="d">d</option></select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex2-l1-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+<!-- Exercise 3: DISCOVER Pronoun References -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Pronoun References &amp; Types (Page 89)
+              </h4>
+<p class="text-xs text-slate-500">Select what the word refers to, then identify its grammatical category:</p>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="flex items-center justify-between">
+<span>1. How was <u>your</u> flight?</span>
+<input class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" data-ans="Peter and Kate" placeholder="refers to..." type="text"/>
+</div>
+<div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+<span>Type:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Possessive Adjective"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+</div>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="flex items-center justify-between">
+<span>2. <u>It</u> was great, thanks.</span>
+<input class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" data-ans="the flight,flight" placeholder="refers to..." type="text"/>
+</div>
+<div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+<span>Type:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Subject Pronoun"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+</div>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="flex items-center justify-between">
+<span>3. Where did <u>they</u> come from?</span>
+<input class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" data-ans="these bikes,bikes,the bikes" placeholder="refers to..." type="text"/>
+</div>
+<div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+<span>Type:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Subject Pronoun"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+</div>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="flex items-center justify-between">
+<span>4. People use <u>them</u> to commute.</span>
+<input class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" data-ans="bikes,the bikes" placeholder="refers to..." type="text"/>
+</div>
+<div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+<span>Type:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Object Pronoun"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+</div>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+<div class="flex items-center justify-between">
+<span>5. ...leave <u>their</u> bikes at home.</span>
+<input class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" data-ans="people in Mexico City,people,cyclists" placeholder="refers to..." type="text"/>
+</div>
+<div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+<span>Type:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="Possessive Adjective"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+</div>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkDiscoverL1()" type="button">Check Ex 3</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+
+    <div id="tab-subject-object" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">4.1 Subject and Object Pronouns</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 89</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Pronouns Comparison Table -->
+<div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="bg-slate-100 px-3 py-1.5 font-bold text-slate-700 flex items-center justify-between">
+<span>Subject &amp; Object Pronouns</span>
+<span class="text-[10px] text-slate-500 font-normal">Forms &amp; Roles</span>
+</div>
+<table class="w-full text-left text-slate-700">
+<thead>
+<tr class="bg-slate-50 text-[11px] font-semibold text-slate-600 border-b border-slate-200">
+<th class="p-2 w-1/2">Subject Pronoun + Verb</th>
+<th class="p-2 w-1/2">Verb + Object Pronoun</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="p-2"><strong class="text-teal-700">I / You</strong> arrived late.</td>
+<td class="p-2">John visited <strong class="text-teal-700">me / you</strong>.</td>
+</tr>
+<tr>
+<td class="p-2"><strong class="text-teal-700">He / She / It</strong> arrived late.</td>
+<td class="p-2">John visited <strong class="text-teal-700">him / her / it</strong>.</td>
+</tr>
+<tr>
+<td class="p-2"><strong class="text-teal-700">We / You / They</strong> arrived late.</td>
+<td class="p-2">John visited <strong class="text-teal-700">us / you / them</strong>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Numbered Rules -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. Subject Pronouns:</strong> A pronoun takes the place of a noun or noun phrase. Subject pronouns are used as subjects:</p>
+<p class="text-slate-600">• <em>Elena enjoys driving. <strong>She</strong> uses her car a lot.</em></p>
+<p class="text-slate-600">• <em>Tom and I went on vacation together. <strong>We</strong> went to Portugal.</em></p>
+<p class="text-slate-600">• <em>Your suitcase arrived. <strong>It</strong>’s in your room.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. Object Pronouns:</strong> Object pronouns are used as objects of verbs or objects of prepositions:</p>
+<p class="text-slate-600">• <strong>Object of Verb:</strong> <em>I bought a new bike. Do you like <strong>it</strong>?</em></p>
+<p class="text-slate-600">• <strong>Object of Preposition:</strong> <em>This ticket is for José. I bought it for <strong>him</strong>.</em></p>
+</div>
+</div>
+</div>
+</div>
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose the Correct Pronoun (Page 89)
+            </h4>
+<p class="text-xs text-slate-500">Select the grammatically correct pronoun:</p>
+<div class="space-y-1.5 text-xs">
+<div class="p-2 bg-slate-50 rounded-lg">1. Javier had a busy day. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="He"><option value="">select</option><option value="He">He</option><option value="Him">Him</option></select> went to the airport to meet his friends.</div>
+<div class="p-2 bg-slate-50 rounded-lg">2. Javier went to school with <select class="select-check border rounded p-1 text-xs input-clean" data-ans="them"><option value="">select</option><option value="they">they</option><option value="them">them</option></select> years ago.</div>
+<div class="p-2 bg-slate-50 rounded-lg">3. Did you bring your passport? You can’t travel without <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it"><option value="">select</option><option value="it">it</option><option value="them">them</option></select>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">4. Kate couldn’t find her suitcase. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="She"><option value="">select</option><option value="She">She</option><option value="Her">Her</option></select> left <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it"><option value="">select</option><option value="it">it</option><option value="them">them</option></select> at home.</div>
+<div class="p-2 bg-slate-50 rounded-lg">5. Peter and Kate have two children. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="They"><option value="">select</option><option value="They">They</option><option value="Them">Them</option></select> are both girls.</div>
+<div class="p-2 bg-slate-50 rounded-lg">6. Peter visits Mexico City every year. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="He"><option value="">select</option><option value="He">He</option><option value="Him">Him</option></select> likes <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it"><option value="">select</option><option value="it">it</option><option value="them">them</option></select> a lot.</div>
+<div class="p-2 bg-slate-50 rounded-lg">7. My husband and I ride bikes to work. It saves <select class="select-check border rounded p-1 text-xs input-clean" data-ans="us"><option value="">select</option><option value="we">we</option><option value="us">us</option></select> a lot of money.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex4-l1-card')" type="button">Check Ex 4</button>
+</div>
+</div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+            Complete with Subject or Object Pronouns (Page 90)
+          </h4>
+<p class="text-xs text-slate-500">Fill in each blank with the correct subject or object pronoun:</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-lg">1. The traffic in Mexico City is heavy. <strong>It</strong> is very slow during rush hour.</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">2. Some people think cyclists are a problem because there are too many of <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="them" placeholder="pronoun" type="text"/>.</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">3. I drove to work with Kate. Later I met <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="her" placeholder="pronoun" type="text"/> at the gym.</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">4. These are Mario’s car keys. Can you give them to <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="him" placeholder="pronoun" type="text"/>, please?</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">5. I’m going for a bike ride. Do you want to come with <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="me" placeholder="pronoun" type="text"/>?</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">6. This is our new car. <input class="cloze-input border rounded px-2 py-0.5 text-xs w-16 input-clean" data-ans="It" placeholder="pronoun" type="text"/> was expensive, but we love <input class="cloze-input border rounded px-2 py-0.5 text-xs w-16 input-clean" data-ans="it" placeholder="pronoun" type="text"/>.</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">7. You look tired, Rosa. Do <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="you" placeholder="pronoun" type="text"/> want to go home now?</div>
+<div class="p-2.5 bg-slate-50 rounded-lg">8. We were driving to work when the police stopped <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="us" placeholder="pronoun" type="text"/>.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex5-l1-card')" type="button">Check Ex 5</button>
+</div>
+</div>
+    </div>
+
+    <div id="tab-possessives" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">4.2 Possessive Adjectives &amp; Pronouns</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 91</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Forms Comparison Table -->
+<div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="bg-slate-100 px-3 py-1.5 font-bold text-slate-700 flex items-center justify-between">
+<span>Possessive Forms</span>
+<span class="text-[10px] text-slate-500 font-normal">Adjective vs. Pronoun</span>
+</div>
+<table class="w-full text-left text-slate-700">
+<thead>
+<tr class="bg-slate-50 text-[11px] font-semibold text-slate-600 border-b border-slate-200">
+<th class="p-2 w-1/2">Possessive Adjective + Noun</th>
+<th class="p-2 w-1/2">Possessive Pronoun (Alone)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="p-2"><strong class="text-teal-700">My / Your</strong> coat is black.</td>
+<td class="p-2">This coat is <strong class="text-teal-700">mine / yours</strong>.</td>
+</tr>
+<tr>
+<td class="p-2"><strong class="text-teal-700">His / Her / Its</strong> coat is black.</td>
+<td class="p-2">This coat is <strong class="text-teal-700">his / hers / its</strong>.</td>
+</tr>
+<tr>
+<td class="p-2"><strong class="text-teal-700">Our / Your / Their</strong> coat is black.</td>
+<td class="p-2">This coat is <strong class="text-teal-700">ours / yours / theirs</strong>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Numbered Rules -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. Possessive Adjectives:</strong> Use before a noun to show ownership (<em>Joe bought <strong>his</strong> plane ticket yesterday. The dog pushed <strong>its</strong> bowl across the floor.</em>).</p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. Possessive Pronouns:</strong> Use in place of a possessive adjective + noun (<em>You can use my bike. <strong>Mine</strong> is the blue one. That’s not your coat. <strong>Yours</strong> is in the closet.</em>).</p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>3. Roles of Possessive Pronouns:</strong></p>
+<p class="text-slate-600">• <strong>Subject:</strong> <em>Where are the bikes? <strong>His</strong> is outside. <strong>Hers</strong> is downstairs.</em></p>
+<p class="text-slate-600">• <strong>Object of Verb:</strong> <em>I found their keys, but I can’t find <strong>ours</strong>.</em></p>
+<p class="text-slate-600">• <strong>Object of Preposition:</strong> <em>Our car is nice, but look at <strong>theirs</strong>.</em></p>
+</div>
+</div>
+<!-- Real English / Watch Out Boxes -->
+<div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200 text-amber-950 space-y-1.5">
+<strong class="text-amber-900 block text-[11px] uppercase tracking-wide">⚠️ Be Careful! Sound-Alikes</strong>
+<p>• <strong>Its vs. It’s:</strong> <em>Its</em> is a possessive adjective (<em>The team won <strong>its</strong> first game.</em>). <em>It’s</em> is the contraction of <em>it is</em> or <em>it has</em> (<em><strong>It’s</strong> on the table.</em>).</p>
+<p>• <strong>Their vs. There vs. They’re:</strong> <em>Their</em> is a possessive adjective (<em>They found <strong>their</strong> coats.</em>). <em>There</em> refers to a place (<em>There are two coats here.</em>). <em>They’re</em> is the contraction of <em>they are</em> (<em><strong>They’re</strong> on the chair.</em>).</p>
+</div>
+</div>
+</div>
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Choose Possessive Form (Pages 90–91)
+            </h4>
+<p class="text-xs text-slate-500">Choose the correct possessive adjective or pronoun:</p>
+<div class="space-y-1.5 text-xs">
+<div class="p-2 bg-slate-50 rounded-lg">1. Is this <select class="select-check border rounded p-1 text-xs input-clean" data-ans="your"><option value="">select</option><option value="you">you</option><option value="your">your</option></select> skateboard? No, it’s not <select class="select-check border rounded p-1 text-xs input-clean" data-ans="mine"><option value="">select</option><option value="me">me</option><option value="mine">mine</option></select>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">2. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="His"><option value="">select</option><option value="His">His</option><option value="Him">Him</option></select> car wouldn’t start, so Carol let him use <select class="select-check border rounded p-1 text-xs input-clean" data-ans="hers"><option value="">select</option><option value="her">her</option><option value="hers">hers</option></select>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">3. We moved here from Ohio last month. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="Our"><option value="">select</option><option value="Our">Our</option><option value="Ours">Ours</option></select> new apartment is beautiful!</div>
+<div class="p-2 bg-slate-50 rounded-lg">4. My friends are unhappy because the neighbors’ car is newer than <select class="select-check border rounded p-1 text-xs input-clean" data-ans="theirs"><option value="">select</option><option value="them">them</option><option value="theirs">theirs</option></select>.</div>
+<div class="p-2 bg-slate-50 rounded-lg">5. Is this bike <select class="select-check border rounded p-1 text-xs input-clean" data-ans="yours"><option value="">select</option><option value="yours">yours</option><option value="you">you</option></select>? No, <select class="select-check border rounded p-1 text-xs input-clean" data-ans="mine"><option value="">select</option><option value="my">my</option><option value="mine">mine</option></select> is green.</div>
+<div class="p-2 bg-slate-50 rounded-lg">6. We are going to buy a smaller house. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="Ours"><option value="">select</option><option value="Ours">Ours</option><option value="Our">Our</option></select> is too big for us now.</div>
+<div class="p-2 bg-slate-50 rounded-lg">7. Frank arrived here first. I parked my car behind <select class="select-check border rounded p-1 text-xs input-clean" data-ans="his"><option value="">select</option><option value="theirs">theirs</option><option value="his">his</option></select>.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex6-l1-card')" type="button">Check Ex 6</button>
+</div>
+</div>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+            Choose its, it's, their, there, or they're (Page 92)
+          </h4>
+<p class="text-xs text-slate-500">Select the correct homophone for each sentence:</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+<div class="p-3 bg-slate-50 rounded-xl space-y-2">
+<span class="font-bold text-slate-800 block border-b border-slate-200 pb-1">Conversation 1</span>
+<div>Joan: (1) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="There"><option value="">select</option><option value="There">There</option><option value="Their">Their</option><option value="They're">They're</option></select>’s a postcard here from Hawaii.</div>
+<div>Steve: Hawaii? I wonder who (2) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it's"><option value="">select</option><option value="its">its</option><option value="it's">it's</option></select> from.</div>
+<div>Joan: Don’t you remember? Mick and Tina are (3) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="there"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> now. This year her company is having (4) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="its"><option value="">select</option><option value="its">its</option><option value="it's">it's</option></select> yearly meeting in Honolulu.</div>
+<div>Steve: Oh that’s right! Well, I’m sure (5) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="they're"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> having a great time. It was always (6) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="their"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> dream to visit Hawaii.</div>
+</div>
+<div class="p-3 bg-slate-50 rounded-xl space-y-2">
+<span class="font-bold text-slate-800 block border-b border-slate-200 pb-1">Conversation 2</span>
+<div>Phil: I want to e-mail my friends, but I can’t remember (7) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="their"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> e-mail addresses. Have you seen my notebook?</div>
+<div>Mandy: What does it look like?</div>
+<div>Phil: (8) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="It's"><option value="">select</option><option value="Its">Its</option><option value="It's">It's</option></select> a small book. (9) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="Its"><option value="">select</option><option value="Its">Its</option><option value="It's">It's</option></select> cover is light blue.</div>
+<div>Mandy: Oh, I think (10) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it's"><option value="">select</option><option value="its">its</option><option value="it's">it's</option></select> over there, on the shelf by the window.</div>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex7-l1-card')" type="button">Check Ex 7</button>
+</div>
+</div>
+    </div>
+
+    <div id="tab-reflexives" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">4.3 Reflexive Pronouns</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 93</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Forms Table -->
+<div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="bg-slate-100 px-3 py-1.5 font-bold text-slate-700 flex items-center justify-between">
+<span>Reflexive Pronoun Forms</span>
+<span class="text-[10px] text-slate-500 font-normal">Singular ➔ Plural</span>
+</div>
+<table class="w-full text-left text-slate-700">
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50 w-2/5">Singular (-self)</td>
+<td class="p-2">I ➔ <strong class="text-teal-700">myself</strong>, you ➔ <strong class="text-teal-700">yourself</strong>, he ➔ <strong class="text-teal-700">himself</strong>, she ➔ <strong class="text-teal-700">herself</strong>, it ➔ <strong class="text-teal-700">itself</strong></td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">Plural (-selves)</td>
+<td class="p-2">we ➔ <strong class="text-teal-700">ourselves</strong>, you ➔ <strong class="text-teal-700">yourselves</strong>, they ➔ <strong class="text-teal-700">themselves</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Numbered Rules -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. Subject and Object Are the Same:</strong> Use a reflexive pronoun when the subject and the object of the verb are the same person or thing:</p>
+<p class="font-mono text-[11px] text-emerald-800">✓ I introduced myself to the group.</p>
+<p class="font-mono text-[11px] text-rose-600">✗ I introduced me to the group.</p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. Common Verbs with Reflexives:</strong> Verbs frequently followed by reflexive pronouns include:</p>
+<p class="font-medium text-slate-800">• <em>cut, enjoy, feel sorry for, hurt, take care of, tell</em></p>
+<p class="text-slate-600 italic">Did you cut yourself on the broken glass? / We enjoyed ourselves at the party.</p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>3. By + Reflexive Pronoun:</strong> Means <em>alone</em> or <em>without any help</em>:</p>
+<p class="text-slate-600">• <em>I live <strong>by myself</strong>.</em> (= alone)</p>
+<p class="text-slate-600">• <em>The TV turns off <strong>by itself</strong>.</em> (= without help)</p>
+</div>
+</div>
+</div>
+</div>
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+              Complete with Reflexive Pronoun (Pages 92–93)
+            </h4>
+<p class="text-xs text-slate-500">Write the correct reflexive pronoun:</p>
+<div class="space-y-1.5 text-xs">
+<div class="p-1.5 bg-slate-50 rounded-lg">1. Hi, Stella! Did you enjoy <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="yourself" placeholder="reflexive" type="text"/> on your vacation?</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">2. My brother cut <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="himself" placeholder="reflexive" type="text"/> when he was working on his car.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">3. Bye, Mike and Linda! Take care of <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="yourselves" placeholder="reflexive" type="text"/>!</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">4. When on vacation, set the timer so the lights turn off by <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="themselves" placeholder="reflexive" type="text"/>.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">5. I felt sorry for <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="myself" placeholder="reflexive" type="text"/> when I fell and lost the race.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">6. When we got home from the trip, we made <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="ourselves" placeholder="reflexive" type="text"/> comfortable in front of the TV.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">7. There was an amazing car at the auto show. It actually drives <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="itself" placeholder="reflexive" type="text"/>!</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">8. Her friends were busy, so she went to Mexico by <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="herself" placeholder="reflexive" type="text"/>.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex8-l1-card')" type="button">Check Ex 8</button>
+</div>
+</div>
+      </div>
+      <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+              Pronouns in Conversations (Page 93)
+            </h4>
+<p class="text-xs text-slate-500">Select the correct words:</p>
+<div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+<p><strong>Conversation 1:</strong><br/>
+              Bonnie: Are these keys (1) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="yours"><option value="">select</option><option value="your">your</option><option value="yours">yours</option></select>? Hal: Yes. Bonnie: (2) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="Your"><option value="">select</option><option value="Your">Your</option><option value="Yours">Yours</option></select> car is blocking the driveway, and I can’t get (3) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="mine"><option value="">select</option><option value="my">my</option><option value="mine">mine</option></select> out. I need to move (4) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it"><option value="">select</option><option value="itself">itself</option><option value="it">it</option></select>. If I’m late again, (5) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="my"><option value="">select</option><option value="mine">mine</option><option value="my">my</option></select> boss will fire (6) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="me"><option value="">select</option><option value="me">me</option><option value="myself">myself</option></select>.</p>
+<p class="pt-2 border-t border-slate-200"><strong>Conversation 2:</strong><br/>
+              Wendy: Thanks for coming to the airport with me. I don’t like to wait by (7) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="myself"><option value="">select</option><option value="mine">mine</option><option value="myself">myself</option></select>. Nick: When are (8) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="your"><option value="">select</option><option value="you">you</option><option value="your">your</option></select> parents arriving? Wendy: (9) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="Their"><option value="">select</option><option value="Their">Their</option><option value="There">There</option></select> flight is late. (10) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="It's"><option value="">select</option><option value="Its">Its</option><option value="It's">It's</option></select> delayed for an hour. Nick: Where do you want to wait for (11) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="them"><option value="">select</option><option value="they">they</option><option value="them">them</option></select>? Wendy: Let’s get food and enjoy (12) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="ourselves"><option value="">select</option><option value="ourselves">ourselves</option><option value="yourselves">yourselves</option></select>.</p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex9-l1-card')" type="button">Check Ex 9</button>
+</div>
+</div>
+    </div>
+
+    <div id="tab-cruise" class="ex-tab-pane hidden space-y-6">
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex11-l1-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+              A Cruise to Remember (Page 94)
+            </h4>
+<p class="text-xs text-slate-500">Fill in the blanks with pronouns or possessive adjectives:</p>
+<div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200 leading-relaxed font-serif">
+<p>
+                A couple of years ago, (1) <strong>my</strong> husband Ricardo and (2) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" data-ans="I" placeholder="pronoun" type="text"/> went on a cruise in southern Europe, on the Mediterranean Sea. (3) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-14 input-clean font-sans" data-ans="We" placeholder="pronoun" type="text"/> went with (4) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-14 input-clean font-sans" data-ans="our" placeholder="pronoun" type="text"/> friends Aaron and Lara. They love cruises, so we agreed to try one with (5) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-14 input-clean font-sans" data-ans="them" placeholder="pronoun" type="text"/>.
+              </p>
+<p>
+                The trip was fantastic! The weather was perfect almost every day. (6) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" data-ans="It" placeholder="pronoun" type="text"/> rained only once. Also, the tour company arranged special activities for (7) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" data-ans="us" placeholder="pronoun" type="text"/> at each stop. From what I remember, (8) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" data-ans="we" placeholder="pronoun" type="text"/> enjoyed ourselves very much!
+              </p>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex11-l1-card')" type="button">Check Ex 11</button>
+</div>
+</div>
+    </div>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>Grammar Explorer 2 — National Geographic Learning • Unit 4: Going Places</span>
+      </div>
+      <div>Interactive Student Workbook & Exercises Suite</div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-teal-500', 'text-white', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-teal-500', 'text-white', 'border-teal-600', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    function checkDiscoverL1() {
+      checkClozeCard('ex3-l1-card');
+      checkSelectCard('ex3-l1-card');
+    }
+
+    function resetCurrentLesson() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-teal-500', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
