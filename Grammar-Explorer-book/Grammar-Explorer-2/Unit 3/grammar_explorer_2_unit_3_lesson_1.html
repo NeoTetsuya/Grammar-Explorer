@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 3: Lesson 1 (Plural & Possessive Nouns; Another & Other)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    .edit-pill { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.25rem; padding: 0.15rem 0.45rem; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 0.5rem; vertical-align: middle; margin: 0.15rem 0.2rem; font-family: ui-sans-serif, system-ui, sans-serif; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- HEADER -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Lesson 1</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 1: Plural & Possessive Nouns; Another & Other</span>
+            </h1>
+          </div>
+        </div>
+
+        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        
+        <button onclick="switchExTab('tab-opener')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener">
+          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">pp. 58–59</span>
+          <span>Unit Opener</span>
+        </button>
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Sangomas (pp. 60–61)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex4-6')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4-6">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4, 6</span>
+          <span>Plural Nouns (pp. 62–63)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex7')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
+          <span>Possessive Nouns (p. 63)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex9')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
+          <span>Another / Other (p. 64)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex12')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex12">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">12</span>
+          <span>Pronunciation (p. 66)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex14')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex14">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">14</span>
+          <span>EDIT: Human Body (p. 67)</span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+    <div id="tab-opener" class="ex-tab-pane block space-y-6">
+<div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-900 mb-2">
+              Pages 58–59 • Scope & Sequence
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 3: Health and Fitness (Nouns)</h2>
+            <p class="text-slate-500 mt-1 text-base">Grammar Focus: Plural & Possessive Nouns, Count & Non-Count Nouns, Quantity and Measurement Words</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="switchTab('lesson1')" class="px-5 py-2.5 rounded-xl bg-teal-500 hover:bg-teal-600 font-bold text-white transition shadow-sm flex items-center gap-2">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+            
+            <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-950 group">
+              <img 
+                src="https://chinavisaservices.co.uk/wp-content/uploads/2021/05/filler2.jpg" 
+                alt="Morning exercise with fans in front of Shanghai skyline" 
+                class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/14b8a6?text=Health+%26+Fitness+%E2%80%A2+Shanghai+Skyline';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-black/40 pointer-events-none"></div>
+              
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-teal-400 px-2.5 py-1 rounded-md border border-teal-400/30 flex items-center gap-1.5 shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                  Unit Opener Spotlight • pp. 58–59
+                </span>
+                <span class="text-[11px] bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-slate-700 text-slate-300">
+                  Theme: Mind, Body & Well-being
+                </span>
+              </div>
+
+              <div class="absolute bottom-3 left-3 right-3 text-xs flex items-center justify-between text-slate-300">
+                <span class="text-[11px] bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10 font-mono">
+                  Residents of Shanghai, China, exercise with fans
+                </span>
+                <span class="text-[11px] text-teal-300/90 font-medium">
+                  Traditional practices meeting modern city life
+                </span>
+              </div>
+            </div>
+
+            <!-- Spotlight Discussion and Theme Insight -->
+            <div class="p-5 sm:p-6 space-y-3.5">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-snug">Staying Healthy Across the Globe</h3>
+                <p class="text-xs text-teal-400/90 font-medium mt-0.5">Exploring indigenous healing, superfoods, sports technology, and fitness habits</p>
+              </div>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                What does it take to stay healthy? In this unit, we explore how traditional healers in Southern Africa (<em>sangomas</em>) blend plant medicine and ceremonies with modern healthcare, examine nutritional superfoods like Moroccan argan oil, Amazonian acai, and ginseng, see how sports science guided Manchester City to a championship, and write compelling opinion paragraphs about personal fitness.
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-teal-400 block">Lesson 1</strong>
+                  <span class="text-slate-400 text-[10px]">Sangomas of Southern Africa</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-emerald-400 block">Lesson 2</strong>
+                  <span class="text-slate-400 text-[10px]">Superfoods (Argan, Acai, Ginseng)</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-sky-400 block">Lesson 3</strong>
+                  <span class="text-slate-400 text-[10px]">The Science of Sports (Man City)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unit Lessons Index Cards -->
+          <div class="md:col-span-5 space-y-3">
+            <div onclick="switchTab('lesson1')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-teal-400 hover:bg-teal-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">Lesson 1 (p. 60–67)</span>
+                <span class="badge-cd">CD1-16, 17, 18</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-teal-600 transition mt-1 text-sm">Plural and Possessive Nouns; Another and Other</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Sangomas of Southern Africa</em>. Regular/irregular plurals, possessive apostrophes, <em>another / other / the other</em>, pronunciation of -s/-es endings, and the limits of the human body.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson2')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-emerald-400 hover:bg-emerald-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Lesson 2 (p. 68–73)</span>
+                <span class="badge-cd">CD1-19, 20</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition mt-1 text-sm">Count and Non-Count Nouns</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Superfoods (Argan Oil, Acai Palm, Ginseng)</em>. Categories of non-count nouns, mass nouns, abstract nouns, and dual-meaning nouns.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson3')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-sky-400 hover:bg-sky-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Lesson 3 (p. 74–80)</span>
+                <span class="badge-cd">CD1-21, 22</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-sky-600 transition mt-1 text-sm">Quantity and Measurement Words</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>The Science of Sports (Manchester City)</em>. <em>Much/many, a few/a little, some/any</em>, container and portion phrases, and diet comparisons.
+              </p>
+            </div>
+
+            <div onclick="switchTab('review')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 81–83)</span>
+                <span class="badge-cd">CD1-23–27</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Comprehensive noun practice, fitness questions, and editing Jenny Daltry’s research on Siamese crocodiles in Cambodia.
+              </p>
+            </div>
+
+            <div onclick="switchTab('writing')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-teal-400 hover:bg-teal-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">Writing (p. 84–85)</span>
+                <span class="text-xs text-slate-400">Writing Focus</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-teal-600 transition mt-1 text-sm">Connect to Writing: Opinion Paragraph</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>Staying Fit</em> (Walking). Subject-verb agreement with count and non-count subjects, opinion graphic organizer, and drafting pad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: LESSON 1 (Pages 60–67) -->
+    <!-- ============================================================ -->
+    
+</div>
+<div id="tab-explore" class="ex-tab-pane hidden space-y-6">
+<!-- Section Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Lesson 1 • Pages 60–67</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Plural and Possessive Nouns; Another and Other</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd"><svg class="w-3.5 h-3.5 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD1-16, 17, 18</span>
+        </div>
+      </div>
+
+      <!-- PART 1: EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Comprehension / Discovery (Pages 60–61)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-teal-100 text-teal-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Sangomas of Southern Africa" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-teal-100 text-teal-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Sangomas of Southern Africa</h3>
+                <p class="text-xs text-slate-500">Traditional African healing practices</p>
+              </div>
+              <span class="badge-cd">CD1-16</span>
+            </div>
+<!-- Audio Player [CD1-16] -->
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-16">
+  <div style="width: calc(100% + 56px); margin-right: -56px;">
+    <iframe src="https://drive.google.com/file/d/1YUwt68jzduIfmjQNzNWufGHDGzr8KZQU/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
+  </div>
+</div>
+<!-- End Audio Player [CD1-16] -->
+
+
+
+            <!-- Reading Body -->
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+              <p>
+                <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">Sangomas</strong> are traditional healers of southern Africa. They use plants, songs, and dances to help people who are sick. Many people in southern Africa prefer traditional healers to modern medicine. <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">Women</strong>, for example, may see a sangoma instead of a doctor when their <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">babies</strong> are born. Often, however, modern medicine and traditional medicine work together. Using one kind of medicine doesn’t mean ignoring the <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">other</strong> kind.
+              </p>
+              <p>
+                A sangoma’s goal is to make his or her <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">patient</strong>¹ feel better. To help their <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">patients</strong>, sangomas perform different ceremonies. In one ceremony, the sangoma throws shells and animal <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">bones</strong> on the ground. The shells and bones form a pattern. The pattern helps the sangoma understand the patient. <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">Other</strong> methods of helping patients include special drinks, drumming, and singing.
+              </p>
+              <p>
+                <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">Scientists</strong> are studying the methods used by sangomas. They hope to learn new <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">ways</strong> to keep people healthy.
+              </p>
+            </div>
+
+            <!-- Footnotes -->
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ patient:</strong> a person who is cared for by a doctor</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 tied exclusively to the reading -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK True / False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l1-card">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. True or False? (Page 61)
+                </h4>
+                <span class="text-xs text-slate-400">Based on "Sangomas of Southern Africa"</span>
+              </div>
+              <p class="text-xs text-slate-500 mb-3">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then click Check Answers.</p>
+
+              <div class="space-y-2.5">
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">1. Modern medicine has replaced traditional healers in Africa.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">2. Sangomas perform different kinds of ceremonies.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">3. The pattern formed by shells and bones helps patients understand the sangoma.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">4. Sangomas sometimes sing to help their patients.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">5. Modern scientists don’t think traditional medicine is useful.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Plural Nouns -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-l1-card">
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                  DISCOVER. Plural Noun Forms (Page 61)
+                </h4>
+                <p class="text-xs text-slate-500 mt-0.5">Find the plural form of each noun used in the article:</p>
+              </div>
+
+              <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50 space-y-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                  <div>1. healer &rarr; <input type="text" data-ans="healers" value="healers" readonly class="border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold text-slate-700"></div>
+                  <div>2. dance &rarr; <input type="text" data-ans="dances" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>3. person &rarr; <input type="text" data-ans="people" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>4. woman &rarr; <input type="text" data-ans="women" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>5. baby &rarr; <input type="text" data-ans="babies" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>6. patient &rarr; <input type="text" data-ans="patients" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>7. ceremony &rarr; <input type="text" data-ans="ceremonies" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>8. drink &rarr; <input type="text" data-ans="drinks" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>9. bone &rarr; <input type="text" data-ans="bones" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                  <div>10. scientist &rarr; <input type="text" data-ans="scientists" placeholder="plural" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean"></div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex3-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+</div>
+<div id="tab-ex4-6" class="ex-tab-pane hidden space-y-6">
+<!-- PART 2: LEARN & PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-teal-500 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 3.1–3.3 & Exercises 4–14 (Pages 62–67)</span>
+        </div>
+
+        <!-- Row 1: Chart 3.1 & Exercise 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.1 Spelling Rules for Plural Nouns</h4>
+              <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 62</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>1. Add -s:</strong> <em>apples, scientists, boys</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>2. -s, -sh, -ch, -x &rarr; Add -es:</strong> <em>classes, dishes, inches, taxes</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>3. Consonant + -y &rarr; -ies:</strong> <em>parties, cities</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>4. -f / -fe &rarr; -ves:</strong> <em>leaves, wives</em> (exceptions: <em>beliefs, roofs</em>)
+              </div>
+              <div class="p-2.5 bg-teal-50 rounded-xl border border-teal-200 text-teal-950">
+                <strong>Irregular Plurals:</strong> <em>men, feet, teeth, children, fish, deer</em>. Plural-only: <em>jeans, clothes, glasses</em>.
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+                Complete with Plural Form (Page 62)
+              </h4>
+              <span class="text-xs text-slate-400">Word in parentheses</span>
+            </div>
+            <p class="text-xs text-slate-500">Write the plural form of the noun in parentheses:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-2 bg-slate-50 rounded-lg">1. <input type="text" data-ans="Scientists" value="Scientists" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold"> (Scientist) are interested in traditional medicine.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. The healer told <input type="text" data-ans="stories" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="story"> about the life of her patient.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. In some countries, most <input type="text" data-ans="babies" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="baby"> are born at home.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. The mother took her three <input type="text" data-ans="children" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="child"> to the doctor.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Healers work to improve the <input type="text" data-ans="lives" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="life"> of their patients.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. The dentist says my <input type="text" data-ans="teeth" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="tooth"> are in very good condition.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. The doctor told me to eat more <input type="text" data-ans="bananas" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="banana">.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. I think I eat too many <input type="text" data-ans="potatoes" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="potato">.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">9. Our school offers healthy <input type="text" data-ans="lunches" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="lunch"> every day.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">10. Different cultures have different <input type="text" data-ans="beliefs" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="belief"> about health.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Chart 3.2 & Exercise 6 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.2 Possessive Nouns</h4>
+              <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 63</span>
+            </div>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Singular Nouns:</strong> add <em>'s</em> &rarr; <em>the girl's bicycle, the child's room</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Regular Plural (-s):</strong> add apostrophe only &rarr; <em>the girls' bicycles</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Irregular Plural (no -s):</strong> add <em>'s</em> &rarr; <em>the children's rooms, women's team</em>
+              </div>
+              <div class="p-2.5 bg-teal-50 rounded-xl border border-teal-200 text-teal-950">
+                <strong>Two Nouns:</strong> add <em>'s</em> to the <strong>second noun only</strong> &rarr; <em>John and Tina’s father</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Choose the Correct Possessive (Page 63)
+            </h4>
+            <p class="text-xs text-slate-500">Select the correct possessive form:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-2 bg-slate-50 rounded-lg">1. <select data-ans="Maria's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Maria's">Maria’s</option><option value="Marias'">Marias’</option></select> daughter is in the hospital.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. The <select data-ans="nurse's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="nurses's">nurses’s</option><option value="nurse's">nurse’s</option></select> name is Meg.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. The <select data-ans="students'" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="students'">students’</option><option value="students's">students’s</option></select> goal is to become doctors.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. The <select data-ans="children's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="childrens'">childrens’</option><option value="children's">children’s</option></select> section of the hospital is bright and cheerful.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. You can find many <select data-ans="doctors'" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="doctor's">doctor’s</option><option value="doctors'">doctors’</option></select> phone numbers online.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. My <select data-ans="baby's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="baby's">baby’s</option><option value="babies'">babies’</option></select> cold is getting worse.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. <select data-ans="People's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Peoples'">Peoples’</option><option value="People's">People’s</option></select> health is getting better.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. The Internet has increased <select data-ans="parents'" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="parent's">parent’s</option><option value="parents'">parents’</option></select> concerns about their children.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex6-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Exercise 7 & Exercise 9 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+</div>
+<div id="tab-ex7" class="ex-tab-pane hidden space-y-6">
+id="ex7-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Write Possessive Forms (Page 63)
+            </h4>
+            <p class="text-xs text-slate-500">Write the correct possessive form of the word in parentheses:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. Is your <input type="text" data-ans="dentist's" value="dentist's" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold"> (dentist) office in this building?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. The <input type="text" data-ans="building's" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="building"> elevator is broken.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. <input type="text" data-ans="Mrs. Achebe's" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" placeholder="Mrs. Achebe"> house is across the street from the hospital.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. The <input type="text" data-ans="doctors'" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="doctors"> white coats are in the closet.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Julian and <input type="text" data-ans="Amy's" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="Amy"> baby is six weeks old.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. This <input type="text" data-ans="city's" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="city"> hospitals are excellent.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. Marta is a coach for the <input type="text" data-ans="women's" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="women"> swim team.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. <input type="text" data-ans="Mark and Sam's" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="Mark and Sam"> apartment is on the second floor.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex7-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+</div>
+<div id="tab-ex9" class="ex-tab-pane hidden space-y-6">
+id="ex9-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+              Another, Other, or The Other (Page 64)
+            </h4>
+            <p class="text-xs text-slate-500">Complete the sentences with <em>another</em>, <em>other</em>, or <em>the other</em>:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. I took one pill early this morning. I need to take <input type="text" data-ans="another" value="another" readonly class="border rounded px-1.5 py-0.5 text-xs w-20 bg-slate-200 font-semibold"> pill after lunch.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. Some people exercise every day. <select data-ans="Other" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Another">Another</option><option value="Other">Other</option><option value="The other">The other</option></select> people never exercise.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. Eight nurses work here. Six of them are very experienced. <select data-ans="The other" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Another">Another</option><option value="Other">Other</option><option value="The other">The other</option></select> two are new.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. Many doctors work in hospitals, but <select data-ans="other" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="another">another</option><option value="other">other</option><option value="the other">the other</option></select> doctors have their own offices.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. My brother had a soccer game on Saturday, and on Sunday he had <select data-ans="another" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="another">another</option><option value="other">other</option><option value="the other">the other</option></select> one.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. I have two exams tomorrow. One exam is in the morning. <select data-ans="The other" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Another">Another</option><option value="Other">Other</option><option value="The other">The other</option></select> one is in the afternoon.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. I saw two movies on Saturday. The first one was great, but <select data-ans="the other" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="another">another</option><option value="other">other</option><option value="the other">the other</option></select> movie was terrible.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. This glass is dirty. Could I have <select data-ans="another" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="another">another</option><option value="other">other</option><option value="the other">the other</option></select> one, please?</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex9-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Pronunciation (CD1-18) & EDIT Human Body -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+</div>
+<div id="tab-ex12" class="ex-tab-pane hidden space-y-6">
+id="ex12-l1-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">12</span>
+                  PRONUNCIATION. -s and -es Endings (Page 66)
+                </h4>
+                <p class="text-xs text-slate-500">Listen and circle final sound: /s/, /z/, or /ez/</p>
+              </div>
+              <span class="badge-cd">CD1-18</span>
+            </div>
+<!-- Audio Player [CD1-18] -->
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-18">
+  <div style="width: calc(100% + 56px); margin-right: -56px;">
+    <iframe src="https://drive.google.com/file/d/1MJRlvYSyOIkD29cFJCaMS38Wsp2Vwexi/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
+  </div>
+</div>
+<!-- End Audio Player [CD1-18] -->
+
+
+
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>1. nurses:</span><select data-ans="/ez/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>2. patient’s:</span><select data-ans="/s/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>3. doctor’s:</span><select data-ans="/z/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>4. cups:</span><select data-ans="/s/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>5. book’s:</span><select data-ans="/s/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>6. hospitals:</span><select data-ans="/z/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>7. boy’s:</span><select data-ans="/z/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>8. beds:</span><select data-ans="/z/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>9. jobs:</span><select data-ans="/z/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>10. bridges:</span><select data-ans="/ez/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>11. boxes:</span><select data-ans="/ez/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>12. dishes:</span><select data-ans="/ez/" class="select-check border rounded p-1 text-xs input-clean"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex12-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 12</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+</div>
+<div id="tab-ex14" class="ex-tab-pane hidden space-y-6">
+id="ex14-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">14</span>
+              EDIT. The Limits of the Human Body (Page 67)
+            </h4>
+            <p class="text-xs text-slate-500">Find and correct eight more errors with plural and possessive nouns:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+              <div>1. Do you know your [bodies] limits?: <input type="text" data-ans="body's" value="body's" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold"> (given)</div>
+              <div>2. When a [person] body temperature reaches 107.6&deg;F: <input type="text" data-ans="person's" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>3. In a burning building, [adultes] can breathe: <input type="text" data-ans="adults" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>4. Children’s [bodys] are not as strong: <input type="text" data-ans="bodies" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>5. Low [temperature's] are also very dangerous: <input type="text" data-ans="temperatures" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>6. People usually don’t survive for more than 30 [minute]: <input type="text" data-ans="minutes" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>7. Difficult to breathe at 15,000 [foot]: <input type="text" data-ans="feet" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>8. Mountain [climber's] sometimes have health problems: <input type="text" data-ans="climbers" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="climbers"></div>
+              <div>9. Serious health [problemes] at high altitudes: <input type="text" data-ans="problems" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="problems"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex14-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 14</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LESSON 2 (Pages 68–73) -->
+    <!-- ============================================================ -->
+</div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-teal-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 3: Lesson 1: Plural & Possessive Nouns; Another & Other</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-teal-500', 'text-white', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-teal-500', 'text-white', 'border-teal-600', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw.split(',').map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkDiscoverL3() {
+      checkClozeCard('ex3-l3-card');
+      checkSelectCard('ex3-l3-card');
+    }
+
+    function resetCurrentLesson() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-teal-500', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

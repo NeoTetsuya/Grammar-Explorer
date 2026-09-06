@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 3: Lesson 3 (Quantity and Measurement Words)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    .edit-pill { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.25rem; padding: 0.15rem 0.45rem; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 0.5rem; vertical-align: middle; margin: 0.15rem 0.2rem; font-family: ui-sans-serif, system-ui, sans-serif; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- HEADER -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Lesson 3</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 3: Quantity and Measurement Words</span>
+            </h1>
+          </div>
+        </div>
+
+        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Sports Science (pp. 74–75)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex4')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+          <span>Quantity Words (pp. 76–77)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex5')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex5">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5</span>
+          <span>Measurement Words (p. 77)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex7')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
+          <span>Practice: Diets & Nutrition (pp. 78–80)</span>
+        </button>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+    <div id="tab-explore" class="ex-tab-pane block space-y-6">
+<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Lesson 3 • Pages 74–80</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Quantity and Measurement Words</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD1-21</span>
+      </div>
+
+      <!-- PART 1: EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Questions (Pages 74–75)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "The Science of Sports" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Science of Sports</h3>
+                <p class="text-xs text-slate-500">Manchester City FC and Sports Science</p>
+              </div>
+              <span class="badge-cd">CD1-21</span>
+            </div>
+<!-- Audio Player [CD1-21] -->
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-21">
+  <div style="width: calc(100% + 56px); margin-right: -56px;">
+    <iframe src="https://drive.google.com/file/d/1StIxNEIIZCkxy09WvW2_YX04nrHILFjy/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
+  </div>
+</div>
+<!-- End Audio Player [CD1-21] -->
+
+
+
+            <!-- Manchester City FC Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-900 group">
+              <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
+                <img 
+                  src="https://static01.nyt.com/images/2012/05/14/sports/14soccer-pic/14soccer-pic-superJumbo.jpg" 
+                  alt="Manchester City celebrating their Premier League victory" 
+                  class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/0284c7?text=Manchester+City+%E2%80%A2+Premier+League';"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+                <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
+                  <span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Manchester City Premier League Champions (2012)</span>
+                  <span class="text-sky-300 font-semibold hidden sm:inline">p. 74</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                When Manchester City soccer team won the English Premier League in 2012, there were <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">many</strong> reasons for its success. The owners spent <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">a lot of</strong> money on star players. The team also had a very good head coach.
+              </p>
+              <p>
+                However, one reason for the team’s success was less obvious. A lot of teams lose their star players for weeks or months because of injuries.¹ Thanks to sports science, Manchester City players did not get hurt frequently, and did not lose <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">much</strong> playing time.
+              </p>
+              <p>
+                During practice each Manchester City player wears a GPS monitor.² Sports scientists then use the information provided by the monitor. They analyze each player’s movements, effort, and recovery.³ When practice is over, each player gets <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">some</strong> vitamins. They also get <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">a large bottle of</strong> a special drink. Each player’s drink is created especially for him. The drinks help keep the players healthy.
+              </p>
+              <p>
+                Some teams still do not take sports science seriously. However, spending <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">a little</strong> money on sports science can greatly improve a team’s performance. Manchester City’s story is proof⁴ of this.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ injury:</strong> damage to a person’s body</p>
+              <p><strong>² GPS monitor:</strong> a small computer that records a person’s movements</p>
+              <p><strong>³ recovery:</strong> return to usual condition</p>
+              <p><strong>⁴ proof:</strong> something that shows that something is true</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Multiple Choice -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Multiple Choice (Page 75)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the correct answer to complete each statement:</p>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">1. One reason for Manchester City's success in 2012 was:</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. having good luck</option>
+                    <option value="b">b. buying star players</option>
+                    <option value="c">c. playing against weak teams</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">2. Compared to other teams, Manchester City players:</span>
+                  <select data-ans="c" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. were younger</option>
+                    <option value="b">b. did not play as much</option>
+                    <option value="c">c. had fewer injuries</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">3. Players wear GPS monitors to:</span>
+                  <select data-ans="a" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. record their performance</option>
+                    <option value="b">b. stop them from getting lost</option>
+                    <option value="c">c. make them work hard</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">4. After practice, each player gets:</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. his favorite cold drink</option>
+                    <option value="b">b. a bottle of a special drink</option>
+                    <option value="c">c. a large bottle of water</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Quantity & Noun Type -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Quantity Words (Page 75)
+              </h4>
+              <p class="text-xs text-slate-500">Write the missing word and identify Count (C) or Non-Count (NC):</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. . . . there were <input type="text" data-ans="many" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="word"> reasons for its success.</span>
+                  <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="C">C</option><option value="NC">NC</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. The owners spent <input type="text" data-ans="a lot of" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="phrase"> money on star players.</span>
+                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="C">C</option><option value="NC">NC</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. A lot of <input type="text" data-ans="teams" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="word"> lose their star players...</span>
+                  <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="C">C</option><option value="NC">NC</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. . . . and did not lose <input type="text" data-ans="much" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="word"> playing time.</span>
+                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="C">C</option><option value="NC">NC</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. However, spending <input type="text" data-ans="a little" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="phrase"> money on sports science...</span>
+                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="C">C</option><option value="NC">NC</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL3()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+</div>
+<div id="tab-ex4" class="ex-tab-pane hidden space-y-6">
+<!-- PART 2: LEARN & PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-sky-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 3.6–3.7 & Exercises 4–9 (Pages 76–80)</span>
+        </div>
+
+        <!-- Row 1: Chart 3.6 & Exercise 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.6 Quantity Words Summary</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Count Only:</strong> <em>a few, many</em> (a few questions, many apples)
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Non-Count Only:</strong> <em>a little, much</em> (a little water, much homework)
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Both Count & Non-Count:</strong> <em>some, any, a lot of</em>
+              </div>
+              <div class="p-2 bg-sky-50 rounded-lg border border-sky-200 text-sky-950">
+                <strong>Rule:</strong> Use <em>some</em> in affirmative statements; use <em>any</em> in negative statements.
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose Quantity Word (Page 76)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct word(s) to complete each statement or question:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Manchester City has <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="some">some</option><option value="any">any</option></select> star players.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. <select data-ans="Many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Much">Much</option><option value="Many">Many</option></select> soccer teams lose players because of injury.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. I usually go to <select data-ans="a few" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a few">a few</option><option value="a little">a little</option></select> soccer games every year.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Michel didn't score <select data-ans="any" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> goals in the last game.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. We didn't get <select data-ans="much" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> exercise last week.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. <select data-ans="A lot of" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="A lot of">A lot of</option><option value="Much">Much</option></select> people left the game early.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Sally bought <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> new running shoes yesterday.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Marie wants to go ride her bike when she has <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a few">a few</option><option value="some">some</option></select> time.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">9. Were there <select data-ans="many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> people in your yoga class this morning?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">10. I didn't find <select data-ans="many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="many">many</option><option value="much">much</option></select> mistakes in your assignment.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">11. There is <select data-ans="a little" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a little">a little</option><option value="a few">a few</option></select> ice cream left in the freezer.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">12. Do you have <select data-ans="much" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> homework this weekend?</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Exercise 5 & Exercise 7 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+</div>
+<div id="tab-ex5" class="ex-tab-pane hidden space-y-6">
+id="ex5-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              Measurement Words (Page 77)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct measurement word to complete each sentence:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Clive cut three <select data-ans="slices" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="slices">slices</option><option value="bars">bars</option></select> of pizza and put them on his plate.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. I need to buy a new <select data-ans="tube" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="bar">bar</option><option value="tube">tube</option></select> of toothpaste.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Do you have a <select data-ans="sheet" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="sheet">sheet</option><option value="slice">slice</option></select> of paper? I need to write a shopping list.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Would you like a <select data-ans="piece" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="piece">piece</option><option value="loaf">loaf</option></select> of pie for dessert?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. This cake uses six <select data-ans="sticks" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="bars">bars</option><option value="sticks">sticks</option></select> of butter.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. We will need three <select data-ans="loaves" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="cartons">cartons</option><option value="loaves">loaves</option></select> of bread for the party.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. I put a new <select data-ans="bar" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="bar">bar</option><option value="stick">stick</option></select> of soap in the bathroom.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Helena had a <select data-ans="bowl" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="glass">glass</option><option value="bowl">bowl</option></select> of cereal for breakfast.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">9. Yoko is wearing five different <select data-ans="pieces" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="slices">slices</option><option value="pieces">pieces</option></select> of jewelry today.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">10. Add two <select data-ans="gallons" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="pounds">pounds</option><option value="gallons">gallons</option></select> of milk to the shopping list, please.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">11. I didn’t get a single <select data-ans="piece" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="piece">piece</option><option value="sheet">sheet</option></select> of mail today.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">12. The mechanic put a <select data-ans="quart" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="quart">quart</option><option value="carton">carton</option></select> of oil in my car.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex5-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+</div>
+<div id="tab-ex7" class="ex-tab-pane hidden space-y-6">
+id="ex7-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Blog Post: What Can I Eat? (Page 78)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct word or phrase to complete the blog post:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+              <p>
+                I am a runner, so I take (1) <select data-ans="a lot of" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="many">many</option><option value="much">much</option><option value="a lot of">a lot of</option></select> interest in my diet, but sometimes it can be so confusing! For years, doctors said, “You need to drink eight 8-ounce (2) <select data-ans="glasses" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="cans">cans</option><option value="glasses">glasses</option><option value="tubes">tubes</option></select> of water every day,” but now (3) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="some">some</option><option value="a little">a little</option><option value="any">any</option></select> researchers don’t agree.
+              </p>
+              <p>
+                Also, I hear about a new diet almost every day. “To lose weight and stay healthy, don’t eat (4) <select data-ans="any" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="much">much</option><option value="a few">a few</option><option value="any">any</option></select> grains.” Or, “You can eat (5) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a little">a little</option><option value="any">any</option><option value="some">some</option></select> grains, but (6) <select data-ans="not many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="not much">not much</option><option value="not many">not many</option><option value="any">any</option></select>. For example, if you eat a sandwich, use only one (7) <select data-ans="slice" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="sheet">sheet</option><option value="loaf">loaf</option><option value="slice">slice</option></select> of bread.” How do I do that?
+              </p>
+              <p>
+                I already know I shouldn’t eat (8) <select data-ans="much" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a little">a little</option><option value="many">many</option><option value="much">much</option></select> sugar. I won’t drink even one (9) <select data-ans="can" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="bowl">bowl</option><option value="can">can</option><option value="carton">carton</option></select> of soda because there are around nine (10) <select data-ans="teaspoons" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="teaspoons">teaspoons</option><option value="bars">bars</option><option value="pieces">pieces</option></select> of sugar in each can. But what about juice? I bought a (11) <select data-ans="bottle" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="jar">jar</option><option value="glass">glass</option><option value="bottle">bottle</option></select> of juice last week, and it had more sugar than the soda. Is that OK? Please help me.
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex7-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: REVIEW THE GRAMMAR (Pages 81–83) -->
+    <!-- ============================================================ -->
+</div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-teal-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 3: Lesson 3: Quantity and Measurement Words</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-teal-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-teal-500', 'text-white', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-teal-500', 'text-white', 'border-teal-600', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw.split(',').map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkDiscoverL3() {
+      checkClozeCard('ex3-l3-card');
+      checkSelectCard('ex3-l3-card');
+    }
+
+    function resetCurrentLesson() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-teal-500', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-teal-600', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

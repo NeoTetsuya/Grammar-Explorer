@@ -99,7 +99,29 @@ const BOOK_UNIT_METADATA = {
   },
   3: {
     title: "Unit 3: Health and Fitness (Nouns)",
-    topics: ["Health & Fitness", "Count/Non-count Nouns", "Quantifiers", "Definite/Indefinite Articles"]
+    topics: ["Health & Fitness", "Count/Non-count Nouns", "Quantifiers", "Definite/Indefinite Articles"],
+    subLessons: {
+      "grammar_explorer_2_unit_3_lesson_1.html": {
+        title: "Unit 3 - Lesson 1: Plural and Possessive Nouns; Another and Other",
+        tag: "Book U3 L1",
+        topics: ["Plural Nouns", "Possessive Nouns", "Another vs Other", "Spelling Rules"]
+      },
+      "grammar_explorer_2_unit_3_lesson_2.html": {
+        title: "Unit 3 - Lesson 2: Count and Non-Count Nouns",
+        tag: "Book U3 L2",
+        topics: ["Count Nouns", "Non-Count Nouns", "Categories of Nouns", "Superfoods"]
+      },
+      "grammar_explorer_2_unit_3_lesson_3.html": {
+        title: "Unit 3 - Lesson 3: Quantity and Measurement Words",
+        tag: "Book U3 L3",
+        topics: ["Quantity Words", "Measurement Units", "Sports Science", "Nutrition"]
+      },
+      "grammar_explorer_2_unit_3_review_writing.html": {
+        title: "Unit 3: Review the Grammar & Connect to Writing",
+        tag: "Book U3 Writing",
+        topics: ["Unit 3 Review", "Subject-Verb Agreement", "Opinion Paragraphs", "Staying Fit"]
+      }
+    }
   },
   4: {
     title: "Unit 4: Going Places (Pronouns, Prepositions, and Articles)",
