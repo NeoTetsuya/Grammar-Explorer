@@ -400,7 +400,10 @@ function removeTrackAudio(trackId) {
 /**
  * Applies all configured tracks from audio-registry.json to files.
  */
-function applyAllConfigured() {
+/**
+ * Applies all configured tracks from audio-registry.json to files.
+ */
+function applyAllConfigured(shouldPush = isPush) {
   if (!fs.existsSync(REGISTRY_PATH)) {
     scanTracks();
   }
@@ -426,7 +429,7 @@ function applyAllConfigured() {
   fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 2), 'utf8');
   log(`\n  ${green('✓')} Finished applying audio players (${bold(totalInjected)} file updates).`);
 
-  if (isPush) {
+  if (shouldPush) {
     log(`\n${bold('📦 Committing & Pushing to GitHub...')}`);
     try {
       execSync('git add -A', { cwd: REPO_DIR, stdio: 'inherit' });
@@ -443,7 +446,7 @@ function applyAllConfigured() {
 }
 
 /**
- * Interactive Command Line Menu
+ * Interactive Command Line Menu (loops continuously until user exits)
  */
 function interactiveMenu() {
   const rl = readline.createInterface({
@@ -451,51 +454,84 @@ function interactiveMenu() {
     output: process.stdout
   });
 
-  log(`\n${bold(cyan('========================================================================='))}`);
-  log(`  ${bold('Grammar Explorer - Audio Track Manager & Drive Integrator')}`);
-  log(`${bold(cyan('========================================================================='))}`);
-  log(`  1. ${bold('Scan Lessons')} (Discover all CD audio tracks in files)`);
-  log(`  2. ${bold('List Tracks')} (View all tracks & link status)`);
-  log(`  3. ${bold('Add / Update Audio Link')} (Paste Google Drive or MP3 link for a track)`);
-  log(`  4. ${bold('Remove Audio Link')} (Remove player from files for a track)`);
-  log(`  5. ${bold('Apply All Configured Audio')} (Inject players into lesson files)`);
-  log(`  6. ${bold('Exit')}`);
-  log(`${bold(cyan('========================================================================='))}\n`);
+  function showMenu() {
+    log(`\n${bold(cyan('========================================================================='))}`);
+    log(`  ${bold('Grammar Explorer - Audio Track Manager & Drive Integrator')}`);
+    log(`${bold(cyan('========================================================================='))}`);
+    log(`  1. ${bold('Scan Lessons')} (Discover all CD audio tracks in files)`);
+    log(`  2. ${bold('List Tracks')} (View all tracks & link status)`);
+    log(`  3. ${bold('Add / Update Audio Links')} (Add multiple audio links continuously)`);
+    log(`  4. ${bold('Remove Audio Link')} (Remove player from files for a track)`);
+    log(`  5. ${bold('Apply All Configured Audio')} (Inject players into lesson files)`);
+    log(`  6. ${bold('Apply & Push to GitHub')} (Inject players and push changes)`);
+    log(`  7. ${bold('Exit')}`);
+    log(`${bold(cyan('========================================================================='))}\n`);
 
-  rl.question('Select an option (1-6): ', (choice) => {
-    const trimmed = choice.trim();
-    if (trimmed === '1') {
-      scanTracks();
-      rl.close();
-    } else if (trimmed === '2') {
-      listTracks();
-      rl.close();
-    } else if (trimmed === '3') {
-      rl.question('\nEnter Track ID (e.g. CD1-02, CD1-03): ', (trackId) => {
-        rl.question('Paste Google Drive sharing link (or direct MP3 URL): ', (link) => {
-          if (trackId && link) {
-            setTrackAudio(trackId, link);
-          } else {
-            log(yellow('Cancelled: Track ID and URL are required.'));
-          }
-          rl.close();
-        });
-      });
-    } else if (trimmed === '4') {
-      rl.question('\nEnter Track ID to remove: ', (trackId) => {
-        if (trackId) {
-          removeTrackAudio(trackId);
-        }
+    rl.question('Select an option (1-7): ', (choice) => {
+      const trimmed = choice.trim();
+      if (trimmed === '1') {
+        scanTracks();
+        showMenu();
+      } else if (trimmed === '2') {
+        listTracks();
+        showMenu();
+      } else if (trimmed === '3') {
+        promptAddTrack();
+      } else if (trimmed === '4') {
+        promptRemoveTrack();
+      } else if (trimmed === '5') {
+        applyAllConfigured(false);
+        showMenu();
+      } else if (trimmed === '6') {
+        applyAllConfigured(true);
+        showMenu();
+      } else if (trimmed === '7' || trimmed.toLowerCase() === 'exit' || trimmed.toLowerCase() === 'q') {
+        log('Exiting Audio Track Manager. Goodbye!\n');
         rl.close();
+      } else {
+        log(yellow('Invalid option. Please enter a number between 1 and 7.'));
+        showMenu();
+      }
+    });
+  }
+
+  function promptAddTrack() {
+    log(`\n${bold(cyan('--- Add / Update Audio Link ---'))}`);
+    log(`${dim('Tip: Press Enter with an empty Track ID anytime to return to the main menu.')}`);
+    rl.question('Enter Track ID (e.g. CD1-05, CD2-02): ', (trackId) => {
+      const cleanId = trackId.trim();
+      if (!cleanId) {
+        showMenu();
+        return;
+      }
+      rl.question(`Paste Google Drive sharing link (or direct MP3 URL) for [${cleanId}]: `, (link) => {
+        const cleanLink = link.trim();
+        if (cleanLink) {
+          setTrackAudio(cleanId, cleanLink);
+        } else {
+          log(yellow('Cancelled: Track URL was empty.'));
+        }
+        // Prompt for next track immediately so user can add many in a row!
+        promptAddTrack();
       });
-    } else if (trimmed === '5') {
-      applyAllConfigured();
-      rl.close();
-    } else {
-      log('Exiting.');
-      rl.close();
-    }
-  });
+    });
+  }
+
+  function promptRemoveTrack() {
+    log(`\n${bold(cyan('--- Remove Audio Link ---'))}`);
+    log(`${dim('Tip: Press Enter with an empty Track ID to return to the main menu.')}`);
+    rl.question('Enter Track ID to remove: ', (trackId) => {
+      const cleanId = trackId.trim();
+      if (!cleanId) {
+        showMenu();
+        return;
+      }
+      removeTrackAudio(cleanId);
+      showMenu();
+    });
+  }
+
+  showMenu();
 }
 
 // Main CLI Router
