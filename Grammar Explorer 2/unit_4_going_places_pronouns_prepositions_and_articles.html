@@ -4,309 +4,788 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 4: Going Places (Pronouns, Prepositions, and Articles)</title>
-    <!-- Tailwind CSS for modern responsive layout -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0fdf4; /* Light fresh tint */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8fafc;
         }
         
         /* Main Navigation Tabs */
-        .tab-active {
-            border-bottom-width: 4px;
-            border-color: #4338ca; /* Indigo 700 */
-            color: #3730a3; /* Indigo 800 */
+        .main-tab-active {
+            border-bottom: 3px solid #4338ca;
+            color: #1e1b4b;
             font-weight: 800;
         }
-        .tab-inactive {
-            border-bottom-width: 4px;
-            border-color: transparent;
+        .main-tab-inactive {
+            border-bottom: 3px solid transparent;
             color: #64748b;
+            font-weight: 600;
         }
-        .tab-inactive:hover { color: #3730a3; border-color: #cbd5e1; }
+        .main-tab-inactive:hover {
+            color: #1e1b4b;
+            border-color: #cbd5e1;
+        }
+
+        /* Grammar Guide Category Tabs */
+        .grammar-nav-btn {
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+        .grammar-nav-active {
+            background-color: #4338ca;
+            color: #ffffff;
+            box-shadow: 0 4px 12px -2px rgba(67, 56, 202, 0.35);
+        }
+        .grammar-nav-inactive {
+            background-color: #ffffff;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .grammar-nav-inactive:hover {
+            background-color: #eef2ff;
+            color: #3730a3;
+            border-color: #c7d2fe;
+        }
 
         /* Animations */
-        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .pop-out { transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .pop-out:hover:not(:disabled) {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(67, 56, 202, 0.25), 0 4px 6px -2px rgba(67, 56, 202, 0.12);
-        }
-        
-        /* Interactive Triggers and Target Connections */
-        .interactive-group { position: relative; display: inline-block; }
-        .interactive-trigger {
-            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
-            text-decoration-color: #4338ca; padding: 2px 4px; border-radius: 4px;
-            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
-        }
-        .interactive-target {
-            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
-        }
-        .interactive-active-trigger {
-            background-color: #e0e7ff; color: #3730a3; text-decoration-color: transparent;
-        }
-        .interactive-active-target {
-            background-color: #fef08a; color: #854d0e;
-            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(67, 56, 202, 0.2);
         }
 
-        /* Sub-Tabs for Exercises */
-        .subtab-active { background-color: #4338ca; color: white; box-shadow: 0 4px 6px -1px rgba(67, 56, 202, 0.4); }
-        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-        .subtab-inactive:hover { background-color: #e2e8f0; }
+        /* Practice Subtabs */
+        .subtab-active { background-color: #0f172a; color: white; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25); }
+        .subtab-inactive { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #f1f5f9; color: #0f172a; }
 
-        /* Quiz Options */
+        /* Quiz Buttons */
         .option-btn { transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #4338ca; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #4338ca; box-shadow: 0 4px 8px rgba(67, 56, 202, 0.1); }
         .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
-        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+        .option-disabled { opacity: 0.65; cursor: not-allowed; }
 
-        /* Clickable Words for Identification */
+        /* Spot Error Tokens */
         .click-word {
-            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
-            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+            display: inline-block; padding: 2px 8px; margin: 3px 2px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.12rem; user-select: none; border: 2px solid transparent;
         }
-        .click-word:hover { background-color: #e2e8f0; }
-        .click-word.selected { background-color: #4338ca; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(67, 56, 202, 0.4); border-color: #312e81; }
+        .click-word:hover { background-color: #e0e7ff; }
+        .click-word.selected { background-color: #4338ca; color: white; transform: scale(1.04); }
         .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
-        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
-        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
-
-        /* Matching Buttons */
-        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
-        .match-btn:hover:not(:disabled) { border-color: #4338ca; background-color: #e0e7ff; transform: translateY(-2px); }
-        .match-btn.selected { background-color: #c7d2fe; border-color: #4338ca; color: #312e81; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(67, 56, 202, 0.2); }
-        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
-        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #b91c1c; }
+        .click-word.missed { border-color: #f59e0b; border-style: dashed; background-color: #fef3c7; color: #92400e; }
 
         /* Fill Blanks */
         .fill-blank {
-            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
-            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #4338ca;
+            display: inline-block; min-width: 90px; height: 34px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: 800; color: #4338ca;
         }
-        .fill-blank.filled { border-bottom-style: solid; background-color: #e0e7ff; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #4338ca; }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #e0e7ff; border-radius: 6px 6px 0 0; padding: 0 10px; border-bottom-color: #4338ca; }
         .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
         .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            50% { transform: translateX(6px); }
+            75% { transform: translateX(-6px); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
     <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
         <defs>
-            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#4338ca" />
+            <marker id="arrowhead-study" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#4338ca" />
             </marker>
-            <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            <marker id="arrowhead-neutral" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+            </marker>
+            <marker id="arrowhead-correct" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#16a34a" />
+            </marker>
+            <marker id="arrowhead-incorrect" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#dc2626" />
             </marker>
         </defs>
         <g id="svg-paths-container"></g>
     </svg>
 
-    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-indigo-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-indigo-600 to-sky-600 text-white p-2.5 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-plane-departure text-xl w-6 text-center"></i>
+    <header class="bg-white sticky top-0 z-40 border-b border-indigo-100 shadow-xs backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-gradient-to-tr from-indigo-600 to-sky-500 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shadow-md shadow-indigo-600/20">
+                        <i class="fa-solid fa-plane-departure text-lg sm:text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 4: Going Places</h1>
-                        <p class="text-xs text-slate-500 hidden sm:block font-medium">Grammar Focus: Pronouns, Prepositions & Articles</p>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-extrabold tracking-wider uppercase bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-md">Grammar Explorer</span>
+                            <span class="text-[11px] text-slate-500 font-medium">Unit 4</span>
+                        </div>
+                        <h1 class="text-base sm:text-xl font-black text-slate-900 tracking-tight">Going Places <span class="font-normal text-slate-500 hidden sm:inline">(Pronouns, Prepositions & Articles)</span></h1>
                     </div>
-                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 4: Travel</h1>
                 </div>
-                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
-                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
-                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+
+                <!-- Primary View Navigation -->
+                <nav class="flex space-x-2 sm:space-x-8 h-full">
+                    <button id="main-tab-study" class="main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open text-indigo-600"></i>
+                        <span>Grammar Guide</span>
                     </button>
-                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
-                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    <button id="main-tab-practice" class="main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Exercises</span>
                     </button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         
-        <section id="section-study" class="fade-in block space-y-8">
+        <section id="section-study" class="fade-in block space-y-6">
             
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Pronouns, Prepositions & Articles</h2>
-                <p class="text-lg text-slate-600">Master subject/object pronouns, possessives, reflexive structures, time/place prepositions, definite/indefinite articles, and geographic place names.</p>
-                
-                <!-- Built-in TTS Audio Player Bar -->
-                <div class="mt-6 bg-white p-4 rounded-2xl border border-indigo-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 text-left">
-                        <div class="bg-indigo-100 text-indigo-700 p-3 rounded-xl">
-                            <i class="fa-solid fa-volume-high text-xl"></i>
+            <!-- Audio Companion & Topic Banner -->
+            <div class="bg-gradient-to-r from-indigo-50 via-sky-50 to-indigo-50 border border-indigo-200 rounded-2xl p-4 sm:p-6 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>Unit Grammar Reference & Rules</span>
+                        <span class="bg-indigo-200 text-indigo-900 text-xs px-2.5 py-0.5 rounded-full font-bold">Comprehensive</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 mt-1">Select a grammar topic below to explore personal pronouns, possessive modifiers, prepositions of time/place/direction, article systems, geographic names, and misplaced prepositional phrases.</p>
+                </div>
+
+                <!-- Text-to-Speech Companion -->
+                <div class="bg-white/90 border border-indigo-200 p-2.5 sm:p-3 rounded-xl shadow-xs flex items-center gap-2.5 self-stretch md:self-auto justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-headphones"></i>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Spoken Audio Overview</h4>
-                            <p class="text-xs text-slate-500">Listen to key travel grammar rules</p>
+                        <div class="hidden sm:block">
+                            <p class="text-xs font-bold text-slate-800">Audio Guide</p>
+                            <p class="text-[10px] text-slate-500 leading-tight">Listen to spoken summary</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-indigo-500 focus:border-indigo-500 font-medium max-w-[160px] truncate">
-                            <option value="">Loading voices...</option>
+                    <div class="flex items-center gap-2">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 max-w-[140px] truncate focus:outline-none focus:ring-1 focus:ring-indigo-500">
+                            <option value="">Voice Loading...</option>
                         </select>
-                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
-                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-3.5 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all pop-out shadow-xs">
+                            <i class="fa-solid fa-play" id="tts-icon"></i>
+                            <span id="tts-text">Listen</span>
                         </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-4 inline-flex items-center gap-2 bg-indigo-50 text-indigo-800 px-4 py-2 rounded-full text-sm font-semibold border border-indigo-200">
-                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
-                    Tap the dashed words in the examples to reveal grammar connections!
+            <div class="border-b border-slate-200 pb-2">
+                <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+                    <button id="gtab-btn-pronouns" onclick="switchGrammarTab('pronouns')" class="grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-user-tag"></i>
+                        <span>1. Pronouns & Possessives</span>
+                    </button>
+                    <button id="gtab-btn-prepositions" onclick="switchGrammarTab('prepositions')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-compass"></i>
+                        <span>2. Prepositions (Time, Place & Direction)</span>
+                    </button>
+                    <button id="gtab-btn-articles" onclick="switchGrammarTab('articles')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-font"></i>
+                        <span>3. Articles & Generalizations</span>
+                    </button>
+                    <button id="gtab-btn-places" onclick="switchGrammarTab('places')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span>4. Articles with Place Names</span>
+                    </button>
+                    <button id="gtab-btn-writing" onclick="switchGrammarTab('writing')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <span>5. Misplaced Phrases</span>
+                    </button>
+                    <button id="gtab-btn-matrix" onclick="switchGrammarTab('matrix')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <span>6. Comparison Matrix</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 1: Pronouns & Possessives -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-indigo-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-user-tag absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Pronouns, Possessives & Reflexives</h3>
-                        <p class="text-indigo-100 font-medium relative z-10">Subjects, Objects, Standalone Possessives, Reflexives & Reciprocals</p>
+            <div id="gpanel-pronouns" class="fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-indigo-600 uppercase">Lesson 1 &bull; Charts 4.1 - 4.3</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Personal Pronouns, Possessives & Reflexive Structures</h3>
+                        </div>
+                        <span class="bg-indigo-50 text-indigo-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Subjects &bull; Objects &bull; Possessives &bull; Reflexives</span>
                     </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Subject vs. Object vs. Possessive Pronouns</h4>
-                            <div>• <strong>Subject Pronouns:</strong> I, you, he, she, it, we, they (&rarr; <em>She arrived at the airport.</em>)</div>
-                            <div>• <strong>Object Pronouns:</strong> me, you, him, her, it, us, them (&rarr; <em>The tour guide helped <span id="target-obj1" class="interactive-target">her</span>.</em>)</div>
-                            <div>• <strong>Possessive Adjective (+ Noun):</strong> my, your, his, her, its, our, their (<span class="italic">"her passport"</span>).</div>
-                            <div>• <strong>Possessive Pronoun (Standalone):</strong> mine, yours, his, hers, ours, theirs (<span class="interactive-trigger text-indigo-700" data-target="target-poss1">Mine</span> is the blue suitcase).</div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Pronoun Forms -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-circle-dot text-indigo-600 text-xs"></i> Subject & Object Pronouns
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Person / Number</th>
+                                            <th class="p-3">Subject Pronoun</th>
+                                            <th class="p-3">Object Pronoun</th>
+                                            <th class="p-3">Reflexive Pronoun</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold">1st Person (Singular)</td>
+                                            <td class="p-3 font-mono text-indigo-700 font-bold">I</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">me</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">myself</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">2nd Person (Singular/Pl.)</td>
+                                            <td class="p-3 font-mono text-indigo-700 font-bold">you</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">you</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">yourself / yourselves</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">3rd Person (Masc/Fem/Neut)</td>
+                                            <td class="p-3 font-mono text-indigo-700 font-bold">he / she / it</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">him / her / it</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">himself / herself / itself</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">1st Person (Plural)</td>
+                                            <td class="p-3 font-mono text-indigo-700 font-bold">we</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">us</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">ourselves</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">3rd Person (Plural)</td>
+                                            <td class="p-3 font-mono text-indigo-700 font-bold">they</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">them</td>
+                                            <td class="p-3 font-mono text-slate-700 font-bold">themselves</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2 text-slate-700">
+                                <strong class="text-slate-900 block font-bold uppercase tracking-wider">Pronoun Syntactic Roles:</strong>
+                                <p>• <strong>Subject Position:</strong> Takes the place of a subject noun phrase &rarr; <em>"Elena enjoys cycling. <span class="text-indigo-800 font-bold">She</span> uses her bike to commute."</em></p>
+                                <p>• <strong>Object of Verb:</strong> Follows a transitive verb &rarr; <em>"Javier met <span class="text-indigo-800 font-bold">them</span> at the Mexico City airport."</em></p>
+                                <p>• <strong>Object of Preposition:</strong> Follows a preposition &rarr; <em>"This boarding pass is for <span class="text-indigo-800 font-bold">him</span>."</em> | <em>"They sat next to <span class="text-indigo-800 font-bold">us</span>."</em></p>
+                            </div>
                         </div>
 
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Reflexive & Reciprocal Pronouns</h4>
-                            <div>• <strong>Reflexive Pronouns:</strong> myself, yourself, himself, herself, itself, ourselves, yourselves, themselves.</div>
-                            <div>• <strong>Emphatic Use:</strong> <span class="italic font-semibold text-indigo-900">"The captain himself checked the flight plan."</span></div>
-                            <div>• <strong>By + Reflexive:</strong> Means <em>alone / unassisted</em> (<span class="italic">"She traveled by herself."</span>).</div>
-                            <div>• <strong>Reciprocal Pronouns:</strong> <em>each other</em> (2 people) vs. <em>one another</em> (&gt; 2 people).</div>
-                        </div>
+                        <!-- Right Column: Possessives, Reflexives & Traps -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-key text-indigo-600 text-xs"></i> Possessive Adjectives vs. Possessive Pronouns
+                            </h4>
 
-                        <div class="bg-amber-50 border border-amber-200 p-3 rounded-xl text-xs text-amber-950 space-y-1">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Common Pronoun Traps</h4>
-                            <div>• <em>its</em> = possessive adjective | <em>it's</em> = contraction (it is / it has)</div>
-                            <div>• <em>their</em> = possessive | <em>there</em> = place | <em>they're</em> = they are</div>
-                            <div>• Indefinite pronouns (*everyone, somebody, nobody*) take <strong>singular verbs</strong> (*"Everyone is ready"*).</div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="grid grid-cols-2 gap-3 text-xs">
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1">
+                                    <span class="bg-indigo-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Requires Noun</span>
+                                    <strong class="text-slate-900 block text-xs">Possessive Adjectives</strong>
+                                    <p class="font-mono text-indigo-800 font-bold text-[11px]">my, your, his, her, its, our, their</p>
+                                    <p class="text-slate-600 text-[11px]">Must be followed by a noun:</p>
+                                    <p class="italic text-indigo-800">"Joe bought <span class="underline font-bold">his</span> plane ticket."</p>
+                                </div>
+                                <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl space-y-1">
+                                    <span class="bg-sky-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Replaces Noun</span>
+                                    <strong class="text-slate-900 block text-xs">Possessive Pronouns</strong>
+                                    <p class="font-mono text-sky-800 font-bold text-[11px]">mine, yours, his, hers, its, ours, theirs</p>
+                                    <p class="text-slate-600 text-[11px]">Used alone without a noun:</p>
+                                    <p class="italic text-sky-800">"That coat is not yours. <span class="underline font-bold">Mine</span> is blue."</p>
+                                </div>
+                            </div>
 
-                <!-- Lesson 2: Prepositions of Time, Place & Direction -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-sky-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-map-location-dot absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Prepositions of Time, Place & Movement</h3>
-                        <p class="text-sky-100 font-medium relative z-10">At, On, In, By, Until & Zero Article Expressions</p>
-                    </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Prepositions of Time & Deadlines</h4>
-                            <div>• <strong class="text-sky-700">At:</strong> exact clock times, at night, at noon, at midnight, at the weekend.</div>
-                            <div>• <strong class="text-sky-700">In:</strong> morning/afternoon/evening, seasons, months, years (<span class="italic">in July, in 2025</span>).</div>
-                            <div>• <strong class="text-sky-700">On:</strong> dates, days of week (<span class="italic">on Monday, on July 15</span>).</div>
-                            <div>• <strong class="text-sky-700">By vs. Until:</strong> <em>by</em> = deadline (at or before time limit); <em>until</em> = continuous action up to moment.</div>
-                        </div>
+                            <!-- Reflexive Pronouns & By + Reflexive -->
+                            <div class="bg-white border-2 border-indigo-200 rounded-xl p-4 text-xs space-y-2.5 shadow-xs">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">Reflexive Pronouns & The "By Myself" Idiom</strong>
+                                <p class="text-slate-700">• <strong>Subject = Object:</strong> Use when the actor and recipient are identical: <em>"Peter hurt <span class="font-bold text-indigo-800">himself</span> in a cycling accident."</em></p>
+                                <p class="text-slate-700">• <strong>Common Reflexive Verbs:</strong> <em>cut, enjoy, feel sorry for, hurt, take care of, make (oneself) comfortable</em>.</p>
+                                <p class="text-slate-700">• <strong>By + Reflexive:</strong> Expresses <em>alone</em> or <em>without any help</em>: <em>"She traveled to Mexico <span class="font-bold text-indigo-800">by herself</span>."</em> | <em>"The cabin lights turn off <span class="font-bold text-indigo-800">by itself</span>."</em></p>
+                            </div>
 
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Prepositions of Place & Movement</h4>
-                            <div>• <strong class="text-sky-700">In:</strong> enclosed spaces, cities, countries (<span class="italic">in London, in a taxi</span>).</div>
-                            <div>• <strong class="text-sky-700">On:</strong> surfaces, streets, public transport (<span class="italic">on Fifth Ave, on a train/bus/plane</span>).</div>
-                            <div>• <strong class="text-sky-700">At:</strong> specific address, point, event (<span class="italic">at 29 Main Street, at the station, at a conference</span>).</div>
-                            <div>• <strong class="text-sky-700">Movement:</strong> <em>into, onto, out of, off, through, across, towards, along</em>.</div>
-                        </div>
-
-                        <div class="bg-emerald-50 border border-emerald-200 p-3 rounded-xl text-xs text-emerald-950">
-                            <strong>Zero Article Place Phrases:</strong> <em>in class, in bed, at home, at school, at work, by train/plane/bus/car</em>.
+                            <!-- Homophone Traps -->
+                            <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-1.5">
+                                <strong class="text-amber-900 block font-bold text-xs uppercase tracking-wide">
+                                    <i class="fa-solid fa-triangle-exclamation text-amber-600 mr-1"></i> Crucial Homophone Traps
+                                </strong>
+                                <p>• <strong>Its vs. It's:</strong> <em>its</em> = possessive adjective (<em>"The airline lost its luggage"</em>); <em>it's</em> = contraction of <em>it is</em> or <em>it has</em> (<em>"It's delayed for an hour"</em>).</p>
+                                <p>• <strong>Their vs. There vs. They're:</strong> <em>their</em> = possessive (<em>"their tickets"</em>); <em>there</em> = place/location (<em>"over there"</em>); <em>they're</em> = they are (<em>"they're on the train"</em>).</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 3: Articles (Indefinite, Definite, Generalizations) -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-slate-800 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-font absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">3. Articles Matrix & Generalizations</h3>
-                        <p class="text-slate-300 font-medium relative z-10">A, An, The, or Zero Article (&Oslash;)</p>
+            <div id="gpanel-prepositions" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-sky-600 uppercase">Lesson 2 &bull; Charts 4.4 - 4.5</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Prepositions of Time, Place & Direction</h3>
+                        </div>
+                        <span class="bg-sky-50 text-sky-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">At / On / In Matrix &bull; Movement &bull; Zero-Article Idioms</span>
                     </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide border-b pb-1">Indefinite vs. Definite Rules</h4>
-                            <div>• <strong>A / An:</strong> First mention singular count noun (<span class="italic">a hotel, an elevator</span>).</div>
-                            <div>• <strong>The:</strong> Specific/known item, second mention, superlatives, ordinals (<span class="italic">the first flight, the most famous museum</span>).</div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Prepositions of Time -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-clock text-sky-600 text-xs"></i> Prepositions of Time (At, In, On)
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Preposition</th>
+                                            <th class="p-3">Governed Time Expressions</th>
+                                            <th class="p-3">Textbook Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-bold text-sky-700">AT</td>
+                                            <td class="p-3">Clock times, specific moments, noon, night, midnight, weekend</td>
+                                            <td class="p-3 italic text-slate-600">"at 5:00 p.m.", "at midnight", "at night"</td>
+                                        </tr>
+                                        <tr class="bg-sky-50/30">
+                                            <td class="p-3 font-bold text-sky-700">IN</td>
+                                            <td class="p-3">Parts of day (morning, afternoon, evening), months, seasons, years, centuries</td>
+                                            <td class="p-3 italic text-slate-600">"in the morning", "in August", "in the summer", "in 2010"</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold text-sky-700">ON</td>
+                                            <td class="p-3">Specific calendar dates, days of the week, holidays with "Day"</td>
+                                            <td class="p-3 italic text-slate-600">"on Monday", "on August 11", "on my birthday"</td>
+                                        </tr>
+                                        <tr class="bg-sky-50/30">
+                                            <td class="p-3 font-bold text-sky-700">FOR / DURING</td>
+                                            <td class="p-3"><em>for</em> + length of duration; <em>during</em> + named event / period</td>
+                                            <td class="p-3 italic text-slate-600">"for two weeks", "for eight hours", "during the flight"</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-bold text-sky-700">FROM ... TO / UNTIL</td>
+                                            <td class="p-3">Beginning time marker to ending time marker</td>
+                                            <td class="p-3 italic text-slate-600">"from 9:00 until noon", "from February 28 to March 15"</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-xs space-y-1 text-slate-700">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">Sentence Position Rule (Place before Time):</strong>
+                                <p>In standard English sentences, place phrases precede time phrases: <span class="text-indigo-800 font-bold">"Jemila went to Brazil in January."</span> Time expressions can also sit at the sentence beginning: <span class="text-indigo-800 font-bold">"In January, Jemila went to Brazil."</span></p>
+                            </div>
                         </div>
 
-                        <div class="bg-indigo-50 border border-indigo-200 p-3.5 rounded-xl text-xs text-indigo-950 space-y-1.5">
-                            <h4 class="font-bold uppercase tracking-wide border-b border-indigo-200 pb-1"><i class="fa-solid fa-layer-group mr-1 text-indigo-700"></i> Generalizations vs. Specific References</h4>
-                            <div>• <strong>Generalizations:</strong> Use <span class="font-bold">a/an</span> for singular count (<span class="italic">A bicycle is eco-friendly</span>); use <span class="font-bold">&Oslash; (no article)</span> for plural count or non-count (<span class="italic">Bicycles are eco-friendly / Travel broadens the mind</span>).</div>
-                            <div>• <strong>Specific References:</strong> Use <span class="font-bold">the</span> (<span class="italic">The bicycles parked outside belong to us</span>).</div>
+                        <!-- Right Column: Prepositions of Place and Direction -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-map-pin text-sky-600 text-xs"></i> Prepositions of Place & Movement
+                            </h4>
+
+                            <div class="grid sm:grid-cols-3 gap-2 text-xs">
+                                <div class="bg-sky-50/60 border border-sky-200 p-3 rounded-xl space-y-1">
+                                    <strong class="text-sky-900 block font-bold text-xs">IN (Enclosed Space)</strong>
+                                    <p class="text-slate-600 text-[11px]">• inside container, car, taxi</p>
+                                    <p class="text-slate-600 text-[11px]">• city, state, country, continent</p>
+                                    <p class="italic text-sky-800">"in Mexico City", "in the closet"</p>
+                                </div>
+                                <div class="bg-sky-50/60 border border-sky-200 p-3 rounded-xl space-y-1">
+                                    <strong class="text-sky-900 block font-bold text-xs">ON (Surface / Street)</strong>
+                                    <p class="text-slate-600 text-[11px]">• surface, table, shelf, wall</p>
+                                    <p class="text-slate-600 text-[11px]">• street, avenue (no number)</p>
+                                    <p class="text-slate-600 text-[11px]">• train, bus, plane, ship, bike</p>
+                                    <p class="italic text-sky-800">"on Fifth Avenue", "on a train"</p>
+                                </div>
+                                <div class="bg-sky-50/60 border border-sky-200 p-3 rounded-xl space-y-1">
+                                    <strong class="text-sky-900 block font-bold text-xs">AT (Point / Address)</strong>
+                                    <p class="text-slate-600 text-[11px]">• specific point, stop sign</p>
+                                    <p class="text-slate-600 text-[11px]">• exact address with number</p>
+                                    <p class="text-slate-600 text-[11px]">• events & general locations</p>
+                                    <p class="italic text-sky-800">"at 21 Millbrook Road", "at the door"</p>
+                                </div>
+                            </div>
+
+                            <!-- Prepositions of Direction and Movement -->
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2">
+                                <strong class="text-slate-900 block font-bold uppercase tracking-wider">Prepositions of Direction & Movement:</strong>
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-700">
+                                    <div>• <strong>toward:</strong> "walked toward the post office"</div>
+                                    <div>• <strong>through:</strong> "passed through national parks"</div>
+                                    <div>• <strong>across:</strong> "walked across the street"</div>
+                                    <div>• <strong>between:</strong> "walked between moving cars"</div>
+                                    <div>• <strong>under:</strong> "sat under an umbrella"</div>
+                                    <div>• <strong>from ... to:</strong> "drove from Portland to Seattle"</div>
+                                </div>
+                            </div>
+
+                            <!-- Zero Article Idioms -->
+                            <div class="bg-teal-50 border border-teal-200 p-3.5 rounded-xl text-xs text-teal-950 space-y-1">
+                                <strong class="text-teal-900 block font-bold"><i class="fa-solid fa-star text-teal-600 mr-1"></i> Common Zero-Article Prepositional Idioms</strong>
+                                <p>Do NOT add <em>a/an/the</em> in these established expressions: <br><span class="font-bold text-emerald-800">in class, in bed, at home, at school, at work, by bus, by train, by car, by plane</span>.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Lesson 4 & Writing Focus: Place Names & Misplaced Phrases -->
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
-                    <div class="p-6 relative z-10 flex flex-col h-full space-y-5">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-earth-americas text-amber-400 text-3xl"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-amber-400">4. Geographic Place Names & Writing</h3>
-                                <p class="text-xs text-slate-300">Rules with Places & Fixing Misplaced Phrases</p>
+            <div id="gpanel-articles" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-emerald-600 uppercase">Lesson 3 &bull; Charts 4.6 - 4.7</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Definite, Indefinite Articles & Generalizations</h3>
+                        </div>
+                        <span class="bg-emerald-50 text-emerald-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">A / An &bull; The &bull; Zero Article (Ø) &bull; General Statements</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: A, An, Some, The Rules -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-font text-emerald-600 text-xs"></i> Definite vs. Indefinite Article Rules
+                            </h4>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-3 text-slate-700">
+                                <div>
+                                    <strong class="text-emerald-800 block text-xs uppercase tracking-wider">1. Indefinite Article (A / An):</strong>
+                                    <p class="text-slate-600 mt-0.5">Used with <strong>singular count nouns</strong> that are non-specific (any member of a class):</p>
+                                    <p class="italic text-slate-800">• "She is at <span class="font-bold text-emerald-800">a</span> party." (any party, listener doesn't know which)</p>
+                                    <p class="italic text-slate-800">• Phonetic Rule: <em>a college, a university (/j/ sound)</em> vs. <em>an adventure, an umbrella, an hour (/aʊ/ sound)</em>.</p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-emerald-800 block text-xs uppercase tracking-wider">2. Non-Specific Plurals & Non-Count (Some or Ø):</strong>
+                                    <p class="text-slate-600 mt-0.5">Do NOT use <em>a / an</em> with plural count or mass non-count nouns:</p>
+                                    <p class="italic text-slate-800">• "There are <span class="font-bold text-emerald-800">some</span> motorcycles in the parking lot." | "I need <span class="font-bold text-emerald-800">some</span> gas."</p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-emerald-800 block text-xs uppercase tracking-wider">3. Definite Article (The):</strong>
+                                    <p class="text-slate-600 mt-0.5">Used with singular count, plural count, or non-count nouns when the item is specific or known:</p>
+                                    <p class="italic text-slate-800">• <strong>Second Mention:</strong> "He took <span class="font-bold">a raft</span> with him. He used <span class="font-bold text-emerald-800">the raft</span> to cross rivers."</p>
+                                    <p class="italic text-slate-800">• <strong>Shared Knowledge:</strong> "When do you have to be at <span class="font-bold text-emerald-800">the airport</span>?"</p>
+                                    <p class="italic text-slate-800">• <strong>Unique in Existence:</strong> "Look at <span class="font-bold text-emerald-800">the sun</span>." | "<span class="font-bold text-emerald-800">The weather</span> was perfect."</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-3 text-xs bg-slate-800/90 p-3.5 rounded-xl border border-slate-700 text-slate-200">
-                            <div>
-                                <strong class="text-indigo-300 block mb-1">No Article (&Oslash;)</strong>
-                                • Continents, Countries, States, Cities (<span class="text-slate-100">Asia, Japan, Tokyo</span>). <br>
-                                • Single Mountains & Islands (<span class="text-slate-100">Mount Fuji, Bali</span>). <br>
-                                • Streets, Parks, Airports (<span class="text-slate-100">Oxford St, Heathrow Airport</span>).
+                        <!-- Right Column: Generalizations vs Specific References -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-shapes text-emerald-600 text-xs"></i> Generalizations vs. Specific References
+                            </h4>
+                            <p class="text-xs text-slate-600">A <strong>generalization</strong> makes a broad statement about all members of a category, rather than a single specific member:</p>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs bg-white rounded-xl border border-emerald-200 overflow-hidden">
+                                    <thead class="bg-emerald-50 text-emerald-950 font-bold border-b border-emerald-200">
+                                        <tr>
+                                            <th class="p-3">Noun Type</th>
+                                            <th class="p-3">Generalization Form</th>
+                                            <th class="p-3">Specific Reference Form</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold text-slate-800">Singular Count</td>
+                                            <td class="p-3"><strong>A / An + Singular:</strong><br><span class="italic text-slate-600">"A bike is an eco-friendly vehicle."</span></td>
+                                            <td class="p-3"><strong>The + Singular:</strong><br><span class="italic text-emerald-800 font-semibold">"The bike in the hallway is mine."</span></td>
+                                        </tr>
+                                        <tr class="bg-slate-50/50">
+                                            <td class="p-3 font-semibold text-slate-800">Plural Count</td>
+                                            <td class="p-3"><strong>Ø (No article) + Plural:</strong><br><span class="italic text-slate-600">"Bikes don’t use any gas."</span></td>
+                                            <td class="p-3"><strong>The + Plural:</strong><br><span class="italic text-emerald-800 font-semibold">"The bikes are in the garage."</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold text-slate-800">Non-Count</td>
+                                            <td class="p-3"><strong>Ø (No article) + Non-Count:</strong><br><span class="italic text-slate-600">"Chocolate is delicious."</span></td>
+                                            <td class="p-3"><strong>The + Non-Count:</strong><br><span class="italic text-emerald-800 font-semibold">"The chocolate in this cake is rich."</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <div>
-                                <strong class="text-indigo-300 block mb-1">Use "The"</strong>
-                                • Plural Names or "Republic/Kingdom/of" (<span class="text-slate-100">the UK, the Netherlands</span>). <br>
-                                • Oceans, Seas, Rivers, Deserts (<span class="text-slate-100">the Pacific, the Nile</span>). <br>
-                                • Hotels, Museums, Bridges (<span class="text-slate-100">the Hilton, the British Museum</span>).
+
+                            <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-1">
+                                <strong class="text-amber-900 block font-bold text-xs uppercase tracking-wide">Common Generalization Trap:</strong>
+                                <p><span class="text-rose-700 line-through">✗ The cars are convenient in a big city.</span> (When speaking about cars in general)</p>
+                                <p><span class="text-emerald-800 font-bold">✓ Cars are convenient in a big city.</span> OR <span class="text-emerald-800 font-bold">✓ A car is convenient in a big city.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-places" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-indigo-600 uppercase">Lesson 4 &bull; Charts 4.8 - 4.9</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Articles with Geographic & Urban Place Names</h3>
+                        </div>
+                        <span class="bg-indigo-50 text-indigo-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">The vs. Zero Article (Ø) &bull; Geographic Entities &bull; Urban Landmarks</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Natural Geography -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-mountain-sun text-indigo-600 text-xs"></i> Natural & Political Geography
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Category</th>
+                                            <th class="p-3">Rule</th>
+                                            <th class="p-3">Textbook Examples</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold">Cities, States, Countries, Continents</td>
+                                            <td class="p-3 font-bold text-rose-700">NO ARTICLE (Ø)</td>
+                                            <td class="p-3 italic">Portsmouth, Texas, Canada, Africa, Brazil</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">Places with "of", Republic, or Kingdom</td>
+                                            <td class="p-3 font-bold text-indigo-700">USE "THE"</td>
+                                            <td class="p-3 italic font-semibold">the United Kingdom, the Dominican Republic</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Plural Geographic Names</td>
+                                            <td class="p-3 font-bold text-indigo-700">USE "THE"</td>
+                                            <td class="p-3 italic font-semibold">the United States, the Philippines, the Rocky Mountains, the Alps, the Bahamas</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">Single Mountain or Single Island</td>
+                                            <td class="p-3 font-bold text-rose-700">NO ARTICLE (Ø)</td>
+                                            <td class="p-3 italic">Mount Everest, Mount Rushmore, Long Island, Maui, Bali</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Oceans, Seas, Rivers</td>
+                                            <td class="p-3 font-bold text-indigo-700">USE "THE"</td>
+                                            <td class="p-3 italic font-semibold">the Atlantic Ocean, the Caspian Sea, the Mississippi River, the Amazon, the Nile</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">Deserts</td>
+                                            <td class="p-3 font-bold text-indigo-700">USE "THE"</td>
+                                            <td class="p-3 italic font-semibold">the Mojave Desert, the Sahara, the Atacama</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
-                        <div class="bg-amber-900/30 p-3.5 rounded-xl border border-amber-500/30 text-xs text-slate-200 space-y-1 mt-auto">
-                            <div class="font-bold text-amber-300 flex items-center gap-2">
-                                <i class="fa-solid fa-scissors"></i> Writing Focus: Misplaced Prepositional Phrases
+                        <!-- Right Column: Urban Landmarks, Buildings, Streets -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-city text-indigo-600 text-xs"></i> Urban Landmarks, Streets & Facilities
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Category</th>
+                                            <th class="p-3">Rule</th>
+                                            <th class="p-3">Textbook Examples</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold">Hotels, Theaters, Museums</td>
+                                            <td class="p-3 font-bold text-indigo-700">USE "THE"</td>
+                                            <td class="p-3 italic font-semibold">the Plaza Hotel, the Burj Al Arab Hotel, the Sherman Theater, the Museum of Modern Art, the Louvre</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">Names with Tower, Bridge, Building</td>
+                                            <td class="p-3 font-bold text-indigo-700">USE "THE"</td>
+                                            <td class="p-3 italic font-semibold">the Eiffel Tower, the Brooklyn Bridge, the Empire State Building</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Streets, Roads, Avenues</td>
+                                            <td class="p-3 font-bold text-rose-700">NO ARTICLE (Ø)</td>
+                                            <td class="p-3 italic">Fifth Avenue, Elm Street, North Street, Steamboat Road, Orchard Road</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">Parks & Public Squares</td>
+                                            <td class="p-3 font-bold text-rose-700">NO ARTICLE (Ø)</td>
+                                            <td class="p-3 italic">Central Park, Friendship Park, Union Square, Westridge Park</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Airports, Train & Bus Stations</td>
+                                            <td class="p-3 font-bold text-rose-700">NO ARTICLE (Ø)</td>
+                                            <td class="p-3 italic">Logan Airport, Heathrow Airport, Haneda Airport, Grand Central Station</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <p class="text-slate-300">Always place prepositional phrases right next to the exact word they modify!</p>
-                            <div class="bg-slate-900/80 p-2 rounded border border-slate-700 font-mono text-[11px] space-y-1">
-                                <div class="text-red-400 line-through">Misplaced: We waited for the train inside the station with red doors.</div>
-                                <div class="text-green-400">Correct: Inside the station, we waited for the train with red doors.</div>
+
+                            <div class="bg-indigo-50 border border-indigo-200 p-3.5 rounded-xl text-xs space-y-1 text-indigo-950">
+                                <strong class="text-indigo-900 block font-bold">Places with "of" or "for":</strong>
+                                <p>Institutions with <em>of</em> or <em>for</em> regularly require <strong>the</strong>: <span class="font-bold text-indigo-900">the Statue of Liberty, the Center for Performing Arts, the University of Mumbai</span>.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-writing" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-rose-600 uppercase">Writing Focus &bull; Connect to Writing</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Avoiding Misplaced Prepositional Phrases</h3>
+                        </div>
+                        <span class="bg-rose-50 text-rose-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Modifier Placement &bull; Sentence Clarity &bull; Proofreading</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        When a prepositional phrase is placed in the wrong position within a sentence, the resulting statement becomes awkward, confusing, or unintentionally humorous. In academic English, prepositional modifiers must be placed immediately adjacent to the exact word they describe.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-5 text-xs">
+                        <!-- Case 1 -->
+                        <div class="bg-rose-50/60 border border-rose-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-ship"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Absurd Physical Placement</h4>
+                            <p class="text-slate-600 text-[11px]">The prepositional phrase erroneously modifies the nearest noun:</p>
+                            <div class="bg-white p-3 rounded-xl border border-rose-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-rose-600 line-through">✗ We waited for the boat inside the café.</div>
+                                <p class="text-[10px] text-slate-500 font-sans italic">(Illogical meaning: The boat is inside the café!)</p>
+                                <div class="text-emerald-800 font-bold font-sans">&rarr; "Inside the café, we waited for the boat."</div>
+                            </div>
+                        </div>
+
+                        <!-- Case 2 -->
+                        <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-suitcase-rolling"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Misplaced Agency</h4>
+                            <p class="text-slate-600 text-[11px]">The modifier separates the action verb from its object or true location:</p>
+                            <div class="bg-white p-3 rounded-xl border border-amber-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-rose-600 line-through">✗ The man bought a passport in a leather jacket.</div>
+                                <p class="text-[10px] text-slate-500 font-sans italic">(Did the passport wear a leather jacket?)</p>
+                                <div class="text-emerald-800 font-bold font-sans">&rarr; "The man in a leather jacket bought a passport."</div>
+                            </div>
+                        </div>
+
+                        <!-- Case 3 -->
+                        <div class="bg-indigo-50/60 border border-indigo-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-camera"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Separated Action & Instrument</h4>
+                            <p class="text-slate-600 text-[11px]">Place the instrument phrase right after the verb or subject it modifies:</p>
+                            <div class="bg-white p-3 rounded-xl border border-indigo-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-rose-600 line-through">✗ I saw the Eiffel Tower with my camera.</div>
+                                <p class="text-[10px] text-slate-500 font-sans italic">(Does the Eiffel Tower own a camera?)</p>
+                                <div class="text-emerald-800 font-bold font-sans">&rarr; "With my camera, I took a photo of the Eiffel Tower."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proofreading checklist -->
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 text-xs mt-4">
+                        <strong class="text-slate-900 uppercase tracking-wide block mb-2 font-bold">Travel & Descriptive Writing Checklist:</strong>
+                        <div class="grid sm:grid-cols-2 gap-2 text-slate-700">
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used subject pronouns for subjects and object pronouns after verbs and prepositions.</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Selected <em>at</em> (point/time), <em>in</em> (container/city/month), and <em>on</em> (surface/street/date).</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used <em>the</em> for oceans, rivers, deserts, and plural countries; omitted articles for single mountains and cities.</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Placed prepositional phrases next to the words they modify to prevent misplaced phrase confusion.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-matrix" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-slate-500 uppercase">Unit 4 Synthesis & Master Review</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Pronouns, Prepositions & Articles Comparison Matrix</h3>
+                        </div>
+                        <span class="bg-slate-100 text-slate-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Master Reference</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 rounded-xl overflow-hidden">
+                            <thead class="bg-slate-100 text-slate-800 font-black border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3.5 w-1/5">Grammar Category</th>
+                                    <th class="p-3.5 w-1/4 text-indigo-800 bg-indigo-50/50">Primary Function</th>
+                                    <th class="p-3.5 w-1/4">Key Forms & Indicators</th>
+                                    <th class="p-3.5 w-1/3">Key Examples & Common Traps</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-xs">
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Personal Pronouns</td>
+                                    <td class="p-3.5 text-slate-700">Replaces noun phrases in subject or object position.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">I/me, you/you, he/him, she/her, it/it, we/us, they/them</td>
+                                    <td class="p-3.5 italic text-slate-600">"This ticket is for <span class="font-bold text-indigo-700">him</span>." <br><span class="text-rose-600 font-sans font-bold">Trap: Never say "for he"!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Possessives & Reflexives</td>
+                                    <td class="p-3.5 text-slate-700">Indicates ownership; reflexive shows subject equals object; by myself = alone.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">my/mine, your/yours, his, her/hers, their/theirs; myself, herself, themselves</td>
+                                    <td class="p-3.5 italic text-slate-600">"That bike is <span class="font-bold text-indigo-700">mine</span>." / "She traveled <span class="font-bold text-indigo-700">by herself</span>." <br><span class="text-rose-600 font-sans font-bold">Trap: its (possessive) vs. it's (it is)!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Prepositions of Time</td>
+                                    <td class="p-3.5 text-slate-700">Points, spans, dates, and durations.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">at (time/night), in (month/year/season), on (day/date), for (duration)</td>
+                                    <td class="p-3.5 italic text-slate-600">"at 6:00" / "in August" / "on July 15" / "for two years"<br><span class="text-slate-500 font-sans">Place comes before time!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Prepositions of Place</td>
+                                    <td class="p-3.5 text-slate-700">Containers, surfaces, exact points, and movement pathways.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">in (city/country), on (street/surface/train), at (address/point), toward, across</td>
+                                    <td class="p-3.5 italic text-slate-600">"in Jakarta" / "on Walker Street" / "at 29 School Street"<br><span class="text-emerald-800 font-sans">Zero article: at work, in bed.</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Articles: General vs. Specific</td>
+                                    <td class="p-3.5 text-slate-700">A/an for non-specific singular; the for specific; Ø for plural/mass generalizations.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">a, an, some, the, Ø</td>
+                                    <td class="p-3.5 italic text-slate-600">"A car is fast." (general) vs. "The car won't start." (specific)<br><span class="text-rose-600 font-sans font-bold">Trap: Don't use "the" for general plurals!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Articles with Place Names</td>
+                                    <td class="p-3.5 text-slate-700">Specific naming rules for natural features and urban landmarks.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">THE: rivers, oceans, deserts, plural countries. Ø: cities, single mountains/islands, streets, airports.</td>
+                                    <td class="p-3.5 italic text-slate-600">"the Nile", "the Rockies", "the Philippines"<br>vs. "Mount Everest", "Fifth Avenue", "Logan Airport"</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -315,168 +794,160 @@
 
         <section id="section-practice" class="hidden fade-in">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
                     
-                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Travel & Grammar Practice</h2>
+                    <!-- Exercise Navigation Sub-tab bar -->
+                    <div class="bg-slate-50 border-b border-slate-200 p-5 text-center">
+                        <span class="text-xs font-black tracking-wider uppercase text-indigo-600 block mb-1">Interactive Learning Lab</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-800 mb-4">Unit 4 Mastery Exercises</h2>
                         
-                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
-                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-list-check mr-2"></i>Knowledge Check
+                        <div class="flex flex-wrap justify-center gap-1.5 p-1 bg-white border border-slate-200 rounded-2xl shadow-xs">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-list-check mr-1.5"></i>Knowledge Check
                             </button>
-                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-keyboard mr-2"></i>Form the Pronoun/Article
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-keyboard mr-1.5"></i>Form the Pronoun/Article
                             </button>
-                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-bug mr-2"></i>Spot Errors & Misplaced Phrases
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-spell-check mr-1.5"></i>Spot Errors & Misplaced Phrases
                             </button>
-                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-layer-group mr-2"></i>Geographic Matcher
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-puzzle-piece mr-1.5"></i>Geographic Matcher
                             </button>
-                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-diagram-project mr-2"></i>Phrase Linker
+                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-diagram-project mr-1.5"></i>Phrase Linker
                             </button>
                         </div>
                     </div>
 
                     <div class="p-6 md:p-10">
                         
-                        <!-- 1. QUIZ EXERCISE -->
                         <div id="ex-container-quiz" class="block fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                    <h3 class="font-black text-xl text-slate-800">Grammar & Syntax Quiz</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Test pronouns, prepositions, articles, and geographic rules.</p>
                                 </div>
-                                <span id="quiz-progress" class="bg-indigo-100 text-indigo-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="quiz-progress" class="bg-indigo-100 text-indigo-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
                             
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="quiz-q-text" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="quiz-options" class="grid gap-3 mb-6">
+                                <!-- Dynamic Options -->
                             </div>
 
-                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+                            <div id="quiz-feedback" class="hidden p-4 rounded-xl border text-sm font-medium transition-all"></div>
 
-                            <div class="flex justify-end gap-3">
-                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                            <div class="flex justify-end gap-3 mt-4">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl pop-out text-sm shadow-md">
                                     Next <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Restart Quiz <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 2. FORM THE WORD / FILL BLANKS -->
                         <div id="ex-container-fill" class="hidden fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Form the Pronoun / Article</h3>
-                                    <p class="text-slate-500 text-sm">Select the correct pronoun, preposition, or article.</p>
+                                    <h3 class="font-black text-xl text-slate-800">Form the Pronoun, Preposition or Article</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Choose the correct grammatical form or modifier.</p>
                                 </div>
-                                <span id="fill-progress" class="bg-indigo-100 text-indigo-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="fill-progress" class="bg-indigo-100 text-indigo-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
 
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="fill-sentence" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-3 mb-6">
+                                <!-- Injected options -->
                             </div>
 
-                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+                            <div id="fill-feedback" class="hidden p-4 rounded-xl border text-center font-bold text-sm transition-all mb-4"></div>
 
                             <div class="flex justify-center">
-                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-10 rounded-xl pop-out text-sm shadow-md">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-10 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 3. SPOT ERRORS -->
                         <div id="ex-container-identify" class="hidden fade-in">
-                            <div class="mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Spot Article & Preposition Errors</h3>
-                                <p class="text-sm text-slate-600 mt-1">Click on the word or phrase that contains an <strong>article, preposition, or misplaced phrase error</strong>.</p>
+                            <div class="mb-4">
+                                <h3 class="font-black text-xl text-slate-800">Spot Errors & Misplaced Modifiers</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">Click the word or phrase that violates pronoun rules, article rules, or creates a misplaced phrase.</p>
                             </div>
 
                             <div class="flex justify-between items-center mb-2">
-                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                                <span class="text-xs font-bold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">4</span></span>
                             </div>
 
-                            <div class="bg-white border-2 border-indigo-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
-                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            <div class="bg-white border-2 border-indigo-100 shadow-inner rounded-2xl p-6 sm:p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-base sm:text-lg font-medium"></div>
                             </div>
 
-                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-bold text-xs sm:text-sm"></div>
 
                             <div class="flex justify-center gap-4">
-                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-indigo-600 to-sky-600 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(67,56,202,0.4)] pop-out">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Answer <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
+                                    Next Sentence <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
-                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out text-sm">
+                                    Try Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 4. GEOGRAPHIC MATCHERS -->
                         <div id="ex-container-match" class="hidden fade-in">
                             <div class="text-center mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Geographic Place Name Matcher</h3>
-                                <p class="text-slate-500 text-sm mt-1">Connect the place name (left) to the correct article category rule (right).</p>
+                                <h3 class="font-black text-xl text-slate-800">Geographic & Grammar Matcher</h3>
+                                <p class="text-slate-500 text-xs mt-1">Select a place or phrase on the left, then click its corresponding grammar rule on the right.</p>
                             </div>
                             
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-4 md:gap-8 max-w-2xl mx-auto mb-6">
                                 <div id="match-col-left" class="space-y-3"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="match-col-right" class="space-y-3"></div>
                             </div>
 
-                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="match-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-2"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-indigo-600 to-sky-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-4">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 5. SENTENCE LINKER (Preposition & Pronoun Phrases) -->
                         <div id="ex-container-link" class="hidden fade-in">
-                            <div class="mb-6 text-center">
-                                <h3 class="font-bold text-xl text-slate-800">Phrase Linker</h3>
-                                <p class="text-sm text-slate-600 mt-1">Connect the starter phrase (left) to the correct grammatical ending (right).</p>
+                            <div class="text-center mb-6">
+                                <h3 class="font-black text-xl text-slate-800">Phrase & Preposition Linker</h3>
+                                <p class="text-slate-500 text-xs mt-1">Click a starter phrase (left), then click its logically correct completion (right) to link them with arrows.</p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-6 md:gap-16 max-w-2xl mx-auto mb-6 relative">
                                 <div id="link-col-left" class="space-y-4"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="link-col-right" class="space-y-4"></div>
                             </div>
 
-                            <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="link-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-4"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-indigo-600 to-sky-600 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-6 gap-3">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Connections <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm">
+                                    Reset Connections <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
@@ -487,245 +958,216 @@
         </section>
     </main>
 
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+        <p>Unit 4: Going Places (Pronouns, Prepositions, and Articles) &bull; Interactive Grammar Companion</p>
+    </footer>
+
     <script>
-        // Main Tab Navigation Switcher
+        /* ======================================================== */
+        /* 1. TAB CONTROLLERS                                       */
+        /* ======================================================== */
         function switchMainTab(tabId) {
             const isStudy = tabId === 'study';
-            
-            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            
+            document.getElementById('main-tab-study').className = isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+            document.getElementById('main-tab-practice').className = !isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+
             if (isStudy) {
                 document.getElementById('section-study').classList.remove('hidden');
                 document.getElementById('section-practice').classList.add('hidden');
-                setTimeout(redrawArrows, 50);
+                hideArrows();
             } else {
                 document.getElementById('section-study').classList.add('hidden');
                 document.getElementById('section-practice').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
                 if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
                     quizInit(); fillInit(); idInit(); matchInit(); linkInit();
                 }
-                setTimeout(redrawArrows, 50);
+                setTimeout(redrawArrows, 60);
             }
         }
 
-        // Sub-Tab Navigation for Practice Exercises
+        const grammarTabs = ['pronouns', 'prepositions', 'articles', 'places', 'writing', 'matrix'];
+        function switchGrammarTab(gId) {
+            grammarTabs.forEach(tab => {
+                const btn = document.getElementById(`gtab-btn-${tab}`);
+                const panel = document.getElementById(`gpanel-${tab}`);
+                if (tab === gId) {
+                    btn.className = 'grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = 'grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.add('hidden');
+                }
+            });
+            hideArrows();
+        }
+
+        const practiceTabs = ['quiz', 'fill', 'identify', 'match', 'link'];
         function switchExTab(exId) {
-            const tabs = ['quiz', 'fill', 'identify', 'match', 'link'];
-            tabs.forEach(t => {
+            practiceTabs.forEach(t => {
                 const btn = document.getElementById(`ex-tab-${t}`);
                 const container = document.getElementById(`ex-container-${t}`);
                 if (t === exId) {
-                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
-                    container.classList.remove('hidden'); container.classList.add('block');
+                    btn.className = 'subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.remove('hidden');
                 } else {
-                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
-                    container.classList.remove('block'); container.classList.add('hidden');
+                    btn.className = 'subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.add('hidden');
                 }
             });
-            setTimeout(redrawArrows, 50);
+            setTimeout(redrawArrows, 60);
         }
 
-        let activeTrigger = null;
-
-        function setupStudyInteractive() {
-            const triggers = document.querySelectorAll('.interactive-trigger');
-            triggers.forEach(trig => {
-                trig.addEventListener('mouseenter', () => activateLink(trig));
-                trig.addEventListener('mouseleave', () => deactivateLink(trig));
-                trig.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
-                    else {
-                        triggers.forEach(t => deactivateLink(t));
-                        activateLink(trig);
-                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
-                    }
-                });
-            });
-            window.addEventListener('scroll', hideArrows);
-            window.addEventListener('resize', redrawArrows);
-        }
-
-        function activateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.add('interactive-active-target');
-                trig.classList.add('interactive-active-trigger');
-                activeTrigger = trig;
-                redrawArrows();
-            }
-        }
-
-        function deactivateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.remove('interactive-active-target');
-                trig.classList.remove('interactive-active-trigger');
-            }
-            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
-        }
-
-        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
-
-        function createArrowSVG(startEl, endEl, state) {
-            if (!startEl || !endEl) return '';
-            const startRect = startEl.getBoundingClientRect();
-            const endRect = endEl.getBoundingClientRect();
-            
-            let startX = startRect.left + (startRect.width / 2);
-            let startY = startRect.bottom + 2;
-            let endX = endRect.left + (endRect.width / 2);
-            let endY = endRect.bottom + 2;
-            
-            if (state !== 'study') {
-                startX = startRect.right + 2;
-                startY = startRect.top + (startRect.height / 2);
-                endX = endRect.left - 2;
-                endY = endRect.top + (endRect.height / 2);
-            }
-
-            let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
-            
-            if(state === 'study') { color = '#4338ca'; marker = 'url(#arrowhead-study)'; }
-            if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
-            if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
-            
-            if (state === 'study') {
-                const curve = Math.max(20, Math.abs(endX - startX) * 0.15);
-                const lowY = Math.max(startY, endY) + curve;
-                return `<path d="M ${startX},${startY} Q ${(startX+endX)/2},${lowY} ${endX},${endY + 6}" stroke="${color}" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="${marker}"/>`;
-            } else {
-                const curveX = (startX + endX) / 2;
-                return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 6},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
-            }
-        }
-
-        function redrawArrows() {
-            let html = '';
-            
-            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
-                const targetId = activeTrigger.getAttribute('data-target');
-                const targetEl = document.getElementById(targetId);
-                if (targetEl) html += createArrowSVG(activeTrigger, targetEl, 'study');
-            }
-            
-            if (document.getElementById('ex-container-link') && document.getElementById('ex-container-link').classList.contains('block')) {
-                linkUserPairs.forEach(pair => {
-                    const startEl = document.getElementById(`link-start-${pair.startId}`);
-                    const endEl = document.getElementById(`link-end-${pair.endId}`);
-                    if(startEl && endEl) html += createArrowSVG(startEl, endEl, pair.status || 'neutral');
-                });
-            }
-            
-            document.getElementById('svg-paths-container').innerHTML = html;
-            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
-        }
-
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
-
-        /* 1. QUIZ DATA */
         const quizData = [
-            { q: "You can borrow my city map. _____ is in my backpack.", opts: ["Mine", "My", "Me"], ans: 0, exp: "Use standalone possessive pronoun 'Mine' to replace 'My map'." },
-            { q: "The tour guide greeted the visitors and showed _____ to the museum.", opts: ["them", "their", "they"], ans: 0, exp: "Use object pronoun 'them' after transitive verb 'showed'." },
-            { q: "The airline manager _____ handled the passengers' complaints.", opts: ["himself", "him", "his"], ans: 0, exp: "Emphatic reflexive pronoun 'himself' emphasizes the subject performing the action." },
-            { q: "All assignments must be submitted _____ Friday at 5:00 PM.", opts: ["by", "until", "in"], ans: 0, exp: "'By' indicates a deadline (at or before specified time), whereas 'until' expresses duration." },
-            { q: "We spent three hours sitting _____ the high-speed train to Kyoto.", opts: ["on", "in", "at"], ans: 0, exp: "Use 'on' for public transport vehicles like trains, buses, and planes." },
-            { q: "The research team conducted surveys across _____ Netherlands.", opts: ["the", "a", "Ø (no article)"], ans: 0, exp: "Plural country names (the Netherlands, the Philippines) require definite article 'the'." },
-            { q: "_____ Mount Fuji is an iconic volcano located in Japan.", opts: ["Ø (no article)", "The", "A"], ans: 0, exp: "Do not use an article before names of single mountains or single islands." },
-            { q: "Everyone in the tour group _____ eager to visit the ruins.", opts: ["is", "are", "were"], ans: 0, exp: "Indefinite pronouns like 'everyone' or 'somebody' always take a singular verb." }
+            { 
+                q: "You can borrow my city map. _____ is inside my daypack.", 
+                opts: ["Mine", "My", "Me"], 
+                ans: 0, 
+                exp: "Use the possessive pronoun 'Mine' to stand in place of 'My map'." 
+            },
+            { 
+                q: "Her friends were busy, so she traveled to Mexico _____.", 
+                opts: ["by herself", "by her", "by herself's"], 
+                ans: 0, 
+                exp: "'By herself' is an idiomatic construction meaning 'alone' or 'unassisted'." 
+            },
+            { 
+                q: "My sister was born _____ July 15, 1999.", 
+                opts: ["on", "in", "at"], 
+                ans: 0, 
+                exp: "Use 'on' with specific calendar dates (day + month)." 
+            },
+            { 
+                q: "They live in an apartment _____ Walker Street.", 
+                opts: ["on", "at", "in"], 
+                ans: 0, 
+                exp: "Use 'on' with street names without specific building numbers ('on Walker Street')." 
+            },
+            { 
+                q: "Her brother lives _____ 29 School Street.", 
+                opts: ["at", "on", "in"], 
+                ans: 0, 
+                exp: "Use 'at' when an exact street address includes a building number." 
+            },
+            { 
+                q: "_____ Mojave Desert is located in California.", 
+                opts: ["The", "A", "Ø (no article)"], 
+                ans: 0, 
+                exp: "Names of deserts take the definite article 'the' (the Mojave Desert, the Sahara)." 
+            },
+            { 
+                q: "_____ Mount Everest is the highest mountain on Earth.", 
+                opts: ["Ø (no article)", "The", "A"], 
+                ans: 0, 
+                exp: "Single mountains (Mount Everest, Mount McKinley) never take an article." 
+            },
+            { 
+                q: "Identify the sentence that avoids a misplaced prepositional phrase:", 
+                opts: [
+                    "Inside the café, we waited for the boat.", 
+                    "We waited for the boat inside the café.", 
+                    "For the boat we waited inside the café with oars."
+                ], 
+                ans: 0, 
+                exp: "Placing 'Inside the café' at the start clarifies that the people were in the café, not the boat!" 
+            }
         ];
-        
-        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        let activeQuiz = [];
+        let quizCurrent = 0;
+        let quizScore = 0;
+        let quizAnswered = false;
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
 
         function quizInit() {
-            activeQuiz = shuffleArray(quizData).slice(0, 6);
-            quizCurrent = 0; quizScore = 0;
+            activeQuiz = shuffle(quizData).slice(0, 6);
+            quizCurrent = 0;
+            quizScore = 0;
             document.getElementById('quiz-btn-reset').classList.add('hidden');
             quizLoad();
         }
 
         function quizLoad() {
-            quizAns = false;
+            quizAnswered = false;
             const q = activeQuiz[quizCurrent];
             document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
             
-            let qText = q.q;
-            if(qText.includes("_____")) {
-                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-indigo-600">_____</span>');
-            }
-            document.getElementById('quiz-q-text').innerHTML = qText;
-            
+            let qHtml = q.q.replace('_____', '<span class="border-b-2 border-indigo-500 font-bold px-3 text-indigo-600">_____</span>');
+            document.getElementById('quiz-q-text').innerHTML = qHtml;
+
             const optsCon = document.getElementById('quiz-options');
             optsCon.innerHTML = '';
-            
+
             q.opts.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
-                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-semibold text-slate-700 flex items-center justify-between text-sm sm:text-base shadow-xs';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
                 btn.onclick = () => quizSelect(idx, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('quiz-feedback').classList.add('hidden');
             document.getElementById('quiz-btn-next').classList.add('hidden');
         }
 
-        function quizSelect(idx, btnElement) {
-            if (quizAns) return;
-            quizAns = true;
-            
+        function quizSelect(idx, btn) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
             const q = activeQuiz[quizCurrent];
-            const isCor = idx === q.ans;
-            if (isCor) quizScore++;
-            
+            const isCorrect = idx === q.ans;
+            if (isCorrect) quizScore++;
+
             const allBtns = document.getElementById('quiz-options').children;
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].classList.add('option-disabled');
                 allBtns[i].onclick = null;
-                const icon = allBtns[i].querySelector('.indicator-icon');
-                
+                const icon = allBtns[i].querySelector('i');
                 if (i === q.ans) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
-                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
-                } else if (i === idx && !isCor) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
-                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-correct text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-lg';
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-incorrect text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-lg';
                 }
             }
-            
+
             const fb = document.getElementById('quiz-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
-            
-            if (isCor) {
+            if (isCorrect) {
                 fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
-                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-check mr-1.5"></i> <strong>Correct!</strong> ${q.exp}`;
             } else {
                 fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
-                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-1.5"></i> <strong>Incorrect.</strong> ${q.exp}`;
             }
-            
-            document.getElementById('quiz-btn-next').classList.remove('hidden');
-            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+
+            const nextBtn = document.getElementById('quiz-btn-next');
+            nextBtn.classList.remove('hidden');
+            nextBtn.innerHTML = quizCurrent === activeQuiz.length - 1 ? 'Finish Quiz <i class="fa-solid fa-flag-checkered ml-1.5"></i>' : 'Next Question <i class="fa-solid fa-arrow-right ml-1.5"></i>';
         }
 
         function quizNext() {
             if (quizCurrent < activeQuiz.length - 1) {
-                quizCurrent++; quizLoad();
+                quizCurrent++;
+                quizLoad();
             } else {
                 document.getElementById('quiz-options').innerHTML = '';
-                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-indigo-600 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-q-text').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-award text-5xl text-indigo-600 mb-3"></i>
+                        <h4 class="text-2xl font-black text-slate-800">Quiz Completed!</h4>
+                        <p class="text-slate-600 text-sm mt-1">You achieved: <strong class="text-indigo-600 text-xl">${quizScore} / ${activeQuiz.length}</strong></p>
+                    </div>
+                `;
                 document.getElementById('quiz-progress').textContent = "Done";
                 document.getElementById('quiz-feedback').classList.add('hidden');
                 document.getElementById('quiz-btn-next').classList.add('hidden');
@@ -733,79 +1175,96 @@
             }
         }
 
-        /* 2. FILL DATA */
         const fillData = [
-            { pre: "She traveled to Brazil ", blank: "in", post: " January.", opts: ["in", "on", "at"] },
-            { pre: "Look at their car; ", blank: "ours", post: " is parked over there.", opts: ["ours", "our", "us"] },
-            { pre: "He learned to sail all by ", blank: "himself", post: ".", opts: ["himself", "him", "his"] },
-            { pre: "We are staying at ", blank: "the", post: " Majestic Theater Hotel.", opts: ["the", "a", "Ø"] },
-            { pre: "They visited ", blank: "Ø", post: " Long Island last weekend.", opts: ["Ø", "the", "a"] }
+            { pre: "She traveled to Brazil ", blank: "in", post: " January for a winter vacation.", opts: ["in", "on", "at"] },
+            { pre: "Our flight left at five o'clock ", blank: "in", post: " the evening.", opts: ["in", "on", "at"] },
+            { pre: "We are staying at ", blank: "the", post: " Plaza Hotel near Central Park.", opts: ["the", "a", "Ø"] },
+            { pre: "My friend climbed ", blank: "Ø", post: " Mount Rushmore during his summer road trip.", opts: ["Ø", "the", "a"] },
+            { pre: "Their car wouldn't start, so Carol let them borrow ", blank: "hers", post: ".", opts: ["hers", "her", "she"] },
+            { pre: "Luzon is the largest island in ", blank: "the", post: " Philippines.", opts: ["the", "Ø", "a"] }
         ];
 
-        let activeFill = []; let fillCur = 0; let fillAns = false;
+        let activeFill = [];
+        let fillCur = 0;
+        let fillAns = false;
 
         function fillInit() {
-            activeFill = shuffleArray(fillData).slice(0, 5);
-            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            activeFill = shuffle(fillData).slice(0, 5);
+            fillCur = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
             fillLoad();
         }
 
         function fillLoad() {
-            fillAns = false; const q = activeFill[fillCur];
-            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
-            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
-            
-            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
-            shuffleArray([...q.opts]).forEach((opt) => {
+            fillAns = false;
+            const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1} / ${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-400">_____</span>${q.post}`;
+
+            const optsCon = document.getElementById('fill-options');
+            optsCon.innerHTML = '';
+            shuffle(q.opts).forEach(opt => {
                 const btn = document.createElement('button');
-                btn.className = 'pop-out bg-white border-2 border-indigo-200 text-indigo-700 font-bold py-3 px-6 rounded-xl hover:bg-indigo-50 hover:border-indigo-400 shadow-sm text-lg';
-                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                btn.className = 'pop-out bg-white border-2 border-indigo-200 text-indigo-800 font-bold py-2.5 px-6 rounded-xl hover:bg-indigo-50 hover:border-indigo-400 shadow-xs text-sm sm:text-base';
+                btn.textContent = opt;
+                btn.onclick = () => fillSelect(opt, q.blank, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('fill-feedback').classList.add('hidden');
             document.getElementById('fill-btn-next').classList.add('hidden');
         }
 
-        function fillSelect(sel, cor, btn) {
-            if (fillAns) return; fillAns = true;
+        function fillSelect(choice, correct, btn) {
+            if (fillAns) return;
+            fillAns = true;
+
             const target = document.getElementById('fill-target');
-            target.textContent = sel; target.classList.add('filled');
-            
-            const isCor = sel === cor;
+            target.textContent = choice;
+            target.classList.add('filled');
+
+            const isCorrect = choice === correct;
             const fb = document.getElementById('fill-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
-            
+
             const allBtns = document.getElementById('fill-options').children;
             for (let i = 0; i < allBtns.length; i++) {
-                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
-                if (allBtns[i].textContent === cor) {
-                    allBtns[i].classList.remove('border-indigo-200', 'text-indigo-700', 'opacity-50');
+                allBtns[i].disabled = true;
+                allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === correct) {
+                    allBtns[i].classList.remove('border-indigo-200', 'text-indigo-800', 'opacity-50');
                     allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
                 }
             }
 
-            if (isCor) {
+            if (isCorrect) {
                 target.classList.add('correct');
-                btn.classList.replace('border-indigo-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
                 fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct! Well done.";
             } else {
                 target.classList.add('incorrect');
-                btn.classList.replace('border-indigo-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
                 fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review pronoun and article rules.";
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review preposition, pronoun, and article rules.";
             }
-            
+
             document.getElementById('fill-btn-next').classList.remove('hidden');
-            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+            if (fillCur === activeFill.length - 1) {
+                document.getElementById('fill-btn-next').innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-1.5"></i>';
+            }
         }
 
         function fillNext() {
-            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
-            else {
+            if (fillCur < activeFill.length - 1) {
+                fillCur++;
+                fillLoad();
+            } else {
                 document.getElementById('fill-options').innerHTML = '';
-                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-indigo-600 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-sentence').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-2"></i>
+                        <h4 class="text-xl font-black text-slate-800">All Completed!</h4>
+                    </div>
+                `;
                 document.getElementById('fill-progress').textContent = "Done";
                 document.getElementById('fill-feedback').classList.add('hidden');
                 document.getElementById('fill-btn-next').classList.add('hidden');
@@ -813,166 +1272,238 @@
             }
         }
 
-        /* 3. SPOT ERRORS DATA */
         const idData = [
-            [{w:"We"}, {w:"waited"}, {w:"for"}, {w:"the"}, {w:"boat"}, {w:"inside the café.", isErr:true}], // misplaced
-            [{w:"They"}, {w:"visited"}, {w:"the Mount Everest", isErr:true}, {w:"last"}, {w:"year."}],
-            [{w:"This"}, {w:"ticket"}, {w:"is"}, {w:"for"}, {w:"he.", isErr:true}],
-            [{w:"She"}, {w:"lives"}, {w:"in"}, {w:"the Fifth Avenue.", isErr:true}]
+            {
+                tokens: [{w:"This"}, {w:"passport"}, {w:"is"}, {w:"for"}, {w:"he.", isErr:true}],
+                explanation: "Prepositions take object pronouns ('for him'), never subject pronouns."
+            },
+            {
+                tokens: [{w:"We"}, {w:"waited"}, {w:"for"}, {w:"the"}, {w:"boat"}, {w:"inside the café.", isErr:true}],
+                explanation: "Misplaced phrase! It sounds like the boat is inside the café. Correct: 'Inside the café, we waited for the boat.'"
+            },
+            {
+                tokens: [{w:"They"}, {w:"flew"}, {w:"to"}, {w:"the France", isErr:true}, {w:"last"}, {w:"summer."}],
+                explanation: "Most country names do NOT take an article ('to France')."
+            },
+            {
+                tokens: [{w:"She"}, {w:"lives"}, {w:"on"}, {w:"the Fifth Avenue", isErr:true}, {w:"in"}, {w:"New York."}],
+                explanation: "Names of streets, roads, and avenues do not take an article ('on Fifth Avenue')."
+            }
         ];
-        
-        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        let idCurrent = 0;
+        let idSelected = new Set();
+        let idAnswered = false;
 
         function idInit() {
-            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
-            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+            idCurrent = 0;
+            document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden');
+            idLoad();
         }
 
         function idLoad() {
-            idSelected.clear(); idAns = false;
+            idSelected.clear();
+            idAnswered = false;
             document.getElementById('id-current').textContent = idCurrent + 1;
-            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
-            
-            idData[idCurrent].forEach((item, idx) => {
+            const container = document.getElementById('id-sentence-container');
+            container.innerHTML = '';
+
+            idData[idCurrent].tokens.forEach((item, idx) => {
                 const span = document.createElement('span');
-                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.textContent = item.w;
+                span.className = 'click-word bg-slate-100 text-slate-800';
                 span.dataset.isErr = item.isErr ? "true" : "false";
                 span.onclick = () => {
-                    if(idAns) return;
-                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
-                    else { idSelected.add(idx); span.classList.add('selected'); }
+                    if (idAnswered) return;
+                    if (idSelected.has(idx)) {
+                        idSelected.delete(idx);
+                        span.classList.remove('selected');
+                    } else {
+                        idSelected.add(idx);
+                        span.classList.add('selected');
+                    }
                 };
-                con.appendChild(span);
+                container.appendChild(span);
             });
+
             document.getElementById('id-feedback').classList.add('hidden');
             document.getElementById('id-btn-check').classList.remove('hidden');
             document.getElementById('id-btn-next').classList.add('hidden');
         }
 
         function idCheck() {
-            if(idAns) return; idAns = true;
+            if (idAnswered) return;
+            idAnswered = true;
+
             const spans = document.querySelectorAll('#id-sentence-container .click-word');
-            let cor = 0; let tot = idData[idCurrent].filter(i => i.isErr).length; let err = false;
+            let correctCount = 0;
+            let totalErrors = idData[idCurrent].tokens.filter(t => t.isErr).length;
+            let falseSelected = false;
 
             spans.forEach((span, idx) => {
-                const isTar = span.dataset.isErr === "true"; const isSel = idSelected.has(idx);
+                const isTarget = span.dataset.isErr === "true";
+                const isChosen = idSelected.has(idx);
                 span.classList.remove('selected', 'bg-slate-100');
-                if(isTar && isSel) { span.classList.add('correct'); cor++; }
-                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
-                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
-                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+
+                if (isTarget && isChosen) {
+                    span.classList.add('correct');
+                    correctCount++;
+                } else if (!isTarget && isChosen) {
+                    span.classList.add('incorrect');
+                    falseSelected = true;
+                } else if (isTarget && !isChosen) {
+                    span.classList.add('missed');
+                } else {
+                    span.classList.add('text-slate-400');
+                    span.style.cursor = 'default';
+                }
             });
 
             const fb = document.getElementById('id-feedback');
-            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
-            
-            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You found the error or misplaced phrase."; } 
-            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `Watch out for misplaced prepositional phrases or improper article usage with geographic names.`; }
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-800', 'border-amber-200');
+
+            if (!falseSelected && correctCount === totalErrors) {
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-star mr-1.5"></i> <strong>Spot on!</strong> ${idData[idCurrent].explanation}`;
+            } else {
+                fb.classList.add('bg-amber-50', 'text-amber-800', 'border-amber-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-1.5"></i> <strong>Grammar Note:</strong> ${idData[idCurrent].explanation}`;
+            }
 
             document.getElementById('id-btn-check').classList.add('hidden');
-            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
-            else document.getElementById('id-btn-reset').classList.remove('hidden');
+            if (idCurrent < idData.length - 1) {
+                document.getElementById('id-btn-next').classList.remove('hidden');
+            } else {
+                document.getElementById('id-btn-reset').classList.remove('hidden');
+            }
         }
-        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
 
-        /* 4. MATCH DATA */
+        function idNext() {
+            if (idCurrent < idData.length - 1) {
+                idCurrent++;
+                idLoad();
+            }
+        }
+
         const matchPool = [
-            { id: 1, left: "The Amazon River", right: "Oceans, Seas & Rivers (Requires 'The')" },
-            { id: 2, left: "Mount Everest", right: "Single Mountain (No Article Ø)" },
-            { id: 3, left: "The Philippines", right: "Plural Country Name (Requires 'The')" },
+            { id: 1, left: "The Mississippi River", right: "Oceans, Seas & Rivers (Use 'The')" },
+            { id: 2, left: "Mount Rushmore", right: "Single Mountain (No Article Ø)" },
+            { id: 3, left: "The Philippines", right: "Plural Island / Country (Use 'The')" },
             { id: 4, left: "Logan Airport", right: "Airports & Stations (No Article Ø)" },
-            { id: 5, left: "The Golden Gate Bridge", right: "Named Bridge/Tower (Requires 'The')" }
+            { id: 5, left: "The Brooklyn Bridge", right: "Names Ending in Bridge/Tower (Use 'The')" },
+            { id: 6, left: "Fifth Avenue", right: "Streets & Avenues (No Article Ø)" }
         ];
 
-        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+        let activeMatch = [];
+        let mSelLeft = null;
+        let mSelRight = null;
+        let matchCount = 0;
 
         function matchInit() {
-            mSelLeft = null; mSelRight = null; matchCount = 0;
-            activeMatch = shuffleArray([...matchPool]);
-            
+            mSelLeft = null;
+            mSelRight = null;
+            matchCount = 0;
+            activeMatch = shuffle([...matchPool]);
+
             document.getElementById('match-btn-reset').classList.add('hidden');
             document.getElementById('match-feedback').textContent = '';
-            
+
             const lCol = document.getElementById('match-col-left');
             const rCol = document.getElementById('match-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.left, side: 'left' })));
-            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.right, side: 'right' })));
+            const lItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.left, side: 'left' })));
+            const rItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.right, side: 'right' })));
 
-            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
-            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+            lItems.forEach(item => lCol.appendChild(createMatchBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMatchBtn(item)));
         }
 
-        function createMBtn(item) {
+        function createMatchBtn(item) {
             const btn = document.createElement('button');
-            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm text-xs sm:text-sm';
-            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
-            btn.onclick = () => handleMClick(btn, item);
+            btn.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm text-slate-700 bg-white border-2 border-slate-200 pop-out shadow-xs';
+            btn.textContent = item.text;
+            btn.dataset.id = item.id;
+            btn.dataset.side = item.side;
+            btn.onclick = () => handleMatchClick(btn, item);
             return btn;
         }
 
-        function handleMClick(btn, item) {
-            if(btn.classList.contains('matched')) return;
-            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+        function handleMatchClick(btn, item) {
+            if (btn.classList.contains('bg-green-100')) return;
 
-            if(item.side === 'left') {
-                if(mSelLeft) mSelLeft.el.classList.remove('selected');
-                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            if (item.side === 'left') {
+                if (mSelLeft) mSelLeft.el.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                mSelLeft = { el: btn, id: item.id };
+                btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
             } else {
-                if(mSelRight) mSelRight.el.classList.remove('selected');
-                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+                if (mSelRight) mSelRight.el.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700');
+                mSelRight = { el: btn, id: item.id };
+                btn.classList.add('bg-indigo-600', 'text-white', 'border-indigo-700');
             }
 
-            if(mSelLeft && mSelRight) checkMatch();
+            if (mSelLeft && mSelRight) checkMatchPair();
         }
 
-        function checkMatch() {
+        function checkMatchPair() {
             const fb = document.getElementById('match-feedback');
-            if(mSelLeft.id === mSelRight.id) {
-                mSelLeft.el.classList.replace('selected', 'matched');
-                mSelRight.el.classList.replace('selected', 'matched');
-                fb.textContent = `Correct!`;
-                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
-                matchCount++; mSelLeft = null; mSelRight = null;
+            if (mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                mSelRight.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                fb.textContent = 'Correct Match!';
+                fb.className = 'text-center h-8 font-bold text-sm text-green-600 mt-2';
+                matchCount++;
+                mSelLeft = null;
+                mSelRight = null;
 
-                if(matchCount === activeMatch.length) {
+                if (matchCount === activeMatch.length) {
                     setTimeout(() => {
-                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> All matched!`;
+                        fb.innerHTML = '<i class="fa-solid fa-circle-check text-green-600 mr-2"></i> All categories paired successfully!';
                         document.getElementById('match-btn-reset').classList.remove('hidden');
-                    }, 500);
+                    }, 400);
                 }
             } else {
-                fb.textContent = 'Try again!';
-                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
-                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
-                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
-                mSelLeft = null; mSelRight = null;
-                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+                fb.textContent = 'Not a match. Try again!';
+                fb.className = 'text-center h-8 font-bold text-sm text-red-500 mt-2';
+                const el1 = mSelLeft.el;
+                const el2 = mSelRight.el;
+                el1.classList.add('animate-pulse');
+                el2.classList.add('animate-pulse');
+                setTimeout(() => {
+                    el1.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700', 'animate-pulse');
+                    el2.classList.remove('bg-indigo-600', 'text-white', 'border-indigo-700', 'animate-pulse');
+                }, 600);
+                mSelLeft = null;
+                mSelRight = null;
             }
         }
 
-        /* 5. LINK DATA */
         const linkData = [
             { id: 1, left: "I introduced myself", right: "to the tour group." },
             { id: 2, left: "She bought a ticket", right: "for him at the counter." },
-            { id: 3, left: "We waited inside the terminal", right: "for the boat." },
-            { id: 4, left: "They moved to Paris", right: "in 1999." }
+            { id: 3, left: "Inside the terminal, we", right: "waited for the boat." },
+            { id: 4, left: "They moved to Paris", right: "in the spring of 2010." }
         ];
 
-        let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
+        let linkUserPairs = [];
+        let linkSelLeft = null;
+        let linkChecked = false;
 
         function linkInit() {
-            linkUserPairs = []; linkSelLeft = null; linkChecked = false;
-            
+            linkUserPairs = [];
+            linkSelLeft = null;
+            linkChecked = false;
+
             const lCol = document.getElementById('link-col-left');
             const rCol = document.getElementById('link-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const activeLinks = shuffleArray([...linkData]);
-
-            const lItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.left, type: 'start' })));
-            const rItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.right, type: 'end' })));
+            const shuffled = shuffle([...linkData]);
+            const lItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.left, type: 'start' })));
+            const rItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.right, type: 'end' })));
 
             lItems.forEach(item => lCol.appendChild(createLinkBtn(item)));
             rItems.forEach(item => rCol.appendChild(createLinkBtn(item)));
@@ -980,14 +1511,13 @@
             document.getElementById('link-feedback').classList.add('hidden');
             document.getElementById('link-btn-check').classList.remove('hidden');
             document.getElementById('link-btn-reset').classList.add('hidden');
-            
             redrawArrows();
         }
 
         function createLinkBtn(item) {
             const btn = document.createElement('div');
             btn.id = `link-${item.type}-${item.id}`;
-            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-indigo-300 transition-all z-10 relative text-xs sm:text-sm';
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-3.5 font-bold text-slate-700 text-center cursor-pointer hover:border-indigo-400 transition-all text-xs sm:text-sm select-none shadow-xs';
             btn.textContent = item.text;
             btn.dataset.id = item.id;
             btn.dataset.type = item.type;
@@ -996,49 +1526,47 @@
         }
 
         function handleLinkClick(btn, item) {
-            if(linkChecked) return;
+            if (linkChecked) return;
 
             if (item.type === 'start') {
-                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-indigo-300', 'bg-indigo-50');
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-indigo-200', 'bg-indigo-50');
                 if (linkSelLeft && linkSelLeft.id === item.id) {
-                    linkSelLeft = null; // deselect
+                    linkSelLeft = null;
                 } else {
                     linkSelLeft = { el: btn, id: item.id };
-                    btn.classList.add('ring-4', 'ring-indigo-300', 'bg-indigo-50');
+                    btn.classList.add('ring-4', 'ring-indigo-200', 'bg-indigo-50');
                 }
             } else if (item.type === 'end' && linkSelLeft) {
                 linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
                 linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
-                linkSelLeft.el.classList.remove('ring-4', 'ring-indigo-300', 'bg-indigo-50');
+                linkSelLeft.el.classList.remove('ring-4', 'ring-indigo-200', 'bg-indigo-50');
                 linkSelLeft = null;
                 redrawArrows();
             }
         }
 
         function linkCheck() {
-            if(linkChecked) return;
-            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-indigo-300', 'bg-indigo-50'); linkSelLeft = null; }
-            
+            if (linkChecked) return;
             linkChecked = true;
-            let corCount = 0;
+            let correctCount = 0;
 
-            linkUserPairs.forEach(up => {
-                if (up.startId === up.endId) {
-                    up.status = 'correct'; corCount++;
+            linkUserPairs.forEach(pair => {
+                if (pair.startId === pair.endId) {
+                    pair.status = 'correct';
+                    correctCount++;
                 } else {
-                    up.status = 'incorrect';
+                    pair.status = 'incorrect';
                 }
             });
 
             const fb = document.getElementById('link-feedback');
-            fb.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-amber-600');
-            
-            if (corCount === linkData.length) {
+            fb.classList.remove('hidden', 'text-green-600', 'text-amber-600');
+            if (correctCount === linkData.length) {
                 fb.classList.add('text-green-600');
-                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
+                fb.innerHTML = "<i class='fa-solid fa-star mr-1.5'></i> Perfect! All prepositional and pronoun phrases correctly joined.";
             } else {
                 fb.classList.add('text-amber-600');
-                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check preposition and phrase placement.`;
+                fb.innerHTML = `You connected ${correctCount} of ${linkData.length} correctly. Check preposition meanings and modifier placement.`;
             }
 
             redrawArrows();
@@ -1046,12 +1574,53 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
-        window.onload = () => { 
-            setupStudyInteractive(); 
-            populateVoiceList();
-        };
+        function createArrowSVG(startEl, endEl, state) {
+            if (!startEl || !endEl) return '';
+            const sRect = startEl.getBoundingClientRect();
+            const eRect = endEl.getBoundingClientRect();
 
-        /* Built-in TTS Web Speech API Integration */
+            const startX = sRect.right + 2;
+            const startY = sRect.top + (sRect.height / 2);
+            const endX = eRect.left - 2;
+            const endY = eRect.top + (eRect.height / 2);
+
+            let color = '#94a3b8';
+            let marker = 'url(#arrowhead-neutral)';
+
+            if (state === 'correct') {
+                color = '#16a34a';
+                marker = 'url(#arrowhead-correct)';
+            } else if (state === 'incorrect') {
+                color = '#dc2626';
+                marker = 'url(#arrowhead-incorrect)';
+            }
+
+            const curveX = (startX + endX) / 2;
+            return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 5},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
+        }
+
+        function redrawArrows() {
+            let html = '';
+            const linkContainer = document.getElementById('ex-container-link');
+            if (linkContainer && !linkContainer.classList.contains('hidden')) {
+                linkUserPairs.forEach(pair => {
+                    const s = document.getElementById(`link-start-${pair.startId}`);
+                    const e = document.getElementById(`link-end-${pair.endId}`);
+                    if (s && e) html += createArrowSVG(s, e, pair.status || 'neutral');
+                });
+            }
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function hideArrows() {
+            document.getElementById('svg-paths-container').innerHTML = '';
+            document.getElementById('connection-svg').classList.add('hidden');
+        }
+
+        window.addEventListener('resize', redrawArrows);
+        window.addEventListener('scroll', redrawArrows);
+
         let synth = window.speechSynthesis;
         let voices = [];
         let currentUtterance = null;
@@ -1059,32 +1628,24 @@
         function populateVoiceList() {
             if (!synth) return;
             voices = synth.getVoices();
-            const voiceSelect = document.getElementById('tts-voice-select');
-            
+            const sel = document.getElementById('tts-voice-select');
             if (voices.length === 0) return;
 
-            voiceSelect.innerHTML = '';
-            let defaultVoiceIndex = 0;
-            
-            for (let i = 0; i < voices.length; i++) {
-                const option = document.createElement('option');
-                option.textContent = `${voices[i].name} (${voices[i].lang})`;
-                option.setAttribute('data-lang', voices[i].lang);
-                option.setAttribute('data-name', voices[i].name);
-                voiceSelect.appendChild(option);
+            sel.innerHTML = '';
+            let defaultIdx = 0;
 
-                if (voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang.startsWith('en')) {
-                    defaultVoiceIndex = i;
+            voices.forEach((v, idx) => {
+                const opt = document.createElement('option');
+                opt.textContent = `${v.name} (${v.lang})`;
+                opt.setAttribute('data-name', v.name);
+                sel.appendChild(opt);
+
+                if (v.name.includes('Natural') || v.name.includes('Google UK English Male') || v.lang === 'en-US') {
+                    defaultIdx = idx;
                 }
-            }
-            
-            if (voiceSelect.options.length > 0) {
-                voiceSelect.selectedIndex = defaultVoiceIndex;
-            }
+            });
+
+            sel.selectedIndex = defaultIdx;
         }
 
         if (synth && synth.onvoiceschanged !== undefined) {
@@ -1094,52 +1655,45 @@
         function toggleAudioSummary() {
             if (!synth) return;
             const icon = document.getElementById('tts-icon');
-            const text = document.getElementById('tts-text');
+            const txt = document.getElementById('tts-text');
 
             if (synth.speaking || synth.pending) {
                 synth.cancel();
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
                 return;
             }
 
-            const summaryPrompt = "Welcome to Unit 4: Going Places. In this lesson, you will master personal pronouns, possessives, and reflexives. You will also learn prepositions of time, place, and direction, and article usage with general vs specific references and geographic place names. Remember: single mountains and cities use no article, while rivers, oceans, and plural country names take 'the'!";
-            
-            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
-            window._ttsUtterance = currentUtterance;
-            
-            const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
-            if (selectedOption && selectedOption.hasAttribute('data-name')) {
-                const selectedVoice = selectedOption.getAttribute('data-name');
-                const voice = voices.find(v => v.name === selectedVoice);
-                if (voice) {
-                    currentUtterance.voice = voice;
-                    currentUtterance.lang = voice.lang;
-                }
-            } else {
-                currentUtterance.lang = 'en-US';
+            const promptText = "Welcome to Unit 4: Going Places. In this unit, we explore pronouns, prepositions, and articles. Remember: subject pronouns like I and she perform the action, while object pronouns like me and them receive the action or follow prepositions. Possessive adjectives like my and your must be followed by nouns, whereas possessive pronouns like mine and yours stand alone. For prepositions, use 'at' for precise clock times and exact street addresses; use 'on' for days, dates, streets, and public transit; and use 'in' for months, years, cities, and countries. When using articles, remember that generalizations with plural or non-count nouns take no article, while specific items take 'the'. For geographic names, single mountains, single islands, and cities take no article, but rivers, oceans, deserts, and plural country names take 'the'. Finally, always place prepositional phrases right next to the words they modify to avoid misplaced phrase confusion!";
+
+            currentUtterance = new SpeechSynthesisUtterance(promptText);
+            const sel = document.getElementById('tts-voice-select');
+            const selectedOpt = sel.selectedOptions[0];
+            if (selectedOpt) {
+                const vName = selectedOpt.getAttribute('data-name');
+                const matched = voices.find(v => v.name === vName);
+                if (matched) currentUtterance.voice = matched;
             }
 
             currentUtterance.onstart = () => {
                 icon.className = "fa-solid fa-square";
-                text.textContent = "Stop";
+                txt.textContent = "Stop";
             };
-
             currentUtterance.onend = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
-
-            currentUtterance.onerror = (e) => {
-                if (e.error !== 'interrupted' && e.error !== 'canceled') {
-                    console.error('SpeechSynthesis Error:', e);
-                }
+            currentUtterance.onerror = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
 
             synth.speak(currentUtterance);
         }
+
+        window.onload = () => {
+            populateVoiceList();
+        };
     </script>
 </body>
 </html>

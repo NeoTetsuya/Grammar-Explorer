@@ -4,329 +4,683 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unit 5: A Changing World (The Present Perfect)</title>
-    <!-- Tailwind CSS for modern responsive layout -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ecfeff; /* Cyan 50 */
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f0fdfa;
         }
         
         /* Main Navigation Tabs */
-        .tab-active {
-            border-bottom-width: 4px;
-            border-color: #0891b2; /* Cyan 600 */
-            color: #164e63; /* Cyan 900 */
+        .main-tab-active {
+            border-bottom: 3px solid #0891b2;
+            color: #164e63;
             font-weight: 800;
         }
-        .tab-inactive {
-            border-bottom-width: 4px;
-            border-color: transparent;
+        .main-tab-inactive {
+            border-bottom: 3px solid transparent;
             color: #64748b;
+            font-weight: 600;
         }
-        .tab-inactive:hover { color: #164e63; border-color: #cbd5e1; }
+        .main-tab-inactive:hover {
+            color: #164e63;
+            border-color: #cbd5e1;
+        }
+
+        /* Grammar Guide Category Tabs */
+        .grammar-nav-btn {
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+        .grammar-nav-active {
+            background-color: #0891b2;
+            color: #ffffff;
+            box-shadow: 0 4px 12px -2px rgba(8, 145, 178, 0.35);
+        }
+        .grammar-nav-inactive {
+            background-color: #ffffff;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .grammar-nav-inactive:hover {
+            background-color: #ecfeff;
+            color: #0e7490;
+            border-color: #a5f3fc;
+        }
 
         /* Animations */
-        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        .fade-in { animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        .pop-out { transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+        .pop-out { transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .pop-out:hover:not(:disabled) {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 10px 15px -3px rgba(8, 145, 178, 0.3), 0 4px 6px -2px rgba(8, 145, 178, 0.15);
-        }
-        
-        /* Interactive Triggers and Target Connections */
-        .interactive-group { position: relative; display: inline-block; }
-        .interactive-trigger {
-            cursor: pointer; text-decoration: underline; text-decoration-style: dashed;
-            text-decoration-color: #0891b2; padding: 2px 4px; border-radius: 4px;
-            transition: all 0.2s; position: relative; z-index: 2; font-weight: 600;
-        }
-        .interactive-target {
-            padding: 2px 4px; border-radius: 4px; transition: all 0.2s; border: 1px solid transparent; font-weight: bold;
-        }
-        .interactive-active-trigger {
-            background-color: #cffafe; color: #164e63; text-decoration-color: transparent;
-        }
-        .interactive-active-target {
-            background-color: #fef08a; color: #854d0e;
-            border-color: #fde047; box-shadow: 0 0 0 2px rgba(253, 224, 71, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(8, 145, 178, 0.2);
         }
 
-        /* Sub-Tabs for Exercises */
-        .subtab-active { background-color: #0891b2; color: white; box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.4); }
-        .subtab-inactive { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-        .subtab-inactive:hover { background-color: #e2e8f0; }
+        /* Practice Subtabs */
+        .subtab-active { background-color: #0f172a; color: white; box-shadow: 0 4px 10px rgba(15, 23, 42, 0.25); }
+        .subtab-inactive { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+        .subtab-inactive:hover { background-color: #f1f5f9; color: #0f172a; }
 
-        /* Quiz Options */
+        /* Quiz Buttons */
         .option-btn { transition: all 0.2s; }
-        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0891b2; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .option-btn:hover:not(:disabled) { transform: translateY(-2px); border-color: #0891b2; box-shadow: 0 4px 8px rgba(8, 145, 178, 0.1); }
         .option-correct { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .option-incorrect { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
-        .option-disabled { opacity: 0.6; cursor: not-allowed; }
+        .option-disabled { opacity: 0.65; cursor: not-allowed; }
 
-        /* Clickable Words for Identification */
+        /* Spot Error Tokens */
         .click-word {
-            display: inline-block; padding: 2px 6px; margin: 2px 1px; border-radius: 6px;
-            cursor: pointer; transition: all 0.2s; font-size: 1.125rem; user-select: none; border: 1px solid transparent;
+            display: inline-block; padding: 2px 8px; margin: 3px 2px; border-radius: 6px;
+            cursor: pointer; transition: all 0.2s; font-size: 1.12rem; user-select: none; border: 2px solid transparent;
         }
-        .click-word:hover { background-color: #e2e8f0; }
-        .click-word.selected { background-color: #0891b2; color: white; transform: scale(1.05); box-shadow: 0 2px 4px rgba(8, 145, 178, 0.4); border-color: #164e63; }
+        .click-word:hover { background-color: #cffafe; }
+        .click-word.selected { background-color: #0891b2; color: white; transform: scale(1.04); }
         .click-word.correct { background-color: #22c55e; color: white; border-color: #16a34a; }
-        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #dc2626; }
-        .click-word.missed { border-color: #eab308; border-width: 2px; border-style: dashed; background-color: #fefce8; color: #854d0e; }
-
-        /* Matching Buttons */
-        .match-btn { transition: all 0.2s; border: 2px solid #e2e8f0; }
-        .match-btn:hover:not(:disabled) { border-color: #0891b2; background-color: #ecfeff; transform: translateY(-2px); }
-        .match-btn.selected { background-color: #cffafe; border-color: #0891b2; color: #164e63; transform: scale(1.02); box-shadow: 0 4px 6px -1px rgba(8, 145, 178, 0.2); }
-        .match-btn.matched { background-color: #dcfce7; border-color: #22c55e; color: #166534; opacity: 0.7; cursor: default; transform: scale(0.98); }
-        .match-btn.wrong-flash { animation: shake 0.4s; background-color: #fee2e2; border-color: #ef4444; color: #991b1b; }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-        }
+        .click-word.incorrect { background-color: #ef4444; color: white; text-decoration: line-through; border-color: #b91c1c; }
+        .click-word.missed { border-color: #f59e0b; border-style: dashed; background-color: #fef3c7; color: #92400e; }
 
         /* Fill Blanks */
         .fill-blank {
-            display: inline-block; min-width: 90px; height: 32px; border-bottom: 3px dashed #94a3b8;
-            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: bold; color: #0891b2;
+            display: inline-block; min-width: 90px; height: 34px; border-bottom: 3px dashed #94a3b8;
+            margin: 0 8px; vertical-align: middle; transition: all 0.3s; text-align: center; font-weight: 800; color: #0891b2;
         }
-        .fill-blank.filled { border-bottom-style: solid; background-color: #cffafe; border-radius: 4px 4px 0 0; padding: 0 8px; border-bottom-color: #0891b2; }
+        .fill-blank.filled { border-bottom-style: solid; background-color: #cffafe; border-radius: 6px 6px 0 0; padding: 0 10px; border-bottom-color: #0891b2; }
         .fill-blank.correct { border-bottom-color: #22c55e; color: #166534; background-color: #dcfce7; }
         .fill-blank.incorrect { border-bottom-color: #ef4444; color: #991b1b; background-color: #fee2e2; animation: shake 0.4s; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            50% { transform: translateX(6px); }
+            75% { transform: translateX(-6px); }
+        }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
 
-    <!-- SVG Overlay for Connecting Arrows -->
     <svg id="connection-svg" class="hidden fixed top-0 left-0 w-full h-full pointer-events-none z-[100]">
         <defs>
-            <marker id="arrowhead-study" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#0891b2" />
+            <marker id="arrowhead-study" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#0891b2" />
             </marker>
-            <marker id="arrowhead-neutral" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto">
-                <polygon points="0 0, 10 3.5, 0 7" fill="#94a3b8" />
+            <marker id="arrowhead-neutral" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#94a3b8" />
+            </marker>
+            <marker id="arrowhead-correct" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#16a34a" />
+            </marker>
+            <marker id="arrowhead-incorrect" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#dc2626" />
             </marker>
         </defs>
         <g id="svg-paths-container"></g>
     </svg>
 
-    <header class="bg-white shadow-sm sticky top-0 z-30 border-b border-cyan-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="bg-gradient-to-br from-cyan-600 to-teal-700 text-white p-2.5 rounded-xl shadow-sm">
-                        <i class="fa-solid fa-earth-americas text-xl w-6 text-center"></i>
+    <header class="bg-white sticky top-0 z-40 border-b border-cyan-100 shadow-xs backdrop-blur-md bg-white/95">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center gap-3.5">
+                    <div class="bg-gradient-to-tr from-cyan-600 to-teal-500 text-white w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center shadow-md shadow-cyan-600/20">
+                        <i class="fa-solid fa-earth-americas text-lg sm:text-xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-xl font-extrabold text-slate-800 hidden sm:block tracking-tight">Unit 5: A Changing World</h1>
-                        <p class="text-xs text-slate-500 hidden sm:block font-medium">Grammar Focus: Present Perfect & Present Perfect Progressive</p>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[11px] font-extrabold tracking-wider uppercase bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded-md">Grammar Explorer</span>
+                            <span class="text-[11px] text-slate-500 font-medium">Unit 5</span>
+                        </div>
+                        <h1 class="text-base sm:text-xl font-black text-slate-900 tracking-tight">A Changing World <span class="font-normal text-slate-500 hidden sm:inline">(The Present Perfect)</span></h1>
                     </div>
-                    <h1 class="text-xl font-extrabold text-slate-800 sm:hidden">Unit 5: World</h1>
                 </div>
-                <nav class="flex space-x-2 sm:space-x-6 h-full pt-1">
-                    <button id="tab-study" class="tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('study')">
-                        <i class="fa-solid fa-book-open sm:mr-2"></i><span class="hidden sm:inline">Grammar Guide</span>
+
+                <!-- Primary View Navigation -->
+                <nav class="flex space-x-2 sm:space-x-8 h-full">
+                    <button id="main-tab-study" class="main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('study')">
+                        <i class="fa-solid fa-book-open text-cyan-600"></i>
+                        <span>Grammar Guide</span>
                     </button>
-                    <button id="tab-practice" class="tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors" onclick="switchMainTab('practice')">
-                        <i class="fa-solid fa-dumbbell sm:mr-2"></i><span class="hidden sm:inline">Practice</span>
+                    <button id="main-tab-practice" class="main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all" onclick="switchMainTab('practice')">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Exercises</span>
                     </button>
                 </nav>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow">
         
-        <section id="section-study" class="fade-in block space-y-8">
+        <section id="section-study" class="fade-in block space-y-6">
             
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <h2 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Present Perfect & Progressive Tenses</h2>
-                <p class="text-lg text-slate-600">Master connecting the past to the present: recent actions, ongoing situations with <em>for/since</em>, indefinite vs. definite past time, and progressive duration.</p>
-                
-                <!-- Built-in TTS Audio Player Bar -->
-                <div class="mt-6 bg-white p-4 rounded-2xl border border-cyan-200 shadow-sm max-w-xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div class="flex items-center gap-3 text-left">
-                        <div class="bg-cyan-100 text-cyan-700 p-3 rounded-xl">
-                            <i class="fa-solid fa-volume-high text-xl"></i>
+            <!-- Audio Companion & Topic Banner -->
+            <div class="bg-gradient-to-r from-cyan-50 via-teal-50 to-cyan-50 border border-cyan-200 rounded-2xl p-4 sm:p-6 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-left">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>Unit Grammar Reference & Rules</span>
+                        <span class="bg-cyan-200 text-cyan-900 text-xs px-2.5 py-0.5 rounded-full font-bold">Comprehensive</span>
+                    </h2>
+                    <p class="text-sm text-slate-600 mt-1">Select a grammar topic below to explore present perfect statements, questions, adverbs (already, yet, just, still), for vs. since, time clauses, simple past contrast, progressive aspect, and series comma rules.</p>
+                </div>
+
+                <!-- Text-to-Speech Companion -->
+                <div class="bg-white/90 border border-cyan-200 p-2.5 sm:p-3 rounded-xl shadow-xs flex items-center gap-2.5 self-stretch md:self-auto justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center font-bold text-sm">
+                            <i class="fa-solid fa-headphones"></i>
                         </div>
-                        <div>
-                            <h4 class="font-bold text-slate-800 text-sm">Spoken Audio Overview</h4>
-                            <p class="text-xs text-slate-500">Listen to key Present Perfect rules</p>
+                        <div class="hidden sm:block">
+                            <p class="text-xs font-bold text-slate-800">Audio Guide</p>
+                            <p class="text-[10px] text-slate-500 leading-tight">Listen to spoken summary</p>
                         </div>
                     </div>
-                    <div class="flex items-center gap-2 w-full sm:w-auto">
-                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-300 text-slate-700 text-xs rounded-lg p-2.5 focus:ring-cyan-500 focus:border-cyan-500 font-medium max-w-[160px] truncate">
-                            <option value="">Loading voices...</option>
+                    <div class="flex items-center gap-2">
+                        <select id="tts-voice-select" class="bg-slate-50 border border-slate-200 text-slate-700 text-xs rounded-lg p-2 max-w-[140px] truncate focus:outline-none focus:ring-1 focus:ring-cyan-500">
+                            <option value="">Voice Loading...</option>
                         </select>
-                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all pop-out whitespace-nowrap">
-                            <i class="fa-solid fa-play" id="tts-icon"></i> <span id="tts-text">Listen</span>
+                        <button id="tts-play-btn" onclick="toggleAudioSummary()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-3.5 py-2 rounded-lg text-xs flex items-center gap-1.5 transition-all pop-out shadow-xs">
+                            <i class="fa-solid fa-play" id="tts-icon"></i>
+                            <span id="tts-text">Listen</span>
                         </button>
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-4 inline-flex items-center gap-2 bg-cyan-50 text-cyan-800 px-4 py-2 rounded-full text-sm font-semibold border border-cyan-200">
-                    <i class="fa-solid fa-hand-pointer animate-pulse"></i>
-                    Tap the dashed words in the examples to reveal grammar connections!
+            <div class="border-b border-slate-200 pb-2">
+                <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar py-1">
+                    <button id="gtab-btn-statements" onclick="switchGrammarTab('statements')" class="grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>1. Present Perfect Statements & Adverbs</span>
+                    </button>
+                    <button id="gtab-btn-forsince" onclick="switchGrammarTab('forsince')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        <span>2. For, Since & Time Clauses</span>
+                    </button>
+                    <button id="gtab-btn-contrast" onclick="switchGrammarTab('contrast')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-code-compare"></i>
+                        <span>3. Present Perfect vs. Simple Past</span>
+                    </button>
+                    <button id="gtab-btn-prog" onclick="switchGrammarTab('prog')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-spinner"></i>
+                        <span>4. Present Perfect Progressive</span>
+                    </button>
+                    <button id="gtab-btn-writing" onclick="switchGrammarTab('writing')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-pen-nib"></i>
+                        <span>5. Commas in a Series</span>
+                    </button>
+                    <button id="gtab-btn-matrix" onclick="switchGrammarTab('matrix')" class="grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-table-columns"></i>
+                        <span>6. Comparison Matrix</span>
+                    </button>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 1: Present Perfect Statements, Questions & Adverbs -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-cyan-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-clock-rotate-left absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">1. Present Perfect Basics & Adverbs</h3>
-                        <p class="text-cyan-100 font-medium relative z-10">Statements, Questions & Key Time Adverbs</p>
+            <div id="gpanel-statements" class="fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-cyan-600 uppercase">Lesson 1 &bull; Charts 5.1 - 5.3</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Present Perfect: Statements, Questions & Time Adverbs</h3>
+                        </div>
+                        <span class="bg-cyan-50 text-cyan-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Have/Has + Past Participle &bull; 4 Core Functions &bull; Adverb Positions</span>
                     </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Form & Auxiliary Rule</h4>
-                            <div>• <strong>Formula:</strong> Subject + <em>have / has (not)</em> + <strong>Past Participle</strong></div>
-                            <div>• <strong>Contractions:</strong> I've, you've, he's, she's, it's, we've, they've | haven't, hasn't.</div>
-                            <div class="bg-cyan-50 p-2.5 rounded border border-cyan-200 text-cyan-900 font-medium mt-1">
-                                <i class="fa-solid fa-link mr-1"></i> Two Verbs joined by <em>and</em>: Do NOT repeat <em>has/have</em>!<br>
-                                <span class="italic font-normal">Aasim has <span id="target-pp1" class="interactive-target">graduated</span> and <span class="interactive-trigger text-cyan-700" data-target="target-pp1">started</span> a new job.</span>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Forms and 4 Core Uses -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-circle-dot text-cyan-600 text-xs"></i> 4 Core Uses of the Present Perfect
+                            </h4>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-3 text-slate-700">
+                                <div>
+                                    <strong class="text-cyan-900 block text-xs uppercase tracking-wider">1. Recently Completed Action:</strong>
+                                    <p class="text-slate-600 mt-0.5">Focuses on an action that ended right before now: <br><span class="italic text-slate-800 font-semibold">"The plane has arrived."</span> | <span class="italic text-slate-800 font-semibold">"Ellen has returned from India."</span></p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-cyan-900 block text-xs uppercase tracking-wider">2. Incomplete Time Period (Today, This Week, This Month):</strong>
+                                    <p class="text-slate-600 mt-0.5">The action occurs within an unfinished period of time: <br><span class="italic text-slate-800 font-semibold">"John hasn’t called today."</span> (It is currently only 4:00 p.m.)</p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-cyan-900 block text-xs uppercase tracking-wider">3. Repeated Past Events at an Indefinite Time:</strong>
+                                    <p class="text-slate-600 mt-0.5">Actions that happened one or more times, when the exact time is unstated: <br><span class="italic text-slate-800 font-semibold">"I have read that book three times."</span> | <span class="italic text-slate-800 font-semibold">"Our professor has gone to Asia many times."</span></p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-cyan-900 block text-xs uppercase tracking-wider">4. Present Result / Past Experience:</strong>
+                                    <p class="text-slate-600 mt-0.5">The exact moment is unimportant, but the current result or knowledge matters: <br><span class="italic text-slate-800 font-semibold">"I have washed the dishes."</span> (They are clean now.) <br><span class="italic text-slate-800 font-semibold">"Nancy has lived in Mexico City."</span> (She has practical knowledge of it now.)</p>
+                                </div>
+                            </div>
+
+                            <!-- Real English Rule for 'And' -->
+                            <div class="bg-cyan-50 border border-cyan-200 p-3.5 rounded-xl text-xs text-cyan-950 space-y-1">
+                                <strong class="text-cyan-900 block font-bold"><i class="fa-solid fa-link text-cyan-600 mr-1"></i> Real English: Compound Verbs with 'And'</strong>
+                                <p>When writing two present perfect verbs joined by <em>and</em>, do NOT repeat <em>has</em> or <em>have</em> before the second verb: <br><span class="font-bold text-cyan-900">"Aasim has recently graduated from college and started a new job."</span></p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-xs">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Who / What as Subject Questions</h4>
-                            <div>• <strong>Subject Question:</strong> <span class="interactive-trigger text-cyan-700" data-target="target-who1">Who</span> <span id="target-who1" class="interactive-target text-slate-800">has been</span> to Italy?</div>
-                            <div class="text-slate-500">• Auxiliary is ALWAYS singular <em>has</em>. Do NOT use <em>do / does / did</em>!</div>
-                        </div>
+                        <!-- Right Column: Adverbs, Questions & Who-Subject Rule -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-clock text-cyan-600 text-xs"></i> 6 Key Adverbs with Present Perfect
+                            </h4>
 
-                        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-900 space-y-1.5">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-list-check mr-1"></i> Key Adverbs with Present Perfect</h4>
-                            <div>• <strong>Already:</strong> Sometime before now (before PP or end).</div>
-                            <div>• <strong>Ever / Never:</strong> Before now (Questions / Negative frequency).</div>
-                            <div>• <strong>Just:</strong> Right before now (immediately completed).</div>
-                            <div>• <strong>Still:</strong> Up to now (In negatives: placed <em>before</em> haven't/hasn't).</div>
-                            <div>• <strong>Yet:</strong> Until now (Placed at end of negative or question).</div>
-                        </div>
-                    </div>
-                </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-2.5">Adverb</th>
+                                            <th class="p-2.5">Meaning & Placement</th>
+                                            <th class="p-2.5">Textbook Example</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-2.5 font-bold text-cyan-800">already</td>
+                                            <td class="p-2.5">Sometime before now (before PP or at end)</td>
+                                            <td class="p-2.5 italic">"We've already seen that movie."</td>
+                                        </tr>
+                                        <tr class="bg-cyan-50/30">
+                                            <td class="p-2.5 font-bold text-cyan-800">ever / never</td>
+                                            <td class="p-2.5">At any time / at no time before now (before PP)</td>
+                                            <td class="p-2.5 italic">"Have you ever driven a truck?" / "I've never been to London."</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2.5 font-bold text-cyan-800">just</td>
+                                            <td class="p-2.5">Right before now (before PP)</td>
+                                            <td class="p-2.5 italic">"The plane has just landed."</td>
+                                        </tr>
+                                        <tr class="bg-cyan-50/30">
+                                            <td class="p-2.5 font-bold text-cyan-800">recently / lately</td>
+                                            <td class="p-2.5">In the recent past (before PP or at end)</td>
+                                            <td class="p-2.5 italic">"Have you seen any good movies lately?"</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2.5 font-bold text-cyan-800">still</td>
+                                            <td class="p-2.5">Up to now (placed <strong>before</strong> hasn't / haven't)</td>
+                                            <td class="p-2.5 italic font-semibold text-rose-700">"She still hasn’t called me."</td>
+                                        </tr>
+                                        <tr class="bg-cyan-50/30">
+                                            <td class="p-2.5 font-bold text-cyan-800">yet</td>
+                                            <td class="p-2.5">Until now (at the end of negatives and questions)</td>
+                                            <td class="p-2.5 italic">"He hasn’t finished yet." / "Have you called yet?"</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                <!-- Lesson 2: For, Since & Time Clauses -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-teal-700 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-hourglass-half absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">2. Present Perfect with For & Since</h3>
-                        <p class="text-teal-100 font-medium relative z-10">Duration, Points in Time & Since Clauses</p>
-                    </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                                <strong class="text-teal-700 block mb-1">For + Duration</strong>
-                                Amount of time (number of hours, days, months, years).<br>
-                                <span class="italic font-medium text-slate-600">for 5 years, for 3 days</span>
-                            </div>
-                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                                <strong class="text-teal-700 block mb-1">Since + Specific Point</strong>
-                                Specific starting moment/year/date.<br>
-                                <span class="italic font-medium text-slate-600">since 2018, since May</span>
-                            </div>
-                        </div>
-
-                        <div class="bg-teal-50 border border-teal-200 p-4 rounded-xl text-xs text-teal-900 space-y-2">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-diagram-project mr-1"></i> Time Clauses with Since</h4>
-                            <p>Use <strong>Present Perfect</strong> in the main clause + <strong>Simple Past</strong> inside the <em>since</em> time clause!</p>
-                            <div class="bg-white p-2.5 rounded border border-teal-200 font-mono text-[11px] space-y-1">
-                                <div><span id="target-since1" class="interactive-target">I have known Rita</span> <span class="interactive-trigger text-teal-700" data-target="target-since1">since I was in high school</span>.</div>
-                            </div>
-                            <div class="text-[11px] text-slate-600">
-                                <i class="fa-solid fa-scissors mr-1"></i> <strong>Comma Rule:</strong> Use a comma when the <em>since</em> clause begins the sentence!<br>
-                                <span class="italic font-medium text-teal-900">"Since she was 21, she has lived in Mexico."</span>
+                            <!-- Who / What Subject Questions -->
+                            <div class="bg-white border-2 border-cyan-200 rounded-xl p-4 text-xs space-y-2 shadow-xs">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">Who & What as Subject Questions</strong>
+                                <p class="text-slate-700">• When <em>Who</em> or <em>What</em> acts as the subject, the verb takes third-person singular auxiliary <strong>has</strong>: <br><span class="font-bold text-cyan-800">"Who has been to Italy?"</span> | <span class="font-bold text-cyan-800">"What has happened this week?"</span></p>
+                                <p class="text-rose-600 font-bold">• Trap: Never use <em>do, does</em>, or <em>did</em> in present perfect questions!</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-8">
-                <!-- Lesson 3: Present Perfect vs. Simple Past -->
-                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-                    <div class="bg-slate-800 p-6 text-white relative overflow-hidden">
-                        <i class="fa-solid fa-code-compare absolute -right-4 -bottom-4 text-7xl opacity-20"></i>
-                        <h3 class="text-2xl font-bold relative z-10">3. Present Perfect vs. Simple Past</h3>
-                        <p class="text-slate-300 font-medium relative z-10">Indefinite vs. Definite & Incomplete Time</p>
+            <div id="gpanel-forsince" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-teal-600 uppercase">Lesson 2 &bull; Charts 5.4 - 5.5</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Present Perfect with For, Since & Past Time Clauses</h3>
+                        </div>
+                        <span class="bg-teal-50 text-teal-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Duration vs. Starting Point &bull; How Long Questions &bull; Since Clauses</span>
                     </div>
-                    <div class="p-6 flex-grow space-y-5">
-                        <div class="grid grid-cols-2 gap-3 text-xs">
-                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                                <strong class="text-cyan-700 block mb-1">Present Perfect (Indefinite)</strong>
-                                Exact time unknown/unimportant; result matters.<br>
-                                <span class="italic font-medium text-slate-600">"They have left."</span>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: For vs. Since Core Rules -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-hourglass-half text-teal-600 text-xs"></i> For vs. Since Distinction
+                            </h4>
+                            <p class="text-xs text-slate-600">Use the present perfect with <em>for</em> or <em>since</em> to describe an action or state that started in the past and continues into the present moment:</p>
+
+                            <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                                <div class="bg-teal-50/60 border border-teal-200 p-3.5 rounded-xl space-y-1.5">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Duration / Span</span>
+                                    <strong class="text-teal-900 block text-xs">FOR + Length of Time</strong>
+                                    <p class="text-slate-600 text-[11px]">Used with a count of hours, days, months, years, or periods:</p>
+                                    <p class="font-mono text-teal-800 font-bold text-[11px]">• for an hour / for three days</p>
+                                    <p class="font-mono text-teal-800 font-bold text-[11px]">• for a year / for 20 years</p>
+                                    <p class="font-mono text-teal-800 font-bold text-[11px]">• for a long time / for several weeks</p>
+                                    <p class="italic text-slate-700 mt-1">"He’s worked at that company for 20 years."</p>
+                                </div>
+                                <div class="bg-teal-50/60 border border-teal-200 p-3.5 rounded-xl space-y-1.5">
+                                    <span class="bg-teal-600 text-white font-black px-2 py-0.5 rounded text-[10px] uppercase">Starting Point</span>
+                                    <strong class="text-teal-900 block text-xs">SINCE + Specific Point in Time</strong>
+                                    <p class="text-slate-600 text-[11px]">Used with a specific calendar moment, date, year, or clock time:</p>
+                                    <p class="font-mono text-teal-800 font-bold text-[11px]">• since Tuesday / since 9:00 a.m.</p>
+                                    <p class="font-mono text-teal-800 font-bold text-[11px]">• since April / since 2008</p>
+                                    <p class="font-mono text-teal-800 font-bold text-[11px]">• since yesterday / since this morning</p>
+                                    <p class="italic text-slate-700 mt-1">"I’ve known Jack since 2008."</p>
+                                </div>
                             </div>
-                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                                <strong class="text-cyan-700 block mb-1">Simple Past (Definite)</strong>
-                                Specific completed time stated or understood.<br>
-                                <span class="italic font-medium text-slate-600">"They left last night."</span>
+
+                            <div class="bg-slate-50 border border-slate-200 p-3.5 rounded-xl text-xs space-y-1 text-slate-700">
+                                <strong class="text-slate-900 block font-bold text-xs uppercase tracking-wider">How Long Questions:</strong>
+                                <p>Questions asking about continuing duration begin with <strong>How long + have/has + Subject + Past Participle?</strong></p>
+                                <p class="italic text-teal-800 font-semibold">"A: How long have you lived here? &rarr; B: For a long time. / Since 2004."</p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs space-y-1.5">
-                            <h4 class="font-bold text-slate-800 uppercase tracking-wide">Conversation Transition Pattern</h4>
-                            <p class="text-slate-600">Start with Present Perfect (general/indefinite experience), then give details in Simple Past!</p>
-                            <div class="bg-white p-2 rounded border font-mono text-[11px] text-slate-700">
-                                A: "Have you ever visited Japan?" <br>
-                                B: "Yes, I have. I went to Tokyo last year."
-                            </div>
-                        </div>
+                        <!-- Right Column: Past Time Clauses with Since -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-timeline text-teal-600 text-xs"></i> Past Time Clauses with "Since"
+                            </h4>
+                            <p class="text-xs text-slate-600"><em>Since</em> can also introduce a dependent past time clause that establishes the starting point:</p>
 
-                        <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-900 space-y-1">
-                            <h4 class="font-bold uppercase tracking-wide"><i class="fa-solid fa-calendar-day mr-1"></i> Incomplete vs. Complete Time</h4>
-                            <div>• <strong>Incomplete Time (Present Perfect):</strong> Said while time period is active.<br>
-                            <span class="italic">"I haven't had coffee this morning."</span> (Said at 10 AM).</div>
-                            <div>• <strong>Complete Time (Simple Past):</strong> Said after time period is over.<br>
-                            <span class="italic">"I didn't have coffee this morning."</span> (Said at 3 PM).</div>
+                            <div class="bg-white border-2 border-teal-200 rounded-xl p-4 text-xs space-y-2.5 shadow-xs">
+                                <div class="bg-teal-50 p-2.5 rounded-lg border border-teal-200 font-mono text-[11px] text-teal-950 font-bold">
+                                    [Present Perfect Main Clause] + since + [Simple Past Time Clause]
+                                </div>
+                                <div class="space-y-1.5 text-slate-700">
+                                    <p>• <em>"I’ve known Rita <span class="font-bold text-teal-800">since I was</span> in high school."</em></p>
+                                    <p>• <em>"She has lived in Mexico <span class="font-bold text-teal-800">since she was</span> 21."</em></p>
+                                    <p>• <em>"Life has changed a lot <span class="font-bold text-teal-800">since personal computers went</span> on sale."</em></p>
+                                </div>
+                            </div>
+
+                            <!-- Comma Punctuation Rule -->
+                            <div class="bg-amber-50 border border-amber-200 p-3.5 rounded-xl text-xs text-amber-950 space-y-1.5">
+                                <strong class="text-amber-900 block font-bold text-xs uppercase tracking-wide">
+                                    <i class="fa-solid fa-circle-info text-amber-600 mr-1"></i> Comma Rule for Since Clauses
+                                </strong>
+                                <p>• <strong>Time Clause First:</strong> Follow with a comma: <br><span class="font-bold text-emerald-800">"Since she was 21, she has lived in Mexico."</span></p>
+                                <p>• <strong>Main Clause First:</strong> No comma: <br><span class="font-bold text-emerald-800">"She has lived in Mexico since she was 21."</span></p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Lesson 4 & Writing Focus: Present Perfect Progressive & Commas in Series -->
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl shadow-xl border border-slate-700 overflow-hidden text-white relative">
-                    <div class="p-6 relative z-10 flex flex-col h-full space-y-5">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-spinner text-amber-400 text-3xl"></i>
-                            <div>
-                                <h3 class="text-2xl font-bold text-amber-400">4. Present Perfect Progressive & Writing</h3>
-                                <p class="text-xs text-slate-300">Form, Completion Distinction & Oxford Commas</p>
+            <div id="gpanel-contrast" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-indigo-600 uppercase">Lesson 3 &bull; Charts 5.6 - 5.7</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Present Perfect vs. Simple Past</h3>
+                        </div>
+                        <span class="bg-indigo-50 text-indigo-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Indefinite vs. Definite Past &bull; Conversational Transition &bull; Incomplete vs. Complete Time</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Indefinite vs Definite Past -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-scale-balanced text-indigo-600 text-xs"></i> Indefinite vs. Definite Past Time
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-3">Grammar Dimension</th>
+                                            <th class="p-3">Present Perfect (Indefinite)</th>
+                                            <th class="p-3">Simple Past (Definite)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-3 font-semibold">Time Specified?</td>
+                                            <td class="p-3 font-bold text-indigo-700">NO (Indefinite / Unstated)</td>
+                                            <td class="p-3 font-bold text-slate-700">YES (Definite / Stated / Understood)</td>
+                                        </tr>
+                                        <tr class="bg-indigo-50/30">
+                                            <td class="p-3 font-semibold">Primary Focus</td>
+                                            <td class="p-3">Experience, status, or present result</td>
+                                            <td class="p-3">Completed historical moment or event</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3 font-semibold">Examples</td>
+                                            <td class="p-3 italic">"They have left." (Not here now)<br>"Have you seen Dracula?"</td>
+                                            <td class="p-3 italic">"They left last night at 9:00."<br>"I saw it last week."</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Conversational Pattern -->
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-2">
+                                <strong class="text-slate-900 block font-bold uppercase tracking-wider">Natural Conversation Opening Pattern:</strong>
+                                <p class="text-slate-600">English speakers commonly initiate conversations with an indefinite general inquiry in the present perfect, and then transition to simple past for details of time, place, and impressions:</p>
+                                <div class="bg-white p-3 rounded-lg border border-slate-200 space-y-1 font-mono text-[11px]">
+                                    <div><span class="text-indigo-800 font-bold">A:</span> "Have you ever seen that movie?" <span class="text-slate-400 font-sans">(Present Perfect)</span></div>
+                                    <div><span class="text-indigo-800 font-bold">B:</span> "Yes, I saw it yesterday with my sister." <span class="text-slate-400 font-sans">(Simple Past)</span></div>
+                                    <div><span class="text-indigo-800 font-bold">A:</span> "Did you like the special effects?" <span class="text-slate-400 font-sans">(Simple Past)</span></div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="space-y-2.5 text-xs bg-slate-800/90 p-3.5 rounded-xl border border-slate-700">
-                            <strong class="text-cyan-300 block">Present Perfect Progressive: Subject + have/has been + Verb-ing</strong>
-                            <div>• <strong>Ongoing / Temporary:</strong> <span class="text-slate-200 italic">"She's been walking to work this week."</span></div>
-                            <div>• <strong>Recent Result:</strong> <span class="text-slate-200 italic">"I've been painting the room."</span> (Paint on shirt).</div>
-                            <div class="bg-red-900/40 p-2 rounded border border-red-500/40 text-red-200 mt-1">
-                                <i class="fa-solid fa-ban mr-1"></i> <strong>Stative Restriction:</strong> Non-action verbs cannot be progressive!<br>
-                                <span class="line-through text-red-300">They've been knowing Ed...</span> &rarr; <span class="text-green-300 font-bold">They've known Ed for a long time.</span>
+                        <!-- Right Column: Incomplete vs Complete Time Spans -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-clock-rotate-left text-indigo-600 text-xs"></i> Incomplete vs. Complete Time Spans
+                            </h4>
+
+                            <div class="bg-white border-2 border-indigo-200 rounded-xl p-4 text-xs space-y-3 shadow-xs">
+                                <div>
+                                    <strong class="text-indigo-900 block font-bold text-xs uppercase">1. Ongoing Career / Living Situation vs. Finished Past</strong>
+                                    <p class="text-slate-700 mt-1">• <em>"Meg has worked at the school for 10 years."</em> &rarr; <span class="font-bold text-emerald-800">She still works there today.</span></p>
+                                    <p class="text-slate-700">• <em>"Meg worked at the school for 20 years, but she retired last year."</em> &rarr; <span class="font-bold text-slate-600">She does not work there anymore.</span></p>
+                                </div>
+
+                                <div class="border-t border-slate-200 pt-2.5">
+                                    <strong class="text-indigo-900 block font-bold text-xs uppercase">2. The Clock Rule (This Morning / This Afternoon)</strong>
+                                    <p class="text-slate-700 mt-1">• <strong>Present Perfect (Incomplete Period):</strong> Said at 11:00 a.m. (still morning) &rarr; <span class="font-bold text-indigo-800">"I haven't seen George this morning."</span></p>
+                                    <p class="text-slate-700">• <strong>Simple Past (Complete Period):</strong> Said at 3:00 p.m. (morning has ended) &rarr; <span class="font-bold text-slate-700">"I didn't see George this morning."</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-prog" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-sky-600 uppercase">Lesson 4 &bull; Charts 5.8 - 5.10</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Present Perfect Progressive Aspect</h3>
+                        </div>
+                        <span class="bg-sky-50 text-sky-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Have/Has Been + V-ing &bull; 3 Uses &bull; Non-Action Ban &bull; Finished vs. Unfinished</span>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-6">
+                        <!-- Left Column: Progressive Form and 3 Core Uses -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-spinner text-sky-600 text-xs"></i> 3 Major Uses of Present Perfect Progressive
+                            </h4>
+
+                            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl text-xs space-y-3 text-slate-700">
+                                <div>
+                                    <strong class="text-sky-900 block text-xs uppercase tracking-wider">1. Continuing Unfinished Action / Situation:</strong>
+                                    <p class="text-slate-600 mt-0.5">Started in past and currently underway: <br><span class="italic text-slate-800 font-semibold">"Inuit people have been living in the Arctic for over a thousand years."</span></p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-sky-900 block text-xs uppercase tracking-wider">2. Temporary Habit / Exception:</strong>
+                                    <p class="text-slate-600 mt-0.5">Emphasizes that a recent repeated activity is temporary rather than permanent: <br><span class="italic text-slate-800 font-semibold">"She's been walking to work this week."</span> (Her car is temporarily broken.)</p>
+                                </div>
+                                <div class="border-t border-slate-200 pt-2">
+                                    <strong class="text-sky-900 block text-xs uppercase tracking-wider">3. Recently Completed Action with Visible Physical Evidence:</strong>
+                                    <p class="text-slate-600 mt-0.5">Action ended immediately before now with clear visible results: <br><span class="italic text-slate-800 font-semibold">"A: Why is there paint on your shirt? &rarr; B: I’ve been painting my living room."</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Non-Action Verbs Rule -->
+                            <div class="bg-rose-50 border border-rose-200 p-3.5 rounded-xl text-xs text-rose-950 space-y-1">
+                                <strong class="text-rose-900 block font-bold"><i class="fa-solid fa-ban text-rose-600 mr-1"></i> Stative / Non-Action Verb Restriction</strong>
+                                <p>Do NOT use stative non-action verbs (know, believe, love, own, belong, understand) in the progressive! <br><span class="text-emerald-800 font-bold">✓ They have known Ed for a long time.</span> <br><span class="text-rose-700 line-through">✗ They have been knowing Ed for a long time.</span></p>
                             </div>
                         </div>
 
-                        <div class="bg-amber-900/30 p-3.5 rounded-xl border border-amber-500/30 text-xs text-slate-200 space-y-1.5 mt-auto">
-                            <div class="font-bold text-amber-300 flex items-center gap-2">
-                                <i class="fa-solid fa-pen-nib"></i> Writing Focus: Commas Between Items in a Series
-                            </div>
-                            <p class="text-slate-300">Use a comma between words, phrases, or clauses in a series of three or more items. Include a comma before <em>and/or</em> (Oxford comma)!</p>
-                            <div class="bg-slate-900/80 p-2 rounded border border-slate-700 font-mono text-[11px] text-green-400">
-                                Birds, butterflies, and small animals have disappeared.
+                        <!-- Right Column: Progressive vs Simple Present Perfect -->
+                        <div class="space-y-4">
+                            <h4 class="font-bold text-slate-800 text-sm uppercase tracking-wide flex items-center gap-2">
+                                <i class="fa-solid fa-check-double text-sky-600 text-xs"></i> Present Perfect vs. Progressive Contrast
+                            </h4>
+
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+                                    <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                                        <tr>
+                                            <th class="p-2.5">Grammar Feature</th>
+                                            <th class="p-2.5">Present Perfect Progressive</th>
+                                            <th class="p-2.5">Present Perfect (Simple)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-100 text-xs">
+                                        <tr>
+                                            <td class="p-2.5 font-semibold">Completion Status</td>
+                                            <td class="p-2.5 text-sky-800 font-bold">Incomplete / in progress: <br><span class="font-normal italic text-slate-600">"I've been reading a book on Greenland." (Not finished)</span></td>
+                                            <td class="p-2.5 text-emerald-800 font-bold">Complete / result: <br><span class="font-normal italic text-slate-600">"I've read a book on Greenland." (Finished)</span></td>
+                                        </tr>
+                                        <tr class="bg-sky-50/30">
+                                            <td class="p-2.5 font-semibold">How Long Questions</td>
+                                            <td class="p-2.5">Use with action verbs: <br><span class="italic text-slate-600">"How long have you been driving?"</span></td>
+                                            <td class="p-2.5">Use with non-action verbs: <br><span class="italic text-slate-600">"How long have you owned your car?"</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-2.5 font-semibold">Number of Times / Quantity</td>
+                                            <td class="p-2.5 text-rose-600 font-semibold">Avoid with specific counts</td>
+                                            <td class="p-2.5 text-emerald-800 font-bold">Required for counting events: <br><span class="font-normal italic text-slate-600">"I've watched three movies this week."</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-writing" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-teal-600 uppercase">Writing Focus &bull; Connect to Writing</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Using Commas Between Items in a Series</h3>
+                        </div>
+                        <span class="bg-teal-50 text-teal-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Punctuation &bull; The Oxford Comma &bull; Writing About Change</span>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-600 mb-6">
+                        In formal and academic writing, when listing three or more related words, phrases, or clauses in a series, place a comma after every item in the series except the last one.
+                    </p>
+
+                    <div class="grid md:grid-cols-3 gap-5 text-xs">
+                        <!-- Case 1: Series of Nouns -->
+                        <div class="bg-teal-50/60 border border-teal-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-list-ol"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Series of Nouns</h4>
+                            <p class="text-slate-600 text-[11px]">Separate three or more noun items:</p>
+                            <div class="bg-white p-3 rounded-xl border border-teal-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-emerald-800 font-bold font-sans">✓ "Many birds, butterflies, and small animals have disappeared for the night."</div>
+                                <div class="text-emerald-800 font-bold font-sans">✓ "I've put on a warm sweater, socks, and slippers."</div>
+                            </div>
+                        </div>
+
+                        <!-- Case 2: Series of Verb Phrases -->
+                        <div class="bg-cyan-50/60 border border-cyan-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-person-running"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Series of Verb Phrases</h4>
+                            <p class="text-slate-600 text-[11px]">Separate multiple consecutive actions:</p>
+                            <div class="bg-white p-3 rounded-xl border border-cyan-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-emerald-800 font-bold font-sans">✓ "The researcher recorded the temperatures, analyzed the data, and published her findings."</div>
+                            </div>
+                        </div>
+
+                        <!-- Case 3: Clauses in a Series -->
+                        <div class="bg-indigo-50/60 border border-indigo-200 rounded-2xl p-5 space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-lg font-bold">
+                                <i class="fa-solid fa-pen-fancy"></i>
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-sm">Clauses in a Series</h4>
+                            <p class="text-slate-600 text-[11px]">Separate multiple independent predications:</p>
+                            <div class="bg-white p-3 rounded-xl border border-indigo-200 space-y-1.5 font-mono text-[11px]">
+                                <div class="text-emerald-800 font-bold font-sans">✓ "The sea ice has melted, the seals have migrated, and the hunters have faced hardships."</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Self-Assessment Checklist -->
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 text-xs mt-4">
+                        <strong class="text-slate-900 uppercase tracking-wide block mb-2 font-bold">Writing About Change Self-Assessment Checklist:</strong>
+                        <div class="grid sm:grid-cols-2 gap-2 text-slate-700">
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used the present perfect to describe recently completed actions and events.</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used <em>for</em> (duration) and <em>since</em> (starting point) correctly.</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Used the present perfect progressive for ongoing continuous actions.</div>
+                            <div><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> Inserted commas between words, phrases, or clauses in a series.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gpanel-matrix" class="hidden fade-in space-y-6">
+                <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-6">
+                        <div>
+                            <span class="text-xs font-black tracking-widest text-slate-500 uppercase">Unit 5 Synthesis & Master Review</span>
+                            <h3 class="text-2xl font-black text-slate-900 mt-1">Past and Present Perfect Tenses Matrix</h3>
+                        </div>
+                        <span class="bg-slate-100 text-slate-800 font-semibold px-3 py-1 rounded-lg text-xs hidden sm:inline-block">Master Reference</span>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm border border-slate-200 rounded-xl overflow-hidden">
+                            <thead class="bg-slate-100 text-slate-800 font-black border-b border-slate-200">
+                                <tr>
+                                    <th class="p-3.5 w-1/5">Tense Structure</th>
+                                    <th class="p-3.5 w-1/4 text-cyan-800 bg-cyan-50/50">Primary Meaning & Aspect</th>
+                                    <th class="p-3.5 w-1/4">Key Time Indicators</th>
+                                    <th class="p-3.5 w-1/3">Key Examples & Common Traps</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 text-xs">
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Simple Past</td>
+                                    <td class="p-3.5 text-slate-700">Completed event at a definite, stated, or understood time in the past.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">yesterday, last week, in 2010, two hours ago, when I was ten</td>
+                                    <td class="p-3.5 italic text-slate-600">"I <span class="font-bold text-cyan-700">saw</span> that movie yesterday." <br><span class="text-rose-600 font-sans font-bold">Trap: Don't use present perfect with definite past time!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Present Perfect (Simple)</td>
+                                    <td class="p-3.5 text-slate-700">Indefinite past experience; present result; unfinished period; duration with for/since.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">already, yet, just, ever, never, recently, lately, for, since, this morning</td>
+                                    <td class="p-3.5 italic text-slate-600">"The water level <span class="font-bold text-cyan-700">has risen</span>." / "I <span class="font-bold text-cyan-700">have read</span> it twice." <br><span class="text-slate-500 font-sans">Who-subject: Who has called? (Never 'did call')</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Present Perfect Progressive</td>
+                                    <td class="p-3.5 text-slate-700">Action started in past and currently continuing; temporary habit; recent action with visible evidence.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">for, since, all week, recently, lately, How long...?</td>
+                                    <td class="p-3.5 italic text-slate-600">"The ice <span class="font-bold text-cyan-700">has been melting</span> rapidly." <br><span class="text-rose-600 font-sans font-bold">Strict Rule: Non-action verbs can NEVER be progressive!</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-800 bg-slate-50">Since Time Clauses</td>
+                                    <td class="p-3.5 text-slate-700">Main clause in Present Perfect; dependent time clause in Simple Past.</td>
+                                    <td class="p-3.5 font-mono text-slate-700">since + S + V-ed (simple past)</td>
+                                    <td class="p-3.5 italic text-slate-600">"Life <span class="font-bold text-cyan-700">has changed</span> since computers <span class="font-bold text-cyan-700">became</span> common." <br><span class="text-emerald-800 font-sans">Use comma if 'since' clause comes first!</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -335,168 +689,165 @@
 
         <section id="section-practice" class="hidden fade-in">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+                <div class="bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden">
                     
-                    <div class="bg-slate-50 border-b border-slate-200 p-6 text-center">
-                        <h2 class="text-2xl font-bold text-slate-800 mb-6">Interactive Present Perfect Practice</h2>
+                    <!-- Exercise Navigation Sub-tab bar -->
+                    <div class="bg-slate-50 border-b border-slate-200 p-5 text-center">
+                        <span class="text-xs font-black tracking-wider uppercase text-cyan-600 block mb-1">Interactive Learning Lab</span>
+                        <h2 class="text-xl sm:text-2xl font-black text-slate-800 mb-4">Unit 5 Mastery Exercises</h2>
                         
-                        <div class="flex flex-wrap justify-center gap-2 p-1 bg-white border border-slate-200 rounded-xl inline-flex shadow-sm">
-                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-list-check mr-2"></i>Knowledge Check
+                        <div class="flex flex-wrap justify-center gap-1.5 p-1 bg-white border border-slate-200 rounded-2xl shadow-xs">
+                            <button id="ex-tab-quiz" onclick="switchExTab('quiz')" class="subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-list-check mr-1.5"></i>Knowledge Check
                             </button>
-                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-keyboard mr-2"></i>Form the Verb
+                            <button id="ex-tab-fill" onclick="switchExTab('fill')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-keyboard mr-1.5"></i>Form the Verb
                             </button>
-                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-bug mr-2"></i>Spot Errors & Commas
+                            <button id="ex-tab-identify" onclick="switchExTab('identify')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-spell-check mr-1.5"></i>Spot Errors & Commas
                             </button>
-                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-layer-group mr-2"></i>Adverb & Time Matcher
+                            <button id="ex-tab-match" onclick="switchExTab('match')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-puzzle-piece mr-1.5"></i>Adverb Matcher
                             </button>
-                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all">
-                                <i class="fa-solid fa-diagram-project mr-2"></i>Clause & Dialogue Linker
+                            <button id="ex-tab-link" onclick="switchExTab('link')" class="subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all">
+                                <i class="fa-solid fa-diagram-project mr-1.5"></i>Clause Linker
                             </button>
                         </div>
                     </div>
 
                     <div class="p-6 md:p-10">
                         
-                        <!-- 1. QUIZ EXERCISE -->
+                        <!-- EXERCISE 1: MULTIPLE CHOICE QUIZ -->
                         <div id="ex-container-quiz" class="block fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Multiple Choice Quiz</h3>
+                                    <h3 class="font-black text-xl text-slate-800">Grammar & Syntax Quiz</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Test present perfect, adverbs, for/since, progressive aspect, and past contrast.</p>
                                 </div>
-                                <span id="quiz-progress" class="bg-cyan-100 text-cyan-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="quiz-progress" class="bg-cyan-100 text-cyan-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
                             
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="quiz-q-text" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="quiz-q-text" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="quiz-options" class="grid sm:grid-cols-1 gap-3 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="quiz-options" class="grid gap-3 mb-6">
+                                <!-- Injected dynamically -->
                             </div>
 
-                            <div id="quiz-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-lg font-medium transition-all"></div>
+                            <div id="quiz-feedback" class="hidden p-4 rounded-xl border text-sm font-medium transition-all"></div>
 
-                            <div class="flex justify-end gap-3">
-                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl pop-out">
+                            <div class="flex justify-end gap-3 mt-4">
+                                <button id="quiz-btn-next" onclick="quizNext()" class="hidden bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-xl pop-out text-sm shadow-md">
                                     Next <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-8 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="quiz-btn-reset" onclick="quizInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Restart Quiz <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 2. FORM THE WORD / FILL BLANKS -->
+                        <!-- EXERCISE 2: FILL IN THE BLANKS -->
                         <div id="ex-container-fill" class="hidden fade-in">
                             <div class="flex justify-between items-center mb-6">
                                 <div>
-                                    <h3 class="font-bold text-xl text-slate-800">Form the Verb / Participle</h3>
-                                    <p class="text-slate-500 text-sm">Select the correct Present Perfect, Progressive, or Past tense form.</p>
+                                    <h3 class="font-black text-xl text-slate-800">Form the Correct Verb or Adverb</h3>
+                                    <p class="text-slate-500 text-xs mt-0.5">Choose the correct present perfect form, time marker, or progressive participle.</p>
                                 </div>
-                                <span id="fill-progress" class="bg-cyan-100 text-cyan-800 font-bold px-4 py-1.5 rounded-full text-sm"></span>
+                                <span id="fill-progress" class="bg-cyan-100 text-cyan-800 font-black px-3.5 py-1.5 rounded-full text-xs"></span>
                             </div>
 
-                            <div class="bg-slate-50 p-8 rounded-2xl border-2 border-slate-100 mb-6 shadow-inner text-center">
-                                <p id="fill-sentence" class="text-xl font-medium text-slate-800 leading-relaxed"></p>
+                            <div class="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 mb-6 text-center shadow-inner">
+                                <p id="fill-sentence" class="text-lg sm:text-xl font-bold text-slate-800 leading-relaxed"></p>
                             </div>
 
-                            <div id="fill-options" class="flex flex-wrap justify-center gap-4 mb-6">
-                                <!-- Injected by JS -->
+                            <div id="fill-options" class="flex flex-wrap justify-center gap-3 mb-6">
+                                <!-- Injected options -->
                             </div>
 
-                            <div id="fill-feedback" class="hidden p-5 rounded-2xl border-2 mb-6 text-center font-bold text-lg transition-all"></div>
+                            <div id="fill-feedback" class="hidden p-4 rounded-xl border text-center font-bold text-sm transition-all mb-4"></div>
 
                             <div class="flex justify-center">
-                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-10 rounded-xl pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="fill-btn-next" onclick="fillNext()" class="hidden bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-10 rounded-xl pop-out text-sm shadow-md">
+                                    Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="fill-btn-reset" onclick="fillInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-10 rounded-xl hover:bg-slate-900 pop-out text-sm shadow-md">
+                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 3. SPOT ERRORS & COMMAS -->
+                        <!-- EXERCISE 3: IDENTIFY ERRORS -->
                         <div id="ex-container-identify" class="hidden fade-in">
-                            <div class="mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Spot Errors & Comma Rules</h3>
-                                <p class="text-sm text-slate-600 mt-1">Click on the word or punctuation that contains a <strong>tense error, stative progressive error, or misplaced comma</strong>.</p>
+                            <div class="mb-4">
+                                <h3 class="font-black text-xl text-slate-800">Spot Errors & Series Commas</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">Click the word or phrase that contains a grammatical error, stative progressive violation, or missing series comma.</p>
                             </div>
 
                             <div class="flex justify-between items-center mb-2">
-                                <span class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">3</span></span>
+                                <span class="text-xs font-bold uppercase text-slate-500 tracking-wider">Sentence <span id="id-current">1</span> of <span id="id-total">4</span></span>
                             </div>
 
-                            <div class="bg-white border-2 border-cyan-100 shadow-inner rounded-xl p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
-                                <div id="id-sentence-container" class="leading-loose text-lg"></div>
+                            <div class="bg-white border-2 border-cyan-100 shadow-inner rounded-2xl p-6 sm:p-8 mb-6 text-center min-h-[120px] flex items-center justify-center">
+                                <div id="id-sentence-container" class="leading-loose text-base sm:text-lg font-medium"></div>
                             </div>
 
-                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-medium"></div>
+                            <div id="id-feedback" class="hidden p-4 rounded-xl border mb-6 text-center font-bold text-xs sm:text-sm"></div>
 
                             <div class="flex justify-center gap-4">
-                                <button id="id-btn-check" onclick="idCheck()" class="bg-gradient-to-r from-cyan-600 to-teal-700 text-white font-bold py-3 px-8 rounded-xl shadow-[0_5px_15px_rgba(8,145,178,0.4)] pop-out">
+                                <button id="id-btn-check" onclick="idCheck()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Answer <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-lg pop-out">
-                                    Next <i class="fa-solid fa-arrow-right ml-2"></i>
+                                <button id="id-btn-next" onclick="idNext()" class="hidden bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
+                                    Next Sentence <i class="fa-solid fa-arrow-right ml-2"></i>
                                 </button>
-                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out">
-                                    Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="id-btn-reset" onclick="idInit()" class="hidden bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold py-3 px-8 rounded-xl pop-out text-sm">
+                                    Try Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 4. ADVERB & TIME MATCHERS -->
+                        <!-- EXERCISE 4: CONCEPT & ADVERB MATCHER -->
                         <div id="ex-container-match" class="hidden fade-in">
                             <div class="text-center mb-6">
-                                <h3 class="font-bold text-xl text-slate-800">Adverb & Time Matcher</h3>
-                                <p class="text-slate-500 text-sm mt-1">Connect the time phrase/adverb (left) to its correct grammatical rule or meaning (right).</p>
+                                <h3 class="font-black text-xl text-slate-800">Present Perfect & Adverb Matcher</h3>
+                                <p class="text-slate-500 text-xs mt-1">Select an adverb or time phrase on the left, then click its corresponding grammar rule on the right.</p>
                             </div>
                             
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-4 md:gap-8 max-w-2xl mx-auto mb-6">
                                 <div id="match-col-left" class="space-y-3"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="match-col-right" class="space-y-3"></div>
                             </div>
 
-                            <div id="match-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="match-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-2"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-gradient-to-r from-cyan-600 to-teal-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-4">
+                                <button id="match-btn-reset" onclick="matchInit()" class="hidden bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Play Again <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- 5. SENTENCE & CLAUSE LINKER -->
+                        <!-- EXERCISE 5: CLAUSE & DIALOGUE LINKER -->
                         <div id="ex-container-link" class="hidden fade-in">
-                            <div class="mb-6 text-center">
-                                <h3 class="font-bold text-xl text-slate-800">Clause & Dialogue Linker</h3>
-                                <p class="text-sm text-slate-600 mt-1">Connect the main clause or prompt (left) to the correct grammatical continuation or response (right).</p>
+                            <div class="text-center mb-6">
+                                <h3 class="font-black text-xl text-slate-800">Clause & Dialogue Linker</h3>
+                                <p class="text-slate-500 text-xs mt-1">Click a starter clause or prompt (left), then click its logically correct completion (right) to link them with arrows.</p>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-8 md:gap-16 max-w-2xl mx-auto mb-8 relative">
+                            <div class="grid grid-cols-2 gap-6 md:gap-16 max-w-2xl mx-auto mb-6 relative">
                                 <div id="link-col-left" class="space-y-4"></div>
-                                <div class="hidden md:flex absolute inset-0 items-center justify-center pointer-events-none">
-                                    <div class="h-full w-px bg-slate-200"></div>
-                                </div>
                                 <div id="link-col-right" class="space-y-4"></div>
                             </div>
 
-                            <div id="link-feedback" class="text-center h-8 font-bold text-lg transition-colors mt-4"></div>
+                            <div id="link-feedback" class="text-center h-8 font-bold text-sm sm:text-base transition-colors mt-4"></div>
 
-                            <div class="flex justify-center mt-6">
-                                <button id="link-btn-check" onclick="linkCheck()" class="bg-gradient-to-r from-cyan-600 to-teal-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg pop-out">
+                            <div class="flex justify-center mt-6 gap-3">
+                                <button id="link-btn-check" onclick="linkCheck()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-8 rounded-xl shadow-md pop-out text-sm">
                                     Check Connections <i class="fa-solid fa-check ml-2"></i>
                                 </button>
-                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-200 text-slate-800 font-bold py-3 px-10 rounded-xl hover:bg-slate-300 pop-out">
-                                    Restart <i class="fa-solid fa-rotate-right ml-2"></i>
+                                <button id="link-btn-reset" onclick="linkInit()" class="hidden bg-slate-800 text-white font-bold py-3 px-8 rounded-xl hover:bg-slate-900 pop-out text-sm">
+                                    Reset Connections <i class="fa-solid fa-rotate-right ml-2"></i>
                                 </button>
                             </div>
                         </div>
@@ -507,245 +858,215 @@
         </section>
     </main>
 
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+        <p>Unit 5: A Changing World (The Present Perfect) &bull; Interactive Grammar Companion</p>
+    </footer>
+
     <script>
-        // Main Tab Navigation Switcher
+        /* ======================================================== */
+        /* 1. TAB CONTROLLERS                                       */
+        /* ======================================================== */
         function switchMainTab(tabId) {
             const isStudy = tabId === 'study';
-            
-            document.getElementById('tab-study').className = isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            document.getElementById('tab-practice').className = !isStudy ? 'tab-active px-2 py-4 text-sm uppercase tracking-wide transition-colors' : 'tab-inactive px-2 py-4 text-sm uppercase tracking-wide transition-colors';
-            
+            document.getElementById('main-tab-study').className = isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+            document.getElementById('main-tab-practice').className = !isStudy ? 'main-tab-active px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all' : 'main-tab-inactive px-3 py-5 text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 transition-all';
+
             if (isStudy) {
                 document.getElementById('section-study').classList.remove('hidden');
                 document.getElementById('section-practice').classList.add('hidden');
-                setTimeout(redrawArrows, 50);
+                hideArrows();
             } else {
                 document.getElementById('section-study').classList.add('hidden');
                 document.getElementById('section-practice').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-                
                 if(quizCurrent === 0 && matchCount === 0 && idCurrent === 0) {
                     quizInit(); fillInit(); idInit(); matchInit(); linkInit();
                 }
-                setTimeout(redrawArrows, 50);
+                setTimeout(redrawArrows, 60);
             }
         }
 
-        // Sub-Tab Navigation for Practice Exercises
+        const grammarTabs = ['statements', 'forsince', 'contrast', 'prog', 'writing', 'matrix'];
+        function switchGrammarTab(gId) {
+            grammarTabs.forEach(tab => {
+                const btn = document.getElementById(`gtab-btn-${tab}`);
+                const panel = document.getElementById(`gpanel-${tab}`);
+                if (tab === gId) {
+                    btn.className = 'grammar-nav-btn grammar-nav-active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.className = 'grammar-nav-btn grammar-nav-inactive px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2';
+                    panel.classList.add('hidden');
+                }
+            });
+            hideArrows();
+        }
+
+        const practiceTabs = ['quiz', 'fill', 'identify', 'match', 'link'];
         function switchExTab(exId) {
-            const tabs = ['quiz', 'fill', 'identify', 'match', 'link'];
-            tabs.forEach(t => {
+            practiceTabs.forEach(t => {
                 const btn = document.getElementById(`ex-tab-${t}`);
                 const container = document.getElementById(`ex-container-${t}`);
                 if (t === exId) {
-                    btn.className = 'subtab-active px-4 py-2.5 rounded-lg text-sm font-semibold transition-all shadow-md';
-                    container.classList.remove('hidden'); container.classList.add('block');
+                    btn.className = 'subtab-active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.remove('hidden');
                 } else {
-                    btn.className = 'subtab-inactive px-4 py-2.5 rounded-lg text-sm font-semibold transition-all';
-                    container.classList.remove('block'); container.classList.add('hidden');
+                    btn.className = 'subtab-inactive px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all';
+                    container.classList.add('hidden');
                 }
             });
-            setTimeout(redrawArrows, 50);
+            setTimeout(redrawArrows, 60);
         }
 
-        let activeTrigger = null;
-
-        function setupStudyInteractive() {
-            const triggers = document.querySelectorAll('.interactive-trigger');
-            triggers.forEach(trig => {
-                trig.addEventListener('mouseenter', () => activateLink(trig));
-                trig.addEventListener('mouseleave', () => deactivateLink(trig));
-                trig.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if(trig.classList.contains('interactive-active-trigger')) deactivateLink(trig);
-                    else {
-                        triggers.forEach(t => deactivateLink(t));
-                        activateLink(trig);
-                        setTimeout(() => { if(activeTrigger === trig) deactivateLink(trig); }, 3000);
-                    }
-                });
-            });
-            window.addEventListener('scroll', hideArrows);
-            window.addEventListener('resize', redrawArrows);
-        }
-
-        function activateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.add('interactive-active-target');
-                trig.classList.add('interactive-active-trigger');
-                activeTrigger = trig;
-                redrawArrows();
-            }
-        }
-
-        function deactivateLink(trig) {
-            const targetId = trig.getAttribute('data-target');
-            const targetEl = document.getElementById(targetId);
-            if(targetEl) {
-                targetEl.classList.remove('interactive-active-target');
-                trig.classList.remove('interactive-active-trigger');
-            }
-            if(activeTrigger === trig) { activeTrigger = null; redrawArrows(); }
-        }
-
-        function hideArrows() { if(activeTrigger) deactivateLink(activeTrigger); }
-
-        function createArrowSVG(startEl, endEl, state) {
-            if (!startEl || !endEl) return '';
-            const startRect = startEl.getBoundingClientRect();
-            const endRect = endEl.getBoundingClientRect();
-            
-            let startX = startRect.left + (startRect.width / 2);
-            let startY = startRect.bottom + 2;
-            let endX = endRect.left + (endRect.width / 2);
-            let endY = endRect.bottom + 2;
-            
-            if (state !== 'study') {
-                startX = startRect.right + 2;
-                startY = startRect.top + (startRect.height / 2);
-                endX = endRect.left - 2;
-                endY = endRect.top + (endRect.height / 2);
-            }
-
-            let color = '#94a3b8'; let marker = 'url(#arrowhead-neutral)';
-            
-            if(state === 'study') { color = '#0891b2'; marker = 'url(#arrowhead-study)'; }
-            if(state === 'correct') { color = '#16a34a'; marker = 'url(#arrowhead-correct)'; }
-            if(state === 'incorrect') { color = '#dc2626'; marker = 'url(#arrowhead-incorrect)'; }
-            
-            if (state === 'study') {
-                const curve = Math.max(20, Math.abs(endX - startX) * 0.15);
-                const lowY = Math.max(startY, endY) + curve;
-                return `<path d="M ${startX},${startY} Q ${(startX+endX)/2},${lowY} ${endX},${endY + 6}" stroke="${color}" stroke-width="2.5" fill="none" stroke-dasharray="4" marker-end="${marker}"/>`;
-            } else {
-                const curveX = (startX + endX) / 2;
-                return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 6},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
-            }
-        }
-
-        function redrawArrows() {
-            let html = '';
-            
-            if (activeTrigger && document.getElementById('section-study').classList.contains('block')) {
-                const targetId = activeTrigger.getAttribute('data-target');
-                const targetEl = document.getElementById(targetId);
-                if (targetEl) html += createArrowSVG(activeTrigger, targetEl, 'study');
-            }
-            
-            if (document.getElementById('ex-container-link') && document.getElementById('ex-container-link').classList.contains('block')) {
-                linkUserPairs.forEach(pair => {
-                    const startEl = document.getElementById(`link-start-${pair.startId}`);
-                    const endEl = document.getElementById(`link-end-${pair.endId}`);
-                    if(startEl && endEl) html += createArrowSVG(startEl, endEl, pair.status || 'neutral');
-                });
-            }
-            
-            document.getElementById('svg-paths-container').innerHTML = html;
-            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
-        }
-
-        function shuffleArray(array) {
-            const arr = [...array];
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
-
-        /* 1. QUIZ DATA */
+        /* ======================================================== */
+        /* 2. QUIZ MODULE                                           */
+        /* ======================================================== */
         const quizData = [
-            { q: "Aasim has recently graduated from college and _____ a new job.", opts: ["started", "has started", "starts"], ans: 0, exp: "When two present perfect verbs are connected by 'and', do not repeat the auxiliary 'has/have'." },
-            { q: "_____ been to the new science institute?", opts: ["Who has", "Who have", "Who did"], ans: 0, exp: "In Who-subject questions with present perfect, the auxiliary is always singular 'has'." },
-            { q: "I haven't finished evaluating the lab results _____.", opts: ["yet", "already", "still"], ans: 0, exp: "Use 'yet' at the end of negative statements or questions to mean 'until now'." },
-            { q: "She has lived in Mexico _____ five years.", opts: ["for", "since", "during"], ans: 0, exp: "Use 'for' with a duration / period of time (five years)." },
-            { q: "Since she graduated from university, she _____ at the research center.", opts: ["has worked", "worked", "is working"], ans: 0, exp: "Main clauses introduced by a 'since' past-time clause take the present perfect." },
-            { q: "A: 'Have you ever visited Tokyo?' B: 'Yes, I _____ there last year.'", opts: ["went", "have gone", "have been"], ans: 0, exp: "Switch to simple past when supplying a specific past time detail ('last year')." },
-            { q: "They _____ Professor Miller for over a decade.", opts: ["have known", "have been knowing", "knowed"], ans: 0, exp: "Non-action stative verbs like 'know' cannot be used in the progressive form." },
-            { q: "He still _____ submitted his final thesis to the committee.", opts: ["hasn't", "haven't", "isn't"], ans: 0, exp: "'Still' in negative statements goes BEFORE the negative auxiliary 'hasn't/haven't'." }
+            { 
+                q: "Aasim has recently graduated from college and _____ a new job.", 
+                opts: ["started", "has started", "starts"], 
+                ans: 0, 
+                exp: "When two present perfect verbs are joined by 'and', do not repeat 'has' or 'have' before the second verb." 
+            },
+            { 
+                q: "_____ to the new environmental exhibition this week?", 
+                opts: ["Who has been", "Who have been", "Who did go"], 
+                ans: 0, 
+                exp: "In subject questions with Who/What, the present perfect auxiliary is always 3rd-person singular 'has'." 
+            },
+            { 
+                q: "I sent Monica three emails, but she _____ hasn’t replied.", 
+                opts: ["still", "yet", "already"], 
+                ans: 0, 
+                exp: "'Still' in negative statements means 'up to now' and is placed BEFORE haven't / hasn't." 
+            },
+            { 
+                q: "The researcher hasn't completed his analysis of the water samples _____.", 
+                opts: ["yet", "already", "still"], 
+                ans: 0, 
+                exp: "'Yet' is placed at the end of negative statements and questions to mean 'until now'." 
+            },
+            { 
+                q: "Paro the robot seal has been on sale in the United States _____ 2009.", 
+                opts: ["since", "for", "during"], 
+                ans: 0, 
+                exp: "Use 'since' with a specific calendar year or point in time (since 2009)." 
+            },
+            { 
+                q: "Life has changed tremendously since personal computers _____ widely available.", 
+                opts: ["became", "have become", "become"], 
+                ans: 0, 
+                exp: "Inside a 'since' past time clause, use the simple past ('became') while the main clause takes the present perfect." 
+            },
+            { 
+                q: "They _____ Professor Miller for over twenty years.", 
+                opts: ["have known", "have been knowing", "knowed"], 
+                ans: 0, 
+                exp: "Stative/non-action verbs like 'know' cannot be used in the progressive form." 
+            },
+            { 
+                q: "A: 'Have you seen that documentary about the Aral Sea?' B: 'Yes, I _____ it yesterday.'", 
+                opts: ["watched", "have watched", "was watching"], 
+                ans: 0, 
+                exp: "Switch to the simple past when supplying definite time details ('yesterday')." 
+            }
         ];
-        
-        let activeQuiz = []; let quizCurrent = 0; let quizScore = 0; let quizAns = false;
+
+        let activeQuiz = [];
+        let quizCurrent = 0;
+        let quizScore = 0;
+        let quizAnswered = false;
+
+        function shuffle(arr) {
+            const a = [...arr];
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
 
         function quizInit() {
-            activeQuiz = shuffleArray(quizData).slice(0, 6);
-            quizCurrent = 0; quizScore = 0;
+            activeQuiz = shuffle(quizData).slice(0, 6);
+            quizCurrent = 0;
+            quizScore = 0;
             document.getElementById('quiz-btn-reset').classList.add('hidden');
             quizLoad();
         }
 
         function quizLoad() {
-            quizAns = false;
+            quizAnswered = false;
             const q = activeQuiz[quizCurrent];
             document.getElementById('quiz-progress').textContent = `${quizCurrent + 1} / ${activeQuiz.length}`;
             
-            let qText = q.q;
-            if(qText.includes("_____")) {
-                qText = qText.replace('_____', '<span class="border-b-2 border-slate-400 font-bold px-4 text-cyan-600">_____</span>');
-            }
-            document.getElementById('quiz-q-text').innerHTML = qText;
-            
+            let qHtml = q.q.replace('_____', '<span class="border-b-2 border-cyan-500 font-bold px-3 text-cyan-600">_____</span>');
+            document.getElementById('quiz-q-text').innerHTML = qHtml;
+
             const optsCon = document.getElementById('quiz-options');
             optsCon.innerHTML = '';
-            
+
             q.opts.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-medium text-slate-700 flex items-center justify-between shadow-sm';
-                btn.innerHTML = `<span>${opt}</span> <i class="fa-solid fa-circle text-slate-200 indicator-icon"></i>`;
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 bg-white font-semibold text-slate-700 flex items-center justify-between text-sm sm:text-base shadow-xs';
+                btn.innerHTML = `<span>${opt}</span> <i class="fa-regular fa-circle text-slate-300"></i>`;
                 btn.onclick = () => quizSelect(idx, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('quiz-feedback').classList.add('hidden');
             document.getElementById('quiz-btn-next').classList.add('hidden');
         }
 
-        function quizSelect(idx, btnElement) {
-            if (quizAns) return;
-            quizAns = true;
-            
+        function quizSelect(idx, btn) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
             const q = activeQuiz[quizCurrent];
-            const isCor = idx === q.ans;
-            if (isCor) quizScore++;
-            
+            const isCorrect = idx === q.ans;
+            if (isCorrect) quizScore++;
+
             const allBtns = document.getElementById('quiz-options').children;
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].classList.add('option-disabled');
                 allBtns[i].onclick = null;
-                const icon = allBtns[i].querySelector('.indicator-icon');
-                
+                const icon = allBtns[i].querySelector('i');
                 if (i === q.ans) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-correct';
-                    icon.className = 'fa-solid fa-circle-check text-green-600 text-xl';
-                } else if (i === idx && !isCor) {
-                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-medium flex items-center justify-between option-incorrect';
-                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-xl';
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-correct text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-check text-green-600 text-lg';
+                } else if (i === idx && !isCorrect) {
+                    allBtns[i].className = 'w-full text-left p-4 rounded-xl border-2 font-bold flex items-center justify-between option-incorrect text-sm sm:text-base';
+                    icon.className = 'fa-solid fa-circle-xmark text-red-600 text-lg';
                 }
             }
-            
+
             const fb = document.getElementById('quiz-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-800', 'bg-red-50', 'border-red-200', 'text-red-800');
-            
-            if (isCor) {
+            if (isCorrect) {
                 fb.classList.add('bg-green-50', 'border-green-200', 'text-green-800');
-                fb.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Correct! ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-check mr-1.5"></i> <strong>Correct!</strong> ${q.exp}`;
             } else {
                 fb.classList.add('bg-red-50', 'border-red-200', 'text-red-800');
-                fb.innerHTML = `<i class="fa-solid fa-xmark mr-2"></i> Incorrect. ${q.exp}`;
+                fb.innerHTML = `<i class="fa-solid fa-xmark mr-1.5"></i> <strong>Incorrect.</strong> ${q.exp}`;
             }
-            
-            document.getElementById('quiz-btn-next').classList.remove('hidden');
-            document.getElementById('quiz-btn-next').innerHTML = quizCurrent === activeQuiz.length - 1 ? "Finish <i class='fa-solid fa-flag-checkered ml-2'></i>" : "Next <i class='fa-solid fa-arrow-right ml-2'></i>";
+
+            const nextBtn = document.getElementById('quiz-btn-next');
+            nextBtn.classList.remove('hidden');
+            nextBtn.innerHTML = quizCurrent === activeQuiz.length - 1 ? 'Finish Quiz <i class="fa-solid fa-flag-checkered ml-1.5"></i>' : 'Next Question <i class="fa-solid fa-arrow-right ml-1.5"></i>';
         }
 
         function quizNext() {
             if (quizCurrent < activeQuiz.length - 1) {
-                quizCurrent++; quizLoad();
+                quizCurrent++;
+                quizLoad();
             } else {
                 document.getElementById('quiz-options').innerHTML = '';
-                document.getElementById('quiz-q-text').innerHTML = `<div class="py-4"><i class="fa-solid fa-award text-6xl text-cyan-600 mb-6 animate-bounce"></i><br><span class="text-3xl font-bold text-slate-800">Score: ${quizScore}/${activeQuiz.length}</span></div>`;
+                document.getElementById('quiz-q-text').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-award text-5xl text-cyan-600 mb-3"></i>
+                        <h4 class="text-2xl font-black text-slate-800">Quiz Completed!</h4>
+                        <p class="text-slate-600 text-sm mt-1">You achieved: <strong class="text-cyan-600 text-xl">${quizScore} / ${activeQuiz.length}</strong></p>
+                    </div>
+                `;
                 document.getElementById('quiz-progress').textContent = "Done";
                 document.getElementById('quiz-feedback').classList.add('hidden');
                 document.getElementById('quiz-btn-next').classList.add('hidden');
@@ -753,79 +1074,98 @@
             }
         }
 
-        /* 2. FILL DATA */
+        /* ======================================================== */
+        /* 3. FORM THE VERB / FILL IN BLANKS                        */
+        /* ======================================================== */
         const fillData = [
-            { pre: "She has been working here ", blank: "since", post: " last month.", opts: ["since", "for", "during"] },
-            { pre: "I ", blank: "still haven't", post: " received the confirmation email.", opts: ["still haven't", "haven't still", "yet haven't"] },
-            { pre: "They ", blank: "have known", post: " each other since childhood.", opts: ["have known", "have been knowing", "knew"] },
-            { pre: "I didn't have breakfast ", blank: "this morning", post: " (said at 3 PM).", opts: ["this morning", "for morning", "since morning"] },
-            { pre: "Who ", blank: "has visited", post: " the new museum downtown?", opts: ["has visited", "have visited", "did visit"] }
+            { pre: "The sea ice in Greenland ", blank: "has been melting", post: " rapidly in recent years.", opts: ["has been melting", "is melting", "melts"] },
+            { pre: "I ", blank: "still haven't", post: " found my laboratory keys.", opts: ["still haven't", "haven't still", "yet haven't"] },
+            { pre: "She has known her business partner ", blank: "for", post: " more than ten years.", opts: ["for", "since", "during"] },
+            { pre: "Ever since he dropped his smartphone, the camera ", blank: "has been", post: " blurry.", opts: ["has been", "was", "is being"] },
+            { pre: "How many research papers ", blank: "have you written", post: " this semester?", opts: ["have you written", "have you been writing", "did you wrote"] }
         ];
 
-        let activeFill = []; let fillCur = 0; let fillAns = false;
+        let activeFill = [];
+        let fillCur = 0;
+        let fillAns = false;
 
         function fillInit() {
-            activeFill = shuffleArray(fillData).slice(0, 5);
-            fillCur = 0; document.getElementById('fill-btn-reset').classList.add('hidden');
+            activeFill = shuffle(fillData);
+            fillCur = 0;
+            document.getElementById('fill-btn-reset').classList.add('hidden');
             fillLoad();
         }
 
         function fillLoad() {
-            fillAns = false; const q = activeFill[fillCur];
-            document.getElementById('fill-progress').textContent = `${fillCur + 1}/${activeFill.length}`;
-            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-300">___</span>${q.post}`;
-            
-            const optsCon = document.getElementById('fill-options'); optsCon.innerHTML = '';
-            shuffleArray([...q.opts]).forEach((opt) => {
+            fillAns = false;
+            const q = activeFill[fillCur];
+            document.getElementById('fill-progress').textContent = `${fillCur + 1} / ${activeFill.length}`;
+            document.getElementById('fill-sentence').innerHTML = `${q.pre}<span id="fill-target" class="fill-blank text-slate-400">_____</span>${q.post}`;
+
+            const optsCon = document.getElementById('fill-options');
+            optsCon.innerHTML = '';
+            shuffle(q.opts).forEach(opt => {
                 const btn = document.createElement('button');
-                btn.className = 'pop-out bg-white border-2 border-cyan-200 text-cyan-700 font-bold py-3 px-6 rounded-xl hover:bg-cyan-50 hover:border-cyan-400 shadow-sm text-lg';
-                btn.textContent = opt; btn.onclick = () => fillSelect(opt, q.blank, btn);
+                btn.className = 'pop-out bg-white border-2 border-cyan-200 text-cyan-800 font-bold py-2.5 px-6 rounded-xl hover:bg-cyan-50 hover:border-cyan-400 shadow-xs text-sm sm:text-base';
+                btn.textContent = opt;
+                btn.onclick = () => fillSelect(opt, q.blank, btn);
                 optsCon.appendChild(btn);
             });
-            
+
             document.getElementById('fill-feedback').classList.add('hidden');
             document.getElementById('fill-btn-next').classList.add('hidden');
         }
 
-        function fillSelect(sel, cor, btn) {
-            if (fillAns) return; fillAns = true;
+        function fillSelect(choice, correct, btn) {
+            if (fillAns) return;
+            fillAns = true;
+
             const target = document.getElementById('fill-target');
-            target.textContent = sel; target.classList.add('filled');
-            
-            const isCor = sel === cor;
+            target.textContent = choice;
+            target.classList.add('filled');
+
+            const isCorrect = choice === correct;
             const fb = document.getElementById('fill-feedback');
             fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-red-50', 'text-red-700', 'border-red-200');
-            
+
             const allBtns = document.getElementById('fill-options').children;
             for (let i = 0; i < allBtns.length; i++) {
-                allBtns[i].disabled = true; allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
-                if (allBtns[i].textContent === cor) {
-                    allBtns[i].classList.remove('border-cyan-200', 'text-cyan-700', 'opacity-50');
+                allBtns[i].disabled = true;
+                allBtns[i].classList.add('opacity-50', 'cursor-not-allowed');
+                if (allBtns[i].textContent === correct) {
+                    allBtns[i].classList.remove('border-cyan-200', 'text-cyan-800', 'opacity-50');
                     allBtns[i].classList.add('border-green-500', 'bg-green-100', 'text-green-800');
                 }
             }
 
-            if (isCor) {
+            if (isCorrect) {
                 target.classList.add('correct');
-                btn.classList.replace('border-cyan-200', 'border-green-500'); btn.classList.add('bg-green-100', 'text-green-800', 'scale-105');
                 fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct!";
+                fb.innerHTML = "<i class='fa-solid fa-circle-check mr-2'></i> Correct! Well done.";
             } else {
                 target.classList.add('incorrect');
-                btn.classList.replace('border-cyan-200', 'border-red-500'); btn.classList.add('bg-red-100', 'text-red-800', 'opacity-100');
                 fb.classList.add('bg-red-50', 'text-red-700', 'border-red-200');
-                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review tense and adverb rules.";
+                fb.innerHTML = "<i class='fa-solid fa-circle-xmark mr-2'></i> Incorrect. Review tense and adverb position rules.";
             }
-            
+
             document.getElementById('fill-btn-next').classList.remove('hidden');
-            if (fillCur === activeFill.length - 1) document.getElementById('fill-btn-next').innerHTML = `Finish <i class="fa-solid fa-flag-checkered ml-2"></i>`;
+            if (fillCur === activeFill.length - 1) {
+                document.getElementById('fill-btn-next').innerHTML = 'Finish <i class="fa-solid fa-flag-checkered ml-1.5"></i>';
+            }
         }
 
         function fillNext() {
-            if (fillCur < activeFill.length - 1) { fillCur++; fillLoad(); } 
-            else {
+            if (fillCur < activeFill.length - 1) {
+                fillCur++;
+                fillLoad();
+            } else {
                 document.getElementById('fill-options').innerHTML = '';
-                document.getElementById('fill-sentence').innerHTML = `<div class="py-6"><i class="fa-solid fa-award text-6xl text-cyan-600 mb-6"></i><br><span class="text-2xl font-bold">Great Job!</span></div>`;
+                document.getElementById('fill-sentence').innerHTML = `
+                    <div class="py-4">
+                        <i class="fa-solid fa-circle-check text-5xl text-green-500 mb-2"></i>
+                        <h4 class="text-xl font-black text-slate-800">All Completed!</h4>
+                    </div>
+                `;
                 document.getElementById('fill-progress').textContent = "Done";
                 document.getElementById('fill-feedback').classList.add('hidden');
                 document.getElementById('fill-btn-next').classList.add('hidden');
@@ -833,166 +1173,247 @@
             }
         }
 
-        /* 3. SPOT ERRORS DATA */
+        /* ======================================================== */
+        /* 4. IDENTIFY ERRORS & SERIES COMMAS                       */
+        /* ======================================================== */
         const idData = [
-            [{w:"Aasim"}, {w:"has"}, {w:"recently"}, {w:"graduated"}, {w:"and"}, {w:"has started", isErr:true}, {w:"a"}, {w:"new"}, {w:"job."}],
-            [{w:"They"}, {w:"have"}, {w:"been knowing", isErr:true}, {w:"each"}, {w:"other"}, {w:"for"}, {w:"years."}],
-            [{w:"Birds,"}, {w:"butterflies"}, {w:"and", isErr:true}, {w:"bees"}, {w:"gathered"}, {w:"in"}, {w:"the"}, {w:"garden."}], // Missing Oxford comma
-            [{w:"I"}, {w:"have"}, {w:"gone"}, {w:"to"}, {w:"Paris"}, {w:"last year.", isErr:true}]
+            {
+                tokens: [{w:"They"}, {w:"have"}, {w:"been knowing", isErr:true}, {w:"each"}, {w:"other"}, {w:"for"}, {w:"many"}, {w:"years."}],
+                explanation: "'Know' is a stative non-action verb and cannot be progressive! Use: 'have known'."
+            },
+            {
+                tokens: [{w:"Aasim"}, {w:"has"}, {w:"graduated"}, {w:"and"}, {w:"has started", isErr:true}, {w:"a"}, {w:"new"}, {w:"job."}],
+                explanation: "When two present perfect verbs are joined by 'and', do not repeat 'has/have'! Say: 'has graduated and started'."
+            },
+            {
+                tokens: [{w:"She"}, {w:"has"}, {w:"moved"}, {w:"to"}, {w:"San Francisco", isErr:false}, {w:"two years ago.", isErr:true}],
+                explanation: "Definite past time markers ('two years ago') require the simple past ('moved'), not present perfect."
+            },
+            {
+                tokens: [{w:"He"}, {w:"packed"}, {w:"his"}, {w:"jacket"}, {w:"boots and gloves", isErr:true}, {w:"for"}, {w:"the"}, {w:"trip."}],
+                explanation: "Missing series comma! Use commas between items in a series: 'jacket, boots, and gloves'."
+            }
         ];
-        
-        let idCurrent = 0; let idSelected = new Set(); let idAns = false;
+
+        let idCurrent = 0;
+        let idSelected = new Set();
+        let idAnswered = false;
 
         function idInit() {
-            idCurrent = 0; document.getElementById('id-total').textContent = idData.length;
-            document.getElementById('id-btn-reset').classList.add('hidden'); idLoad();
+            idCurrent = 0;
+            document.getElementById('id-total').textContent = idData.length;
+            document.getElementById('id-btn-reset').classList.add('hidden');
+            idLoad();
         }
 
         function idLoad() {
-            idSelected.clear(); idAns = false;
+            idSelected.clear();
+            idAnswered = false;
             document.getElementById('id-current').textContent = idCurrent + 1;
-            const con = document.getElementById('id-sentence-container'); con.innerHTML = '';
-            
-            idData[idCurrent].forEach((item, idx) => {
+            const container = document.getElementById('id-sentence-container');
+            container.innerHTML = '';
+
+            idData[idCurrent].tokens.forEach((item, idx) => {
                 const span = document.createElement('span');
-                span.textContent = item.w; span.className = 'click-word bg-slate-100 text-slate-800';
+                span.textContent = item.w;
+                span.className = 'click-word bg-slate-100 text-slate-800';
                 span.dataset.isErr = item.isErr ? "true" : "false";
                 span.onclick = () => {
-                    if(idAns) return;
-                    if(idSelected.has(idx)) { idSelected.delete(idx); span.classList.remove('selected'); }
-                    else { idSelected.add(idx); span.classList.add('selected'); }
+                    if (idAnswered) return;
+                    if (idSelected.has(idx)) {
+                        idSelected.delete(idx);
+                        span.classList.remove('selected');
+                    } else {
+                        idSelected.add(idx);
+                        span.classList.add('selected');
+                    }
                 };
-                con.appendChild(span);
+                container.appendChild(span);
             });
+
             document.getElementById('id-feedback').classList.add('hidden');
             document.getElementById('id-btn-check').classList.remove('hidden');
             document.getElementById('id-btn-next').classList.add('hidden');
         }
 
         function idCheck() {
-            if(idAns) return; idAns = true;
+            if (idAnswered) return;
+            idAnswered = true;
+
             const spans = document.querySelectorAll('#id-sentence-container .click-word');
-            let cor = 0; let tot = idData[idCurrent].filter(i => i.isErr).length; let err = false;
+            let correctCount = 0;
+            let totalErrors = idData[idCurrent].tokens.filter(t => t.isErr).length;
+            let falseSelected = false;
 
             spans.forEach((span, idx) => {
-                const isTar = span.dataset.isErr === "true"; const isSel = idSelected.has(idx);
+                const isTarget = span.dataset.isErr === "true";
+                const isChosen = idSelected.has(idx);
                 span.classList.remove('selected', 'bg-slate-100');
-                if(isTar && isSel) { span.classList.add('correct'); cor++; }
-                else if (!isTar && isSel) { span.classList.add('incorrect'); err = true; }
-                else if (isTar && !isSel) { span.classList.add('missed'); err = true; }
-                else { span.classList.add('bg-transparent', 'text-slate-400'); span.style.cursor = 'default'; }
+
+                if (isTarget && isChosen) {
+                    span.classList.add('correct');
+                    correctCount++;
+                } else if (!isTarget && isChosen) {
+                    span.classList.add('incorrect');
+                    falseSelected = true;
+                } else if (isTarget && !isChosen) {
+                    span.classList.add('missed');
+                } else {
+                    span.classList.add('text-slate-400');
+                    span.style.cursor = 'default';
+                }
             });
 
             const fb = document.getElementById('id-feedback');
-            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-700', 'border-amber-200');
-            
-            if(!err && cor === tot) { fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200'); fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect! You found the error."; } 
-            else { fb.classList.add('bg-amber-50', 'text-amber-700', 'border-amber-200'); fb.innerHTML = `Watch out for repeated auxiliary verbs, stative progressive errors, missing series commas, or definite past time clues.`; }
+            fb.classList.remove('hidden', 'bg-green-50', 'text-green-700', 'border-green-200', 'bg-amber-50', 'text-amber-800', 'border-amber-200');
+
+            if (!falseSelected && correctCount === totalErrors) {
+                fb.classList.add('bg-green-50', 'text-green-700', 'border-green-200');
+                fb.innerHTML = `<i class="fa-solid fa-star mr-1.5"></i> <strong>Spot on!</strong> ${idData[idCurrent].explanation}`;
+            } else {
+                fb.classList.add('bg-amber-50', 'text-amber-800', 'border-amber-200');
+                fb.innerHTML = `<i class="fa-solid fa-circle-exclamation mr-1.5"></i> <strong>Grammar Note:</strong> ${idData[idCurrent].explanation}`;
+            }
 
             document.getElementById('id-btn-check').classList.add('hidden');
-            if(idCurrent < idData.length - 1) document.getElementById('id-btn-next').classList.remove('hidden');
-            else document.getElementById('id-btn-reset').classList.remove('hidden');
+            if (idCurrent < idData.length - 1) {
+                document.getElementById('id-btn-next').classList.remove('hidden');
+            } else {
+                document.getElementById('id-btn-reset').classList.remove('hidden');
+            }
         }
-        function idNext() { if (idCurrent < idData.length - 1) { idCurrent++; idLoad(); } }
 
-        /* 4. MATCH DATA */
+        function idNext() {
+            if (idCurrent < idData.length - 1) {
+                idCurrent++;
+                idLoad();
+            }
+        }
+
+        /* ======================================================== */
+        /* 5. CONCEPT & ADVERB MATCHER                              */
+        /* ======================================================== */
         const matchPool = [
-            { id: 1, left: "For 3 years", right: "Duration / Amount of Time" },
-            { id: 2, left: "Since 2018", right: "Specific Starting Point in Time" },
-            { id: 3, left: "Haven't finished yet", right: "At End of Negative / Question" },
-            { id: 4, left: "Still haven't called", right: "Before Haven't / Hasn't" },
-            { id: 5, left: "Have you ever", right: "Question about Any Time Before Now" }
+            { id: 1, left: "Still haven't finished", right: "Placed Before Negative Auxiliary" },
+            { id: 2, left: "Haven't finished yet", right: "Placed at End of Negative / Question" },
+            { id: 3, left: "For twenty years", right: "Duration / Count of Time Units" },
+            { id: 4, left: "Since 2008", right: "Specific Past Starting Moment" },
+            { id: 5, left: "Who has been to Asia?", right: "Subject Question (Always Singular 'Has')" },
+            { id: 6, left: "Have lived here since I was 20", right: "Since Clause with Simple Past" }
         ];
 
-        let activeMatch = []; let mSelLeft = null; let mSelRight = null; let matchCount = 0;
+        let activeMatch = [];
+        let mSelLeft = null;
+        let mSelRight = null;
+        let matchCount = 0;
 
         function matchInit() {
-            mSelLeft = null; mSelRight = null; matchCount = 0;
-            activeMatch = shuffleArray([...matchPool]);
-            
+            mSelLeft = null;
+            mSelRight = null;
+            matchCount = 0;
+            activeMatch = shuffle([...matchPool]);
+
             document.getElementById('match-btn-reset').classList.add('hidden');
             document.getElementById('match-feedback').textContent = '';
-            
+
             const lCol = document.getElementById('match-col-left');
             const rCol = document.getElementById('match-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const lItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.left, side: 'left' })));
-            const rItems = shuffleArray([...activeMatch].map(p => ({ id: p.id, text: p.right, side: 'right' })));
+            const lItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.left, side: 'left' })));
+            const rItems = shuffle(activeMatch.map(p => ({ id: p.id, text: p.right, side: 'right' })));
 
-            lItems.forEach(item => lCol.appendChild(createMBtn(item)));
-            rItems.forEach(item => rCol.appendChild(createMBtn(item)));
+            lItems.forEach(item => lCol.appendChild(createMatchBtn(item)));
+            rItems.forEach(item => rCol.appendChild(createMatchBtn(item)));
         }
 
-        function createMBtn(item) {
+        function createMatchBtn(item) {
             const btn = document.createElement('button');
-            btn.className = 'match-btn pop-out w-full p-4 rounded-xl text-center font-bold text-slate-700 bg-white shadow-sm text-xs sm:text-sm';
-            btn.textContent = item.text; btn.dataset.id = item.id; btn.dataset.side = item.side;
-            btn.onclick = () => handleMClick(btn, item);
+            btn.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm text-slate-700 bg-white border-2 border-slate-200 pop-out shadow-xs';
+            btn.textContent = item.text;
+            btn.dataset.id = item.id;
+            btn.dataset.side = item.side;
+            btn.onclick = () => handleMatchClick(btn, item);
             return btn;
         }
 
-        function handleMClick(btn, item) {
-            if(btn.classList.contains('matched')) return;
-            document.querySelectorAll('.match-btn').forEach(b => b.classList.remove('wrong-flash'));
+        function handleMatchClick(btn, item) {
+            if (btn.classList.contains('bg-green-100')) return;
 
-            if(item.side === 'left') {
-                if(mSelLeft) mSelLeft.el.classList.remove('selected');
-                mSelLeft = { el: btn, id: item.id }; btn.classList.add('selected');
+            if (item.side === 'left') {
+                if (mSelLeft) mSelLeft.el.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-700');
+                mSelLeft = { el: btn, id: item.id };
+                btn.classList.add('bg-cyan-600', 'text-white', 'border-cyan-700');
             } else {
-                if(mSelRight) mSelRight.el.classList.remove('selected');
-                mSelRight = { el: btn, id: item.id }; btn.classList.add('selected');
+                if (mSelRight) mSelRight.el.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-700');
+                mSelRight = { el: btn, id: item.id };
+                btn.classList.add('bg-cyan-600', 'text-white', 'border-cyan-700');
             }
 
-            if(mSelLeft && mSelRight) checkMatch();
+            if (mSelLeft && mSelRight) checkMatchPair();
         }
 
-        function checkMatch() {
+        function checkMatchPair() {
             const fb = document.getElementById('match-feedback');
-            if(mSelLeft.id === mSelRight.id) {
-                mSelLeft.el.classList.replace('selected', 'matched');
-                mSelRight.el.classList.replace('selected', 'matched');
-                fb.textContent = `Correct!`;
-                fb.className = 'text-center h-8 font-bold text-lg text-green-600 mt-4';
-                matchCount++; mSelLeft = null; mSelRight = null;
+            if (mSelLeft.id === mSelRight.id) {
+                mSelLeft.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                mSelRight.el.className = 'w-full p-3.5 rounded-xl text-center font-bold text-xs sm:text-sm bg-green-100 border-2 border-green-500 text-green-800 cursor-default';
+                fb.textContent = 'Correct Match!';
+                fb.className = 'text-center h-8 font-bold text-sm text-green-600 mt-2';
+                matchCount++;
+                mSelLeft = null;
+                mSelRight = null;
 
-                if(matchCount === activeMatch.length) {
+                if (matchCount === activeMatch.length) {
                     setTimeout(() => {
-                        fb.innerHTML = `<i class="fa-solid fa-star text-yellow-500 mr-2"></i> All matched!`;
+                        fb.innerHTML = '<i class="fa-solid fa-circle-check text-green-600 mr-2"></i> All categories paired successfully!';
                         document.getElementById('match-btn-reset').classList.remove('hidden');
-                    }, 500);
+                    }, 400);
                 }
             } else {
-                fb.textContent = 'Try again!';
-                fb.className = 'text-center h-8 font-bold text-lg text-red-500 mt-4';
-                mSelLeft.el.classList.remove('selected'); mSelRight.el.classList.remove('selected');
-                mSelLeft.el.classList.add('wrong-flash'); mSelRight.el.classList.add('wrong-flash');
-                mSelLeft = null; mSelRight = null;
-                setTimeout(() => { if(fb.textContent === 'Try again!') fb.textContent=''; }, 1500);
+                fb.textContent = 'Not a match. Try again!';
+                fb.className = 'text-center h-8 font-bold text-sm text-red-500 mt-2';
+                const el1 = mSelLeft.el;
+                const el2 = mSelRight.el;
+                el1.classList.add('animate-pulse');
+                el2.classList.add('animate-pulse');
+                setTimeout(() => {
+                    el1.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-700', 'animate-pulse');
+                    el2.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-700', 'animate-pulse');
+                }, 600);
+                mSelLeft = null;
+                mSelRight = null;
             }
         }
 
-        /* 5. LINK DATA */
+        /* ======================================================== */
+        /* 6. CLAUSE & DIALOGUE LINKER (SVG CONNECTORS)             */
+        /* ======================================================== */
         const linkData = [
-            { id: 1, left: "Since she was 21,", right: "she has lived in Mexico." },
-            { id: 2, left: "Have you ever visited Rome?", right: "Yes, I went there last summer." },
-            { id: 3, left: "Who has been to Italy?", right: "Aasim and Rita have." },
-            { id: 4, left: "She has written three articles", right: "this week." }
+            { id: 1, left: "Since she graduated from college,", right: "she has lived in Mexico." },
+            { id: 2, left: "Have you ever been to Rome?", right: "Yes, I went there last summer." },
+            { id: 3, left: "Who has been", right: "helping you with the research?" },
+            { id: 4, left: "The researcher recorded the data,", right: "analyzed it, and wrote the report." }
         ];
 
-        let linkUserPairs = []; let linkSelLeft = null; let linkChecked = false;
+        let linkUserPairs = [];
+        let linkSelLeft = null;
+        let linkChecked = false;
 
         function linkInit() {
-            linkUserPairs = []; linkSelLeft = null; linkChecked = false;
-            
+            linkUserPairs = [];
+            linkSelLeft = null;
+            linkChecked = false;
+
             const lCol = document.getElementById('link-col-left');
             const rCol = document.getElementById('link-col-right');
-            lCol.innerHTML = ''; rCol.innerHTML = '';
+            lCol.innerHTML = '';
+            rCol.innerHTML = '';
 
-            const activeLinks = shuffleArray([...linkData]);
-
-            const lItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.left, type: 'start' })));
-            const rItems = shuffleArray([...activeLinks].map(p => ({ id: p.id, text: p.right, type: 'end' })));
+            const shuffled = shuffle([...linkData]);
+            const lItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.left, type: 'start' })));
+            const rItems = shuffle(shuffled.map(p => ({ id: p.id, text: p.right, type: 'end' })));
 
             lItems.forEach(item => lCol.appendChild(createLinkBtn(item)));
             rItems.forEach(item => rCol.appendChild(createLinkBtn(item)));
@@ -1000,14 +1421,13 @@
             document.getElementById('link-feedback').classList.add('hidden');
             document.getElementById('link-btn-check').classList.remove('hidden');
             document.getElementById('link-btn-reset').classList.add('hidden');
-            
             redrawArrows();
         }
 
         function createLinkBtn(item) {
             const btn = document.createElement('div');
             btn.id = `link-${item.type}-${item.id}`;
-            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-4 font-bold text-slate-700 text-center cursor-pointer hover:border-cyan-300 transition-all z-10 relative text-xs sm:text-sm';
+            btn.className = 'bg-white border-2 border-slate-200 rounded-xl p-3.5 font-bold text-slate-700 text-center cursor-pointer hover:border-cyan-400 transition-all text-xs sm:text-sm select-none shadow-xs';
             btn.textContent = item.text;
             btn.dataset.id = item.id;
             btn.dataset.type = item.type;
@@ -1016,49 +1436,47 @@
         }
 
         function handleLinkClick(btn, item) {
-            if(linkChecked) return;
+            if (linkChecked) return;
 
             if (item.type === 'start') {
-                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-300', 'bg-cyan-50');
+                if (linkSelLeft) linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-200', 'bg-cyan-50');
                 if (linkSelLeft && linkSelLeft.id === item.id) {
-                    linkSelLeft = null; // deselect
+                    linkSelLeft = null;
                 } else {
                     linkSelLeft = { el: btn, id: item.id };
-                    btn.classList.add('ring-4', 'ring-cyan-300', 'bg-cyan-50');
+                    btn.classList.add('ring-4', 'ring-cyan-200', 'bg-cyan-50');
                 }
             } else if (item.type === 'end' && linkSelLeft) {
                 linkUserPairs = linkUserPairs.filter(p => p.startId !== linkSelLeft.id && p.endId !== item.id);
                 linkUserPairs.push({ startId: linkSelLeft.id, endId: item.id, status: 'neutral' });
-                linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-300', 'bg-cyan-50');
+                linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-200', 'bg-cyan-50');
                 linkSelLeft = null;
                 redrawArrows();
             }
         }
 
         function linkCheck() {
-            if(linkChecked) return;
-            if(linkSelLeft) { linkSelLeft.el.classList.remove('ring-4', 'ring-cyan-300', 'bg-cyan-50'); linkSelLeft = null; }
-            
+            if (linkChecked) return;
             linkChecked = true;
-            let corCount = 0;
+            let correctCount = 0;
 
-            linkUserPairs.forEach(up => {
-                if (up.startId === up.endId) {
-                    up.status = 'correct'; corCount++;
+            linkUserPairs.forEach(pair => {
+                if (pair.startId === pair.endId) {
+                    pair.status = 'correct';
+                    correctCount++;
                 } else {
-                    up.status = 'incorrect';
+                    pair.status = 'incorrect';
                 }
             });
 
             const fb = document.getElementById('link-feedback');
-            fb.classList.remove('hidden', 'text-green-600', 'text-red-500', 'text-amber-600');
-            
-            if (corCount === linkData.length) {
+            fb.classList.remove('hidden', 'text-green-600', 'text-amber-600');
+            if (correctCount === linkData.length) {
                 fb.classList.add('text-green-600');
-                fb.innerHTML = "<i class='fa-solid fa-star mr-2'></i> Perfect connections!";
+                fb.innerHTML = "<i class='fa-solid fa-star mr-1.5'></i> Perfect! All clauses and dialogue pairs correctly joined.";
             } else {
                 fb.classList.add('text-amber-600');
-                fb.innerHTML = `You got ${corCount} out of ${linkData.length} correct. Check the logical relationship between clauses.`;
+                fb.innerHTML = `You connected ${correctCount} of ${linkData.length} correctly. Review since clauses and conversation transitions.`;
             }
 
             redrawArrows();
@@ -1066,12 +1484,56 @@
             document.getElementById('link-btn-reset').classList.remove('hidden');
         }
 
-        window.onload = () => { 
-            setupStudyInteractive(); 
-            populateVoiceList();
-        };
+        function createArrowSVG(startEl, endEl, state) {
+            if (!startEl || !endEl) return '';
+            const sRect = startEl.getBoundingClientRect();
+            const eRect = endEl.getBoundingClientRect();
 
-        /* Built-in TTS Web Speech API Integration */
+            const startX = sRect.right + 2;
+            const startY = sRect.top + (sRect.height / 2);
+            const endX = eRect.left - 2;
+            const endY = eRect.top + (eRect.height / 2);
+
+            let color = '#94a3b8';
+            let marker = 'url(#arrowhead-neutral)';
+
+            if (state === 'correct') {
+                color = '#16a34a';
+                marker = 'url(#arrowhead-correct)';
+            } else if (state === 'incorrect') {
+                color = '#dc2626';
+                marker = 'url(#arrowhead-incorrect)';
+            }
+
+            const curveX = (startX + endX) / 2;
+            return `<path d="M ${startX},${startY} C ${curveX},${startY} ${curveX},${endY} ${endX - 5},${endY}" stroke="${color}" stroke-width="2.5" fill="none" marker-end="${marker}"/>`;
+        }
+
+        function redrawArrows() {
+            let html = '';
+            const linkContainer = document.getElementById('ex-container-link');
+            if (linkContainer && !linkContainer.classList.contains('hidden')) {
+                linkUserPairs.forEach(pair => {
+                    const s = document.getElementById(`link-start-${pair.startId}`);
+                    const e = document.getElementById(`link-end-${pair.endId}`);
+                    if (s && e) html += createArrowSVG(s, e, pair.status || 'neutral');
+                });
+            }
+            document.getElementById('svg-paths-container').innerHTML = html;
+            document.getElementById('connection-svg').classList.toggle('hidden', html === '');
+        }
+
+        function hideArrows() {
+            document.getElementById('svg-paths-container').innerHTML = '';
+            document.getElementById('connection-svg').classList.add('hidden');
+        }
+
+        window.addEventListener('resize', redrawArrows);
+        window.addEventListener('scroll', redrawArrows);
+
+        /* ======================================================== */
+        /* 7. TEXT-TO-SPEECH (TTS) AUDIO COMPANION                  */
+        /* ======================================================== */
         let synth = window.speechSynthesis;
         let voices = [];
         let currentUtterance = null;
@@ -1079,32 +1541,24 @@
         function populateVoiceList() {
             if (!synth) return;
             voices = synth.getVoices();
-            const voiceSelect = document.getElementById('tts-voice-select');
-            
+            const sel = document.getElementById('tts-voice-select');
             if (voices.length === 0) return;
 
-            voiceSelect.innerHTML = '';
-            let defaultVoiceIndex = 0;
-            
-            for (let i = 0; i < voices.length; i++) {
-                const option = document.createElement('option');
-                option.textContent = `${voices[i].name} (${voices[i].lang})`;
-                option.setAttribute('data-lang', voices[i].lang);
-                option.setAttribute('data-name', voices[i].name);
-                voiceSelect.appendChild(option);
+            sel.innerHTML = '';
+            let defaultIdx = 0;
 
-                if (voices[i].name === 'Google UK English Male' || (voices[i].lang === 'en-GB' && voices[i].name.toLowerCase().includes('male'))) {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang === 'en-GB') {
-                    defaultVoiceIndex = i;
-                } else if (defaultVoiceIndex === 0 && voices[i].lang.startsWith('en')) {
-                    defaultVoiceIndex = i;
+            voices.forEach((v, idx) => {
+                const opt = document.createElement('option');
+                opt.textContent = `${v.name} (${v.lang})`;
+                opt.setAttribute('data-name', v.name);
+                sel.appendChild(opt);
+
+                if (v.name.includes('Natural') || v.name.includes('Google UK English Male') || v.lang === 'en-US') {
+                    defaultIdx = idx;
                 }
-            }
-            
-            if (voiceSelect.options.length > 0) {
-                voiceSelect.selectedIndex = defaultVoiceIndex;
-            }
+            });
+
+            sel.selectedIndex = defaultIdx;
         }
 
         if (synth && synth.onvoiceschanged !== undefined) {
@@ -1114,52 +1568,45 @@
         function toggleAudioSummary() {
             if (!synth) return;
             const icon = document.getElementById('tts-icon');
-            const text = document.getElementById('tts-text');
+            const txt = document.getElementById('tts-text');
 
             if (synth.speaking || synth.pending) {
                 synth.cancel();
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
                 return;
             }
 
-            const summaryPrompt = "Welcome to Unit 5: A Changing World. In this lesson, you will master the Present Perfect and Present Perfect Progressive tenses. Use the Present Perfect for recently completed actions, incomplete time periods, or past experiences where the result matters now. Use 'for' with a duration, and 'since' with a specific starting point. Remember: switch to the Simple Past when specifying exact completed times, and avoid using the progressive form with non-action verbs!";
-            
-            currentUtterance = new SpeechSynthesisUtterance(summaryPrompt);
-            window._ttsUtterance = currentUtterance;
-            
-            const selectedOption = document.getElementById('tts-voice-select').selectedOptions[0];
-            if (selectedOption && selectedOption.hasAttribute('data-name')) {
-                const selectedVoice = selectedOption.getAttribute('data-name');
-                const voice = voices.find(v => v.name === selectedVoice);
-                if (voice) {
-                    currentUtterance.voice = voice;
-                    currentUtterance.lang = voice.lang;
-                }
-            } else {
-                currentUtterance.lang = 'en-US';
+            const promptText = "Welcome to Unit 5: A Changing World. In this unit, we explore the Present Perfect and Present Perfect Progressive tenses. Remember: use the present perfect for recently completed actions, incomplete time periods like today or this week, repeated events at an unstated time, and past actions with present results. Use 'for' with a duration of time, and 'since' with a specific past moment. In since time clauses, use the simple past inside the clause, and use a comma if the since clause starts the sentence. When contrasting with the simple past, use simple past for definite completed past times. For continuing actions, use the present perfect progressive, but remember that non-action stative verbs can never be progressive! Finally, in academic writing, use commas between items in a series.";
+
+            currentUtterance = new SpeechSynthesisUtterance(promptText);
+            const sel = document.getElementById('tts-voice-select');
+            const selectedOpt = sel.selectedOptions[0];
+            if (selectedOpt) {
+                const vName = selectedOpt.getAttribute('data-name');
+                const matched = voices.find(v => v.name === vName);
+                if (matched) currentUtterance.voice = matched;
             }
 
             currentUtterance.onstart = () => {
                 icon.className = "fa-solid fa-square";
-                text.textContent = "Stop";
+                txt.textContent = "Stop";
             };
-
             currentUtterance.onend = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
-
-            currentUtterance.onerror = (e) => {
-                if (e.error !== 'interrupted' && e.error !== 'canceled') {
-                    console.error('SpeechSynthesis Error:', e);
-                }
+            currentUtterance.onerror = () => {
                 icon.className = "fa-solid fa-play";
-                text.textContent = "Listen";
+                txt.textContent = "Listen";
             };
 
             synth.speak(currentUtterance);
         }
+
+        window.onload = () => {
+            populateVoiceList();
+        };
     </script>
 </body>
 </html>
