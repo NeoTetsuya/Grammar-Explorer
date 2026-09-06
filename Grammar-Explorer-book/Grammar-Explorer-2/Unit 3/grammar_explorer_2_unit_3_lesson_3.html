@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Explorer 2 — Unit 3: Lesson 3 (Quantity and Measurement Words)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grammar Explorer 2 — Unit 3: Lesson 3 (Quantity and Measurement Words)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -33,59 +34,52 @@
   </style>
 </head>
 <body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
-
-  <!-- TOP APP HEADER -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
-              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Lesson 3</span>
-            </div>
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+<!-- TOP APP HEADER -->
+<header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-3">
+<div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+<span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Lesson 3</span>
+</div>
+<h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
               Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 3: Quantity and Measurement Words</span>
-            </h1>
-          </div>
-        </div>
-
-        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Lesson</span>
-        </button>
-      </div>
-
-      <!-- EXERCISE TAB NAVIGATION -->
-      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-
-        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
-          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
-          <span>Explore: Sports Science (pp. 74–75)</span>
-        </button>
-        <button onclick="switchExTab('tab-quantity')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-quantity">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
-          <span>Quantity Words (pp. 76–77)</span>
-        </button>
-        <button onclick="switchExTab('tab-measurement')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-measurement">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5, 6</span>
-          <span>Measurement Words (pp. 77–78)</span>
-        </button>
-        <button onclick="switchExTab('tab-practice')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-practice">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7–9</span>
-          <span>Practice: Diets & Nutrition (pp. 78–80)</span>
-        </button>
-
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
-
-    <div id="tab-explore" class="ex-tab-pane block space-y-6">
-      <div class="space-y-4">
+</h1>
+</div>
+</div>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm" onclick="resetCurrentLesson()">
+<svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset Lesson</span>
+</button>
+</div>
+<!-- EXERCISE TAB NAVIGATION -->
+<nav aria-label="Exercise Tabs" class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800">
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore" onclick="switchExTab('tab-explore')">
+<span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+<span>Explore: Sports Science (pp. 74–75)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-quantity" onclick="switchExTab('tab-quantity')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+<span>Quantity Words (pp. 76–77)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-measurement" onclick="switchExTab('tab-measurement')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5, 6</span>
+<span>Measurement Words (pp. 77–78)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-practice" onclick="switchExTab('tab-practice')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7–9</span>
+<span>Practice: Diets &amp; Nutrition (pp. 78–80)</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- MAIN CONTAINER -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+<div class="ex-tab-pane block space-y-6" id="tab-explore">
+<div class="space-y-4">
 <div class="flex items-center justify-between border-b border-slate-200 pb-2">
 <div class="flex items-center gap-2">
 <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
@@ -108,13 +102,11 @@
 </div>
 <!-- Audio Player [CD1-21] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-21">
-  <div style="width: calc(100% + 56px); margin-right: -56px;">
-    <iframe src="https://drive.google.com/file/d/1StIxNEIIZCkxy09WvW2_YX04nrHILFjy/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
-  </div>
+<div style="width: calc(100% + 56px); margin-right: -56px;">
+<iframe allow="autoplay" class="w-full block" frameborder="0" height="54" src="https://drive.google.com/file/d/1StIxNEIIZCkxy09WvW2_YX04nrHILFjy/preview" width="100%"></iframe>
+</div>
 </div>
 <!-- End Audio Player [CD1-21] -->
-
-
 <!-- Manchester City FC Photo -->
 <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-900 group">
 <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
@@ -236,24 +228,38 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-quantity" class="ex-tab-pane hidden space-y-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-<h4 class="font-bold text-slate-900 text-sm sm:text-base">3.6 Quantity Words Summary</h4>
-<div class="space-y-2 text-xs">
-<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
-<strong>Count Only:</strong> <em>a few, many</em> (a few questions, many apples)
-              </div>
-<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
-<strong>Non-Count Only:</strong> <em>a little, much</em> (a little water, much homework)
-              </div>
-<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
-<strong>Both Count &amp; Non-Count:</strong> <em>some, any, a lot of</em>
 </div>
-<div class="p-2 bg-sky-50 rounded-lg border border-sky-200 text-sky-950">
-<strong>Rule:</strong> Use <em>some</em> in affirmative statements; use <em>any</em> in negative statements.
-              </div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-quantity">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">3.6 Quantity Words Summary</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 76</span>
+</div>
+<div class="space-y-2.5 text-xs text-slate-700">
+<!-- 5 Rules Breakdown -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. some:</strong> Use with count and non-count nouns in affirmative statements:</p>
+<p class="text-slate-600">• <em>We need <strong>some</strong> bananas.</em> | <em>I left <strong>some</strong> fruit on the table.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. any:</strong> Use with count and non-count nouns in negative statements and questions:</p>
+<p class="text-slate-600">• <em>Maria doesn’t want <strong>any</strong> oranges.</em> | <em>I don’t have <strong>any</strong> homework.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>3. a few / many:</strong> Use with <strong>count nouns</strong> only:</p>
+<p class="text-slate-600">• <em>I have <strong>a few</strong> questions.</em> | <em>Did you buy <strong>many</strong> apples?</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>4. a little / much:</strong> Use with <strong>non-count nouns</strong> only:</p>
+<p class="text-slate-600">• <em>Give the plants <strong>a little</strong> water.</em> | <em>We don’t have <strong>much</strong> homework tonight.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>5. a lot of:</strong> Use with <strong>both</strong> count and non-count nouns:</p>
+<p class="text-slate-600">• <em>We bought <strong>a lot of</strong> vegetables.</em> | <em>She eats <strong>a lot of</strong> sugar.</em></p>
+</div>
+</div>
 </div>
 </div>
 <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
@@ -282,10 +288,45 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-measurement" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex5-l3-card">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-measurement">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">3.7 Measurement Words with Non-Count Nouns</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 77</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- 5 Categories Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+<strong class="text-slate-800 block text-[11px] uppercase mb-0.5">Containers</strong>
+<p class="text-slate-600"><em>a bag of rice, a bottle of juice, a bowl of cereal, a box of cereal, a can of soda, a carton of milk, a cup of coffee, a glass of water, a jar of jam</em></p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+<strong class="text-slate-800 block text-[11px] uppercase mb-0.5">Units / Measurements</strong>
+<p class="text-slate-600"><em>a gallon of milk, a pint of ice cream, a pound of meat, a quart of oil, a tablespoon of sugar, a teaspoon of salt</em></p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+<strong class="text-slate-800 block text-[11px] uppercase mb-0.5">Portions</strong>
+<p class="text-slate-600"><em>a piece of cake, a piece of pie, a slice of bread, a slice of pizza</em></p>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+<strong class="text-slate-800 block text-[11px] uppercase mb-0.5">Shapes &amp; Other</strong>
+<p class="text-slate-600"><em>a bar of chocolate/soap, a loaf of bread, a sheet of paper, a stick of butter, a tube of toothpaste | a piece of jewelry/mail</em></p>
+</div>
+</div>
+<!-- Rules & Warning -->
+<div class="bg-amber-50/80 p-3 rounded-xl border border-amber-200 text-amber-950 space-y-1.5">
+<p><strong>Rule:</strong> Use a measurement word + <strong>of</strong> to talk about a specific quantity of a non-count noun (<em>He drank a bottle of juice. / I bought three loaves of bread.</em>).</p>
+<div class="pt-1.5 border-t border-amber-200 text-rose-700 font-semibold">
+        ⚠️ <strong>Be careful!</strong> Do NOT use a number directly before a non-count noun!
+      </div>
+<p class="font-mono text-[11px] text-emerald-800">✓ Put two bars of soap in the bathroom.</p>
+<p class="font-mono text-[11px] text-rose-600">✗ Put two soap in the bathroom.</p>
+</div>
+</div>
+</div><div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex5-l3-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
               Measurement Words (Page 77)
@@ -311,8 +352,7 @@
 </div>
 </div>
 </div>
-      <div class="max-w-4xl mx-auto space-y-6">
-  
+<div class="max-w-4xl mx-auto space-y-6">
 <!-- EXERCISE 6: COMPLETE WITH WORDS FROM THE BOX (PP. 77-78) -->
 <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l3-ex6">
 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -367,12 +407,11 @@
 <button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l3-ex6')">Check Answers</button>
 </div>
 </div>
-
 </div>
-    </div>
-    <div id="tab-practice" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex7-l3-card">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-practice">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex7-l3-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
               Blog Post: What Can I Eat? (Page 78)
@@ -395,8 +434,7 @@
 </div>
 </div>
 </div>
-      <div class="max-w-4xl mx-auto space-y-6">
-  
+<div class="max-w-4xl mx-auto space-y-6">
 <!-- EXERCISE 8: LISTEN & COMPARE DIETS (P. 79) -->
 <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l3-ex8">
 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -409,9 +447,9 @@
 </div>
 <!-- Audio Player [CD1-22] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-22">
-  <div style="width: calc(100% + 56px); margin-right: -56px;">
-    <iframe src="https://drive.google.com/file/d/1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
-  </div>
+<div style="width: calc(100% + 56px); margin-right: -56px;">
+<iframe allow="autoplay" class="w-full block" frameborder="0" height="54" src="https://drive.google.com/file/d/1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7/preview" width="100%"></iframe>
+</div>
 </div>
 <!-- End Audio Player [CD1-22] -->
 <span class="text-[11px] text-slate-500 font-medium">Page 79 • Listening Comprehension</span>
@@ -481,10 +519,8 @@
 <button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkSelectCard('card-l3-ex8')">Check Answers</button>
 </div>
 </div>
-
 </div>
-      <div class="max-w-4xl mx-auto space-y-6">
-  
+<div class="max-w-4xl mx-auto space-y-6">
 <!-- EXERCISE 9: EDIT - MY NEW FITNESS PROGRAM (P. 80) -->
 <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l3-ex9">
 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -530,25 +566,21 @@
 <button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l3-ex9')">Check Answers</button>
 </div>
 </div>
-
 </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
-        <span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
-      </div>
-      <div>Interactive Student Workbook & Exercises Suite</div>
-    </div>
-  </footer>
-
-  <!-- JAVASCRIPT LOGIC -->
-  <script>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-teal-400"></span>
+<span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
+</div>
+<div>Interactive Student Workbook &amp; Exercises Suite</div>
+</div>
+</footer>
+<!-- JAVASCRIPT LOGIC -->
+<script>
     function switchExTab(tabId) {
       document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
       const target = document.getElementById(tabId);

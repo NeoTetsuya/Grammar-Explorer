@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Explorer 2 — Unit 3: Lesson 1 (Plural & Possessive Nouns; Another & Other)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grammar Explorer 2 — Unit 3: Lesson 1 (Plural &amp; Possessive Nouns; Another &amp; Other)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -33,71 +34,64 @@
   </style>
 </head>
 <body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
-
-  <!-- TOP APP HEADER -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
-              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Lesson 1</span>
-            </div>
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
-              Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 1: Plural & Possessive Nouns; Another & Other</span>
-            </h1>
-          </div>
-        </div>
-
-        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Lesson</span>
-        </button>
-      </div>
-
-      <!-- EXERCISE TAB NAVIGATION -->
-      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-
-        <button onclick="switchExTab('tab-opener')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener">
-          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">58–</span>
-          <span>Unit Opener</span>
-        </button>
-        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
-          <span>Explore: Sangomas (pp. 60–61)</span>
-        </button>
-        <button onclick="switchExTab('tab-plural')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-plural">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4, 6</span>
-          <span>Plural Nouns (pp. 62–63)</span>
-        </button>
-        <button onclick="switchExTab('tab-possessive')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-possessive">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
-          <span>Possessive Nouns (p. 63)</span>
-        </button>
-        <button onclick="switchExTab('tab-another-other')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-another-other">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9–13</span>
-          <span>Another / Other (pp. 64–66)</span>
-        </button>
-        <button onclick="switchExTab('tab-pronunciation')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-pronunciation">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">12</span>
-          <span>Pronunciation (p. 66)</span>
-        </button>
-        <button onclick="switchExTab('tab-edit')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-edit">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">14</span>
-          <span>EDIT: Human Body (p. 67)</span>
-        </button>
-
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
-
-    <div id="tab-opener" class="ex-tab-pane block space-y-6">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+<!-- TOP APP HEADER -->
+<header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-3">
+<div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+<span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Lesson 1</span>
+</div>
+<h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Lesson 1: Plural &amp; Possessive Nouns; Another &amp; Other</span>
+</h1>
+</div>
+</div>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm" onclick="resetCurrentLesson()">
+<svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset Lesson</span>
+</button>
+</div>
+<!-- EXERCISE TAB NAVIGATION -->
+<nav aria-label="Exercise Tabs" class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800">
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener" onclick="switchExTab('tab-opener')">
+<span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">58–</span>
+<span>Unit Opener</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore" onclick="switchExTab('tab-explore')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
+<span>Explore: Sangomas (pp. 60–61)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-plural" onclick="switchExTab('tab-plural')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4, 6</span>
+<span>Plural Nouns (pp. 62–63)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-possessive" onclick="switchExTab('tab-possessive')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
+<span>Possessive Nouns (p. 63)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-another-other" onclick="switchExTab('tab-another-other')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9–13</span>
+<span>Another / Other (pp. 64–66)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-pronunciation" onclick="switchExTab('tab-pronunciation')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">12</span>
+<span>Pronunciation (p. 66)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-edit" onclick="switchExTab('tab-edit')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">14</span>
+<span>EDIT: Human Body (p. 67)</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- MAIN CONTAINER -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+<div class="ex-tab-pane block space-y-6" id="tab-opener">
+<div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
 <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
 <div>
 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-teal-100 text-teal-900 mb-2">
@@ -216,9 +210,9 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-explore" class="ex-tab-pane hidden space-y-6">
-      <div class="space-y-4">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-explore">
+<div class="space-y-4">
 <div class="flex items-center justify-between border-b border-slate-200 pb-2">
 <div class="flex items-center gap-2">
 <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
@@ -241,13 +235,11 @@
 </div>
 <!-- Audio Player [CD1-16] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-16">
-  <div style="width: calc(100% + 56px); margin-right: -56px;">
-    <iframe src="https://drive.google.com/file/d/1YUwt68jzduIfmjQNzNWufGHDGzr8KZQU/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
-  </div>
+<div style="width: calc(100% + 56px); margin-right: -56px;">
+<iframe allow="autoplay" class="w-full block" frameborder="0" height="54" src="https://drive.google.com/file/d/1YUwt68jzduIfmjQNzNWufGHDGzr8KZQU/preview" width="100%"></iframe>
+</div>
 </div>
 <!-- End Audio Player [CD1-16] -->
-
-
 <!-- Reading Body -->
 <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
 <p>
@@ -355,30 +347,61 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-plural" class="ex-tab-pane hidden space-y-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-plural">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
 <div class="flex items-center justify-between border-b border-slate-100 pb-2">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.1 Spelling Rules for Plural Nouns</h4>
 <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 62</span>
 </div>
-<div class="space-y-2 text-xs">
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>1. Add -s:</strong> <em>apples, scientists, boys</em>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Regular Plural Rules Table -->
+<div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="bg-slate-100 px-3 py-1.5 font-bold text-slate-700 flex items-center justify-between">
+<span>Regular Plural Forms</span>
+<span class="text-[10px] text-slate-500 font-normal">Singular ➔ Plural</span>
 </div>
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>2. -s, -sh, -ch, -x → Add -es:</strong> <em>classes, dishes, inches, taxes</em>
+<table class="w-full text-left text-slate-700">
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50 w-2/5">Add -s to most nouns</td>
+<td class="p-2">apple ➔ <strong class="text-teal-700">apples</strong>, scientist ➔ <strong class="text-teal-700">scientists</strong>, boy ➔ <strong class="text-teal-700">boys</strong></td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">End in -s, -sh, -ch, -x (add -es)</td>
+<td class="p-2">class ➔ <strong class="text-teal-700">classes</strong>, dish ➔ <strong class="text-teal-700">dishes</strong>, inch ➔ <strong class="text-teal-700">inches</strong>, tax ➔ <strong class="text-teal-700">taxes</strong></td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">Consonant + -y (➔ -ies)</td>
+<td class="p-2">party ➔ <strong class="text-teal-700">parties</strong>, city ➔ <strong class="text-teal-700">cities</strong></td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">End in -o (add -s or -es)</td>
+<td class="p-2">photo ➔ <strong class="text-teal-700">photos</strong>, potato ➔ <strong class="text-teal-700">potatoes</strong></td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">End in -f / -fe (➔ -ves or -s)</td>
+<td class="p-2">leaf ➔ <strong class="text-teal-700">leaves</strong>, wife ➔ <strong class="text-teal-700">wives</strong> | belief ➔ <strong class="text-teal-700">beliefs</strong>, roof ➔ <strong class="text-teal-700">roofs</strong></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>3. Consonant + -y → -ies:</strong> <em>parties, cities</em>
+<!-- Irregular Plural Categories -->
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50 space-y-1.5">
+<strong class="text-slate-800 block text-[11px] uppercase tracking-wide">Irregular Plural Nouns:</strong>
+<p>• <strong>Vowel change:</strong> man ➔ <strong class="text-amber-700">men</strong>, foot ➔ <strong class="text-amber-700">feet</strong>, tooth ➔ <strong class="text-amber-700">teeth</strong></p>
+<p>• <strong>Irregular ending:</strong> child ➔ <strong class="text-amber-700">children</strong>, person ➔ <strong class="text-amber-700">people</strong></p>
+<p>• <strong>No change (same singular &amp; plural):</strong> fish ➔ <strong class="text-teal-700">fish</strong>, deer ➔ <strong class="text-teal-700">deer</strong>, sheep ➔ <strong class="text-teal-700">sheep</strong></p>
+<p class="text-[11px] text-slate-500 pt-1 border-t border-slate-200 italic">See page A2 for a list of common irregular plural nouns.</p>
 </div>
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>4. -f / -fe → -ves:</strong> <em>leaves, wives</em> (exceptions: <em>beliefs, roofs</em>)
-              </div>
-<div class="p-2.5 bg-teal-50 rounded-xl border border-teal-200 text-teal-950">
-<strong>Irregular Plurals:</strong> <em>men, feet, teeth, children, fish, deer</em>. Plural-only: <em>jeans, clothes, glasses</em>.
-              </div>
+<!-- Real English: Plural-Only Nouns -->
+<div class="bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-amber-950 space-y-1">
+<strong class="text-amber-900 block text-[11px] uppercase tracking-wide">Real English: Plural-Only Nouns</strong>
+<p>A few nouns have no singular form and are used only in the plural:</p>
+<p class="font-medium text-slate-800">• <em>clothes, glasses, jeans, scissors, pants</em></p>
+<p class="italic text-[11px] text-slate-600">e.g., I’m wearing my new jeans today.</p>
+</div>
 </div>
 </div>
 <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
@@ -408,26 +431,58 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-possessive" class="ex-tab-pane hidden space-y-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-possessive">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
 <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
 <div class="flex items-center justify-between border-b border-slate-100 pb-2">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.2 Possessive Nouns</h4>
 <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 63</span>
 </div>
-<div class="space-y-2 text-xs">
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>Singular Nouns:</strong> add <em>'s</em> → <em>the girl's bicycle, the child's room</em>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Form Comparison Table -->
+<div class="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
+<div class="bg-slate-100 px-3 py-1.5 font-bold text-slate-700 flex items-center justify-between">
+<span>Possessive Forms</span>
+<span class="text-[10px] text-slate-500 font-normal">Noun ➔ Possessive</span>
 </div>
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>Regular Plural (-s):</strong> add apostrophe only → <em>the girls' bicycles</em>
+<table class="w-full text-left text-slate-700">
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50 w-2/5">Singular regular: girl</td>
+<td class="p-2">The <strong class="text-teal-700">girl’s</strong> bicycle is blue.</td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">Singular irregular: child</td>
+<td class="p-2">The <strong class="text-teal-700">child’s</strong> room is messy.</td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">Plural regular: girls</td>
+<td class="p-2">The <strong class="text-teal-700">girls’</strong> bicycles are blue.</td>
+</tr>
+<tr>
+<td class="p-2 font-medium text-slate-600 bg-slate-50/50">Plural irregular: children</td>
+<td class="p-2">The <strong class="text-teal-700">children’s</strong> rooms are messy.</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
-<strong>Irregular Plural (no -s):</strong> add <em>'s</em> → <em>the children's rooms, women's team</em>
+<!-- Numbered Rules -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<p><strong>1. Ownership or Relationship:</strong> Use possessive nouns to show who owns something or a relationship (<em>The writer’s house is in New York. / Mark’s father is very strong.</em>).</p>
 </div>
-<div class="p-2.5 bg-teal-50 rounded-xl border border-teal-200 text-teal-950">
-<strong>Two Nouns:</strong> add <em>'s</em> to the <strong>second noun only</strong> → <em>John and Tina’s father</em>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>2. Singular Nouns:</strong> Add apostrophe + -s (<strong>’s</strong>) (<em>The child’s mother is over there.</em>).</p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>3. Plural Nouns:</strong></p>
+<p class="text-slate-600">• Add apostrophe only (<strong>’</strong>) to regular plural nouns ending in -s: <em>The boys’ parents are here.</em></p>
+<p class="text-slate-600">• Add <strong>’s</strong> to irregular plural nouns not ending in -s: <em>The children’s teacher is kind.</em></p>
+</div>
+<div class="pt-1.5 border-t border-slate-200">
+<p><strong>4. Two or More Nouns:</strong> Add <strong>’s</strong> to the second noun only: <em>John and Tina’s father is sick.</em></p>
+</div>
 </div>
 </div>
 </div>
@@ -453,8 +508,8 @@
 </div>
 </div>
 </div>
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex7-l1-card">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex7-l1-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
               Write Possessive Forms (Page 63)
@@ -476,10 +531,46 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-another-other" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex9-l1-card">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-another-other">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<div class="flex items-center justify-between border-b border-slate-100 pb-2">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">3.3 Another and Other</h4>
+<span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 64</span>
+</div>
+<div class="space-y-3 text-xs text-slate-700">
+<!-- Rules Breakdown -->
+<div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 leading-relaxed">
+<div>
+<span class="font-bold text-slate-800 block text-[11px] uppercase tracking-wide">1. Another + Singular Noun:</span>
+<p>• <strong>One more of the same group:</strong> <em>I’ve had two slices, but I’m going to have <strong>another</strong> piece.</em></p>
+<p>• <strong>A different person or thing:</strong> <em>This pen doesn’t work. I need <strong>another</strong> pen.</em></p>
+<p>• <strong>Not specific:</strong> <em>My car is old. I need to buy <strong>another</strong> car soon.</em></p>
+</div>
+<div class="pt-2 border-t border-slate-200">
+<span class="font-bold text-slate-800 block text-[11px] uppercase tracking-wide">2. The Other + Singular / Plural Noun:</span>
+<p>• <strong>The other + singular noun</strong> (the second of two in a specific group):<br/><span class="text-slate-600"><em>There are two hotels. One is on Main St. <strong>The other hotel</strong> is on Oak St.</em></span></p>
+<p>• <strong>The other + plural noun</strong> (the rest of a specific group):<br/><span class="text-slate-600"><em>We had three assignments. I finished one and did <strong>the other assignments</strong> today.</em></span></p>
+</div>
+<div class="pt-2 border-t border-slate-200">
+<span class="font-bold text-slate-800 block text-[11px] uppercase tracking-wide">3. Other + Plural Noun:</span>
+<p>• Means some, but not all, of the remaining people or things in a general group:<br/><span class="text-slate-600"><em>Some people like to talk. <strong>Other people</strong> prefer to listen.</em></span></p>
+</div>
+<div class="pt-2 border-t border-slate-200">
+<span class="font-bold text-slate-800 block text-[11px] uppercase tracking-wide">4. Pronoun Replacement (One / Ones):</span>
+<p>• The pronoun <em>one</em> or <em>ones</em> can replace the noun:<br/><span class="text-slate-600"><em>Lydia’s watch broke, so she bought <strong>another one</strong>.</em> (one = watch)<br/><em>These earrings are pretty, but I prefer <strong>the other ones</strong>.</em> (ones = earrings)</span></p>
+</div>
+</div>
+<!-- Real English Pronoun Use -->
+<div class="bg-amber-50/70 p-3 rounded-xl border border-amber-200 text-amber-950 space-y-1">
+<strong class="text-amber-900 block text-[11px] uppercase tracking-wide">Real English: Used Alone as Pronouns</strong>
+<p><em>Another</em> and <em>the other</em> can also be used alone without a following noun:</p>
+<p>• <em>These pears are delicious. I’m going to have <strong>another</strong>.</em> (another = pear)</p>
+<p>• <em>Ken owns two apartments. One is in Chicago. <strong>The other</strong> is in Miami.</em> (the other = apartment)</p>
+</div>
+</div>
+</div><div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex9-l1-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
               Another, Other, or The Other (Page 64)
@@ -501,151 +592,146 @@
 </div>
 </div>
 </div>
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <div class="lg:col-span-6">
-    <!-- EXERCISE 10: ONE OR ONES (PP. 64-65) -->
-    <div id="card-l1-ex10" class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <div class="flex items-center gap-2.5">
-          <span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">10</span>
-          <div>
-            <h3 class="font-bold text-slate-800 text-sm sm:text-base">Complete with one or ones</h3>
-            <span class="text-[11px] text-slate-500 font-medium">Pages 64–65 • Singular & Plural Substitutes</span>
-          </div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-6">
+<!-- EXERCISE 10: ONE OR ONES (PP. 64-65) -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l1-ex10">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">10</span>
+<div>
+<h3 class="font-bold text-slate-800 text-sm sm:text-base">Complete with one or ones</h3>
+<span class="text-[11px] text-slate-500 font-medium">Pages 64–65 • Singular &amp; Plural Substitutes</span>
+</div>
+</div>
+<span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600">Complete each sentence with <strong class="text-teal-700">one</strong> or <strong class="text-teal-700">ones</strong>.</p>
+<div class="space-y-3 text-xs sm:text-sm">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">1.</span> Leyla takes one vitamin every morning and another <span class="font-bold text-teal-700 underline">one</span> at night. <span class="text-[10px] text-slate-400 font-semibold">(Example)</span>
+</div>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">2.</span> There are three hospitals in my city. One is near my apartment. The other 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..." type="text"/> are downtown.
         </div>
-        <span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
-      </div>
-      <p class="text-xs sm:text-sm text-slate-600">Complete each sentence with <strong class="text-teal-700">one</strong> or <strong class="text-teal-700">ones</strong>.</p>
-      
-      <div class="space-y-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">1.</span> Leyla takes one vitamin every morning and another <span class="font-bold text-teal-700 underline">one</span> at night. <span class="text-[10px] text-slate-400 font-semibold">(Example)</span>
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">3.</span> Brett doesn’t like his doctor. He wants to find another 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..." type="text"/>.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">2.</span> There are three hospitals in my city. One is near my apartment. The other 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> are downtown.
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">4.</span> I missed my doctor’s appointment this morning, so I made another 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..." type="text"/> for next week.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">3.</span> Brett doesn’t like his doctor. He wants to find another 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="...">.
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">5.</span> A few of the articles in that health magazine are about nutrition. The other 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..." type="text"/> are about exercise.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">4.</span> I missed my doctor’s appointment this morning, so I made another 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..."> for next week.
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">6.</span> Dan has two appointments next week. One is on Monday. The other 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..." type="text"/> is on Thursday.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">5.</span> A few of the articles in that health magazine are about nutrition. The other 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> are about exercise.
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">7.</span> I prefer these eyeglasses. The other 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..." type="text"/> aren’t very attractive.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">6.</span> Dan has two appointments next week. One is on Monday. The other 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="one" placeholder="..."> is on Thursday.
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">8.</span> Use this elevator. The other 
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..." type="text"/> are broken.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">7.</span> I prefer these eyeglasses. The other 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> aren’t very attractive.
-        </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">8.</span> Use this elevator. The other 
-          <input type="text" class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-24 text-center font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="ones" placeholder="..."> are broken.
-        </div>
-      </div>
-
-      <div class="pt-2 flex items-center justify-between border-t border-slate-100">
-        <button onclick="checkClozeCard('card-l1-ex10')" class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition">Check Answers</button>
-      </div>
-    </div>
-    </div>
-        <div class="lg:col-span-6">
-    <!-- EXERCISE 11: CHOOSE THE CORRECT WORD (P. 65) -->
-    <div id="card-l1-ex11" class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <div class="flex items-center gap-2.5">
-          <span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">11</span>
-          <div>
-            <h3 class="font-bold text-slate-800 text-sm sm:text-base">Choose the Correct Word</h3>
-            <span class="text-[11px] text-slate-500 font-medium">Page 65 • Noun Forms & Possessives</span>
-          </div>
-        </div>
-        <span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
-      </div>
-      <p class="text-xs sm:text-sm text-slate-600">Select the correct word to complete each sentence.</p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">1.</span> The 
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-slate-100">
+<button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l1-ex10')">Check Answers</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6">
+<!-- EXERCISE 11: CHOOSE THE CORRECT WORD (P. 65) -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l1-ex11">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div class="flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-lg bg-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">11</span>
+<div>
+<h3 class="font-bold text-slate-800 text-sm sm:text-base">Choose the Correct Word</h3>
+<span class="text-[11px] text-slate-500 font-medium">Page 65 • Noun Forms &amp; Possessives</span>
+</div>
+</div>
+<span class="ex-score text-xs font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full border border-teal-100"></span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600">Select the correct word to complete each sentence.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">1.</span> The 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="doctor’s">
-            <option value="">Select...</option>
-            <option value="doctor’s">doctor’s</option>
-            <option value="doctors">doctors</option>
-          </select> schedule is very full this week.
+<option value="">Select...</option>
+<option value="doctor’s">doctor’s</option>
+<option value="doctors">doctors</option>
+</select> schedule is very full this week.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">2.</span> My 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">2.</span> My 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="baby’s">
-            <option value="">Select...</option>
-            <option value="babies">babies</option>
-            <option value="baby’s">baby’s</option>
-          </select> health is very important to me.
+<option value="">Select...</option>
+<option value="babies">babies</option>
+<option value="baby’s">baby’s</option>
+</select> health is very important to me.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">3.</span> Doctor Chen has a lot of 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">3.</span> Doctor Chen has a lot of 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="patients">
-            <option value="">Select...</option>
-            <option value="patients">patients</option>
-            <option value="patient’s">patient’s</option>
-          </select>.
+<option value="">Select...</option>
+<option value="patients">patients</option>
+<option value="patient’s">patient’s</option>
+</select>.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">4.</span> The hospital lost the 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">4.</span> The hospital lost the 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="man’s">
-            <option value="">Select...</option>
-            <option value="men">men</option>
-            <option value="man’s">man’s</option>
-          </select> x-rays.
+<option value="">Select...</option>
+<option value="men">men</option>
+<option value="man’s">man’s</option>
+</select> x-rays.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">5.</span> The 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">5.</span> The 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="teachers">
-            <option value="">Select...</option>
-            <option value="teacher’s">teacher’s</option>
-            <option value="teachers">teachers</option>
-          </select> are having a meeting today.
+<option value="">Select...</option>
+<option value="teacher’s">teacher’s</option>
+<option value="teachers">teachers</option>
+</select> are having a meeting today.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">6.</span> Some 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">6.</span> Some 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="people">
-            <option value="">Select...</option>
-            <option value="person">person</option>
-            <option value="people">people</option>
-          </select> watch a lot of TV.
+<option value="">Select...</option>
+<option value="person">person</option>
+<option value="people">people</option>
+</select> watch a lot of TV.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">7.</span> The 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">7.</span> The 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="children’s">
-            <option value="">Select...</option>
-            <option value="child’s">child’s</option>
-            <option value="children’s">children’s</option>
-          </select> father took them to the park.
+<option value="">Select...</option>
+<option value="child’s">child’s</option>
+<option value="children’s">children’s</option>
+</select> father took them to the park.
         </div>
-        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
-          <span class="font-bold text-slate-400 mr-1.5">8.</span> That building is over 1000 
+<div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
+<span class="font-bold text-slate-400 mr-1.5">8.</span> That building is over 1000 
           <select class="select-check input-clean text-xs font-semibold px-2 py-1 rounded-lg border border-slate-300 bg-white" data-ans="feet">
-            <option value="">Select...</option>
-            <option value="foot">foot</option>
-            <option value="feet">feet</option>
-          </select> high.
+<option value="">Select...</option>
+<option value="foot">foot</option>
+<option value="feet">feet</option>
+</select> high.
         </div>
-      </div>
-
-      <div class="pt-2 flex items-center justify-between border-t border-slate-100">
-        <button onclick="checkSelectCard('card-l1-ex11')" class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition">Check Answers</button>
-      </div>
-    </div>
-    </div>
-      </div>
-      <div class="max-w-4xl mx-auto space-y-6">
-  
+</div>
+<div class="pt-2 flex items-center justify-between border-t border-slate-100">
+<button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkSelectCard('card-l1-ex11')">Check Answers</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-4xl mx-auto space-y-6">
 <!-- EXERCISE 13: SITUATIONS WITH ANOTHER / OTHER / THE OTHER (P. 66) -->
 <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-l1-ex13">
 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -667,49 +753,48 @@
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: My bottle of vitamins is almost empty.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">2.</span> I need to buy 
-          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-56 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another bottle of vitamins" placeholder="another bottle of vitamins" type="text"/> (bottle of vitamins) soon.</div>
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-56 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another bottle of vitamins" placeholder="another bottle of vitamins" type="text"> (bottle of vitamins) soon.</input></div>
 </div>
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: You bought six oranges. Four of them were sweet and delicious.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">3.</span>
-<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-44 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="The other oranges,Other oranges" placeholder="The other oranges" type="text"/> (oranges) were sour.</div>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-44 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="The other oranges,Other oranges" placeholder="The other oranges" type="text"> (oranges) were sour.</input></div>
 </div>
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: Emma found three errors on her homework assignment. Then, she found one more.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">4.</span> Emma just found 
-          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another error" placeholder="another error" type="text"/> (error) on her homework assignment.</div>
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another error" placeholder="another error" type="text"> (error) on her homework assignment.</input></div>
 </div>
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: I invited ten people to my party. Seven people came.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">5.</span>
-<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="The other people,Other people" placeholder="The other people" type="text"/> (people) did not come.</div>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="The other people,Other people" placeholder="The other people" type="text"> (people) did not come.</input></div>
 </div>
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: Carol is a nurse. She doesn’t have the same schedule every week. Some weeks she works during the day.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">6.</span>
-<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-36 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="Other weeks" placeholder="Other weeks" type="text"/> (weeks) she works at night or on the weekends.</div>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-36 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="Other weeks" placeholder="Other weeks" type="text"> (weeks) she works at night or on the weekends.</input></div>
 </div>
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: My coat is old, and it’s not very warm.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">7.</span> I need 
-          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-36 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another coat" placeholder="another coat" type="text"/> (coat).</div>
+          <input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-36 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="another coat" placeholder="another coat" type="text"> (coat).</input></div>
 </div>
 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200/80 leading-relaxed">
 <div class="text-[11px] font-semibold text-slate-500 mb-1">Situation: The students at my school study different things. Some students are studying science.</div>
 <div><span class="font-bold text-slate-400 mr-1.5">8.</span>
-<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="Other students" placeholder="Other students" type="text"/> (students) are studying history, math, or languages.</div>
+<input class="cloze-input input-clean px-2.5 py-1 text-xs sm:text-sm border border-slate-300 rounded-lg w-40 font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-400" data-ans="Other students" placeholder="Other students" type="text"> (students) are studying history, math, or languages.</input></div>
 </div>
 </div>
 <div class="pt-2 flex items-center justify-between border-t border-slate-100">
 <button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkClozeCard('card-l1-ex13')">Check Answers</button>
 </div>
 </div>
-
 </div>
-    </div>
-    <div id="tab-pronunciation" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex12-l1-card">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-pronunciation">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex12-l1-card">
 <div class="flex items-center justify-between">
 <div>
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
@@ -722,13 +807,11 @@
 </div>
 <!-- Audio Player [CD1-18] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-18">
-  <div style="width: calc(100% + 56px); margin-right: -56px;">
-    <iframe src="https://drive.google.com/file/d/1MJRlvYSyOIkD29cFJCaMS38Wsp2Vwexi/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
-  </div>
+<div style="width: calc(100% + 56px); margin-right: -56px;">
+<iframe allow="autoplay" class="w-full block" frameborder="0" height="54" src="https://drive.google.com/file/d/1MJRlvYSyOIkD29cFJCaMS38Wsp2Vwexi/preview" width="100%"></iframe>
+</div>
 </div>
 <!-- End Audio Player [CD1-18] -->
-
-
 <div class="grid grid-cols-2 gap-2 text-xs">
 <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>1. nurses:</span><select class="select-check border rounded p-1 text-xs input-clean" data-ans="/ez/"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
 <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between"><span>2. patient’s:</span><select class="select-check border rounded p-1 text-xs input-clean" data-ans="/s/"><option value="">sound</option><option value="/s/">/s/</option><option value="/z/">/z/</option><option value="/ez/">/ez/</option></select></div>
@@ -749,10 +832,10 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-edit" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex14-l1-card">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-edit">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex14-l1-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">14</span>
               EDIT. The Limits of the Human Body (Page 67)
@@ -775,23 +858,20 @@
 </div>
 </div>
 </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
-        <span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
-      </div>
-      <div>Interactive Student Workbook & Exercises Suite</div>
-    </div>
-  </footer>
-
-  <!-- JAVASCRIPT LOGIC -->
-  <script>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-teal-400"></span>
+<span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
+</div>
+<div>Interactive Student Workbook &amp; Exercises Suite</div>
+</div>
+</footer>
+<!-- JAVASCRIPT LOGIC -->
+<script>
     function switchExTab(tabId) {
       document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
       const target = document.getElementById(tabId);

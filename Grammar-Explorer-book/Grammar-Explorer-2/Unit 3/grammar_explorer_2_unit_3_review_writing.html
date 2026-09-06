@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammar Explorer 2 — Unit 3: Review the Grammar & Connect to Writing</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Grammar Explorer 2 — Unit 3: Review the Grammar &amp; Connect to Writing</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
@@ -33,64 +34,57 @@
   </style>
 </head>
 <body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
-
-  <!-- TOP APP HEADER -->
-  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center space-x-3">
-          <div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
-              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Review & Writing</span>
-            </div>
-            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
-              Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Review the Grammar & Connect to Writing</span>
-            </h1>
-          </div>
-        </div>
-
-        <button onclick="resetCurrentLesson()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
-          <svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-          <span>Reset Lesson</span>
-        </button>
-      </div>
-
-      <!-- EXERCISE TAB NAVIGATION -->
-      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-
-        <button onclick="switchExTab('tab-review')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-review">
-          <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
-          <span>Grammar Review (pp. 81–82)</span>
-        </button>
-        <button onclick="switchExTab('tab-crocodiles')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-crocodiles">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
-          <span>EDIT: Siamese Crocodiles (p. 82)</span>
-        </button>
-        <button onclick="switchExTab('tab-listen-rev')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-listen-rev">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5</span>
-          <span>Listen & Match (p. 83)</span>
-        </button>
-        <button onclick="switchExTab('tab-writing-model')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-writing-model">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">Model</span>
-          <span>Staying Fit & Agreement (pp. 84–85)</span>
-        </button>
-        <button onclick="switchExTab('tab-writing-draft')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-writing-draft">
-          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">Write</span>
-          <span>Opinion Paragraph Pad & Checklist (p. 85)</span>
-        </button>
-
-      </nav>
-    </div>
-  </header>
-
-  <!-- MAIN CONTAINER -->
-  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
-
-    <div id="tab-review" class="ex-tab-pane block space-y-6">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex1-rev-card">
+<!-- TOP APP HEADER -->
+<header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-3">
+<div class="w-2.5 h-8 bg-teal-400 rounded-sm shadow-sm"></div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[10px] sm:text-xs font-bold tracking-widest text-teal-400 uppercase">National Geographic Learning</span>
+<span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U3 • Review &amp; Writing</span>
+</div>
+<h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 3: Health and Fitness <span class="text-slate-500 font-light">|</span> <span class="text-teal-400">Review the Grammar &amp; Connect to Writing</span>
+</h1>
+</div>
+</div>
+<button class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-teal-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm" onclick="resetCurrentLesson()">
+<svg class="w-3.5 h-3.5 text-teal-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Reset Lesson</span>
+</button>
+</div>
+<!-- EXERCISE TAB NAVIGATION -->
+<nav aria-label="Exercise Tabs" class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800">
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-review" onclick="switchExTab('tab-review')">
+<span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+<span>Grammar Review (pp. 81–82)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-crocodiles" onclick="switchExTab('tab-crocodiles')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+<span>EDIT: Siamese Crocodiles (p. 82)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-listen-rev" onclick="switchExTab('tab-listen-rev')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5</span>
+<span>Listen &amp; Match (p. 83)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-writing-model" onclick="switchExTab('tab-writing-model')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">Model</span>
+<span>Staying Fit &amp; Agreement (pp. 84–85)</span>
+</button>
+<button class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-writing-draft" onclick="switchExTab('tab-writing-draft')">
+<span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">Write</span>
+<span>Opinion Paragraph Pad &amp; Checklist (p. 85)</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- MAIN CONTAINER -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+<div class="ex-tab-pane block space-y-6" id="tab-review">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex1-rev-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
             Complete with a, an, or some (Page 81)
@@ -115,7 +109,7 @@
 <button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex1-rev-card')" type="button">Check Ex 1</button>
 </div>
 </div>
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex2-rev-card">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex2-rev-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
             Complete Sentences with Nouns (Page 81)
@@ -136,7 +130,7 @@
 <button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex2-rev-card')" type="button">Check Ex 2</button>
 </div>
 </div>
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex3-rev-card">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex3-rev-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
             Choose the Correct Word(s) (Pages 81–82)
@@ -160,10 +154,10 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-crocodiles" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex4-rev-card">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-crocodiles">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex4-rev-card">
 <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
 <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
             EDIT. Siamese Crocodiles in Cambodia (Page 82)
@@ -186,10 +180,9 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-listen-rev" class="ex-tab-pane hidden space-y-6">
-      <div class="max-w-4xl mx-auto space-y-6">
-  
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-listen-rev">
+<div class="max-w-4xl mx-auto space-y-6">
 <!-- EXERCISE 5: LISTEN & SPEAK - FITNESS ACTIVITIES (P. 83) -->
 <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="card-rev-ex5">
 <div class="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -300,11 +293,10 @@
 <button class="px-4 py-2 bg-teal-500 hover:bg-teal-600 font-bold text-white text-xs rounded-xl shadow-sm transition" onclick="checkSelectCard('card-rev-ex5')">Check Answers</button>
 </div>
 </div>
-
 </div>
-    </div>
-    <div id="tab-writing-model" class="ex-tab-pane hidden space-y-6">
-      <div class="space-y-4">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-writing-model">
+<div class="space-y-4">
 <div class="flex items-center justify-between border-b border-slate-200 pb-2">
 <div class="flex items-center gap-2">
 <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ &amp; NOTICE</span>
@@ -333,7 +325,14 @@
 <strong>A walk is</strong> also a safe way to stay fit. Often <strong>people get</strong> hurt when they exercise. Some people run several miles a week and then complain of knee or back pain. Other people do <strong>a lot of drills</strong>¹ and then ache for a week. Walking is relaxing and does not put a lot of stress on your body. It provides exercise without additional pain. Walking keeps <strong>your body</strong>—and your mind—healthy. Go take a walk!
               </p>
 </div>
-<div class="bg-teal-50 rounded-xl border border-teal-200 p-3.5 text-xs text-teal-950 space-y-1">
+<div class="bg-teal-50 rounded-xl border border-teal-200 p-4 text-xs text-teal-950 space-y-1.5">
+<span class="font-bold text-teal-900 block text-xs uppercase tracking-wide">GRAMMAR FOCUS: Count &amp; Non-Count Nouns with Modifiers (Page 84)</span>
+<p class="text-slate-700">In the model text, the writer uses singular and plural count nouns and non-count nouns with and without adjectives and quantity words:</p>
+<div class="space-y-1.5 text-slate-800 font-medium pl-2 border-l-2 border-teal-500 mt-1">
+<p>• <strong>Count Nouns:</strong><br/><span class="text-slate-600 italic">Singular with a/an: to take a long walk • Plural: comfortable shoes • Quantity word: any fancy machines</span></p>
+<p>• <strong>Non-Count Nouns:</strong><br/><span class="text-slate-600 italic">(No a/an): Exercise is important • Quantity word: a lot of expensive clothing, very little time and money</span></p>
+</div>
+</div><div class="bg-teal-50 rounded-xl border border-teal-200 p-3.5 text-xs text-teal-950 space-y-1">
 <strong class="text-teal-900 block uppercase tracking-wide text-[11px]">WRITING FOCUS: Subject-Verb Agreement (Page 85)</strong>
 <p>When using nouns in the subject position, be sure to use the correct singular or plural form of the verb. With non-count nouns as subjects, use a singular verb.</p>
 <ul class="list-disc list-inside text-teal-900 text-[11px] space-y-0.5">
@@ -411,9 +410,9 @@
 </div>
 </div>
 </div>
-    </div>
-    <div id="tab-writing-draft" class="ex-tab-pane hidden space-y-6">
-      <div class="space-y-6 pt-4 border-t border-slate-200">
+</div>
+<div class="ex-tab-pane hidden space-y-6" id="tab-writing-draft">
+<div class="space-y-6 pt-4 border-t border-slate-200">
 <div class="flex items-center gap-2">
 <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-teal-500 text-white">WRITING WORKBENCH</span>
 <span class="text-sm font-bold text-slate-700">Draft &amp; Assess Your Opinion Paragraph (Pages 84–85)</span>
@@ -467,23 +466,20 @@ In addition, swimming does not put much stress on your joints. It provides a gre
 </div>
 </div>
 </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
-        <span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
-      </div>
-      <div>Interactive Student Workbook & Exercises Suite</div>
-    </div>
-  </footer>
-
-  <!-- JAVASCRIPT LOGIC -->
-  <script>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-teal-400"></span>
+<span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
+</div>
+<div>Interactive Student Workbook &amp; Exercises Suite</div>
+</div>
+</footer>
+<!-- JAVASCRIPT LOGIC -->
+<script>
     function switchExTab(tabId) {
       document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
       const target = document.getElementById(tabId);
