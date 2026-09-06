@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 9: The Natural World (Conjunctions and Adverb Clauses)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            natgeo: {
+              yellow: '#FFCC00',
+              gold: '#F59E0B',
+              dark: '#0F172A',
+              emerald: '#059669',
+              card: '#1E293B',
+              slate: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow-y: auto; }
+    .badge-cd {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.375rem;
+      margin-left: 0.35rem;
+      margin-top: 0.15rem;
+      margin-bottom: 0.15rem;
+      vertical-align: middle;
+      animation: fadeInBadge 0.2s ease-out;
+    }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-1px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- HEADER & PRIMARY NAVIGATION -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-emerald-500 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono hidden md:inline">GE2 U9</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight flex items-center gap-2">
+              Grammar Explorer 2 <span class="text-slate-600 font-light">|</span> 
+              <span class="text-sm font-semibold text-slate-200">Unit 9: The Natural World</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="resetEntirePage()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-emerald-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset All Exercises</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Unit Tabs -->
+      <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-1 text-sm scrollbar-none" aria-label="Unit Tabs">
+        <button onclick="switchTab('overview')" class="tab-btn active px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-emerald-400 text-emerald-400 bg-slate-800/50" data-tab="overview">
+          Unit Overview
+        </button>
+        <button onclick="switchTab('lesson1')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson1">
+          Lesson 1: Conjunctions
+        </button>
+        <button onclick="switchTab('lesson2')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson2">
+          Lesson 2: Cause & Contrast
+        </button>
+        <button onclick="switchTab('lesson3')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson3">
+          Lesson 3: Future Conditional
+        </button>
+        <button onclick="switchTab('review')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="review">
+          Review the Grammar
+        </button>
+        <button onclick="switchTab('writing')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="writing">
+          Connect to Writing
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: UNIT OVERVIEW (Pages 232–233) -->
+    <!-- ============================================================ -->
+    <section id="tab-overview" class="tab-content block space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-900 mb-2">
+              Pages 232–233 • Scope & Sequence
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 9: The Natural World</h2>
+            <p class="text-slate-500 mt-1 text-base">Grammar Focus: Conjunctions and Adverb Clauses (Cause, Contrast, Future Conditional)</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="switchTab('lesson1')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 font-bold text-white transition shadow-sm flex items-center gap-2">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+            <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-950 group">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQug7M0nMMzLjBsO99Zc0wcvwDqOX1b1fKNpQPTkHAMeoPYXPZikHFkk6B7&s=10?auto=format&fit=crop&w=1200&q=80" 
+                alt="Bouvardia flower macro view" 
+                class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/059669?text=A+bouvardia%2C+Lincoln%2C+Nebraska%2C+USA';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-black/40 pointer-events-none"></div>
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-emerald-400 px-2.5 py-1 rounded-md border border-emerald-400/30 flex items-center gap-1.5 shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Unit Opener Spotlight • pp. 232–233
+                </span>
+                <span class="text-[11px] bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-slate-700 text-slate-300">
+                  Theme: Nature’s Interconnections
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3 text-xs flex items-center justify-between text-slate-300">
+                <span class="text-[11px] bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10 font-mono">
+                  A bouvardia, Lincoln, Nebraska, USA
+                </span>
+                <span class="text-[11px] text-emerald-300/90 font-medium">
+                  Intricate relationships in biological ecosystems
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-3.5">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-snug">Discovering Complex Ecosystems</h3>
+                <p class="text-xs text-emerald-400/90 font-medium mt-0.5">Carnivorous plants, volcanic eruptions, marine bioacoustics, and environmental impacts</p>
+              </div>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                Nature functions through intricate cause-and-effect links and remarkable survival strategies. In this unit, we explore how carnivorous pitcher plants lure prey with ultraviolet light, investigate scientists descending into Mount Nyiragongo’s crater, analyze the impact of human ocean noise on dolphins and whales, and learn to write cause-and-effect compositions without comma splices.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-emerald-400 block">Lesson 1</strong>
+                  <span class="text-slate-400 text-[10px]">Conjunctions (And, Or, So, But)</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-amber-400 block">Lesson 2</strong>
+                  <span class="text-slate-400 text-[10px]">Adverb Clauses: Cause & Contrast</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-sky-400 block">Lesson 3</strong>
+                  <span class="text-slate-400 text-[10px]">Adverb Clauses: Future Conditional</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5 space-y-3">
+            <div onclick="switchTab('lesson1')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-emerald-400 hover:bg-emerald-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Lesson 1 (p. 234–241)</span>
+                <span class="badge-cd">CD3-02, 03</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition mt-1 text-sm">Conjunctions & Ellipsis</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>What’s for Dinner?</em> Coordinating conjunctions, <em>too / so / either / neither</em>, Saguaro cactus editing, and giant redwood listening.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson2')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Lesson 2 (p. 242–249)</span>
+                <span class="badge-cd">CD3-04, 05</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Adverb Clauses: Cause and Contrast</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Volcano Watching</em>. <em>Because</em> vs. <em>since</em>, <em>although</em> vs. <em>even though</em>, and the Sahara-Amazon relationship.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson3')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-sky-400 hover:bg-sky-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Lesson 3 (p. 250–257)</span>
+                <span class="badge-cd">CD3-06, 07</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-sky-600 transition mt-1 text-sm">Adverb Clauses: Future Conditional</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>The Sounds of the Sea</em>. First conditional structure with <em>if</em> and <em>when</em>, Sundarbans mangrove tigers editing.
+              </p>
+            </div>
+
+            <div onclick="switchTab('review')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 258–259)</span>
+                <span class="badge-cd">CD3-08, 09</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Synthesis practice, lightning facts editing, and gorillas vs. chimpanzees comparative listening.
+              </p>
+            </div>
+
+            <div onclick="switchTab('writing')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-emerald-400 hover:bg-emerald-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Writing (p. 260–261)</span>
+                <span class="text-xs text-slate-400">Writing Focus</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition mt-1 text-sm">Connect to Writing: Cause & Effect</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>Noise Pollution</em>. Correcting comma splices, graphic organizer for causes and effects, and drafting pad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: LESSON 1 (Pages 234–241) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson1" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Lesson 1 • Pages 234–241</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Conjunctions</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd"><svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD3-02, 03</span>
+        </div>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Comprehension (Pages 234–235)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">What’s for Dinner?</h3>
+                <p class="text-xs text-slate-500">Carnivorous pitcher plants and their insect prey</p>
+              </div>
+              <span class="badge-cd">CD3-02</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+              <p>
+                Most plants get the nutrients¹ they need to grow from soil. Some plants, however, grow in poor soil that doesn’t provide the food the plants need. These plants have to attract <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> catch insects to stay alive. Plants that trap <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> eat insects are called carnivorous, <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">or</strong> meat-eating, plants.
+              </p>
+              <p>
+                Many plants attract insects with bright colors <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> pleasant smells, <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> carnivorous plants do too. Some carnivorous plants also contain tasty liquids, <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">so</strong> insects will come close <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> take a drink.
+              </p>
+              <p>
+                However, scientists have recently discovered something else that attracts insects to some carnivorous plants. These plants shine with a blue light. The light is ultraviolet,² <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">so</strong> people can’t see it. The light can’t attract humans, <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">but</strong> it is bright <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> attractive to insects.
+              </p>
+              <p>
+                Pitcher plants are among the most interesting “ultraviolet” plants. Their leaves form tubes that hold liquids. The blue light attracts insects to the edge of the plant’s leaves, <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">and</strong> some of them fall in. They try to escape, <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">but</strong> the leaves have special hairs that stop them from climbing out. Soon the insects become a meal for the plant.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ nutrient:</strong> something in food that is necessary for life</p>
+              <p><strong>² ultraviolet:</strong> a blue color that the human eye cannot see</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Exercise 2: CHECK Matching -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l1-card">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. Match Columns (Page 235)
+                </h4>
+                <span class="text-xs text-slate-400">Based on "What’s for Dinner?"</span>
+              </div>
+              <p class="text-xs text-slate-500 mb-3">Match the beginning of each statement with the correct ending:</p>
+
+              <div class="space-y-2.5 text-xs sm:text-sm">
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. Ultraviolet light:</span>
+                  <select data-ans="d" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. does not provide enough nutrients for some plants.</option><option value="b">b. keep insects inside the plant.</option><option value="c">c. have leaves like tubes.</option><option value="d">d. attracts insects to plants.</option><option value="e">e. provide nutrients for carnivorous plants.</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. Poor soil:</span>
+                  <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. does not provide enough nutrients for some plants.</option><option value="b">b. keep insects inside the plant.</option><option value="c">c. have leaves like tubes.</option><option value="d">d. attracts insects to plants.</option><option value="e">e. provide nutrients for carnivorous plants.</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. Insects:</span>
+                  <select data-ans="e" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. does not provide enough nutrients for some plants.</option><option value="b">b. keep insects inside the plant.</option><option value="c">c. have leaves like tubes.</option><option value="d">d. attracts insects to plants.</option><option value="e">e. provide nutrients for carnivorous plants.</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. Pitcher plants:</span>
+                  <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. does not provide enough nutrients for some plants.</option><option value="b">b. keep insects inside the plant.</option><option value="c">c. have leaves like tubes.</option><option value="d">d. attracts insects to plants.</option><option value="e">e. provide nutrients for carnivorous plants.</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. Special hairs:</span>
+                  <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. does not provide enough nutrients for some plants.</option><option value="b">b. keep insects inside the plant.</option><option value="c">c. have leaves like tubes.</option><option value="d">d. attracts insects to plants.</option><option value="e">e. provide nutrients for carnivorous plants.</option></select>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Conjunction Roles -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-l1-card">
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                  DISCOVER. How Conjunctions Work (Page 235)
+                </h4>
+                <p class="text-xs text-slate-500 mt-0.5">Answer the questions based on the article:</p>
+              </div>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <p class="font-medium text-slate-800">1. How is <em>and</em> used in these sentences?</p>
+                  <select data-ans="a" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="a">a. to add ideas</option><option value="b">b. to show how ideas are different</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <p class="font-medium text-slate-800">2. What type of idea follows <em>so</em>?</p>
+                  <select data-ans="a" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="a">a. a result</option><option value="b">b. a cause</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <p class="font-medium text-slate-800">3. What type of idea follows <em>but</em>?</p>
+                  <select data-ans="b" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="a">a. a similar idea</option><option value="b">b. a different idea</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-500 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 9.1–9.2 & Exercises 4–9 (Pages 236–241)</span>
+        </div>
+
+        <!-- Row 1: Chart 9.1 & Exercise 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">9.1 Conjunctions: And, Or, So, But</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>And:</strong> connects similar/additional info (<em>flour, eggs, and sugar</em>).
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Or:</strong> choices or alternatives (<em>pie or fruit</em>).
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>So:</strong> shows a result clause (<em>It was raining, so I took the bus</em>).
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>But:</strong> shows contrast/difference (<em>fun but difficult</em>).
+              </div>
+              <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-950">
+                <strong>Comma Rule:</strong> Use a comma when joining two independent clauses. Do not use a comma to connect two words or phrases.
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose the Correct Conjunction (Page 236)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct conjunction to complete each sentence:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Pitcher plants attract insects with bright colors, light, <select data-ans="and" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="and">and</option><option value="so">so</option></select> tasty liquids.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. Plants get nutrients from the ground <select data-ans="or" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="or">or</option><option value="so">so</option></select> from insects.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Insects go inside plants <select data-ans="and" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="but">but</option><option value="and">and</option></select> drink the liquid.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. The Botanical Garden is closed today, <select data-ans="so" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="so">so</option><option value="but">but</option></select> we can’t go.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Jamie knows a lot about nature, <select data-ans="but" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="and">and</option><option value="but">but</option></select> he hasn’t heard of pitcher plants.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Are you going to water the plants now <select data-ans="or" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="but">but</option><option value="or">or</option></select> later?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Tasha didn’t take care of her plants, <select data-ans="so" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="so">so</option><option value="but">but</option></select> they died.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. These flowers are beautiful, <select data-ans="but" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="or">or</option><option value="but">but</option></select> they do not last a long time.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Chart 9.2 & Exercise 7, 8 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">9.2 And + Too, So, Either, Neither</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Affirmative Similarity:</strong><br>
+                • <em>and + subject + aux + too</em> (Linda likes to swim, and Luc does too)<br>
+                • <em>and + so + aux + subject</em> (and so does Luc)
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Negative Similarity:</strong><br>
+                • <em>and + subject + aux (neg) + either</em> (Kim doesn't either)<br>
+                • <em>and + neither + aux (pos) + subject</em> (and neither does Kim)
+              </div>
+              <div class="p-2.5 bg-rose-50 rounded-xl border border-rose-200 text-rose-950">
+                ⚠️ Never use a negative auxiliary with <em>neither</em>! (✓ <em>neither does my sister</em> ✗ <em>neither doesn't my sister</em>)
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Complete with Auxiliaries + Too / So / Either / Neither (Page 238)
+            </h4>
+            <p class="text-xs text-slate-500">Fill in the correct form with do, have, be, or will:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Ellie likes to watch nature films, and <input type="text" data-ans="so do" value="so do" readonly class="border rounded px-1.5 py-0.5 text-xs w-20 bg-slate-200 font-semibold text-center"> her children.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. Franco’s not watching TV, and <input type="text" data-ans="neither is" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="neither/either + aux"> Mary.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. I don’t buy flowers often, and my sister <input type="text" data-ans="doesn't either,does not either" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="aux + either">.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. We grew our own vegetables, and our neighbors <input type="text" data-ans="did too" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="did too">.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Sid has finished his assignment, and <input type="text" data-ans="so has" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="so has"> Olivia.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Eric won’t be at the meeting tomorrow, and <input type="text" data-ans="neither will" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="neither will"> his boss.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Carlos is from Mexico, and Vera <input type="text" data-ans="is too" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="is too">.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. I haven’t seen that TV show, and <input type="text" data-ans="neither has" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="neither has"> Paul.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex7-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Exercise 9 & 10 EDIT -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+              Sentence Transformations (Page 239)
+            </h4>
+            <p class="text-xs text-slate-500">Replace the bold structure with either, neither, so, or too:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg space-y-1">
+                <div>1. Uncle Steve likes working in the garden, and <strong>so does Aunt Jill</strong>.</div>
+                <input type="text" data-ans="Aunt Jill does too,Aunt Jill does too." class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Rewrite ending...">
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg space-y-1">
+                <div>2. The yellow flowers aren’t expensive, and <strong>the red ones aren’t either</strong>.</div>
+                <input type="text" data-ans="neither are the red ones,neither are the red ones." class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Rewrite ending...">
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg space-y-1">
+                <div>3. I’ve read the article about plants, and <strong>Jane has too</strong>.</div>
+                <input type="text" data-ans="so has Jane,so has Jane." class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Rewrite ending...">
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg space-y-1">
+                <div>4. Bill’s not going to the lecture, and <strong>neither am I</strong>.</div>
+                <input type="text" data-ans="I'm not either,I am not either." class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Rewrite ending...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex9-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+              EDIT. Fact File: The Saguaro Cactus (Page 240)
+            </h4>
+            <p class="text-xs text-slate-500">Find and correct seven more errors with conjunctions and too/so/either/neither:</p>
+
+            <div class="space-y-1.5 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+              <div>1. Saguaros can reach 40 ft, [so] in their first ten years: <input type="text" data-ans="but" value="but" readonly class="border rounded px-2 py-0.5 text-xs w-20 bg-slate-200 font-semibold"> (given)</div>
+              <div>2. The fruit is red, [so] it contains around 2000 seeds: <input type="text" data-ans="and" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>3. It is very tasty, [but] it is popular with local people: <input type="text" data-ans="so,and" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>4. Saguaros grow arms, [but] they have room for flowers: <input type="text" data-ans="so" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>5. ...and it doesn’t rain much [neither]: <input type="text" data-ans="either" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>6. ...and New Mexico does [either]: <input type="text" data-ans="doesn't either,neither does New Mexico" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" placeholder="correction"></div>
+              <div>7. used to provide both food [or] shelter: <input type="text" data-ans="and" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>8. ...and birds do [so]: <input type="text" data-ans="too,so do birds" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex10-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LESSON 2 (Pages 242–249) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson2" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Lesson 2 • Pages 242–249</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Adverb Clauses: Cause and Contrast</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD3-04, 05</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading: Volcano Watching (Pages 242–243)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Volcano Watching</h3>
+                <p class="text-xs text-slate-500">Mount Nyiragongo, Democratic Republic of the Congo</p>
+              </div>
+              <span class="badge-cd">CD3-04</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">Although</strong> Mount Nyiragongo in the Democratic Republic of the Congo looks beautiful, it is very dangerous. It is dangerous <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">because</strong> it is an active volcano. It erupted¹ in 1977 and again in 2002. In 2002, 147 people died because of the eruption.
+              </p>
+              <p>
+                Scientists are studying Mount Nyiragongo very closely. They want to know when it will erupt again. This information is very important <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">since</strong> nearly a million people live nearby in the city of Goma.
+              </p>
+              <p>
+                Ken Sims is a scientist who studies volcanoes. <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">Even though</strong> it was very dangerous, in 2010 Sims and his team climbed down into the crater² of Mount Nyiragongo. Sims made this journey <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">because</strong> he wanted to collect new lava from the volcano. New lava tells us more about the volcano than old lava. Sims hopes that the lava he collected will help predict the next eruption.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ erupt:</strong> explode</p>
+              <p><strong>² crater:</strong> a large hole in the ground or in the top of a volcano</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Exercise 2: Short Answers -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Comprehension Questions (Page 243)
+              </h4>
+              <p class="text-xs text-slate-500 mb-3">Answer the questions based on the text:</p>
+
+              <div class="space-y-2.5 text-xs">
+                <div>
+                  <span class="font-medium text-slate-800 block">1. Why is Mount Nyiragongo dangerous?</span>
+                  <input type="text" data-ans="because it is an active volcano,it is an active volcano" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type reason...">
+                </div>
+                <div>
+                  <span class="font-medium text-slate-800 block">2. Why are scientists studying it very closely?</span>
+                  <input type="text" data-ans="they want to know when it will erupt again,to know when it will erupt again,to predict the next eruption" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type reason...">
+                </div>
+                <div>
+                  <span class="font-medium text-slate-800 block">3. Who is Ken Sims?</span>
+                  <input type="text" data-ans="a scientist who studies volcanoes,a scientist" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type identification...">
+                </div>
+                <div>
+                  <span class="font-medium text-slate-800 block">4. What did Ken Sims do in 2010?</span>
+                  <input type="text" data-ans="climbed down into the crater,he climbed down into the crater" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type action...">
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Words of Cause and Contrast -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Cause and Contrast Words (Page 243)
+              </h4>
+              <p class="text-xs text-slate-500">Identify the function of words in the reading:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="font-bold text-slate-800 block">1. Words used to introduce a CONTRAST:</span>
+                  <input type="text" data-ans="although, even though" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="e.g. although, even though">
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="font-bold text-slate-800 block">2. Words used to introduce a REASON (CAUSE):</span>
+                  <input type="text" data-ans="because, since" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="e.g. because, since">
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Identify Cause (C) vs. Result (R) (Page 244)
+            </h4>
+            <p class="text-xs text-slate-500">Classify the underlined clause in each sentence:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. Since Mount Nyiragongo is so close, <u>the city of Goma is in danger</u>.</span>
+                <select data-ans="R" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="C">C (Cause)</option><option value="R">R (Result)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. Scientists study volcanoes <u>because they want to predict eruptions</u>.</span>
+                <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="C">C (Cause)</option><option value="R">R (Result)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. <u>The people of Goma are worried</u> since there was a lot of damage.</span>
+                <select data-ans="R" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="C">C (Cause)</option><option value="R">R (Result)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. <u>Because some volcanoes don’t erupt often</u>, people don’t worry.</span>
+                <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="C">C (Cause)</option><option value="R">R (Result)</option></select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 7: Choose Conjunction -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Choose the Correct Conjunction (Page 247)
+            </h4>
+            <p class="text-xs text-slate-500">Select the logically correct conjunction:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Keiko went to Brazil <select data-ans="because" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="because">because</option><option value="even though">even though</option></select> she wanted to see the Amazon rainforest.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. <select data-ans="Although" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Although">Although</option><option value="Because">Because</option></select> it wasn’t dark in the rainforest, she couldn’t see very well.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. <select data-ans="Since" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Since">Since</option><option value="Even though">Even though</option></select> the desert is so hot and dry, not many people live there.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Alex went for a long walk <select data-ans="since" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="since">since</option><option value="although">although</option></select> it was a beautiful day.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. A lot of people were swimming in the lake <select data-ans="although" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="although">although</option><option value="because">because</option></select> the water looked dirty.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex7-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: LESSON 3 (Pages 250–257) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson3" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Lesson 3 • Pages 250–257</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Adverb Clauses: Future Conditional</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD3-06, 07</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading: The Sounds of the Sea (Pages 250–251)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Sounds of the Sea</h3>
+                <p class="text-xs text-slate-500">Effects of human underwater noise on marine life</p>
+              </div>
+              <span class="badge-cd">CD3-06</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                Whales and dolphins use sound to locate food, find their way through the dark oceans, and communicate. Sometimes, however, human noise interferes with the sounds that whales and dolphins make. The result can be very harmful to these animals.
+              </p>
+              <p>
+                Underwater, sounds are louder and travel farther. Scientists believe that even distant noise from human activities can disturb dolphins and whales. This noise can come from ships, submarines,¹ and the equipment that is used to search for oil and gas.
+              </p>
+              <p>
+                Underwater noise causes whales to increase how loudly they communicate. However, <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">if</strong> the underwater noise <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">gets</strong> too loud, whales and dolphins <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">will stop</strong> communicating.
+              </p>
+              <p>
+                <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">If</strong> dolphins and whales <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">stop</strong> communicating, important information <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">will be lost</strong>. For example, a dolphin that finds food won’t be able to tell other dolphins. Mother whales will lose contact with their babies. Animals may die on the shore instead of finding their way across the sea.
+              </p>
+              <p>
+                What can we do to protect dolphins and whales? We can try to create less noise. Ships and submarines can avoid areas with a large number of these animals. Scientists also believe that a “curtain” of bubbles² around industrial sites will reduce noise underwater. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">If</strong> we <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">do</strong> nothing, dolphins and whales <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">will suffer</strong>.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ submarine:</strong> a ship that travels underwater</p>
+              <p><strong>² bubble:</strong> a small ball of air in a liquid</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Exercise 2: CHECK True / False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. True or False? (Page 251)
+              </h4>
+              <p class="text-xs text-slate-500 mb-3">Select <strong>T</strong> or <strong>F</strong>:</p>
+
+              <div class="space-y-2.5">
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">1. Whales and dolphins depend on sound for communication.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">2. Ships cause problems for dolphins.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">3. When dolphins can’t hear, they can find their way correctly.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">4. Mother whales don’t need to be in contact with their babies.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Conditionals -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Will in Conditionals (Page 251)
+              </h4>
+              <p class="text-xs text-slate-500">Where is <em>will</em> used in a future conditional sentence?</p>
+
+              <div class="p-3 bg-slate-50 rounded-xl space-y-2 text-xs">
+                <div><em>Will</em> is used in: <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. clauses that begin with if</option><option value="b">b. main clauses</option></select></div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose Verb Form in Future Conditionals (Page 252)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct form of the verb(s):</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. If a dolphin <select data-ans="finds" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="will find">will find</option><option value="finds">finds</option></select> food, it will call other dolphins.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. If humans <select data-ans="make" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="will make">will make</option><option value="make">make</option></select> a lot of noise, whales will lose contact.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Whales <select data-ans="will continue" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="continue">continue</option><option value="will continue">will continue</option></select> to have problems if we don’t do anything.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. If scientists <select data-ans="don't" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="don't">don’t</option><option value="won't">won’t</option></select> find a solution, the situation will get worse.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. If you <select data-ans="watch" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="watch">watch</option><option value="will watch">will watch</option></select> that documentary, you <select data-ans="will learn" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="learn">learn</option><option value="will learn">will learn</option></select> a lot.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 10: EDIT Sundarbans Tigers -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+              EDIT. The Sundarbans (Page 256)
+            </h4>
+            <p class="text-xs text-slate-500">Find and correct five more errors with adverb clauses:</p>
+
+            <div class="space-y-1.5 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+              <div>1. if you [will be] ready, we’ll start: <input type="text" data-ans="are" value="are" readonly class="border rounded px-2 py-0.5 text-xs w-20 bg-slate-200 font-semibold"> (given)</div>
+              <div>2. If the forests [will disappear]: <input type="text" data-ans="disappear" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+              <div>3. If they do not stop, they [are]: <input type="text" data-ans="will be" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>4. if the mangroves [will continue]: <input type="text" data-ans="continue" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+              <div>5. [when] people don't stop destroying (uncertain): <input type="text" data-ans="if" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+              <div>6. If the storms [will hit] these places: <input type="text" data-ans="hit" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex10-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: REVIEW THE GRAMMAR (Pages 258–259) -->
+    <!-- ============================================================ -->
+    <section id="tab-review" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Review the Grammar • Pages 258–259</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Unit 9 Comprehensive Review</h2>
+        </div>
+        <span class="badge-cd">Track CD3-08, 09</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Exercise 1: Beach Day Conjunctions -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex1-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
+            Complete Conversation (Page 258)
+          </h4>
+          <p class="text-xs text-slate-500">Use: <em>and, if, or, so, when</em> (CD3-08):</p>
+
+          <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div>Andy: Take the afternoon off (1) <input type="text" data-ans="and" value="and" readonly class="border rounded px-1.5 py-0.5 text-xs w-12 bg-slate-200 font-semibold text-center"> go to the beach?</div>
+            <div>Andy: It's a beautiful day, (2) <select data-ans="and" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="and">and</option><option value="so">so</option><option value="or">or</option></select> the beach is never crowded on Tuesdays.</div>
+            <div>Kerim: I'd like to, (3) <select data-ans="so" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="so">so</option><option value="and">and</option><option value="or">or</option></select> I don't know if I can.</div>
+            <div>Andy: It takes an hour to get there, (4) <select data-ans="so" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="so">so</option><option value="and">and</option><option value="when">when</option></select> I'm going to leave at one.</div>
+            <div>Kerim: (5) <select data-ans="If" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="If">If</option><option value="When">When</option></select> I work for a few hours now, I think I'll finish.</div>
+            <div>Andy: Do you want cheese (6) <select data-ans="or" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="or">or</option><option value="and">and</option></select> turkey?</div>
+            <div>Kerim: I'll call you (7) <select data-ans="when" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="when">when</option><option value="if">if</option></select> I'm ready.</div>
+            <div>Andy: We'll leave (8) <select data-ans="when" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="when">when</option><option value="if">if</option></select> you finish.</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex1-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 1</button>
+          </div>
+        </div>
+
+        <!-- Exercise 3: EDIT Lightning Facts -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+            EDIT. Lightning Facts (Page 259)
+          </h4>
+          <p class="text-xs text-slate-500">Find and correct five more errors with adverb clauses and conjunctions:</p>
+
+          <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div>1. We do not see most lightning [even though]: <input type="text" data-ans="because,since" value="because / since" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold"> (given)</div>
+            <div>2. strikes near center, [because] it can also strike far: <input type="text" data-ans="but" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            <div>3. do not protect, and [so do] small buildings: <input type="text" data-ans="neither do" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+            <div>4. travel through wires, [although] it's dangerous: <input type="text" data-ans="so" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            <div>5. forest fires, snowstorms, [but] volcanic eruptions: <input type="text" data-ans="and,or" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            <div>6. never strikes same place, [so] that is not true: <input type="text" data-ans="but" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex3-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 6: CONNECT TO WRITING (Pages 260–261) -->
+    <!-- ============================================================ -->
+    <section id="tab-writing" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Writing Focus • Pages 260–261</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Connect the Grammar to Writing: Cause & Effect</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Split-View Model & Drafting Workbench</span>
+      </div>
+
+      <!-- READ & NOTICE -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ & NOTICE</span>
+            <span class="text-sm font-bold text-slate-700">Model Text & Comma Splices (Pages 260–261)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
+            Split-View: Model (Left) ↔ Comma Splice Correction & Analysis (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">MODEL READING</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Noise Pollution</h3>
+              <p class="text-xs text-slate-500">Environmental factors affecting health and concentration</p>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                <strong>Since we can’t see, smell, or touch noise pollution</strong>, many of us don’t notice it. People that do notice it think it’s annoying, but they don’t worry too much about it. However, noise pollution is all around us, <strong>and</strong> it sometimes causes some very serious problems.
+              </p>
+              <p>
+                Many things that we see every day cause noise pollution. Trucks, motorcycles, airplanes, loud machines, <strong>and</strong> power tools all make a lot of noise. Even music is noise pollution when people play it very loudly.
+              </p>
+              <p>
+                Noise pollution can cause a number of health problems. For example, it can lead to hearing loss. It can also lead to sleep problems. Near airports, people often wake up at night <strong>because the planes are so loud</strong>. They don’t sleep enough, <strong>so</strong> they get sick more easily. Noise pollution also makes people feel stressed. Stress makes it difficult for them to concentrate, <strong>so</strong> they can’t do their work very well. For example, <strong>if a child goes to a noisy school</strong>, he or she will probably get lower grades than a child in a quiet school.
+              </p>
+            </div>
+
+            <div class="bg-emerald-50 rounded-xl border border-emerald-200 p-3.5 text-xs text-emerald-950 space-y-1">
+              <strong class="text-emerald-900 block uppercase tracking-wide text-[11px]">WRITING FOCUS: Correcting Comma Splices (Page 261)</strong>
+              <p>A comma splice occurs when two independent clauses are joined with a comma alone:</p>
+              <ul class="list-disc list-inside text-emerald-900 text-[11px] space-y-0.5">
+                <li>✗ <em>Noise pollution is all around us, it sometimes causes some very serious problems.</em></li>
+                <li>✓ <em>Noise pollution is all around us, <strong>and</strong> it sometimes causes some very serious problems.</em> (Use comma + coordinating conjunction)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Comma Splice Practice -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-commasplice-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                Fix the Comma Splice (Page 261)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the sentence that correctly resolves the comma splice:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <span class="text-slate-800 font-medium">They don't sleep enough, they get sick more easily.</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select correct option...</option>
+                    <option value="a">They don't sleep enough, get sick more easily.</option>
+                    <option value="b">They don't sleep enough, so they get sick more easily.</option>
+                    <option value="c">They don't sleep enough so, they get sick more easily.</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex-commasplice-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Comma Splice</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAFT & SELF ASSESS -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-500 text-white">WRITING WORKBENCH</span>
+          <span class="text-sm font-bold text-slate-700">Draft & Assess Your Cause and Effect Text (Pages 260–261)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+              WRITE: CAUSE AND EFFECT (Page 261)
+            </h4>
+            <p class="text-xs text-slate-500">Write three paragraphs about an environmental situation, its causes, and its effects:</p>
+            
+            <textarea id="studentEssay" rows="8" placeholder="Paragraph 1 (Introduction):
+Air pollution in my city has become a major challenge. Since traffic has increased drastically over the past decade, exhaust fumes fill the streets every morning...
+
+Paragraph 2 (Causes):
+Industrial factories and older diesel buses release harmful particulates into the air. In addition, people rarely use public transit because it is unreliable...
+
+Paragraph 3 (Effects & Conclusion):
+As a result, many children suffer from asthma, and elderly residents cannot spend time outside. If we do not invest in electric buses, air quality will continue to decline..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-emerald-400 leading-relaxed"></textarea>
+
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span id="wordCount">0 words written</span>
+              <button onclick="copyEssayText()" class="font-semibold text-slate-700 hover:text-emerald-600 underline">Copy Essay</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              SELF ASSESS (Page 261 Checklist)
+            </h4>
+            <p class="text-xs text-slate-500">Check off each criterion as you review your draft:</p>
+
+            <div class="space-y-2 text-xs">
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-emerald-500 focus:ring-emerald-400">
+                <span class="text-slate-700">I used <em>and</em> to connect ideas and <em>so</em> to show results. [9.1]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-emerald-500 focus:ring-emerald-400">
+                <span class="text-slate-700">I used adverb clauses with <em>because</em> and <em>since</em> to show causes. [9.3]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-emerald-500 focus:ring-emerald-400">
+                <span class="text-slate-700">I used commas and conjunctions to join independent clauses to avoid comma splices. [WRITING FOCUS]</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-emerald-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 9: The Natural World</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('border-emerald-400', 'text-emerald-400', 'bg-slate-800/50');
+          btn.classList.remove('border-transparent', 'text-slate-300');
+        } else {
+          btn.classList.remove('border-emerald-400', 'text-emerald-400', 'bg-slate-800/50');
+          btn.classList.add('border-transparent', 'text-slate-300');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-emerald-500', 'text-white', 'border-emerald-600', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-emerald-400', 'border-emerald-500');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-emerald-400', 'border-emerald-500');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw.split(',').map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function resetEntirePage() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) { icon.classList.add('hidden'); icon.innerHTML = ''; }
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

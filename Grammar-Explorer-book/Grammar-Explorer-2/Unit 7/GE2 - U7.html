@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 7: Tomorrow and Beyond (The Future)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            natgeo: {
+              yellow: '#FFCC00',
+              gold: '#F59E0B',
+              dark: '#0F172A',
+              cyan: '#06B6D4',
+              sky: '#0284C7',
+              teal: '#0D9488',
+              slate: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .reader-card {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+    }
+    .sticky-reading {
+      position: sticky;
+      top: 5.5rem;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
+    .badge-cd {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    .input-clean {
+      transition: all 0.2s ease-in-out;
+    }
+    .input-correct {
+      border-color: #10b981 !important;
+      background-color: #ecfdf5 !important;
+      color: #065f46 !important;
+    }
+    .input-incorrect {
+      border-color: #f43f5e !important;
+      background-color: #fff1f2 !important;
+      color: #9f1239 !important;
+    }
+    .answer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.375rem;
+      margin-left: 0.35rem;
+      margin-top: 0.15rem;
+      margin-bottom: 0.15rem;
+      vertical-align: middle;
+      animation: fadeInBadge 0.2s ease-out;
+    }
+    .answer-badge-correct {
+      background-color: #ecfdf5;
+      color: #047857;
+      border: 1px solid #6ee7b7;
+    }
+    .answer-badge-incorrect {
+      background-color: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+    }
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-1px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-100 selection:text-cyan-900">
+
+  <!-- HEADER & PRIMARY NAVIGATION -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo / Title -->
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-cyan-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-cyan-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono hidden md:inline">GE2 U7</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight flex items-center gap-2">
+              Grammar Explorer 2 <span class="text-slate-600 font-light">|</span> 
+              <span class="text-sm font-semibold text-slate-200">Unit 7: Tomorrow and Beyond (The Future)</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- Global reset button -->
+        <div class="flex items-center space-x-2">
+          <button onclick="resetEntirePage()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+            <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset All Exercises</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Unit Tabs -->
+      <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-1 text-sm scrollbar-none" aria-label="Unit Tabs">
+        <button onclick="switchTab('overview')" class="tab-btn active px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-cyan-400 text-cyan-400 bg-slate-800/50" data-tab="overview">
+          Unit Overview
+        </button>
+        <button onclick="switchTab('lesson1')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson1">
+          Lesson 1: Will & Be Going To
+        </button>
+        <button onclick="switchTab('lesson2')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson2">
+          Lesson 2: Present Forms for Future
+        </button>
+        <button onclick="switchTab('lesson3')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson3">
+          Lesson 3: Future Time Clauses
+        </button>
+        <button onclick="switchTab('review')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="review">
+          Review the Grammar
+        </button>
+        <button onclick="switchTab('writing')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="writing">
+          Connect to Writing
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: UNIT OVERVIEW (Pages 176–177) -->
+    <!-- ============================================================ -->
+    <section id="tab-overview" class="tab-content block space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-900 mb-2">
+              Pages 176–177 • Scope & Sequence
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 7: Tomorrow and Beyond</h2>
+            <p class="text-slate-500 mt-1 text-base">Grammar Focus: Future with Will & Be Going To, Present Forms for Future, Future Time Clauses</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="switchTab('lesson1')" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 font-bold text-white transition shadow-sm flex items-center gap-2">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <!-- Spotlight Card: Mobile Pod Hotel Architecture -->
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+            
+            <div class="relative w-full bg-slate-950 group">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIkODITp4-1aQBdPK94lUrsnvNHNpifMRpZ-E1ZTW2CzSzdakqPx3mgFc&s=10" 
+                alt="Mobile hotel guest room pods suspended in the air" 
+                class="w-full h-auto max-h-[420px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/06b6d4?text=Mobile+Hotel+Pods+Architecture';"
+              />
+              <div class="p-3 bg-slate-950/95 border-t border-slate-800 text-xs flex flex-wrap items-center justify-between gap-2 text-slate-300">
+                <span class="text-[11px] font-mono text-cyan-300 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                  Mobile Hotel Architecture Concept
+                </span>
+                <span class="text-[11px] text-slate-400">
+                  Unit Opener Spotlight • pp. 176–177
+                </span>
+              </div>
+            </div>
+
+            <!-- Spotlight Discussion and Theme Insight -->
+            <div class="p-5 sm:p-6 space-y-3.5">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-snug">Imagining the Architecture and Work of the Future</h3>
+                <p class="text-xs text-cyan-400/90 font-medium mt-0.5">Exploring space tourism, remote workplaces, ecological preservation, and urban mobility</p>
+              </div>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                What will life look like tomorrow and beyond? In this unit, we explore commercial space tourism with Virgin Galactic and Space Adventures, investigate how global time zones are revolutionizing remote workplaces, analyze the preservation of coral reefs and the Great Bear Rainforest, examine computer barcodes for African zebras, and discover personal electric transporters designed for clean cities.
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-cyan-400 block">Lesson 1</strong>
+                  <span class="text-slate-400 text-[10px]">Space Tourism</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-sky-400 block">Lesson 2</strong>
+                  <span class="text-slate-400 text-[10px]">Future Workplaces</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-teal-400 block">Lesson 3</strong>
+                  <span class="text-slate-400 text-[10px]">Coral Reefs & Rainforest</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-purple-400 block">Writing</strong>
+                  <span class="text-slate-400 text-[10px]">Personal Transporters</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unit Lessons Index Cards -->
+          <div class="md:col-span-5 space-y-3">
+            <div onclick="switchTab('lesson1')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-cyan-400 hover:bg-cyan-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">Lesson 1 (p. 178–185)</span>
+                <span class="badge-cd">CD2-19, 20</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-cyan-600 transition mt-1 text-sm">Future with Will and Be Going To</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>A Star-Studded Trip You’ll Never Forget</em>. Predictions, plans, instant decisions, space museum exhibitions, and future home life.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson2')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-sky-400 hover:bg-sky-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Lesson 2 (p. 186–191)</span>
+                <span class="badge-cd">CD2-23</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-sky-600 transition mt-1 text-sm">Present Forms for the Future</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>The Future of Work</em>. Simple present for scheduled timetables and present progressive for definite future plans.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson3')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-teal-400 hover:bg-teal-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">Lesson 3 (p. 192–199)</span>
+                <span class="badge-cd">CD2-25</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-teal-600 transition mt-1 text-sm">Comparison of Future Forms & Future Time Clauses</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Fatima’s Blog: Ocean News and Views</em>. Future time clauses with *when, after, before, as soon as* using simple present verbs.
+              </p>
+            </div>
+
+            <div onclick="switchTab('review')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 200–201)</span>
+                <span class="text-xs text-slate-400">Synthesis</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Complete multi-speaker future conversations and edit the authentic article on *Stripespotter* barcode software for zebras.
+              </p>
+            </div>
+
+            <div onclick="switchTab('writing')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-cyan-400 hover:bg-cyan-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">Writing (p. 202–203)</span>
+                <span class="text-xs text-slate-400">Writing Focus</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-cyan-600 transition mt-1 text-sm">Connect to Writing: Predictive Essay</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>Personal Transporters</em>. Eliminating gender bias in job titles and writing predictive paragraphs with self-assessment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: LESSON 1 (Pages 178–185) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson1" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Lesson 1 • Pages 178–185</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Future with Will and Be Going To</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd"><svg class="w-3.5 h-3.5 text-cyan-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD2-19, 20</span>
+        </div>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Comprehension (Pages 178–179)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "A Star-Studded Trip You'll Never Forget" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">A Star-Studded Trip You’ll Never Forget</h3>
+                <p class="text-xs text-slate-500">Commercial space tourism: Virgin Galactic & Space Adventures</p>
+              </div>
+              <span class="badge-cd">CD2-19</span>
+            </div>
+
+            <!-- Virgin Galactic WhiteKnight & VSS Enterprise Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0wuw78KZikszJ3-3h2zcry6cmVtOMCdAHj-Aa-D6z5DwEAcsGEpU2hIhF&s=10" 
+                  alt="Virgin Galactic WhiteKnight carrier aircraft with VSS Enterprise" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/06b6d4?text=Virgin+Galactic+SpaceShipTwo';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Virgin Galactic's special WhiteKnight plane will carry the VSS Enterprise to 50,000 feet. Then the Enterprise (center) will continue into space alone.</span>
+                <span class="text-cyan-400 font-semibold text-[11px] shrink-0 ml-2">p. 178</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                Where are you planning to spend your next vacation? <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">Are you going to take</strong> a trip to the beach? Or visit family perhaps? Do you want to travel somewhere new and different for a change? If so, try a trip to space! The following companies provide exciting trips that you <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will remember</strong> for a lifetime.
+              </p>
+              <div>
+                <h4 class="font-sans font-bold text-cyan-900 text-sm tracking-wide uppercase mb-1">VIRGIN GALACTIC</h4>
+                <p>
+                  <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">You’ll have</strong> a fantastic experience, and <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">you’ll come back</strong> with great stories to tell. On the <em>VSS Enterprise</em>, you and five other passengers <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will fly</strong> into space. <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">You won’t orbit</strong>¹ Earth, but you <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will experience</strong> zero gravity.² How much <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will</strong> this trip <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">cost</strong>? About $250,000.
+                </p>
+              </div>
+              <div>
+                <h4 class="font-sans font-bold text-cyan-900 text-sm tracking-wide uppercase mb-1">SPACE ADVENTURES</h4>
+                <p>
+                  <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">You’ll fly</strong> 250 miles above Earth, and <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">you’ll orbit</strong> it every 90 minutes. <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">It’ll be</strong> a spectacular experience! You <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will be</strong> the only passenger, but you <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will spend</strong> a week on the International Space Station with trained astronauts.³ How much money <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">will you need</strong> for this trip? Around $50 million dollars.
+                </p>
+                <p class="mt-2">
+                  No, your trip to space <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">is not going to be</strong> a cheap vacation, but <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">it will be</strong> a memorable one!
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 bg-slate-50/70 p-3 rounded-xl space-y-1">
+              <p><strong>¹ orbit:</strong> to move in a path around another object in space</p>
+              <p><strong>² zero gravity:</strong> a condition in which people and things float; happens in space</p>
+              <p><strong>³ astronaut:</strong> a person who travels in outer space</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Checklist (Virgin Galactic / Space Adventures) -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l1-card">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. Compare the Companies (Page 179)
+                </h4>
+                <span class="text-xs text-slate-400">Put a check (✓) in the correct column(s)</span>
+              </div>
+              <p class="text-xs text-slate-500">Read each statement. Is it true for Virgin Galactic, Space Adventures, or both?</p>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-xs text-left">
+                  <thead>
+                    <tr class="border-b border-slate-200 text-slate-700">
+                      <th class="pb-2 font-semibold">Statement</th>
+                      <th class="pb-2 text-center w-24 font-bold text-cyan-800">Virgin Galactic</th>
+                      <th class="pb-2 text-center w-24 font-bold text-sky-800">Space Adventures</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100" id="ex2-l1-table">
+                    <!-- Row 1: Both are expensive ($250k and $50M) -->
+                    <tr class="check-row" data-vg="true" data-sa="true">
+                      <td class="py-2.5 text-slate-700">1. This trip is expensive.</td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-vg rounded text-cyan-600 focus:ring-cyan-500 w-4 h-4 cursor-pointer"></td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-sa rounded text-sky-600 focus:ring-sky-500 w-4 h-4 cursor-pointer"></td>
+                    </tr>
+                    <!-- Row 2: VG costs $250,000 -->
+                    <tr class="check-row" data-vg="true" data-sa="false">
+                      <td class="py-2.5 text-slate-700">2. A flight with this company costs $250,000.</td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-vg rounded text-cyan-600 focus:ring-cyan-500 w-4 h-4 cursor-pointer"></td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-sa rounded text-sky-600 focus:ring-sky-500 w-4 h-4 cursor-pointer"></td>
+                    </tr>
+                    <!-- Row 3: SA spaceships orbit Earth (VG won't orbit) -->
+                    <tr class="check-row" data-vg="false" data-sa="true">
+                      <td class="py-2.5 text-slate-700">3. This company’s spaceships circle Earth.</td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-vg rounded text-cyan-600 focus:ring-cyan-500 w-4 h-4 cursor-pointer"></td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-sa rounded text-sky-600 focus:ring-sky-500 w-4 h-4 cursor-pointer"></td>
+                    </tr>
+                    <!-- Row 4: SA passengers spend a week on ISS -->
+                    <tr class="check-row" data-vg="false" data-sa="true">
+                      <td class="py-2.5 text-slate-700">4. Passengers spend a week on the International Space Station.</td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-vg rounded text-cyan-600 focus:ring-cyan-500 w-4 h-4 cursor-pointer"></td>
+                      <td class="text-center py-2.5"><input type="checkbox" class="cb-sa rounded text-sky-600 focus:ring-sky-500 w-4 h-4 cursor-pointer"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkChecklistCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Base Form -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l1-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Base Form after Future Markers (Page 179)
+              </h4>
+              <p class="text-xs text-slate-500">Complete the sentences with missing words from the article:</p>
+
+              <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div>1. Are you going to <input type="text" data-ans="take" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> a trip to the beach?</div>
+                <div>2. You’ll <input type="text" data-ans="have" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> a fantastic experience, . . .</div>
+                <div>3. . . . but you will <input type="text" data-ans="experience" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="verb"> zero gravity.</div>
+                <div>4. No, your trip to space is not going to <input type="text" data-ans="be" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="verb"> a cheap vacation, . . .</div>
+                <div class="pt-2 border-t border-slate-200 text-slate-700">
+                  <span class="font-bold block text-slate-900 mb-1">Rule Discovery:</span>
+                  The <select data-ans="base" class="select-check border rounded p-1 text-xs input-clean"><option value="">select form</option><option value="base">base</option><option value="simple past">simple past</option><option value="simple present">simple present</option></select> form of the verb comes after <em>will / won’t</em> and <em>be (not) going to</em>.
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL1()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 7.1–7.2 & Exercises 4, 5, 8, 9, 10) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-cyan-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 7.1–7.2 & Exercises 4, 5, 8, 9, 10 (Pages 180–185)</span>
+        </div>
+
+        <!-- Row 1: Chart 7.1 & Exercise 4 (The Space Museum) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Chart 7.1 -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">7.1 Future with Will</h4>
+            <div class="text-xs space-y-2">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Form:</strong> <em>will + base verb</em> / <em>won't + base verb</em><br>
+                &bull; I / He / She / They <strong>will win</strong> ('ll win)<br>
+                &bull; I / He / She / They <strong>will not win</strong> (won't win)
+              </div>
+              <div class="p-2.5 bg-cyan-50 rounded-xl border border-cyan-200 text-cyan-950">
+                <strong>Uses:</strong><br>
+                1. Future facts & certainty: <em>The sun will rise at 6:00 a.m.</em><br>
+                2. Predictions: <em>I think you'll do well on the test.</em><br>
+                3. Instant decisions at speaking time: <em>Someone's at the door. I'll get it.</em><br>
+                4. Offers & promises: <em>I'll call you later.</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>There will be:</strong> <em>There will be an exhibit on space tourism.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise 4: The Space Museum (Part A & Part B) -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex4-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              The Space Museum: Complete & Question Writing (Page 181)
+            </h4>
+
+            <!-- Part A -->
+            <div class="space-y-2 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed font-serif text-slate-700">
+              <span class="font-bold text-slate-900 font-sans block text-xs mb-1">A. Complete with will or won’t:</span>
+              <p>
+                Visitors to our grand opening in October (1) <input type="text" data-ans="will get" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean" placeholder="get"> a close look at several historic spacecrafts. Also, astronauts (2) <input type="text" data-ans="will visit" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean" placeholder="visit"> the museum a few times each year. They (3) <input type="text" data-ans="will talk" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean" placeholder="talk"> about their experiences in space, and visitors (4) <input type="text" data-ans="will have" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean" placeholder="have"> the chance to meet them personally. You (5) <input type="text" data-ans="won't be,will not be" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean" placeholder="not be"> disappointed with your visit!
+              </p>
+              <p>
+                The museum (6) <input type="text" data-ans="will open" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean" placeholder="open"> on October 16 with an exhibit about space tourism. This exhibit (7) <input type="text" data-ans="will remain" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean" placeholder="remain"> open until January 15. In addition, there (8) <input type="text" data-ans="will be" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean" placeholder="be"> fun activities for the whole family. Your children (9) <input type="text" data-ans="won't want,will not want" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 font-sans input-clean" placeholder="not want"> to go home!
+              </p>
+              <p>
+                Next year, the museum (10) <input type="text" data-ans="will welcome" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 font-sans input-clean" placeholder="welcome"> several new exhibits about the history and future of our journeys to the stars. Buy your tickets for opening day now, so you (11) <input type="text" data-ans="won't miss,will not miss" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 font-sans input-clean" placeholder="not miss"> a thing!
+              </p>
+            </div>
+
+            <!-- Part B -->
+            <div class="space-y-2 text-xs">
+              <span class="font-bold text-slate-800 block text-xs">B. Write questions with will for the underlined information:</span>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">1. The museum will open <u>in October</u>.</span>
+                <input type="text" data-ans="When will the museum open?,When will the museum open" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">2. Astronauts will talk <u>about their experiences in space</u>.</span>
+                <input type="text" data-ans="What will astronauts talk about?,What will astronauts talk about" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">3. The new exhibits will be <u>at the museum</u>.</span>
+                <input type="text" data-ans="Where will the new exhibits be?,Where will the new exhibits be" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">4. Visitors will see <u>historic spacecrafts</u>.</span>
+                <input type="text" data-ans="What will visitors see?,What will visitors see" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Chart 7.2 & Exercise 5 (Carl & Valerie Dialogue) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Chart 7.2 -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">7.2 Future with Be Going To</h4>
+            <div class="text-xs space-y-2">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Form:</strong> <em>am/is/are (not) going to + base verb</em><br>
+                &bull; I'm going to travel / He's going to study<br>
+                &bull; They aren't going to visit us
+              </div>
+              <div class="p-2.5 bg-cyan-50 rounded-xl border border-cyan-200 text-cyan-950">
+                <strong>Uses:</strong><br>
+                1. Prior plans & intentions: <em>I'm going to watch the news at 6:00.</em><br>
+                2. Predictions: <em>Space travel is going to become more common.</em><br>
+                3. Immediate present evidence: <em>Look at the dark clouds. It is going to rain.</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise 5: Dialogue (CD2-20) -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l1-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+                Weekend Plans Dialogue (Page 183)
+              </h4>
+              <span class="badge-cd">CD2-20</span>
+            </div>
+            <p class="text-xs text-slate-500">Complete with <em>be going to</em> and the words in parentheses:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed font-serif text-slate-700">
+              <p><strong>Carl:</strong> I’m so glad it’s Friday. (1) <input type="text" data-ans="Are you going to do" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 font-sans input-clean" placeholder="you / do"> anything special this weekend, Valerie?</p>
+              <p><strong>Valerie:</strong> Yes, (2) <input type="text" data-ans="I'm going to go,I am going to go" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-40 font-sans input-clean" placeholder="I / go"> to the opening of the new Space Museum. I’m sure it’ll be crowded, but I really want to see it.</p>
+              <p><strong>Carl:</strong> (3) What <input type="text" data-ans="are you going to see" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 font-sans input-clean" placeholder="you / see"> there?</p>
+              <p><strong>Valerie:</strong> Well, (4) <input type="text" data-ans="Phil and I are going to take" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-56 font-sans input-clean" placeholder="Phil and I / take"> the children on some of the rides. There is one called “A Trip to the Moon.”</p>
+              <p><strong>Carl:</strong> That sounds fun.</p>
+              <p><strong>Valerie:</strong> Yeah, (5) <input type="text" data-ans="they're going to love,they are going to love" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-48 font-sans input-clean" placeholder="they / love"> it.</p>
+              <p><strong>Carl:</strong> (6) What <input type="text" data-ans="are you and Phil going to do" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-56 font-sans input-clean" placeholder="you and Phil / do">?</p>
+              <p><strong>Valerie:</strong> Oh, an astronaut is giving a lecture in the afternoon. (7) <input type="text" data-ans="We're going to attend,We are going to attend" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-48 font-sans input-clean" placeholder="we / attend"> that. How about you? Are you going to the game on Saturday?</p>
+              <p><strong>Carl:</strong> No, I’m not, unfortunately. I have to study.</p>
+              <p><strong>Valerie:</strong> That’s too bad. (8) <input type="text" data-ans="Are you going to study" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 font-sans input-clean" placeholder="you / study"> all weekend?</p>
+              <p><strong>Carl:</strong> No, on Sunday (9) <input type="text" data-ans="I'm not going to do,I am not going to do" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-48 font-sans input-clean" placeholder="I / not do"> any work. (10) <input type="text" data-ans="I'm going to sleep,I am going to sleep" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 font-sans input-clean" placeholder="I / sleep"> late and just relax.</p>
+              <p><strong>Valerie:</strong> Oh, good. Well, have a great time.</p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex5-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Exercise 8 (WRITE & SPEAK - Questions with Will or Be Going To) -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l1-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            WRITE & SPEAK. Questions with Will or Be Going To (Page 184)
+          </h4>
+          <p class="text-xs text-slate-500">Write questions using <em>will</em> or <em>be going to</em> for the underlined information:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-slate-600 block font-medium">1. <u>Yes</u>, I'm going to take classes here next semester.</span>
+              <input type="text" data-ans="Are you going to take classes here next semester?,Are you going to take classes here next semester" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-slate-600 block font-medium">2. I'm going to <u>hang out with friends</u> this weekend.</span>
+              <input type="text" data-ans="What are you going to do this weekend?,What are you going to do this weekend" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-slate-600 block font-medium">3. <u>No</u>, I won't be in class on Wednesday.</span>
+              <input type="text" data-ans="Will you be in class on Wednesday?,Will you be in class on Wednesday" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-slate-600 block font-medium">4. <u>Yes</u>, people will visit Mars someday.</span>
+              <input type="text" data-ans="Will people visit Mars someday?,Will people visit Mars someday" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-slate-600 block font-medium">5. People will travel <u>by flying car</u> in the future.</span>
+              <input type="text" data-ans="How will people travel in the future?,How will people travel in the future" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <span class="text-slate-600 block font-medium">6. I'm going to call my parents <u>tonight</u>.</span>
+              <input type="text" data-ans="When are you going to call your parents?,When are you going to call your parents" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write question...">
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex8-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+          </div>
+        </div>
+
+        <!-- Row 4: Exercise 10 (EDIT Home Life in the Future) -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-l1-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+              EDIT. Home Life in the Future (Page 185)
+            </h4>
+            <span class="text-xs text-slate-400">7 grammar errors</span>
+          </div>
+          <p class="text-xs text-slate-500">Correct the errors in brackets with <em>will</em> and <em>be going to</em>:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div>1. The world’s population will [continues] to increase: <input type="text" data-ans="continue" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" placeholder="correction"></div>
+            <div>2. big cities will [be serves] as models: <input type="text" data-ans="serve" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean font-sans" placeholder="correction"></div>
+            <div>3. People are [going live] in high-rise buildings: <input type="text" data-ans="going to live" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="correction"></div>
+            <div>4. These buildings [going to be] cheaper: <input type="text" data-ans="are going to be" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="correction"></div>
+            <div>5. There [are going be] more advances in electronics: <input type="text" data-ans="are going to be" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="correction"></div>
+            <div>6. Also, people [have] more entertainment choices: <input type="text" data-ans="will have,are going to have" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean font-sans" placeholder="correction"></div>
+            <div>7. We won’t [to go] out very often: <input type="text" data-ans="go" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean font-sans" placeholder="correction"></div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex10-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LESSON 2 (Pages 186–191) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson2" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Lesson 2 • Pages 186–191</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Using Present Forms to Express the Future</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD2-23</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Lecture & Workplace Schedules (Pages 186–187)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "The Future of Work" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Future of Work</h3>
+                <p class="text-xs text-slate-500">Remote work, global collaboration, and time zones</p>
+              </div>
+              <span class="badge-cd">CD2-23</span>
+            </div>
+
+            <!-- Future Work Tablet Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://st.depositphotos.com/62628780/61531/i/450/depositphotos_615310790-stock-photo-futuristic-tablet-working-overlay-business.jpg" 
+                  alt="Futuristic tablet overlay and global digital workplace" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/0284c7?text=The+Future+of+Work';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Global Digital Collaboration & Time Zones</span>
+                <span class="text-sky-400 font-semibold text-[11px]">p. 186</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="font-bold font-sans text-xs text-slate-900 block mb-1">10:00 a.m.</span>
+                <p><strong>Stuart:</strong> Hey, Bob. Are you coming to the lecture on the future of work?</p>
+                <p><strong>Bob:</strong> Yes, but <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">it doesn’t start</strong> until twelve, so <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">I’m leaving</strong> around eleven.</p>
+                <p><strong>Stuart:</strong> No, it was at twelve, but Professor Miller <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">is going</strong> on vacation tonight, so she changed the schedule. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">The lecture begins</strong> at ten-thirty. Hurry up, or we’ll be late!</p>
+              </div>
+
+              <div class="p-2.5 bg-slate-50 rounded-lg border border-slate-200">
+                <span class="font-bold font-sans text-xs text-slate-900 block mb-1">10:50 a.m.</span>
+                <p><strong>Professor Miller:</strong> . . . so you see, in the future, companies are not going to pay people to drive to a central building. With the money they save, they’re going to be able to hire more qualified workers. And it probably isn’t going to matter where you live. In fact, workers in different time zones¹ are going to be popular with companies.</p>
+                <p><strong>Stuart:</strong> Why is that?</p>
+                <p><strong>Professor Miller:</strong> Well, let’s take an example, Stuart. Imagine you’re a manager in the United States. It’s late afternoon on Thursday. The financial² year <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">finishes</strong> tomorrow, and you’re giving a presentation in the morning. You need some new information, but everyone around you <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">is going</strong> home. You contact your researcher in Australia, and because of the time difference, you have the information first thing the next morning . . .</p>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ time zone:</strong> one of 24 areas the world is divided into as measured from Greenwich, England</p>
+              <p><strong>² financial:</strong> having to do with money</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK True / False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. True or False? (Page 187)
+              </h4>
+              <p class="text-xs text-slate-500">Read each statement. Select <strong>T</strong> or <strong>F</strong>:</p>
+
+              <div class="space-y-2 text-xs sm:text-sm">
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">1. Bob isn’t going to go to the lecture.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">2. The lecture is about work in the future.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">3. Professor Miller changed the class schedule.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">4. The class is usually at 10:30.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">5. Professor Miller is going to take a vacation.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Present Forms for Future -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Classify Verb Forms (Page 187)
+              </h4>
+              <p class="text-xs text-slate-500">Classify whether each bold verb form is Simple Present or Present Progressive:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. it <strong>doesn’t start</strong> until twelve</span>
+                  <select data-ans="Simple Present" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Simple Present">Simple Present</option><option value="Present Progressive">Present Progressive</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. <strong>I’m leaving</strong> around eleven</span>
+                  <select data-ans="Present Progressive" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Simple Present">Simple Present</option><option value="Present Progressive">Present Progressive</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. Professor Miller <strong>is going</strong> on vacation</span>
+                  <select data-ans="Present Progressive" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Simple Present">Simple Present</option><option value="Present Progressive">Present Progressive</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. The lecture <strong>begins</strong> at ten-thirty</span>
+                  <select data-ans="Simple Present" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Simple Present">Simple Present</option><option value="Present Progressive">Present Progressive</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. The financial year <strong>finishes</strong> tomorrow</span>
+                  <select data-ans="Simple Present" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Simple Present">Simple Present</option><option value="Present Progressive">Present Progressive</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 7.3–7.4 & Exercises 4, 5, 7) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-sky-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 7.3–7.4 & Exercises 4, 5, 7 (Pages 188–191)</span>
+        </div>
+
+        <!-- Row 1: Exercise 4 (Simple Present Future Schedules) -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex4-l2-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Complete with Simple Present for Future Schedules (Page 188)
+            </h4>
+            <span class="text-xs text-slate-400">Timetables & Schedules</span>
+          </div>
+          <p class="text-xs text-slate-500">Complete the conversations with the verbs in parentheses. Use the simple present:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <p><strong>1. A:</strong> What time <input type="text" data-ans="does" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="aux"> the lecture <input type="text" data-ans="begin" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-18 input-clean" placeholder="verb"> (begin)?</p>
+              <p><strong>B:</strong> It <input type="text" data-ans="begins" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (begin) at ten-thirty.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <p><strong>2. A:</strong> When <input type="text" data-ans="does" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="aux"> Professor Miller <input type="text" data-ans="leave" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-18 input-clean" placeholder="verb"> (leave) for vacation?</p>
+              <p><strong>B:</strong> She <input type="text" data-ans="leaves" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (leave) tonight.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <p><strong>3. A:</strong> Excuse me, what time <input type="text" data-ans="does" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="aux"> flight 225 from Chicago <input type="text" data-ans="arrive" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (arrive)?</p>
+              <p><strong>B:</strong> It <input type="text" data-ans="arrives" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (arrive) at 1:45.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <p><strong>4. A:</strong> When <input type="text" data-ans="do" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="aux"> fall classes <input type="text" data-ans="start" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-18 input-clean" placeholder="verb"> (start)?</p>
+              <p><strong>B:</strong> They <input type="text" data-ans="don't start,do not start" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="verb"> (not start) until September 20.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1 sm:col-span-2">
+              <p><strong>5.</strong> The stores <input type="text" data-ans="don't open,do not open" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="verb"> (not open) until noon on Sunday.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <p><strong>6. A:</strong> What time <input type="text" data-ans="does" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="aux"> Martha’s train <input type="text" data-ans="get" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-18 input-clean" placeholder="verb"> (get) to Miami?</p>
+              <p><strong>B:</strong> It <input type="text" data-ans="gets" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-18 input-clean" placeholder="verb"> (get) there at ten-fifteen.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <p><strong>7.</strong> Hurry up! The cafeteria <input type="text" data-ans="closes" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (close) in 20 minutes.</p>
+              <p><strong>8.</strong> Our bus <input type="text" data-ans="doesn't leave,does not leave" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="verb"> (not leave) until one-thirty. Let’s get something to eat.</p>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1 sm:col-span-2">
+              <p><strong>9. A:</strong> When <input type="text" data-ans="does" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="aux"> Linda <input type="text" data-ans="start" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-18 input-clean" placeholder="verb"> (start) her new job? <strong>B:</strong> She <input type="text" data-ans="starts" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (start) next Monday.</p>
+              <p class="pt-1.5 border-t border-slate-200"><strong>10. A:</strong> I <input type="text" data-ans="finish" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> (finish) work at six tomorrow. Do you want to have dinner? <strong>B:</strong> No, sorry. My son <input type="text" data-ans="has" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="verb"> (have) an important hockey game tomorrow night.</p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+          </div>
+        </div>
+
+        <!-- Row 2: Exercise 5 & Exercise 7 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 5: Present Progressive for Future Plans -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              Present Progressive for Future (Page 189)
+            </h4>
+            <p class="text-xs text-slate-500">Complete each sentence with the present progressive form:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. <input type="text" data-ans="I'm working,I am working" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="I / work"> late tonight.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. <input type="text" data-ans="When are they leaving" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 input-clean" placeholder="when / they / leave"> for Rio?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. <input type="text" data-ans="We're going,We are going" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="we / go"> to a party on Friday night.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. <input type="text" data-ans="Is Craig graduating" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="Craig / graduate"> in June?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. <input type="text" data-ans="He's not having,He is not having,He isn't having" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 input-clean" placeholder="he / not have"> dinner with us tonight.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. <input type="text" data-ans="I'm meeting,I am meeting" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="I / meet"> Marla at 2:30.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. <input type="text" data-ans="Where are you going" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-40 input-clean" placeholder="where / you / go"> after class?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. <input type="text" data-ans="What are you doing" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-40 input-clean" placeholder="what / you / do"> tomorrow night?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">9. <input type="text" data-ans="Are you visiting" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="you / visit"> your family this weekend?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">10. <input type="text" data-ans="How are you getting" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-40 input-clean" placeholder="how / you / get"> home today?</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex5-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+
+          <!-- Exercise 7: Conversations Selection -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Choose Present Form in Context (Page 190)
+            </h4>
+            <p class="text-xs text-slate-500">Select the correct verb form for each blank:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+              <div class="space-y-1">
+                <span class="font-bold text-slate-900 block text-xs">Conversation 1 (Alison & Sue):</span>
+                <p>Alison: Sue, (1) <select data-ans="are you doing" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="are you doing">are you doing</option><option value="do you do">do you do</option></select> anything tomorrow evening?</p>
+                <p>Sue: No, (2) <select data-ans="I'm just spending" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'm just spending">I’m just spending</option><option value="I just spend">I just spend</option></select> a quiet evening at home. Why?</p>
+                <p>Alison: Well, my sister (3) <select data-ans="she's not coming" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="she's not coming">she’s not coming</option><option value="she doesn't come">she doesn’t come</option></select>. Would you like to go with me?</p>
+                <p>Sue: I’d love to! Who (4) <select data-ans="is speaking" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is speaking">is speaking</option><option value="speaks">speaks</option></select>?</p>
+                <p>Alison: Tim Ferriss. He (5) <select data-ans="is talking" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is talking">is talking</option><option value="talks">talks</option></select> about ways to work less. What time (6) <select data-ans="does it start" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="does it start">does it start</option><option value="is it starting">is it starting</option></select>?</p>
+              </div>
+
+              <div class="pt-2 border-t border-slate-200 space-y-1">
+                <span class="font-bold text-slate-900 block text-xs">Conversation 2 (Terri & George):</span>
+                <p>Terri: (7) <select data-ans="Are you handing" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Are you handing">Are you handing</option><option value="Do you hand">Do you hand</option></select> the assignment in tomorrow?</p>
+                <p>George: No. (8) <select data-ans="I don't understand" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I don't understand">I don’t understand</option><option value="I'm not understanding">I’m not understanding</option></select> it either, and Professor Doyle’s vacation (9) <select data-ans="starts" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="starts">starts</option><option value="is starting">is starting</option></select> tomorrow. Jerry and I (10) <select data-ans="are meeting" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="are meeting">are meeting</option><option value="meet">meet</option></select> him tonight. Where (11) <select data-ans="are you meeting" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="are you meeting">are you meeting</option><option value="do you meet">do you meet</option></select> him?</p>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex7-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: LESSON 3 (Pages 192–199) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson3" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Lesson 3 • Pages 192–199</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Comparison of Future Forms; Future Time Clauses</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD2-25</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Questions (Pages 192–193)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-teal-100 text-teal-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Fatima's Blog: Ocean News and Views" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-teal-100 text-teal-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Fatima’s Blog: Ocean News and Views</h3>
+                <p class="text-xs text-slate-500">Marine ecosystems and coral reef preservation</p>
+              </div>
+              <span class="badge-cd">CD2-25</span>
+            </div>
+
+            <!-- Sea Turtle & Coral Reef Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH-jEhPR--0HDhFq-Jv8z1th7neEbXidrWrfbapdWyH2WKCmheolGa1OQ&s=10" 
+                  alt="Sea turtle gliding above a vibrant coral reef in Southeast Asia" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/0d9488?text=Coral+Reef+Preservation';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Marine Biodiversity & Coral Reef Conservation</span>
+                <span class="text-teal-400 font-semibold text-[11px]">p. 192</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                Hi everyone! I’m on a diving tour of Southeast Asia. The diving is breathtaking! <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">I’ll post</strong> some photos <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">when I have</strong> more time.
+              </p>
+              <p>
+                In this blog I <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">will share</strong> photos of my trip as well as ideas about the ocean and ways to protect it. I’m <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">going to write</strong> about a new topic each week. My first post is about the future of coral reefs. <em>Sharks are Not Your Enemy!</em> <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">is coming</strong> next week, so stay tuned! My goal is for everyone to enjoy the photos and learn ways to help protect our oceans and the animals in them. I hope, for example, that <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">after you read</strong> this first post, you <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">will never use</strong> another plastic bag and you <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">will avoid</strong> all toxic sunscreens. Enjoy!
+              </p>
+              <div class="pt-2 border-t border-slate-200">
+                <span class="font-bold font-sans text-xs text-teal-900 block mb-1">Post 1: The Future of Coral Reefs</span>
+                <p>
+                  Coral reefs are one of the most beautiful and colorful sights in nature, but according to scientists, they are in danger. We must change our behavior if we want them to survive. Some experts predict that a large percentage of the world’s coral reefs <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">will not exist</strong> in the year 2050. <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">Will</strong> people <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">change</strong> their behavior <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">before it’s</strong> too late?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Multiple Choice -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Comprehension Questions (Page 193)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the correct answer to complete each statement:</p>
+
+              <div class="space-y-2.5 text-xs sm:text-sm">
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. Fatima is in:</span>
+                  <select data-ans="Asia" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Asia">a. Asia</option><option value="Africa">b. Africa</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. Her goal is to:</span>
+                  <select data-ans="protect" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="enjoy">a. enjoy</option><option value="protect">b. protect</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. Coral reefs are:</span>
+                  <select data-ans="in danger" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="in danger">a. in danger</option><option value="dead">b. dead</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. She thinks plastic bags are:</span>
+                  <select data-ans="bad" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="good">a. good</option><option value="bad">b. bad</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. According to some experts, a ______ percentage will exist in 2050:</span>
+                  <select data-ans="small" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="large">a. large</option><option value="small">b. small</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Time Clauses Verb Form -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Clauses after Time Words (Page 193)
+              </h4>
+              <p class="text-xs text-slate-500">Identify the subject + verb phrase that comes directly after each underlined time word:</p>
+
+              <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div>1. I’ll post some photos <u>when</u> <input type="text" data-ans="I have" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-sans" placeholder="subject + verb"> more time.</div>
+                <div>2. . . . <u>after</u> <input type="text" data-ans="you read" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean font-sans" placeholder="subject + verb"> this first post, you will never use another plastic bag . . .</div>
+                <div>3. Will people change their behavior <u>before</u> <input type="text" data-ans="it's,it is" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean font-sans" placeholder="subject + verb"> too late?</div>
+                <div class="pt-2 border-t border-slate-200 text-slate-700">
+                  <span class="font-bold block text-slate-900 mb-1">Rule Discovery:</span>
+                  What verb form is used in future time clauses?
+                  <select data-ans="Simple Present" class="select-check border rounded p-1 text-xs input-clean"><option value="">select form</option><option value="Simple Present">Simple Present</option><option value="Future with Will">Future with Will</option><option value="Past Progressive">Past Progressive</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL3()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 7.5–7.6 & Exercises 4, 5, 6, 8, 9, 11) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-teal-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 7.5–7.6 & Exercises 4, 5, 6, 8, 9, 11 (Pages 194–199)</span>
+        </div>
+
+        <!-- Row 1: Exercise 4 & Exercise 5 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 4: Choose Future Form -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose the Correct Future Form (Page 194)
+            </h4>
+            <p class="text-xs text-slate-500">Select the grammatically appropriate future form:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. According to experts, coral reefs <select data-ans="will be" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="will be">will be</option><option value="are">are</option></select> in serious trouble by 2050.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. I’m going to Australia this summer. I <select data-ans="am going to visit" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="am going to visit">am going to visit</option><option value="visit">visit</option></select> the Great Barrier Reef.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. I heard the weather report. It <select data-ans="is going to snow" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is going to snow">is going to snow</option><option value="is snowing">is snowing</option></select> tonight.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Don’t carry that heavy suitcase. <select data-ans="I'll carry" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'll carry">I’ll carry</option><option value="I'm carrying">I’m carrying</option></select> it for you.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Tricia <select data-ans="is going" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is going">is going</option><option value="go">go</option></select> to a concert tonight.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. We <select data-ans="are going" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="are going">are going</option><option value="go">go</option></select> to Alaska next month.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. I’m tired. <select data-ans="I'm staying" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'm staying">I’m staying</option><option value="I stay">I stay</option></select> home tonight.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Darlene <select data-ans="is going to have" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is going to have">is going to have</option><option value="has">has</option></select> her baby in a few months.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">9. Do you need money? <select data-ans="I'll lend" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'll lend">I’ll lend</option><option value="I'm lending">I’m lending</option></select> you some.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">10. <select data-ans="I'm going to take" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'm going to take">I’m going to take</option><option value="I'll take">I’ll take</option></select> a photography class next semester.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 5: All Possible Answers (1–10) -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              Choose All Possible Answers (Pages 194–195)
+            </h4>
+            <p class="text-xs text-slate-500">Select the correct option (some items accept multiple grammatically sound future forms):</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. In the future, people ______ to Mars.</span>
+                <select data-ans="b,c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="b,c">b. will travel OR c. are going to travel</option><option value="a">a. travel</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. Ten years from now, I ______ a doctor.</span>
+                <select data-ans="a,c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a,c">a. will be OR c. am going to be</option><option value="b">b. am</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. Don’t forget. We ______ dinner with my grandparents tonight.</span>
+                <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="b">b. are having</option><option value="a">a. have</option><option value="c">c. will have</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. Louis ______ to Puerto Rico to study Spanish next semester.</span>
+                <select data-ans="b,c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="b,c">b. is going OR c. is going to go</option><option value="a">a. goes</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>5. My friends and I ______ our own business after college.</span>
+                <select data-ans="b,c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="b,c">b. will start OR c. are going to start</option><option value="a">a. start</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>6. Are you going to class now? ______ you a ride.</span>
+                <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="b">b. I’ll give</option><option value="a">a. I’m giving</option><option value="c">c. I give</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>7. My family ______ a vacation in Florida next week.</span>
+                <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="b">b. is taking</option><option value="a">a. will take</option><option value="c">c. takes</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>8. ______ early tomorrow morning. I have a meeting at 7:30 a.m.</span>
+                <select data-ans="a,b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a,b">a. I’m getting up OR b. I get up</option><option value="c">c. I’ll get up</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>9. Oh, no! Look at this traffic! ______ late.</span>
+                <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="c">c. We’re going to be</option><option value="a">a. We’re</option><option value="b">b. We’ll be</option></select>
+              </div>
+              <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>10. When ______ Friday? Let’s do something afterward.</span>
+                <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a. does your class end</option><option value="b">b. will your class end</option><option value="c">c. is your class ending</option></select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex5-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Exercise 6 & Exercise 8 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 6: Sequence of Events -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Identify Event Sequence & Commas (Page 195)
+            </h4>
+            <p class="text-xs text-slate-500">Select which action happens 1st and which happens 2nd:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. After I finish homework (,) I’m going to bed.</span>
+                <select data-ans="1-2" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="1-2">finish (1st) &rarr; bed (2nd) [comma needed]</option><option value="2-1">bed (1st) &rarr; finish (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. When I finish this book (,) I am going to write my essay.</span>
+                <select data-ans="1-2" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="1-2">finish book (1st) &rarr; write essay (2nd) [comma needed]</option><option value="2-1">write essay (1st) &rarr; finish book (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. Lulu is going to call the office as soon as she receives the information.</span>
+                <select data-ans="2-1" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="2-1">receive info (1st) &rarr; call office (2nd) [no comma]</option><option value="1-2">call office (1st) &rarr; receive info (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. My sister will read all the instructions before she uses her new phone.</span>
+                <select data-ans="1-2" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="1-2">read instructions (1st) &rarr; use phone (2nd) [no comma]</option><option value="2-1">use phone (1st) &rarr; read instructions (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>5. I’ll start cooking dinner when you get home.</span>
+                <select data-ans="2-1" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="2-1">get home (1st) &rarr; cook dinner (2nd) [no comma]</option><option value="1-2">cook dinner (1st) &rarr; get home (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>6. My brother is going to buy a computer when he receives his next paycheck.</span>
+                <select data-ans="2-1" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="2-1">receive paycheck (1st) &rarr; buy computer (2nd) [no comma]</option><option value="1-2">buy computer (1st) &rarr; receive paycheck (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>7. After I go to the gym (,) I’m going to go to the supermarket.</span>
+                <select data-ans="1-2" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="1-2">go to gym (1st) &rarr; supermarket (2nd) [comma needed]</option><option value="2-1">supermarket (1st) &rarr; gym (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>8. I’ll clean the living room before our guests arrive tonight.</span>
+                <select data-ans="1-2" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="1-2">clean living room (1st) &rarr; guests arrive (2nd) [no comma]</option><option value="2-1">guests arrive (1st) &rarr; clean (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>9. I’ll help you as soon as I send this e-mail.</span>
+                <select data-ans="2-1" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="2-1">send email (1st) &rarr; help you (2nd) [no comma]</option><option value="1-2">help you (1st) &rarr; send email (2nd)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>10. After she graduates from college (,) she’s going to move to Toronto.</span>
+                <select data-ans="1-2" class="select-check border rounded p-1 text-xs input-clean"><option value="">sequence</option><option value="1-2">graduate (1st) &rarr; move to Toronto (2nd) [comma needed]</option><option value="2-1">move (1st) &rarr; graduate (2nd)</option></select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex6-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+
+          <!-- Exercise 8: Wildlife Documentary Conversation -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+              Documentary Dialogue: Ria & Joan (Page 196)
+            </h4>
+            <p class="text-xs text-slate-500">Select the correct verb form for each blank:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+              <p>Ria: Hey Joan, what (1) <select data-ans="are you doing" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="are you doing">are you doing</option><option value="do you do">do you do</option></select> this evening?</p>
+              <p>Joan: (2) <select data-ans="I'm going to watch" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'm going to watch">I’m going to watch</option><option value="I'll watch">I’ll watch</option></select> TV.</p>
+              <p>Ria: What (3) <select data-ans="are you going to watch" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="are you going to watch">are you going to watch</option><option value="will you watch">will you watch</option></select>?</p>
+              <p>Joan: There’s a documentary about wildlife in Africa on tonight. It (4) <select data-ans="starts" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="starts">starts</option><option value="will start">will start</option></select> at nine.</p>
+              <p>Ria: Oh, that sounds interesting. What time (5) <select data-ans="does it end" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="does it end">does it end</option><option value="will it end">will it end</option></select>?</p>
+              <p>Joan: Let’s see . . . It (6) <select data-ans="ends" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="ends">ends</option><option value="is ending">is ending</option></select> at ten-thirty. Why? (7) <select data-ans="Are you going to go" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Are you going to go">Are you going to go</option><option value="Will you go">Will you go</option></select> to bed early?</p>
+              <p>Ria: Yeah, (8) <select data-ans="I'm giving" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'm giving">I’m giving</option><option value="I'll give">I’ll give</option></select> a presentation in the morning . . . but, (9) <select data-ans="I'll watch" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'll watch">I’ll watch</option><option value="'m watching">’m watching</option></select> the first half of it with you.</p>
+              <p>Joan: Oh, good. (10) <select data-ans="I'll record" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="I'll record">I’ll record</option><option value="I'm recording">I’m recording</option></select> the rest of it, so you can watch it tomorrow.</p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex8-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Row 3: Exercise 9 & Exercise 11 (EDIT Great Bear Rainforest) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 9: Sentence Combination -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+              Combine Sentence Pairs with Time Clauses (Page 197)
+            </h4>
+            <p class="text-xs text-slate-500">Combine the pairs of sentences using the word in parentheses. Add a comma if necessary:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">2. 1st: Rui and Fatima arrive. 2nd: We have dinner. (when)</span>
+                <input type="text" data-ans="When Rui and Fatima arrive, we're going to have dinner.,We're going to have dinner when Rui and Fatima arrive." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">3. 1st: Barbara buys a few things. 2nd: She goes home. (before)</span>
+                <input type="text" data-ans="Barbara is going to buy a few things before she goes home.,Before she goes home, Barbara is going to buy a few things." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">4. 1st: Mary calls. 2nd: I ask about the test. (when)</span>
+                <input type="text" data-ans="When Mary calls, I'm going to ask about the test.,I'm going to ask about the test when Mary calls." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">5. 1st: She finishes law school. 2nd: She moves to Ohio. (as soon as)</span>
+                <input type="text" data-ans="As soon as she finishes law school, she is going to move to Ohio.,She is going to move to Ohio as soon as she finishes law school." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">6. 1st: I finish homework. 2nd: I go for a run. (when)</span>
+                <input type="text" data-ans="When I finish my homework, I'm going to go for a run.,I'm going to go for a run when I finish my homework." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">7. 1st: He paints it. 2nd: He sells his house. (before)</span>
+                <input type="text" data-ans="He is going to paint his house before he sells it.,Before he sells his house, he is going to paint it." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">8. 1st: I make dinner. 2nd: I watch the news. (after)</span>
+                <input type="text" data-ans="After I make dinner, I'm going to watch the news.,I'm going to watch the news after I make dinner." class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type combined sentence...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex9-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            </div>
+          </div>
+
+          <!-- Exercise 11: EDIT Great Bear Rainforest -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex11-l3-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+                EDIT. Great Bear Rainforest (Page 198)
+              </h4>
+              <span class="text-xs text-slate-400">6 future errors</span>
+            </div>
+            <p class="text-xs text-slate-500">Correct the future verb errors in brackets:</p>
+
+            <div class="space-y-1.5 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+              <div>1. The pipeline will [carrying] oil to the coast: <input type="text" data-ans="carry" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean font-sans" placeholder="correction"></div>
+              <div>2. where big ships will [to collect] the oil: <input type="text" data-ans="collect" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean font-sans" placeholder="correction"></div>
+              <div>3. the plan [going to take] the pipeline: <input type="text" data-ans="is going to take" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="correction"></div>
+              <div>4. The building of the pipeline will [threatens] animals: <input type="text" data-ans="threaten" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean font-sans" placeholder="correction"></div>
+              <div>5. ships are going [cause] problems: <input type="text" data-ans="to cause" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean font-sans" placeholder="correction"></div>
+              <div>6. when it [will travel] along the coast: <input type="text" data-ans="travels" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean font-sans" placeholder="correction"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex11-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 11</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: REVIEW THE GRAMMAR (Pages 200–201) -->
+    <!-- ============================================================ -->
+    <section id="tab-review" class="tab-content hidden space-y-6">
+      
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Review the Grammar • Pages 200–201</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Unit 7 Comprehensive Review</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Future Forms Synthesis</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Exercise 1: Complete Conversations -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex1-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
+            Complete the Conversations (Page 200)
+          </h4>
+          <p class="text-xs text-slate-500">
+            Complete the conversations with the words in parentheses. Use <em>will</em>, <em>be going to</em>, the present progressive for future, or the simple present for future. In some cases, more than one answer is possible:
+          </p>
+
+          <div class="space-y-3 text-xs bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed font-serif text-slate-700">
+            <!-- Conversation 1 -->
+            <div class="space-y-1.5">
+              <span class="font-bold text-slate-900 font-sans block text-xs">1. Vera & Deng:</span>
+              <p><strong>Vera:</strong> What’s wrong with Erik today?</p>
+              <p><strong>Deng:</strong> He’s upset about last month’s sales report. (1) <input type="text" data-ans="I'll talk,I will talk,I'm going to talk,I am going to talk" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 font-sans input-clean" placeholder="I / talk"> to him after (2) <input type="text" data-ans="I send" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean" placeholder="I / send"> this e-mail.</p>
+            </div>
+
+            <!-- Conversation 2 -->
+            <div class="pt-2.5 border-t border-slate-200 space-y-1.5">
+              <span class="font-bold text-slate-900 font-sans block text-xs">2. Jamal & Larry:</span>
+              <p><strong>Jamal:</strong> What time (3) <input type="text" data-ans="do you finish,are you finishing,will you finish" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 font-sans input-clean" placeholder="you / finish"> work tonight?</p>
+              <p><strong>Larry:</strong> At six-thirty. (4) <input type="text" data-ans="I'll call,I will call,I'm going to call,I am going to call" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 font-sans input-clean" placeholder="I / call"> you when (5) <input type="text" data-ans="I leave" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean" placeholder="I / leave"> the office.</p>
+            </div>
+
+            <!-- Conversation 3 -->
+            <div class="pt-2.5 border-t border-slate-200 space-y-1.5">
+              <span class="font-bold text-slate-900 font-sans block text-xs">3. Student & Librarian:</span>
+              <p><strong>Student:</strong> Excuse me, (6) <input type="text" data-ans="does the library close" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 font-sans input-clean" placeholder="the library / close"> at ten tonight?</p>
+              <p><strong>Librarian:</strong> No, (7) <input type="text" data-ans="it closes" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean" placeholder="it / close"> at eleven tonight.</p>
+            </div>
+
+            <!-- Conversation 4 -->
+            <div class="pt-2.5 border-t border-slate-200 space-y-1.5">
+              <span class="font-bold text-slate-900 font-sans block text-xs">4. Scott & Mike:</span>
+              <p><strong>Scott:</strong> Hey, Mike. (8) <input type="text" data-ans="Are you going,Are you going to go,Will you go" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 font-sans input-clean" placeholder="you / go"> to the meeting this afternoon?</p>
+              <p><strong>Mike:</strong> No, (9) <input type="text" data-ans="I'm leaving,I am leaving,I'm going to leave,I am going to leave" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 font-sans input-clean" placeholder="I / leave"> for China today. My flight (10) <input type="text" data-ans="is,leaves" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean" placeholder="be"> at three o'clock.</p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex1-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 1</button>
+          </div>
+        </div>
+
+        <!-- Exercise 2: EDIT Barcodes for Zebras (Complete Article + Photo + Inputs) -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-rev-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+              EDIT. Barcodes for Zebras (Page 200)
+            </h4>
+            <span class="text-xs text-slate-400">Find & correct 5 more errors</span>
+          </div>
+          <p class="text-xs text-slate-500">
+            Read the article about a new form of identification for zebras. The first correction is shown as an example (<em>becomes</em> &rarr; <em>will become</em>). Correct the remaining five errors:
+          </p>
+
+          <!-- Authentic Article Container with Zebra Image -->
+          <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="relative w-full bg-slate-950">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Plains_Zebra_Equus_quagga.jpg/1280px-Plains_Zebra_Equus_quagga.jpg" 
+                alt="A zebra resting in the Okavango Delta, Botswana" 
+                class="w-full h-44 sm:h-52 object-cover object-center block"
+                onerror="this.onerror=null; this.src='https://placehold.co/600x350/0f172a/a855f7?text=Zebra+in+Okavango+Delta%2C+Botswana';"
+              />
+              <div class="p-2 bg-slate-900 text-slate-300 text-[11px] flex items-center justify-between border-t border-slate-800">
+                <span>▲ A zebra in the Okavango Delta, Botswana</span>
+                <span class="text-purple-400 font-semibold font-mono">p. 200</span>
+              </div>
+            </div>
+
+            <div class="p-4 font-serif text-xs text-slate-700 leading-relaxed space-y-2.5">
+              <h5 class="text-base font-bold font-sans text-amber-900">Barcodes for Zebras</h5>
+              <p>
+                Counting zebras in the wild has always been difficult. However, counting zebras <span class="line-through text-rose-500 decoration-rose-500">becomes</span> <strong class="text-emerald-700 bg-emerald-50 px-1 rounded font-sans font-bold">will become</strong> much easier in the future thanks to a new computer program called <em>Stripespotter</em>.
+              </p>
+              <p>
+                In the future, scientists will just take photos of zebras. After they <span class="underline decoration-rose-400 decoration-wavy font-sans font-medium text-rose-800">will take</span> photos of the zebras, <em>Stripespotter</em> <span class="underline decoration-rose-400 decoration-wavy font-sans font-medium text-rose-800">is doing</span> the rest of the work. It will <span class="underline decoration-rose-400 decoration-wavy font-sans font-medium text-rose-800">to examine</span> the stripes on each zebra.
+              </p>
+              <p>
+                The pattern of a zebra’s stripes is like the barcode on a product at the supermarket. Each one is different. After scientists <span class="underline decoration-rose-400 decoration-wavy font-sans font-medium text-rose-800">are going to collect</span> enough photos, they <span class="underline decoration-rose-400 decoration-wavy font-sans font-medium text-rose-800">are having</span> an accurate record of the zebra population.
+              </p>
+            </div>
+          </div>
+
+          <!-- Correction Form -->
+          <div class="space-y-1.5 text-xs bg-purple-50/50 p-3 rounded-xl border border-purple-200">
+            <span class="font-bold text-purple-950 block text-[11px]">Type the corrected form for each underlined error:</span>
+            <div>1. After they [will take] photos: <input type="text" data-ans="take" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" placeholder="correction"></div>
+            <div>2. Stripespotter [is doing] the rest of the work: <input type="text" data-ans="will do,is going to do" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="correction"></div>
+            <div>3. It will [to examine] the stripes: <input type="text" data-ans="examine" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" placeholder="correction"></div>
+            <div>4. After scientists [are going to collect] enough photos: <input type="text" data-ans="collect" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" placeholder="correction"></div>
+            <div>5. they [are having] an accurate record: <input type="text" data-ans="will have,are going to have" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="correction"></div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex2-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 6: CONNECT TO WRITING (Pages 202–203) -->
+    <!-- ============================================================ -->
+    <section id="tab-writing" class="tab-content hidden space-y-8">
+      
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Writing Focus • Pages 202–203</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Connect the Grammar to Writing: Predictive Essay</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Model & Gender-Neutral Language</span>
+      </div>
+
+      <!-- READ & NOTICE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ & NOTICE</span>
+            <span class="text-sm font-bold text-slate-700">Model Text & Gender-Neutral Writing (Pages 202–203)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">
+            Split-View: Model (Left) ↔ Writing Focus (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Model Reading "Personal Transporters" (All 3 Paragraphs from Textbook) -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded">MODEL READING</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Personal Transporters</h3>
+              <p class="text-xs text-slate-500">Urban mobility in the cities of tomorrow</p>
+            </div>
+
+            <!-- Personal Transporter Photo (Businessman on Segway) -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGejBiqPLas4dap0VPJd8Wp6pRPhaVuKFgUtlMwI3khw&s=10" 
+                  alt="Businessman riding an electric personal transporter in the city" 
+                  class="w-full h-auto max-h-[360px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/06b6d4?text=Personal+Transporter+Commuter';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Electric Personal Transporter • Commuting in the Future</span>
+                <span class="text-cyan-400 font-semibold text-[11px]">p. 202</span>
+              </div>
+            </div>
+
+            <!-- Authentic 3-Paragraph Text from Textbook -->
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3.5">
+              <p>
+                In the future, more people <strong>will use</strong> personal transporters, like the one in this photo. Personal transporters <strong>will take</strong> us places quickly and safely. When they become cheaper, everyone <strong>is going to want</strong> one!
+              </p>
+              <p>
+                Personal transporters <strong>will also be</strong> good for the environment. They’<strong>ll use</strong> less fuel than cars. They’<strong>ll also take up</strong> less space, so we <strong>won’t need</strong> as many large parking lots. This <strong>will mean</strong> more space for parks and trees.
+              </p>
+              <p>
+                We’<strong>ll soon see</strong> more personal transporters at airports and in large factories. When workers at these places try them, I’m sure they <strong>will find</strong> them very helpful and convenient. <strong>Police officers</strong>, <strong>letter carriers</strong>, and <strong>security guards</strong> will also find these vehicles very useful in their work. Personal transporters <strong>are going to make</strong> the commute to work more fun. I’m <strong>going to buy</strong> one as soon as I can!
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Gender-Neutral Focus & Notice Exercises -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Grammar Notice Card: Discover Future Markers -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-notice-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1B</span>
+                NOTICE THE GRAMMAR. Future Predictions & Time Clauses (Page 202)
+              </h4>
+              <p class="text-xs text-slate-500">Analyze the grammar used in <em>Personal Transporters</em>:</p>
+
+              <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div class="p-2 bg-white rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-800 block">1. What verb form appears in the time clause: "When they become cheaper"?</span>
+                  <select data-ans="Simple Present" class="select-check border rounded p-1 text-xs w-full input-clean">
+                    <option value="">select tense</option>
+                    <option value="Simple Present">Simple Present (become)</option>
+                    <option value="Future with Will">Future with Will</option>
+                    <option value="Present Progressive">Present Progressive</option>
+                  </select>
+                </div>
+
+                <div class="p-2 bg-white rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-800 block">2. What future form is used for personal intention: "I’m going to buy one as soon as I can"?</span>
+                  <select data-ans="Be Going To" class="select-check border rounded p-1 text-xs w-full input-clean">
+                    <option value="">select form</option>
+                    <option value="Be Going To">Be Going To</option>
+                    <option value="Will">Will</option>
+                    <option value="Simple Present">Simple Present</option>
+                  </select>
+                </div>
+
+                <div class="p-2 bg-white rounded-lg border border-slate-200 space-y-1">
+                  <span class="font-bold text-slate-800 block">3. In the second paragraph, what future form expresses environmental predictions?</span>
+                  <select data-ans="Will / Won't" class="select-check border rounded p-1 text-xs w-full input-clean">
+                    <option value="">select form</option>
+                    <option value="Will / Won't">Will / Won't ('ll use, won't need)</option>
+                    <option value="Past Progressive">Past Progressive</option>
+                    <option value="Be Going To">Be Going To</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex-notice-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Notice</button>
+              </div>
+            </div>
+
+            <!-- Writing Focus: Gender-Neutral Language -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-gender-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                WRITING FOCUS: Gender-Neutral Language (Page 202)
+              </h4>
+              <p class="text-xs text-slate-500">
+                Use gender-neutral language in your writing. This shows respect for both men and women. Do not use words with <em>man</em> or <em>mankind</em> when referring to people in general. Select the gender-neutral equivalent:
+              </p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">1. fireman:</span>
+                  <select data-ans="firefighter" class="select-check border rounded p-1 text-xs input-clean"><option value="">select term</option><option value="firefighter">firefighter</option><option value="police officer">police officer</option><option value="businessperson">businessperson</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">2. mankind / man:</span>
+                  <select data-ans="humanity" class="select-check border rounded p-1 text-xs input-clean"><option value="">select term</option><option value="humanity">humanity / people / humans</option><option value="flight attendant">flight attendant</option><option value="businessperson">businessperson</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">3. businessman:</span>
+                  <select data-ans="businessperson" class="select-check border rounded p-1 text-xs input-clean"><option value="">select term</option><option value="businessperson">businessperson</option><option value="firefighter">firefighter</option><option value="police officer">police officer</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">4. policeman:</span>
+                  <select data-ans="police officer" class="select-check border rounded p-1 text-xs input-clean"><option value="">select term</option><option value="police officer">police officer</option><option value="flight attendant">flight attendant</option><option value="letter carrier">letter carrier</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">5. stewardess:</span>
+                  <select data-ans="flight attendant" class="select-check border rounded p-1 text-xs input-clean"><option value="">select term</option><option value="flight attendant">flight attendant</option><option value="humanity">humanity</option><option value="businessperson">businessperson</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">6. mailman / postman:</span>
+                  <select data-ans="letter carrier" class="select-check border rounded p-1 text-xs input-clean"><option value="">select term</option><option value="letter carrier">letter carrier / postal worker</option><option value="firefighter">firefighter</option><option value="police officer">police officer</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex-gender-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Terms</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAFT & SELF ASSESS -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-cyan-600 text-white">WRITING WORKBENCH</span>
+          <span class="text-sm font-bold text-slate-700">Write About a Future Invention or Predictive Life (Pages 202–203)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Draft Textarea -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+              YOUR ESSAY: PREDICTIONS FOR TOMORROW AND BEYOND
+            </h4>
+            <p class="text-xs text-slate-500">Write a predictive paragraph about a technology or invention that will change everyday life:</p>
+            
+            <textarea id="studentEssay" rows="8" placeholder="In the future, autonomous electric shuttles will transform transportation in major cities around the world. Commuters will not need to drive private cars into congested downtown areas. As soon as passengers board a shuttle, artificial intelligence will calculate the fastest and safest route. These clean vehicles are going to reduce air pollution significantly and give humanity healthier urban spaces..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-cyan-400 leading-relaxed"></textarea>
+
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span id="wordCount">0 words written</span>
+              <button onclick="copyEssayText()" class="font-semibold text-slate-700 hover:text-cyan-600 underline">Copy Paragraph</button>
+            </div>
+          </div>
+
+          <!-- Self-Assessment Checklist -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              SELF ASSESS (Page 203 Checklist)
+            </h4>
+            <p class="text-xs text-slate-500">Check off each criterion as you review your draft:</p>
+
+            <div class="space-y-2 text-xs">
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I used <strong>will</strong> and <strong>be going to</strong> correctly to make future predictions. [7.1, 7.2]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I used the <strong>simple present</strong> in future time clauses (*when, before, after, as soon as*). [7.6]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I put a <strong>comma</strong> after a future time clause when it begins a sentence. [7.6]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I used <strong>gender-neutral language</strong> (*firefighter, humanity, police officer*). [WRITING FOCUS]</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-cyan-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 7: Tomorrow and Beyond</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('border-cyan-400', 'text-cyan-400', 'bg-slate-800/50');
+          btn.classList.remove('border-transparent', 'text-slate-300');
+        } else {
+          btn.classList.remove('border-cyan-400', 'text-cyan-400', 'bg-slate-800/50');
+          btn.classList.add('border-transparent', 'text-slate-300');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Helper: Remove badge
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    // True/False selection
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-700', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-cyan-600', 'text-white', 'border-cyan-700', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    // Check True/False Card
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-cyan-600', 'border-cyan-700');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-cyan-600', 'border-cyan-700');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Select / Dropdown Card
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Cloze Input Card
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Dual-Column Checklist (Lesson 1 Ex 2)
+    function checkChecklistCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.check-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const needVg = row.getAttribute('data-vg') === 'true';
+        const needSa = row.getAttribute('data-sa') === 'true';
+        const cbVg = row.querySelector('.cb-vg');
+        const cbSa = row.querySelector('.cb-sa');
+
+        removeBadge(row.querySelector('td:last-child') || row);
+
+        const vgMatch = (cbVg.checked === needVg);
+        const saMatch = (cbSa.checked === needSa);
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        let correctLabel = '';
+        if (needVg && needSa) correctLabel = 'Both';
+        else if (needVg) correctLabel = 'Virgin Galactic';
+        else if (needSa) correctLabel = 'Space Adventures';
+
+        if (vgMatch && saMatch) {
+          correctCount++;
+          row.classList.remove('bg-rose-50');
+          row.classList.add('bg-emerald-50');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          row.classList.remove('bg-emerald-50');
+          row.classList.add('bg-rose-50');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${correctLabel}</strong>`;
+        }
+        row.querySelector('td:last-child').appendChild(badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Discover Lesson 1
+    function checkDiscoverL1() {
+      checkClozeCard('ex3-l1-card');
+      checkSelectCard('ex3-l1-card');
+    }
+
+    // Check Discover Lesson 3
+    function checkDiscoverL3() {
+      checkClozeCard('ex3-l3-card');
+      checkSelectCard('ex3-l3-card');
+    }
+
+    // Reset All Exercises
+    function resetEntirePage() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('.check-row').forEach(row => {
+        row.classList.remove('bg-emerald-50', 'bg-rose-50');
+        row.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+      });
+
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-cyan-600', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-cyan-700', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    // Live Word Counter
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    // Copy Essay Text
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

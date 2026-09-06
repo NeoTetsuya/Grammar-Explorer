@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 8: Consumer Society (Comparatives and Superlatives)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            natgeo: {
+              yellow: '#FFCC00',
+              gold: '#F59E0B',
+              dark: '#0F172A',
+              card: '#1E293B',
+              slate: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5.5rem; max-height: calc(100vh - 7rem); overflow-y: auto; }
+    .badge-cd {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.375rem;
+      margin-left: 0.35rem;
+      margin-top: 0.15rem;
+      margin-bottom: 0.15rem;
+      vertical-align: middle;
+      animation: fadeInBadge 0.2s ease-out;
+    }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-1px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- HEADER & PRIMARY NAVIGATION -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-amber-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono hidden md:inline">GE2 U8</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight flex items-center gap-2">
+              Grammar Explorer 2 <span class="text-slate-600 font-light">|</span> 
+              <span class="text-sm font-semibold text-slate-200">Unit 8: Consumer Society</span>
+            </h1>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button onclick="resetEntirePage()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-amber-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset All Exercises</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Unit Tabs -->
+      <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-1 text-sm scrollbar-none" aria-label="Unit Tabs">
+        <button onclick="switchTab('overview')" class="tab-btn active px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-amber-400 text-amber-400 bg-slate-800/50" data-tab="overview">
+          Unit Overview
+        </button>
+        <button onclick="switchTab('lesson1')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson1">
+          Lesson 1: Comparatives
+        </button>
+        <button onclick="switchTab('lesson2')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson2">
+          Lesson 2: (Not) As...As & Less
+        </button>
+        <button onclick="switchTab('lesson3')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson3">
+          Lesson 3: Superlatives
+        </button>
+        <button onclick="switchTab('review')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="review">
+          Review the Grammar
+        </button>
+        <button onclick="switchTab('writing')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="writing">
+          Connect to Writing
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: UNIT OVERVIEW (Pages 204–205) -->
+    <!-- ============================================================ -->
+    <section id="tab-overview" class="tab-content block space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 mb-2">
+              Pages 204–205 • Scope & Sequence
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 8: Consumer Society</h2>
+            <p class="text-slate-500 mt-1 text-base">Grammar Focus: Comparatives and Superlatives (Adjectives & Adverbs)</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="switchTab('lesson1')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 font-bold text-slate-950 transition shadow-sm flex items-center gap-2">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+            <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-950 group">
+              <img 
+                src="https://scrapcar.com.sg/wp-content/uploads/2022/01/What-Happens-To-Your-Scrapped-Car-In-The-Car-Scrapyard.jpg" 
+                alt="Scrapyard of crushed cars" 
+                class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/f59e0b?text=Cars+in+a+scrapyard+in+Canada';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-black/40 pointer-events-none"></div>
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-amber-400 px-2.5 py-1 rounded-md border border-amber-400/30 flex items-center gap-1.5 shadow-sm">
+                  <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                  Unit Opener Spotlight • pp. 204–205
+                </span>
+                <span class="text-[11px] bg-slate-900/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-slate-700 text-slate-300">
+                  Theme: Consumption & Waste
+                </span>
+              </div>
+              <div class="absolute bottom-3 left-3 right-3 text-xs flex items-center justify-between text-slate-300">
+                <span class="text-[11px] bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10 font-mono">
+                  Cars in a scrapyard in Canada
+                </span>
+                <span class="text-[11px] text-amber-300/90 font-medium">
+                  The environmental footprint of modern products
+                </span>
+              </div>
+            </div>
+
+            <div class="p-5 sm:p-6 space-y-3.5">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-snug">Examining the Culture of Buying</h3>
+                <p class="text-xs text-amber-400/90 font-medium mt-0.5">Exploring modern consumerism, advertising influence, and environmental impacts</p>
+              </div>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                What drives our desire for newer, faster, and smarter products? In this unit, we explore consumer societies across the globe, examine how online product reviews reshape purchasing choices, investigate clean-up efforts on Mount Everest and in the Arabian Desert, and learn how to write a balanced product review comparing multiple brands.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-amber-400 block">Lesson 1</strong>
+                  <span class="text-slate-400 text-[10px]">Comparative Adjectives & Adverbs</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-emerald-400 block">Lesson 2</strong>
+                  <span class="text-slate-400 text-[10px]">(Not) As...As and Less</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-sky-400 block">Lesson 3</strong>
+                  <span class="text-slate-400 text-[10px]">Superlatives & Least</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-5 space-y-3">
+            <div onclick="switchTab('lesson1')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Lesson 1 (p. 206–212)</span>
+                <span class="badge-cd">CD2-28, 29</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Comparative Adjectives and Adverbs</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>What is a Consumer Society?</em> Form rules, irregulars, quantifying comparatives, and laptop comparison tables.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson2')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-emerald-400 hover:bg-emerald-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Lesson 2 (p. 213–219)</span>
+                <span class="badge-cd">CD2-30</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition mt-1 text-sm">Comparisons with (Not) As...As and Less</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Online Reviews</em>. Equal and unequal comparisons, sentence transformations, and movie streaming services chart.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson3')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-sky-400 hover:bg-sky-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Lesson 3 (p. 220–226)</span>
+                <span class="badge-cd">CD2-31, 32</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-sky-600 transition mt-1 text-sm">Superlative Adjectives and Adverbs</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Mount Everest Garbage Dump</em>. Superlative forms, <em>least</em>, Cameron's desert camel campaign, and world quiz facts.
+              </p>
+            </div>
+
+            <div onclick="switchTab('review')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 227–229)</span>
+                <span class="badge-cd">CD2-33</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Comprehensive practice analyzing the international Greendex environmental consumer survey.
+              </p>
+            </div>
+
+            <div onclick="switchTab('writing')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Writing (p. 230–231)</span>
+                <span class="text-xs text-slate-400">Writing Focus</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Connect to Writing: Product Review</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>The Best Sleeping Bag</em>. Correcting run-on sentences, comparative feature matrix, and review drafting pad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: LESSON 1 (Pages 206–212) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson1" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Lesson 1 • Pages 206–212</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Comparative Adjectives and Adverbs</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd"><svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD2-28, 29</span>
+        </div>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Comprehension (Pages 206–207)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">What is a Consumer Society?</h3>
+                <p class="text-xs text-slate-500">Living in a world of buying and using goods</p>
+              </div>
+              <span class="badge-cd">CD2-28</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+              <p>
+                A consumer is a person who buys things, and a consumer society is a society that encourages people to buy and use goods.¹ Some people think that a consumer society provides people with <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">better</strong> lives. People in consumer societies tend to live <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">more comfortably</strong>. They eat a <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">wider</strong> variety of food. They go to restaurants <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">more often</strong>. They also buy a lot of products, maybe more than they need.
+              </p>
+              <p>
+                Products such as TVs, cell phones, and computers used to be luxuries.² Today people can buy these things <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">more easily</strong> than ever before. The market for these goods is growing <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">faster</strong> all the time. Consumer societies encourage people to buy <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">bigger</strong> and <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">better</strong> products. For example, “smarter” phones come out every year. In a consumer society, people are often buying <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">newer</strong> and <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">more advanced</strong> products. This creates a lot of waste. Nowadays, many people are thinking <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">more seriously</strong> about the effects of consumer societies on the environment, and they are trying to become <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">more responsible</strong> consumers.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ goods:</strong> items that can be bought or sold</p>
+              <p><strong>² luxury:</strong> something that is expensive but not necessary</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Exercise 2: CHECK True / False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l1-card">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. True or False? (Page 207)
+                </h4>
+                <span class="text-xs text-slate-400">Based on "What is a Consumer Society?"</span>
+              </div>
+              <p class="text-xs text-slate-500 mb-3">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then click Check Answers.</p>
+
+              <div class="space-y-2.5">
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">1. Everyone agrees that consumer products improve their lives.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">2. These days, consumer goods are hard to find.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">3. Many people want luxury products these days.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">4. Consumer societies help the environment.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Comparative Rules -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-l1-card">
+              <div>
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                  DISCOVER. Comparative Rules (Page 207)
+                </h4>
+                <p class="text-xs text-slate-500 mt-0.5">Find the missing words in the article, then complete the rule:</p>
+              </div>
+
+              <div class="border border-slate-200 rounded-xl p-3 bg-slate-50 space-y-2 text-xs">
+                <div>1. They eat a <input type="text" data-ans="wider" placeholder="word" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean"> variety of food.</div>
+                <div>2. ...and they are trying to become <input type="text" data-ans="more responsible" placeholder="phrase" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 input-clean"> consumers.</div>
+              </div>
+
+              <div class="border border-amber-200 rounded-xl p-3 bg-amber-50 space-y-2 text-xs">
+                <span class="font-bold text-amber-950 block">Grammar Discovery Rule:</span>
+                <div>1. For <select data-ans="long" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="long">long</option><option value="short">short</option></select> adjectives, put <em>more</em> before the adjective to form the comparative.</div>
+                <div>2. For <select data-ans="short" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="long">long</option><option value="short">short</option></select> adjectives, add <em>-er</em> to the end of the adjective to form the comparative.</div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL1()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-500 text-slate-950">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 8.1–8.3 & Exercises 4–9 (Pages 208–212)</span>
+        </div>
+
+        <!-- Row 1: Chart 8.1 & Exercise 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">8.1 Comparative Adjectives</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>One syllable:</strong> add <em>-er</em> &rarr; <em>smaller, larger, lower, nicer</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Two or more syllables:</strong> use <em>more</em> &rarr; <em>more serious, more important</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Two syllables with either:</strong> <em>quieter / more quiet, simpler / more simple</em>
+              </div>
+              <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-950">
+                <strong>Irregulars:</strong> <em>good &rarr; better, bad &rarr; worse, far &rarr; farther / further</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise 4: Comparative Adjectives (ALL 10 items) -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Complete with Comparative Adjectives (Page 208)
+            </h4>
+            <p class="text-xs text-slate-500">Complete each sentence with the comparative form. Add <em>than</em> when necessary:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. New cars are much <input type="text" data-ans="more quiet than,quieter than" value="more quiet than / quieter than" readonly class="border rounded px-2 py-0.5 text-xs w-48 bg-slate-200 font-semibold text-slate-700"> (quiet) old cars.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. Do you think money is <input type="text" data-ans="more important than" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="important"> good health?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. This coat is <input type="text" data-ans="nicer than" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="nice"> that one.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. My old laptop was a lot <input type="text" data-ans="bigger than" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="big"> my new one.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Gas is so expensive! I want a <input type="text" data-ans="more efficient" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" placeholder="efficient"> car.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Many people think modern life is <input type="text" data-ans="better than" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="good"> life in the past.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Communication is a lot <input type="text" data-ans="easier than" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="easy"> it was 50 years ago.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. The pollution in my city is much <input type="text" data-ans="worse than" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="bad"> it used to be.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">9. I prefer <input type="text" data-ans="hotter" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="hot"> temperatures. That’s why I love summer.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">10. My new school is a little <input type="text" data-ans="farther than,further than" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" placeholder="far"> my old one.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Chart 8.2 & Exercise 5, 6 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">8.2 Comparative Adverbs</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>One-syllable adverbs:</strong> add <em>-er</em> &rarr; <em>faster, harder, longer, higher</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Adverbs ending in -ly:</strong> add <em>more</em> &rarr; <em>more quickly, more frequently</em>
+              </div>
+              <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-950">
+                <strong>Irregular adverbs:</strong> <em>well &rarr; better, badly &rarr; worse, far &rarr; farther/further</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Comparative Form of Verb + Adverb (Page 209)
+            </h4>
+            <p class="text-xs text-slate-500">Complete each sentence using the comparative form of the adverb + verb:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. This computer <input type="text" data-ans="works more efficiently than" value="works more efficiently than" readonly class="border rounded px-2 py-0.5 text-xs w-48 bg-slate-200 font-semibold"> (work / efficiently) that computer.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. My new watch <input type="text" data-ans="keeps time more accurately than" class="cloze-input border rounded px-2 py-0.5 text-xs w-52 input-clean" placeholder="keep time / accurately"> my old watch.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. My sister <input type="text" data-ans="calls more often than" class="cloze-input border rounded px-2 py-0.5 text-xs w-40 input-clean" placeholder="call / often"> my brother.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. My phone <input type="text" data-ans="rings more loudly than" class="cloze-input border rounded px-2 py-0.5 text-xs w-44 input-clean" placeholder="ring / loudly"> your phone.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Tara <input type="text" data-ans="shops more frequently than" class="cloze-input border rounded px-2 py-0.5 text-xs w-48 input-clean" placeholder="shop / frequently"> Lori.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Brad <input type="text" data-ans="types more quickly than" class="cloze-input border rounded px-2 py-0.5 text-xs w-44 input-clean" placeholder="type / quickly"> Lynn.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Kate <input type="text" data-ans="sings worse than" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="sing / badly"> Deb.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Lila <input type="text" data-ans="studies harder than" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="study / hard"> Nora.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex6-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Exercise 7 & 8 (Completing Comparisons) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Completing Comparisons (Page 210)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct word(s) to complete each sentence:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. My computer is more efficient <select data-ans="than yours" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="than your">than your</option><option value="than yours">than yours</option></select>.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. The white coat is warmer <select data-ans="than" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="then">then</option><option value="than">than</option></select> the gray one.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Ellen buys nicer clothes <select data-ans="than I do" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="than I do">than I do</option><option value="than I am">than I am</option></select>.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Cars are expensive, but houses are <select data-ans="more expensive" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="more expensive">more expensive</option><option value="more expensive than">more expensive than</option></select>.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Does your new stereo play music more loudly than your old one <select data-ans="did" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="was">was</option><option value="did">did</option></select>?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Harry’s motorcycle is newer than <select data-ans="mine" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="my">my</option><option value="mine">mine</option></select>.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Cho’s package arrived more quickly than Kelly’s <select data-ans="did" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="did">did</option><option value="was">was</option></select>.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Dave is 27 years old. His sister is older than <select data-ans="he is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="he is">he is</option><option value="he does">he does</option></select>.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex7-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+
+          <!-- Exercise 10: Laptop Comparisons Table -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+              Comparing Laptops (Pages 211–212)
+            </h4>
+            <div class="overflow-x-auto text-[11px] border border-slate-200 rounded-lg">
+              <table class="w-full text-left">
+                <thead class="bg-slate-100 text-slate-700">
+                  <tr><th class="p-1.5">Model</th><th class="p-1.5">T400</th><th class="p-1.5">XJ7</th><th class="p-1.5">A-50</th></tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200">
+                  <tr><td class="p-1.5 font-medium">Screen size</td><td class="p-1.5">15 inches</td><td class="p-1.5">17 inches</td><td class="p-1.5">14 inches</td></tr>
+                  <tr><td class="p-1.5 font-medium">Weight</td><td class="p-1.5">5.5 lbs</td><td class="p-1.5">6 lbs</td><td class="p-1.5">6.5 lbs</td></tr>
+                  <tr><td class="p-1.5 font-medium">Cost</td><td class="p-1.5">$565</td><td class="p-1.5">$650</td><td class="p-1.5">$499</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="space-y-1.5 text-xs">
+              <div>1. (light/heavy) The XJ7 is <input type="text" data-ans="lighter than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> the A-50, but it is <input type="text" data-ans="heavier than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> the T400.</div>
+              <div>2. (new/old) The A-50 is <input type="text" data-ans="newer than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> the T400, but it is <input type="text" data-ans="older than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> the XJ7.</div>
+              <div>3. (cheap/expensive) The T400 is <input type="text" data-ans="cheaper than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> the XJ7, but it is <input type="text" data-ans="more expensive than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean"> the A-50.</div>
+              <div>4. (reliably) The T400 runs <input type="text" data-ans="more reliably than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean"> the XJ7 or the A-50.</div>
+              <div>5. (well) The XJ7 displays pictures <input type="text" data-ans="better than" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> the T400 or the A-50.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex10-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LESSON 2 (Pages 213–219) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson2" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Lesson 2 • Pages 213–219</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Comparisons with (Not) As...As and Less</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD2-30</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading: Online Reviews (Pages 213–214)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Online Reviews: ★ or ★★★★?</h3>
+                <p class="text-xs text-slate-500">Marketing discussion on consumer feedback</p>
+              </div>
+              <span class="badge-cd">CD2-30</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p><strong>Professor:</strong> So, Dennis, what changes have you seen in marketing recently?</p>
+              <p><strong>Dennis:</strong> Well, as you know, customers love to post online reviews of products these days. These reviews are now <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">just as important as</strong> traditional advertising. Maybe even more important. TV advertising is <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">as useful as</strong> it was before, of course. On the other hand, newspaper ads¹ are <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">much less effective than</strong> they used to be.</p>
+              <p><strong>Professor:</strong> Hmm. That’s interesting. I’ve spoken to some marketing people who <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">aren’t as positive as</strong> you are about online reviews.</p>
+              <p><strong>Dennis:</strong> Really? I’m surprised. There are certainly some concerns with online reviews. For example, satisfied customers are <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">less likely</strong> to write reviews than people who have had a problem. This means there might be more negative reviews than positive ones. But online shoppers are wiser now. A few negative opinions are <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">not as harmful as</strong> they used to be. Also, the positive reviews can be <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">as valuable as</strong> ads. If a customer loves a product, he or she will endorse² it <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">just as enthusiastically as</strong> a TV ad does!</p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ ad:</strong> short for advertisement</p>
+              <p><strong>² endorse:</strong> to say that you support or approve of someone or something</p>
+              <p><strong>³ enthusiastically:</strong> in a way that shows a lot of interest and excitement</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Exercise 2: CHECK True / False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-l2-card">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. True or False? (Page 214)
+                </h4>
+                <span class="text-xs text-slate-400">Based on Online Reviews</span>
+              </div>
+              <p class="text-xs text-slate-500 mb-3">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then check:</p>
+
+              <div class="space-y-2.5">
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">1. Dennis thinks that online reviews are not very important in marketing.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">2. Newspaper ads used to be more effective.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">3. Some marketing people have a negative opinion of online reviews.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                  <span class="text-slate-700">4. Customers with problems are more likely to write online reviews.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">5. Online shoppers won’t buy a product if they see a negative review.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                  <span class="text-slate-700">6. Positive online reviews aren’t very valuable.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Equal vs Not Equal -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Equal or Not Equal? (Page 214)
+              </h4>
+              <p class="text-xs text-slate-500">Decide whether each phrase means <strong>equal</strong> or <strong>not equal</strong>:</p>
+
+              <div class="space-y-1.5 text-xs">
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. as useful as</span>
+                  <select data-ans="equal" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="equal">equal</option><option value="not equal">not equal</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. less effective than</span>
+                  <select data-ans="not equal" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="equal">equal</option><option value="not equal">not equal</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. aren’t as positive as</span>
+                  <select data-ans="not equal" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="equal">equal</option><option value="not equal">not equal</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. not as harmful as</span>
+                  <select data-ans="not equal" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="equal">equal</option><option value="not equal">not equal</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. as valuable as</span>
+                  <select data-ans="equal" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="equal">equal</option><option value="not equal">not equal</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Complete with As...As (Page 215)
+            </h4>
+            <p class="text-xs text-slate-500">Complete each sentence with <em>as . . . as</em> and the word in parentheses:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Magazine ads are <input type="text" data-ans="as effective as" value="as effective as" readonly class="border rounded px-2 py-0.5 text-xs w-36 bg-slate-200 font-semibold"> (effective) newspaper ads.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. Mark plays the guitar <input type="text" data-ans="as well as" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="well"> Nancy does.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Online reviews are <input type="text" data-ans="as useful as" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="useful"> asking friends.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. I read online reviews <input type="text" data-ans="as carefully as" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" placeholder="carefully"> he does.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. The coat was just <input type="text" data-ans="as warm as" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="warm"> it looked.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Your sofa is just <input type="text" data-ans="as comfortable as" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="comfortable"> Diane’s.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. My computer is <input type="text" data-ans="as fast as" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="fast"> the newer models.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. He shops online <input type="text" data-ans="as frequently as" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="frequently"> I do.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 7: Sentence Rewrites -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Rewrite Sentences (Page 217)
+            </h4>
+            <p class="text-xs text-slate-500">Rewrite each sentence using the cue in parentheses:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <div>1. Sally’s shoes aren’t as fancy as Jill’s. (less)</div>
+                <input type="text" data-ans="Sally's shoes are less fancy than Jill's.,Sally's shoes are less fancy than Jill's" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <div>2. Adam exercises less frequently than he used to. (not as . . . as)</div>
+                <input type="text" data-ans="Adam doesn't exercise as frequently as he used to.,Adam does not exercise as frequently as he used to" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <div>3. This supermarket isn’t as expensive as the one across the street. (less)</div>
+                <input type="text" data-ans="This supermarket is less expensive than the one across the street.,This supermarket is less expensive than the one across the street" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <div>4. The actor’s new movie isn’t as exciting as his last one. (less)</div>
+                <input type="text" data-ans="The actor's new movie is less exciting than his last one.,The actor's new movie is less exciting than his last one" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex7-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 9: EDIT Online Reviews -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l2-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+            EDIT. The Jolly Roger Pirate Ship Reviews (Page 218)
+          </h4>
+          <p class="text-xs text-slate-500">Find and correct seven more errors with comparisons:</p>
+
+          <div class="space-y-1.5 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+            <div>1. Maria: Our last playhouse was much less exciting [the] Jolly Roger: <input type="text" data-ans="than" value="than" readonly class="border rounded px-2 py-0.5 text-xs w-20 bg-slate-200 font-semibold"> (given)</div>
+            <div>2. Maria: It was also less attractive [as] this one: <input type="text" data-ans="than" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>3. Maria: And this is really important: it wasn’t as safe [as]: <input type="text" data-ans="safe" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>4. Sam: putting it together was just as hard [building]: <input type="text" data-ans="as building" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+            <div>5. Sam: not as good with tools as [they do]: <input type="text" data-ans="they are" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            <div>6. Sam: this product should be less complicated [than]: <input type="text" data-ans="complicated" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+            <div>7. Lin: play structure is [fun as] a real pirate ship: <input type="text" data-ans="as fun as" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            <div>8. Lin: uses it less often [then] I expected: <input type="text" data-ans="than" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex9-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: LESSON 3 (Pages 220–226) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson3" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Lesson 3 • Pages 220–226</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Superlative Adjectives and Adverbs</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Tracks CD2-31, 32</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading: Mount Everest Trash (Pages 220–221)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Mount Everest: The Highest Garbage Dump in the World?</h3>
+                <p class="text-xs text-slate-500">Environmental waste in extreme places</p>
+              </div>
+              <span class="badge-cd">CD2-31</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                Most people know that Mount Everest is <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the highest</strong> mountain in the world. However, there is another fact that many people don’t know: it has become one of <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the dirtiest</strong> mountains in the world.
+              </p>
+              <p>
+                Mount Everest is one of <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the toughest</strong> and <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">most exciting</strong> mountains to climb on Earth. It is not <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the coldest</strong> or <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the windiest</strong> place on Earth, but it comes close! These challenges make it one of <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the most attractive</strong> mountains for serious climbers. Since 1952, over 3500 climbers have reached the top. Unfortunately, most of them have left equipment and trash on the mountain. In fact, trash is now one of <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the biggest</strong> threats to the environment on Mount Everest.
+              </p>
+              <p>
+                Local organizations have brought tons of trash down from the mountain. One of <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the most interesting</strong> projects handed over more than a ton of tin cans, glass bottles, and old climbing tools to artists in Nepal. The artists used the trash to create works of art. Then, they sold the art to raise money for local charities.¹ <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">The least expensive</strong> work of art cost $17, and <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">the most expensive</strong> one cost $2400.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ charity:</strong> an organization that raises money to help people</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Exercise 2: CHECK Multiple Choice -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Circle the Correct Word (Page 221)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the correct word according to the reading:</p>
+
+              <div class="space-y-2 text-xs sm:text-sm">
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. According to the reading, Mount Everest is very:</span>
+                  <select data-ans="dirty" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="clean">clean</option><option value="dirty">dirty</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. Climbing Mount Everest is very:</span>
+                  <select data-ans="difficult" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="difficult">difficult</option><option value="easy">easy</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. Mount Everest is _______ mountain for serious climbers.</span>
+                  <select data-ans="a popular" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="an unusual">an unusual</option><option value="a popular">a popular</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. Climbers _______ leave trash on Mount Everest.</span>
+                  <select data-ans="often" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="rarely">rarely</option><option value="often">often</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. People create _______ from the trash on Mount Everest.</span>
+                  <select data-ans="art" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="art">art</option><option value="charities">charities</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER -est vs most -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. -est vs. Most (Page 221)
+              </h4>
+              <p class="text-xs text-slate-500">Which adjectives add <em>most</em>? Circle the correct answer:</p>
+
+              <div class="p-3 bg-slate-50 rounded-xl space-y-2 text-xs">
+                <div>Adjectives that add <em>most</em> are: <select data-ans="long ones" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="long ones">a. long ones</option><option value="short ones">b. short ones</option></select></div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Complete with Superlatives (Pages 222–223)
+            </h4>
+            <p class="text-xs text-slate-500">Fill in the superlative form of the adjective or adverb:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. <input type="text" data-ans="The biggest" value="The biggest" readonly class="border rounded px-1.5 py-0.5 text-xs w-24 bg-slate-200 font-semibold"> (big) piles of trash are on lower areas.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. Trash is one of <input type="text" data-ans="the worst" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="bad"> problems on Mount Everest.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. K2 is <input type="text" data-ans="the most difficult" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="difficult"> mountain to climb.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Ted was <input type="text" data-ans="the most experienced" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-40 input-clean" placeholder="experienced"> climber.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Which climber is <input type="text" data-ans="the farthest,the furthest" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="far"> from the top?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. That was <input type="text" data-ans="the easiest" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="easy"> mountain I’ve ever climbed.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Danny climbs <input type="text" data-ans="the most quickly,most quickly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="quickly"> of all of us.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Mount Everest is <input type="text" data-ans="the highest" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="high"> mountain on Earth.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 8: EDIT Cameron's Camels -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+              EDIT. Cameron’s Camels (Page 225)
+            </h4>
+            <p class="text-xs text-slate-500">Find and correct eight more errors with superlatives:</p>
+
+            <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <div>1. one of the [most hot] environments: <input type="text" data-ans="hottest" value="hottest" readonly class="border rounded px-2 py-0.5 text-xs w-24 bg-slate-200 font-semibold"> (given)</div>
+              <div>2. it has the [less] amount of rainfall: <input type="text" data-ans="least" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+              <div>3. camel is one of the [most strong] animals: <input type="text" data-ans="strongest" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+              <div>4. drink the [most quick] of any land animal: <input type="text" data-ans="most quickly" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>5. not the [seriousest] problem camels face: <input type="text" data-ans="most serious" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+              <div>6. [Most dangerous] threat to camels comes: <input type="text" data-ans="The most dangerous" class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean" placeholder="correction"></div>
+              <div>7. One of the most polluted [part] of desert: <input type="text" data-ans="parts" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+              <div>8. has worked [most hard] to help the camels: <input type="text" data-ans="hardest,the hardest" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+              <div>9. became the [most young] person to win: <input type="text" data-ans="youngest" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex8-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: REVIEW THE GRAMMAR (Pages 227–229) -->
+    <!-- ============================================================ -->
+    <section id="tab-review" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Review the Grammar • Pages 227–229</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Unit 8 Comprehensive Review</h2>
+        </div>
+        <span class="badge-cd">Track CD2-33</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Exercise A: Greendex Chart Analysis -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex1-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
+            Greendex Survey Analysis (Page 227)
+          </h4>
+          <p class="text-xs text-slate-500">Complete each sentence according to the Greendex rankings:</p>
+
+          <div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <strong class="text-slate-800 block">Transportation & Food:</strong>
+            <div>1. The Chinese make <input type="text" data-ans="the greenest" value="the greenest" readonly class="border rounded px-1.5 py-0.5 text-xs w-28 bg-slate-200 font-semibold"> (green) choices.</div>
+            <div>2. Americans are <input type="text" data-ans="the least green" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="green"> consumers.</div>
+            <div>3. British consumers make <input type="text" data-ans="greener" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="green"> choices than Canadian consumers.</div>
+            <div>4. Mexican consumers are <input type="text" data-ans="less green than,not as green as" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="green"> Japanese consumers.</div>
+            <div>5. The British are <input type="text" data-ans="less concerned than,not as concerned as" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 input-clean" placeholder="concerned"> the Chinese.</div>
+            <div>6. Indians are <input type="text" data-ans="the most concerned" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="concerned"> consumers.</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex1-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 1</button>
+          </div>
+        </div>
+
+        <!-- Exercise C: EDIT Greendex Conclusions -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+            EDIT. Greendex Conclusions (Page 228)
+          </h4>
+          <p class="text-xs text-slate-500">Correct the errors in brackets (nine more errors):</p>
+
+          <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div>1. [most green] consumers: <input type="text" data-ans="greenest" value="greenest" readonly class="border rounded px-2 py-0.5 text-xs w-24 bg-slate-200 font-semibold"> (given)</div>
+            <div>2. lower than Chinese [were]: <input type="text" data-ans="did" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>3. scored the [highest than]: <input type="text" data-ans="higher than" class="cloze-input border rounded px-2 py-0.5 text-xs w-24 input-clean" placeholder="correction"></div>
+            <div>4. more concerned [as]: <input type="text" data-ans="than" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>5. the [low] score of all: <input type="text" data-ans="lowest" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>6. scored [highly] than: <input type="text" data-ans="higher" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>7. [least] concerned than: <input type="text" data-ans="less" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>8. least concerned [nationality]: <input type="text" data-ans="nationalities" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
+            <div>9. most [bad] scores: <input type="text" data-ans="worst" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+            <div>10. lower [then] the others: <input type="text" data-ans="than" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex3-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 6: CONNECT TO WRITING (Pages 230–231) -->
+    <!-- ============================================================ -->
+    <section id="tab-writing" class="tab-content hidden space-y-8">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Writing Focus • Pages 230–231</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Connect the Grammar to Writing: Product Review</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Split-View Model & Drafting Workbench</span>
+      </div>
+
+      <!-- READ & NOTICE -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ & NOTICE</span>
+            <span class="text-sm font-bold text-slate-700">Model Text & Run-on Sentences (Pages 230–231)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+            Split-View: Model (Left) ↔ Run-on Correction & Analysis (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">MODEL READING</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Best Sleeping Bag</h3>
+              <p class="text-xs text-slate-500">Comparing three outdoor camping brands</p>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                I needed to buy a new sleeping bag for a winter camping trip. So, I went to a camping store and compared three different brands¹ of sleeping bags: Ultra Comfort, Snowy Down, and Northern Trek. I wanted to look at each sleeping bag very carefully. For winter camping, the Snowy Down had the highest rating. But in some ways, the other two sleeping bags were better.
+              </p>
+              <p>
+                Of the three sleeping bags, the Snowy Down was <strong>the warmest</strong>, but it was also <strong>the most expensive</strong>. The Northern Trek cost <strong>less than</strong> the Snowy Down, but it was <strong>just as expensive as</strong> the Ultra Comfort. The Ultra Comfort was <strong>warmer than</strong> the Northern Trek. Finally, the Ultra Comfort was <strong>lighter than</strong> the other sleeping bags, so it was <strong>easier</strong> to carry.
+              </p>
+              <p>
+                I decided not to get the Northern Trek for camping outside. It <strong>wasn’t as warm as</strong> the other sleeping bags. But we were having a mild winter, so I didn’t need the warmest kind of sleeping bag. So I looked more closely at the lightest sleeping bag, the Ultra Comfort. That’s the one I chose.
+              </p>
+            </div>
+
+            <div class="bg-amber-50 rounded-xl border border-amber-200 p-3.5 text-xs text-amber-950 space-y-1">
+              <strong class="text-amber-900 block uppercase tracking-wide text-[11px]">WRITING FOCUS: Correcting Run-on Sentences (Page 231)</strong>
+              <p>A run-on sentence happens when two independent clauses are connected without a connecting word or correct punctuation:</p>
+              <ul class="list-disc list-inside text-amber-900 text-[11px] space-y-0.5">
+                <li>✗ <em>I enjoyed my winter camping trip next year, I’ll invite a few friends to join me.</em></li>
+                <li>✓ <em>I enjoyed my winter camping trip. Next year, I’ll invite a few friends to join me.</em> (Separate sentences)</li>
+                <li>✓ <em>I enjoyed my winter camping trip, but next year I’ll invite a few friends to join me.</em> (Comma + conjunction)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 space-y-5">
+            <!-- Brand Comparison Table from Model -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-matrix-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                Brand Matrix from Model (Page 230)
+              </h4>
+              <p class="text-xs text-slate-500">Complete the details from the reading:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="font-bold block">1. Snowy Down Cost:</span>
+                  <select data-ans="the most expensive" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the most expensive">the most expensive</option><option value="the least expensive">the least expensive</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="font-bold block">2. Ultra Comfort Weight:</span>
+                  <select data-ans="the lightest" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the heaviest">the heaviest</option><option value="the lightest">the lightest</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="font-bold block">3. Northern Trek Warmth:</span>
+                  <select data-ans="wasn't as warm as the others" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="wasn't as warm as the others">wasn't as warm as the others</option><option value="the warmest">the warmest</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex-matrix-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Matrix</button>
+              </div>
+            </div>
+
+            <!-- Run-on Correction Practice -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-runon-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                Fix the Run-on Sentence (Page 231)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the best correction for the run-on sentence:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <span class="text-slate-800 font-medium">The Ultra Comfort is lighter it is easier to carry on long hikes.</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select correct option...</option>
+                    <option value="a">The Ultra Comfort is lighter, it is easier to carry on long hikes.</option>
+                    <option value="b">The Ultra Comfort is lighter, so it is easier to carry on long hikes.</option>
+                    <option value="c">The Ultra Comfort is lighter it, is easier to carry on long hikes.</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex-runon-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Run-on</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAFT & SELF ASSESS -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-500 text-slate-950">WRITING WORKBENCH</span>
+          <span class="text-sm font-bold text-slate-700">Draft & Assess Your Product Review (Pages 230–231)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              WRITE A PRODUCT REVIEW (Page 231)
+            </h4>
+            <p class="text-xs text-slate-500">Write two paragraphs comparing three different brands of a product:</p>
+            
+            <textarea id="studentEssay" rows="8" placeholder="Paragraph 1 (Introduction & Features):
+I recently compared three smartphones: the Apex 5, the Nova Pro, and the Stellar X. Of the three phones, the Nova Pro was the most expensive, but it took the best photos...
+
+Paragraph 2 (Decision & Recommendation):
+Although the Stellar X was cheaper than the Apex 5, it wasn't as fast. Therefore, I decided to buy the Apex 5 because it offered the best balance..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-amber-400 leading-relaxed"></textarea>
+
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span id="wordCount">0 words written</span>
+              <button onclick="copyEssayText()" class="font-semibold text-slate-700 hover:text-amber-600 underline">Copy Review</button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              SELF ASSESS (Page 231 Checklist)
+            </h4>
+            <p class="text-xs text-slate-500">Check off each criterion as you review your draft:</p>
+
+            <div class="space-y-2 text-xs">
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-500 focus:ring-amber-400">
+                <span class="text-slate-700">I used comparative adjectives and adverbs correctly. [8.1, 8.2, 8.3]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-500 focus:ring-amber-400">
+                <span class="text-slate-700">I used comparisons with <em>less</em> and <em>(not) as...as</em> correctly. [8.4, 8.5]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-500 focus:ring-amber-400">
+                <span class="text-slate-700">I used superlative adjectives and adverbs correctly. [8.6, 8.7]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-500 focus:ring-amber-400">
+                <span class="text-slate-700">I checked for and corrected <strong>run-on sentences</strong>. [WRITING FOCUS]</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-amber-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 8: Consumer Society</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('border-amber-400', 'text-amber-400', 'bg-slate-800/50');
+          btn.classList.remove('border-transparent', 'text-slate-300');
+        } else {
+          btn.classList.remove('border-amber-400', 'text-amber-400', 'bg-slate-800/50');
+          btn.classList.add('border-transparent', 'text-slate-300');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-amber-400', 'text-slate-950', 'border-amber-500', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-amber-400', 'text-slate-950', 'border-amber-500', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-amber-400', 'border-amber-500');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-amber-400', 'border-amber-500');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw.split(',').map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkDiscoverL1() {
+      checkClozeCard('ex3-l1-card');
+      checkSelectCard('ex3-l1-card');
+    }
+
+    function resetEntirePage() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-amber-400', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-amber-500', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) { icon.classList.add('hidden'); icon.innerHTML = ''; }
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

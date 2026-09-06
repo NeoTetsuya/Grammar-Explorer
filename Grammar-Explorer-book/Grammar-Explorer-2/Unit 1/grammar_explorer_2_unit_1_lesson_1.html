@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 1: Lesson 1 (Simple Present)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    .edit-pill { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 0.25rem; padding: 0.15rem 0.45rem; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 0.5rem; vertical-align: middle; margin: 0.15rem 0.2rem; font-family: ui-sans-serif, system-ui, sans-serif; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- HEADER -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-amber-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U1 • Part 1</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 1: Customs and Traditions <span class="text-slate-500 font-light">|</span> <span class="text-amber-400">Lesson 1: Simple Present</span>
+            </h1>
+          </div>
+        </div>
+
+        <button onclick="resetLesson1()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-amber-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        <button onclick="switchExTab('tab-opener')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-amber-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-opener">
+          <span class="w-5 h-5 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">pp. 2–3</span>
+          <span>Unit Opener</span>
+        </button>
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Afar Wedding (pp. 4–5)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex4')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+          <span>Ex 4: Statements (p. 6)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex6')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex6">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6</span>
+          <span>Ex 6: Questions (p. 7)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex8')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
+          <span>Ex 8: Frequency Adverbs (p. 8)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex9-11')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9-11">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9, 11</span>
+          <span>Ex 9 & 11: Ghana Krada (p. 10)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex12')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex12">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">12</span>
+          <span>Ex 12: EDIT Dialogue (p. 10)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex13-14')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex13-14">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">13–14</span>
+          <span>Ex 13–14: Vanuatu Rites (p. 11)</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 1: UNIT OPENER SPOTLIGHT (Pages 2–3) -->
+    <!-- ============================================================ -->
+    <div id="tab-opener" class="ex-tab-pane block space-y-6">
+      <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 mb-2">
+              Pages 2–3 • Unit Opener
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Customs and Traditions</h2>
+            <p class="text-slate-500 mt-1 text-base">The Ritual of the Painted Bride • Donje Ljubinje, Kosovo</p>
+          </div>
+          <div class="badge-cd">Tracks CD1-02, 03, 04</div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 reader-card">
+            <div class="relative h-72 sm:h-80 w-full overflow-hidden bg-slate-950 group">
+              <img 
+                src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/I6LYEJ22HBLVZIZHDGSIKXWI6Y.jpg" 
+                alt="A bride wearing elaborate face paint during a traditional wedding ceremony in Donje Ljubinje, Kosovo" 
+                class="w-full h-full object-cover object-center transition duration-700 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/f59e0b?text=Painted+Bride+Ritual+%E2%80%A2+Kosovo';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-black/40 pointer-events-none"></div>
+              <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                <span class="text-[11px] font-bold uppercase tracking-wider bg-slate-900/90 backdrop-blur-md text-amber-400 px-2.5 py-1 rounded-md border border-amber-400/30 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                  Unit Opener • pp. 2–3
+                </span>
+                <span class="text-[11px] bg-slate-900/85 backdrop-blur-md text-slate-300 px-2.5 py-1 rounded-md border border-slate-700">
+                  Donje Ljubinje, Kosovo
+                </span>
+              </div>
+            </div>
+            <div class="p-5 sm:p-6 space-y-2">
+              <h3 class="text-xl font-bold text-white">The Ritual of the Painted Bride</h3>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                A bride wears paint on her face to prevent bad luck during a traditional wedding ceremony in the village of Donje Ljubinje, Kosovo. The ritual takes over two hours, using white base, golden concentric circles representing life cycles, and protective dots shielding against envy and bad luck.
+              </p>
+            </div>
+          </div>
+
+          <div class="md:col-span-5 space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-200 text-xs text-slate-700">
+            <h4 class="font-bold text-slate-900 text-sm">Lesson 1 Scope & Goals (pp. 4–11)</h4>
+            <ul class="space-y-2 list-disc list-inside">
+              <li><strong>Grammar 1.1:</strong> Simple Present Affirmative & Negative Statements</li>
+              <li><strong>Grammar 1.2:</strong> Simple Present Questions (Yes/No, Wh- Objects & Subjects)</li>
+              <li><strong>Grammar 1.3:</strong> Frequency Adverbs position with <em>be</em> and other verbs</li>
+              <li><strong>Explore:</strong> Reading <em>An Afar Wedding</em> (Djibouti) + Exercises 2 & 3</li>
+              <li><strong>Practice:</strong> Ghana <em>Krada</em> birthday dialogues, Adulthood rites in Vanuatu (Land diving), and in-situ Dialogue Editor.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Step navigation -->
+        <div class="flex items-center justify-end pt-4 border-t border-slate-100 mt-4">
+          <button type="button" onclick="switchExTab('tab-explore')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+            <span>Next: Explore (An Afar Wedding)</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 2: EXPLORE (Reading & Exercises 2–3, Pages 4–5) -->
+    <!-- ============================================================ -->
+    <div id="tab-explore" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Explore • Pages 4–5</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">An Afar Wedding (Reading & Questions 2–3)</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Split-view: text on the left, True/False & Subject/Verb analysis on the right</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd">Track CD1-02</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT PANE: Sticky Reading "An Afar Wedding" -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">An Afar Wedding</h3>
+              <p class="text-xs text-slate-500">Weddings among the Afar people of Djibouti</p>
+            </div>
+            <span class="badge-cd">CD1-02</span>
+          </div>
+
+          <!-- Vertical Photo for An Afar Wedding -->
+          <div class="flex justify-center my-3">
+            <div class="w-full max-w-[280px] sm:max-w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group" style="aspect-ratio: 9 / 16;">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsJy4EwHFrXS6La2FhaUSELBlRQ-_dlmSjyLK06uWetKNCA5HIZK1sONA&s=10" 
+                alt="Afar bride wearing gold jewelry for her wedding in Djibouti" 
+                class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/576x1024/1e293b/f59e0b?text=An+Afar+Wedding+%E2%80%A2+Djibouti';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
+                <span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Djibouti • Afar Wedding</span>
+                <span class="text-amber-300 font-mono text-[10px]">p. 4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reading Text -->
+          <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+            <div>
+              <h4 class="font-sans font-bold text-xs uppercase text-slate-500 tracking-wider mb-1">What is an Afar wedding ceremony like?</h4>
+              <p>
+                The actual wedding ceremony is only for men. The <span class="bg-amber-100 text-amber-900 font-bold px-1 rounded">bride¹</span> <strong class="text-slate-900 bg-slate-100 px-1 rounded">does not go</strong> to this ceremony. Instead, her father <strong class="text-slate-900 bg-slate-100 px-1 rounded">represents²</strong> her. The women <strong class="text-slate-900 bg-slate-100 px-1 rounded">celebrate³</strong> in a different place. They sit and talk about the bride’s life. The women’s ceremony often includes a lot of dancing.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-sans font-bold text-xs uppercase text-slate-500 tracking-wider mb-1">What happens next?</h4>
+              <p>
+                After these separate ceremonies, the <span class="bg-amber-100 text-amber-900 font-bold px-1 rounded">bride and groom⁴</span> <strong class="text-slate-900 bg-slate-100 px-1 rounded">meet</strong> with their families and friends. Sometimes this party lasts all night. The next day, the bride and groom <strong class="text-slate-900 bg-slate-100 px-1 rounded">invite</strong> their families to their new home. They <strong class="text-slate-900 bg-slate-100 px-1 rounded">eat</strong> a <span class="bg-amber-100 text-amber-900 font-bold px-1 rounded">traditional⁵</span> meal. A typical meal is goat with rice.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-sans font-bold text-xs uppercase text-slate-500 tracking-wider mb-1">What do the bride and groom wear?</h4>
+              <p>
+                Often they both <strong class="text-slate-900 bg-slate-100 px-1 rounded">dress</strong> in traditional clothes, but the bride sometimes wears a western-style dress. Some brides wear a lot of gold jewelry.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-sans font-bold text-xs uppercase text-slate-500 tracking-wider mb-1">Who pays for the wedding?</h4>
+              <p>
+                In the Afar culture, the man <strong class="text-slate-900 bg-slate-100 px-1 rounded">pays</strong> for the wedding. He also <strong class="text-slate-900 bg-slate-100 px-1 rounded">provides</strong> a home for his new wife, but they <strong class="text-slate-900 bg-slate-100 px-1 rounded">do not live</strong> there together until three days after the wedding.
+              </p>
+            </div>
+          </div>
+
+          <!-- Footnotes -->
+          <div class="pt-4 border-t border-slate-100 space-y-1.5 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+            <div class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Footnotes & Context</div>
+            <p><strong>¹ bride:</strong> a woman on her wedding day</p>
+            <p><strong>² represent:</strong> to act in the place of someone</p>
+            <p><strong>³ celebrate:</strong> to have a party or meal to mark a special occasion</p>
+            <p><strong>⁴ groom:</strong> a man on his wedding day</p>
+            <p><strong>⁵ traditional:</strong> based on customs practiced for a long time</p>
+            <p class="text-slate-500 italic mt-1"><strong>Geographic Note:</strong> Many Afar people live in Africa’s Great Rift Valley.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT PANE: Questions 2 & 3 tied to Afar reading -->
+        <div class="lg:col-span-6 space-y-5">
+          
+          <!-- Exercise 2: CHECK True / False -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card" id="ex2-card">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. True or False? (Page 5)
+              </h4>
+              <span class="text-xs text-slate-400">Based on "An Afar Wedding"</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-3">Read each statement. Select <strong>T</strong> for true or <strong>F</strong> for false, then click <strong>Check Answers</strong>.</p>
+
+            <div class="space-y-2.5" id="afar-tf-container">
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                <span class="text-slate-700">1. The bride and groom go to the wedding ceremony together.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                <span class="text-slate-700">2. Women dance to celebrate the wedding.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                <span class="text-slate-700">3. Sometimes the bride does not wear traditional clothing.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                <span class="text-slate-700">4. The family eats a traditional meal.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                <span class="text-slate-700">5. The bride’s father pays for the wedding.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkTFCard('ex2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+            </div>
+          </div>
+
+          <!-- Exercise 3: DISCOVER Subject & Verb Analysis -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-card">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Subject & Verb Analysis (Page 5)
+              </h4>
+              <p class="text-xs text-slate-500 mt-0.5">
+                <strong>A.</strong> Look at the underlined subjects in these sentences from the text. Select whether each subject is <strong>Singular (S)</strong> or <strong>Plural (P)</strong>:
+              </p>
+            </div>
+
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <span>1. <u class="font-bold text-slate-900">The bride</u> does not go to this ceremony.</span>
+                <select data-ans="S" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select S or P...</option>
+                  <option value="S">S (Singular)</option>
+                  <option value="P">P (Plural)</option>
+                </select>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <span>2. Instead, <u class="font-bold text-slate-900">her father</u> represents her.</span>
+                <select data-ans="S" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select S or P...</option>
+                  <option value="S">S (Singular)</option>
+                  <option value="P">P (Plural)</option>
+                </select>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <span>3. <u class="font-bold text-slate-900">The women</u> celebrate in a different place.</span>
+                <select data-ans="P" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select S or P...</option>
+                  <option value="S">S (Singular)</option>
+                  <option value="P">P (Plural)</option>
+                </select>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <span>4. <u class="font-bold text-slate-900">They</u> sit and talk about the bride’s life.</span>
+                <select data-ans="P" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select S or P...</option>
+                  <option value="S">S (Singular)</option>
+                  <option value="P">P (Plural)</option>
+                </select>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50">
+                <span>5. <u class="font-bold text-slate-900">The women’s ceremony</u> often includes a lot of dancing.</span>
+                <select data-ans="S" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select S or P...</option>
+                  <option value="S">S (Singular)</option>
+                  <option value="P">P (Plural)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="p-3 bg-amber-50/70 rounded-xl border border-amber-200 text-xs text-amber-950">
+              <span class="font-bold block text-amber-900 mb-0.5">B. DISCUSS:</span>
+              Notice the verbs in bold. Verbs with a singular subject add <em>-s/-es</em> (or use <em>does not</em> + base verb). Verbs with a plural subject take the base form (or use <em>do not</em> + base verb).
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Step navigation -->
+      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+        <button type="button" onclick="switchExTab('tab-opener')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Back: Unit Opener</span>
+        </button>
+        <button type="button" onclick="switchExTab('tab-ex4')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+          <span>Next: Ex 4 (Statements)</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 3: CHART 1.1 & EXERCISE 4 (Page 6) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex4" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn & Practice • Page 6</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 1.1 & Exercise 4: Simple Present Statements</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Affirmative & Negative Statements with <em>-s/-es</em> vs. <em>do not / does not</em></p>
+        </div>
+        <span class="badge-cd">Chart 1.1</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Chart 1.1 -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">1.1 Simple Present: Affirmative & Negative</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 6</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <div class="bg-slate-100 px-3 py-1 font-bold text-slate-700">Affirmative</div>
+              <table class="w-full text-left">
+                <tbody class="divide-y divide-slate-100">
+                  <tr><td class="p-2 text-slate-600">I / You / We / They</td><td class="p-2 font-semibold">eat a lot.</td></tr>
+                  <tr><td class="p-2 text-slate-600">He / She / It</td><td class="p-2 font-semibold text-amber-600">eats a lot.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl overflow-hidden">
+              <div class="bg-slate-100 px-3 py-1 font-bold text-slate-700">Negative</div>
+              <table class="w-full text-left">
+                <tbody class="divide-y divide-slate-100">
+                  <tr><td class="p-2 text-slate-600">I / You / We / They</td><td class="p-2 font-semibold">don’t eat a lot.</td></tr>
+                  <tr><td class="p-2 text-slate-600">He / She / It</td><td class="p-2 font-semibold text-amber-600">doesn’t eat a lot.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="text-xs text-slate-600 space-y-1 bg-slate-50 p-3 rounded-xl border border-slate-200 leading-relaxed">
+            <p><strong>Uses:</strong> Habits & repeated actions (<em>We eat at 7:30</em>); Facts & general truths (<em>The mail doesn't come on Sundays</em>); Frequency (<em>Jim visits twice a year</em>).</p>
+            <p><strong>Careful:</strong> Add <em>-s, -es, -ies</em> for <em>he, she, it</em> or singular nouns (✓ <em>Rosa teaches</em>; ✗ <em>Rosa teach</em>).</p>
+          </div>
+        </div>
+
+        <!-- Exercise 4: Complete sentences (ALL 8 items) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Complete with the Simple Present (Page 6)
+            </h4>
+            <span class="text-xs text-slate-400">Verbs in parentheses</span>
+          </div>
+          <p class="text-xs text-slate-500">Fill in each blank with the correct simple present form of the verb. Then click Check Answers.</p>
+
+          <div class="space-y-2.5 text-xs sm:text-sm">
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>1. At an Afar wedding the families <input type="text" data-ans="eat" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-36 font-semibold input-clean"> (eat) a traditional meal.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>2. An Afar bride <input type="text" data-ans="does not attend,doesn't attend" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-44 font-semibold input-clean"> (not attend) the actual wedding ceremony.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>3. The women <input type="text" data-ans="dance" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-32 font-semibold input-clean"> (dance) during their celebration.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>4. The bride and groom <input type="text" data-ans="invite" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-32 font-semibold input-clean"> (invite) their friends and family to a party.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>5. The bride’s parents <input type="text" data-ans="do not pay,don't pay" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-40 font-semibold input-clean"> (not pay) for the wedding.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>6. The wedding <input type="text" data-ans="does not end,doesn't end" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-40 font-semibold input-clean"> (not end) on the first day.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>7. A groom <input type="text" data-ans="provides" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-32 font-semibold input-clean"> (provide) a new home for his bride.</span>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>8. They <input type="text" data-ans="do not live,don't live" placeholder="verb form" class="cloze-input border border-slate-300 rounded px-2.5 py-1 text-xs w-40 font-semibold input-clean"> (not live) together immediately.</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+        <button type="button" onclick="switchExTab('tab-explore')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Back: Explore</span>
+        </button>
+        <button type="button" onclick="switchExTab('tab-ex6')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+          <span>Next: Ex 6 (Questions)</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 4: CHART 1.2 & EXERCISE 6 (Page 7) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex6" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn & Practice • Page 7</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 1.2 & Exercise 6: Questions and Answers</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions</p>
+        </div>
+        <span class="badge-cd">Chart 1.2</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Chart 1.2 -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">1.2 Simple Present: Questions & Answers</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 7</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+              <span class="font-bold text-slate-800 block mb-1">Yes / No Questions & Short Answers</span>
+              <p>• <strong>Do</strong> I / you / we / they <strong>sing</strong>? → <em>Yes, they do. / No, they don’t.</em></p>
+              <p>• <strong>Does</strong> he / she / it <strong>sing</strong>? → <em>Yes, he does. / No, he doesn’t.</em></p>
+            </div>
+
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+              <span class="font-bold text-slate-800 block mb-1">Wh- Questions (Object)</span>
+              <p class="font-mono text-[11px] text-slate-500 mb-1">Wh- word + do/does + subject + base verb</p>
+              <p>• Where does Jeff live? (In Sydney.)</p>
+              <p>• Why do they sing? (They love music.)</p>
+            </div>
+
+            <div class="border border-amber-200 rounded-xl p-3 bg-amber-50">
+              <span class="font-bold text-amber-900 block mb-1">Who / What as Subject</span>
+              <p class="font-mono text-[11px] text-amber-700 mb-1">Who/What + 3rd person singular verb (-s/-es)</p>
+              <p>• Who <strong>teaches</strong> this class? (Prof. Ortega)</p>
+              <p class="text-rose-600 font-semibold text-[10px] mt-1">⚠️ Do NOT use do/does! (NOT: <em>Who does teach?</em>)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 6: Complete Each Question (All 8 items) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Complete Each Question (Page 7)
+            </h4>
+            <span class="text-xs text-slate-400">Items 1–8</span>
+          </div>
+          <p class="text-xs text-slate-500">Form questions using the cues in parentheses and the simple present:</p>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>1. <input type="text" data-ans="Do all brides wear" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 font-semibold input-clean"> (all brides / wear) white dresses?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>2. <input type="text" data-ans="What do people give" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 font-semibold input-clean"> (what / people / give) the bride and groom?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>3. <input type="text" data-ans="Does the bride's mother cut,Does the brides mother cut" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 font-semibold input-clean"> (the bride’s mother / cut) the wedding cake?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>4. <input type="text" data-ans="Do the bride and groom have" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 font-semibold input-clean"> (the bride and groom / have) a party after the ceremony?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>5. <input type="text" data-ans="Who does the bride dance" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 font-semibold input-clean"> (who / the bride / dance) with first?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>6. <input type="text" data-ans="What do the bride and groom do" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-56 font-semibold input-clean"> (what / the bride and groom / do) after the wedding?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>7. <input type="text" data-ans="What do the guests do" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 font-semibold input-clean"> (what / the guests / do) at the wedding?</span>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <span>8. <input type="text" data-ans="Who pays" placeholder="Write question..." class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean"> (who / pay) for the wedding?</span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex6-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+        <button type="button" onclick="switchExTab('tab-ex4')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Back: Ex 4</span>
+        </button>
+        <button type="button" onclick="switchExTab('tab-ex8')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+          <span>Next: Ex 8 (Frequency Adverbs)</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 5: CHART 1.3 & EXERCISE 8 (Page 8) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex8" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Learn & Practice • Page 8</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 1.3 & Exercise 8: Frequency Adverbs</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Rules of position with <em>be</em> and other verbs; rewriting 10 full sentences</p>
+        </div>
+        <span class="badge-cd">Chart 1.3</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Chart 1.3 -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">1.3 Frequency Adverbs</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 8</span>
+          </div>
+
+          <div class="p-3 bg-gradient-to-r from-emerald-500 via-amber-400 to-rose-500 rounded-xl text-white font-bold text-[11px] flex items-center justify-between shadow-sm">
+            <span>100% Always</span>
+            <span>Usually</span>
+            <span>Often</span>
+            <span>Sometimes</span>
+            <span>Rarely</span>
+            <span>0% Never</span>
+          </div>
+
+          <div class="text-xs text-slate-600 space-y-2 bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <p>• <strong>Position with 'be':</strong> After <em>be</em> (<em>I am <strong>sometimes</strong> early for class</em>; <em>Guests are <strong>usually</strong> happy</em>).</p>
+            <p>• <strong>Position with other verbs:</strong> Before other verbs (<em>I <strong>usually</strong> enjoy parties</em>).</p>
+            <p>• <em>Sometimes, usually, frequently, often</em> can also begin or end a sentence.</p>
+            <p>• <strong>Ever:</strong> Common in questions (<em>Do you <strong>ever</strong> eat out?</em>). Not usually used in affirmative statements.</p>
+          </div>
+        </div>
+
+        <!-- Exercise 8: Rewrite using adverb (Complete 10 items) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+              Rewrite with Frequency Adverbs (Page 8)
+            </h4>
+            <span class="text-xs text-slate-400">Items 1–10</span>
+          </div>
+          <p class="text-xs text-slate-500">Type the entire rewritten sentence with the adverb in the correct position:</p>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">1. (usually) I am with friends on my birthday.</div>
+              <input type="text" data-ans="I am usually with friends on my birthday.,I am usually with friends on my birthday" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">2. (hardly ever) Marco is on time for parties.</div>
+              <input type="text" data-ans="Marco is hardly ever on time for parties.,Marco is hardly ever on time for parties" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">3. (never) My parents forget my birthday.</div>
+              <input type="text" data-ans="My parents never forget my birthday.,My parents never forget my birthday" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">4. (always) Children aren’t happy at birthday parties.</div>
+              <input type="text" data-ans="Children aren't always happy at birthday parties.,Children are not always happy at birthday parties.,Children aren't always happy at birthday parties" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">5. (often) Does your sister send you photos?</div>
+              <input type="text" data-ans="Does your sister often send you photos?,Does your sister often send you photos" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">6. (sometimes) Jackie buys unusual presents for her family.</div>
+              <input type="text" data-ans="Jackie sometimes buys unusual presents for her family.,Sometimes Jackie buys unusual presents for her family.,Jackie buys unusual presents for her family sometimes" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">7. (rarely) In the United States, brides wear red dresses.</div>
+              <input type="text" data-ans="In the United States, brides rarely wear red dresses.,In the United States brides rarely wear red dresses.,Brides rarely wear red dresses in the United States." placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">8. (frequently) I go back to my hometown.</div>
+              <input type="text" data-ans="I frequently go back to my hometown.,I go back to my hometown frequently.,Frequently I go back to my hometown" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">9. (seldom) Carlos talks to his brother on the phone.</div>
+              <input type="text" data-ans="Carlos seldom talks to his brother on the phone.,Carlos seldom talks to his brother on the phone" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+              <div class="text-slate-700 font-medium">10. (ever) Do you visit your cousin in Spain?</div>
+              <input type="text" data-ans="Do you ever visit your cousin in Spain?,Do you ever visit your cousin in Spain" placeholder="Rewrite sentence..." class="cloze-input w-full border border-slate-300 rounded px-2 py-1 text-xs font-semibold input-clean">
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex8-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+        <button type="button" onclick="switchExTab('tab-ex6')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Back: Ex 6</span>
+        </button>
+        <button type="button" onclick="switchExTab('tab-ex9-11')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+          <span>Next: Ex 9 & 11 (Ghana & Family)</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 6: EXERCISE 9 & 11 (Ghana Dialogue & Family, Page 10) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex9-11" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Practice • Page 10</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 9 & 11: Birthday Traditions</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Ghanaian Krada celebrations (CD1-03) and personal family customs</p>
+        </div>
+        <span class="badge-cd">CD1-03</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Exercise 9: Ghana Dialogue -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-card">
+          <div class="flex items-center justify-between">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+                Birthday Celebrations in Ghana (Page 10)
+              </h4>
+              <p class="text-xs text-slate-500">Valerie & Kofi conversation</p>
+            </div>
+            <span class="badge-cd">CD1-03</span>
+          </div>
+          <p class="text-xs text-slate-500">Fill in the verbs in parentheses using the simple present and frequency adverbs:</p>
+
+          <div class="space-y-3 text-xs sm:text-sm bg-slate-50 p-4 rounded-xl border border-slate-200 leading-relaxed text-slate-700">
+            <p>
+              <strong>Valerie:</strong> Tell me, Kofi . . . How <strong>(1)</strong>
+              <input type="text" data-ans="do people usually celebrate" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-48 font-semibold input-clean" placeholder="people / usually / celebrate"> birthdays in Ghana?
+            </p>
+            <p>
+              <strong>Kofi:</strong> Well, I am Asante, and the Asante people <strong>(2)</strong>
+              <input type="text" data-ans="do not celebrate,don't celebrate" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="not celebrate">
+              our birthdays on the date we were born. Instead, we celebrate on the day of the week we were born. It is a special day, called <em>krada</em>. For example, I was born on a Friday, so I <strong>(3)</strong>
+              <input type="text" data-ans="always wait" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="always / wait">
+              until the first Friday after my birthday to celebrate.
+            </p>
+            <p>
+              <strong>Valerie:</strong> Oh, that’s interesting. When <strong>(4)</strong>
+              <input type="text" data-ans="does krada start" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="krada / start">?
+            </p>
+            <p>
+              <strong>Kofi:</strong> In the morning. For the Asante, a new day <strong>(5)</strong>
+              <input type="text" data-ans="never begins" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="never / begin">
+              at midnight. The day <strong>(6)</strong>
+              <input type="text" data-ans="always starts" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="always / start">
+              at sunrise.
+            </p>
+            <p>
+              <strong>Valerie:</strong> What <strong>(7)</strong>
+              <input type="text" data-ans="do you usually do" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="you / usually / do">
+              to celebrate <em>krada</em>?
+            </p>
+            <p>
+              <strong>Kofi:</strong> Well, for children, parents <strong>(8)</strong>
+              <input type="text" data-ans="often prepare" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="often / prepare">
+              a special breakfast for <em>krada</em>. They <strong>(9)</strong>
+              <input type="text" data-ans="usually make" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="usually / make">
+              a dish called <em>oto</em> from sweet potatoes and eggs. They <strong>(10)</strong>
+              <input type="text" data-ans="always fry" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 font-semibold input-clean" placeholder="always / fry">
+              the <em>oto</em> in palm oil. Later in the day, the child has a party. At the party, children <strong>(11)</strong>
+              <input type="text" data-ans="usually eat" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="usually / eat">
+              meat with rice and a sweet dish called <em>kelewele</em>.
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex9-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+          </div>
+        </div>
+
+        <!-- Exercise 11: True Statements -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+            True Statements about Your Family (Page 10)
+          </h4>
+          <p class="text-xs text-slate-500">Select an adverb to make each statement true for you and your family:</p>
+          
+          <div class="p-2 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 flex flex-wrap gap-1 font-semibold">
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">always</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">hardly ever</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">never</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">often</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">rarely</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">seldom</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">sometimes</span>
+            <span class="bg-white px-1.5 py-0.5 rounded border border-amber-300">usually</span>
+          </div>
+
+          <div class="space-y-1.5 text-xs">
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>1. We don’t give each other expensive presents.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>usually</option><option>always</option><option>sometimes</option><option>rarely</option><option>never</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>2. I send parents a card on their anniversary.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>always</option><option>usually</option><option>sometimes</option><option>never</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>3. We get together as a family.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>often</option><option>usually</option><option>rarely</option><option>seldom</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>4. I am late for family parties.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>never</option><option>hardly ever</option><option>sometimes</option><option>always</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>5. My family has big celebrations.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>always</option><option>often</option><option>sometimes</option><option>rarely</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>6. My parents are happy to see me.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>always</option><option>usually</option><option>often</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>7. People in my family aren’t quiet during meals.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>usually</option><option>always</option><option>often</option>
+              </select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>8. We spend weekends together.</span>
+              <select class="border border-slate-300 rounded px-2 py-0.5 text-xs bg-white">
+                <option value="">Choose...</option>
+                <option>often</option><option>sometimes</option><option>rarely</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+        <button type="button" onclick="switchExTab('tab-ex8')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          <span>Back: Ex 8</span>
+        </button>
+        <button type="button" onclick="switchExTab('tab-ex12')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+          <span>Next: Ex 12 (In-Situ Dialogue Editor)</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 7: EXERCISE 12 (In-Situ Dialogue Editor, Page 10) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex12" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Practice • Page 10</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 12: EDIT. Family Get-Togethers</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Find and correct seven errors with simple present and frequency adverbs</p>
+        </div>
+        <span class="badge-cd">In-Situ Editor</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border-2 border-amber-300 p-6 sm:p-7 reader-card space-y-4" id="ex12-card">
+        <div class="flex items-center justify-between border-b border-amber-100 pb-3">
+          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs">12</span>
+            Interactive Conversation Editor
+          </h4>
+          <span class="text-xs bg-amber-100 text-amber-900 font-bold px-2.5 py-0.5 rounded">In-Situ Text Editor</span>
+        </div>
+        <p class="text-xs text-slate-600">
+          Read the conversation below. Find the seven simple present and frequency adverb errors marked in brackets. Type the corrected words directly into each blank inside the conversation, then click <strong>Check Dialogue</strong>:
+        </p>
+
+        <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-5 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 rounded-2xl border border-slate-200 shadow-inner space-y-3.5">
+          <p>
+            <strong>Kenji:</strong> How often 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">your family does get</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <span class="font-bold text-emerald-700">does your family get</span> (Example)
+            </span> 
+            together?
+          </p>
+          <p>
+            <strong>Raoul:</strong> We get together about two or three times a year, but it’s not always easy. My brother lives on the West Coast, and my sister 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">often is</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="is often" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            away on business trips.
+          </p>
+          <p>
+            <strong>Kenji:</strong> So, where 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">you</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="do you" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            meet when you get together?
+          </p>
+          <p>
+            <strong>Raoul:</strong> Well, we 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">go usually</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="usually go" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            to my parents’ house. We 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">tries</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="try" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-18 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            to get home to celebrate their wedding anniversary every year. Sometimes, my brother and I visit each other on our birthdays. Once every two or three years we take a vacation together. I’d like to do it every year, but it 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">cost</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="costs" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            a lot of money.
+          </p>
+          <p>
+            <strong>Kenji:</strong> 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">Have you</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="Do you have" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            a good time with your brother and sister?
+          </p>
+          <p>
+            <strong>Raoul:</strong> Oh, yes, most of the time. We 
+            <span class="edit-pill">
+              <span class="line-through text-rose-600 font-bold">have sometimes</span> 
+              <span class="text-slate-400 text-xs">➔</span> 
+              <input type="text" data-ans="sometimes have" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 bg-white input-clean font-sans" placeholder="corr...">
+            </span> 
+            a few arguments, just like any family.
+          </p>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+          <span class="ex-score text-xs font-bold text-slate-500"></span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="switchExTab('tab-ex9-11')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 9 & 11</span>
+            </button>
+            <button type="button" onclick="checkClozeCard('ex12-card')" class="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs transition shadow-sm flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Check Dialogue
+            </button>
+            <button type="button" onclick="switchExTab('tab-ex13-14')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 13–14 (Vanuatu)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 8: EXERCISES 13 & 14 (Vanuatu Land Diving, Page 11) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex13-14" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Listen, Write & Speak • Page 11</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercises 13 & 14: Adulthood Rites in Vanuatu</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Land diving on Pentecost Island & discussion of adulthood traditions</p>
+        </div>
+        <span class="badge-cd">Track CD1-04</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Exercise 13: Adulthood Rites (Unscramble questions) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4" id="ex13-card">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+              <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">13</span>
+                Adulthood Rites: Unscramble Questions (Page 11)
+              </h4>
+              <p class="text-xs text-slate-500">Vanuatu land diving & bungee jumping</p>
+            </div>
+            <span class="badge-cd">CD1-04</span>
+          </div>
+          <p class="text-xs text-slate-500">Put the words in the correct order to make questions. Type your answer and click Check:</p>
+
+          <div class="space-y-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-slate-600 font-semibold">1. the tower / climb / the boys / do / why</div>
+              <input type="text" data-ans="Why do the boys climb the tower?,Why do the boys climb the tower" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-slate-600 font-semibold">2. the boys / how / jump / do / off the tower</div>
+              <input type="text" data-ans="How do the boys jump off the tower?,How do the boys jump off the tower" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-slate-600 font-semibold">3. digs / the ground / who / below the tower</div>
+              <input type="text" data-ans="Who digs the ground below the tower?,Who digs the ground below the tower" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <div class="text-slate-600 font-semibold">4. do / the boys / get killed / rarely / why</div>
+              <input type="text" data-ans="Why do the boys rarely get killed?,Why do the boys rarely get killed" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex13-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 13</button>
+          </div>
+        </div>
+
+        <!-- Exercise 14: APPLY -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center text-xs">14</span>
+              APPLY (Page 11)
+            </h4>
+            <span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Speaking & Cultural Sharing</span>
+          </div>
+
+          <div class="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-950 space-y-2">
+            <p class="font-bold text-amber-900">How do people in your country celebrate the change from childhood to adulthood?</p>
+            <ul class="list-disc list-inside space-y-1 text-amber-900">
+              <li>Is there a special ceremony or milestone birthday? (e.g., 20th birthday ceremonies, Quinceañera, Bar/Bat Mitzvah)</li>
+              <li>Do people wear special clothes or suits?</li>
+              <li>What gifts or responsibilities are given?</li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button type="button" onclick="switchExTab('tab-ex12')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 12</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-opener')" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Return to Opener</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-amber-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 1: Lesson 1</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Simple Present Interactive Exercises Suite</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-amber-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-amber-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) next.remove();
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-amber-400', 'text-slate-950', 'border-amber-500', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-amber-400', 'text-slate-950', 'border-amber-500', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-amber-400', 'border-amber-500');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-amber-400', 'border-amber-500');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        } else if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        } else {
+          const isMatch = expectedList.some(exp => {
+            if (rawVal === exp) return true;
+            if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+            if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+            return false;
+          });
+
+          if (isMatch) {
+            correctCount++;
+            input.classList.add('input-correct');
+            badge.classList.add('answer-badge-correct');
+            badge.innerHTML = `✓ Correct`;
+          } else {
+            input.classList.add('input-incorrect');
+            badge.classList.add('answer-badge-incorrect');
+            badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          }
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function resetLesson1() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-amber-400', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'text-slate-950', 'border-emerald-600', 'border-rose-600', 'border-amber-500', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+    }
+  </script>
+</body>
+</html>

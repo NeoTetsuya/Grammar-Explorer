@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 4: Going Places (Pronouns, Prepositions, and Articles)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            natgeo: {
+              yellow: '#FFCC00',
+              gold: '#F59E0B',
+              dark: '#0F172A',
+              blue: '#0284C7',
+              cyan: '#06B6D4',
+              teal: '#0D9488',
+              slate: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .reader-card {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+    }
+    .sticky-reading {
+      position: sticky;
+      top: 5.5rem;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
+    .badge-cd {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    .input-clean {
+      transition: all 0.2s ease-in-out;
+    }
+    .input-correct {
+      border-color: #10b981 !important;
+      background-color: #ecfdf5 !important;
+      color: #065f46 !important;
+    }
+    .input-incorrect {
+      border-color: #f43f5e !important;
+      background-color: #fff1f2 !important;
+      color: #9f1239 !important;
+    }
+    .answer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.375rem;
+      margin-left: 0.35rem;
+      margin-top: 0.15rem;
+      margin-bottom: 0.15rem;
+      vertical-align: middle;
+      animation: fadeInBadge 0.2s ease-out;
+    }
+    .answer-badge-correct {
+      background-color: #ecfdf5;
+      color: #047857;
+      border: 1px solid #6ee7b7;
+    }
+    .answer-badge-incorrect {
+      background-color: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+    }
+    .edit-pill {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      padding: 0.15rem 0.45rem;
+      background-color: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      vertical-align: middle;
+      margin: 0.15rem 0.2rem;
+      font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-1px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-100 selection:text-cyan-900">
+
+  <!-- HEADER & PRIMARY NAVIGATION -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo / Title -->
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-cyan-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-cyan-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono hidden md:inline">GE2 U4</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight flex items-center gap-2">
+              Grammar Explorer 2 <span class="text-slate-600 font-light">|</span> 
+              <span class="text-sm font-semibold text-slate-200">Unit 4: Going Places (Pronouns, Prepositions & Articles)</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- Global reset button -->
+        <div class="flex items-center space-x-2">
+          <button onclick="resetEntirePage()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+            <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset All Exercises</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Unit Tabs -->
+      <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-1 text-sm scrollbar-none" aria-label="Unit Tabs">
+        <button onclick="switchTab('overview')" class="tab-btn active px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-cyan-400 text-cyan-400 bg-slate-800/50" data-tab="overview">
+          Unit Overview
+        </button>
+        <button onclick="switchTab('lesson1')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson1">
+          Lesson 1: Pronouns
+        </button>
+        <button onclick="switchTab('lesson2')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson2">
+          Lesson 2: Prepositions
+        </button>
+        <button onclick="switchTab('lesson3')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson3">
+          Lesson 3: Articles
+        </button>
+        <button onclick="switchTab('lesson4')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson4">
+          Lesson 4: Place Names
+        </button>
+        <button onclick="switchTab('review')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="review">
+          Review
+        </button>
+        <button onclick="switchTab('writing')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="writing">
+          Connect to Writing
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: UNIT OVERVIEW (Pages 86–87) -->
+    <!-- ============================================================ -->
+    <section id="tab-overview" class="tab-content block space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-900 mb-2">
+              Pages 86–87 • Scope & Sequence
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 4: Going Places</h2>
+            <p class="text-slate-500 mt-1 text-base">Grammar Focus: Pronouns, Prepositions of Time/Place/Direction, and Articles</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="switchTab('lesson1')" class="px-5 py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-700 font-bold text-white transition shadow-sm flex items-center gap-2">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <!-- Spotlight Card: Highway speed past cowboy, North Dakota -->
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+            
+            <div class="relative w-full bg-slate-950 group">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAfpRGeuzO9V2__x56bpMoTPgD_XEa4-whAhclljRNVVRfT37gaLSgnJg&s=10" 
+                alt="Cars speeding past a cowboy at night in North Dakota, USA" 
+                class="w-full h-auto max-h-[420px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/06b6d4?text=Going+Places+%E2%80%A2+North+Dakota+Highway';"
+              />
+              <div class="p-3 bg-slate-950/95 border-t border-slate-800 text-xs flex flex-wrap items-center justify-between gap-2 text-slate-300">
+                <span class="text-[11px] font-mono text-cyan-300 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                  Night Highway Expedition, North Dakota, USA
+                </span>
+                <span class="text-[11px] text-slate-400">
+                  Unit Opener Spotlight • pp. 86–87
+                </span>
+              </div>
+            </div>
+
+            <!-- Spotlight Discussion and Theme Insight -->
+            <div class="p-5 sm:p-6 space-y-3.5">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-snug">The Journeys That Shape Our World</h3>
+                <p class="text-xs text-cyan-400/90 font-medium mt-0.5">Navigating bustling cities, deep oceans, wilderness trails, and cultural landmarks</p>
+              </div>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                How do we experience the places we travel to? In this unit, we navigate bicycle commutes in Mexico City, dive into the underwater blue caves of the Bahamas, trek 4,678 rugged miles across Alaska and the Yukon with explorer Andrew Skurka, follow travel blogs across American and European landmarks, and write descriptive paragraphs about our favorite coastal hideaways.
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-cyan-400 block">Lesson 1</strong>
+                  <span class="text-slate-400 text-[10px]">Mexico City Bicycles</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-sky-400 block">Lesson 2</strong>
+                  <span class="text-slate-400 text-[10px]">Bahamas Blue Holes</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-teal-400 block">Lesson 3</strong>
+                  <span class="text-slate-400 text-[10px]">Alaska-Yukon Trek</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-amber-400 block">Lesson 4</strong>
+                  <span class="text-slate-400 text-[10px]">World Place Names</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unit Lessons Index Cards -->
+          <div class="md:col-span-5 space-y-3">
+            <div onclick="switchTab('lesson1')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-cyan-400 hover:bg-cyan-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">Lesson 1 (p. 88–95)</span>
+                <span class="badge-cd">CD1-28</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-cyan-600 transition mt-1 text-sm">Personal Pronouns & Possessive Adjectives; Reflexives</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Getting Around Mexico City</em>. Subject/object pronouns, possessive forms (<em>mine, yours, theirs</em>), and reflexive pronouns (<em>myself, ourselves</em>).
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson2')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-sky-400 hover:bg-sky-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded">Lesson 2 (p. 96–102)</span>
+                <span class="badge-cd">CD1-34</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-sky-600 transition mt-1 text-sm">Prepositions of Time, Place, and Direction</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Diving in the Bahamas</em>. Master <em>in, on, at, for, from...until</em>, direction indicators, Ria’s trip in Indonesia, and the interactive Honey Road editing tour.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson3')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-teal-400 hover:bg-teal-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-teal-800 bg-teal-100 px-2 py-0.5 rounded">Lesson 3 (p. 103–109)</span>
+                <span class="badge-cd">CD1-36</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-teal-600 transition mt-1 text-sm">Articles: Indefinite, Definite & Generalizations</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Andrew Skurka’s Alaska-Yukon Expedition</em>. Using <em>a/an</em>, <em>the</em>, <em>some</em>, and <em>Ø</em> for first mention, unique nouns, and generalizations.
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson4')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Lesson 4 (p. 110–115)</span>
+                <span class="badge-cd">CD1-40</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Articles with Place Names</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Greg & Maya’s Travel Blogs</em>. Rules for geographic entities, oceans, mountain ranges, hotels, museums, and interactive blog post editing.
+              </p>
+            </div>
+
+            <div onclick="switchTab('review')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 116–117)</span>
+                <span class="text-xs text-slate-400">Synthesis</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Unit 4 integrated conversation practice and in-situ interactive editing of a traveler’s journal about a vacation in Singapore.
+              </p>
+            </div>
+
+            <div onclick="switchTab('writing')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-cyan-400 hover:bg-cyan-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded">Writing (p. 118–119)</span>
+                <span class="text-xs text-slate-400">Writing Focus</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-cyan-600 transition mt-1 text-sm">Connect to Writing: A Favorite Place</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>My Favorite Place</em> (Coastal Italy). Fixing misplaced prepositional phrases, descriptive organizer, and writing workbench.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: LESSON 1 (Pages 88–95) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson1" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Lesson 1 • Pages 88–95</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Personal Pronouns, Possessive Adjectives & Reflexives</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd"><svg class="w-3.5 h-3.5 text-cyan-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD1-28</span>
+        </div>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Comprehension / Discovery (Pages 88–89)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Getting Around Mexico City" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Getting Around Mexico City</h3>
+                <p class="text-xs text-slate-500">Commuting by bicycle in a modern metropolis</p>
+              </div>
+              <span class="badge-cd">CD1-28</span>
+            </div>
+
+            <!-- Mexico City Cycling Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrrByg3hjYAcb4kyate3l42nNrwlU0OQbD_Z-1ayAQxpw5K77LmmP3bz3F&s=10" 
+                  alt="Cyclists commuting on the grand avenues of Mexico City" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/06b6d4?text=Mexico+City+Cyclists';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Bicycle Commuters • Mexico City</span>
+                <span class="text-cyan-400 font-semibold text-[11px]">p. 88</span>
+              </div>
+            </div>
+
+            <!-- Reading Dialogue -->
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                <strong>Peter:</strong> Thanks for meeting us at the airport, Javier. It’s very kind of <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">you</strong>.¹
+              </p>
+              <p>
+                <strong>Javier:</strong> No problem, Peter. I’m just happy that you and Kate are back in Mexico City. How was your flight?
+              </p>
+              <p>
+                <strong>Kate:</strong> <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">It</strong>² was great, thanks, Javier. The only problem was that we wanted to sit together, but at first the airline put the children by themselves. It took a long time to find a solution, but in the end, we sat next to each other. Anyway, it’s so good to be here with you again.
+              </p>
+              <p>
+                <strong>Peter:</strong> The city looks just like it did when we visited you and Alicia a few years ago, but I don’t remember all these bikes. Where did <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">they</strong>³ come from?
+              </p>
+              <p>
+                <strong>Javier:</strong> Well, bikes are quite popular here now. People use <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">them</strong>⁴ to commute to work.
+              </p>
+              <p>
+                <strong>Peter:</strong> Hmm, I used to ride my bike to work, but then I had an accident and hurt myself quite badly.
+              </p>
+              <p>
+                <strong>Javier:</strong> I remember . . . These bikes are mostly pretty basic. I’m sure <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">yours</strong> went a lot faster.
+              </p>
+              <p>
+                <strong>Kate:</strong> Yes, it did. I was glad when he stopped riding.
+              </p>
+              <p>
+                <strong>Javier:</strong> Well, people here won’t leave <strong class="text-slate-900 bg-cyan-50 px-1 rounded font-sans">their</strong>⁵ bikes at home any time soon. Bikes make driving more difficult, but they are good for the environment.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 bg-slate-50/70 p-3 rounded-xl">
+              <strong>Culture Note:</strong> While cycling reduces emissions and traffic, not everyone in Mexico City feels cycling infrastructure is safe alongside fast car traffic.
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 tied directly to reading -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Matching -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l1-card">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. Match Person with Information (Page 89)
+                </h4>
+                <span class="text-xs text-slate-400">Based on dialogue</span>
+              </div>
+              <p class="text-xs text-slate-500">Match each person with the correct statement (a, b, c, or d):</p>
+              <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-200 text-xs text-slate-600 mb-2">
+                <strong>a.</strong> was hurt in a bike accident | <strong>b.</strong> was happy when Peter stopped riding bikes | <strong>c.</strong> lives in Mexico City | <strong>d.</strong> asks about the bikes in Mexico City
+              </div>
+
+              <div class="space-y-2 text-xs sm:text-sm">
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">1. Javier:</span>
+                  <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="b">b</option><option value="c">c (lives in Mexico City)</option><option value="d">d</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">2. Kate:</span>
+                  <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="b">b (happy when Peter stopped riding)</option><option value="c">c</option><option value="d">d</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">3. Peter:</span>
+                  <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a (was hurt in a bike accident)</option><option value="b">b</option><option value="c">c</option><option value="d">d (asks about bikes)</option></select>
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span class="font-medium text-slate-800">4. Alicia:</span>
+                  <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="b">b</option><option value="c">c (lives in Mexico City)</option><option value="d">d</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Pronoun References -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l1-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Pronoun References & Types (Page 89)
+              </h4>
+              <p class="text-xs text-slate-500">Select what the word refers to, then identify its grammatical category:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span>1. How was <u>your</u> flight?</span>
+                    <input type="text" data-ans="Peter and Kate" placeholder="refers to..." class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean">
+                  </div>
+                  <div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+                    <span>Type:</span>
+                    <select data-ans="Possessive Adjective" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span>2. <u>It</u> was great, thanks.</span>
+                    <input type="text" data-ans="the flight,flight" placeholder="refers to..." class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean">
+                  </div>
+                  <div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+                    <span>Type:</span>
+                    <select data-ans="Subject Pronoun" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span>3. Where did <u>they</u> come from?</span>
+                    <input type="text" data-ans="these bikes,bikes,the bikes" placeholder="refers to..." class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean">
+                  </div>
+                  <div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+                    <span>Type:</span>
+                    <select data-ans="Subject Pronoun" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span>4. People use <u>them</u> to commute.</span>
+                    <input type="text" data-ans="bikes,the bikes" placeholder="refers to..." class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean">
+                  </div>
+                  <div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+                    <span>Type:</span>
+                    <select data-ans="Object Pronoun" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span>5. ...leave <u>their</u> bikes at home.</span>
+                    <input type="text" data-ans="people in Mexico City,people,cyclists" placeholder="refers to..." class="cloze-input border rounded px-2 py-0.5 text-xs w-36 input-clean">
+                  </div>
+                  <div class="flex items-center justify-end gap-2 text-[11px] text-slate-500">
+                    <span>Type:</span>
+                    <select data-ans="Possessive Adjective" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Subject Pronoun">Subject Pronoun</option><option value="Object Pronoun">Object Pronoun</option><option value="Possessive Adjective">Possessive Adjective</option></select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL1()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 4.1–4.3 & Exercises 4–11) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-cyan-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 4.1–4.3 & Exercises 4–11 (Pages 90–95)</span>
+        </div>
+
+        <!-- Row 1: Chart 4.1 & Exercise 4 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Chart 4.1 -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">4.1 Subject and Object Pronouns</h4>
+            <div class="text-xs space-y-2">
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Subject Pronouns:</strong> <em>I, you, he, she, it, we, they</em> (act as subject of verb).
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Object Pronouns:</strong> <em>me, you, him, her, it, us, them</em> (object of verb or preposition).
+              </div>
+              <p class="text-slate-500 text-[11px]"><em>Example:</em> We bought a bike. John visited <strong>us</strong> and looked at <strong>it</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Exercise 4: Circle correct pronoun -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose the Correct Pronoun (Page 89)
+            </h4>
+            <p class="text-xs text-slate-500">Select the grammatically correct pronoun:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. Javier had a busy day. <select data-ans="He" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="He">He</option><option value="Him">Him</option></select> went to the airport to meet his friends.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. Javier went to school with <select data-ans="them" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="they">they</option><option value="them">them</option></select> years ago.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. Did you bring your passport? You can’t travel without <select data-ans="it" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it">it</option><option value="them">them</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. Kate couldn’t find her suitcase. <select data-ans="She" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="She">She</option><option value="Her">Her</option></select> left <select data-ans="it" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it">it</option><option value="them">them</option></select> at home.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Peter and Kate have two children. <select data-ans="They" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="They">They</option><option value="Them">Them</option></select> are both girls.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. Peter visits Mexico City every year. <select data-ans="He" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="He">He</option><option value="Him">Him</option></select> likes <select data-ans="it" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it">it</option><option value="them">them</option></select> a lot.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. My husband and I ride bikes to work. It saves <select data-ans="us" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="we">we</option><option value="us">us</option></select> a lot of money.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Exercise 5 Subject & Object Pronouns Completion -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l1-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+            Complete with Subject or Object Pronouns (Page 90)
+          </h4>
+          <p class="text-xs text-slate-500">Fill in each blank with the correct subject or object pronoun:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div class="p-2.5 bg-slate-50 rounded-lg">1. The traffic in Mexico City is heavy. <strong>It</strong> is very slow during rush hour.</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">2. Some people think cyclists are a problem because there are too many of <input type="text" data-ans="them" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="pronoun">.</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">3. I drove to work with Kate. Later I met <input type="text" data-ans="her" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="pronoun"> at the gym.</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">4. These are Mario’s car keys. Can you give them to <input type="text" data-ans="him" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="pronoun">, please?</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">5. I’m going for a bike ride. Do you want to come with <input type="text" data-ans="me" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="pronoun">?</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">6. This is our new car. <input type="text" data-ans="It" class="cloze-input border rounded px-2 py-0.5 text-xs w-16 input-clean" placeholder="pronoun"> was expensive, but we love <input type="text" data-ans="it" class="cloze-input border rounded px-2 py-0.5 text-xs w-16 input-clean" placeholder="pronoun">.</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">7. You look tired, Rosa. Do <input type="text" data-ans="you" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="pronoun"> want to go home now?</div>
+            <div class="p-2.5 bg-slate-50 rounded-lg">8. We were driving to work when the police stopped <input type="text" data-ans="us" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="pronoun">.</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex5-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+          </div>
+        </div>
+
+        <!-- Row 3: Chart 4.2 & Exercise 6 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Chart 4.2 -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">4.2 Possessive Adjectives & Pronouns</h4>
+            <div class="text-xs space-y-2">
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Possessive Adjectives (+ noun):</strong> <em>my, your, his, her, its, our, their</em> coat.
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Possessive Pronouns (alone):</strong> <em>mine, yours, his, hers, its, ours, theirs</em>.
+              </div>
+              <div class="p-2 bg-amber-50 rounded-lg border border-amber-200 text-amber-950 text-[11px]">
+                <strong>Watch out:</strong> <em>Its</em> (possessive) vs <em>It's</em> (it is); <em>Their</em> (possessive) vs <em>There</em> (place) vs <em>They're</em> (they are).
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise 6: Possessive forms -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Choose Possessive Form (Pages 90–91)
+            </h4>
+            <p class="text-xs text-slate-500">Choose the correct possessive adjective or pronoun:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. Is this <select data-ans="your" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="you">you</option><option value="your">your</option></select> skateboard? No, it’s not <select data-ans="mine" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="me">me</option><option value="mine">mine</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. <select data-ans="His" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="His">His</option><option value="Him">Him</option></select> car wouldn’t start, so Carol let him use <select data-ans="hers" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="her">her</option><option value="hers">hers</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. We moved here from Ohio last month. <select data-ans="Our" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Our">Our</option><option value="Ours">Ours</option></select> new apartment is beautiful!</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. My friends are unhappy because the neighbors’ car is newer than <select data-ans="theirs" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="them">them</option><option value="theirs">theirs</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Is this bike <select data-ans="yours" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="yours">yours</option><option value="you">you</option></select>? No, <select data-ans="mine" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="my">my</option><option value="mine">mine</option></select> is green.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. We are going to buy a smaller house. <select data-ans="Ours" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Ours">Ours</option><option value="Our">Our</option></select> is too big for us now.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. Frank arrived here first. I parked my car behind <select data-ans="his" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="theirs">theirs</option><option value="his">his</option></select>.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex6-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Exercise 7 its, it's, their, there, they're -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+            Choose its, it's, their, there, or they're (Page 92)
+          </h4>
+          <p class="text-xs text-slate-500">Select the correct homophone for each sentence:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl space-y-2">
+              <span class="font-bold text-slate-800 block border-b border-slate-200 pb-1">Conversation 1</span>
+              <div>Joan: (1) <select data-ans="There" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="There">There</option><option value="Their">Their</option><option value="They're">They're</option></select>’s a postcard here from Hawaii.</div>
+              <div>Steve: Hawaii? I wonder who (2) <select data-ans="it's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="its">its</option><option value="it's">it's</option></select> from.</div>
+              <div>Joan: Don’t you remember? Mick and Tina are (3) <select data-ans="there" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> now. This year her company is having (4) <select data-ans="its" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="its">its</option><option value="it's">it's</option></select> yearly meeting in Honolulu.</div>
+              <div>Steve: Oh that’s right! Well, I’m sure (5) <select data-ans="they're" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> having a great time. It was always (6) <select data-ans="their" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> dream to visit Hawaii.</div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-2">
+              <span class="font-bold text-slate-800 block border-b border-slate-200 pb-1">Conversation 2</span>
+              <div>Phil: I want to e-mail my friends, but I can’t remember (7) <select data-ans="their" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="there">there</option><option value="their">their</option><option value="they're">they're</option></select> e-mail addresses. Have you seen my notebook?</div>
+              <div>Mandy: What does it look like?</div>
+              <div>Phil: (8) <select data-ans="It's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Its">Its</option><option value="It's">It's</option></select> a small book. (9) <select data-ans="Its" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Its">Its</option><option value="It's">It's</option></select> cover is light blue.</div>
+              <div>Mandy: Oh, I think (10) <select data-ans="it's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="its">its</option><option value="it's">it's</option></select> over there, on the shelf by the window.</div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex7-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+          </div>
+        </div>
+
+        <!-- Row 5: Chart 4.3 & Exercise 8 (Reflexives) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">4.3 Reflexive Pronouns</h4>
+            <div class="text-xs space-y-2">
+              <div class="p-2 bg-slate-50 rounded-lg border border-slate-200">
+                <strong>Forms:</strong> <em>myself, yourself, himself, herself, itself, ourselves, yourselves, themselves</em>.
+              </div>
+              <p class="text-slate-600 text-[11px]">Use when the subject and object are the same person/thing (<em>I hurt myself</em>). <strong>By + reflexive</strong> means "alone" (<em>She traveled by herself</em>).</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+              Complete with Reflexive Pronoun (Pages 92–93)
+            </h4>
+            <p class="text-xs text-slate-500">Write the correct reflexive pronoun:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Hi, Stella! Did you enjoy <input type="text" data-ans="yourself" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive"> on your vacation?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. My brother cut <input type="text" data-ans="himself" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive"> when he was working on his car.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Bye, Mike and Linda! Take care of <input type="text" data-ans="yourselves" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive">!</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. When on vacation, set the timer so the lights turn off by <input type="text" data-ans="themselves" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive">.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. I felt sorry for <input type="text" data-ans="myself" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive"> when I fell and lost the race.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. When we got home from the trip, we made <input type="text" data-ans="ourselves" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive"> comfortable in front of the TV.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. There was an amazing car at the auto show. It actually drives <input type="text" data-ans="itself" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive">!</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Her friends were busy, so she went to Mexico by <input type="text" data-ans="herself" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="reflexive">.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex8-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 6: Exercise 9 Conversations & Exercise 10 Mixed & Exercise 11 A Cruise to Remember -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Exercise 9 -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+              Pronouns in Conversations (Page 93)
+            </h4>
+            <p class="text-xs text-slate-500">Select the correct words:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <p><strong>Conversation 1:</strong><br>
+              Bonnie: Are these keys (1) <select data-ans="yours" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="your">your</option><option value="yours">yours</option></select>? Hal: Yes. Bonnie: (2) <select data-ans="Your" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Your">Your</option><option value="Yours">Yours</option></select> car is blocking the driveway, and I can’t get (3) <select data-ans="mine" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="my">my</option><option value="mine">mine</option></select> out. I need to move (4) <select data-ans="it" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="itself">itself</option><option value="it">it</option></select>. If I’m late again, (5) <select data-ans="my" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="mine">mine</option><option value="my">my</option></select> boss will fire (6) <select data-ans="me" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="me">me</option><option value="myself">myself</option></select>.</p>
+              
+              <p class="pt-2 border-t border-slate-200"><strong>Conversation 2:</strong><br>
+              Wendy: Thanks for coming to the airport with me. I don’t like to wait by (7) <select data-ans="myself" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="mine">mine</option><option value="myself">myself</option></select>. Nick: When are (8) <select data-ans="your" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="you">you</option><option value="your">your</option></select> parents arriving? Wendy: (9) <select data-ans="Their" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Their">Their</option><option value="There">There</option></select> flight is late. (10) <select data-ans="It's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Its">Its</option><option value="It's">It's</option></select> delayed for an hour. Nick: Where do you want to wait for (11) <select data-ans="them" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="they">they</option><option value="them">them</option></select>? Wendy: Let’s get food and enjoy (12) <select data-ans="ourselves" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="ourselves">ourselves</option><option value="yourselves">yourselves</option></select>.</p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex9-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            </div>
+          </div>
+
+          <!-- Exercise 11: A Cruise to Remember -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex11-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+              A Cruise to Remember (Page 94)
+            </h4>
+            <p class="text-xs text-slate-500">Fill in the blanks with pronouns or possessive adjectives:</p>
+
+            <div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200 leading-relaxed font-serif">
+              <p>
+                A couple of years ago, (1) <strong>my</strong> husband Ricardo and (2) <input type="text" data-ans="I" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" placeholder="pronoun"> went on a cruise in southern Europe, on the Mediterranean Sea. (3) <input type="text" data-ans="We" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-14 input-clean font-sans" placeholder="pronoun"> went with (4) <input type="text" data-ans="our" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-14 input-clean font-sans" placeholder="pronoun"> friends Aaron and Lara. They love cruises, so we agreed to try one with (5) <input type="text" data-ans="them" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-14 input-clean font-sans" placeholder="pronoun">.
+              </p>
+              <p>
+                The trip was fantastic! The weather was perfect almost every day. (6) <input type="text" data-ans="It" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" placeholder="pronoun"> rained only once. Also, the tour company arranged special activities for (7) <input type="text" data-ans="us" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" placeholder="pronoun"> at each stop. From what I remember, (8) <input type="text" data-ans="we" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-12 input-clean font-sans" placeholder="pronoun"> enjoyed ourselves very much!
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex11-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 11</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LESSON 2 (Pages 96–102) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson2" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Lesson 2 • Pages 96–102</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Prepositions of Time, Place, and Direction</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD1-34</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Questions (Pages 96–97)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-sky-100 text-sky-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Diving in the Bahamas" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Diving in the Bahamas</h3>
+                <p class="text-xs text-slate-500">Exploring underwater blue holes and marine environments</p>
+              </div>
+              <span class="badge-cd">CD1-34</span>
+            </div>
+
+            <!-- Bahamas Cave Diver Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://scubadiverlife.com/wp-content/uploads/2016/02/bahamas_featured.jpg" 
+                  alt="Scuba diver exploring clear turquoise underwater depths in the Bahamas" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/0284c7?text=Bahamas+Underwater+Diver';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Dean's Blue Hole & Caves • Bahamas</span>
+                <span class="text-sky-400 font-semibold text-[11px]">p. 96</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">For many years</strong>, the Bahamas, a group of islands <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">in the Atlantic</strong>, has been a popular vacation spot. The islands attract a lot of divers. Divers from many countries come to see the wide variety of fish <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">in the islands’ clear waters</strong>.
+              </p>
+              <p>
+                The fish differ from season to season. <strong>Spring</strong> is the best time to see mahi-mahi. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">In October</strong>, manta rays are more common. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">In the winter</strong>, divers may even see hammerhead sharks.
+              </p>
+              <p>
+                For experienced divers, the blue holes of the Bahamas are especially interesting. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">From above</strong>, these blue holes look like deep blue ponds. In fact, they are entrances <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">to underwater caves</strong>. There are over 1000 of these blue holes in the Bahamas. They are one of the most unusual environments <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">on Earth</strong>. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">At the surface</strong>, there is a thin layer of fresh rainwater. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">Below that</strong>, there is salt water because the caves open <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">to the sea</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Multiple Choice -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Multiple Choice (Page 97)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the correct answer based on the article:</p>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">1. Where are the Bahamas?</span>
+                  <select data-ans="c" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. in South America</option>
+                    <option value="b">b. in the Pacific Ocean</option>
+                    <option value="c">c. in the Atlantic Ocean</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">2. In the Bahamas, divers can see:</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. the same fish all year round</option>
+                    <option value="b">b. mahi-mahi in the spring</option>
+                    <option value="c">c. manta rays in the spring</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">3. The blue holes of the Bahamas are entrances to:</span>
+                  <select data-ans="c" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. caves on the beach</option>
+                    <option value="b">b. caves in the mountains</option>
+                    <option value="c">c. caves under the water</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Time vs Place Prepositions -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Time vs. Place Prepositions (Page 97)
+              </h4>
+              <p class="text-xs text-slate-500">Classify whether each phrase from the text describes <strong>Time</strong> or <strong>Place/Direction</strong>:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. <strong>For many years</strong></span>
+                  <select data-ans="Time" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. <strong>in the Atlantic</strong></span>
+                  <select data-ans="Place/Direction" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. <strong>In October</strong></span>
+                  <select data-ans="Time" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. <strong>to underwater caves</strong></span>
+                  <select data-ans="Place/Direction" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. <strong>on Earth</strong></span>
+                  <select data-ans="Place/Direction" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Time">Time</option><option value="Place/Direction">Place/Direction</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 4.4–4.5 & Exercises 4, 6, 7, 8, 10, 11) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-sky-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 4.4–4.5 & Practice Exercises (Pages 98–102)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Chart 4.4 & 4.5 Summary -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">Prepositions Reference</h4>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Time Rules:</strong><br>
+                &bull; <strong>at:</strong> clock time, night (<em>at 9:00, at noon, at night</em>)<br>
+                &bull; <strong>in:</strong> months, years, parts of day (<em>in August, in 2024, in the morning</em>)<br>
+                &bull; <strong>on:</strong> days, dates (<em>on Monday, on August 11</em>)<br>
+                &bull; <strong>duration:</strong> <em>for two weeks, from 9:00 until noon</em>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Place & Direction Rules:</strong><br>
+                &bull; <strong>in:</strong> enclosed space, cities, countries (<em>in China, in Boston</em>)<br>
+                &bull; <strong>on:</strong> surfaces, streets (<em>on the table, on Fifth Avenue</em>)<br>
+                &bull; <strong>at:</strong> specific point, addresses (<em>at the station, at 21 Millbrook Road</em>)<br>
+                &bull; <strong>direction:</strong> <em>across, toward, between, through, from...to</em>
+              </div>
+            </div>
+          </div>
+
+          <!-- Exercise 4: Prepositions of Time -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Prepositions of Time (Pages 96–97)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct preposition:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Jenny goes on vacation <select data-ans="for" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="for">for</option><option value="in">in</option></select> two weeks every summer.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. This year she decided to go <select data-ans="in" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="in">in</option></select> August.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. She started looking online <select data-ans="in" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="at">at</option><option value="in">in</option></select> the spring.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. She took diving lessons <select data-ans="on" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="in">in</option></select> Saturdays from 9:00 <select data-ans="until" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="until">until</option><option value="for">for</option></select> noon.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. She printed her ticket <select data-ans="on" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="in">in</option></select> August 11 <select data-ans="at" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="at">at</option><option value="on">on</option></select> midnight.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Her flight left <select data-ans="at" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> five <select data-ans="in" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> the evening.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. She was on the plane <select data-ans="for" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="for">for</option><option value="on">on</option></select> almost eight hours.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. She arrived at her hotel late <select data-ans="at" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> night.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row: Exercise 6 in, on, at & Exercise 7 Prepositions of Place/Direction -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Exercise 6 -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Complete with in, on, or at (Pages 99–100)
+            </h4>
+            <p class="text-xs text-slate-500">Type the correct preposition:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. Michaela is on vacation <strong>in</strong> Ireland.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. The travel guide is <input type="text" data-ans="on" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> the table.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. I live <input type="text" data-ans="at" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> 21 Millbrook Road.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. There is a restaurant <input type="text" data-ans="on" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> Walker Street.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Your coat is <input type="text" data-ans="in" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> the closet.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Barbara was very busy <input type="text" data-ans="at" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> work yesterday.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Were you <input type="text" data-ans="in" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> class this morning?</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. Turn right <input type="text" data-ans="at" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="..."> the next traffic light.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex6-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+
+          <!-- Exercise 7 -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Prepositions from the Box (Pages 99–100)
+            </h4>
+            <div class="bg-slate-50 p-2 rounded text-xs text-slate-600">
+              Box: <em>across, behind, between, from, near, outside, toward, under</em>
+            </div>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. I want to take your photo with the lake <strong>behind</strong> you.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. The sun was too hot for Fiona, so she sat <input type="text" data-ans="under" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> a beach umbrella.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. My last apartment was <input type="text" data-ans="across" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> the street from a restaurant.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. Nilesh’s hometown is <input type="text" data-ans="between" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> two rivers.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. We couldn’t find a taxi, so we started walking <input type="text" data-ans="toward" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> the station.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. This road goes <input type="text" data-ans="from" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> the coast to the top of the mountain.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Jill was surprised when someone left flowers <input type="text" data-ans="outside,near" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> her front door.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. The police station is on Lewis Street <input type="text" data-ans="near" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="preposition"> the library.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex7-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 8: Ria's Trip -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l2-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            Ria’s Trip to Indonesia (Pages 100–101)
+          </h4>
+          <p class="text-xs text-slate-500">Choose the correct prepositions:</p>
+
+          <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+            <p>Kim: How was your trip (1) <select data-ans="to" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="to">to</option><option value="at">at</option><option value="on">on</option></select> Indonesia? Ria: Great! Were you there (2) <select data-ans="for" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="during">during</option><option value="for">for</option><option value="until">until</option></select> a long time? Ria: Yes, from Feb. 28th (3) <select data-ans="until" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="for">for</option><option value="during">during</option><option value="until">until</option></select> March 15th. I started (4) <select data-ans="in" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="at">at</option><option value="in">in</option></select> Jakarta and stayed (5) <select data-ans="at" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="at">at</option><option value="in">in</option></select> my friend’s place. Then I traveled by bus (6) <select data-ans="from" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="from">from</option><option value="toward">toward</option></select> Jakarta (7) <select data-ans="to" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="to">to</option></select> Bandung. In Bandung, people drive (8) <select data-ans="on" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="at">at</option></select> the left, and walking (9) <select data-ans="across" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="under">under</option><option value="across">across</option></select> the street is exciting! Cars stop (10) <select data-ans="at" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="behind">behind</option><option value="at">at</option></select> lights, and people come (11) <select data-ans="toward" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="on">on</option><option value="toward">toward</option></select> you slowly.</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex8-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+          </div>
+        </div>
+
+        <!-- Exercise 10: Phone Conversation Alex & Basma -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-phone-l2-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+            Alex & Basma Phone Conversation (Page 101)
+          </h4>
+          <p class="text-xs text-slate-500">Add the correct preposition before each phrase from the box:</p>
+          <div class="bg-slate-50 p-2 rounded text-xs text-slate-600">
+            Box: <em>a new house, three o’clock, the morning, Monday, 24 Oak Road, May 3rd, the airport, night</em>
+          </div>
+
+          <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 font-serif leading-relaxed">
+            <p><strong>Alex:</strong> Hi Basma! I’m looking at a flight that arrives (1) <strong>on May 3rd</strong>. Can you pick me up (2) <input type="text" data-ans="at the airport" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="prep + phrase">?</p>
+            <p><strong>Basma:</strong> Sure. What time?</p>
+            <p><strong>Alex:</strong> Well, my plane arrives (3) <input type="text" data-ans="at three o'clock,at three oclock,at 3:00" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="prep + phrase"> (4) <input type="text" data-ans="in the morning" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="prep + phrase">.</p>
+            <p><strong>Basma:</strong> What? I’ll be asleep. Why are you flying so late (5) <input type="text" data-ans="at night" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" placeholder="prep + phrase">?</p>
+            <p><strong>Alex:</strong> Because the ticket is half price.</p>
+            <p><strong>Basma:</strong> Sorry, but I have to work (6) <input type="text" data-ans="on Monday" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean font-sans" placeholder="prep + phrase"> morning. That might be hard.</p>
+            <p><strong>Alex:</strong> That’s OK. I can get a taxi. What is your new address? Didn’t you just move (7) <input type="text" data-ans="to a new house,into a new house" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="prep + phrase">?</p>
+            <p><strong>Basma:</strong> I live (8) <input type="text" data-ans="at 24 Oak Road" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean font-sans" placeholder="prep + phrase">.</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex10-phone-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+          </div>
+        </div>
+
+        <!-- Exercise 11: EDIT. On the Honey Road (INTERACTIVE IN-SITU PARAGRAPH) -->
+        <div class="bg-white rounded-2xl border-2 border-sky-300 p-5 reader-card space-y-3" id="ex-honey-road-card">
+          <div class="flex items-center justify-between border-b border-sky-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-sky-600 text-white flex items-center justify-center text-xs">11</span>
+              EDIT. On the Honey Road (Interactive Paragraph Editing) (Page 101–102)
+            </h4>
+            <span class="text-xs bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded">In-Situ Text Editor</span>
+          </div>
+          <p class="text-xs text-slate-600">
+            Read the article below. Find the seven preposition errors marked in brackets. Type your correction directly into each blank inside the paragraph text, then click <strong>Check Paragraph</strong>:
+          </p>
+
+          <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 sm:p-5 bg-gradient-to-br from-sky-50/40 via-white to-amber-50/20 rounded-xl border border-slate-200 shadow-inner space-y-3">
+            <h5 class="font-sans font-bold text-slate-900 text-base">On the Honey Road</h5>
+            <p>
+              Balyolu (pronounced <em>bal-yoll-oo</em>) is Turkish for “honey road.” It is also the name of an unusual tour 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">on</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <span class="font-bold text-emerald-700">in</span> (Example)
+              </span> 
+              northeast Turkey.
+            </p>
+            <p>
+              Catherine Jaffee is a woman from Colorado in the United States. 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">At</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="In" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              2008, she went to Turkey and traveled for two years. When she reached Kars, a historic region 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">on</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="in" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              Turkey, she thought of an idea for a tour. About 900 years ago, Kars was 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">in</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="on" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              the Silk Road, an important trading route 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">from</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="between" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              Europe and China. Kars was an important trading center 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">in</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="at" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              that time. Jaffee became fascinated by the way people in Kars earn their living: beekeeping and making honey.
+            </p>
+            <p>
+              Jaffee created a travel experience for visitors that also helped local people. On a Balyolu tour, travelers walked several miles a day 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">at</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="for" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              seven days. They passed 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">under</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="through" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              many areas with beautiful scenery. Along the way, the walkers met beekeepers and their families and tasted different kinds of honey. It was the perfect trip for anyone with a sweet tooth!
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex-honey-road-card')" class="px-5 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Check Paragraph
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: LESSON 3 (Pages 103–109) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson3" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Lesson 3 • Pages 103–109</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Articles (A, An, The, and No Article)</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD1-36</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Questions (Pages 103–104)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-teal-100 text-teal-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Andrew Skurka's Alaska-Yukon Expedition" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-teal-100 text-teal-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Andrew Skurka’s Alaska-Yukon Expedition</h3>
+                <p class="text-xs text-slate-500">4678 miles across wilderness by hiking, skiing, and raft</p>
+              </div>
+              <span class="badge-cd">CD1-36</span>
+            </div>
+
+            <!-- Alaska Trekker Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center p-1">
+                <img 
+                  src="https://andrewskurka.com/wp-content/uploads/route_map1.jpg" 
+                  alt="Andrew Skurka Alaska-Yukon Expedition Route Map" 
+                  class="w-full h-auto max-h-[460px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/700x450/0f172a/0d9488?text=Alaska-Yukon+Route+Map';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Andrew Skurka Alaska-Yukon Expedition Route Map</span>
+                <span class="text-teal-400 font-semibold text-[11px]">p. 103</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                On March 14, 2010, Andrew Skurka walked out of the town of Kotzebue in northwest Alaska to begin <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">an amazing expedition</strong>. He was starting <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">a journey</strong> of 4678 miles (7528.5 km). He took skis and <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">an inflatable raft</strong> with him.
+              </p>
+              <p>
+                His plan was to complete <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">the journey</strong> mostly by hiking and skiing. He used <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">the raft</strong> to cross rivers. He did not take any trains or ride in any cars or buses on <strong>his route</strong>. The route took him through <strong>several national parks</strong>, and he saw <strong>some spectacular sights</strong> along the way.
+              </p>
+              <p>
+                Skurka did not carry all of his supplies with him. Instead, he got supplies at <strong>villages</strong> along the way. The loneliest part of <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">the trip</strong> was in the north. There, Skurka traveled 657 miles and didn’t see <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">a single village</strong> or road. During his journey, he faced <strong>some serious challenges</strong>. For example, in some places <strong class="text-slate-900 bg-teal-50 px-1 rounded font-sans">the snow</strong> was very deep and too soft for skiing. However, he managed to complete the journey. On September 5, 2010, he arrived back in Kotzebue. His trip took 176 days.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK True or False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. True or False? (Page 104)
+              </h4>
+              <p class="text-xs text-slate-500">Read each statement. Select <strong>T</strong> or <strong>F</strong>:</p>
+
+              <div class="space-y-2 text-xs sm:text-sm">
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">1. He used a large boat.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">2. His journey was 2500 miles.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">3. He stopped at villages along the way.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">4. He didn’t travel through any national parks.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">5. There was a lot of snow in some places.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">6. His journey took a year.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER First vs Second Mention -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l3-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. First Mention vs. Specific Second Mention (Page 104)
+              </h4>
+              <p class="text-xs text-slate-500">Why does the second sentence use <em>the</em> instead of <em>a/an</em>?</p>
+
+              <div class="space-y-3 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+                <div>
+                  <strong>Pair a:</strong><br>
+                  He was starting <span class="text-teal-700 font-bold">a journey</span> of 4678 miles. His plan was to complete <span class="text-teal-700 font-bold">the journey</span> mostly by hiking.<br>
+                  <em>Reason:</em> <select data-ans="specific" class="select-check border rounded p-1 text-xs input-clean mt-1"><option value="">select reason</option><option value="specific">The noun has already been introduced and is now specifically known</option><option value="plural">Because it is a plural noun</option><option value="unique">Because journeys are always unique</option></select>
+                </div>
+                <div class="pt-2 border-t border-slate-200">
+                  <strong>Pair b:</strong><br>
+                  He took skis and <span class="text-teal-700 font-bold">an inflatable raft</span> with him. He used <span class="text-teal-700 font-bold">the raft</span> to cross rivers.<br>
+                  <em>Reason:</em> <select data-ans="specific" class="select-check border rounded p-1 text-xs input-clean mt-1"><option value="">select reason</option><option value="specific">The noun has already been introduced and is now specifically known</option><option value="general">Because it is a general statement</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 4.6–4.7 & Exercises 4–8) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-teal-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 4.6–4.7 & Practice Exercises (Pages 104–108)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Exercise 4: Article selection -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose the Correct Article (Page 104)
+            </h4>
+            <p class="text-xs text-slate-500">Circle the correct word or article:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. Andrew Skurka had problems with <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="a">a</option></select> snow during his trip.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. Skurka took <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="some">some</option></select> raft with him.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="A">A</option><option value="The">The</option></select> route of Skurka’s expedition went through eight national parks.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. He bought <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="some">some</option><option value="a">a</option></select> supplies for his journey.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Some">Some</option><option value="The">The</option></select> trip took 176 days.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. A: I'm flying to Alaska tonight. B: When do you have to be at <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> airport?</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="A">A</option><option value="The">The</option></select> plane tickets to Alaska were very expensive.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. We need to buy <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="some">some</option></select> map of the area.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 6: Specific vs Generalization -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Specific (S) vs. Generalization (G) (Page 106)
+            </h4>
+            <p class="text-xs text-slate-500">Classify whether the bold phrase is Specific (S) or Generalization (G):</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. <strong>Journeys</strong> are often difficult and dangerous.</span>
+                <select data-ans="G" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. <strong>Train journeys</strong> are often very slow.</span>
+                <select data-ans="G" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. <strong>The journey</strong> took about six months.</span>
+                <select data-ans="S" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. <strong>The photos</strong> in this magazine are amazing!</span>
+                <select data-ans="S" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>5. <strong>Photos</strong> are a great way to remember a trip.</span>
+                <select data-ans="G" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>6. <strong>The national parks</strong> in Alaska are beautiful.</span>
+                <select data-ans="S" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>7. <strong>A hike</strong> is a great way to explore and get exercise.</span>
+                <select data-ans="G" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>8. <strong>The hike</strong> up the mountain is very difficult.</span>
+                <select data-ans="S" class="select-check border rounded p-1 text-xs input-clean"><option value="">Type</option><option value="G">G (Generalization)</option><option value="S">S (Specific)</option></select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex6-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 7: Articles Practice -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l3-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+            Articles & No Article Practice (Page 107)
+          </h4>
+          <p class="text-xs text-slate-500">Select the correct article or Ø for no article:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="p-2 bg-slate-50 rounded-lg">1. <select data-ans="A" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="A">A</option><option value="The">The</option><option value="Ø">Ø</option></select> hiking trip is a good way to relax.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">2. I need <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option><option value="some">some</option></select> new bike.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">3. Looked in my purse for <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option><option value="some">some</option></select> change.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">4. Drive carefully. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Ø">Ø</option><option value="A">A</option><option value="The">The</option></select> roads are very icy tonight.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">5. <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Ø">Ø</option><option value="The">The</option><option value="Some">Some</option></select> people do not enjoy traveling by train.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">6. <select data-ans="A" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="A">A</option><option value="Some">Some</option><option value="Ø">Ø</option></select> bus tour is a great way to see the city.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">7. Tour guide showed us <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="some">some</option><option value="an">an</option></select> inexpensive places to eat.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">8. Hotel has <select data-ans="an" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="the">the</option></select> entrance on Water Street.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">9. On vacation, <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="some">some</option><option value="a">a</option><option value="Ø">Ø</option></select> time seems to pass very quickly.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">10. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="A">A</option><option value="The">The</option><option value="Ø">Ø</option></select> weather was perfect when we were on vacation.</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex7-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+          </div>
+        </div>
+
+        <!-- Exercise 8: Complete Conversations (Sheila & Derek) -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l3-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            Train Station Conversations (Page 107)
+          </h4>
+          <p class="text-xs text-slate-500">Select a, an, some, the, or Ø for no article:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl space-y-2">
+              <span class="font-bold text-slate-800 block border-b border-slate-200 pb-1">Conversation 1</span>
+              <div>Sheila: Are you going out?</div>
+              <div>Derek: Yes, I’m going to (1) <strong>the</strong> train station. I need to buy (2) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option><option value="some">some</option></select> ticket for my trip to St. Louis next week.</div>
+              <div>Sheila: Why don’t you buy it online?</div>
+              <div>Derek: I tried to, but there was (3) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option></select> problem with (4) <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="a">a</option></select> website.</div>
+              <div>Sheila: Well, good luck. (5) <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø</option></select> lines are always very long at the station.</div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-2">
+              <span class="font-bold text-slate-800 block border-b border-slate-200 pb-1">Conversation 2</span>
+              <div>Derek: Hi there! I’d like (6) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="some">some</option><option value="the">the</option><option value="a">a</option></select> information about (7) <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> trains to St. Louis, please.</div>
+              <div>Clerk: Yes, sir. What’s (8) <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="a">a</option></select> date of your trip?</div>
+              <div>Derek: March 12th. I want to leave early in (9) <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="a">a</option></select> morning.</div>
+              <div>Clerk: Well, there’s (10) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option></select> train at 6:10.</div>
+              <div>Derek: How much is (11) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option></select> round-trip ticket? Clerk: Seventy-five dollars. We take (12) <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Ø">Ø</option><option value="the">the</option><option value="some">some</option></select> credit cards or cash.</div>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex8-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: LESSON 4 (Pages 110–115) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson4" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Lesson 4 • Pages 110–115</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Articles with Place Names</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD1-40</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Travel Blogs & Discovery (Pages 110–111)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Travel Blogs -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Travel Blog Posts</h3>
+                <p class="text-xs text-slate-500">Exploring North American and New York City landmarks</p>
+              </div>
+              <span class="badge-cd">CD1-40</span>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <h4 class="font-sans font-bold text-slate-900 text-sm">Greg’s Blog</h4>
+                
+                <!-- Mount Rushmore Photo -->
+                <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+                  <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Mount_Rushmore_detail_view_%28100MP%29.jpg/1280px-Mount_Rushmore_detail_view_%28100MP%29.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail" 
+                      alt="Mount Rushmore National Memorial, South Dakota" 
+                      class="w-full h-auto max-h-[300px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                      onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/d97706?text=Mount+Rushmore';"
+                    />
+                  </div>
+                  <div class="p-2 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                    <span class="font-medium text-white text-[11px]">Mount Rushmore • South Dakota</span>
+                    <span class="text-amber-300 font-semibold text-[11px]">Greg's Blog</span>
+                  </div>
+                </div>
+
+                <p class="mt-1">
+                  I love photography and I drive all over <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the United States</strong> and <strong>Canada</strong> with my camera. I live in Portsmouth, <strong>New Hampshire</strong>, so every fall I get some great photos of the leaves changing color in <strong>New England</strong>. I just went on a long road trip and took photos of <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Rocky Mountains</strong>, <strong>Mount Rushmore</strong>, <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Mojave Desert</strong>, <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Mississippi River</strong>, and <strong>San Diego</strong> . . . I’m posting some of my favorite photos for you to see.
+                </p>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                <h4 class="font-sans font-bold text-slate-900 text-sm">Maya’s Blog</h4>
+                
+                <!-- Central Park Photo -->
+                <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+                  <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                    <img 
+                      src="https://upload.wikimedia.org/wikipedia/commons/0/05/Southwest_corner_of_Central_Park%2C_looking_east%2C_NYC.jpg?utm_source=vi.wikipedia.org&utm_campaign=index&utm_content=original" 
+                      alt="Southwest corner of Central Park looking east, New York City" 
+                      class="w-full h-auto max-h-[300px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                      onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/d97706?text=Central+Park+NYC';"
+                    />
+                  </div>
+                  <div class="p-2 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                    <span class="font-medium text-white text-[11px]">Central Park & Manhattan Skyline • New York City</span>
+                    <span class="text-amber-300 font-semibold text-[11px]">Maya's Blog</span>
+                  </div>
+                </div>
+
+                <p class="mt-1">
+                  I’m staying with my sister Sylvie this month. Last weekend she took me to <strong>New York City</strong>. We took an early train to <strong>Grand Central Station</strong>. Then we walked up <strong>Fifth Avenue</strong> to <strong>Central Park</strong>. Next, we went to <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Museum of Modern Art</strong>. It was wonderful! After a delicious lunch at <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Plaza Hotel</strong>, I wanted to see more sights. I got everything on video: <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Empire State Building</strong>, <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">the Brooklyn Bridge</strong>, and a lot of other places, too. . . . I’m having a great time!
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Blog comprehension -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l4-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Blog Questions (Page 111)
+              </h4>
+              <p class="text-xs text-slate-500">Answer each question based on the blogs:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="block font-medium text-slate-800">1. Where is Greg’s home?</span>
+                  <input type="text" data-ans="Portsmouth,New Hampshire,Portsmouth New Hampshire" class="cloze-input border rounded px-2 py-0.5 text-xs w-full mt-1 input-clean" placeholder="City, State">
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="block font-medium text-slate-800">2. Where does he drive with his camera?</span>
+                  <input type="text" data-ans="the United States and Canada,United States and Canada,US and Canada" class="cloze-input border rounded px-2 py-0.5 text-xs w-full mt-1 input-clean" placeholder="countries">
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="block font-medium text-slate-800">3. Which desert did Greg just visit?</span>
+                  <input type="text" data-ans="the Mojave Desert,Mojave Desert,Mojave" class="cloze-input border rounded px-2 py-0.5 text-xs w-full mt-1 input-clean" placeholder="desert name">
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="block font-medium text-slate-800">4. Which museum did Maya visit?</span>
+                  <input type="text" data-ans="the Museum of Modern Art,Museum of Modern Art,MoMA" class="cloze-input border rounded px-2 py-0.5 text-xs w-full mt-1 input-clean" placeholder="museum name">
+                </div>
+                <div class="p-2.5 bg-slate-50 rounded-lg">
+                  <span class="block font-medium text-slate-800">5. Where did Maya and Sylvie have lunch?</span>
+                  <input type="text" data-ans="the Plaza Hotel,Plaza Hotel,at the Plaza Hotel" class="cloze-input border rounded px-2 py-0.5 text-xs w-full mt-1 input-clean" placeholder="hotel name">
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex2-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER The vs No Article -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l4-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Place Names with 'The' vs. 'Ø' (Page 111)
+              </h4>
+              <p class="text-xs text-slate-500">Identify whether each place name takes <strong>The</strong> or <strong>Ø (No Article)</strong>:</p>
+
+              <div class="space-y-1.5 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. ___ United States</span>
+                  <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø (No article)</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. ___ Canada</span>
+                  <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø (No article)</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. ___ Rocky Mountains</span>
+                  <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø (No article)</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. ___ Mount Rushmore</span>
+                  <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø (No article)</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. ___ Fifth Avenue</span>
+                  <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø (No article)</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>6. ___ Brooklyn Bridge</span>
+                  <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø (No article)</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex3-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 4.8–4.9 & Exercises 4, 6, 7, 8) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 4.8–4.9 & Exercises (Pages 112–115)</span>
+        </div>
+
+        <!-- Row: Exercise 4 Geography & Exercise 6 Buildings -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 4: Geography -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l4-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Geographic Names: The vs. Ø (Page 112)
+            </h4>
+            <p class="text-xs text-slate-500">Choose <strong>the</strong> or <strong>Ø</strong>:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. My brother visited <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Rocky Mountains last summer.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Luzon is the largest island in <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Philippines.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. Flights from <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Boston cross <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Atlantic Ocean.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Mount Everest is 29,035 feet high.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø</option></select> Atacama Desert is between <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Pacific Ocean and <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Andes.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø</option></select> Galápagos Islands are home to many animals.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. Millions of tourists visit <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> United Arab Emirates every year.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex4-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 6: Structures & Public Places -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l4-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Hotels, Streets, & Buildings (Page 113)
+            </h4>
+            <p class="text-xs text-slate-500">Choose <strong>the</strong> or <strong>Ø</strong>:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. I am staying at <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> All Seasons Hotel in Bali.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. We flew out of <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Miami International Airport.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. <select data-ans="The" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The">The</option><option value="Ø">Ø</option></select> Eiffel Tower received over 7 million visitors.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. The post office is on <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Anderson Street.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. Studying at <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> University of Mumbai.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. Traffic was heavy on <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Brooklyn Bridge.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. I’ll meet you by the statue in <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Westridge Park.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex6-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 7: Famous Places & Location Matching -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l4-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+            Famous Places & Locations Matching (Page 114)
+          </h4>
+          <p class="text-xs text-slate-500">Complete with <strong>the</strong> or <strong>Ø</strong>, then select location:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>1. <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Burj Al Arab Hotel</span>
+              <select data-ans="d" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="d">Dubai</option><option value="e">Egypt</option><option value="f">Australia</option></select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>2. <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Great Pyramid of Giza</span>
+              <select data-ans="e" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="d">Dubai</option><option value="e">Egypt</option><option value="f">Australia</option></select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>3. <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Sydney Opera House</span>
+              <select data-ans="f" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="f">Australia</option><option value="g">Paris</option></select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>4. <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Mount Everest</span>
+              <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="b">Himalayas</option><option value="c">Rio de Janeiro</option></select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>5. <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Copacabana Beach</span>
+              <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="b">Himalayas</option><option value="c">Rio de Janeiro</option></select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+              <span>6. <select data-ans="the" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Louvre Museum</span>
+              <select data-ans="g" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="g">Paris</option><option value="a">Japan</option></select>
+            </div>
+            <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between sm:col-span-2">
+              <span>7. <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">art</option><option value="the">the</option><option value="Ø">Ø</option></select> Haneda Airport</span>
+              <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">location</option><option value="g">Paris</option><option value="a">Japan</option></select>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex7-l4-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+          </div>
+        </div>
+
+        <!-- Exercise 8: EDIT. Travel Blog Post (INTERACTIVE IN-SITU PARAGRAPH) -->
+        <div class="bg-white rounded-2xl border-2 border-amber-300 p-5 reader-card space-y-3" id="ex-blog-edit-card">
+          <div class="flex items-center justify-between border-b border-amber-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center text-xs">8</span>
+              EDIT. Business Trip Blog Post (Interactive Paragraph Editing) (Page 115)
+            </h4>
+            <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded">In-Situ Text Editor</span>
+          </div>
+          <p class="text-xs text-slate-600">
+            Read the blog post below. Find the six article errors marked in brackets. Type the correction (type <strong>Ø</strong> if no article is needed) directly inside the text, then click <strong>Check Paragraph</strong>:
+          </p>
+
+          <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 sm:p-5 bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20 rounded-xl border border-slate-200 shadow-inner space-y-3">
+            <p>
+              I just got back from a great business trip to 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">the</span> South America 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="Ø,no article,none" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span>. 
+              The trip started in Peru with two sales meetings in 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">the</span> Lima 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="Ø,no article,none" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span>. 
+              Then, I flew to Venezuela for a meeting with clients in 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">the</span> Valencia 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="Ø,no article,none" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span>. 
+              They also have an office in 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">[Ø]</span> Philippines 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="the" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span>. 
+              I want to go there someday! The second week I was in Chile. I had some free time, so I went skiing in 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">[Ø]</span> Andes 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="the" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span>. 
+              The scenery was amazing!
+            </p>
+            <p>
+              I arrived at 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">the</span> Logan Airport 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="Ø,no article,none" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span> 
+              in Boston last night. I like to travel, but it’s nice to be home—
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">the</span> New England 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="Ø,no article,none" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="Ø/the">
+              </span> 
+              is really beautiful this time of year.
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex-blog-edit-card')" class="px-5 py-2 rounded-lg bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Check Paragraph
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 6: REVIEW THE GRAMMAR (Pages 116–117) -->
+    <!-- ============================================================ -->
+    <section id="tab-review" class="tab-content hidden space-y-6">
+      
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Review the Grammar • Pages 116–117</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Unit 4 Comprehensive Review</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Pronouns, Prepositions & Articles</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Exercise 1: Gary & Andrea Conversation -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex1-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
+            Complete Conversation (Page 116)
+          </h4>
+          <p class="text-xs text-slate-500">Select the correct words or Ø for no article:</p>
+
+          <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+            <p><strong>Gary:</strong> Hi, Andrea. Is (1) <select data-ans="your" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="you">you</option><option value="your">your</option></select> sister there?</p>
+            <p><strong>Andrea:</strong> Sorry, (2) <select data-ans="she's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="she's">she's</option><option value="her">her</option></select> away on vacation (3) <select data-ans="for" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="for">for</option><option value="in">in</option></select> a month.</p>
+            <p><strong>Gary:</strong> Really? Is she in (4) <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> Europe?</p>
+            <p><strong>Andrea:</strong> No, South America. She’s (5) <select data-ans="in" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="in">in</option><option value="at">at</option></select> Buenos Aires right now. She’s traveling (6) <select data-ans="from" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="from">from</option><option value="to">to</option></select> country to country.</p>
+            <p><strong>Gary:</strong> Is she traveling with (7) <select data-ans="Ø" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="the">the</option><option value="Ø">Ø</option></select> friends?</p>
+            <p><strong>Andrea:</strong> No, (8) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="some">some</option><option value="any">any</option></select> friends wanted to go with (9) <select data-ans="her" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="she">she</option><option value="her">her</option></select>, but they couldn’t, so she went (10) <select data-ans="by" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="by">by</option><option value="for">for</option></select> herself.</p>
+            <p><strong>Gary:</strong> I hope she’s having (11) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="the">the</option></select> great time. Andrea: Yes, I got (12) <select data-ans="an" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option></select> e-mail from her this morning.</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex1-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 1</button>
+          </div>
+        </div>
+
+        <!-- Exercise 2: EDIT Singapore Vacation (INTERACTIVE IN-SITU PARAGRAPH) -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border-2 border-purple-300 p-5 reader-card space-y-3" id="ex-singapore-card">
+          <div class="flex items-center justify-between border-b border-purple-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs">2</span>
+              EDIT. Singapore Vacation (Interactive Paragraph) (Page 116–117)
+            </h4>
+            <span class="text-xs bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded">In-Situ Text Editor</span>
+          </div>
+          <p class="text-xs text-slate-600">
+            Read the description below. Find the seven preposition and article errors marked in brackets. Type your corrections directly in the text, then click <strong>Check Paragraph</strong>:
+          </p>
+
+          <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 sm:p-5 bg-gradient-to-br from-purple-50/40 via-white to-slate-50 rounded-xl border border-slate-200 shadow-inner space-y-3">
+            <h5 class="font-sans font-bold text-slate-900 text-base">My Favorite Vacation: Singapore</h5>
+            <p>
+              Last year, I took a vacation to 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">the</span> Singapore 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <span class="font-bold text-emerald-700">Ø</span> (Example)
+              </span> 
+              with my sister Ana. We went 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">at</span> 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="in" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              September and had a great time. We stayed at 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">[Ø]</span> nice hotel 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="a" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span>, 
+              and the food there was delicious. We visited all of 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">a</span> popular tourist places 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="the" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span>.
+            </p>
+            <p>
+              We also went shopping 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">in</span> Orchard Road 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="on" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span>, 
+              one of the main shopping areas. 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">At</span> the evenings 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="In" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span>, 
+              we would sit at 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">a</span> outdoor café 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="an" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span> 
+              and talk until late 
+              <span class="edit-pill">
+                <span class="line-through text-rose-600 font-bold">in</span> night 
+                <span class="text-slate-400 text-xs">➔</span> 
+                <input type="text" data-ans="at" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-16 bg-white input-clean font-sans" placeholder="corr...">
+              </span>. 
+              It was a wonderful vacation. I want to go back there someday!
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex-singapore-card')" class="px-5 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs transition shadow-sm flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Check Paragraph
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 7: CONNECT TO WRITING (Pages 118–119) -->
+    <!-- ============================================================ -->
+    <section id="tab-writing" class="tab-content hidden space-y-8">
+      
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-600">Writing Focus • Pages 118–119</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Connect the Grammar to Writing: Describe a Place</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Model & Writing Workbench</span>
+      </div>
+
+      <!-- READ & NOTICE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ & NOTICE</span>
+            <span class="text-sm font-bold text-slate-700">Model Text & Avoiding Misplaced Prepositions (Pages 118–119)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">
+            Split-View: Model (Left) ↔ Writing Focus (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Model Reading "My Favorite Place" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-xs font-semibold px-2 py-0.5 bg-cyan-100 text-cyan-800 rounded">MODEL READING</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">My Favorite Place</h3>
+              <p class="text-xs text-slate-500">A memorable day on the Italian coast</p>
+            </div>
+
+            <!-- Coastal Italy Village Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=800&q=80" 
+                  alt="Colorful coastal buildings and fishing boats in an Italian village" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/06b6d4?text=Italian+Coastal+Village';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Italian Coastal Harbor • Fishing Boats</span>
+                <span class="text-cyan-300 font-semibold text-[11px]">p. 118</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                Last summer I went to Italy with my friends Maria and Beth. One day we woke up early in the morning and drove to a town on the coast. From there, we took a boat to a small island. This island is now my favorite place in the world!
+              </p>
+              <p>
+                I loved the colorful fishing boats on the beach and the pretty pink houses. The weather was perfect, and the people were friendly. In fact, while we were looking at the boats, a fisherman waved to us. He and his wife invited us to have lunch with them. We had a picnic lunch by the sea. In the afternoon, we walked along the beach and had coffee at an outdoor café. When it was time to leave, I didn’t want to go!
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Writing Focus -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-misplaced-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                WRITING FOCUS: Misplaced Prepositional Phrases (Page 119)
+              </h4>
+              <p class="text-xs text-slate-500">Select the sentence where the prepositional phrase is placed correctly:</p>
+
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                  <span class="font-medium text-slate-800">1. Waiting for the boat:</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select correct sentence...</option>
+                    <option value="a">a. We waited for the boat inside the café. (implies the boat was inside the café)</option>
+                    <option value="b">b. We waited inside the café for the boat. (correct placement)</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                  <span class="font-medium text-slate-800">2. Writing on a laptop:</span>
+                  <select data-ans="a" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select correct sentence...</option>
+                    <option value="a">a. On her laptop, the writer wrote a description of the beach. (clear tool)</option>
+                    <option value="b">b. The writer wrote a description of the beach on her laptop. (ambiguous)</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                  <span class="font-medium text-slate-800">3. Walking on the beach:</span>
+                  <select data-ans="a" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select correct sentence...</option>
+                    <option value="a">a. In the afternoon, we walked along the beach. (clear time and location)</option>
+                    <option value="b">b. We walked in the afternoon along the beach with pink houses inside our bags.</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex-misplaced-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Placement</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAFT & SELF ASSESS -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-cyan-600 text-white">WRITING WORKBENCH</span>
+          <span class="text-sm font-bold text-slate-700">Write About a Favorite Place (Pages 118–119)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Draft Textarea -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+              YOUR PARAGRAPH: A FAVORITE PLACE
+            </h4>
+            <p class="text-xs text-slate-500">Write a descriptive paragraph about a memorable place you visited or love:</p>
+            
+            <textarea id="studentEssay" rows="8" placeholder="Last summer, my family and I traveled to a quiet mountain town in Colorado. In the morning, we walked along the river and admired the tall pine trees. In the afternoon, we ate lunch at a small café on Main Street..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-cyan-400 leading-relaxed"></textarea>
+
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span id="wordCount">0 words written</span>
+              <button onclick="copyEssayText()" class="font-semibold text-slate-700 hover:text-cyan-600 underline">Copy Paragraph</button>
+            </div>
+          </div>
+
+          <!-- Self-Assessment Checklist -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              SELF ASSESS (Page 119 Checklist)
+            </h4>
+            <p class="text-xs text-slate-500">Check off each criterion as you review your draft:</p>
+
+            <div class="space-y-2 text-xs">
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I used <strong>subject and object pronouns</strong> correctly. [4.1]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I used <strong>prepositions of time, place, and direction</strong> accurately. [4.4, 4.5]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I used <strong>definite (the), indefinite (a/an), and place name articles</strong> correctly. [4.6, 4.8]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-cyan-600 focus:ring-cyan-500">
+                <span class="text-slate-700">I checked for and avoided <strong>misplaced prepositional phrases</strong>. [WRITING FOCUS]</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-cyan-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 4: Going Places</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('border-cyan-400', 'text-cyan-400', 'bg-slate-800/50');
+          btn.classList.remove('border-transparent', 'text-slate-300');
+        } else {
+          btn.classList.remove('border-cyan-400', 'text-cyan-400', 'bg-slate-800/50');
+          btn.classList.add('border-transparent', 'text-slate-300');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Helper: Remove badge
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    // True/False selection
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-700', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-cyan-600', 'text-white', 'border-cyan-700', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    // Check True/False Card
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-cyan-600', 'border-cyan-700');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-cyan-600', 'border-cyan-700');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Select / Dropdown Card
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Cloze Input Card
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Composite Discover in Lesson 1
+    function checkDiscoverL1() {
+      checkClozeCard('ex3-l1-card');
+      checkSelectCard('ex3-l1-card');
+    }
+
+    // Reset All Exercises
+    function resetEntirePage() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-cyan-600', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-cyan-700', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    // Live Word Counter
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    // Copy Essay Text
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

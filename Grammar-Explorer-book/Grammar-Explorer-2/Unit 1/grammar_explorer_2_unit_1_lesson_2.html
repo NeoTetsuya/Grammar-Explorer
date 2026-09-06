@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 1: Lesson 2 (Present Progressive & Simple Present)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- HEADER -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-emerald-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-emerald-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U1 • Part 2</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 1: Customs and Traditions <span class="text-slate-500 font-light">|</span> <span class="text-emerald-400">Lesson 2: Present Progressive & Simple Present</span>
+            </h1>
+          </div>
+        </div>
+
+        <button onclick="resetLesson2()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-emerald-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-emerald-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Diwali (pp. 12–13)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex4-5')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4-5">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4–5</span>
+          <span>Ex 4 & 5: Statements (p. 14)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex6')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex6">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6</span>
+          <span>Ex 6: Questions (p. 15)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex8')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
+          <span>Ex 8: Stative Verbs (pp. 16–17)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex9')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
+          <span>Ex 9: Maori Haka (p. 18)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex10')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex10">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">10</span>
+          <span>Ex 10: Form Questions (pp. 17–18)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex11')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex11">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">11</span>
+          <span>Ex 11: Audio Talks (p. 18)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex12')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex12">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">12–13</span>
+          <span>Ex 12–13: Carnival & Apply (p. 19)</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 1: EXPLORE (Reading & Exercises 2-3, Pages 12–13) -->
+    <!-- ============================================================ -->
+    <div id="tab-explore" class="ex-tab-pane block space-y-6">
+      <!-- Section Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Explore • Pages 12–13</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Diwali: Festival of Lights</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Read about the festival in Jaipur, India, and complete comprehension & tense contrast tasks</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd">Track CD1-05</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT PANE: Reading "Diwali" -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Diwali (Festival of Lights)</h3>
+              <p class="text-xs text-slate-500">Jaipur, Rajasthan, India</p>
+            </div>
+            <span class="badge-cd">CD1-05</span>
+          </div>
+
+          <!-- Photograph for Diwali -->
+          <div class="my-3 overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-md group relative">
+            <img 
+              src="https://m.ahstatic.com/is/image/accorhotels/women-celebrate-diwali?fmt=jpg&op_usm=1.75,0.3,2,0&resMode=sharp2&iccEmbed=true&icc=sRGB&dpr=on,1.3&wid=335&qlt=80" 
+              alt="Women celebrating Diwali Festival of Lights in India" 
+              class="w-full h-52 sm:h-60 object-cover object-center transition duration-500 group-hover:scale-105"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x350/064e3b/a7f3d0?text=Diwali+Festival+of+Lights+%E2%80%A2+Jaipur,+India';"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-2.5 left-3 right-3 text-white text-[11px] flex items-center justify-between">
+              <span class="font-medium bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Jaipur, India • Diwali Celebration</span>
+              <span class="text-emerald-300 font-mono text-[10px]">p. 12</span>
+            </div>
+          </div>
+
+          <!-- Reading Body -->
+          <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+            <div>
+              <h4 class="font-sans font-bold text-xs uppercase text-slate-500 tracking-wider mb-1">What are these women doing?</h4>
+              <p>
+                These women in India <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">are getting ready</strong> for Diwali. Diwali is an important holiday for Hindus. It is also called the Festival of Lights. Diwali happens in late October or early November every year.
+              </p>
+            </div>
+
+            <div>
+              <h4 class="font-sans font-bold text-xs uppercase text-slate-500 tracking-wider mb-1">What do Hindus do during Diwali?</h4>
+              <p>
+                People <strong class="text-slate-900 bg-slate-100 px-1 rounded font-sans">like</strong> to have new clothes for Diwali. The women in the photo <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">are wearing</strong> new <span class="bg-amber-100 text-amber-900 font-bold px-1 rounded">saris¹</span>. They <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">are lighting</strong> sparklers and placing them around their home. They <strong class="text-slate-900 bg-slate-100 px-1 rounded font-sans">want</strong> their family to have a successful future. The women <strong class="text-slate-900 bg-slate-100 px-1 rounded font-sans">hope</strong> that the sparklers attract Lakshmi, the Hindu goddess of wealth and success. The star-shaped design on the floor is a <em>rangoli</em>. It also helps to attract the goddess.
+              </p>
+              <p class="mt-2">
+                Hindus <strong class="text-slate-900 bg-slate-100 px-1 rounded font-sans">believe</strong> that Lakshmi visits people’s homes during Diwali. In the Hindu religion, a visit from Lakshmi is a very good thing. It means a happy future for the family.
+              </p>
+            </div>
+          </div>
+
+          <!-- Cultural Notes -->
+          <div class="pt-4 border-t border-slate-100 space-y-1.5 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+            <div class="font-bold text-slate-700 uppercase tracking-wider text-[11px] mb-1">Vocabulary & Visual Notes</div>
+            <p><strong>¹ sari:</strong> a traditional form of dress for women in India and other South Asian countries.</p>
+            <p><strong>Rangoli:</strong> Intricate patterns created on the floor using colored sand, rice, or flowers.</p>
+            <p class="text-slate-500 italic mt-1"><strong>Photograph context:</strong> Women lighting sparklers for Diwali in Jaipur, Rajasthan, India.</p>
+          </div>
+        </div>
+
+        <!-- RIGHT PANE: Questions 2 & 3 exclusively tied to Diwali reading -->
+        <div class="lg:col-span-6 space-y-5">
+          
+          <!-- Exercise 2: CHECK Questions & Answers -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+            <div class="flex items-center justify-between mb-2">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Reading Comprehension (Page 13)
+              </h4>
+              <span class="text-xs text-slate-400">Based on "Diwali"</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-3">Type your short answer for each question based on the reading. Then click Check Answers:</p>
+
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-700 font-medium">1. What is another name for Diwali?</span>
+                <input type="text" data-ans="the Festival of Lights,Festival of Lights" placeholder="Type answer..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-700 font-medium">2. When does Diwali take place?</span>
+                <input type="text" data-ans="in late October or early November,late October or early November,late October or early November every year" placeholder="Type answer..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-700 font-medium">3. What are the women in the photograph wearing?</span>
+                <input type="text" data-ans="saris,new saris,traditional saris" placeholder="Type answer..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-700 font-medium">4. Where is the rangoli?</span>
+                <input type="text" data-ans="on the floor,the floor" placeholder="Type answer..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-700 font-medium">5. Who is Lakshmi?</span>
+                <input type="text" data-ans="the Hindu goddess of wealth and success,Hindu goddess of wealth and success,goddess of wealth and success" placeholder="Type answer..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-700 font-medium">6. What does a visit from Lakshmi mean?</span>
+                <input type="text" data-ans="a happy future for the family,a happy future,happy future" placeholder="Type answer..." class="cloze-input w-full border border-slate-300 rounded px-2.5 py-1 text-xs font-semibold input-clean">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+            </div>
+          </div>
+
+          <!-- Exercise 3: DISCOVER Contrast (Happening Now vs Generally True) -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-l2-card">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Tense Contrast (Page 13)
+              </h4>
+              <p class="text-xs text-slate-500 mt-0.5">
+                <strong>A.</strong> Look at these sentences from the Diwali article. Choose whether each bold verb is <strong>Happening Now</strong> or <strong>Generally True</strong>:
+              </p>
+            </div>
+
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left">
+                <thead class="bg-slate-100 text-slate-700 uppercase font-semibold">
+                  <tr>
+                    <th class="p-2.5">Sentence from Text</th>
+                    <th class="p-2.5 text-center w-36">Classification</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-slate-700">
+                  <tr>
+                    <td class="p-2.5">1. These women <strong>are getting ready</strong> for Diwali.</td>
+                    <td class="p-2.5 text-center">
+                      <select data-ans="now" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                        <option value="">Select...</option>
+                        <option value="now">Happening Now</option>
+                        <option value="true">Generally True</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">2. People <strong>like</strong> to have new clothes for Diwali.</td>
+                    <td class="p-2.5 text-center">
+                      <select data-ans="true" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                        <option value="">Select...</option>
+                        <option value="now">Happening Now</option>
+                        <option value="true">Generally True</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">3. The women in the photo <strong>are wearing</strong> new saris.</td>
+                    <td class="p-2.5 text-center">
+                      <select data-ans="now" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                        <option value="">Select...</option>
+                        <option value="now">Happening Now</option>
+                        <option value="true">Generally True</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">4. They <strong>are lighting</strong> sparklers . . .</td>
+                    <td class="p-2.5 text-center">
+                      <select data-ans="now" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                        <option value="">Select...</option>
+                        <option value="now">Happening Now</option>
+                        <option value="true">Generally True</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">5. They <strong>want</strong> their family to have a successful future.</td>
+                    <td class="p-2.5 text-center">
+                      <select data-ans="true" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                        <option value="">Select...</option>
+                        <option value="now">Happening Now</option>
+                        <option value="true">Generally True</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="p-2.5">6. The women <strong>hope</strong> that sparklers attract Lakshmi . . .</td>
+                    <td class="p-2.5 text-center">
+                      <select data-ans="true" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                        <option value="">Select...</option>
+                        <option value="now">Happening Now</option>
+                        <option value="true">Generally True</option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+            </div>
+          </div>
+
+          <!-- Step navigation -->
+          <div class="flex items-center justify-end pt-2">
+            <button type="button" onclick="switchExTab('tab-ex4-5')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 4 & 5 (Statements)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 2: CHART 1.4 & EXERCISES 4 & 5 (Page 14) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex4-5" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn & Practice • Page 14</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 1.4 & Exercises 4–5: Progressive Statements</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Forming affirmative and negative statements with be + verb-ing vs. simple present habits</p>
+        </div>
+        <span class="badge-cd">Chart 1.4</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Chart 1.4 -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">1.4 Present Progressive: Statements</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 14</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+              <span class="font-bold text-slate-800 block mb-1">Affirmative (Be + Verb-ing)</span>
+              <p>• I <strong>am / ’m studying</strong>.</p>
+              <p>• He / She / It <strong>is / ’s working</strong>.</p>
+              <p>• You / We / They <strong>are / ’re eating</strong>.</p>
+            </div>
+            <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+              <span class="font-bold text-slate-800 block mb-1">Negative (Be + Not + Verb-ing)</span>
+              <p>• I <strong>am not / ’m not studying</strong>.</p>
+              <p>• He / She / It <strong>is not / isn’t / ’s not working</strong>.</p>
+              <p>• You / We / They <strong>are not / aren’t / ’re not eating</strong>.</p>
+            </div>
+          </div>
+
+          <div class="text-xs text-slate-600 bg-amber-50 p-2.5 rounded-xl border border-amber-200">
+            <strong>Time expressions:</strong> <em>now, at the moment, this year, these days, right now</em>.
+          </div>
+        </div>
+
+        <!-- Exercises 4 & 5 Column -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Exercise 4: Complete sentences -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+                Complete with Present Progressive (Page 14)
+              </h4>
+              <span class="text-xs text-slate-400">be + verb-ing</span>
+            </div>
+            <p class="text-xs text-slate-500">Fill in each blank with the present progressive form. Then click Check Answers:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>1. The women <input type="text" data-ans="are lighting,'re lighting" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="light"> sparklers.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>2. They <input type="text" data-ans="are drawing,'re drawing" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="draw"> pictures on the floor.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>3. Usha <input type="text" data-ans="is not celebrating,isn't celebrating,'s not celebrating" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="not celebrate"> the holiday with her family.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>4. She <input type="text" data-ans="is studying,'s studying" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="study"> in England this year.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>5. I <input type="text" data-ans="am not preparing,'m not preparing" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="not prepare"> the food for the party.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>6. Alberto <input type="text" data-ans="is helping,'s helping" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="help"> in the kitchen at the moment.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>7. He <input type="text" data-ans="is washing,'s washing" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="wash"> the dishes right now.</span>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <span>8. We <input type="text" data-ans="are getting,'re getting" class="cloze-input border border-slate-300 rounded px-2.5 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="get"> the house ready for the party.</span>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 5: Complete 8 Items from Textbook Page 14 -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l2-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+                Choose the Correct Form (Page 14)
+              </h4>
+              <span class="text-xs text-slate-400">Items 1–8</span>
+            </div>
+            <p class="text-xs text-slate-500">Select the correct verb form for each sentence:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. Thousands of people the festival this year. The hotels are full!</span>
+                <select data-ans="are attending" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="attend">attend</option>
+                  <option value="are attending">are attending</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. Every November people a special holiday in Mexico.</span>
+                <select data-ans="celebrate" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="celebrate">celebrate</option>
+                  <option value="are celebrating">are celebrating</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. My grandmother usually the celebrations in my family.</span>
+                <select data-ans="organizes" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="organizes">organizes</option>
+                  <option value="is organizing">is organizing</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. The Chinese New Year the end of the winter season.</span>
+                <select data-ans="marks" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="marks">marks</option>
+                  <option value="is marking">is marking</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>5. Right now I a cake for the party.</span>
+                <select data-ans="am making" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="make">make</option>
+                  <option value="am making">am making</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>6. My father beautiful cakes to celebrate special events.</span>
+                <select data-ans="makes" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="makes">makes</option>
+                  <option value="is making">is making</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>7. We a party for my grandparents every summer.</span>
+                <select data-ans="have" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="have">have</option>
+                  <option value="are having">are having</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>8. Everyone right now.</span>
+                <select data-ans="is dancing" class="select-check text-xs font-semibold p-1.5 border border-slate-300 rounded bg-white input-clean">
+                  <option value="">Select...</option>
+                  <option value="dances">dances</option>
+                  <option value="is dancing">is dancing</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex5-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" onclick="switchExTab('tab-explore')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Explore</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-ex6')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 6 (Questions)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 3: CHART 1.5 & EXERCISE 6 (Page 15) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex6" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn & Practice • Page 15</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 1.5 & Exercise 6: Questions & Answers</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Yes/No questions, Wh- object questions, and Who/What subject questions in present progressive</p>
+        </div>
+        <span class="badge-cd">Chart 1.5</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Chart 1.5: Present Progressive Questions -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">1.5 Present Progressive: Questions & Answers</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 15</span>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="border border-slate-200 rounded-xl p-2.5 bg-slate-50">
+              <strong>Yes / No:</strong> <em>Are you helping?</em> → Yes, I am. / No, I'm not.
+            </div>
+            <div class="border border-slate-200 rounded-xl p-2.5 bg-slate-50">
+              <strong>Wh- Object:</strong> <em>What is he doing?</em> → He’s singing.
+            </div>
+            <div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50">
+              <strong>Who / What as Subject:</strong> <em>Who is dancing with Carmen?</em> → Her father. / Her father is. (Always 3rd person singular <em>is</em>).
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 6: Complete Dialogues -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l2-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+            Present Progressive Questions & Answers (Page 15)
+          </h4>
+          <p class="text-xs text-slate-500">Complete the questions and answers with the present progressive:</p>
+
+          <div class="space-y-2.5 text-xs sm:text-sm">
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1.5">
+              <p><strong>1. A:</strong> Hi, Ana. <input type="text" data-ans="What are you doing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="what / you / do">?</p>
+              <p><strong>B:</strong> I <input type="text" data-ans="am buying,'m buying" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="buy"> a plane ticket online.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1.5">
+              <p><strong>2. A:</strong> <input type="text" data-ans="Where are you living" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="where / you / live"> these days?</p>
+              <p><strong>B:</strong> I <input type="text" data-ans="am renting,'m renting" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="rent"> an apartment near the university.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1.5">
+              <p><strong>3. A:</strong> <input type="text" data-ans="Why is your computer making" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-52 font-semibold input-clean" placeholder="why / computer / make"> a noise?</p>
+              <p><strong>B:</strong> <input type="text" data-ans="It is not working,It isn't working,It's not working" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="it / not work"> properly.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1.5">
+              <p><strong>4. A:</strong> <input type="text" data-ans="Is your phone ringing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-44 font-semibold input-clean" placeholder="your phone / ring">?</p>
+              <p><strong>B:</strong> Yes, it is. Thanks. My brother <input type="text" data-ans="is calling,'s calling" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="brother / call"> me.</p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex6-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+          </div>
+
+          <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+            <button type="button" onclick="switchExTab('tab-ex4-5')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 4 & 5</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-ex8')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 8 (Stative Verbs)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 4: CHART 1.6 & EXERCISE 8 (Pages 16–17) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex8" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Learn & Practice • Pages 16–17</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 1.6 & Exercise 8: Action vs. Non-Action Verbs</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Understanding stative verbs and when non-action verbs change meaning in progressive</p>
+        </div>
+        <span class="badge-cd">Chart 1.6</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Chart 1.6: Stative Verbs -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">1.6 Action and Non-Action (Stative) Verbs</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 16</span>
+          </div>
+
+          <p class="text-xs text-slate-600">Non-action verbs describe states, feelings, or senses. They are <strong>not usually used in progressive</strong> (✓ <em>They own a house</em>; ✗ <em>They are owning</em>).</p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+            <div class="p-2 bg-slate-50 rounded border border-slate-200">
+              <strong class="text-slate-800 block">Feelings</strong> dislike, hate, like, love, miss
+            </div>
+            <div class="p-2 bg-slate-50 rounded border border-slate-200">
+              <strong class="text-slate-800 block">Senses</strong> feel, hear, see, smell, sound, taste
+            </div>
+            <div class="p-2 bg-slate-50 rounded border border-slate-200">
+              <strong class="text-slate-800 block">Possession</strong> belong, have, own
+            </div>
+            <div class="p-2 bg-slate-50 rounded border border-slate-200">
+              <strong class="text-slate-800 block">Appearance</strong> appear, look, seem
+            </div>
+            <div class="p-2 bg-slate-50 rounded border border-slate-200">
+              <strong class="text-slate-800 block">Desires</strong> hope, need, prefer, want
+            </div>
+            <div class="p-2 bg-slate-50 rounded border border-slate-200">
+              <strong class="text-slate-800 block">Mental</strong> believe, think, understand
+            </div>
+          </div>
+
+          <div class="border border-amber-200 rounded-xl p-3 bg-amber-50 text-xs text-amber-950 space-y-1">
+            <span class="font-bold block text-amber-900">Meaning Shift with Progressive:</span>
+            <p>• <strong>have:</strong> <em>He has a headache</em> (state) vs <em>He is having lunch</em> (action)</p>
+            <p>• <strong>think:</strong> <em>I think this book is great</em> (opinion) vs <em>I am thinking of the answer</em> (mental process)</p>
+            <p>• <strong>taste:</strong> <em>The food tastes good</em> (property) vs <em>She is tasting the food</em> (action)</p>
+          </div>
+        </div>
+
+        <!-- Exercise 8: Short Dialogues with Verbs -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l2-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            Simple Present vs. Present Progressive (Page 17)
+          </h4>
+          <p class="text-xs text-slate-500">Complete each blank with the simple present or present progressive:</p>
+
+          <div class="space-y-2.5 text-xs sm:text-sm">
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+              <p><strong>Eric:</strong> <strong>(1)</strong> <input type="text" data-ans="Do you like" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 font-semibold input-clean" placeholder="like"> your new home in Italy?</p>
+              <p><strong>Jane:</strong> Yes, I really <strong>(2)</strong> <input type="text" data-ans="love" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-semibold input-clean" placeholder="love"> it, but I <strong>(3)</strong> <input type="text" data-ans="think" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-semibold input-clean" placeholder="think"> about the United States a lot.</p>
+              <p><strong>Eric:</strong> What <strong>(4)</strong> <input type="text" data-ans="do you miss" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 font-semibold input-clean" placeholder="you / miss"> most?</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+              <p><strong>Sally:</strong> Why is Nikki taking so long at the bakery?</p>
+              <p><strong>Christina:</strong> She <strong>(5)</strong> <input type="text" data-ans="is tasting,'s tasting" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 font-semibold input-clean" placeholder="taste"> the different kinds of cakes. She <strong>(6)</strong> <input type="text" data-ans="wants" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-semibold input-clean" placeholder="want"> the perfect cake for her wedding.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+              <p><strong>Mark:</strong> That’s a nice camera.</p>
+              <p><strong>Tim:</strong> Thanks, but it <strong>(7)</strong> <input type="text" data-ans="does not belong,doesn't belong" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-36 font-semibold input-clean" placeholder="not belong"> to me. It's my sister's.</p>
+              <p><strong>Mark:</strong> <strong>(8)</strong> <input type="text" data-ans="Do you have" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 font-semibold input-clean" placeholder="you / have"> your own camera?</p>
+              <p><strong>Tim:</strong> No, I <strong>(9)</strong> <input type="text" data-ans="do not own,don't own" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="not own"> a camera.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 rounded-lg space-y-1">
+              <p><strong>Maria:</strong> <strong>(10)</strong> <input type="text" data-ans="Are you having" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 font-semibold input-clean" placeholder="you / have"> fun tonight?</p>
+              <p><strong>Barbara:</strong> Not really, I <strong>(11)</strong> <input type="text" data-ans="have" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 font-semibold input-clean" placeholder="have"> a headache.</p>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkClozeCard('ex8-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+          </div>
+
+          <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+            <button type="button" onclick="switchExTab('tab-ex6')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 6</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-ex9')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 9 (Maori Haka)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 5: EXERCISE 9 (Page 18) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex9" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Practice • Page 18</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 9: The Maori Haka War Dance</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Complete the rugby match photo discussion with simple present and present progressive</p>
+        </div>
+        <span class="badge-cd">Conversation Practice</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 reader-card space-y-4" id="ex9-l2-card">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+            Complete the Conversation
+          </h4>
+          <span class="text-xs text-slate-400">14 blanks</span>
+        </div>
+        <p class="text-xs text-slate-500">Complete the conversation with simple present or present progressive:</p>
+
+        <div class="space-y-3 text-xs sm:text-sm bg-slate-50 p-5 rounded-2xl border border-slate-200 leading-relaxed text-slate-700">
+          <p><strong>Todd:</strong> Hey, Steve, <strong>(1)</strong> <input type="text" data-ans="what are you doing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-44 font-semibold input-clean" placeholder="what / you / do">?</p>
+          <p><strong>Steve:</strong> <strong>(2)</strong> <input type="text" data-ans="I am reading,I'm reading" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-36 font-semibold input-clean" placeholder="I / read"> a magazine. Look at this photo of the New Zealand rugby team . . . <strong>(3)</strong> <input type="text" data-ans="they look" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="they / look"> scary!</p>
+          <p><strong>Todd:</strong> <strong>(4)</strong> <input type="text" data-ans="What are they doing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-44 font-semibold input-clean" placeholder="what / they / do">? <strong>(5)</strong> <input type="text" data-ans="Are they dancing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-40 font-semibold input-clean" placeholder="they / dance">?</p>
+          <p><strong>Steve:</strong> <strong>(6)</strong> <input type="text" data-ans="They are performing,They're performing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-44 font-semibold input-clean" placeholder="they / perform"> the <em>haka</em>. It’s a Maori war dance.</p>
+          <p><strong>Todd:</strong> <strong>(7)</strong> <input type="text" data-ans="Do they do" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="they / do"> it before every game?</p>
+          <p><strong>Steve:</strong> Yes. <strong>(8)</strong> <input type="text" data-ans="It helps" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-28 font-semibold input-clean" placeholder="it / help"> them get ready for the game mentally, and <strong>(9)</strong> <input type="text" data-ans="they believe" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="they / believe"> that it frightens the other team.</p>
+          <p><strong>Todd:</strong> Interesting. <strong>(10)</strong> <input type="text" data-ans="Does it work" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="it / work">?</p>
+          <p><strong>Steve:</strong> Maybe in the past, but <strong>(11)</strong> <input type="text" data-ans="it never surprises" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-40 font-semibold input-clean" placeholder="it / never / surprise"> anyone now. <strong>(12)</strong> <input type="text" data-ans="The other team usually pays,The other team usually pay" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-52 font-semibold input-clean" placeholder="the other team / usually / pay"> no attention. But, <strong>(13)</strong> <input type="text" data-ans="the fans love" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-36 font-semibold input-clean" placeholder="the fans / love"> it, and <strong>(14)</strong> <input type="text" data-ans="the haka always provides" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-52 font-semibold input-clean" placeholder="the haka / always / provide"> an opportunity for great photos!</p>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+          <span class="ex-score text-xs sm:text-sm font-bold text-slate-600"></span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="switchExTab('tab-ex8')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 8</span>
+            </button>
+            <button type="button" onclick="checkClozeCard('ex9-l2-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            <button type="button" onclick="switchExTab('tab-ex10')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 10 (Questions)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 6: EXERCISE 10 (Pages 17–18) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex10" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Write & Speak • Pages 17–18</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 10: Form Questions</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Construct Yes/No and Wh- questions using simple present or present progressive</p>
+        </div>
+        <span class="badge-cd">Items 1–8</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 reader-card space-y-4" id="ex10-l2-card">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+            Form Questions
+          </h4>
+          <span class="text-xs text-slate-400">Pages 17–18</span>
+        </div>
+        <p class="text-xs text-slate-500">Form questions using the cues with simple present or progressive. Type the full question:</p>
+
+        <div class="space-y-3 text-xs sm:text-sm">
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">1. what holidays / you / enjoy:</span>
+            <input type="text" data-ans="What holidays do you enjoy?,What holidays do you enjoy" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">2. what / your classmates / do / right now:</span>
+            <input type="text" data-ans="What are your classmates doing right now?,What are your classmates doing right now" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">3. what / you / want / for your birthday:</span>
+            <input type="text" data-ans="What do you want for your birthday?,What do you want for your birthday" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">4. you / do / anything interesting / these days:</span>
+            <input type="text" data-ans="Are you doing anything interesting these days?,Are you doing anything interesting these days" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">5. you and your friends / like / soccer:</span>
+            <input type="text" data-ans="Do you and your friends like soccer?,Do you and your friends like soccer" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">6. you / often / work / on weekends:</span>
+            <input type="text" data-ans="Do you often work on weekends?,Do you often work on weekends" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">7. what / your class / study / this week:</span>
+            <input type="text" data-ans="What is your class studying this week?,What is your class studying this week" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 border border-slate-200">
+            <span class="text-slate-700 font-medium block">8. where / you / usually / have / lunch:</span>
+            <input type="text" data-ans="Where do you usually have lunch?,Where do you usually have lunch" placeholder="Write full question..." class="cloze-input w-full border border-slate-300 rounded px-3 py-1.5 text-xs font-semibold input-clean">
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+          <span class="ex-score text-xs sm:text-sm font-bold text-slate-600"></span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="switchExTab('tab-ex9')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 9</span>
+            </button>
+            <button type="button" onclick="checkClozeCard('ex10-l2-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+            <button type="button" onclick="switchExTab('tab-ex11')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 11 (Audio Talks)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 7: EXERCISE 11 (Audio CD1-06, Page 18) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex11" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Practice • Page 18</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 11: 3 Conversations with Word Bank</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Listen to CD1-06 and select appropriate action and stative verbs</p>
+        </div>
+        <span class="badge-cd">Track CD1-06</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-7 reader-card space-y-4" id="ex11-l2-card">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+            Short Conversations with Word Bank
+          </h4>
+          <span class="badge-cd">CD1-06</span>
+        </div>
+
+        <div class="p-3 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-1.5 text-slate-700">
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">do</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">have</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">not believe</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">not look</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">talk</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">think</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">hate</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">need</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">not feel</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">not want</span>
+          <span class="bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">taste</span>
+        </div>
+
+        <div class="space-y-4 text-xs sm:text-sm text-slate-700">
+          <div class="p-4 bg-slate-50 rounded-xl space-y-2 border border-slate-200">
+            <span class="font-bold text-slate-900 block text-xs uppercase tracking-wide">Conversation 1 (Thanksgiving Parade)</span>
+            <p>• Midori: Hi Sally, how <strong>(1)</strong> are you <input type="text" data-ans="doing" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-24 font-semibold input-clean" placeholder="verb">?</p>
+            <p>• Sally: I’m OK. You?</p>
+            <p>• Midori: Great. You know, I usually <strong>(2)</strong> <input type="text" data-ans="hate" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-24 font-semibold input-clean" placeholder="verb"> big crowds, and I <strong>(3)</strong> <input type="text" data-ans="think" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-24 font-semibold input-clean" placeholder="verb"> people are too noisy. Well, right now I’m at the Thanksgiving parade!</p>
+            <p>• Sally: You are? I <strong>(4)</strong> <input type="text" data-ans="do not believe,don't believe" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-36 font-semibold input-clean" placeholder="verb"> it!</p>
+            <p>• Midori: Yes, and I <strong>(5)</strong> <input type="text" data-ans="am having,'m having" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="verb"> a wonderful time!</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl space-y-2 border border-slate-200">
+            <span class="font-bold text-slate-900 block text-xs uppercase tracking-wide">Conversation 2 (Soup)</span>
+            <p>• Angela: Mmm . . . this soup <strong>(6)</strong> <input type="text" data-ans="tastes" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-24 font-semibold input-clean" placeholder="verb"> delicious! Do you want some?</p>
+            <p>• Kara: No thanks, I <strong>(7)</strong> <input type="text" data-ans="am not feeling,don't feel,do not feel,'m not feeling" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-36 font-semibold input-clean" placeholder="verb"> well, and I <strong>(8)</strong> <input type="text" data-ans="do not want,don't want" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="verb"> you to get sick.</p>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl space-y-2 border border-slate-200">
+            <span class="font-bold text-slate-900 block text-xs uppercase tracking-wide">Conversation 3 (Talking)</span>
+            <p>• Mike: Hi Kemal. Are you OK? You <strong>(9)</strong> <input type="text" data-ans="do not look,don't look" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="verb"> very happy.</p>
+            <p>• Andy: Hey Mike, do you have a minute? I <strong>(10)</strong> <input type="text" data-ans="want,need" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-24 font-semibold input-clean" placeholder="verb"> to ask you something.</p>
+            <p>• Mike: Sorry, Kemal and I <strong>(11)</strong> <input type="text" data-ans="are talking" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs sm:text-sm w-32 font-semibold input-clean" placeholder="verb"> right now.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+          <span class="ex-score text-xs sm:text-sm font-bold text-slate-600"></span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="switchExTab('tab-ex10')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 10</span>
+            </button>
+            <button type="button" onclick="checkClozeCard('ex11-l2-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 11</button>
+            <button type="button" onclick="switchExTab('tab-ex12')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 12–13</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 8: EXERCISES 12 & 13 (Page 19) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex12" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Read & Apply • Page 19</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercises 12 & 13: Venice Carnival & Apply</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Analyze frequency adverbs in authentic text and formulate progressive questions</p>
+        </div>
+        <span class="badge-cd">Page 19</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Exercise 12: Venice Carnival Paragraph -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">12</span>
+              Venice Carnival Analysis (Page 19)
+            </h4>
+            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Model Analysis</span>
+          </div>
+          <p class="text-xs text-slate-500">Notice simple present verbs and frequency adverbs in this cultural text:</p>
+
+          <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 text-sm text-slate-700 leading-relaxed font-serif shadow-inner">
+            "I come from Venice, Italy, and I really love my city. My favorite time of year is Carnival. People wear masks and beautiful costumes and parade through the streets. My family and I <span class="bg-amber-100 text-amber-900 font-sans font-bold px-1 rounded">always</span> have a little competition to see who has the best costume. My sister is in art school, so she <span class="bg-amber-100 text-amber-900 font-sans font-bold px-1 rounded">usually</span> wins. The rest of us compete for second prize!"
+          </div>
+
+          <div class="space-y-2 text-xs text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <span class="font-bold text-slate-800 block text-xs uppercase tracking-wide">Key Points Noticed:</span>
+            <p>• <strong>come, love, wear, parade, have, wins, compete:</strong> Simple present describing recurring habits and feelings.</p>
+            <p>• <strong>always, usually:</strong> Frequency adverbs positioned before regular verbs.</p>
+          </div>
+        </div>
+
+        <!-- Exercise 13: Apply Activity -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs">13</span>
+              APPLY (Page 19)
+            </h4>
+            <span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Speaking & Writing</span>
+          </div>
+
+          <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-950 space-y-2">
+            <p class="font-bold text-emerald-900">Ask and answer questions about actions in progress around now:</p>
+            <ul class="list-disc list-inside space-y-1 text-emerald-900">
+              <li><em>Where are you living these days?</em></li>
+              <li><em>What courses are you taking this semester?</em></li>
+              <li><em>Are you working anywhere this year?</em></li>
+              <li><em>What book are you reading right now?</em></li>
+            </ul>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <button type="button" onclick="switchExTab('tab-ex11')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 11</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-explore')" class="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Return to Explore</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-emerald-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 1: Lesson 2</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Present Progressive Interactive Exercises Suite</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-emerald-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-emerald-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) next.remove();
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        } else if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        } else {
+          const isMatch = expectedList.some(exp => {
+            if (rawVal === exp) return true;
+            if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+            if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+            return false;
+          });
+
+          if (isMatch) {
+            correctCount++;
+            input.classList.add('input-correct');
+            badge.classList.add('answer-badge-correct');
+            badge.innerHTML = `✓ Correct`;
+          } else {
+            input.classList.add('input-incorrect');
+            badge.classList.add('answer-badge-incorrect');
+            badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          }
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function resetLesson2() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+    }
+  </script>
+</body>
+</html>

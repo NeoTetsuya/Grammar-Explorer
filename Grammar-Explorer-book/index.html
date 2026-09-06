@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Explorer Book Edition | National Geographic Learning Interactive Textbook Portal</title>
+    <meta name="description" content="Access full interactive digital editions of National Geographic Learning Grammar Explorer textbooks with two-column authentic readings, audio drills, and self-checking exercises.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        natgeo: {
+                            yellow: '#FFCC00',
+                            gold: '#F59E0B',
+                            dark: '#0F172A',
+                            card: '#1E293B',
+                            slate: '#334155'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" title="Back to Master Hub">
+                    <i class="fa-solid fa-arrow-left text-sm"></i>
+                </a>
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-400 flex items-center justify-center text-slate-900 shadow-md font-extrabold text-lg">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div>
+                    <span class="font-display font-extrabold text-lg sm:text-xl text-slate-900 dark:text-white tracking-tight">Grammar Explorer <span class="text-amber-500">Book Edition</span></span>
+                    <span class="hidden sm:inline-block text-[11px] font-bold px-2 py-0.5 ml-2 bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 rounded-full border border-amber-300 dark:border-amber-800">NatGeo Series</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="flex items-center space-x-3">
+                <a href="../index.html" class="text-xs font-bold px-3 py-2 rounded-lg text-slate-600 dark:text-slate-300 hover:text-amber-600 dark:hover:text-amber-400 transition hidden sm:flex items-center space-x-1.5">
+                    <i class="fa-solid fa-house text-xs"></i>
+                    <span>Master Hub</span>
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none" title="Toggle Theme">
+                    <i class="fa-solid fa-moon text-lg dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg hidden dark:block text-amber-400"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-amber-50/50 via-slate-50 to-slate-100 dark:from-slate-900 dark:via-slate-900/90 dark:to-slate-950 pt-10 pb-12 border-b border-slate-200/60 dark:border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 text-xs font-bold mb-4 border border-amber-300 dark:border-amber-800">
+                <i class="fa-solid fa-earth-americas text-amber-500"></i>
+                <span>National Geographic Learning • Cengage Learning</span>
+            </div>
+            <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">
+                Interactive <span class="text-amber-500">Textbook Series</span> Portal
+            </h1>
+            <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                Experience the complete authentic textbook curriculum with side-by-side National Geographic reading passages, embedded CD audio pronunciation drills, interactive grammar charts, and instant self-evaluating exercises.
+            </p>
+
+            <!-- Quick Stats -->
+            <div class="inline-flex items-center justify-center gap-6 sm:gap-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-6 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 text-xs font-semibold shadow-xs">
+                <div class="flex items-center space-x-2 text-slate-700 dark:text-slate-300">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                    <span>Units 1–9 Ready</span>
+                </div>
+                <div class="flex items-center space-x-2 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-headphones text-amber-500"></i>
+                    <span>Original CD Audio Tracks</span>
+                </div>
+                <div class="flex items-center space-x-2 text-slate-700 dark:text-slate-300">
+                    <i class="fa-solid fa-columns text-sky-500"></i>
+                    <span>2-Column Reader</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow space-y-10">
+
+        <!-- Series Level Selector Tabs -->
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div class="flex items-center space-x-2">
+                <button class="px-4 py-2 rounded-xl text-xs font-extrabold bg-amber-500 text-slate-900 shadow-sm flex items-center space-x-2">
+                    <span>Level 2 (Active)</span>
+                    <span class="px-1.5 py-0.2 rounded-full bg-slate-900 text-amber-300 text-[10px]">16 Units</span>
+                </button>
+                <button class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 opacity-60 cursor-not-allowed flex items-center space-x-1.5" title="Level 1 Book Edition coming soon">
+                    <span>Level 1</span>
+                    <span class="text-[10px] uppercase font-semibold">Planned</span>
+                </button>
+                <button class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 opacity-60 cursor-not-allowed flex items-center space-x-1.5" title="Level 3 Book Edition coming soon">
+                    <span>Level 3</span>
+                    <span class="text-[10px] uppercase font-semibold">Planned</span>
+                </button>
+            </div>
+
+            <!-- Search Units Bar -->
+            <div class="relative w-full sm:w-72">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input type="text" id="unit-search-input" placeholder="Search book units or topics..."
+                    class="w-full pl-9 pr-8 py-2 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs focus:outline-none focus:ring-2 focus:ring-amber-500">
+                <button id="clear-unit-search" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                    <i class="fa-solid fa-xmark text-xs"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Unit Cards Grid (Units 1 to 16) -->
+        <div id="units-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Unit 1 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="customs traditions simple present progressive habits culture">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 1</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Customs and Traditions</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">The Present (Simple Present & Progressive)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Authentic reading: <em>"A Recipe for Culture"</em>. Learn about holiday traditions, food history, and habit patterns with audio accompaniment.
+                    </p>
+                    <div class="space-y-1.5 border-t border-slate-100 dark:border-slate-800 pt-3 mb-4">
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Sub-Lessons & Exercises:</div>
+                        <a href="./Grammar-Explorer-2/Unit 1/grammar_explorer_2_unit_1_lesson_1.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Lesson 1: Simple Present</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="./Grammar-Explorer-2/Unit 1/grammar_explorer_2_unit_1_lesson_2.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Lesson 2: Present Progressive</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="./Grammar-Explorer-2/Unit 1/grammar_explorer_2_unit_1_review_writing.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Review the Grammar & Writing</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 1/GE2 - U1.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 1 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 2 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="survival past simple past progressive used to would when while">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 2</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Survival</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">The Past (Simple Past, Progressive, Used To)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Authentic reading: <em>"Lost in the Jungle"</em>. Gripping accounts of extreme survival, simultaneous events, and past habits.
+                    </p>
+                    <div class="space-y-1.5 border-t border-slate-100 dark:border-slate-800 pt-3 mb-4">
+                        <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Sub-Lessons & Exercises:</div>
+                        <a href="./Grammar-Explorer-2/Unit 2/grammar_explorer_2_unit_2_lesson_1.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Lesson 1: Simple Past</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="./Grammar-Explorer-2/Unit 2/grammar_explorer_2_unit_2_lesson_2.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Lesson 2: Past Progressive & Simple Past</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="./Grammar-Explorer-2/Unit 2/grammar_explorer_2_unit_2_lesson_3.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Lesson 3: When & While Time Clauses</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="./Grammar-Explorer-2/Unit 2/grammar_explorer_2_unit_2_lesson_4.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Lesson 4: Used To & Would</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                        <a href="./Grammar-Explorer-2/Unit 2/grammar_explorer_2_unit_2_review_writing.html" class="flex items-center justify-between text-xs text-slate-700 dark:text-slate-300 hover:text-amber-600 py-0.5">
+                            <span>• Review the Grammar & Writing</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </a>
+                    </div>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 2/GE2 - U2.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 2 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 3 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="health fitness nouns count non-count quantifiers articles">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 3</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Health and Fitness</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">Nouns (Count, Non-count, Quantifiers, Articles)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Explore physical fitness, nutrition, and lifestyle habits while mastering noun categories and quantifier precision.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 3/GE2 - U3.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 3 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 4 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="going places pronouns prepositions articles travel geography">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 4</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Going Places</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">Pronouns, Prepositions, and Articles</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Travel across world destinations with authentic National Geographic photography and spatial preposition mastery.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 4/GE2 - U4.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 4 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 5 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="changing world present perfect for since past simple">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 5</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">A Changing World</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">The Present Perfect (For, Since, Ever, Never)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Discover global transformations and ecological changes while contrasting present perfect and simple past.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 5/GE2 - U5.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 5 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 6 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="appearances behavior adjectives adverbs manner order">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 6</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Appearances and Behavior</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">Adjectives and Adverbs (Order & Manner)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Learn precise descriptive language for personality, physical traits, and human behavior.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 6/GE2 - U6.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 6 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 7 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="tomorrow beyond future will be going to progressive">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 7</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Tomorrow and Beyond</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">The Future (Will, Be Going To, Future Progressive)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Speculate on technological advances, future lifestyles, space exploration, and career choices.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 7/GE2 - U7.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 7 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 8 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="consumer society comparatives superlatives shopping economy">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 8</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">Consumer Society</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">Comparatives and Superlatives (As...As)</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Analyze modern consumer habits, advertising impact, and product evaluations through comparison structures.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 8/GE2 - U8.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 8 Book</span>
+                </a>
+            </div>
+
+            <!-- Unit 9 -->
+            <div class="unit-card glass-card card-hover rounded-2xl p-6 flex flex-col justify-between border-t-4 border-t-amber-500" data-keywords="natural world conjunctions adverb clauses nature wildlife time reason">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-lg text-xs font-extrabold bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300">Unit 9</span>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Complete & Ready</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-slate-900 dark:text-white mb-1.5">The Natural World</h3>
+                    <p class="text-xs text-amber-600 dark:text-amber-400 font-semibold mb-3">Conjunctions and Adverb Clauses</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        Discover fascinating animal behaviors and ecosystems with time, cause, and contrast connecting clauses.
+                    </p>
+                </div>
+                <a href="./Grammar-Explorer-2/Unit 9/GE2 - U9.html" class="w-full inline-flex items-center justify-center space-x-2 py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-amber-400 dark:bg-amber-500 dark:hover:bg-amber-600 dark:text-slate-900 font-bold text-xs transition shadow-sm">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Open Full Unit 9 Book</span>
+                </a>
+            </div>
+
+            <!-- Units 10 to 16 Placeholders -->
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="work play gerunds infinitives unit 10">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 10</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">Work and Play</h4>
+                    <p class="text-xs text-slate-400 mt-1">Gerunds and Infinitives</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="people places relative clauses unit 11">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 11</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">People and Places</h4>
+                    <p class="text-xs text-slate-400 mt-1">Relative Clauses</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="art music modals permission ability unit 12">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 12</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">Art and Music</h4>
+                    <p class="text-xs text-slate-400 mt-1">Modals: Part 1</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="sports modals obligation advice unit 13">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 13</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">Sports</h4>
+                    <p class="text-xs text-slate-400 mt-1">Modals: Part 2</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="innovations verbs phrasal verbs unit 14">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 14</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">Innovations</h4>
+                    <p class="text-xs text-slate-400 mt-1">Verbs and Phrasal Verbs</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="past windows passive voice unit 15">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 15</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">Windows on the Past</h4>
+                    <p class="text-xs text-slate-400 mt-1">Passive Voice</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+            <div class="unit-card glass-card rounded-2xl p-6 opacity-60 border border-dashed border-slate-300 dark:border-slate-800 flex flex-col justify-between" data-keywords="exploration noun clauses reported speech unit 16">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold text-slate-400">Unit 16</span>
+                        <span class="text-[10px] uppercase font-semibold px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-400">Coming Soon</span>
+                    </div>
+                    <h4 class="font-display font-bold text-sm text-slate-700 dark:text-slate-300">Exploration</h4>
+                    <p class="text-xs text-slate-400 mt-1">Noun Clauses & Reported Speech</p>
+                </div>
+                <span class="text-[11px] text-slate-400 mt-4 italic">Textbook curriculum in preparation</span>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500">
+        <p>Grammar Explorer Book Edition • National Geographic Learning / Cengage Learning Interactive Textbook Series</p>
+        <p class="mt-1"><a href="../index.html" class="text-amber-600 dark:text-amber-400 font-bold hover:underline">Return to Grammar Explorer Hub Master Index</a></p>
+    </footer>
+
+    <!-- Search Filtering Script -->
+    <script>
+        // Theme sync
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+
+        // Search Filter
+        const searchInput = document.getElementById('unit-search-input');
+        const clearBtn = document.getElementById('clear-unit-search');
+        const cards = document.querySelectorAll('.unit-card');
+
+        searchInput.addEventListener('input', () => {
+            const q = searchInput.value.trim().toLowerCase();
+            clearBtn.classList.toggle('hidden', !q);
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase() + ' ' + (card.getAttribute('data-keywords') || '');
+                card.style.display = text.includes(q) ? '' : 'none';
+            });
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.classList.add('hidden');
+            cards.forEach(card => card.style.display = '');
+        });
+    </script>
+</body>
+</html>

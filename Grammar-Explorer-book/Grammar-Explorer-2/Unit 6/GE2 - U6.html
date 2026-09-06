@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 6: Appearances and Behavior (Adjectives and Adverbs)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Lora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          },
+          colors: {
+            natgeo: {
+              yellow: '#FFCC00',
+              gold: '#F59E0B',
+              amber: '#D97706',
+              dark: '#0F172A',
+              emerald: '#059669',
+              teal: '#0D9488',
+              slate: '#334155'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+    .reader-card {
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
+    }
+    .sticky-reading {
+      position: sticky;
+      top: 5.5rem;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
+    .badge-cd {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background-color: #f1f5f9;
+      color: #475569;
+      border: 1px solid #e2e8f0;
+    }
+    .input-clean {
+      transition: all 0.2s ease-in-out;
+    }
+    .input-correct {
+      border-color: #10b981 !important;
+      background-color: #ecfdf5 !important;
+      color: #065f46 !important;
+    }
+    .input-incorrect {
+      border-color: #f43f5e !important;
+      background-color: #fff1f2 !important;
+      color: #9f1239 !important;
+    }
+    .answer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 0.375rem;
+      margin-left: 0.35rem;
+      margin-top: 0.15rem;
+      margin-bottom: 0.15rem;
+      vertical-align: middle;
+      animation: fadeInBadge 0.2s ease-out;
+    }
+    .answer-badge-correct {
+      background-color: #ecfdf5;
+      color: #047857;
+      border: 1px solid #6ee7b7;
+    }
+    .answer-badge-incorrect {
+      background-color: #fff1f2;
+      color: #9f1239;
+      border: 1px solid #fecdd3;
+    }
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-1px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-amber-100 selection:text-amber-900">
+
+  <!-- HEADER & PRIMARY NAVIGATION -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo / Title -->
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-amber-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-amber-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono hidden md:inline">GE2 U6</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight flex items-center gap-2">
+              Grammar Explorer 2 <span class="text-slate-600 font-light">|</span> 
+              <span class="text-sm font-semibold text-slate-200">Unit 6: Appearances and Behavior (Adjectives and Adverbs)</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- Global reset button -->
+        <div class="flex items-center space-x-2">
+          <button onclick="resetEntirePage()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-amber-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+            <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset All Exercises</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Unit Tabs -->
+      <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto pb-1 text-sm scrollbar-none" aria-label="Unit Tabs">
+        <button onclick="switchTab('overview')" class="tab-btn active px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-amber-400 text-amber-400 bg-slate-800/50" data-tab="overview">
+          Unit Overview
+        </button>
+        <button onclick="switchTab('lesson1')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson1">
+          Lesson 1: Adjectives
+        </button>
+        <button onclick="switchTab('lesson2')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="lesson2">
+          Lesson 2: Adverbs
+        </button>
+        <button onclick="switchTab('review')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="review">
+          Review the Grammar
+        </button>
+        <button onclick="switchTab('writing')" class="tab-btn px-3.5 py-2.5 rounded-t-lg font-medium whitespace-nowrap transition border-b-2 border-transparent text-slate-300 hover:text-white hover:border-slate-600" data-tab="writing">
+          Connect to Writing
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB 1: UNIT OVERVIEW (Pages 156–157) -->
+    <!-- ============================================================ -->
+    <section id="tab-overview" class="tab-content block space-y-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 reader-card">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 mb-2">
+              Pages 156–157 • Scope & Sequence
+            </div>
+            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Unit 6: Appearances and Behavior</h2>
+            <p class="text-slate-500 mt-1 text-base">Grammar Focus: Descriptive Adjectives, Nouns as Adjectives, Adjective Order, and Adverbs of Manner & Degree</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button onclick="switchTab('lesson1')" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 font-bold text-white transition shadow-sm flex items-center gap-2">
+              Start Lesson 1
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+          <!-- Spotlight Card: Lemurs in Madagascar's Stone Forest -->
+          <div class="md:col-span-7 bg-slate-900 text-white rounded-2xl overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between reader-card">
+            
+            <div class="relative w-full bg-slate-950 group">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtIokm_ySdPpwS2LsCL55NRuZcwaRLMuPFI7L5t_E14my0aMI1113f7-Lw&s=10" 
+                alt="Decken's sifaka lemurs gracefully navigating sharp limestone peaks in Tsingy de Bemaraha, Madagascar" 
+                class="w-full h-auto max-h-[420px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                onerror="this.onerror=null; this.src='https://placehold.co/800x500/0f172a/d97706?text=Madagascar+Stone+Forest+Lemurs';"
+              />
+              <div class="p-3 bg-slate-950/95 border-t border-slate-800 text-xs flex flex-wrap items-center justify-between gap-2 text-slate-300">
+                <span class="text-[11px] font-mono text-amber-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                  Tsingy de Bemaraha National Park • Madagascar
+                </span>
+                <span class="text-[11px] text-slate-400">
+                  Madagascar’s stone forest is home to several kinds of lemurs. • pp. 156–157
+                </span>
+              </div>
+            </div>
+
+            <!-- Spotlight Discussion and Theme Insight -->
+            <div class="p-5 sm:p-6 space-y-3.5">
+              <div>
+                <h3 class="text-xl font-bold text-white leading-snug">The Visual Wonder and Survival Tactics of Nature</h3>
+                <p class="text-xs text-amber-400 font-medium mt-0.5">Exploring animal adaptations, cultural body art, and distinctive traits across species</p>
+              </div>
+              <p class="font-serif text-sm leading-relaxed text-slate-300">
+                How do animals and people look and act? In this unit, we discover how Australia's seemingly cute koalas fiercely defend themselves, how peacocks use iridescent plumage to attract mates, how the Maori of New Zealand proudly express identity through sacred facial <em>moko</em> tattoos, how Venus the famous two-faced chimera cat perplexes scientists, and how the rare yellow-tailed woolly monkey navigates the cloud forests of Peru.
+              </p>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 text-[11px]">
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-amber-400 block">Lesson 1</strong>
+                  <span class="text-slate-400 text-[10px]">Koalas Fight Back!</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-emerald-400 block">Lesson 2</strong>
+                  <span class="text-slate-400 text-[10px]">Maori Moko Tattoos</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-teal-400 block">Review</strong>
+                  <span class="text-slate-400 text-[10px]">Venus the Two-Faced Cat</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <strong class="text-purple-400 block">Writing</strong>
+                  <span class="text-slate-400 text-[10px]">Yellow-Tailed Monkey</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Unit Lessons Index Cards -->
+          <div class="md:col-span-5 space-y-3">
+            <div onclick="switchTab('lesson1')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Lesson 1 (p. 158–164)</span>
+                <span class="badge-cd">CD2-13</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Adjectives: Position, Nouns as Adjectives, and Order</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Koalas Fight Back!</em> Position before nouns and after linking verbs, singular noun-adjectives, and standard ordering (opinion, size, age, shape, color, origin, material).
+              </p>
+            </div>
+
+            <div onclick="switchTab('lesson2')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-emerald-400 hover:bg-emerald-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">Lesson 2 (p. 165–171)</span>
+                <span class="badge-cd">CD2-15</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition mt-1 text-sm">Adverbs of Manner and Degree</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Reading: <em>Moko—The Art of Maori Tattoos</em>. Forming adverbs with <em>-ly</em>, irregular forms (*fast, hard, early, well*), and intensifiers (*extremely, very, somewhat, pretty*).
+              </p>
+            </div>
+
+            <div onclick="switchTab('review')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-purple-400 hover:bg-purple-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-purple-800 bg-purple-100 px-2 py-0.5 rounded">Review (p. 172–173)</span>
+                <span class="text-xs text-slate-400">Synthesis</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-purple-600 transition mt-1 text-sm">Review the Grammar</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Examining college discussions and proofreading an article about Venus, the famous two-faced chimera cat.
+              </p>
+            </div>
+
+            <div onclick="switchTab('writing')" class="cursor-pointer p-3.5 rounded-xl border border-slate-200 bg-slate-50 hover:border-amber-400 hover:bg-amber-50/30 transition group">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">Writing (p. 174–175)</span>
+                <span class="text-xs text-slate-400">Writing Focus</span>
+              </div>
+              <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition mt-1 text-sm">Connect to Writing: Descriptive Paragraph</h4>
+              <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">
+                Model: <em>The Yellow-Tailed Woolly Monkey</em>. Choosing adjectives and adverbs carefully to avoid clutter while ensuring rich sensory description.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 2: LESSON 1 (Pages 158–164) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson1" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Lesson 1 • Pages 158–164</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Adjectives: Position, Nouns as Adjectives & Word Order</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="badge-cd"><svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD2-13</span>
+        </div>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Comprehension (Pages 158–159)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Koalas Fight Back!" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Koalas Fight Back!</h3>
+                <p class="text-xs text-slate-500">A surprising defense by an Australian icon</p>
+              </div>
+              <span class="badge-cd">CD2-13</span>
+            </div>
+
+            <!-- Koala Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/4/49/Koala_climbing_tree.jpg" 
+                  alt="Koala in a eucalyptus tree showing sharp claws and thick fur" 
+                  class="w-full h-auto max-h-[380px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/d97706?text=Koala+Climbing+Tree';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">This baby koala is already covered in thick fur. • Queensland, Australia</span>
+                <span class="text-amber-400 font-semibold text-[11px]">p. 158</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                In March 2006, thieves broke into a zoo in Queensland, Australia. They planned to steal a koala. Everybody loves koalas, right? With their <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">big</strong>¹ <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">round</strong>² eyes, <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">flat</strong> noses, <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">thick</strong> fur coat, and <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">hairy</strong> ears, these <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">cute</strong> creatures have become a <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">popular</strong> symbol of Australia. However, appearances can be deceptive.³ The koala at the zoo was very <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">fierce</strong>. Soon the thieves had <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">deep</strong> scratches from the koala’s <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">sharp</strong> claws,⁴ so they decided to steal something easier. They stole a crocodile instead!
+              </p>
+              <p>
+                Koalas are <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">interesting</strong> animals. A koala mother carries her baby, called a joey, in a <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">warm</strong> pouch, or pocket, on her stomach. Koalas eat only the <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">oily</strong> leaves of eucalyptus trees. These leaves are <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">harmful</strong> to many other animals, but koalas eat about two and a half pounds (just over one kilo) every night. The water content of these leaves is <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">high</strong>, so koalas do not drink very much. In fact, in one <strong class="text-slate-900 bg-amber-50 px-1 rounded font-sans">native</strong>⁵ Australian language the word koala means “no drink.”
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 bg-slate-50/70 p-3 rounded-xl space-y-1">
+              <p><strong>¹ big:</strong> large in size</p>
+              <p><strong>² round:</strong> shaped like a circle</p>
+              <p><strong>³ deceptive:</strong> causing someone to believe something that is not true</p>
+              <p><strong>⁴ claw:</strong> a sharp curved nail on the toe of an animal or bird</p>
+              <p><strong>⁵ native:</strong> belonging to a particular place by birth or natural origin</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK True / False -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l1-card">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                  CHECK. True or False? (Page 159)
+                </h4>
+                <span class="text-xs text-slate-400">Based on article</span>
+              </div>
+              <p class="text-xs text-slate-500">Read each statement. Select <strong>T</strong> or <strong>F</strong>:</p>
+
+              <div class="space-y-2 text-xs sm:text-sm">
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">1. The thieves went to the zoo to steal a crocodile.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">2. Koalas have small eyes.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">3. The koala at the zoo was very calm.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">4. Female koalas have a pouch for their babies.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="T">
+                  <span class="text-slate-700">5. Eucalyptus leaves are bad for many animals.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+
+                <div class="p-2.5 bg-slate-50 rounded-xl flex items-center justify-between tf-row" data-correct="F">
+                  <span class="text-slate-700">6. Eucalyptus leaves do not contain much water for koalas.</span>
+                  <div class="flex items-center gap-1 shrink-0 ml-2">
+                    <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                    <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                    <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkTFCard('ex2-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Adjective Positions -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l1-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Adjective Positions (Page 159)
+              </h4>
+              <p class="text-xs text-slate-500">Complete the sentences with words from the article, then identify grammar patterns:</p>
+
+              <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div>1. . . . , these <input type="text" data-ans="cute" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj"> creatures have become a <input type="text" data-ans="popular" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj"> symbol...</div>
+                <div>2. The koala at the zoo was <input type="text" data-ans="fierce" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj">.</div>
+                <div>3. Soon the thieves had <input type="text" data-ans="deep" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj"> scratches from the koala’s <input type="text" data-ans="sharp" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj"> claws.</div>
+                <div>4. These leaves are <input type="text" data-ans="harmful" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj"> to many other animals.</div>
+                <div>5. The <input type="text" data-ans="water" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun as adj"> content of these leaves is <input type="text" data-ans="high" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="adj">.</div>
+              </div>
+
+              <!-- Discover Rule Checkboxes -->
+              <div class="p-3 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 text-xs">
+                <span class="font-bold text-amber-950 block">An adjective can:</span>
+                <div class="space-y-1" id="ex3-l1-rules">
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" data-correct="true" class="rule-cb rounded text-amber-600 focus:ring-amber-500">
+                    <span>1. come before a noun (*cute creatures, deep scratches*)</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" data-correct="false" class="rule-cb rounded text-amber-600 focus:ring-amber-500">
+                    <span>2. come after a noun</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" data-correct="true" class="rule-cb rounded text-amber-600 focus:ring-amber-500">
+                    <span>3. come after a form of *be* (*was fierce, are harmful*)</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer">
+                    <input type="checkbox" data-correct="true" class="rule-cb rounded text-amber-600 focus:ring-amber-500">
+                    <span>4. look like a noun (*water content*)</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL1()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 6.1–6.3 & Exercises 4–11) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 6.1–6.3 & Exercises 4–11 (Pages 160–164)</span>
+        </div>
+
+        <!-- Row 1: Chart 6.1 & Exercise 4 & 5 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <!-- Chart 6.1 -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">6.1 Adjectives</h4>
+            <div class="text-xs space-y-2">
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Position:</strong> Before nouns (<em>a beautiful sunset</em>) or after linking verbs (<em>looks tired, smells delicious</em>).
+              </div>
+              <div class="p-2.5 bg-amber-50 rounded-xl border border-amber-200 text-amber-950">
+                <strong>No Plural Form:</strong> Adjectives do NOT take <em>-s</em> (✓ <em>ancient towns</em>, ✗ <em>ancients towns</em>).
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-200">
+                <strong>Articles:</strong> Use <em>a</em> before consonant sounds (<em>a unique experience</em>); <em>an</em> before vowel sounds (<em>an old apartment</em>).
+              </div>
+            </div>
+
+            <!-- Exercise 4: Identify Adjectives -->
+            <div class="pt-3 border-t border-slate-100 space-y-2" id="ex4-l1-card">
+              <span class="font-bold text-slate-900 text-xs flex items-center gap-1.5">
+                <span class="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px]">4</span>
+                Identify Adjectives in Sentences (Page 160)
+              </span>
+              <p class="text-[11px] text-slate-500">Select the adjective in each pair:</p>
+              <div class="space-y-1.5 text-xs">
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>1. Koalas have [thick] [fur].</span>
+                  <select data-ans="thick" class="select-check border rounded p-1 text-xs input-clean"><option value="">adjective</option><option value="thick">thick</option><option value="fur">fur</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>2. afraid of its [sharp] [claws].</span>
+                  <select data-ans="sharp" class="select-check border rounded p-1 text-xs input-clean"><option value="">adjective</option><option value="sharp">sharp</option><option value="claws">claws</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>3. Australian animals are [fascinating].</span>
+                  <select data-ans="fascinating" class="select-check border rounded p-1 text-xs input-clean"><option value="">adjective</option><option value="fascinating">fascinating</option><option value="animals">animals</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>4. The koala appeared [ill].</span>
+                  <select data-ans="ill" class="select-check border rounded p-1 text-xs input-clean"><option value="">adjective</option><option value="ill">ill</option><option value="koala">koala</option></select>
+                </div>
+                <div class="p-1.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                  <span>5. That crocodile looks [hungry].</span>
+                  <select data-ans="hungry" class="select-check border rounded p-1 text-xs input-clean"><option value="">adjective</option><option value="hungry">hungry</option><option value="crocodile">crocodile</option></select>
+                </div>
+              </div>
+              <button type="button" onclick="checkSelectCard('ex4-l1-card')" class="w-full py-1 rounded bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition mt-1">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 5: Unscramble Sentences -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              Unscramble Adjective Sentences (Pages 160–161)
+            </h4>
+            <p class="text-xs text-slate-500">Put the words in the correct order to make complete sentences:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">1. (looks / soft / the bear’s fur)</span>
+                <input type="text" data-ans="The bear's fur looks soft.,The bears fur looks soft" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">2. (crocodile / is / enormous / that / an)</span>
+                <input type="text" data-ans="That is an enormous crocodile.,That is an enormous crocodile" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">3. (have / strong / legs / kangaroos)</span>
+                <input type="text" data-ans="Kangaroos have strong legs.,Kangaroos have strong legs" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">4. (pandas / shy / are / animals)</span>
+                <input type="text" data-ans="Pandas are shy animals.,Pandas are shy animals" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">5. (has / exhibit / great / the zoo / a)</span>
+                <input type="text" data-ans="The zoo has a great exhibit.,The zoo has a great exhibit" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">6. (an / history / interesting / Australia / has)</span>
+                <input type="text" data-ans="Australia has an interesting history.,Australia has an interesting history" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Write sentence...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex5-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Chart 6.2 Nouns as Adjectives & Exercises 6 & 7 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 6: Rewrite with Noun as Adjective -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Use Nouns as Adjectives (Page 161)
+            </h4>
+            <p class="text-xs text-slate-500">Rewrite using the noun as an adjective (always singular):</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. My sister works as a nurse in a school: <input type="text" data-ans="My sister is a school nurse.,My sister is a school nurse" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. The scissors are in the drawer of my desk: <input type="text" data-ans="The scissors are in my desk drawer.,The scissors are in my desk drawer" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. I study the design of furniture: <input type="text" data-ans="I study furniture design.,I study furniture design" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. Her coat is leather: <input type="text" data-ans="She is wearing a leather coat.,She's wearing a leather coat,She is wearing a leather coat" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Have you seen the keys to my car?: <input type="text" data-ans="Have you seen my car keys?,Have you seen my car keys" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. This store sells computers: <input type="text" data-ans="This is a computer store.,This is a computer store" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. I need a bag for my groceries: <input type="text" data-ans="I need a grocery bag.,I need a grocery bag" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. This juice was made from oranges: <input type="text" data-ans="It's orange juice.,It is orange juice,It's orange juice" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-full mt-1 input-clean"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex6-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+
+          <!-- Exercise 7: Singular vs Plural Noun / Noun as Adjective -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Noun vs. Noun as Adjective (Pages 161–162)
+            </h4>
+            <p class="text-xs text-slate-500">Select the grammatically correct forms:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. I need to buy a new pair of <select data-ans="shoes" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="shoes">shoes</option><option value="shoe">shoe</option></select>. I know a very good <select data-ans="shoe" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="shoe">shoe</option><option value="shoes">shoes</option></select> store.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. Les enjoys watching <select data-ans="car" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="car">car</option><option value="cars">cars</option></select> races. He really likes fast <select data-ans="cars" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="cars">cars</option><option value="car">car</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. Kate is a <select data-ans="movie" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="movie">movie</option><option value="movies">movies</option></select> star. She’s been in a lot of great <select data-ans="movies" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="movies">movies</option><option value="movie">movie</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. Vince is a <select data-ans="mountain" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="mountain">mountain</option><option value="mountains">mountains</option></select> climber. He’s climbed seven <select data-ans="mountains" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="mountains">mountains</option><option value="mountain">mountain</option></select> this year.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Erin reads a lot of <select data-ans="books" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="books">books</option><option value="book">book</option></select>. Last month she started a <select data-ans="book" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="book">book</option><option value="books">books</option></select> club.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. Carl is a <select data-ans="restaurant" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="restaurant">restaurant</option><option value="restaurants">restaurants</option></select> manager. He manages three <select data-ans="restaurants" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="restaurants">restaurants</option><option value="restaurant">restaurant</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. My mother makes delicious <select data-ans="vegetable" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="vegetable">vegetable</option><option value="vegetables">vegetables</option></select> soup. She always uses fresh <select data-ans="vegetables" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="vegetables">vegetables</option><option value="vegetable">vegetable</option></select>.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. We live in a huge <select data-ans="apartment" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="apartment">apartment</option><option value="apartments">apartments</option></select> building. There are 300 <select data-ans="apartments" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="apartments">apartments</option><option value="apartment">apartment</option></select> in our building.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex7-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Chart 6.3 Adjective Order & Exercise 8 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 8: Put adjectives in order -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l1-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+              Adjective Word Order (Pages 162–163)
+            </h4>
+            <p class="text-xs text-slate-500">Order: <em>Opinion &rarr; Size &rarr; Age &rarr; Shape &rarr; Color &rarr; Origin &rarr; Material &rarr; Noun-Adj</em></p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">1. I live in a <input type="text" data-ans="big apartment" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="apartment / big"> building.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. There are two <input type="text" data-ans="good Mexican" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="Mexican / good"> restaurants.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. Dani keeps jewelry in a <input type="text" data-ans="round glass" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="round / glass"> box.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. Susi bought a <input type="text" data-ans="nice new winter" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="new / winter / nice"> coat.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Luke knows many <input type="text" data-ans="interesting historical" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 input-clean" placeholder="historical / interesting"> facts.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. The restaurant was in a <input type="text" data-ans="strange old stone" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-40 input-clean" placeholder="old / strange / stone"> building.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. Anita is wearing a <input type="text" data-ans="beautiful green silk" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-44 input-clean" placeholder="silk / beautiful / green"> scarf.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. We watched a <input type="text" data-ans="great old" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="old / great"> movie last night.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">9. The animal's claws are <input type="text" data-ans="long and sharp,long, sharp" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-32 input-clean" placeholder="long / sharp">.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">10. My town has many <input type="text" data-ans="beautiful, impressive modern,beautiful impressive modern" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-56 input-clean" placeholder="modern / impressive / beautiful"> buildings.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex8-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+            </div>
+          </div>
+
+          <!-- Exercise 9: Peacocks Conversation & Exercise 11: Noun Adjective Groups -->
+          <div class="lg:col-span-5 space-y-5">
+            
+            <!-- Exercise 9 -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l1-card">
+              <div class="flex items-center justify-between">
+                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+                  Peacocks Documentary Dialogue (Page 163)
+                </h4>
+                <span class="badge-cd">CD2-14</span>
+              </div>
+              <p class="text-xs text-slate-500">Use: <em>amazing, attractive, brown, colorful, favorite, green, nice, terrible</em></p>
+
+              <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200 leading-relaxed">
+                <p><strong>Petra:</strong> Peacocks are my (1) <input type="text" data-ans="favorite" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> kind of bird.</p>
+                <p><strong>Petra:</strong> I love their feathers. The colors are (2) <input type="text" data-ans="amazing" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean">!</p>
+                <p><strong>Alex:</strong> The males are very (3) <input type="text" data-ans="attractive" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean">, but females aren't.</p>
+                <p><strong>Alex:</strong> Their feathers aren't (4) <input type="text" data-ans="colorful" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean">; they're (5) <input type="text" data-ans="brown" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean">.</p>
+                <p><strong>Petra:</strong> The male has beautiful feathers, so he is (6) <input type="text" data-ans="attractive" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> to females.</p>
+                <p><strong>Alex:</strong> They certainly are interesting, but make a (7) <input type="text" data-ans="terrible" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> noise.</p>
+                <p><strong>Petra:</strong> Yes, he doesn't make a very (8) <input type="text" data-ans="nice" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean"> sound.</p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex9-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+              </div>
+            </div>
+
+            <!-- Exercise 10: Complete with Adjectives & Nouns (Page 164) -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-l1-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+                Word Order with Adjectives & Commas (Page 164)
+              </h4>
+              <p class="text-xs text-slate-500">Put the words in order. Add <em>a, an, and,</em> or a comma where necessary:</p>
+
+              <div class="space-y-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">1. (farm / common / animals)</span>
+                  <span class="font-medium text-slate-700">Cows are common farm animals.</span>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">2. Marta has (brown / long / hair)</span>
+                  <input type="text" data-ans="long, brown hair,long brown hair,long and brown hair" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">3. Paris is (exciting / city / interesting)</span>
+                  <input type="text" data-ans="an exciting, interesting city,an interesting, exciting city,an exciting and interesting city,an interesting and exciting city" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">4. Georgia is (person / friendly / kind)</span>
+                  <input type="text" data-ans="a kind, friendly person,a friendly, kind person,a kind and friendly person,a friendly and kind person" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">5. Pandas eat (leaves / green / small)</span>
+                  <input type="text" data-ans="small green leaves,small, green leaves" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">6. There was (black / scary / spider) in the kitchen.</span>
+                  <input type="text" data-ans="a scary, black spider,a scary black spider,a scary and black spider" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">7. We went to (shoe / new / store / wonderful)</span>
+                  <input type="text" data-ans="a wonderful new shoe store,a wonderful, new shoe store" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="text-slate-500 text-[10px] block">8. That restaurant has (food / delicious / Indian)</span>
+                  <input type="text" data-ans="delicious Indian food,delicious, Indian food" class="cloze-input border rounded px-2 py-0.5 text-xs w-full input-clean" placeholder="Type phrase...">
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex10-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+              </div>
+            </div>
+
+            <!-- Exercise 11: Noun as Adjective Matching -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex11-l1-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">11</span>
+                Match Nouns as Adjectives (Page 164)
+              </h4>
+              <p class="text-xs text-slate-500">Select the matching noun used as an adjective for each cluster:</p>
+
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ officer, station, car</span>
+                  <select data-ans="police" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="police">police</option><option value="fire">fire</option><option value="train">train</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ show, channel, star</span>
+                  <select data-ans="TV" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="TV">TV</option><option value="computer">computer</option><option value="phone">phone</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ class, museum, student</span>
+                  <select data-ans="art" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="art">art</option><option value="grocery">grocery</option><option value="TV">TV</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ call, company, number</span>
+                  <select data-ans="phone" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="phone">phone</option><option value="police">police</option><option value="computer">computer</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ bag, list, store</span>
+                  <select data-ans="grocery" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="grocery">grocery</option><option value="art">art</option><option value="train">train</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ program, game, system</span>
+                  <select data-ans="computer" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="computer">computer</option><option value="phone">phone</option><option value="TV">TV</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ alarm, department, truck</span>
+                  <select data-ans="fire" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="fire">fire</option><option value="police">police</option><option value="grocery">grocery</option></select>
+                </div>
+                <div class="p-2 bg-slate-50 rounded-lg">
+                  <span class="block text-slate-500 text-[10px]">_ schedule, station, ticket</span>
+                  <select data-ans="train" class="select-check border rounded p-1 text-xs w-full input-clean"><option value="">select</option><option value="train">train</option><option value="fire">fire</option><option value="art">art</option></select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex11-l1-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 11</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 3: LESSON 2 (Pages 165–171) -->
+    <!-- ============================================================ -->
+    <section id="tab-lesson2" class="tab-content hidden space-y-8">
+      
+      <!-- Header -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Lesson 2 • Pages 165–171</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Adverbs of Manner and Degree</h2>
+        </div>
+        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD2-15</span>
+      </div>
+
+      <!-- EXPLORE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+            <span class="text-sm font-bold text-slate-700">Reading & Direct Questions (Pages 165–166)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Reading "Moko—The Art of Maori Tattoos" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+              <div>
+                <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
+                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Moko—The Art of Maori Tattoos</h3>
+                <p class="text-xs text-slate-500">Cultural identity, memory, and sacred courage in New Zealand</p>
+              </div>
+              <span class="badge-cd">CD2-15</span>
+            </div>
+
+            <!-- Maori Moko Portrait Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://images.squarespace-cdn.com/content/v1/563bdbb0e4b0b249b09076eb/1525739446712-S6RWOJ2G7F3QL8ZELFOW/Ngahuia-Te-Awekotuku-with-book.jpg" 
+                  alt="Dr. Ngahuia Te Awekotuku with traditional Maori facial moko tattoo" 
+                  class="w-full h-auto max-h-[340px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/059669?text=Dr.+Ngahuia+Te+Awekotuku';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Dr. Ngahuia Te Awekotuku with her book *Mau Moko: The World of Maori Tattoo*</span>
+                <span class="text-emerald-400 font-semibold text-[11px]">p. 165</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                Dr. Ngahuia Te Awekotuku of New Zealand is a leading writer on Maori issues in New Zealand. On her chin and lips she <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">proudly</strong> wears a Maori tattoo, or <em>moko</em>. The purpose of her moko is to remember the Maori queen who died in 2006.
+              </p>
+              <p>
+                In the past, young Maori received moko when they became adults. It was an <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">extremely</strong> painful process. A sharp tool was used to cut the skin. People sat <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">quietly</strong> and <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">patiently</strong> to show their courage.
+              </p>
+              <p>
+                These days, a young Maori might get a moko to mark an achievement¹ such as getting on a sports team or passing an exam. Most young people choose to get a moko using <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">less</strong> painful methods than in earlier times.
+              </p>
+              <p>
+                Some people who are not Maori have also started to get moko. Some Maori don’t mind this, but others are not happy about it. For the Maori, moko remains a <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">very</strong> serious tradition.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+              <p><strong>¹ achievement:</strong> something that someone does successfully, usually as a result of much effort and hard work</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Questions 2 & 3 -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 2: CHECK Comprehension -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. Multiple Choice (Page 166)
+              </h4>
+              <p class="text-xs text-slate-500">Choose the correct answer based on the article:</p>
+
+              <div class="space-y-3 text-xs sm:text-sm">
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">1. How does Dr. Te Awekotuku feel about her tattoo? She:</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. doesn’t like it</option>
+                    <option value="b">b. is proud of it</option>
+                    <option value="c">c. doesn’t care about it</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">2. The main reason for Dr. Te Awekotuku’s moko is to:</span>
+                  <select data-ans="c" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. decorate her face</option>
+                    <option value="b">b. mark an achievement</option>
+                    <option value="c">c. honor someone’s memory</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">3. To show their courage when they received moko, young people used to:</span>
+                  <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. watch the sharp tool</option>
+                    <option value="b">b. remain calm</option>
+                    <option value="c">c. choose large designs</option>
+                  </select>
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1">
+                  <span class="font-medium text-slate-800">4. Some non-Maori people now get moko. The Maori people’s feelings are:</span>
+                  <select data-ans="c" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                    <option value="">Select answer...</option>
+                    <option value="a">a. negative</option>
+                    <option value="b">b. positive</option>
+                    <option value="c">c. mixed</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Adverb Placement -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Adverb Placement (Page 166)
+              </h4>
+              <p class="text-xs text-slate-500">Find these sentences in the article. Write the missing words:</p>
+
+              <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div>1. On her lips and chin she proudly <input type="text" data-ans="wears" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="verb"> a Maori tattoo.</div>
+                <div>2. People <input type="text" data-ans="sat" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="verb"> quietly and patiently to show their courage.</div>
+                <div class="pt-2 border-t border-slate-200 text-slate-700">
+                  <span class="font-bold block text-slate-900 mb-1">Grammar Rule Discovery:</span>
+                  An adverb of manner can come <select data-ans="before or after" class="select-check border rounded p-1 text-xs input-clean"><option value="">select position</option><option value="before or after">before or after the verb</option><option value="between verb and object">between the verb and object</option></select> they describe, but they do NOT go between a verb and its object.
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkSelectCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+              </div>
+            </div>
+
+            <!-- Exercise 3: DISCOVER Adverb Placement -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                DISCOVER. Adverb Placement (Page 166)
+              </h4>
+              <p class="text-xs text-slate-500">Complete the sentences from the article, then analyze adverb placement:</p>
+
+              <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                <div>1. On her lips and chin she <input type="text" data-ans="proudly wears" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-36 input-clean" placeholder="adverb + verb"> a Maori tattoo.</div>
+                <div>2. People sat <input type="text" data-ans="quietly and patiently" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-48 input-clean" placeholder="adverbs of manner"> to show their courage.</div>
+                <div class="pt-2 border-t border-slate-200 text-slate-700">
+                  <span class="font-bold block text-slate-900 mb-1">Grammar Rule Discovery:</span>
+                  Adverbs of manner can come <select data-ans="before or after" class="select-check border rounded p-1 text-xs input-clean"><option value="">select position</option><option value="before or after">before or after the verb</option><option value="between verb and object">between the verb and object</option></select> they describe, but they do NOT go between a verb and its object.
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkDiscoverL2()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- LEARN & PRACTICE (Charts 6.4–6.5 & Exercises 4–8) -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-600 text-white">LEARN & PRACTICE</span>
+          <span class="text-sm font-bold text-slate-700">Charts 6.4–6.5 & Exercises 4, 5, 6, 7, 8 (Pages 167–170)</span>
+        </div>
+
+        <!-- Row 1: Exercise 4 & Exercise 5 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 4: Form Adverbs -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Complete with Adverb Form (Page 167)
+            </h4>
+            <p class="text-xs text-slate-500">Form the adverb of manner from the adjective in parentheses:</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-1.5 bg-slate-50 rounded-lg">1. The professor wears her tattoo <input type="text" data-ans="proudly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> (proud).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">2. Young Maori sat <input type="text" data-ans="quietly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> (quiet).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">3. The process was painful, but they acted <input type="text" data-ans="bravely" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> (brave).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">4. They started the presentation <input type="text" data-ans="early" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> (early).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">5. She explained the history very <input type="text" data-ans="clearly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> (clear).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">6. He doesn’t speak Maori <input type="text" data-ans="well" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> (good).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">7. She answered all our questions <input type="text" data-ans="honestly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> (honest).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">8. I read her book <input type="text" data-ans="quickly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean"> (quick).</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">9. She thought very <input type="text" data-ans="hard" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> (hard) about her future.</div>
+              <div class="p-1.5 bg-slate-50 rounded-lg">10. He spoke very <input type="text" data-ans="fast" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean"> (fast). I didn’t understand everything.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+            </div>
+          </div>
+
+          <!-- Exercise 5: Position Adverbs of Manner -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              Position Adverbs of Manner (Pages 167–168)
+            </h4>
+            <p class="text-xs text-slate-500">Rewrite each sentence putting the adverb in the correct position:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">1. My brother doesn’t drive. (safe)</span>
+                <input type="text" data-ans="My brother doesn't drive safely.,My brother does not drive safely.,My brother doesn't drive safely" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">2. We worked last semester. (hard)</span>
+                <input type="text" data-ans="We worked hard last semester.,We worked hard last semester" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">3. Journalists write their reports. (quick)</span>
+                <input type="text" data-ans="Journalists write their reports quickly.,Journalists quickly write their reports.,Journalists write their reports quickly" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">4. Martina walked along the beach. (slow)</span>
+                <input type="text" data-ans="Martina walked slowly along the beach.,Martina walked along the beach slowly.,Martina walked slowly along the beach" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">5. The professor didn’t answer my question. (complete)</span>
+                <input type="text" data-ans="The professor didn't answer my question completely.,The professor did not answer my question completely.,The professor didn't answer my question completely" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">6. The mail arrived. (early)</span>
+                <input type="text" data-ans="The mail arrived early.,The mail arrived early" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">7. The children played in the yard. (happy)</span>
+                <input type="text" data-ans="The children played happily in the yard.,The children played in the yard happily.,The children played happily in the yard" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg">
+                <span class="text-slate-600 block">8. I held the baby. (gentle)</span>
+                <input type="text" data-ans="I held the baby gently.,I gently held the baby.,I held the baby gently" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type rewritten sentence...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex5-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Exercise 6 & Exercise 7 (Adverbs of Degree) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 6: Unscramble Adverbs of Degree -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Unscramble Adverbs of Degree (Pages 168–169)
+            </h4>
+            <p class="text-xs text-slate-500">Put the words in the correct order:</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">1. boring / sounds / Steven’s assignment / somewhat</span>
+                <input type="text" data-ans="Steven's assignment sounds somewhat boring.,Stevens assignment sounds somewhat boring" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">2. extremely / is / this song / popular</span>
+                <input type="text" data-ans="This song is extremely popular.,This song is extremely popular" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">3. expensive / quite / looked / Elsa’s shoes</span>
+                <input type="text" data-ans="Elsa's shoes looked quite expensive.,Elsas shoes looked quite expensive" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">4. ended / quickly / pretty / the discussion</span>
+                <input type="text" data-ans="The discussion ended pretty quickly.,The discussion ended pretty quickly" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">5. helpful / this software / very / seem / doesn’t</span>
+                <input type="text" data-ans="This software doesn't seem very helpful.,This software does not seem very helpful.,This software doesn't seem very helpful" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">6. tired / so / last night / I / was</span>
+                <input type="text" data-ans="I was so tired last night.,I was so tired last night" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">7. scary / really / was / that movie</span>
+                <input type="text" data-ans="That movie was really scary.,That movie was really scary" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg space-y-1">
+                <span class="text-slate-600 block">8. Russian / Liza / fairly / speaks / well</span>
+                <input type="text" data-ans="Liza speaks Russian fairly well.,Liza speaks Russian fairly well" class="cloze-input border rounded px-2 py-1 text-xs w-full input-clean" placeholder="Type sentence...">
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex6-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+
+          <!-- Exercise 7: Stronger vs Weaker Classification -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+              Stronger vs. Weaker Adverbs (Page 169)
+            </h4>
+            <p class="text-xs text-slate-500">Does the adverb make the underlined adjective/adverb <strong>Stronger</strong> or <strong>Weaker</strong>?</p>
+
+            <div class="space-y-1.5 text-xs">
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. The article was <strong>pretty</strong> <u>interesting</u>.</span>
+                <select data-ans="Weaker" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. The house was in <strong>really</strong> <u>poor</u> condition.</span>
+                <select data-ans="Stronger" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. Lee studied <strong>very</strong> <u>hard</u> for his exams.</span>
+                <select data-ans="Stronger" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. Andrea paints <strong>fairly</strong> <u>well</u>.</span>
+                <select data-ans="Weaker" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>5. I’m <strong>so</strong> <u>hungry</u>!</span>
+                <select data-ans="Stronger" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>6. The professor spoke <strong>somewhat</strong> <u>slowly</u>.</span>
+                <select data-ans="Weaker" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>7. Chen felt <strong>extremely</strong> <u>tired</u>.</span>
+                <select data-ans="Stronger" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+              <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>8. The store was <strong>quite</strong> <u>busy</u>.</span>
+                <select data-ans="Stronger" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Stronger">Stronger</option><option value="Weaker">Weaker</option></select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex7-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Exercise 8 Adjective vs Adverb Selection -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex8-l2-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">8</span>
+            Adjective vs. Adverb in Context (Pages 169–170)
+          </h4>
+          <p class="text-xs text-slate-500">Select the correct word for each sentence:</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div class="p-2 bg-slate-50 rounded-lg">1. Sally came into the room very <select data-ans="suddenly" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="sudden">sudden</option><option value="suddenly">suddenly</option></select>.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">2. I love your wedding photos! You both look so <select data-ans="happy" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="happy">happy</option><option value="happily">happily</option></select>.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">3. The children are working very <select data-ans="hard" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="hard">hard</option><option value="hardly">hardly</option></select> this semester.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">4. The team played extremely <select data-ans="well" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="good">good</option><option value="well">well</option></select> in the last game.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">5. The new boss spoke <select data-ans="proudly" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="proud">proud</option><option value="proudly">proudly</option></select> about his plans for the company.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">6. This pizza wasn’t <select data-ans="cheap" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="cheap">cheap</option><option value="cheaply">cheaply</option></select>, but it tastes <select data-ans="good" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="good">good</option><option value="well">well</option></select>.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">7. I spoke to the professor <select data-ans="quickly" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="quick">quick</option><option value="quickly">quickly</option></select>. He explained it very <select data-ans="clearly" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="clear">clear</option><option value="clearly">clearly</option></select>.</div>
+            <div class="p-2 bg-slate-50 rounded-lg">8. Mike had a <select data-ans="bad" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="bad">bad</option><option value="badly">badly</option></select> accident. He hurt his arm very <select data-ans="badly" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="bad">bad</option><option value="badly">badly</option></select>.</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex8-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+          </div>
+        </div>
+
+        <!-- Row 4: Exercise 9 & Exercise 10 (Page 170-171) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Exercise 9: A Person I Admire (Montana Grandfather) -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex9-l2-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+                A Person I Admire (Page 170)
+              </h4>
+              <span class="text-xs text-slate-400">Grandpa in Montana</span>
+            </div>
+            <p class="text-xs text-slate-500">Complete the text with the correct form of the word in parentheses (adjective or adverb):</p>
+
+            <div class="space-y-1.5 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed font-serif text-slate-700">
+              <p>I just got back from a really (1) <input type="text" data-ans="nice" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 font-sans input-clean"> (nice) visit with my grandfather in Montana. He used to live in Florida, but he has been living (2) <input type="text" data-ans="happily" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean"> (happy) in Montana for almost 20 years now. He celebrated his 82nd birthday this summer, and he looks (3) <input type="text" data-ans="terrific" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean"> (terrific).</p>
+              <p>He eats a (4) <input type="text" data-ans="healthy" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean"> (healthy) diet and exercises (5) <input type="text" data-ans="regularly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean"> (regular). He’s extremely (6) <input type="text" data-ans="active" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 font-sans input-clean"> (active) for his age. He hasn’t slowed down at all since I last saw him.</p>
+              <p>My grandfather also has a lot of hobbies and interests. For example, he plays the guitar really (7) <input type="text" data-ans="well" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 font-sans input-clean"> (good) and sings (8) <input type="text" data-ans="beautifully" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean"> (beautiful). When he was young, he was very (9) <input type="text" data-ans="curious" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 font-sans input-clean"> (curious) and loved to travel. He traveled (10) <input type="text" data-ans="frequently" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean"> (frequent), so he has some (11) <input type="text" data-ans="interesting" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 font-sans input-clean"> (interesting) stories. He’s a (12) <input type="text" data-ans="great" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 font-sans input-clean"> (great) storyteller, too! After a week with Grandpa, I didn’t want to leave!</p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex9-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            </div>
+          </div>
+
+          <!-- Exercise 10: Job Interview Email Edit & Advice (Page 170-171) -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex10-l2-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+                EDIT. Job Interview Advice Email (Page 170)
+              </h4>
+              <span class="badge-cd">CD2-16, 17</span>
+            </div>
+            <p class="text-xs text-slate-500">
+              Read Kevin's email. Click on each highlighted error in the text to enter the correct adjective or adverb form:
+            </p>
+
+            <!-- Interactive Email Passage with In-line Clickable Error Tokens -->
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 font-serif text-xs leading-relaxed space-y-2.5 text-slate-800">
+              <div class="font-sans font-semibold text-slate-600 border-b border-slate-200 pb-1.5 text-[11px] flex items-center justify-between">
+                <span>To: Jessica & Mark &lt;helpinghand@radio.org&gt;</span>
+                <span class="text-slate-400 font-mono text-[10px]">Subject: Job Interview Advice</span>
+              </div>
+              <p class="font-sans font-medium text-slate-700">Hi, Jessica and Mark,</p>
+              <p>
+                I need some advice. I had an interview for a job as a DJ at my local radio station, but I was 
+                <span class="line-through text-rose-500 decoration-rose-500 font-sans">unsuccessfully</span>
+                <strong class="text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-sans font-bold text-[11px]">unsuccessful</strong>. 
+                I’ve had a lot of experience as a DJ, and I work very hard. I wore a 
+                <span class="edit-token" id="token-k-1">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">new nice</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="nice new" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="nice new">
+                  </span>
+                </span> 
+                suit to the interview, and I felt pretty 
+                <span class="edit-token" id="token-k-2">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">confidently</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="confident" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="confident">
+                  </span>
+                </span> 
+                when I left my house.
+              </p>
+              <p>
+                Before the interview, I read some interview tips and techniques online. For example, one said, “Copy the interviewer’s movements 
+                <span class="edit-token" id="token-k-3">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">close</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="closely" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="closely">
+                  </span>
+                </span>.” 
+                Well, I tried that technique, but the interviewers didn’t seem to like it very much. Anyway, I didn’t get the job. Now I’m 
+                <span class="edit-token" id="token-k-4">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">real</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="really" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="really">
+                  </span>
+                </span> 
+                confused. I know I made a few mistakes in the interview, but nothing really bad. At first, I was 
+                <span class="edit-token" id="token-k-5">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">nervously</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="nervous" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="nervous">
+                  </span>
+                </span>, 
+                but that was because I arrived 
+                <span class="edit-token" id="token-k-6">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">lately</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="late" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="late">
+                  </span>
+                </span>. 
+                When the interview started, I spoke 
+                <span class="edit-token" id="token-k-7">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">loud</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="loudly" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="loudly">
+                  </span>
+                </span>, 
+                smiled frequently, and talked a lot—well, until they asked me to stop. Also, I didn’t ask any questions, but in general, I thought it went 
+                <span class="edit-token" id="token-k-8">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-amber-100 hover:bg-amber-200 text-amber-950 font-sans font-medium border-b-2 border-dashed border-amber-500 transition" title="Click to correct this error">good</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="well" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="well">
+                  </span>
+                </span>. 
+                Where did I go wrong? Thanks,
+              </p>
+              <p class="font-sans font-semibold text-slate-700 pt-1">Kevin in Ohio</p>
+            </div>
+
+            <!-- Radio Expert Advice Checklist (Page 171) -->
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 space-y-1 text-xs">
+              <strong class="text-emerald-950 block font-bold">Helping Hand Radio Show Advice (CD2-17):</strong>
+              <div class="grid grid-cols-2 gap-1.5 text-[11px] text-emerald-900">
+                <div>• Suit: <span class="font-bold text-rose-700">Bad choice</span> (for DJ, dress appropriately)</div>
+                <div>• Arrived late: <span class="font-bold text-rose-700">Bad</span></div>
+                <div>• Copied interviewers: <span class="font-bold text-rose-700">Bad</span></div>
+                <div>• Spoke loudly: <span class="font-bold text-rose-700">Bad</span></div>
+                <div>• Smiled frequently: <span class="font-bold text-emerald-700">Good</span></div>
+                <div>• Didn't ask questions: <span class="font-bold text-rose-700">Bad</span></div>
+              </div>
+            </div>
+
+            <!-- Action buttons: Click Check to validate all answers -->
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="revealAllEdits('ex10-l2-card')" class="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition">Open All Blanks</button>
+                <button type="button" onclick="checkEditParagraph('ex10-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 10</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 4: REVIEW THE GRAMMAR (Pages 172–173) -->
+    <!-- ============================================================ -->
+    <section id="tab-review" class="tab-content hidden space-y-6">
+      
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Review the Grammar • Pages 172–173</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Unit 6 Comprehensive Review</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Adjectives & Adverbs Synthesis</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Exercise 1: Neil & Junko Conversation -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex1-rev-card">
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
+            College Grades Dialogue (Page 172)
+          </h4>
+          <p class="text-xs text-slate-500">Choose the grammatically correct word for each blank:</p>
+
+          <div class="space-y-2 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed font-serif text-slate-700">
+            <p><strong>Neil:</strong> My sister sounded (1) <select data-ans="unhappy" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="unhappy">unhappy</option><option value="unhappily">unhappily</option></select> on the phone last night.</p>
+            <p><strong>Junko:</strong> Oh, what was the matter?</p>
+            <p><strong>Neil:</strong> Well, I think she is a little (2) <select data-ans="angry" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="angry">angry</option><option value="angrily">angrily</option></select> about her grades at college.</p>
+            <p><strong>Junko:</strong> Are they really (3) <select data-ans="bad" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="bad">bad</option><option value="badly">badly</option></select>?</p>
+            <p><strong>Neil:</strong> I don’t know. My sister works very (4) <select data-ans="hard" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="hard">hard</option><option value="hardly">hardly</option></select> and does all of her assignments (5) <select data-ans="carefully" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="careful">careful</option><option value="carefully">carefully</option></select>. She is an extremely (6) <select data-ans="good" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="good">good</option><option value="well">well</option></select> student.</p>
+            <p><strong>Junko:</strong> So, what happened?</p>
+            <p><strong>Neil:</strong> Well, her math exam didn’t go (7) <select data-ans="well" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="good">good</option><option value="well">well</option></select>. She didn’t fail it (8) <select data-ans="completely" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="complete">complete</option><option value="completely">completely</option></select>, but she didn’t get a (9) <select data-ans="very" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="pretty">pretty</option><option value="very">very</option></select> good grade. When she took the exam, she didn’t feel (10) <select data-ans="very" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="very">very</option><option value="somewhat">somewhat</option></select> confident.</p>
+            <p><strong>Junko:</strong> That’s too bad.</p>
+            <p><strong>Neil:</strong> I know, but she’s (11) <select data-ans="smart and studious" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="smart, studious">smart, studious</option><option value="smart and studious">smart and studious</option></select>. I’m sure she will become (12) <select data-ans="successful" class="select-check border rounded p-1 text-xs font-sans input-clean"><option value="">select</option><option value="successful">successful</option><option value="successfully">successfully</option></select> in the long run.</p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex1-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 1</button>
+          </div>
+        </div>
+
+        <!-- Exercise 2: EDIT Venus the Two-Faced Cat -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-rev-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+              EDIT. Venus, the Two-Faced Cat (Page 172)
+            </h4>
+            <span class="text-xs text-slate-400">Click highlighted errors to correct</span>
+          </div>
+          <p class="text-xs text-slate-500">
+            Read the article about Venus. Click each highlighted error directly in the paragraph to enter the correction:
+          </p>
+
+          <!-- Authentic Article Container with Venus Photo -->
+          <div class="bg-slate-50 rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+            <div class="relative w-full bg-slate-950">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Venus_the_two-faced_cat.jpg/640px-Venus_the_two-faced_cat.jpg" 
+                alt="Venus the two-faced cat with split black and orange face" 
+                class="w-full h-44 sm:h-52 object-cover object-center block"
+                onerror="this.onerror=null; this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONqW3Xt5CeWyi0pCpN0c59ktPb8aCOd7-wVB0TF0FMwTkAtOG1-gBmLw&s=10';"
+              />
+              <div class="p-2 bg-slate-900 text-slate-300 text-[11px] flex items-center justify-between border-t border-slate-800">
+                <span>▲ Venus’s face is evenly divided into two colors.</span>
+                <span class="text-purple-400 font-semibold font-mono">p. 172</span>
+              </div>
+            </div>
+
+            <!-- In-line paragraph text with interactive tokens -->
+            <div class="p-4 font-serif text-xs text-slate-800 leading-relaxed space-y-2.5">
+              <h5 class="text-base font-bold font-sans text-purple-950">Venus, the Two-Faced Cat</h5>
+              <p>
+                Venus is a 
+                <span class="line-through text-rose-500 decoration-rose-500 font-sans">pet famous</span> 
+                <strong class="text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded font-sans font-bold text-[11px]">famous pet</strong> 
+                cat. She even has her own social networking page. She has also appeared on national TV.
+              </p>
+              <p>
+                Many people are interested in Venus because she has 
+                <span class="edit-token" id="token-v-1">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">a</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="an" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="an">
+                  </span>
+                </span> 
+                unusual appearance, as you can see! One half of her face is black with 
+                <span class="edit-token" id="token-v-2">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">an</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="a" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-16 input-clean" placeholder="a">
+                  </span>
+                </span> 
+                green eye, and the other half has 
+                <span class="edit-token" id="token-v-3">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">stripes orange</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="orange stripes" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="orange stripes">
+                  </span>
+                </span> 
+                and a blue eye. How does something like this happen?
+              </p>
+              <p>
+                According to Leslie Lyons, a professor at the University of California, Davis, cats like Venus are 
+                <span class="edit-token" id="token-v-4">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">extreme</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="extremely" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="extremely">
+                  </span>
+                </span> 
+                rare. Cats with orange and 
+                <span class="edit-token" id="token-v-5">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">blacks</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="black" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="black">
+                  </span>
+                </span> 
+                coats are not unusual. However, cats with different colored eyes are 
+                <span class="edit-token" id="token-v-6">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">unusually</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="unusual" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="unusual">
+                  </span>
+                </span>. 
+                This means Professor Lyons is much more interested in the real mystery about Venus: her 
+                <span class="edit-token" id="token-v-7">
+                  <button type="button" onclick="toggleEditInput(this)" class="token-word cursor-pointer px-1.5 py-0.5 rounded bg-purple-100 hover:bg-purple-200 text-purple-950 font-sans font-medium border-b-2 border-dashed border-purple-500 transition" title="Click to correct this error">blue beautiful</button>
+                  <span class="edit-input-wrap hidden inline-flex items-center gap-1 font-sans">
+                    <input type="text" data-ans="beautiful blue" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="beautiful blue">
+                  </span>
+                </span> 
+                eye.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom toolbar for Venus check -->
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="revealAllEdits('ex2-rev-card')" class="px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-100 text-slate-700 font-bold text-xs transition">Open All Blanks</button>
+              <button type="button" onclick="checkEditParagraph('ex2-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 3: LISTEN & SPEAK - Bowerbirds (CD2-18) Page 173 -->
+        <div class="lg:col-span-12 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-4" id="ex3-rev-card">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+                LISTEN & SPEAK. Bowerbirds (Page 173)
+              </h4>
+              <p class="text-xs text-slate-500">Listen to the conversation about bowerbirds. Choose the correct answer for each question:</p>
+            </div>
+            <span class="badge-cd">CD2-18</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+              <span class="font-medium text-slate-800 block">1. What did Ken think of the film?</span>
+              <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                <option value="">Select answer...</option>
+                <option value="a">a. It was fairly interesting.</option>
+                <option value="b">b. It was very interesting.</option>
+              </select>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+              <span class="font-medium text-slate-800 block">2. Why did Ken watch the whole film right away?</span>
+              <select data-ans="a" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                <option value="">Select answer...</option>
+                <option value="a">a. He thought the photography was good.</option>
+                <option value="b">b. He wanted to watch it alone.</option>
+              </select>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+              <span class="font-medium text-slate-800 block">3. Why do male bowerbirds build bowers?</span>
+              <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                <option value="">Select answer...</option>
+                <option value="a">a. to prove their strength</option>
+                <option value="b">b. to attract females</option>
+              </select>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+              <span class="font-medium text-slate-800 block">4. The three bowerbirds’ stages looked:</span>
+              <select data-ans="b" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                <option value="">Select answer...</option>
+                <option value="a">a. similar</option>
+                <option value="b">b. different</option>
+              </select>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl space-y-1.5 md:col-span-2">
+              <span class="font-medium text-slate-800 block">5. What does Marion say about the stage made of garbage?</span>
+              <select data-ans="a" class="select-check border rounded p-1.5 text-xs w-full bg-white input-clean">
+                <option value="">Select answer...</option>
+                <option value="a">a. That sounds terrible!</option>
+                <option value="b">b. That sounds terribly!</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <button type="button" onclick="checkSelectCard('ex3-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TAB 5: CONNECT TO WRITING (Pages 174–175) -->
+    <!-- ============================================================ -->
+    <section id="tab-writing" class="tab-content hidden space-y-8">
+      
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Writing Focus • Pages 174–175</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Connect the Grammar to Writing: Descriptive Paragraph</h2>
+        </div>
+        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Model & Word Choice Focus</span>
+      </div>
+
+      <!-- READ & NOTICE (SPLIT-VIEW) -->
+      <div class="space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ & NOTICE</span>
+            <span class="text-sm font-bold text-slate-700">Model Text & Adjective/Adverb Selection (Pages 174–175)</span>
+          </div>
+          <span class="text-xs text-slate-500 font-medium bg-amber-100 text-amber-800 px-2 py-0.5 rounded">
+            Split-View: Model (Left) ↔ Writing Focus & Analysis (Right)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- LEFT PANE: Model Reading "The Yellow-Tailed Woolly Monkey" -->
+          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+            <div class="border-b border-slate-100 pb-3">
+              <span class="text-xs font-semibold px-2 py-0.5 bg-amber-100 text-amber-800 rounded">MODEL READING</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">The Yellow-Tailed Woolly Monkey</h3>
+              <p class="text-xs text-slate-500">Yellow-tailed woolly monkey, Alto Mayo, Amazonas, Peru</p>
+            </div>
+
+            <!-- Woolly Monkey Photo -->
+            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+              <div class="relative w-full bg-slate-950 flex items-center justify-center">
+                <img 
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/89/Cola_amarilla.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" 
+                  alt="The endangered yellow-tailed woolly monkey in Peru" 
+                  class="w-full h-auto max-h-[360px] object-contain mx-auto block transition duration-500 group-hover:scale-[1.01]"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/d97706?text=Yellow-Tailed+Woolly+Monkey';"
+                />
+              </div>
+              <div class="p-2.5 bg-slate-900 text-xs flex items-center justify-between text-slate-300 border-t border-slate-800">
+                <span class="font-medium text-white text-[11px]">Yellow-Tailed Woolly Monkey (*Lagothrix flavicauda*) • Peru</span>
+                <span class="text-amber-400 font-semibold text-[11px]">p. 174</span>
+              </div>
+            </div>
+
+            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+              <p>
+                The yellow-tailed woolly monkey is a <strong>very rare</strong> animal. It has <strong>thick brown</strong> fur and <strong>white</strong> hair around its mouth. The monkey is named for the <strong>bright yellow</strong> fur underneath its <strong>long, curled</strong> tail. These monkeys live in a <strong>small</strong> area in the <strong>high</strong> mountains of Peru. With their <strong>long</strong> arms and legs and <strong>powerful</strong> tail, they move <strong>quickly</strong> through the forests.
+              </p>
+              <p>
+                Unfortunately, these monkeys have lost a lot of their <strong>natural</strong> habitat. <strong>Farms</strong> and <strong>cattle</strong> ranches¹ are some of the reasons for this. People are now working <strong>hard</strong> to protect these <strong>amazing</strong> animals.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 text-xs text-slate-500 bg-slate-50/70 p-3 rounded-xl">
+              <p><strong>¹ ranch:</strong> a large farm used for keeping animals</p>
+            </div>
+          </div>
+
+          <!-- RIGHT PANE: Writing Focus & Analysis -->
+          <div class="lg:col-span-6 space-y-5">
+            
+            <!-- Exercise 1C: Chart with Woolly Monkey Info -->
+            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-analysis-card">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1C</span>
+                Complete the Chart with Information from Exercise 1A (Page 174)
+              </h4>
+              <p class="text-xs text-slate-500">Write adjectives or adverbs and the words they describe:</p>
+
+              <div class="space-y-3 text-xs">
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                  <span class="font-bold text-slate-800">Appearance:</span>
+                  <div class="text-slate-600 text-[11px] mb-1">thick brown fur, white hair around mouth, bright yellow fur, long curled tail</div>
+                  <input type="text" data-ans="white hair,bright yellow fur,long curled tail,long, curled tail" class="cloze-input border rounded p-1.5 text-xs w-full bg-white input-clean" placeholder="Type other appearance features from text...">
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                  <span class="font-bold text-slate-800">Habitat (where it lives):</span>
+                  <div class="text-slate-600 text-[11px] mb-1">small area, high mountains, natural habitat, cattle ranches</div>
+                  <input type="text" data-ans="high mountains,natural habitat,cattle ranches,farms and cattle ranches" class="cloze-input border rounded p-1.5 text-xs w-full bg-white input-clean" placeholder="Type habitat features from text...">
+                </div>
+
+                <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                  <span class="font-bold text-slate-800">Movements or Behavior:</span>
+                  <div class="text-slate-600 text-[11px] mb-1">move quickly through the forests, working hard to protect</div>
+                  <input type="text" data-ans="move quickly,working hard,move quickly through the forests,working hard to protect" class="cloze-input border rounded p-1.5 text-xs w-full bg-white input-clean" placeholder="Type movements or behavior features from text...">
+                </div>
+              </div>
+
+              <!-- Writing Tip Box -->
+              <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-950 text-xs space-y-1">
+                <strong class="text-amber-900 block font-bold">WRITING FOCUS: Using Adjectives and Adverbs (Page 175)</strong>
+                <p>Good writers use adjectives and adverbs to make their writing more interesting, but choose words carefully and do not use too many adjectives or adverbs.</p>
+                <div class="text-[11px] text-slate-600 mt-1 italic">
+                  Compare: "With their big long arms and strong legs and powerful curled tail, they move quickly and gracefully through the beautiful thick Peruvian forests." (Too cluttered!)
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span class="ex-score text-xs font-bold text-slate-500"></span>
+                <button type="button" onclick="checkClozeCard('ex-analysis-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Chart</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAFT & SELF ASSESS -->
+      <div class="space-y-6 pt-4 border-t border-slate-200">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-amber-600 text-white">WRITING WORKBENCH</span>
+          <span class="text-sm font-bold text-slate-700">Write a Description of an Animal (Pages 174–175)</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Draft Textarea -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+              YOUR PARAGRAPH: DESCRIBE AN ANIMAL OR CREATURE
+            </h4>
+            <p class="text-xs text-slate-500">Write two paragraphs about an animal. Use the information from your chart and the text in exercise 1A to help you:</p>
+            
+            <textarea id="studentEssay" rows="8" placeholder="The snow leopard is an extremely rare big cat that lives in the high, rugged mountains of Central Asia. It has thick smoky-gray fur with dark circular patterns that camouflage it perfectly against the rocky landscape. Its wide paws function like natural snowshoes, allowing it to walk effortlessly across deep snow. Snow leopards move quietly through steep cliffs while hunting mountain goats..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-amber-400 leading-relaxed"></textarea>
+
+            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+              <span id="wordCount">0 words written</span>
+              <button onclick="copyEssayText()" class="font-semibold text-slate-700 hover:text-amber-600 underline">Copy Paragraph</button>
+            </div>
+          </div>
+
+          <!-- Self-Assessment Checklist -->
+          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              SELF ASSESS (Page 175 Checklist)
+            </h4>
+            <p class="text-xs text-slate-500">Read your text. Underline the adjectives and adverbs. Then use the checklist to assess your work:</p>
+
+            <div class="space-y-2 text-xs">
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-600 focus:ring-amber-500">
+                <span class="text-slate-700">I used <strong>adjectives correctly</strong>. [6.1–6.3]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-600 focus:ring-amber-500">
+                <span class="text-slate-700">I used <strong>adverbs correctly</strong>. [6.4, 6.5]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-600 focus:ring-amber-500">
+                <span class="text-slate-700">I used the <strong>correct word order</strong> with adjectives and adverbs. [6.3, 6.4]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-600 focus:ring-amber-500">
+                <span class="text-slate-700">I used adjectives and adverbs to <strong>add interest</strong> to my writing. [WRITING FOCUS]</span>
+              </label>
+              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-amber-600 focus:ring-amber-500">
+                <span class="text-slate-700">I <strong>chose my adjectives and adverbs carefully</strong>. [WRITING FOCUS]</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-amber-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 6: Appearances and Behavior</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('border-amber-400', 'text-amber-400', 'bg-slate-800/50');
+          btn.classList.remove('border-transparent', 'text-slate-300');
+        } else {
+          btn.classList.remove('border-amber-400', 'text-amber-400', 'bg-slate-800/50');
+          btn.classList.add('border-transparent', 'text-slate-300');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Helper: Remove badge
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) {
+        next.remove();
+      }
+    }
+
+    // True/False selection
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-amber-500', 'text-white', 'border-amber-600', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-amber-500', 'text-white', 'border-amber-600', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    // Check True/False Card
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-amber-500', 'border-amber-600');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-amber-500', 'border-amber-600');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Select / Dropdown Card
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          sel.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Cloze Input Card
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+          input.insertAdjacentElement('afterend', badge);
+          return;
+        }
+
+        const isMatch = expectedList.some(exp => {
+          if (rawVal === exp) return true;
+          if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+          if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+          return false;
+        });
+
+        if (isMatch) {
+          correctCount++;
+          input.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${primaryAns}</strong>`;
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) {
+        scoreEl.textContent = `Score: ${correctCount}/${total}`;
+      }
+    }
+
+    // Check Discover in Lesson 1 (Inputs + Checkboxes)
+    function checkDiscoverL1() {
+      checkClozeCard('ex3-l1-card');
+      const container = document.getElementById('ex3-l1-rules');
+      if (container) {
+        container.querySelectorAll('.rule-cb').forEach(cb => {
+          const isCorrect = cb.getAttribute('data-correct') === 'true';
+          const parent = cb.closest('label');
+          if (cb.checked === isCorrect) {
+            parent.classList.remove('text-rose-700', 'bg-rose-50');
+            parent.classList.add('text-emerald-700', 'bg-emerald-50');
+          } else {
+            parent.classList.remove('text-emerald-700', 'bg-emerald-50');
+            parent.classList.add('text-rose-700', 'bg-rose-50');
+          }
+        });
+      }
+    }
+
+    // Check Discover in Lesson 2 (Inputs + Selects)
+    function checkDiscoverL2() {
+      checkClozeCard('ex3-l2-card');
+      checkSelectCard('ex3-l2-card');
+    }
+
+    // Toggle individual in-paragraph edit token into an active input
+    function toggleEditInput(btn) {
+      const parent = btn.closest('.edit-token');
+      if (!parent) return;
+      btn.classList.add('hidden');
+      const inputWrap = parent.querySelector('.edit-input-wrap');
+      if (inputWrap) {
+        inputWrap.classList.remove('hidden');
+        const input = inputWrap.querySelector('input');
+        if (input) input.focus();
+      }
+    }
+
+    // Reveal all edit inputs at once in a paragraph
+    function revealAllEdits(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      card.querySelectorAll('.edit-token').forEach(token => {
+        const btn = token.querySelector('.token-word');
+        const inputWrap = token.querySelector('.edit-input-wrap');
+        if (btn) btn.classList.add('hidden');
+        if (inputWrap) inputWrap.classList.remove('hidden');
+      });
+    }
+
+    // Check all edit inputs inside an in-paragraph card
+    function checkEditParagraph(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      // Ensure all edit wrappers are revealed so inputs are visible
+      revealAllEdits(cardId);
+      // Run the standard cloze checker across the card
+      checkClozeCard(cardId);
+    }
+
+    // Reset All Exercises
+    function resetEntirePage() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+
+      document.querySelectorAll('.edit-token').forEach(token => {
+        const btn = token.querySelector('.token-word');
+        const inputWrap = token.querySelector('.edit-input-wrap');
+        if (btn) btn.classList.remove('hidden');
+        if (inputWrap) inputWrap.classList.add('hidden');
+      });
+
+      document.querySelectorAll('.rule-cb').forEach(cb => {
+        cb.checked = false;
+        const parent = cb.closest('label');
+        if (parent) parent.classList.remove('text-emerald-700', 'bg-emerald-50', 'text-rose-700', 'bg-rose-50');
+      });
+
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-amber-500', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'border-emerald-600', 'border-rose-600', 'border-amber-600', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+
+      const essay = document.getElementById('studentEssay');
+      if (essay) essay.value = '';
+      const wc = document.getElementById('wordCount');
+      if (wc) wc.textContent = '0 words written';
+    }
+
+    // Live Word Counter
+    const essayBox = document.getElementById('studentEssay');
+    const wordCountDisplay = document.getElementById('wordCount');
+    if (essayBox && wordCountDisplay) {
+      essayBox.addEventListener('input', () => {
+        const text = essayBox.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        wordCountDisplay.textContent = `${count} word${count === 1 ? '' : 's'} written`;
+      });
+    }
+
+    // Copy Essay Text
+    function copyEssayText() {
+      const textarea = document.getElementById('studentEssay');
+      if (!textarea || !textarea.value.trim()) return;
+      textarea.select();
+      document.execCommand('copy');
+      const countEl = document.getElementById('wordCount');
+      if (countEl) {
+        const prev = countEl.textContent;
+        countEl.textContent = 'Copied to clipboard!';
+        setTimeout(() => { countEl.textContent = prev; }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar Explorer 2 — Unit 2: Lesson 3 (Past Time Clauses with When and While)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['Lora', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f0f9ff; }
+    ::-webkit-scrollbar-thumb { background: #bae6fd; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #7dd3fc; }
+    .reader-card { box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03); }
+    .sticky-reading { position: sticky; top: 5rem; max-height: calc(100vh - 6.5rem); overflow-y: auto; }
+    .badge-cd { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.2rem 0.5rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; background-color: #f0f9ff; color: #0369a1; border: 1px solid #e0f2fe; }
+    .input-clean { transition: all 0.2s ease-in-out; }
+    .input-correct { border-color: #10b981 !important; background-color: #ecfdf5 !important; color: #065f46 !important; }
+    .input-incorrect { border-color: #f43f5e !important; background-color: #fff1f2 !important; color: #9f1239 !important; }
+    .answer-badge { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; padding: 0.15rem 0.45rem; border-radius: 0.375rem; margin-left: 0.35rem; margin-top: 0.15rem; margin-bottom: 0.15rem; vertical-align: middle; animation: fadeInBadge 0.2s ease-out; }
+    .answer-badge-correct { background-color: #ecfdf5; color: #047857; border: 1px solid #6ee7b7; }
+    .answer-badge-incorrect { background-color: #fff1f2; color: #9f1239; border: 1px solid #fecdd3; }
+    @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  </style>
+</head>
+<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-sky-100 selection:text-sky-900">
+
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-2.5 h-8 bg-sky-400 rounded-sm shadow-sm"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-bold tracking-widest text-sky-400 uppercase">National Geographic Learning</span>
+              <span class="text-xs bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono">GE2 U2 • Lesson 3</span>
+            </div>
+            <h1 class="text-base sm:text-lg font-bold text-white tracking-tight leading-tight">
+              Unit 2: Survival <span class="text-slate-500 font-light">|</span> <span class="text-sky-400">Lesson 3: Past Time Clauses</span>
+            </h1>
+          </div>
+        </div>
+
+        <button onclick="resetLesson3()" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 hover:border-sky-400 text-slate-300 hover:text-white transition flex items-center gap-1.5 bg-slate-800/90 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>Reset Lesson</span>
+        </button>
+      </div>
+
+      <!-- EXERCISE TAB NAVIGATION -->
+      <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
+        <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-sky-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
+          <span class="w-5 h-5 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
+          <span>Explore: Avalanche (pp. 39–40)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex4')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
+          <span>Ex 4: When vs. While (p. 41)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex5-7')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex5-7">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">5–7</span>
+          <span>Ex 5–7: Sequential Events (pp. 42–43)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex8')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex8">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">8</span>
+          <span>Ex 8: Chile Mine Rescue (pp. 43–44)</span>
+        </button>
+        <button onclick="switchExTab('tab-ex9')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex9">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">9</span>
+          <span>Ex 9: Shackleton's Endurance (pp. 44–45)</span>
+        </button>
+        <button onclick="switchExTab('tab-apply')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-apply">
+          <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">10</span>
+          <span>Ex 10 & Apply: Accident Story (p. 45)</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 1: EXPLORE (Reading & Exercises 2–3, Pages 39–40) -->
+    <!-- ============================================================ -->
+    <div id="tab-explore" class="ex-tab-pane block space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Explore • Pages 39–40</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Surviving an Avalanche</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Split-view: Jimmy Chin's mountain escape on the left, Comprehension & Discover tasks on the right</p>
+        </div>
+        <span class="badge-cd">Track CD1-11</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- LEFT PANE: Sticky Reading -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <div>
+              <span class="text-xs font-semibold px-2 py-0.5 bg-sky-100 text-sky-800 rounded">1. READ</span>
+              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Surviving an Avalanche</h3>
+              <p class="text-xs text-slate-500">Jimmy Chin in the Teton Mountains</p>
+            </div>
+            <span class="badge-cd">CD1-11</span>
+          </div>
+
+          <div class="flex justify-center my-3">
+            <div class="w-full max-w-[320px] sm:max-w-[380px] aspect-[16/10] relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-950 shadow-md group">
+              <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7OM42MgxsNE3d_H2px9eRSv6grHo4NYpm1e-bbhWrxanG4CQysdKpoHw&s=10" 
+                alt="Avalanche survival in the mountains" 
+                class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
+                onerror="this.onerror=null; this.src='https://placehold.co/700x440/0284c7/e0f2fe?text=Jimmy+Chin+%E2%80%A2+Avalanche+Survival';"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-3 left-3 right-3 text-white text-[11px] flex items-center justify-between">
+                <span class="font-medium bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">Teton Mountains • Class 4 Avalanche</span>
+                <span class="text-sky-300 font-mono text-[10px]">p. 39</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+            <p>
+              Jimmy Chin is one of the few people to survive a Class 4 avalanche—an avalanche big enough to destroy buildings. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">In 2011, while he was skiing in the Teton Mountains,</strong> an avalanche started behind him. Chin was going down the mountain <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">when, in his own words, “the whole mountainside came down.”</strong>
+            </p>
+            <p>
+              The avalanche buried Chin under tons of snow and carried him downhill. Halfway down, the rolling snow threw him to the surface. However, Chin was not safe. <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">When he looked up, trees were snapping all around him.</strong> The snow was still moving fast. Soon the avalanche buried him again.
+            </p>
+            <p>
+              “I knew I was going to the bottom of the valley,” he remembers. Amazingly,¹ <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">when the avalanche reached the bottom of the mountain, Chin was pushed to the surface!</strong> He was alive and on top of the snow <strong class="text-slate-900 bg-sky-50 px-1 rounded font-sans">when his very surprised friends reached the bottom of the valley.</strong>
+            </p>
+            <p>
+              After this experience, Chin took a month off from work. “It’s important to do what’s meaningful to you,” he says. “You don’t want to take your time for granted.”²
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+            <p><strong>¹ amazingly:</strong> (very) surprisingly</p>
+            <p><strong>² take something for granted:</strong> not be grateful enough for something</p>
+          </div>
+        </div>
+
+        <!-- RIGHT PANE: Exercise 2 & Exercise 3 -->
+        <div class="lg:col-span-6 space-y-5">
+          <!-- Exercise 2: CHECK True / False -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l3-card">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+                CHECK. True or False? (Page 40)
+              </h4>
+              <span class="text-xs text-slate-400">Based on "Surviving an Avalanche"</span>
+            </div>
+            <p class="text-xs text-slate-500">Read each statement. Select <strong>T</strong> or <strong>F</strong>, then check:</p>
+
+            <div class="space-y-2.5">
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                <span class="text-slate-700">1. A Class 1 avalanche can destroy buildings.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                <span class="text-slate-700">2. Jimmy Chin was skiing alone in the Tetons.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                <span class="text-slate-700">3. The avalanche buried Chin at first.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="F">
+                <span class="text-slate-700">4. Chin’s friends had to dig him out of the snow.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl flex items-center justify-between text-xs sm:text-sm tf-row" data-correct="T">
+                <span class="text-slate-700">5. Chin decided to take a break after this experience.</span>
+                <div class="flex items-center gap-1 shrink-0 ml-2">
+                  <button type="button" onclick="selectTF(this, 'T')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">T</button>
+                  <button type="button" onclick="selectTF(this, 'F')" class="tf-btn px-3 py-1 rounded text-xs font-bold border border-slate-300 bg-white hover:bg-slate-100 transition">F</button>
+                  <span class="status-icon hidden ml-1 font-bold text-xs"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkTFCard('ex2-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
+            </div>
+          </div>
+
+          <!-- Exercise 3: DISCOVER Time Clauses -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+              DISCOVER. Event That Started First (Page 40)
+            </h4>
+            <p class="text-xs text-slate-500">Select which action in each sentence was in progress / started first:</p>
+
+            <div class="space-y-3 text-xs">
+              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                <div class="text-slate-800 font-medium">1. In 2011, while he was skiing in the Teton Mountains, an avalanche started behind him:</div>
+                <select data-ans="was skiing" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
+                  <option value="">Which event started first?</option>
+                  <option value="was skiing">was skiing (started first / in progress)</option>
+                  <option value="started">started (interrupted)</option>
+                </select>
+              </div>
+
+              <div class="p-3 bg-slate-50 rounded-xl space-y-1.5">
+                <div class="text-slate-800 font-medium">2. When he looked up, trees were snapping all around him:</div>
+                <select data-ans="were snapping" class="select-check border border-slate-300 rounded p-1.5 text-xs w-full bg-white input-clean">
+                  <option value="">Which event was in progress first?</option>
+                  <option value="were snapping">trees were snapping (started first / in progress)</option>
+                  <option value="looked up">looked up (happened at that point)</option>
+                </select>
+              </div>
+
+              <div class="p-3 bg-sky-50 rounded-xl border border-sky-200 text-sky-950 space-y-2">
+                <strong class="text-sky-900 block font-bold">Grammar Discovery Rule:</strong>
+                <div>• The 
+                  <select data-ans="past progressive" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                    <option value="">select form</option>
+                    <option value="past progressive">past progressive</option>
+                    <option value="simple past">simple past</option>
+                  </select> 
+                  form is used for the event that was in progress first.
+                </div>
+                <div>• The 
+                  <select data-ans="simple past" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                    <option value="">select form</option>
+                    <option value="simple past">simple past</option>
+                    <option value="past progressive">past progressive</option>
+                  </select> 
+                  form is used for the event that interrupted another event.
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex3-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-end pt-2">
+            <button type="button" onclick="switchExTab('tab-ex4')" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 4 (When vs. While)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 2: CHART 2.5 & EXERCISE 4 (Page 41) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex4" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Learn & Practice • Page 41</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.5 & Exercise 4: When and While</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Combining continuous actions with interrupting events in past time clauses</p>
+        </div>
+        <span class="badge-cd">Chart 2.5</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Chart 2.5 -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.5 Past Time Clauses: When & While</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 41</span>
+          </div>
+
+          <div class="space-y-2.5 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <strong class="text-slate-800 block">Main Clause + Past Time Clause (No comma):</strong>
+              <p>• The storm began <strong>when I was driving home</strong>.</p>
+              <p>• The storm began <strong>while we were walking home</strong>.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+              <strong class="text-slate-800 block">Past Time Clause First (Requires comma):</strong>
+              <p>• <strong>When I was driving home,</strong> the storm began.</p>
+              <p>• <strong>While we were walking home,</strong> the storm began.</p>
+            </div>
+            <div class="p-3 bg-sky-50 rounded-xl border border-sky-200 text-sky-950 space-y-1">
+              <strong class="text-sky-900 block">Rule:</strong>
+              <p>• Use <strong>while</strong> or <strong>when</strong> + past progressive for action in progress.</p>
+              <p>• Use <strong>when</strong> + simple past for an action at a specific point in time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 4: Choose Verb Forms (All 10 items) -->
+        <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l3-card">
+          <div class="flex items-center justify-between">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+              Choose Verb Forms (Page 41)
+            </h4>
+            <span class="text-xs text-slate-400">Items 1–10</span>
+          </div>
+          <p class="text-xs text-slate-500">Select the correct form of the verb(s) to complete each sentence:</p>
+
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              1. Jimmy Chin 
+              <select data-ans="was skiing" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="skied">skied</option><option value="was skiing">was skiing</option>
+              </select> 
+              when the avalanche 
+              <select data-ans="began" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="began">began</option><option value="was beginning">was beginning</option>
+              </select>.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              2. When Chin’s friends 
+              <select data-ans="reached" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="reached">reached</option><option value="were reaching">were reaching</option>
+              </select> 
+              him, he 
+              <select data-ans="was lying" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="lay">lay</option><option value="was lying">was lying</option>
+              </select> 
+              on top of the snow.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              3. Terry 
+              <select data-ans="lost" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="lost">lost</option><option value="was losing">was losing</option>
+              </select> 
+              his watch when he 
+              <select data-ans="was swimming" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="swam">swam</option><option value="was swimming">was swimming</option>
+              </select> 
+              in the ocean.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              4. Mark and Dan’s boat 
+              <select data-ans="sank" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="sank">sank</option><option value="was sinking">was sinking</option>
+              </select> 
+              while they 
+              <select data-ans="were fishing" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="fished">fished</option><option value="were fishing">were fishing</option>
+              </select>.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              5. I 
+              <select data-ans="cut" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="cut">cut</option><option value="was cutting">was cutting</option>
+              </select> 
+              my finger when I 
+              <select data-ans="was cooking" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="cooked">cooked</option><option value="was cooking">was cooking</option>
+              </select> 
+              dinner.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              6. While Jean 
+              <select data-ans="was shopping" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="shopped">shopped</option><option value="was shopping">was shopping</option>
+              </select>, 
+              the fire alarm 
+              <select data-ans="went off" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="went off">went off</option><option value="was going off">was going off</option>
+              </select> 
+              in the store.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              7. Carla 
+              <select data-ans="found" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="found">found</option><option value="was finding">was finding</option>
+              </select> 
+              fifty dollars when she 
+              <select data-ans="was walking" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="walked">walked</option><option value="was walking">was walking</option>
+              </select> 
+              home yesterday.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              8. Andre 
+              <select data-ans="was preparing" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="prepared">prepared</option><option value="was preparing">was preparing</option>
+              </select> 
+              for the party when he suddenly 
+              <select data-ans="felt" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="felt">felt</option><option value="was feeling">was feeling</option>
+              </select> 
+              sick.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              9. My pencil 
+              <select data-ans="broke" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="broke">broke</option><option value="was breaking">was breaking</option>
+              </select> 
+              while I 
+              <select data-ans="was taking" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="took">took</option><option value="was taking">was taking</option>
+              </select> 
+              the exam.
+            </div>
+
+            <div class="p-2.5 bg-slate-50 rounded-lg">
+              10. Padma 
+              <select data-ans="heard" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="heard">heard</option><option value="was hearing">was hearing</option>
+              </select> 
+              a strange noise when she 
+              <select data-ans="was hiking" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                <option value="">select</option><option value="hiked">hiked</option><option value="was hiking">was hiking</option>
+              </select> 
+              in the woods yesterday afternoon.
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <span class="ex-score text-xs font-bold text-slate-500"></span>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="switchExTab('tab-explore')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                <span>Back: Explore</span>
+              </button>
+              <button type="button" onclick="checkSelectCard('ex4-l3-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
+              <button type="button" onclick="switchExTab('tab-ex5-7')" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+                <span>Next: Ex 5–7</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 3: CHART 2.6 & EXERCISES 5–7 (Pages 42–43) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex5-7" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Learn & Practice • Pages 42–43</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Chart 2.6 & Exercises 5–7: Sequential Past Events</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Using simple past in both clauses for actions that happened one after the other</p>
+        </div>
+        <span class="badge-cd">Chart 2.6</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Chart 2.6 -->
+        <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base">2.6 Events in Sequence: When</h4>
+            <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded font-mono">Page 42</span>
+          </div>
+
+          <div class="space-y-2.5 text-xs">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
+              <strong class="text-slate-800 block">Actions in Sequence (Simple Past in both):</strong>
+              <p>• <em>When her phone rang, she answered it.</em></p>
+              <p class="text-[11px] text-slate-500">First: Phone rang. Second: She answered.</p>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
+              <strong class="text-slate-800 block">Clause Ordering & Punctuation:</strong>
+              <p>• <em>When I got home<strong>,</strong> I took a shower.</em> (First event in time clause; comma needed)</p>
+              <p>• <em>I took a shower when I got home.</em> (No comma)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercises 5 & 6 Column -->
+        <div class="lg:col-span-7 space-y-5">
+          <!-- Exercise 5: Sequence Order -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex5-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+              Which Action Happened First? (Page 42)
+            </h4>
+            <p class="text-xs text-slate-500">Identify which action happened first (1) and second (2):</p>
+
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>1. When the storm ended, the workers began to clean up.</span>
+                <span class="font-bold text-sky-700 bg-sky-100 px-2 py-0.5 rounded text-[11px]">Storm ended (1) ➔ Cleaned up (2)</span>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>2. When Tuan got out of the hospital, he made plans for a vacation.</span>
+                <select data-ans="hospital-first" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                  <option value="">Which was first?</option>
+                  <option value="hospital-first">1: Got out of hospital | 2: Made plans</option>
+                  <option value="plans-first">1: Made plans | 2: Got out of hospital</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>3. We looked out the window when we heard the noise.</span>
+                <select data-ans="noise-first" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                  <option value="">Which was first?</option>
+                  <option value="noise-first">1: Heard the noise | 2: Looked out window</option>
+                  <option value="looked-first">1: Looked out window | 2: Heard the noise</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>4. When she saw the fire in her kitchen, Michelle screamed for help.</span>
+                <select data-ans="fire-first" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                  <option value="">Which was first?</option>
+                  <option value="fire-first">1: Saw the fire | 2: Screamed for help</option>
+                  <option value="screamed-first">1: Screamed for help | 2: Saw the fire</option>
+                </select>
+              </div>
+              <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+                <span>5. My son called me when his plane landed.</span>
+                <select data-ans="landed-first" class="select-check border rounded p-1 text-xs input-clean bg-white font-semibold">
+                  <option value="">Which was first?</option>
+                  <option value="landed-first">1: Plane landed | 2: Son called me</option>
+                  <option value="called-first">1: Son called me | 2: Plane landed</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkSelectCard('ex5-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 5</button>
+            </div>
+          </div>
+
+          <!-- Exercise 6: Sequential Simple Past -->
+          <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l3-card">
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+              Complete with Simple Past (Pages 42–43)
+            </h4>
+            <p class="text-xs text-slate-500">Fill in the simple past form for each sequential event:</p>
+
+            <div class="space-y-2 text-xs sm:text-sm">
+              <div class="p-2 bg-slate-50 rounded-lg">1. Eric finished his assignment when he <input type="text" data-ans="got" value="got" readonly class="border rounded px-2 py-0.5 text-xs w-20 bg-slate-200 font-semibold text-slate-700"> (get) home.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">2. When Vicky <input type="text" data-ans="put" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="put"> (put) her bag on the floor, a thief stole it.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">3. When Max’s car broke down, he <input type="text" data-ans="walked" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="walk"> (walk) to the nearest gas station.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">4. My sister laughed when I <input type="text" data-ans="told" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="tell"> (tell) her the joke.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">5. Juanita smiled when she <input type="text" data-ans="heard" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="hear"> (hear) the good news.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">6. We <input type="text" data-ans="bought" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="buy"> (buy) our tickets when we got to the station.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">7. Sylvie closed the window when it <input type="text" data-ans="started" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="start"> (start) to rain.</div>
+              <div class="p-2 bg-slate-50 rounded-lg">8. I lit some candles when the electricity <input type="text" data-ans="went" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="go"> (go) out.</div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+              <span class="ex-score text-xs font-bold text-slate-500"></span>
+              <button type="button" onclick="checkClozeCard('ex6-l3-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <button type="button" onclick="switchExTab('tab-ex4')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 4</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-ex8')" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 8 (Chile Mine)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 4: EXERCISE 8 (Pages 43–44) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex8" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Practice • Pages 43–44</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 8: The Chile Mine Accident Timeline</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Chronology of the 33 Chilean miners trapped 700 meters underground in 2010</p>
+        </div>
+        <span class="badge-cd">Pages 43–44</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex8-l3-card">
+        <!-- Visual Timeline -->
+        <div class="p-4 bg-sky-50 rounded-2xl border border-sky-200 space-y-2 text-xs">
+          <span class="font-bold text-sky-900 block text-xs uppercase tracking-wide">Chile Mine Timeline (Atacama Desert, 2010):</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 font-mono text-[11px] text-slate-700">
+            <div class="bg-white p-2 rounded-lg border border-sky-100"><strong>Day 1 (Aug 5):</strong> 33 miners trapped underground</div>
+            <div class="bg-white p-2 rounded-lg border border-sky-100"><strong>Day 17 (Aug 22):</strong> Note attached: all 33 alive</div>
+            <div class="bg-white p-2 rounded-lg border border-sky-100"><strong>Day 26 (Aug 30):</strong> Heavy rescue drills started</div>
+            <div class="bg-white p-2 rounded-lg border border-sky-100"><strong>Day 66 (Oct 9):</strong> Drill reached underground chamber</div>
+            <div class="bg-white p-2 rounded-lg border border-sky-100"><strong>Day 69 (Oct 13):</strong> Rescuers lifted all 33 miners</div>
+            <div class="bg-white p-2 rounded-lg border border-sky-100"><strong>Day 80 (Oct 24):</strong> National celebration in Santiago</div>
+          </div>
+        </div>
+
+        <!-- Word Box -->
+        <div class="p-3 bg-slate-100 rounded-xl text-xs font-mono flex flex-wrap gap-2 text-slate-700">
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">arrive</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">attach</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">begin</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">complete</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">fall</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">read</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">wait</span>
+          <span class="bg-white px-2.5 py-1 rounded border border-slate-200 font-semibold">watch</span>
+        </div>
+
+        <!-- Sentences -->
+        <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <p>
+            1. On August 5, 2010, when 33 miners were working in a mine in Chile, the roof 
+            <input type="text" data-ans="fell" value="fell" readonly class="border rounded px-2 py-0.5 text-xs w-20 bg-slate-200 font-semibold text-slate-700"> 
+            and trapped them.
+          </p>
+          <p>
+            2. While the miners' families 
+            <input type="text" data-ans="were waiting" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="verb"> 
+            anxiously for news, the mining company began its rescue attempts.
+          </p>
+          <p>
+            3. When those attempts failed, the government 
+            <input type="text" data-ans="began" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            a huge rescue operation.
+          </p>
+          <p>
+            4. When the necessary equipment 
+            <input type="text" data-ans="arrived" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> 
+            at the scene, the rescue team started to search for the miners.
+          </p>
+          <p>
+            5. When one of the drills reached the miners, the miners 
+            <input type="text" data-ans="attached" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> 
+            a note to it.
+          </p>
+          <p>
+            6. When the rescue team 
+            <input type="text" data-ans="read" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            the note, they discovered that all 33 of the miners were alive.
+          </p>
+          <p>
+            7. When the rescue team 
+            <input type="text" data-ans="completed" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> 
+            the escape route, they began to lift the miners out of the mine.
+          </p>
+          <p>
+            8. Millions of people all over the world 
+            <input type="text" data-ans="were watching" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="verb"> 
+            on TV when the rescue workers lifted the last man out of the mine.
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <span class="ex-score text-xs font-bold text-slate-500"></span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="switchExTab('tab-ex5-7')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 5–7</span>
+            </button>
+            <button type="button" onclick="checkClozeCard('ex8-l3-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 8</button>
+            <button type="button" onclick="switchExTab('tab-ex9')" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 9</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 5: EXERCISE 9 (Pages 44–45) -->
+    <!-- ============================================================ -->
+    <div id="tab-ex9" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Listen & Write • Pages 44–45</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 9: Ernest Shackleton’s Endurance Expedition</h2>
+          <p class="text-xs text-slate-500 mt-0.5">The epic 1914–1916 Antarctic survival story and rescue</p>
+        </div>
+        <span class="badge-cd">Track CD1-12</span>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-5" id="ex9-l3-card">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">9</span>
+            Shackleton's Endurance (CD1-12)
+          </h4>
+          <span class="text-xs text-slate-400">Parts A & B</span>
+        </div>
+
+        <!-- Part A: Audio Facts -->
+        <div class="p-3.5 bg-sky-50 rounded-xl border border-sky-200 space-y-2 text-xs">
+          <span class="font-bold text-sky-900 block text-xs uppercase tracking-wide">A. Interview Facts:</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <div class="p-2 bg-white rounded-lg border border-sky-100">
+              <span class="text-slate-600 block mb-1">1. Men with Shackleton:</span>
+              <strong class="text-slate-900">27 men (28 total crew)</strong>
+            </div>
+            <div class="p-2 bg-white rounded-lg border border-sky-100">
+              <span class="text-slate-600 block mb-1">2. Year ship trapped:</span>
+              <strong class="text-slate-900">1915</strong>
+            </div>
+            <div class="p-2 bg-white rounded-lg border border-sky-100">
+              <span class="text-slate-600 block mb-1">3. Did all men survive?:</span>
+              <strong class="text-emerald-700">Yes, every man survived</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part B: Sentences -->
+        <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="font-bold text-slate-900 block text-xs uppercase tracking-wide">B. Complete each sentence with the simple past or past progressive:</span>
+          
+          <p>
+            1. The Endurance 
+            <input type="text" data-ans="was approaching" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="verb"> 
+            Antarctica in January 1915 when it 
+            <input type="text" data-ans="became" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            locked in the ice.
+          </p>
+          <p>
+            2. When the ocean water 
+            <input type="text" data-ans="froze" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb">, 
+            ice 
+            <input type="text" data-ans="surrounded" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-24 input-clean font-semibold" placeholder="verb"> 
+            the ship.
+          </p>
+          <p>
+            3. Shackleton and his men 
+            <input type="text" data-ans="stayed" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            on the Endurance at first, and then they 
+            <input type="text" data-ans="made" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            a camp on the ice.
+          </p>
+          <p>
+            4. They 
+            <input type="text" data-ans="waited" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            for nine months, but the ice 
+            <input type="text" data-ans="did not release,didn't release" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="not release"> 
+            the ship.
+          </p>
+          <p>
+            5. Then one day, while some of the men 
+            <input type="text" data-ans="were arranging" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-32 input-clean font-semibold" placeholder="verb"> 
+            supplies on the ice, the ship 
+            <input type="text" data-ans="began" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            to break up.
+          </p>
+          <p>
+            6. When the Endurance 
+            <input type="text" data-ans="started" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            to sink, Shackleton 
+            <input type="text" data-ans="decided" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            to take his men across the ice on foot.
+          </p>
+          <p>
+            7. While Shackleton and five of his men 
+            <input type="text" data-ans="were trying" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-28 input-clean font-semibold" placeholder="verb"> 
+            to reach the island of South Georgia to find help, the others 
+            <input type="text" data-ans="spent" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            several more months at the camp on the ice.
+          </p>
+          <p>
+            8. When Shackleton and his men 
+            <input type="text" data-ans="arrived" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            in Chile, they 
+            <input type="text" data-ans="received" class="cloze-input border border-slate-300 rounded px-2 py-0.5 text-xs w-20 input-clean font-semibold" placeholder="verb"> 
+            a hero’s welcome.
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+          <span class="ex-score text-xs font-bold text-slate-500"></span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="switchExTab('tab-ex8')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 8</span>
+            </button>
+            <button type="button" onclick="checkClozeCard('ex9-l3-card')" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 9</button>
+            <button type="button" onclick="switchExTab('tab-apply')" class="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Next: Ex 10 & Apply</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TAB PANE 6: EXERCISE 10 & APPLY (Page 45) -->
+    <!-- ============================================================ -->
+    <div id="tab-apply" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-sky-600">Model & Apply • Page 45</span>
+          <h2 class="text-2xl font-extrabold text-slate-900">Exercise 10 & Apply: Accident Story & Time Clauses</h2>
+          <p class="text-xs text-slate-500 mt-0.5">Analyze Marta's street accident narrative and draft your own personal emergency story</p>
+        </div>
+        <span class="badge-cd">Page 45</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- Model Analysis -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">10</span>
+              Marta’s Blog: The Near-Miss Accident
+            </h4>
+            <span class="text-xs bg-sky-100 text-sky-800 font-bold px-2 py-0.5 rounded">Model Story</span>
+          </div>
+          <p class="text-xs text-slate-500">Notice the past time clauses (underlined below) in Marta’s account:</p>
+
+          <div class="prose prose-slate font-serif text-slate-800 text-sm leading-relaxed p-4 bg-slate-50 rounded-2xl border border-slate-200 shadow-inner space-y-3">
+            <p>
+              You won’t believe what happened to me tonight! <u class="text-sky-900 font-semibold bg-sky-100/70 px-1 rounded font-sans">While I was crossing Newton Street</u>, a truck went through a red light. The driver was texting <u class="text-sky-900 font-semibold bg-sky-100/70 px-1 rounded font-sans">when the light changed</u>. He wasn’t looking at the road.
+            </p>
+            <p>
+              <u class="text-sky-900 font-semibold bg-sky-100/70 px-1 rounded font-sans">When I jumped out of the way</u>, I fell onto the sidewalk and cut my knee. I was wearing my new jeans, too! <u class="text-sky-900 font-semibold bg-sky-100/70 px-1 rounded font-sans">When I got home</u>, I took care of my knee and then called the police. Fortunately, I got the truck’s license number <u class="text-sky-900 font-semibold bg-sky-100/70 px-1 rounded font-sans">while I was lying in the street</u>.
+            </p>
+          </div>
+
+          <div class="p-3 bg-sky-50 rounded-xl border border-sky-200 text-xs text-sky-950 space-y-1">
+            <strong>Time Clause Takeaways:</strong>
+            <p>• 2 clauses with <em>while + past progressive</em> (crossing street / lying in street).</p>
+            <p>• 3 clauses with <em>when + simple past</em> (light changed / jumped / got home).</p>
+          </div>
+        </div>
+
+        <!-- Apply Graphic Organizer & Drafting -->
+        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+            <h4 class="font-bold text-slate-900 text-base flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center text-xs">11</span>
+              APPLY. Write Your Accident Story
+            </h4>
+            <span class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded">Story Workbench</span>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" placeholder="When did it happen? (e.g., Last winter)" class="border rounded-lg p-2 text-xs">
+              <input type="text" placeholder="Where were you? (e.g., In the park)" class="border rounded-lg p-2 text-xs">
+            </div>
+            <input type="text" placeholder="What were you doing? (e.g., I was riding my bicycle)" class="w-full border rounded-lg p-2 text-xs">
+            <input type="text" placeholder="What happened / interrupted? (e.g., A dog ran into the path)" class="w-full border rounded-lg p-2 text-xs">
+          </div>
+
+          <textarea rows="5" placeholder="Write a short paragraph about the incident using at least two past time clauses (when/while):
+Last year, while I was riding my bicycle in the park, a dog ran across the path..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-sky-400 leading-relaxed"></textarea>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <button type="button" onclick="switchExTab('tab-ex9')" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              <span>Back: Ex 9</span>
+            </button>
+            <button type="button" onclick="switchExTab('tab-explore')" class="px-5 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-sm">
+              <span>Return to Explore</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
+      <div class="flex items-center justify-center sm:justify-start gap-2">
+        <div class="w-2 h-4 bg-sky-400 rounded-xs"></div>
+        <p>Grammar Explorer 2 — National Geographic Learning • Unit 2: Lesson 3</p>
+      </div>
+      <p class="mt-2 sm:mt-0 text-slate-500">Past Time Clauses Interactive Student Workbench</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    function switchExTab(tabId) {
+      document.querySelectorAll('.ex-tab-pane').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.ex-tab-btn').forEach(btn => {
+        if (btn.getAttribute('data-extab') === tabId) {
+          btn.classList.add('border-sky-400', 'text-white', 'bg-slate-800');
+          btn.classList.remove('border-transparent', 'text-slate-400');
+        } else {
+          btn.classList.remove('border-sky-400', 'text-white', 'bg-slate-800');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function removeBadge(element) {
+      const next = element.nextElementSibling;
+      if (next && next.classList.contains('ans-badge')) next.remove();
+    }
+
+    function selectTF(button, value) {
+      const row = button.closest('.tf-row');
+      row.querySelectorAll('.tf-btn').forEach(b => {
+        b.classList.remove('bg-sky-400', 'text-slate-950', 'border-sky-500', 'selected', 'ring-2', 'ring-emerald-500');
+        b.classList.add('bg-white', 'text-slate-700');
+      });
+      button.classList.remove('bg-white', 'text-slate-700');
+      button.classList.add('bg-sky-400', 'text-slate-950', 'border-sky-500', 'selected');
+      button.setAttribute('data-selected', value);
+      const icon = row.querySelector('.status-icon');
+      if (icon) icon.classList.add('hidden');
+    }
+
+    function checkTFCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const rows = card.querySelectorAll('.tf-row');
+      let correctCount = 0;
+      let total = rows.length;
+
+      rows.forEach(row => {
+        const correct = row.getAttribute('data-correct');
+        const selectedBtn = row.querySelector('.tf-btn.selected');
+        const statusIcon = row.querySelector('.status-icon');
+        statusIcon.classList.remove('hidden');
+
+        row.querySelectorAll('.tf-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-emerald-500', 'bg-emerald-500', 'bg-rose-500', 'text-white');
+        });
+
+        if (!selectedBtn) {
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Unanswered (Ans: ${correct})</span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+          return;
+        }
+
+        const chosen = selectedBtn.getAttribute('data-selected');
+        if (chosen === correct) {
+          correctCount++;
+          selectedBtn.classList.remove('bg-sky-400', 'border-sky-500');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
+        } else {
+          selectedBtn.classList.remove('bg-sky-400', 'border-sky-500');
+          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
+          if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
+        }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkSelectCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const selects = card.querySelectorAll('select.select-check');
+      let correctCount = 0;
+      let total = selects.length;
+
+      selects.forEach(sel => {
+        removeBadge(sel);
+        const expected = (sel.getAttribute('data-ans') || '').trim();
+        const userVal = sel.value.trim();
+        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
+        const displayAns = targetOption ? targetOption.text : expected;
+
+        sel.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (userVal === '') {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-sky-800 ml-0.5">${displayAns}</strong>`;
+        } else if (userVal.toLowerCase() === expected.toLowerCase()) {
+          correctCount++;
+          sel.classList.add('input-correct');
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          sel.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-sky-800 ml-0.5">${displayAns}</strong>`;
+        }
+        sel.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkClozeCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const inputs = card.querySelectorAll('input.cloze-input');
+      let correctCount = 0;
+      let total = inputs.length;
+
+      inputs.forEach(input => {
+        removeBadge(input);
+        const expectedRaw = input.getAttribute('data-ans') || '';
+        const primaryAns = expectedRaw.split(',')[0].trim();
+        const expectedList = expectedRaw
+          .split(',')
+          .map(s => s.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, ''));
+        
+        const rawVal = input.value.trim().toLowerCase().replace(/[’]/g, "'").replace(/[.]/g, '');
+
+        input.classList.remove('input-correct', 'input-incorrect');
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (rawVal === '') {
+          input.classList.add('input-incorrect');
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Ans: <strong class="text-sky-800 ml-0.5">${primaryAns}</strong>`;
+        } else {
+          const isMatch = expectedList.some(exp => {
+            if (rawVal === exp) return true;
+            if (exp.replace(/[^a-z0-9]/g, '') === rawVal.replace(/[^a-z0-9]/g, '')) return true;
+            if (exp.includes(' ') && exp.split(' ').every(w => rawVal.includes(w))) return true;
+            return false;
+          });
+
+          if (isMatch) {
+            correctCount++;
+            input.classList.add('input-correct');
+            badge.classList.add('answer-badge-correct');
+            badge.innerHTML = `✓ Correct`;
+          } else {
+            input.classList.add('input-incorrect');
+            badge.classList.add('answer-badge-incorrect');
+            badge.innerHTML = `✗ Ans: <strong class="text-sky-800 ml-0.5">${primaryAns}</strong>`;
+          }
+        }
+        input.insertAdjacentElement('afterend', badge);
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function resetLesson3() {
+      document.querySelectorAll('.ans-badge').forEach(b => b.remove());
+      document.querySelectorAll('input.cloze-input').forEach(i => {
+        i.value = '';
+        i.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('select.select-check').forEach(s => {
+        s.value = '';
+        s.classList.remove('input-correct', 'input-incorrect');
+      });
+      document.querySelectorAll('.tf-row').forEach(row => {
+        row.querySelectorAll('.tf-btn').forEach(btn => {
+          btn.classList.remove('bg-sky-400', 'bg-emerald-500', 'bg-rose-500', 'text-white', 'text-slate-950', 'border-emerald-600', 'border-rose-600', 'border-sky-500', 'selected', 'ring-2', 'ring-emerald-500');
+          btn.classList.add('bg-white', 'text-slate-700');
+          btn.removeAttribute('data-selected');
+        });
+        const icon = row.querySelector('.status-icon');
+        if (icon) {
+          icon.classList.add('hidden');
+          icon.innerHTML = '';
+        }
+      });
+      document.querySelectorAll('.ex-score').forEach(s => s.textContent = '');
+    }
+  </script>
+</body>
+</html>
