@@ -94,6 +94,31 @@ function getHtmlFiles(dir) {
 }
 
 /**
+ * Checks if a badge is an overview/table of contents index card:
+ * - Has onclick="switchTab(...)" in parent container
+ * - In Unit Sections Index / Unit Lessons Index
+ * - Or lists multiple tracks (e.g. "CD1-02, 03, 04", "CD1-05, 06", etc.)
+ */
+function isOverviewBadge(content, matchIndex, badgeText) {
+  if (badgeText.includes(',') || badgeText.includes('&') || /CD\d+-\d+\s*,\s*\d+/i.test(badgeText)) {
+    return true;
+  }
+  const prevChunk = content.slice(Math.max(0, matchIndex - 600), matchIndex);
+  if (prevChunk.includes('switchTab(') || prevChunk.includes('Unit Sections Index') || prevChunk.includes('Unit Lessons Index')) {
+    const lastSwitchTab = prevChunk.lastIndexOf('switchTab(');
+    if (lastSwitchTab !== -1) {
+      const afterSwitchTab = prevChunk.slice(lastSwitchTab);
+      const openDivs = (afterSwitchTab.match(/<div/gi) || []).length;
+      const closeDivs = (afterSwitchTab.match(/<\/div>/gi) || []).length;
+      if (openDivs >= closeDivs) return true;
+    } else {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
  * Scans all lesson files and builds/updates audio-registry.json
  */
 function scanTracks() {
@@ -117,11 +142,12 @@ function scanTracks() {
     const relPath = path.relative(REPO_DIR, filePath).replace(/\\/g, '/');
     const content = fs.readFileSync(filePath, 'utf8');
 
-    // Regex to match badge-cd spans
-    const badgeRegex = /class="badge-cd"[^>]*>([^<]+)<\/span>/gi;
+    // Regex to match badge-cd spans and divs
+    const badgeRegex = /<(?:span|div)[^>]*class="[^"]*badge-cd[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div)>/gi;
     let m;
     while ((m = badgeRegex.exec(content)) !== null) {
-      const rawText = m[1].trim();
+      const rawText = m[1].replace(/<[^>]+>/g, '').trim();
+      const isOverview = isOverviewBadge(content, m.index, rawText);
       const trackMatch = rawText.match(/CD\d+[\s_-]*\d+/gi);
       if (!trackMatch) continue;
 
@@ -129,16 +155,17 @@ function scanTracks() {
         const trackId = rawTrack.toUpperCase().replace(/\s+/g, '-').replace(/_+/g, '-');
 
         // Extract surrounding context (e.g. exercise heading)
-        const snippetStart = Math.max(0, m.index - 300);
+        const snippetStart = Math.max(0, m.index - 400);
         const snippet = content.slice(snippetStart, m.index);
-        const headingMatch = snippet.match(/<h[34][^>]*>([^<]+)<\/h[34]>/i) 
-          || snippet.match(/<span[^>]*class="[^"]*(?:font-bold|text-xs)[^"]*"[^>]*>([^<]+)<\/span>/i);
-        const contextTitle = headingMatch ? headingMatch[1].trim() : `Exercise Track ${trackId}`;
+        const headingMatch = snippet.match(/<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>/i) 
+          || snippet.match(/class="[^"]*(?:font-bold|font-extrabold|font-serif)[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div|h[2-4]|p)>/i);
+        let contextTitle = headingMatch ? headingMatch[1].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() : `Exercise Track ${trackId}`;
+        if (contextTitle.length < 3) contextTitle = `Exercise Track ${trackId}`;
 
         if (!registry[trackId]) {
           registry[trackId] = {
             trackId: trackId,
-            title: contextTitle,
+            title: isOverview ? `Exercise Track ${trackId}` : contextTitle,
             driveLink: "",
             directUrl: "",
             files: [relPath],
@@ -148,6 +175,10 @@ function scanTracks() {
         } else {
           if (!registry[trackId].files.includes(relPath)) {
             registry[trackId].files.push(relPath);
+          }
+          // If previous title was generic, short, numeric, or from an overview, and we have a specific heading now, upgrade it
+          if (!isOverview && (registry[trackId].title.startsWith('Exercise Track') || registry[trackId].title.startsWith('Lesson ') || registry[trackId].title.length < 5 || /^\d+$/.test(registry[trackId].title))) {
+            registry[trackId].title = contextTitle;
           }
           if (content.includes(`data-audio-track="${trackId}"`)) {
             registry[trackId].hasPlayer = true;
@@ -212,6 +243,7 @@ function listTracks() {
 `);
 }
 
+
 /**
  * Builds standard HTML player element for a track.
  */
@@ -233,6 +265,7 @@ function createPlayerHtml(trackId, audioUrl) {
 
 /**
  * Injects or updates an audio player in target files for a track.
+ * Places players in all matching exercise/reading locations, skipping overview index cards.
  */
 function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
   const playerHtml = createPlayerHtml(trackId, audioUrl);
@@ -244,48 +277,43 @@ function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
 
     let content = fs.readFileSync(fullPath, 'utf8');
 
-    // 1. If player already exists for this track, update its src
-    if (content.includes(`data-audio-track="${trackId}"`)) {
-      const existingPlayerRegex = new RegExp(`<!-- Audio Player \\[${trackId}\\] -->[\\s\\S]*?<!-- End Audio Player \\[${trackId}\\] -->\\n?`, 'i');
-      if (existingPlayerRegex.test(content)) {
-        content = content.replace(existingPlayerRegex, playerHtml);
-        backupFile(fullPath);
-        fs.writeFileSync(fullPath, content, 'utf8');
-        log(`    ${green('✓')} Updated existing player in: ${path.basename(fullPath)}`);
-        updatedFiles++;
-        continue;
-      }
+    // 1. Strip ALL existing player instances for this track to clean up any misplaced players
+    const existingPlayerRegex = new RegExp(`<!-- Audio Player \\[${trackId}\\] -->[\\s\\S]*?<!-- End Audio Player \\[${trackId}\\] -->\\n?`, 'gi');
+    content = content.replace(existingPlayerRegex, '');
+
+    // 2. Find all valid target badge-cd occurrences for this track
+    const escapedTrack = trackId.replace(/[-]/g, '[-_\\s]*');
+    const badgeRegex = /<(?:span|div)[^>]*class="[^"]*badge-cd[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div)>/gi;
+    
+    const matches = [];
+    let m;
+    while ((m = badgeRegex.exec(content)) !== null) {
+      const badgeText = m[1].replace(/<[^>]+>/g, '').trim();
+      const trackPattern = new RegExp(`^Track\\s+${escapedTrack}$|^${escapedTrack}$`, 'i');
+      const hasTrack = trackPattern.test(badgeText) || badgeText.toUpperCase().includes(trackId);
+      if (!hasTrack) continue;
+      if (isOverviewBadge(content, m.index, badgeText)) continue;
+
+      const badgeEnd = m.index + m[0].length;
+      const nextDivEnd = content.indexOf('</div>', badgeEnd);
+      const insertPos = (nextDivEnd !== -1) ? (nextDivEnd + '</div>'.length) : badgeEnd;
+      matches.push({ pos: insertPos, text: badgeText });
     }
 
-    // 2. Find the badge-cd occurrence for this track and insert player right after its container
-    // Search for: <span class="badge-cd">...CDX-XX...</span>
-    const escapedTrack = trackId.replace(/[-]/g, '[-_\\s]*');
-    const badgeSearchRegex = new RegExp(`(<(?:span|div)[^>]*class="[^"]*badge-cd[^"]*"[^>]*>[^<]*${escapedTrack}[^<]*<\\/(?:span|div)>)`, 'i');
-    const match = badgeSearchRegex.exec(content);
+    if (matches.length > 0) {
+      // Sort descending by position so insertions don't alter earlier indexes
+      matches.sort((a, b) => b.pos - a.pos);
 
-    if (match) {
-      // Find the closing parent </div> after this badge
-      const afterIndex = match.index + match[0].length;
-      const nextDivEnd = content.indexOf('</div>', afterIndex);
-
-      if (nextDivEnd !== -1) {
-        const insertPos = nextDivEnd + '</div>'.length;
-        const newContent = content.slice(0, insertPos) + '\n' + playerHtml + content.slice(insertPos);
-        backupFile(fullPath);
-        fs.writeFileSync(fullPath, newContent, 'utf8');
-        log(`    ${green('✓')} Injected audio player into: ${path.basename(fullPath)}`);
-        updatedFiles++;
-      } else {
-        // Fallback: insert directly after badge
-        const insertPos = afterIndex;
-        const newContent = content.slice(0, insertPos) + '\n' + playerHtml + content.slice(insertPos);
-        backupFile(fullPath);
-        fs.writeFileSync(fullPath, newContent, 'utf8');
-        log(`    ${green('✓')} Injected audio player after badge in: ${path.basename(fullPath)}`);
-        updatedFiles++;
+      for (const item of matches) {
+        content = content.slice(0, item.pos) + '\n' + playerHtml + content.slice(item.pos);
       }
+
+      backupFile(fullPath);
+      fs.writeFileSync(fullPath, content, 'utf8');
+      log(`    ${green('✓')} Injected audio player at ${bold(matches.length)} place(s) in: ${path.basename(fullPath)}`);
+      updatedFiles++;
     } else {
-      log(`    ${yellow('!')} Could not locate badge for ${trackId} in ${path.basename(fullPath)}`);
+      log(`    ${yellow('!')} Could not locate target badge for ${trackId} in ${path.basename(fullPath)}`);
     }
   }
 

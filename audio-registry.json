@@ -1,40 +1,40 @@
 {
   "CD1-02": {
     "trackId": "CD1-02",
-    "title": "Lesson 1 (p. 4–11)",
-    "driveLink": "",
-    "directUrl": "",
+    "title": "An Afar Wedding",
+    "driveLink": "https://drive.google.com/open?id=1SB2Rx9o9Cgt_L1UIRSl0wBShJILP5TKF&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1SB2Rx9o9Cgt_L1UIRSl0wBShJILP5TKF",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 1/GE2 - U1.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 1/grammar_explorer_2_unit_1_lesson_1.html"
     ],
-    "hasPlayer": false
+    "hasPlayer": true
   },
   "CD1-03": {
     "trackId": "CD1-03",
-    "title": "Exercise Track CD1-03",
-    "driveLink": "",
-    "directUrl": "",
+    "title": "Exercise 9 & 11: Birthday Traditions",
+    "driveLink": "https://drive.google.com/open?id=162tuZobCE8BWgMfMmn2-S43YRSNLK2xF&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=162tuZobCE8BWgMfMmn2-S43YRSNLK2xF",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 1/GE2 - U1.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 1/grammar_explorer_2_unit_1_lesson_1.html"
     ],
-    "hasPlayer": false
+    "hasPlayer": true
   },
   "CD1-04": {
     "trackId": "CD1-04",
-    "title": "Exercise Track CD1-04",
-    "driveLink": "",
-    "directUrl": "",
+    "title": "Exercises 13 & 14: Adulthood Rites in Vanuatu",
+    "driveLink": "https://drive.google.com/open?id=1QPhSQZFrY5JhX4idar3zofItcGeHPO92&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1QPhSQZFrY5JhX4idar3zofItcGeHPO92",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 1/GE2 - U1.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 1/grammar_explorer_2_unit_1_lesson_1.html"
     ],
-    "hasPlayer": false
+    "hasPlayer": true
   },
   "CD1-05": {
     "trackId": "CD1-05",
-    "title": "Lesson 2 (p. 12–19)",
+    "title": "Diwali (Festival of Lights)",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -45,7 +45,7 @@
   },
   "CD1-06": {
     "trackId": "CD1-06",
-    "title": "Exercise Track CD1-06",
+    "title": "Exercise 11: 3 Conversations with Word Bank",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -67,7 +67,7 @@
   },
   "CD1-08": {
     "trackId": "CD1-08",
-    "title": "Lesson 1 (p. 26–32)",
+    "title": "The Lion Guardians Project, Kenya",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -78,7 +78,7 @@
   },
   "CD1-09": {
     "trackId": "CD1-09",
-    "title": "Exercise Track CD1-09",
+    "title": "9 Penguins in Antarctica (Page 31)",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -89,7 +89,7 @@
   },
   "CD1-10": {
     "trackId": "CD1-10",
-    "title": "Lesson 2 (p. 33–38)",
+    "title": "Past Progressive and Simple Past",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -100,7 +100,7 @@
   },
   "CD1-11": {
     "trackId": "CD1-11",
-    "title": "Lesson 3 (p. 39–45)",
+    "title": "Surviving an Avalanche",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -111,7 +111,7 @@
   },
   "CD1-12": {
     "trackId": "CD1-12",
-    "title": "Exercise Track CD1-12",
+    "title": "Exercise 9: Ernest Shackleton’s Endurance Expedition",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -122,7 +122,7 @@
   },
   "CD1-13": {
     "trackId": "CD1-13",
-    "title": "Lesson 4 (p. 46–52)",
+    "title": "Who Owns the Past?",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -133,7 +133,7 @@
   },
   "CD1-14": {
     "trackId": "CD1-14",
-    "title": "Exercise Track CD1-14",
+    "title": "Exercise 8: The Alpine Iceman",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -155,7 +155,7 @@
   },
   "CD1-16": {
     "trackId": "CD1-16",
-    "title": "Lesson 1 (p. 60–67)",
+    "title": "Sangomas of Southern Africa",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -175,7 +175,7 @@
   },
   "CD1-19": {
     "trackId": "CD1-19",
-    "title": "Lesson 2 (p. 68–73)",
+    "title": "Count and Non-Count Nouns",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -185,7 +185,7 @@
   },
   "CD1-21": {
     "trackId": "CD1-21",
-    "title": "Lesson 3 (p. 74–80)",
+    "title": "Quantity and Measurement Words",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -205,7 +205,7 @@
   },
   "CD1-28": {
     "trackId": "CD1-28",
-    "title": "Lesson 1 (p. 88–95)",
+    "title": "Personal Pronouns, Possessive Adjectives & Reflexives",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -215,7 +215,7 @@
   },
   "CD1-34": {
     "trackId": "CD1-34",
-    "title": "Lesson 2 (p. 96–102)",
+    "title": "Prepositions of Time, Place, and Direction",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -225,7 +225,7 @@
   },
   "CD1-36": {
     "trackId": "CD1-36",
-    "title": "Lesson 3 (p. 103–109)",
+    "title": "Articles (A, An, The, and No Article)",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -235,7 +235,7 @@
   },
   "CD1-40": {
     "trackId": "CD1-40",
-    "title": "Lesson 4 (p. 110–115)",
+    "title": "Articles with Place Names",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -245,7 +245,7 @@
   },
   "CD2-02": {
     "trackId": "CD2-02",
-    "title": "Lesson 1 (p. 122–129)",
+    "title": "Present Perfect: Statements, Questions & Adverbs",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -255,7 +255,7 @@
   },
   "CD2-04": {
     "trackId": "CD2-04",
-    "title": "Lesson 2 (p. 130–135)",
+    "title": "Present Perfect with For and Since",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -265,7 +265,7 @@
   },
   "CD2-09": {
     "trackId": "CD2-09",
-    "title": "Lesson 3 (p. 136–143)",
+    "title": "Present Perfect and Simple Past",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -275,7 +275,7 @@
   },
   "CD2-10": {
     "trackId": "CD2-10",
-    "title": "Lesson 4 (p. 144–150)",
+    "title": "Present Perfect Progressive",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -295,7 +295,7 @@
   },
   "CD2-12": {
     "trackId": "CD2-12",
-    "title": "Exercise Track CD2-12",
+    "title": "Unit 5 Comprehensive Grammar Review",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -305,7 +305,7 @@
   },
   "CD2-13": {
     "trackId": "CD2-13",
-    "title": "Lesson 1 (p. 158–164)",
+    "title": "Adjectives: Position, Nouns as Adjectives & Word Order",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -315,7 +315,7 @@
   },
   "CD2-14": {
     "trackId": "CD2-14",
-    "title": "9",
+    "title": "9 Peacocks Documentary Dialogue (Page 163)",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -325,7 +325,7 @@
   },
   "CD2-15": {
     "trackId": "CD2-15",
-    "title": "Lesson 2 (p. 165–171)",
+    "title": "Adverbs of Manner and Degree",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -355,7 +355,7 @@
   },
   "CD2-19": {
     "trackId": "CD2-19",
-    "title": "Lesson 1 (p. 178–185)",
+    "title": "A Star-Studded Trip You’ll Never Forget",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -365,7 +365,7 @@
   },
   "CD2-20": {
     "trackId": "CD2-20",
-    "title": "5",
+    "title": "5 Weekend Plans Dialogue (Page 183)",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -375,7 +375,7 @@
   },
   "CD2-23": {
     "trackId": "CD2-23",
-    "title": "Lesson 2 (p. 186–191)",
+    "title": "Using Present Forms to Express the Future",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -385,7 +385,7 @@
   },
   "CD2-25": {
     "trackId": "CD2-25",
-    "title": "Lesson 3 (p. 192–199)",
+    "title": "Comparison of Future Forms; Future Time Clauses",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -395,7 +395,7 @@
   },
   "CD2-28": {
     "trackId": "CD2-28",
-    "title": "Lesson 1 (p. 206–212)",
+    "title": "What is a Consumer Society?",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -405,7 +405,7 @@
   },
   "CD2-30": {
     "trackId": "CD2-30",
-    "title": "Lesson 2 (p. 213–219)",
+    "title": "Comparisons with (Not) As...As and Less",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -415,7 +415,7 @@
   },
   "CD2-31": {
     "trackId": "CD2-31",
-    "title": "Lesson 3 (p. 220–226)",
+    "title": "Mount Everest: The Highest Garbage Dump in the World?",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -435,7 +435,7 @@
   },
   "CD3-02": {
     "trackId": "CD3-02",
-    "title": "Lesson 1 (p. 234–241)",
+    "title": "What’s for Dinner?",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -445,7 +445,7 @@
   },
   "CD3-04": {
     "trackId": "CD3-04",
-    "title": "Lesson 2 (p. 242–249)",
+    "title": "Volcano Watching",
     "driveLink": "",
     "directUrl": "",
     "files": [
@@ -455,7 +455,7 @@
   },
   "CD3-06": {
     "trackId": "CD3-06",
-    "title": "Lesson 3 (p. 250–257)",
+    "title": "The Sounds of the Sea",
     "driveLink": "",
     "directUrl": "",
     "files": [
