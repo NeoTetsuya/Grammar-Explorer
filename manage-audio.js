@@ -255,26 +255,8 @@ function createPlayerHtml(trackId, audioUrl) {
   if (fileIdMatch && fileIdMatch[1]) {
     const fileId = fileIdMatch[1];
     return `<!-- Audio Player [${trackId}] -->
-<div class="audio-player-widget my-3 p-3 rounded-2xl bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white shadow-md border border-slate-800 space-y-2.5" data-audio-track="${trackId}">
-  <div class="flex items-center justify-between px-1">
-    <div class="flex items-center gap-2.5">
-      <div class="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-xs shadow-sm">
-        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-extrabold tracking-wide text-amber-400 uppercase">Track ${trackId}</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Lesson Audio</span>
-        </div>
-      </div>
-    </div>
-    <a href="https://drive.google.com/file/d/${fileId}/view" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold text-slate-300 hover:text-white bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 px-2.5 py-1 rounded-lg transition flex items-center gap-1.5 shadow-2xs">
-      <span>Open Drive</span>
-      <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-    </a>
-  </div>
-  <div class="rounded-xl overflow-hidden border border-slate-800 shadow-inner bg-black/40">
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="${trackId}">
+  <div style="width: calc(100% + 56px); margin-right: -56px;">
     <iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="54" class="w-full block" frameborder="0" allow="autoplay"></iframe>
   </div>
 </div>
@@ -283,21 +265,7 @@ function createPlayerHtml(trackId, audioUrl) {
 
   // Fallback to native HTML5 audio for standard direct MP3 URLs
   return `<!-- Audio Player [${trackId}] -->
-<div class="audio-player-widget my-3 p-3 rounded-2xl bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white shadow-md border border-slate-800 space-y-2.5" data-audio-track="${trackId}">
-  <div class="flex items-center justify-between px-1">
-    <div class="flex items-center gap-2.5">
-      <div class="w-7 h-7 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-xs shadow-sm">
-        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
-      </div>
-      <div>
-        <div class="flex items-center gap-2">
-          <span class="text-xs font-extrabold tracking-wide text-amber-400 uppercase">Track ${trackId}</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wider">Lesson Audio</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black p-1.5" data-audio-track="${trackId}">
   <audio controls preload="none" class="w-full h-8 accent-amber-500 rounded" src="${audioUrl}">
     Your browser does not support the audio element.
   </audio>
