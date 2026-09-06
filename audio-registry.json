@@ -164,6 +164,17 @@
     ],
     "hasPlayer": true
   },
+  "CD1-17": {
+    "trackId": "CD1-17",
+    "title": "Pronunciation: -s and -es Endings",
+    "driveLink": "",
+    "directUrl": "",
+    "files": [
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_1.html"
+    ],
+    "hasPlayer": false
+  },
   "CD1-18": {
     "trackId": "CD1-18",
     "title": "Exercise Track CD1-18",
@@ -182,6 +193,18 @@
     "directUrl": "https://docs.google.com/uc?export=open&id=1M1Gzgp5W633X-kyTeWjjQCV2wuLsA8Hl",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_2.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_1.html"
+    ],
+    "hasPlayer": true
+  },
+  "CD1-20": {
+    "trackId": "CD1-20",
+    "title": "Health Benefits of Superfoods",
+    "driveLink": "https://drive.google.com/open?id=1wVYnYJx2KCVzCwUHY4DQqhJp09eGGqE-&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1wVYnYJx2KCVzCwUHY4DQqhJp09eGGqE-",
+    "files": [
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_2.html"
     ],
     "hasPlayer": true
@@ -191,6 +214,18 @@
     "title": "Quantity and Measurement Words",
     "driveLink": "https://drive.google.com/open?id=1StIxNEIIZCkxy09WvW2_YX04nrHILFjy&usp=drive_fs",
     "directUrl": "https://docs.google.com/uc?export=open&id=1StIxNEIIZCkxy09WvW2_YX04nrHILFjy",
+    "files": [
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_3.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_1.html"
+    ],
+    "hasPlayer": true
+  },
+  "CD1-22": {
+    "trackId": "CD1-22",
+    "title": "Diet Comparisons (Caveman / Paleo Diet)",
+    "driveLink": "https://drive.google.com/open?id=1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7&usp=drive_fs",
+    "directUrl": "https://docs.google.com/uc?export=open&id=1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_3.html"
@@ -204,7 +239,8 @@
     "directUrl": "",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_review_writing.html"
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_review_writing.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_1.html"
     ],
     "hasPlayer": false
   },
@@ -226,7 +262,8 @@
     "directUrl": "https://docs.google.com/uc?export=open&id=1vijnaQ5yMx1DtEHghaoBh0D7VVUdC6J-",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/GE2 - U4.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_2.html"
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_2.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_1.html"
     ],
     "hasPlayer": true
   },
@@ -237,7 +274,8 @@
     "directUrl": "https://docs.google.com/uc?export=open&id=1tF9Y39c1k0kwG5U16Onuky1yOBEB4neu",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/GE2 - U4.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_3.html"
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_3.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_1.html"
     ],
     "hasPlayer": true
   },
@@ -248,7 +286,8 @@
     "directUrl": "https://docs.google.com/uc?export=open&id=1DFiG6ozy9UK33dj6z-HtQBbpjiEqOOdE",
     "files": [
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/GE2 - U4.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_4.html"
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_4.html",
+      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 4/grammar_explorer_2_unit_4_lesson_1.html"
     ],
     "hasPlayer": true
   },
@@ -481,38 +520,5 @@
       "Grammar-Explorer-book/Grammar-Explorer-2/Unit 9/GE2 - U9.html"
     ],
     "hasPlayer": false
-  },
-  "CD1-17": {
-    "trackId": "CD1-17",
-    "title": "Pronunciation: -s and -es Endings",
-    "driveLink": "",
-    "directUrl": "",
-    "files": [
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_1.html"
-    ],
-    "hasPlayer": false
-  },
-  "CD1-20": {
-    "trackId": "CD1-20",
-    "title": "Health Benefits of Superfoods",
-    "driveLink": "https://drive.google.com/open?id=1wVYnYJx2KCVzCwUHY4DQqhJp09eGGqE-&usp=drive_fs",
-    "directUrl": "https://docs.google.com/uc?export=open&id=1wVYnYJx2KCVzCwUHY4DQqhJp09eGGqE-",
-    "files": [
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_2.html"
-    ],
-    "hasPlayer": true
-  },
-  "CD1-22": {
-    "trackId": "CD1-22",
-    "title": "Diet Comparisons (Caveman / Paleo Diet)",
-    "driveLink": "https://drive.google.com/open?id=1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7&usp=drive_fs",
-    "directUrl": "https://docs.google.com/uc?export=open&id=1eXdC8RFUn1Qfhtq1lJF611Lc4TuOVZg7",
-    "files": [
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/GE2 - U3.html",
-      "Grammar-Explorer-book/Grammar-Explorer-2/Unit 3/grammar_explorer_2_unit_3_lesson_3.html"
-    ],
-    "hasPlayer": true
   }
 }
