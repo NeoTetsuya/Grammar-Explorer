@@ -1,17 +1,24 @@
 /**
  * Grammar Explorer - Audio Track Manager & Drive Integrator
  * 
- * Scans all lesson files for CD audio badges (e.g. CD1-02, CD1-03...), maintains
- * an audio registry (audio-registry.json), converts Google Drive links to direct streaming
- * URLs, and automatically injects or updates audio players into lesson files.
+ * Scans lesson files across all curriculum directories:
+ *   - Grammar Explorer 1/
+ *   - Grammar Explorer 2/
+ *   - Grammar Explorer 3/
+ *   - Grammar-Explorer-book/ (Grammar-Explorer-2 Units 1-16 & sub-lessons)
+ * 
+ * Inspects Git status and detects changes in Grammar Explorer 1, 2, and 3.
+ * Maintains audio-registry.json, converts Google Drive links to direct streaming URLs,
+ * and automatically injects or updates audio players into lesson files.
  * 
  * Usage:
  *   node manage-audio.js                 # Interactive menu (Scan, List, Add Link, Apply)
+ *   node manage-audio.js --check         # Checks Git status & changes in GE1, GE2, GE3, Book
  *   node manage-audio.js --scan          # Scans files and updates audio-registry.json
  *   node manage-audio.js --list          # Displays all detected tracks and current status
  *   node manage-audio.js --add CD1-02 "<drive_or_mp3_url>" # Sets audio link and injects into files
  *   node manage-audio.js --apply         # Applies all configured links from audio-registry.json
- *   node manage-audio.js --apply --push  # Applies audio players and pushes to GitHub
+ *   node manage-audio.js --apply --push  # Checks changes, applies audio players and pushes to GitHub
  */
 
 const fs = require('fs');
@@ -23,10 +30,17 @@ const REPO_DIR = __dirname;
 const REGISTRY_PATH = path.join(REPO_DIR, 'audio-registry.json');
 const BACKUP_DIR = path.join(REPO_DIR, '_backups');
 
+const CORE_DIRECTORIES = [
+  'Grammar Explorer 1',
+  'Grammar Explorer 2',
+  'Grammar Explorer 3'
+];
+
 // CLI Arguments
 const args = process.argv.slice(2);
 const isScan = args.includes('--scan');
 const isList = args.includes('--list');
+const isCheck = args.includes('--check') || args.includes('-c');
 const isApply = args.includes('--apply');
 const isPush = args.includes('--push');
 const addIdx = args.findIndex(a => a === '--add' || a === '-a');
@@ -41,6 +55,89 @@ const bold = (s) => `\x1b[1m${s}\x1b[0m`;
 const dim = (s) => `\x1b[2m${s}\x1b[0m`;
 
 function log(msg) { console.log(msg); }
+
+/**
+ * Check Git Status & Changes specifically in Core Directories
+ */
+function checkDirectoryGitChanges(dirs = CORE_DIRECTORIES) {
+  log(`\n${bold(cyan('-------------------------------------------------------'))}`);
+  log(`  ${bold('🔍 Inspecting Git Status & Changes in Core Directories')}`);
+  log(`${bold(cyan('-------------------------------------------------------'))}`);
+
+  const results = {};
+  let totalChanges = 0;
+
+  for (const dir of dirs) {
+    const dirPath = path.join(REPO_DIR, dir);
+    if (!fs.existsSync(dirPath)) {
+      results[dir] = { exists: false, changes: [] };
+      continue;
+    }
+
+    try {
+      const output = execSync(`git status --porcelain -- "${dir}"`, {
+        cwd: REPO_DIR,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'ignore']
+      }).trim();
+
+      const lines = output ? output.split('\n').map(l => l.trimEnd()).filter(Boolean) : [];
+      const changes = lines.map(line => {
+        const code = line.slice(0, 2).trim();
+        const relFile = line.slice(3).trim().replace(/^"|"$/g, '');
+        let status = 'MODIFIED';
+        let colorFn = yellow;
+        if (code === '??') {
+          status = 'UNTRACKED';
+          colorFn = green;
+        } else if (code.includes('A')) {
+          status = 'ADDED';
+          colorFn = green;
+        } else if (code.includes('D')) {
+          status = 'DELETED';
+          colorFn = red;
+        } else if (code.includes('R')) {
+          status = 'RENAMED';
+          colorFn = cyan;
+        }
+        return { code, status, file: relFile, filename: path.basename(relFile), colorFn };
+      });
+
+      results[dir] = { exists: true, changes };
+      totalChanges += changes.length;
+
+      if (changes.length === 0) {
+        log(`  📂 ${bold(dir)}: ${green('✓ Clean (No uncommitted changes)')}`);
+      } else {
+        log(`  📂 ${bold(dir)}: ${yellow(bold(`${changes.length} change(s) detected:`))}`);
+        changes.forEach(c => {
+          log(`     • ${c.colorFn(`[${c.status}]`)} ${c.filename} ${dim(`(${c.file})`)}`);
+        });
+      }
+    } catch (e) {
+      log(`  📂 ${bold(dir)}: ${red(`Error checking status: ${e.message}`)}`);
+      results[dir] = { exists: true, changes: [], error: e.message };
+    }
+  }
+
+  // Also check Book Edition & Registry
+  try {
+    const bookStatus = execSync('git status --porcelain -- "Grammar-Explorer-book" "audio-registry.json"', {
+      cwd: REPO_DIR,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore']
+    }).trim();
+    if (bookStatus) {
+      const bookLines = bookStatus.split('\n').filter(Boolean);
+      log(`  📂 ${bold('Book Edition / Audio Registry')}: ${yellow(`${bookLines.length} change(s) detected`)}`);
+    } else {
+      log(`  📂 ${bold('Book Edition / Audio Registry')}: ${green('✓ Clean')}`);
+    }
+  } catch (e) {}
+
+  log(`${bold(cyan('-------------------------------------------------------'))}`);
+  return { results, totalChanges };
+}
 
 /**
  * Converts any Google Drive link to a direct streaming audio URL.
@@ -122,9 +219,21 @@ function isOverviewBadge(content, matchIndex, badgeText) {
  * Scans all lesson files and builds/updates audio-registry.json
  */
 function scanTracks() {
-  log(`\n${bold('🔍 Scanning lesson files for audio tracks...')}`);
-  const bookDir = path.join(REPO_DIR, 'Grammar-Explorer-book');
-  const files = getHtmlFiles(bookDir);
+  log(`\n${bold('🔍 Scanning lesson files across all curriculum folders for audio tracks...')}`);
+  
+  const scanDirs = [
+    path.join(REPO_DIR, 'Grammar Explorer 1'),
+    path.join(REPO_DIR, 'Grammar Explorer 2'),
+    path.join(REPO_DIR, 'Grammar Explorer 3'),
+    path.join(REPO_DIR, 'Grammar-Explorer-book')
+  ];
+
+  let files = [];
+  for (const dir of scanDirs) {
+    if (fs.existsSync(dir)) {
+      files = files.concat(getHtmlFiles(dir));
+    }
+  }
 
   // Load existing registry if available
   let registry = {};
@@ -176,7 +285,6 @@ function scanTracks() {
           if (!registry[trackId].files.includes(relPath)) {
             registry[trackId].files.push(relPath);
           }
-          // If previous title was generic, short, numeric, or from an overview, and we have a specific heading now, upgrade it
           if (!isOverview && (registry[trackId].title.startsWith('Exercise Track') || registry[trackId].title.startsWith('Lesson ') || registry[trackId].title.length < 5 || /^\d+$/.test(registry[trackId].title))) {
             registry[trackId].title = contextTitle;
           }
@@ -196,7 +304,7 @@ function scanTracks() {
   }
 
   fs.writeFileSync(REGISTRY_PATH, JSON.stringify(sortedRegistry, null, 2), 'utf8');
-  log(`  ${green('✓')} Found & indexed ${bold(sortedKeys.length)} unique audio tracks across lessons.`);
+  log(`  ${green('✓')} Found & indexed ${bold(sortedKeys.length)} unique audio tracks across ${files.length} lesson files.`);
   log(`  ${green('✓')} Registry saved to ${bold('audio-registry.json')}\n`);
   return sortedRegistry;
 }
@@ -245,8 +353,6 @@ function listTracks() {
 
 /**
  * Builds standard HTML player element for a track.
- * Uses Google Drive Preview player for Drive files (bypassing browser CORP blocking)
- * and native HTML5 audio for standard MP3 URLs.
  */
 function createPlayerHtml(trackId, audioUrl) {
   const fileIdMatch = audioUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) 
@@ -263,7 +369,6 @@ function createPlayerHtml(trackId, audioUrl) {
 <!-- End Audio Player [${trackId}] -->`;
   }
 
-  // Fallback to native HTML5 audio for standard direct MP3 URLs
   return `<!-- Audio Player [${trackId}] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black p-1.5" data-audio-track="${trackId}">
   <audio controls preload="none" class="w-full h-8 accent-amber-500 rounded" src="${audioUrl}">
@@ -275,7 +380,6 @@ function createPlayerHtml(trackId, audioUrl) {
 
 /**
  * Injects or updates an audio player in target files for a track.
- * Places players in all matching exercise/reading locations, skipping overview index cards.
  */
 function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
   const playerHtml = createPlayerHtml(trackId, audioUrl);
@@ -287,7 +391,7 @@ function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
 
     let content = fs.readFileSync(fullPath, 'utf8');
 
-    // 1. Strip ALL existing player instances for this track to clean up any misplaced players
+    // 1. Strip ALL existing player instances for this track
     const existingPlayerRegex = new RegExp(`<!-- Audio Player \\[${trackId}\\] -->[\\s\\S]*?<!-- End Audio Player \\[${trackId}\\] -->\\n?`, 'gi');
     content = content.replace(existingPlayerRegex, '');
 
@@ -313,12 +417,10 @@ function injectPlayerIntoFiles(trackId, audioUrl, targetFiles) {
       rawMatches.push({ pos: insertPos, text: badgeText, isTabHeader });
     }
 
-    // Prefer card-level badges (inside exercise/reading cards) over top tab header banners to avoid duplicate players
     const hasCardBadges = rawMatches.some(b => !b.isTabHeader);
     const matches = hasCardBadges ? rawMatches.filter(b => !b.isTabHeader) : rawMatches;
 
     if (matches.length > 0) {
-      // Sort descending by position so insertions don't alter earlier indexes
       matches.sort((a, b) => b.pos - a.pos);
 
       for (const item of matches) {
@@ -410,13 +512,14 @@ function removeTrackAudio(trackId) {
 /**
  * Applies all configured tracks from audio-registry.json to files.
  */
-/**
- * Applies all configured tracks from audio-registry.json to files.
- */
 function applyAllConfigured(shouldPush = isPush) {
   if (!fs.existsSync(REGISTRY_PATH)) {
     scanTracks();
   }
+
+  // Check Git status across core directories
+  checkDirectoryGitChanges();
+
   const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
   const trackIds = Object.keys(registry);
 
@@ -443,11 +546,18 @@ function applyAllConfigured(shouldPush = isPush) {
     log(`\n${bold('📦 Committing & Pushing to GitHub...')}`);
     try {
       execSync('git add -A', { cwd: REPO_DIR, stdio: 'inherit' });
-      const commitMsg = `feat: attach lesson audio players (${totalInjected} files)`;
-      try {
-        execSync(`git commit -m "${commitMsg}"`, { cwd: REPO_DIR, stdio: 'inherit' });
-      } catch (e) { /* ignore if clean */ }
-      execSync('git push origin main', { cwd: REPO_DIR, stdio: 'inherit' });
+      const stagedStatus = execSync('git diff --cached --name-status', { cwd: REPO_DIR, encoding: 'utf8' }).trim();
+      
+      if (!stagedStatus) {
+        log(`  ${yellow('Note: Working tree is clean, no newly staged changes to commit.')}`);
+      } else {
+        const commitMsg = `feat: attach lesson audio players (${totalInjected} files)`;
+        execSync(`git commit -m "${commitMsg}" --author="NeoTetsuya <35198449+NeoTetsuya@users.noreply.github.com>"`, { cwd: REPO_DIR, stdio: 'inherit' });
+        log(`  ${green('✓ Commit created:')} "${commitMsg}"`);
+      }
+
+      log(`  ${cyan('Pushing to GitHub (origin main)...')}`);
+      execSync('git push -u origin main', { cwd: REPO_DIR, stdio: 'inherit' });
       log(`  ${green('✓ Successfully pushed to GitHub!')}`);
     } catch (err) {
       console.error(red(`Git push failed: ${err.message}`));
@@ -468,16 +578,17 @@ function interactiveMenu() {
     log(`\n${bold(cyan('========================================================================='))}`);
     log(`  ${bold('Grammar Explorer - Audio Track Manager & Drive Integrator')}`);
     log(`${bold(cyan('========================================================================='))}`);
-    log(`  1. ${bold('Scan Lessons')} (Discover all CD audio tracks in files)`);
+    log(`  1. ${bold('Scan Lessons')} (Discover all CD audio tracks across GE1, GE2, GE3 & Book)`);
     log(`  2. ${bold('List Tracks')} (View all tracks & link status)`);
     log(`  3. ${bold('Add / Update Audio Links')} (Add multiple audio links continuously)`);
     log(`  4. ${bold('Remove Audio Link')} (Remove player from files for a track)`);
-    log(`  5. ${bold('Apply All Configured Audio')} (Inject players into lesson files)`);
-    log(`  6. ${bold('Apply & Push to GitHub')} (Inject players and push changes)`);
-    log(`  7. ${bold('Exit')}`);
+    log(`  5. ${bold('Check Git Changes in GE1, GE2, GE3 & Book')} (Inspect uncommitted files)`);
+    log(`  6. ${bold('Apply All Configured Audio')} (Inject players into lesson files)`);
+    log(`  7. ${bold('Apply & Push to GitHub')} (Inspect changes, inject players, and push)`);
+    log(`  8. ${bold('Exit')}`);
     log(`${bold(cyan('========================================================================='))}\n`);
 
-    rl.question('Select an option (1-7): ', (choice) => {
+    rl.question('Select an option (1-8): ', (choice) => {
       const trimmed = choice.trim();
       if (trimmed === '1') {
         scanTracks();
@@ -490,16 +601,19 @@ function interactiveMenu() {
       } else if (trimmed === '4') {
         promptRemoveTrack();
       } else if (trimmed === '5') {
-        applyAllConfigured(false);
+        checkDirectoryGitChanges();
         showMenu();
       } else if (trimmed === '6') {
+        applyAllConfigured(false);
+        showMenu();
+      } else if (trimmed === '7') {
         applyAllConfigured(true);
         showMenu();
-      } else if (trimmed === '7' || trimmed.toLowerCase() === 'exit' || trimmed.toLowerCase() === 'q') {
+      } else if (trimmed === '8' || trimmed.toLowerCase() === 'exit' || trimmed.toLowerCase() === 'q') {
         log('Exiting Audio Track Manager. Goodbye!\n');
         rl.close();
       } else {
-        log(yellow('Invalid option. Please enter a number between 1 and 7.'));
+        log(yellow('Invalid option. Please enter a number between 1 and 8.'));
         showMenu();
       }
     });
@@ -521,7 +635,6 @@ function interactiveMenu() {
         } else {
           log(yellow('Cancelled: Track URL was empty.'));
         }
-        // Prompt for next track immediately so user can add many in a row!
         promptAddTrack();
       });
     });
@@ -545,7 +658,9 @@ function interactiveMenu() {
 }
 
 // Main CLI Router
-if (isScan) {
+if (isCheck) {
+  checkDirectoryGitChanges();
+} else if (isScan) {
   scanTracks();
 } else if (isList) {
   listTracks();
