@@ -24,12 +24,13 @@ This document is the mandatory standard for all development, file creation, cont
      git commit -m "<type>(<scope>): <description>" --author="NeoTetsuya <35198449+NeoTetsuya@users.noreply.github.com>"
      ```
    - Automatically push changes to GitHub (`origin/main`).
+   - Use the automated synchronization scripts (`update-and-push.bat` or `node update-index.js --push`) to inspect core directory changes, update catalog entries, and push.
 
 ---
 
 ## 2. Reading Word Files (`.docx`) & Content Parity Standards
 
-When auditing and extracting source content from textbook `.docx` files (e.g., `word files/u1.docx`, `u2.docx`, `u3.docx`):
+When auditing and extracting source content from textbook `.docx` files (e.g., `word files/u1.docx`, `u2.docx`, `u3.docx`, `u4.docx`):
 1. **Systematic XML Parsing**:
    - `.docx` files are zip archives containing `word/document.xml`.
    - Text resides in paragraphs (`<w:p>`) and inside tables (`<w:tbl>/<w:tr>/<w:tc>`).
@@ -133,9 +134,18 @@ Each unit in `Grammar-Explorer-book/Grammar-Explorer-2/Unit X/` follows a multi-
 1. **CD Badge Placement**:
    - Card headers: `<span class="badge-cd">CDX-XX</span>` next to the exercise title.
 2. **Centralized Registry (`audio-registry.json`)**:
-   - Every audio track referenced in `.docx` must be registered with its `trackId`, `title`, Google Drive link, and direct playback URL.
-3. **Syncing Audio**:
-   - Run `node manage-audio.js --apply` after updating or creating HTML files to automatically inject audio players.
+   - Every audio track referenced in curriculum files must be registered with its `trackId`, `title`, Google Drive link, direct streaming URL, and target files.
+3. **Multi-Directory Scanning**:
+   - `node manage-audio.js --scan` discovers CD badges across all curriculum directories:
+     - `Grammar Explorer 1`
+     - `Grammar Explorer 2`
+     - `Grammar Explorer 3`
+     - `Grammar-Explorer-book`
+4. **Syncing & Injecting Audio**:
+   - Run `node manage-audio.js --apply` to inject or update audio players in lesson files.
+   - Run `node manage-audio.js --apply --push` to inspect Git status in core directories, inject audio players, and push to GitHub.
+5. **Git Status Inspection**:
+   - Run `manage-audio.bat --check` or `node manage-audio.js --check` to audit uncommitted files in `Grammar Explorer 1`, `2`, `3`, and Book Edition.
 
 ---
 
@@ -160,3 +170,26 @@ Each practice card provides instant client-side evaluation:
    - Sentence container with `.edit-pill` and embedded cloze input.
 6. **Reset Controls**:
    - `resetCurrentLesson()` in top navigation cleans inputs, clears score badges, and restores default states.
+
+---
+
+## 8. Indexing, Master Catalog & Push Pipeline
+
+1. **Core Directories Git Inspection**:
+   - Both `update-index.js` and `manage-audio.js` actively inspect Git changes in:
+     - `Grammar Explorer 1`
+     - `Grammar Explorer 2`
+     - `Grammar Explorer 3`
+     - `Grammar-Explorer-book`
+   - Statuses (`[MODIFIED]`, `[ADDED]`, `[DELETED]`, `[RENAMED]`, `[UNTRACKED]`, or `Clean`) are displayed before executing operations.
+2. **Dynamic Filesystem Crawling**:
+   - `update-index.js` dynamically crawls all lesson files on disk in `Grammar Explorer 1`, `2`, and `3`, ensuring 100% disk-to-catalog parity (currently 83 lessons across the hub).
+   - Preserves curated titles, tags, and topics while automatically parsing new/unmapped files.
+3. **One-Click Push Automation**:
+   - Use `update-and-push.bat` (or `node update-index.js --push`) to:
+     1. Inspect Git status in core directories.
+     2. Scan the filesystem and update `masterCatalog` in `index.html`.
+     3. Create an automatic backup in `_backups/`.
+     4. Stage all files (`git add -A`).
+     5. Commit using author `NeoTetsuya <35198449+NeoTetsuya@users.noreply.github.com>`.
+     6. Push to `origin/main`.

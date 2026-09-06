@@ -1,5 +1,5 @@
 ---
-description: Mandatory rules for reading docx, grammar chart parity, generating lesson files, multi-file sync, DOM structure, design system, and audio in Grammar-Explorer
+description: Mandatory rules for reading docx, grammar chart parity, generating lesson files, multi-file sync, DOM structure, design system, audio, and git push in Grammar-Explorer
 globs: "**/*"
 always_on: true
 ---
@@ -45,12 +45,16 @@ Always strictly follow these rules when working in this repository:
    - Chart Tables: `border border-slate-200 rounded-xl overflow-hidden shadow-sm`, header `bg-slate-100 px-3 py-1.5 font-bold text-slate-700`.
    - Highlights: Teal (`text-teal-700`) and Amber (`text-amber-700`).
 
-6. **Audio Pipeline**:
+6. **Audio Pipeline & Multi-Directory Management**:
    - Add `<span class="badge-cd">CDX-XX</span>` to card headers.
    - Register tracks in `audio-registry.json`.
-   - Run `node manage-audio.js --apply` after updating HTML files.
+   - Run `node manage-audio.js --scan` to discover audio tracks across all curriculum directories (`Grammar Explorer 1`, `2`, `3`, and Book Edition).
+   - Run `manage-audio.bat --check` or `node manage-audio.js --check` to audit uncommitted changes in core folders.
+   - Run `node manage-audio.js --apply` to inject audio players, or `node manage-audio.js --apply --push` to push to GitHub.
 
-7. **Git Version Control & Push**:
+7. **Git Version Control, Dynamic Indexing & Push**:
    - Never edit placeholder pages.
+   - **Core Directories Inspection**: Always check uncommitted changes in `Grammar Explorer 1`, `Grammar Explorer 2`, and `Grammar Explorer 3` before pushing.
+   - **Dynamic Indexing**: Run `update-and-push.bat` (or `node update-index.js --push`) to crawl all lessons on disk, sync `masterCatalog` in `index.html` (83 lessons total), and automatically commit and push.
    - Commit author: `--author="NeoTetsuya <35198449+NeoTetsuya@users.noreply.github.com>"`.
    - Always push changes to GitHub `origin/main`.
