@@ -243,15 +243,36 @@ function listTracks() {
 `);
 }
 
-
 /**
  * Builds standard HTML player element for a track.
+ * Uses Google Drive Preview player for Drive files (bypassing browser CORP blocking)
+ * and native HTML5 audio for standard MP3 URLs.
  */
 function createPlayerHtml(trackId, audioUrl) {
+  const fileIdMatch = audioUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) 
+    || audioUrl.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+  if (fileIdMatch && fileIdMatch[1]) {
+    const fileId = fileIdMatch[1];
+    return `<!-- Audio Player [${trackId}] -->
+<div class="audio-player-widget mt-3 mb-3 p-2 rounded-2xl bg-amber-500/10 dark:bg-slate-800/80 border border-amber-500/30 shadow-xs" data-audio-track="${trackId}">
+  <div class="flex items-center justify-between px-2 pb-1.5 text-[11px] font-bold text-amber-900 dark:text-amber-300 uppercase tracking-wider">
+    <span class="flex items-center gap-1.5">
+      <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
+      Audio Track • ${trackId}
+    </span>
+    <a href="https://drive.google.com/file/d/${fileId}/view" target="_blank" rel="noopener noreferrer" class="text-[10px] text-amber-700 dark:text-amber-400 hover:underline font-medium">Open in Drive ↗</a>
+  </div>
+  <iframe src="https://drive.google.com/file/d/${fileId}/preview" width="100%" height="56" class="rounded-xl border border-amber-500/20 shadow-xs" frameborder="0" allow="autoplay"></iframe>
+</div>
+<!-- End Audio Player [${trackId}] -->`;
+  }
+
+  // Fallback to native HTML5 audio for standard direct MP3 URLs
   return `<!-- Audio Player [${trackId}] -->
 <div class="audio-player-widget mt-3 mb-3 p-2.5 rounded-2xl bg-amber-500/10 dark:bg-slate-800/80 border border-amber-500/30 flex items-center gap-3 shadow-xs" data-audio-track="${trackId}">
   <div class="w-8 h-8 rounded-xl bg-amber-500 text-slate-900 flex items-center justify-center font-bold text-xs shrink-0 shadow-sm">
-    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg>
   </div>
   <div class="flex-grow min-w-0">
     <div class="text-[10px] font-bold text-amber-900 dark:text-amber-300 uppercase tracking-wider mb-1">Audio Track • ${trackId}</div>
