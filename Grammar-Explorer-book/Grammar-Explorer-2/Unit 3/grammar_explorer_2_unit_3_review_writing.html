@@ -7,20 +7,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['Lora', 'serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0b1329 0%, #1d2b4f 50%, #152238 100%);
+      min-height: 100vh;
+      color: #1e293b;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
@@ -38,9 +35,9 @@
     @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
   </style>
 </head>
-<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+<body class="bg-slate-900 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-teal-500 selection:text-white">
 
-  <!-- HEADER -->
+  <!-- TOP APP HEADER -->
   <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -65,12 +62,12 @@
 
       <!-- EXERCISE TAB NAVIGATION -->
       <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-        
-        <button onclick="switchExTab('tab-review-grammar')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-review-grammar">
+
+        <button onclick="switchExTab('tab-review')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-review">
           <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
           <span>Grammar Review (pp. 81–82)</span>
         </button>
-        <button onclick="switchExTab('tab-review-edit')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-review-edit">
+        <button onclick="switchExTab('tab-crocodiles')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-crocodiles">
           <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
           <span>EDIT: Siamese Crocodiles (p. 82)</span>
         </button>
@@ -87,339 +84,284 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
-    <div id="tab-review-grammar" class="ex-tab-pane block space-y-6">
-<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-purple-600">Review the Grammar • Pages 81–83</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Unit 3 Comprehensive Review</h2>
-        </div>
-        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Nouns & Quantifiers Synthesis</span>
-      </div>
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
 
+    <div id="tab-review" class="ex-tab-pane block space-y-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        
-        <!-- Exercise 1: a, an, some conversations -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex1-rev-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex1-rev-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">1</span>
             Complete with a, an, or some (Page 81)
           </h4>
-          <p class="text-xs text-slate-500">Complete the conversations with <em>a</em>, <em>an</em>, or <em>some</em>:</p>
-
-          <div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
-            <div><strong>Conversation 1:</strong></div>
-            <div>Piet: I just bought (1) <input type="text" data-ans="a" value="a" readonly class="border rounded px-1.5 py-0.5 text-xs w-12 bg-slate-200 font-semibold text-center"> new bike.</div>
-            <div>Mauro: Oh, that's (2) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> good idea.</div>
-            <div>Piet: Yes, I really need to get (3) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> exercise.</div>
-            <div>Mauro: Hmm, well, I have (4) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> time off tomorrow. Do you want to go for (5) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> ride together?</div>
-            
-            <div class="pt-2 border-t border-slate-200"><strong>Conversation 2:</strong></div>
-            <div>June: Would you like (6) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> cup of coffee?</div>
-            <div>Belinda: No, thanks. I just had (7) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> coffee about fifteen minutes ago.</div>
-            <div>June: Would you like (8) <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> glass of lemonade instead?</div>
-            <div>Belinda: Yes, that would be great.</div>
-            <div>June: I also have (9) <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> fruit. I have apples, oranges, and pears.</div>
-            <div>Belinda: I’d love (10) <select data-ans="an" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> orange. Thanks, June.</div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkSelectCard('ex1-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 1</button>
-          </div>
-        </div>
-
-        <!-- Exercise 2: Noun Choice -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-rev-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+<p class="text-xs text-slate-500">Complete the conversations with <em>a</em>, <em>an</em>, or <em>some</em>:</p>
+<div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+<div><strong>Conversation 1:</strong></div>
+<div>Piet: I just bought (1) <input class="border rounded px-1.5 py-0.5 text-xs w-12 bg-slate-200 font-semibold text-center" data-ans="a" readonly="" type="text" value="a"/> new bike.</div>
+<div>Mauro: Oh, that's (2) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> good idea.</div>
+<div>Piet: Yes, I really need to get (3) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="some"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> exercise.</div>
+<div>Mauro: Hmm, well, I have (4) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="some"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> time off tomorrow. Do you want to go for (5) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> ride together?</div>
+<div class="pt-2 border-t border-slate-200"><strong>Conversation 2:</strong></div>
+<div>June: Would you like (6) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> cup of coffee?</div>
+<div>Belinda: No, thanks. I just had (7) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="some"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> coffee about fifteen minutes ago.</div>
+<div>June: Would you like (8) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> glass of lemonade instead?</div>
+<div>Belinda: Yes, that would be great.</div>
+<div>June: I also have (9) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="some"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> fruit. I have apples, oranges, and pears.</div>
+<div>Belinda: I’d love (10) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="an"><option value="">select</option><option value="a">a</option><option value="an">an</option><option value="some">some</option></select> orange. Thanks, June.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex1-rev-card')" type="button">Check Ex 1</button>
+</div>
+</div>
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex2-rev-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
             Complete Sentences with Nouns (Page 81)
           </h4>
-          <p class="text-xs text-slate-500">Choose the correct noun in parentheses. Make plural if necessary:</p>
-
-          <div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
-            <div>1. This gym has many new <input type="text" data-ans="machines" value="machines" readonly class="border rounded px-1.5 py-0.5 text-xs w-24 bg-slate-200 font-semibold"> (machine / equipment).</div>
-            <div>2. My old gym didn’t have much <input type="text" data-ans="equipment" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="machine/equipment"> (machine / equipment).</div>
-            <div>3. Taylor’s children don’t eat much <input type="text" data-ans="fruit" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="fruit/apple"> (fruit / apple).</div>
-            <div>4. How many <input type="text" data-ans="apples" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="fruit/apple"> (fruit / apple) did you use in the pie?</div>
-            <div>5. I learned an interesting <input type="text" data-ans="fact" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="fact/information"> (fact / information) about nutrition yesterday.</div>
-            <div>6. There was a lot of interesting <input type="text" data-ans="information" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="fact/information"> (fact / information) on the website.</div>
-            <div>7. My doctor gave me a few good <input type="text" data-ans="suggestions" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" placeholder="advice/suggestion"> (advice / suggestion) about my diet.</div>
-            <div>8. Doctor Carson didn’t give me much <input type="text" data-ans="advice" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="advice/suggestion"> (advice / suggestion) about exercise.</div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex2-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
-          </div>
-        </div>
-
-        <!-- Exercise 3: Quantity Choice (Page 81-82) -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-rev-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+<p class="text-xs text-slate-500">Choose the correct noun in parentheses. Make plural if necessary:</p>
+<div class="space-y-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+<div>1. This gym has many new <input class="border rounded px-1.5 py-0.5 text-xs w-24 bg-slate-200 font-semibold" data-ans="machines" readonly="" type="text" value="machines"/> (machine / equipment).</div>
+<div>2. My old gym didn’t have much <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" data-ans="equipment" placeholder="machine/equipment" type="text"/> (machine / equipment).</div>
+<div>3. Taylor’s children don’t eat much <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" data-ans="fruit" placeholder="fruit/apple" type="text"/> (fruit / apple).</div>
+<div>4. How many <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" data-ans="apples" placeholder="fruit/apple" type="text"/> (fruit / apple) did you use in the pie?</div>
+<div>5. I learned an interesting <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" data-ans="fact" placeholder="fact/information" type="text"/> (fact / information) about nutrition yesterday.</div>
+<div>6. There was a lot of interesting <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" data-ans="information" placeholder="fact/information" type="text"/> (fact / information) on the website.</div>
+<div>7. My doctor gave me a few good <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-28 input-clean" data-ans="suggestions" placeholder="advice/suggestion" type="text"/> (advice / suggestion) about my diet.</div>
+<div>8. Doctor Carson didn’t give me much <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" data-ans="advice" placeholder="advice/suggestion" type="text"/> (advice / suggestion) about exercise.</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex2-rev-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 lg:col-span-6" id="ex3-rev-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
             Choose the Correct Word(s) (Pages 81–82)
           </h4>
-          <p class="text-xs text-slate-500">Circle the correct word(s) to complete each statement or question:</p>
-
-          <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
-            <div>1. Do you play <select data-ans="many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> different sports?</div>
-            <div>2. My father rides his bike a <select data-ans="few" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="few">few</option><option value="little">little</option></select> times a week.</div>
-            <div>3. <select data-ans="Many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Much">Much</option><option value="Many">Many</option></select> people like to exercise in the morning.</div>
-            <div>4. I don’t take <select data-ans="any" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> vitamins, but I have a healthy diet.</div>
-            <div>5. Elsie spends <select data-ans="a lot of" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a lot of">a lot of</option><option value="many">many</option></select> time at the gym. She’s very fit.</div>
-            <div>6. Only a <select data-ans="few" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="few">few</option><option value="little">little</option></select> people were at the gym last night. It was almost empty.</div>
-            <div>7. She gave us <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> advice about yoga classes.</div>
-            <div>8. I found a <select data-ans="little" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="few">few</option><option value="little">little</option></select> information about that diet online, but not much.</div>
-            <div>9. I asked Paula about fitness classes. She gave me <select data-ans="some" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> good suggestions.</div>
-            <div>10. How <select data-ans="many" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> pieces of fruit do you usually eat a day?</div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkSelectCard('ex3-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
-          </div>
-        </div>
+<p class="text-xs text-slate-500">Circle the correct word(s) to complete each statement or question:</p>
+<div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+<div>1. Do you play <select class="select-check border rounded p-1 text-xs input-clean" data-ans="many"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> different sports?</div>
+<div>2. My father rides his bike a <select class="select-check border rounded p-1 text-xs input-clean" data-ans="few"><option value="">select</option><option value="few">few</option><option value="little">little</option></select> times a week.</div>
+<div>3. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="Many"><option value="">select</option><option value="Much">Much</option><option value="Many">Many</option></select> people like to exercise in the morning.</div>
+<div>4. I don’t take <select class="select-check border rounded p-1 text-xs input-clean" data-ans="any"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> vitamins, but I have a healthy diet.</div>
+<div>5. Elsie spends <select class="select-check border rounded p-1 text-xs input-clean" data-ans="a lot of"><option value="">select</option><option value="a lot of">a lot of</option><option value="many">many</option></select> time at the gym. She’s very fit.</div>
+<div>6. Only a <select class="select-check border rounded p-1 text-xs input-clean" data-ans="few"><option value="">select</option><option value="few">few</option><option value="little">little</option></select> people were at the gym last night. It was almost empty.</div>
+<div>7. She gave us <select class="select-check border rounded p-1 text-xs input-clean" data-ans="some"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> advice about yoga classes.</div>
+<div>8. I found a <select class="select-check border rounded p-1 text-xs input-clean" data-ans="little"><option value="">select</option><option value="few">few</option><option value="little">little</option></select> information about that diet online, but not much.</div>
+<div>9. I asked Paula about fitness classes. She gave me <select class="select-check border rounded p-1 text-xs input-clean" data-ans="some"><option value="">select</option><option value="any">any</option><option value="some">some</option></select> good suggestions.</div>
+<div>10. How <select class="select-check border rounded p-1 text-xs input-clean" data-ans="many"><option value="">select</option><option value="much">much</option><option value="many">many</option></select> pieces of fruit do you usually eat a day?</div>
 </div>
-<div id="tab-review-edit" class="ex-tab-pane hidden space-y-6">
-<!-- Exercise 4: EDIT Siamese Crocodiles -->
-        <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-rev-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex3-rev-card')" type="button">Check Ex 3</button>
+</div>
+</div>
+</div>
+    </div>
+    <div id="tab-crocodiles" class="ex-tab-pane hidden space-y-6">
+      <div class="max-w-4xl mx-auto space-y-6">
+  <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3 w-full" id="ex4-rev-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
             EDIT. Siamese Crocodiles in Cambodia (Page 82)
           </h4>
-          <p class="text-xs text-slate-500">Find and correct eight more errors with count and non-count nouns and quantity words:</p>
-
-          <div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
-            <div>1. [Much] species of wild animals are dying out: <input type="text" data-ans="Many" value="Many" readonly class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold"> (given)</div>
-            <div>2. This is [huge problem]: <input type="text" data-ans="a huge problem" class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" placeholder="correction"></div>
-            <div>3. The [healths] of one group: <input type="text" data-ans="health" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
-            <div>4. [An] good example of this is in Cambodia: <input type="text" data-ans="A" class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" placeholder="correction"></div>
-            <div>5. Took a team of [scientist] into mountains: <input type="text" data-ans="scientists" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
-            <div>6. Discovered [much] Siamese crocodiles: <input type="text" data-ans="many" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
-            <div>7. Soft wet areas of land with [much] plants: <input type="text" data-ans="many,a lot of" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
-            <div>8. Help keep [a water] there: <input type="text" data-ans="water,the water" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
-            <div>9. Other animals have a good source of [waters]: <input type="text" data-ans="water" class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" placeholder="correction"></div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex4-rev-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- TAB 6: CONNECT TO WRITING (Pages 84–85) -->
-    <!-- ============================================================ -->
+<p class="text-xs text-slate-500">Find and correct eight more errors with count and non-count nouns and quantity words:</p>
+<div class="space-y-1.5 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
+<div>1. [Much] species of wild animals are dying out: <input class="border rounded px-2 py-0.5 text-xs w-28 bg-slate-200 font-semibold" data-ans="Many" readonly="" type="text" value="Many"/> (given)</div>
+<div>2. This is [huge problem]: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-32 input-clean" data-ans="a huge problem" placeholder="correction" type="text"/></div>
+<div>3. The [healths] of one group: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="health" placeholder="correction" type="text"/></div>
+<div>4. [An] good example of this is in Cambodia: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-20 input-clean" data-ans="A" placeholder="correction" type="text"/></div>
+<div>5. Took a team of [scientist] into mountains: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="scientists" placeholder="correction" type="text"/></div>
+<div>6. Discovered [much] Siamese crocodiles: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="many" placeholder="correction" type="text"/></div>
+<div>7. Soft wet areas of land with [much] plants: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="many,a lot of" placeholder="correction" type="text"/></div>
+<div>8. Help keep [a water] there: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="water,the water" placeholder="correction" type="text"/></div>
+<div>9. Other animals have a good source of [waters]: <input class="cloze-input border rounded px-2 py-0.5 text-xs w-28 input-clean" data-ans="water" placeholder="correction" type="text"/></div>
 </div>
-<div id="tab-writing-model" class="ex-tab-pane hidden space-y-6">
-<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Writing Focus • Pages 84–85</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Connect the Grammar to Writing: Opinion Paragraph</h2>
-        </div>
-        <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-medium">Split-View Model & Drafting Workbench</span>
-      </div>
-
-      <!-- PART 1: READ & NOTICE (SPLIT-VIEW) -->
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex4-rev-card')" type="button">Check Ex 4</button>
+</div>
+</div>
+</div>
+    </div>
+    <div id="tab-writing-model" class="ex-tab-pane hidden space-y-6">
       <div class="space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ & NOTICE</span>
-            <span class="text-sm font-bold text-slate-700">Model Text & Subject-Verb Agreement (Pages 84–85)</span>
-          </div>
-          <span class="text-xs text-slate-500 font-medium bg-teal-100 text-teal-800 px-2 py-0.5 rounded">
-            Split-View: Model (Left) ↔ Focus & Analysis (Right)
+<div class="flex items-center justify-between border-b border-slate-200 pb-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">1. READ &amp; NOTICE</span>
+<span class="text-sm font-bold text-slate-700">Model Text &amp; Subject-Verb Agreement (Pages 84–85)</span>
+</div>
+<span class="text-xs text-slate-500 font-medium bg-teal-100 text-teal-800 px-2 py-0.5 rounded">
+            Split-View: Model (Left) ↔ Focus &amp; Analysis (Right)
           </span>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          
-          <!-- LEFT PANE: Model Reading "Staying Fit" -->
-          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
-            <div class="border-b border-slate-100 pb-3">
-              <span class="text-xs font-semibold px-2 py-0.5 bg-teal-100 text-teal-800 rounded">MODEL READING</span>
-              <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Staying Fit</h3>
-              <p class="text-xs text-slate-500">An opinion paragraph on walking</p>
-            </div>
-
-            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
-              <p>
-                <strong>Exercise is</strong> important if you want to stay fit. You don’t need <strong>any fancy machines</strong> or <strong>a lot of expensive clothing</strong>. The best exercise, in my opinion, is to take <strong>a long walk</strong> every day. Walking is inexpensive, easy, and safe.
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Model Reading "Staying Fit" -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="border-b border-slate-100 pb-3">
+<span class="text-xs font-semibold px-2 py-0.5 bg-teal-100 text-teal-800 rounded">MODEL READING</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Staying Fit</h3>
+<p class="text-xs text-slate-500">An opinion paragraph on walking</p>
+</div>
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-3">
+<p>
+<strong>Exercise is</strong> important if you want to stay fit. You don’t need <strong>any fancy machines</strong> or <strong>a lot of expensive clothing</strong>. The best exercise, in my opinion, is to take <strong>a long walk</strong> every day. Walking is inexpensive, easy, and safe.
               </p>
-              <p>
+<p>
                 All you need for a walk are <strong>comfortable shoes</strong>, appropriate clothing, and 30 minutes to an hour of your time. If it’s warm and you live near a beach, you don’t even need <strong>any shoes</strong>! Walking takes very <strong>little time</strong> and money.
               </p>
-              <p>
-                <strong>A walk is</strong> also a safe way to stay fit. Often <strong>people get</strong> hurt when they exercise. Some people run several miles a week and then complain of knee or back pain. Other people do <strong>a lot of drills</strong>¹ and then ache for a week. Walking is relaxing and does not put a lot of stress on your body. It provides exercise without additional pain. Walking keeps <strong>your body</strong>—and your mind—healthy. Go take a walk!
+<p>
+<strong>A walk is</strong> also a safe way to stay fit. Often <strong>people get</strong> hurt when they exercise. Some people run several miles a week and then complain of knee or back pain. Other people do <strong>a lot of drills</strong>¹ and then ache for a week. Walking is relaxing and does not put a lot of stress on your body. It provides exercise without additional pain. Walking keeps <strong>your body</strong>—and your mind—healthy. Go take a walk!
               </p>
-            </div>
-
-            <div class="bg-teal-50 rounded-xl border border-teal-200 p-3.5 text-xs text-teal-950 space-y-1">
-              <strong class="text-teal-900 block uppercase tracking-wide text-[11px]">WRITING FOCUS: Subject-Verb Agreement (Page 85)</strong>
-              <p>When using nouns in the subject position, be sure to use the correct singular or plural form of the verb. With non-count nouns as subjects, use a singular verb.</p>
-              <ul class="list-disc list-inside text-teal-900 text-[11px] space-y-0.5">
-                <li><strong>Singular Count:</strong> <em>A walk <strong>is</strong> also a safe way to stay fit.</em></li>
-                <li><strong>Plural Count:</strong> <em>Often, people <strong>get</strong> hurt when they exercise.</em></li>
-                <li><strong>Non-Count:</strong> <em>Exercise <strong>is</strong> important if you want to stay fit.</em></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- RIGHT PANE: Analysis & Grammar Notice -->
-          <div class="lg:col-span-6 space-y-5">
-            
-            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-notice-card">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+</div>
+<div class="bg-teal-50 rounded-xl border border-teal-200 p-3.5 text-xs text-teal-950 space-y-1">
+<strong class="text-teal-900 block uppercase tracking-wide text-[11px]">WRITING FOCUS: Subject-Verb Agreement (Page 85)</strong>
+<p>When using nouns in the subject position, be sure to use the correct singular or plural form of the verb. With non-count nouns as subjects, use a singular verb.</p>
+<ul class="list-disc list-inside text-teal-900 text-[11px] space-y-0.5">
+<li><strong>Singular Count:</strong> <em>A walk <strong>is</strong> also a safe way to stay fit.</em></li>
+<li><strong>Plural Count:</strong> <em>Often, people <strong>get</strong> hurt when they exercise.</em></li>
+<li><strong>Non-Count:</strong> <em>Exercise <strong>is</strong> important if you want to stay fit.</em></li>
+</ul>
+</div>
+</div>
+<!-- RIGHT PANE: Analysis & Grammar Notice -->
+<div class="lg:col-span-6 space-y-5">
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-notice-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
                 Complete Chart with Nouns from Text (Page 84)
               </h4>
-              <p class="text-xs text-slate-500">Categorize each noun phrase from the text:</p>
-
-              <div class="space-y-2 text-xs">
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>1. <strong>a long walk</strong>:</span>
-                  <select data-ans="sc" class="select-check border rounded p-1 text-xs input-clean"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>2. <strong>your body</strong>:</span>
-                  <select data-ans="sc" class="select-check border rounded p-1 text-xs input-clean"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with or without a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>3. <strong>any shoes</strong>:</span>
-                  <select data-ans="qc" class="select-check border rounded p-1 text-xs input-clean"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>4. <strong>The best exercise</strong>:</span>
-                  <select data-ans="nc" class="select-check border rounded p-1 text-xs input-clean"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>5. <strong>little time</strong>:</span>
-                  <select data-ans="qnc" class="select-check border rounded p-1 text-xs input-clean"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>6. <strong>a lot of expensive clothing</strong>:</span>
-                  <select data-ans="qnc" class="select-check border rounded p-1 text-xs input-clean"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
-                </div>
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-                <span class="ex-score text-xs font-bold text-slate-500"></span>
-                <button type="button" onclick="checkSelectCard('ex-notice-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Analysis</button>
-              </div>
-            </div>
-
-            <!-- Subject-Verb Agreement Test -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-agreement-card">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+<p class="text-xs text-slate-500">Categorize each noun phrase from the text:</p>
+<div class="space-y-2 text-xs">
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>1. <strong>a long walk</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="sc"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>2. <strong>your body</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="sc"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with or without a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>3. <strong>any shoes</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="qc"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>4. <strong>The best exercise</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="nc"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>5. <strong>little time</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="qnc"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>6. <strong>a lot of expensive clothing</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="qnc"><option value="">Category</option><option value="sc">Count: (Adj) + Noun with a/an</option><option value="qc">Count: Quantity Word + (Adj) + Noun</option><option value="nc">Non-Count: (Adj) + Noun</option><option value="qnc">Non-Count: Quantity Word + Noun</option></select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex-notice-card')" type="button">Check Analysis</button>
+</div>
+</div>
+<!-- Subject-Verb Agreement Test -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex-agreement-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
                 Subject-Verb Agreement Practice (Page 85)
               </h4>
-              <p class="text-xs text-slate-500">Choose the correct verb to agree with the subject:</p>
-
-              <div class="space-y-2 text-xs">
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>1. Exercise (is / are) important if you want to stay fit:</span>
-                  <select data-ans="is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is">is</option><option value="are">are</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>2. Comfortable shoes (costs / cost) a lot of money:</span>
-                  <select data-ans="cost" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="costs">costs</option><option value="cost">cost</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>3. Fresh fruit (provides / provide) many vitamins:</span>
-                  <select data-ans="provides" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="provides">provides</option><option value="provide">provide</option></select>
-                </div>
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-                <span class="ex-score text-xs font-bold text-slate-500"></span>
-                <button type="button" onclick="checkSelectCard('ex-agreement-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Agreement</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+<p class="text-xs text-slate-500">Choose the correct verb to agree with the subject:</p>
+<div class="space-y-2 text-xs">
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>1. Exercise (is / are) important if you want to stay fit:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="is"><option value="">select</option><option value="is">is</option><option value="are">are</option></select>
 </div>
-<div id="tab-writing-draft" class="ex-tab-pane hidden space-y-6">
-<!-- PART 2: DRAFT & SELF ASSESS -->
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>2. Comfortable shoes (costs / cost) a lot of money:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="cost"><option value="">select</option><option value="costs">costs</option><option value="cost">cost</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>3. Fresh fruit (provides / provide) many vitamins:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="provides"><option value="">select</option><option value="provides">provides</option><option value="provide">provide</option></select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex-agreement-card')" type="button">Check Agreement</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <div id="tab-writing-draft" class="ex-tab-pane hidden space-y-6">
       <div class="space-y-6 pt-4 border-t border-slate-200">
-        <div class="flex items-center gap-2">
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-teal-500 text-white">WRITING WORKBENCH</span>
-          <span class="text-sm font-bold text-slate-700">Draft & Assess Your Opinion Paragraph (Pages 84–85)</span>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          
-          <!-- Draft Textarea -->
-          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-teal-500 text-white">WRITING WORKBENCH</span>
+<span class="text-sm font-bold text-slate-700">Draft &amp; Assess Your Opinion Paragraph (Pages 84–85)</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Draft Textarea -->
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
               WRITE YOUR OPINION PARAGRAPH (Page 85)
             </h4>
-            <p class="text-xs text-slate-500">Write about a good way to stay fit. Write three paragraphs and give at least two reasons with supporting facts:</p>
-            
-            <textarea id="studentEssay" rows="8" placeholder="Paragraph 1 (Opinion):
+<p class="text-xs text-slate-500">Write about a good way to stay fit. Write three paragraphs and give at least two reasons with supporting facts:</p>
+<textarea class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-teal-400 leading-relaxed" id="studentEssay" placeholder="Paragraph 1 (Opinion):
 In my opinion, swimming is the best exercise to stay fit and healthy. You do not need any expensive machines or a lot of equipment...
 
-Paragraph 2 (Reason 1 & Supporting Facts):
+Paragraph 2 (Reason 1 &amp; Supporting Facts):
 Swimming is inexpensive and safe. All you need are a comfortable swimsuit and a pair of goggles. It takes very little time, but it builds strength...
 
-Paragraph 3 (Reason 2 & Conclusion):
-In addition, swimming does not put much stress on your joints. It provides a great workout without back or knee pain..." class="w-full p-3 border border-slate-300 rounded-xl text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-teal-400 leading-relaxed"></textarea>
-
-            <div class="flex items-center justify-between text-xs text-slate-500 pt-1">
-              <span id="wordCount">0 words written</span>
-              <button onclick="copyEssayText()" class="font-semibold text-slate-700 hover:text-teal-600 underline">Copy Paragraph</button>
-            </div>
-          </div>
-
-          <!-- Self-Assessment Checklist -->
-          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
+Paragraph 3 (Reason 2 &amp; Conclusion):
+In addition, swimming does not put much stress on your joints. It provides a great workout without back or knee pain..." rows="8"></textarea>
+<div class="flex items-center justify-between text-xs text-slate-500 pt-1">
+<span id="wordCount">0 words written</span>
+<button class="font-semibold text-slate-700 hover:text-teal-600 underline" onclick="copyEssayText()">Copy Paragraph</button>
+</div>
+</div>
+<!-- Self-Assessment Checklist -->
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">5</span>
               SELF ASSESS (Page 85 Checklist)
             </h4>
-            <p class="text-xs text-slate-500">Check off each criterion as you review your draft:</p>
-
-            <div class="space-y-2 text-xs">
-              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
-                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400">
-                <span class="text-slate-700">I used <strong>a</strong> or <strong>an</strong> before singular count nouns. [3.4]</span>
-              </label>
-              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
-                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400">
-                <span class="text-slate-700">I did <strong>not</strong> use <em>a/an</em> before plural count nouns and non-count nouns. [3.4]</span>
-              </label>
-              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
-                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400">
-                <span class="text-slate-700">I used <strong>some</strong> in affirmative statements and <strong>any</strong> in negative statements. [3.6]</span>
-              </label>
-              <label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
-                <input type="checkbox" class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400">
-                <span class="text-slate-700">I used the correct singular or plural form of verbs. [WRITING FOCUS]</span>
-              </label>
-            </div>
-          </div>
-
-        </div>
-      </div>
+<p class="text-xs text-slate-500">Check off each criterion as you review your draft:</p>
+<div class="space-y-2 text-xs">
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+<input class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400" type="checkbox"/>
+<span class="text-slate-700">I used <strong>a</strong> or <strong>an</strong> before singular count nouns. [3.4]</span>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+<input class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400" type="checkbox"/>
+<span class="text-slate-700">I did <strong>not</strong> use <em>a/an</em> before plural count nouns and non-count nouns. [3.4]</span>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+<input class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400" type="checkbox"/>
+<span class="text-slate-700">I used <strong>some</strong> in affirmative statements and <strong>any</strong> in negative statements. [3.6]</span>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 cursor-pointer border border-slate-200 transition">
+<input class="w-4 h-4 mt-0.5 rounded text-teal-500 focus:ring-teal-400" type="checkbox"/>
+<span class="text-slate-700">I used the correct singular or plural form of verbs. [WRITING FOCUS]</span>
+</label>
 </div>
+</div>
+</div>
+</div>
+    </div>
+
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <div class="w-2 h-4 bg-teal-400 rounded-xs"></div>
-        <p>Grammar Explorer 2 — National Geographic Learning • Unit 3: Review the Grammar & Connect to Writing</p>
+  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
       </div>
-      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+      <div>Interactive Student Workbook & Exercises Suite</div>
     </div>
   </footer>
 
@@ -441,6 +383,13 @@ In addition, swimming does not put much stress on your joints. It provides a gre
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tab) {
+      if (tab === 'lesson1') switchExTab('tab-explore');
+      else if (tab === 'lesson2') window.location.href = 'grammar_explorer_2_unit_3_lesson_2.html';
+      else if (tab === 'lesson3') window.location.href = 'grammar_explorer_2_unit_3_lesson_3.html';
+      else if (tab === 'review' || tab === 'writing') window.location.href = 'grammar_explorer_2_unit_3_review_writing.html';
     }
 
     function removeBadge(element) {
@@ -487,19 +436,59 @@ In addition, swimming does not put much stress on your joints. It provides a gre
           return;
         }
 
-        const chosen = selectedBtn.getAttribute('data-selected');
-        if (chosen === correct) {
+        const selectedVal = selectedBtn.getAttribute('data-selected');
+        if (selectedVal === correct) {
           correctCount++;
-          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
-          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          selectedBtn.classList.remove('bg-teal-500');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white');
           statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
         } else {
-          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
-          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
-          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          selectedBtn.classList.remove('bg-teal-500');
+          selectedBtn.classList.add('bg-rose-500', 'text-white');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Incorrect (Ans: ${correct})</span>`;
           const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
           if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
         }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkMCQCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const items = card.querySelectorAll('.mcq-item');
+      let correctCount = 0;
+      let total = items.length;
+
+      items.forEach(item => {
+        const correct = item.getAttribute('data-correct');
+        const selected = item.querySelector('input[type="radio"]:checked');
+        const badgeContainer = item.querySelector('.mcq-badge-container') || item;
+
+        const oldBadge = item.querySelector('.ans-badge');
+        if (oldBadge) oldBadge.remove();
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (!selected) {
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Unanswered (Ans: ${correct})`;
+          badgeContainer.appendChild(badge);
+          return;
+        }
+
+        if (selected.value === correct) {
+          correctCount++;
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Incorrect (Ans: ${correct})`;
+        }
+        badgeContainer.appendChild(badge);
       });
 
       const scoreEl = card.querySelector('.ex-score');
@@ -515,24 +504,22 @@ In addition, swimming does not put much stress on your joints. It provides a gre
 
       selects.forEach(sel => {
         removeBadge(sel);
-        const expected = (sel.getAttribute('data-ans') || '').trim();
-        const userVal = sel.value.trim();
-        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
-        const displayAns = targetOption ? targetOption.text : expected;
+        const correct = sel.getAttribute('data-ans') || sel.getAttribute('data-correct');
+        const val = sel.value.trim();
 
         sel.classList.remove('input-correct', 'input-incorrect');
         const badge = document.createElement('span');
         badge.className = 'ans-badge answer-badge';
 
-        if (userVal === '') {
+        if (!val) {
           sel.classList.add('input-incorrect');
           badge.classList.add('answer-badge-incorrect');
-          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          badge.innerHTML = `✗ Select an answer (Ans: ${correct})`;
           sel.insertAdjacentElement('afterend', badge);
           return;
         }
 
-        if (userVal.toLowerCase() === expected.toLowerCase()) {
+        if (val.toLowerCase() === (correct || '').toLowerCase()) {
           correctCount++;
           sel.classList.add('input-correct');
           badge.classList.add('answer-badge-correct');
@@ -540,7 +527,7 @@ In addition, swimming does not put much stress on your joints. It provides a gre
         } else {
           sel.classList.add('input-incorrect');
           badge.classList.add('answer-badge-incorrect');
-          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong>`;
         }
         sel.insertAdjacentElement('afterend', badge);
       });
@@ -597,11 +584,6 @@ In addition, swimming does not put much stress on your joints. It provides a gre
 
       const scoreEl = card.querySelector('.ex-score');
       if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
-    }
-
-    function checkDiscoverL3() {
-      checkClozeCard('ex3-l3-card');
-      checkSelectCard('ex3-l3-card');
     }
 
     function resetCurrentLesson() {

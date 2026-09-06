@@ -7,20 +7,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['Lora', 'serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0b1329 0%, #1d2b4f 50%, #152238 100%);
+      min-height: 100vh;
+      color: #1e293b;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
@@ -38,9 +35,9 @@
     @keyframes fadeInBadge { from { opacity: 0; transform: translateY(-1px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
   </style>
 </head>
-<body class="bg-slate-100/70 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-teal-100 selection:text-teal-900">
+<body class="bg-slate-900 text-slate-800 antialiased flex flex-col min-h-screen selection:bg-teal-500 selection:text-white">
 
-  <!-- HEADER -->
+  <!-- TOP APP HEADER -->
   <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -65,20 +62,20 @@
 
       <!-- EXERCISE TAB NAVIGATION -->
       <nav class="flex space-x-1.5 sm:space-x-2 overflow-x-auto pb-2 pt-1 text-xs font-semibold scrollbar-none border-t border-slate-800" aria-label="Exercise Tabs">
-        
+
         <button onclick="switchExTab('tab-explore')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-teal-400 text-white bg-slate-800 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-explore">
           <span class="w-5 h-5 rounded-full bg-teal-400 text-slate-950 flex items-center justify-center text-[10px] font-bold">1–3</span>
           <span>Explore: Superfoods (pp. 68–69)</span>
         </button>
-        <button onclick="switchExTab('tab-ex4')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex4">
+        <button onclick="switchExTab('tab-count')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-count">
           <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">4</span>
           <span>Count vs. Non-Count (pp. 70–71)</span>
         </button>
-        <button onclick="switchExTab('tab-ex6')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex6">
+        <button onclick="switchExTab('tab-categories')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-categories">
           <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">6</span>
           <span>Categories of Non-Count (p. 72)</span>
         </button>
-        <button onclick="switchExTab('tab-ex7')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-ex7">
+        <button onclick="switchExTab('tab-listen')" class="ex-tab-btn px-3 py-1.5 rounded-lg transition border-b-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/60 flex items-center gap-1.5 whitespace-nowrap shrink-0" data-extab="tab-listen">
           <span class="w-5 h-5 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-[10px] font-bold">7</span>
           <span>Listen & Health Benefits (p. 73)</span>
         </button>
@@ -87,41 +84,31 @@
     </div>
   </header>
 
-  <!-- MAIN -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+  <!-- MAIN CONTAINER -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+
     <div id="tab-explore" class="ex-tab-pane block space-y-6">
-<div class="bg-white rounded-2xl p-5 border border-slate-200 reader-card flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Lesson 2 • Pages 68–73</span>
-          <h2 class="text-2xl font-extrabold text-slate-900">Count and Non-Count Nouns</h2>
-        </div>
-        <span class="badge-cd"><svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/></svg> Track CD1-19</span>
-      </div>
-
-      <!-- PART 1: EXPLORE (SPLIT-VIEW) -->
       <div class="space-y-4">
-        <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
-            <span class="text-sm font-bold text-slate-700">Reading & Direct Questions (Pages 68–69)</span>
-          </div>
-          <span class="text-xs text-slate-500 font-medium bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
-            Split-View: Reading (Left) ↔ Questions 2 & 3 (Right)
+<div class="flex items-center justify-between border-b border-slate-200 pb-2">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-slate-900 text-white">EXPLORE</span>
+<span class="text-sm font-bold text-slate-700">Reading &amp; Direct Questions (Pages 68–69)</span>
+</div>
+<span class="text-xs text-slate-500 font-medium bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">
+            Split-View: Reading (Left) ↔ Questions 2 &amp; 3 (Right)
           </span>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          
-          <!-- LEFT PANE: Reading "Superfoods" -->
-          <div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div>
-                <span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
-                <h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Superfoods</h3>
-                <p class="text-xs text-slate-500">Argan Oil, The Acai Palm, and Ginseng</p>
-              </div>
-              <span class="badge-cd">CD1-19</span>
-            </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT PANE: Reading "Superfoods" -->
+<div class="lg:col-span-6 bg-white rounded-2xl border border-slate-200 p-6 reader-card sticky-reading space-y-4">
+<div class="flex items-center justify-between border-b border-slate-100 pb-3">
+<div>
+<span class="text-xs font-semibold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded">1. READ</span>
+<h3 class="text-xl font-serif font-bold text-slate-900 mt-1">Superfoods</h3>
+<p class="text-xs text-slate-500">Argan Oil, The Acai Palm, and Ginseng</p>
+</div>
+<span class="badge-cd">CD1-19</span>
+</div>
 <!-- Audio Player [CD1-19] -->
 <div class="audio-player-widget my-2 rounded-xl overflow-hidden border border-slate-800 shadow-sm bg-black" data-audio-track="CD1-19">
   <div style="width: calc(100% + 56px); margin-right: -56px;">
@@ -130,340 +117,284 @@
 </div>
 <!-- End Audio Player [CD1-19] -->
 
-
-
-            <!-- Argan Oil Photo -->
-            <div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-900 group">
-              <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
-                <img 
-                  src="https://cdn.nhathuoclongchau.com.vn/v1/static/tinh_dau_argan_oil_la_gi_cong_dung_tuyet_voi_cua_dau_argan_trong_lam_dep_va_suc_khoe_1_f93b358740.jpg" 
-                  alt="Moroccan Argan Oil and Nuts" 
-                  class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                  onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/10b981?text=Argan+Oil+%E2%80%A2+Morocco';"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-                <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
-                  <span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Argan Oil & Nuts • Southwestern Morocco</span>
-                  <span class="text-emerald-300 font-semibold hidden sm:inline">p. 68</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
-              <div>
-                <h4 class="font-sans font-bold text-slate-900 text-sm mb-1">Argan Oil</h4>
-                <p>
+<!-- Argan Oil Photo -->
+<div class="w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-900 group">
+<div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-950">
+<img alt="Moroccan Argan Oil and Nuts" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/10b981?text=Argan+Oil+%E2%80%A2+Morocco';" src="https://cdn.nhathuoclongchau.com.vn/v1/static/tinh_dau_argan_oil_la_gi_cong_dung_tuyet_voi_cua_dau_argan_trong_lam_dep_va_suc_khoe_1_f93b358740.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
+<span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Argan Oil &amp; Nuts • Southwestern Morocco</span>
+<span class="text-emerald-300 font-semibold hidden sm:inline">p. 68</span>
+</div>
+</div>
+</div>
+<div class="prose prose-slate font-serif text-slate-700 text-sm leading-relaxed space-y-4">
+<div>
+<h4 class="font-sans font-bold text-slate-900 text-sm mb-1">Argan Oil</h4>
+<p>
                   The <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">oil</strong> from argan <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">nuts</strong> is very important to the <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">people</strong> of southwestern Morocco. It has many different uses. It adds <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">flavor</strong>¹ to <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">food</strong>, it prevents dry skin, and it keeps hair soft. Now it is popular in other countries, too, and it is becoming more expensive. The production of argan oil cannot increase very quickly, because argan trees don’t produce nuts until they are about 20 years old.
                 </p>
-              </div>
-
-              <div>
-                <h4 class="font-sans font-bold text-slate-900 text-sm mb-1">The Acai Palm</h4>
-                <div class="my-2.5 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
-                  <div class="relative h-44 sm:h-48 w-full overflow-hidden">
-                    <img 
-                      src="https://cdn.britannica.com/24/178524-050-704B2C7C/acai-fruits-berries-peoples-food-source-world.jpg" 
-                      alt="Acai palm berries and fruit" 
-                      class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                      onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/10b981?text=Acai+Palm+Berries';"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
-                      <span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Acai Palm Berries • Amazon Rainforest</span>
-                      <span class="text-emerald-300 font-semibold hidden sm:inline">p. 68</span>
-                    </div>
-                  </div>
-                </div>
-                <p>
+</div>
+<div>
+<h4 class="font-sans font-bold text-slate-900 text-sm mb-1">The Acai Palm</h4>
+<div class="my-2.5 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+<div class="relative h-44 sm:h-48 w-full overflow-hidden">
+<img alt="Acai palm berries and fruit" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/10b981?text=Acai+Palm+Berries';" src="https://cdn.britannica.com/24/178524-050-704B2C7C/acai-fruits-berries-peoples-food-source-world.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
+<span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Acai Palm Berries • Amazon Rainforest</span>
+<span class="text-emerald-300 font-semibold hidden sm:inline">p. 68</span>
+</div>
+</div>
+</div>
+<p>
                   The acai palm tree of Central and South America has round purple fruit. Acai is very important to some of the tribes in the Amazon Rainforest. In fact, it is a very large part of their <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">diet</strong>.² People make both sweet and salty dishes with acai. Now some <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">companies</strong> say that acai helps people lose <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">weight</strong>.
                 </p>
-              </div>
-
-              <div>
-                <h4 class="font-sans font-bold text-slate-900 text-sm mb-1">Ginseng</h4>
-                <div class="my-2.5 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
-                  <div class="relative h-44 sm:h-48 w-full overflow-hidden">
-                    <img 
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSROHcnbmRS6gSCHRwUt4bO_T3M7QvF_iu_dEs4MpxjpXG-NdPlznqCYTY&s=10" 
-                      alt="Ginseng root and plant" 
-                      class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105"
-                      onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/10b981?text=Ginseng+Plant+%26+Root';"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
-                      <span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Ginseng Roots • Traditional Herbal Medicine</span>
-                      <span class="text-emerald-300 font-semibold hidden sm:inline">p. 68</span>
-                    </div>
-                  </div>
-                </div>
-                <p>
+</div>
+<div>
+<h4 class="font-sans font-bold text-slate-900 text-sm mb-1">Ginseng</h4>
+<div class="my-2.5 w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-slate-950 group">
+<div class="relative h-44 sm:h-48 w-full overflow-hidden">
+<img alt="Ginseng root and plant" class="w-full h-full object-cover object-center transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/10b981?text=Ginseng+Plant+%26+Root';" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSROHcnbmRS6gSCHRwUt4bO_T3M7QvF_iu_dEs4MpxjpXG-NdPlznqCYTY&amp;s=10"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white/95">
+<span class="bg-black/60 backdrop-blur-sm px-2 py-0.5 rounded font-medium">Ginseng Roots • Traditional Herbal Medicine</span>
+<span class="text-emerald-300 font-semibold hidden sm:inline">p. 68</span>
+</div>
+</div>
+</div>
+<p>
                   Ginseng is a plant that grows in Asia and North America. There are many different types of ginseng plants. Chinese medicine started using ginseng thousands of years ago to treat all kinds of diseases. According to some scientific studies, ginseng may help manage <strong class="text-slate-900 bg-emerald-50 px-1 rounded font-sans">stress</strong>.³ Be careful, though! Too much ginseng can keep you awake at night.
                 </p>
-              </div>
-            </div>
-
-            <div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
-              <p><strong>¹ flavor:</strong> a specific taste</p>
-              <p><strong>² diet:</strong> a person’s regular food and drink</p>
-              <p><strong>³ stress:</strong> mental or physical difficulty caused by work, worries, and so on</p>
-            </div>
-          </div>
-
-          <!-- RIGHT PANE: Questions 2 & 3 -->
-          <div class="lg:col-span-6 space-y-5">
-            
-            <!-- Exercise 2: CHECK Matching Plants -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
-              <div class="flex items-center justify-between">
-                <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                  <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
+</div>
+</div>
+<div class="pt-4 border-t border-slate-100 space-y-1 text-xs text-slate-600 bg-slate-50/50 p-3 rounded-xl">
+<p><strong>¹ flavor:</strong> a specific taste</p>
+<p><strong>² diet:</strong> a person’s regular food and drink</p>
+<p><strong>³ stress:</strong> mental or physical difficulty caused by work, worries, and so on</p>
+</div>
+</div>
+<!-- RIGHT PANE: Questions 2 & 3 -->
+<div class="lg:col-span-6 space-y-5">
+<!-- Exercise 2: CHECK Matching Plants -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex2-l2-card">
+<div class="flex items-center justify-between">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">2</span>
                   CHECK. Match Plant or Tree (Page 69)
                 </h4>
-                <span class="text-xs text-slate-400">a = argan oil, b = acai palm, c = ginseng</span>
-              </div>
-              <p class="text-xs text-slate-500">Match each statement with the correct tree or plant:</p>
-
-              <div class="space-y-2 text-xs sm:text-sm">
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>1. You can use it in sweet and salty meals.</span>
-                  <input type="text" data-ans="b" value="b (acai palm)" readonly class="border rounded px-2 py-0.5 text-xs w-32 bg-slate-200 font-semibold">
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>2. It keeps hair soft.</span>
-                  <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>3. Tests suggest it can help you relax.</span>
-                  <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>4. It is becoming more expensive.</span>
-                  <select data-ans="a" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>5. According to some companies, it helps you lose weight.</span>
-                  <select data-ans="b" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
-                </div>
-                <div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>6. Some people don’t sleep well because of it.</span>
-                  <select data-ans="c" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
-                </div>
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-                <span class="ex-score text-xs font-bold text-slate-500"></span>
-                <button type="button" onclick="checkSelectCard('ex2-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 2</button>
-              </div>
-            </div>
-
-            <!-- Exercise 3: DISCOVER Count vs Non-Count -->
-            <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
-              <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
+<span class="text-xs text-slate-400">a = argan oil, b = acai palm, c = ginseng</span>
+</div>
+<p class="text-xs text-slate-500">Match each statement with the correct tree or plant:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>1. You can use it in sweet and salty meals.</span>
+<input class="border rounded px-2 py-0.5 text-xs w-32 bg-slate-200 font-semibold" data-ans="b" readonly="" type="text" value="b (acai palm)"/>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>2. It keeps hair soft.</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>3. Tests suggest it can help you relax.</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="c"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>4. It is becoming more expensive.</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="a"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>5. According to some companies, it helps you lose weight.</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="b"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
+</div>
+<div class="p-2.5 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>6. Some people don’t sleep well because of it.</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="c"><option value="">select</option><option value="a">a (argan oil)</option><option value="b">b (acai palm)</option><option value="c">c (ginseng)</option></select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex2-l2-card')" type="button">Check Ex 2</button>
+</div>
+</div>
+<!-- Exercise 3: DISCOVER Count vs Non-Count -->
+<div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex3-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">3</span>
                 DISCOVER. Count vs. Non-Count Nouns (Page 69)
               </h4>
-              <p class="text-xs text-slate-500">Classify each bold noun from the reading as Count (C) or Non-Count (NC):</p>
-
-              <div class="space-y-2 text-xs">
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>1. <strong>oil</strong>:</span>
-                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>2. argan <strong>nuts</strong>:</span>
-                  <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>3. <strong>people</strong>:</span>
-                  <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>4. adds <strong>flavor</strong>:</span>
-                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>5. adds flavor to <strong>food</strong>:</span>
-                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>6. some <strong>companies</strong>:</span>
-                  <select data-ans="C" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-                <div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
-                  <span>7. lose <strong>weight</strong>:</span>
-                  <select data-ans="NC" class="select-check border rounded p-1 text-xs input-clean"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
-                </div>
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-                <span class="ex-score text-xs font-bold text-slate-500"></span>
-                <button type="button" onclick="checkSelectCard('ex3-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 3</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+<p class="text-xs text-slate-500">Classify each bold noun from the reading as Count (C) or Non-Count (NC):</p>
+<div class="space-y-2 text-xs">
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>1. <strong>oil</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="NC"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
 </div>
-<div id="tab-ex4" class="ex-tab-pane hidden space-y-6">
-<!-- PART 2: LEARN & PRACTICE -->
-      <div class="space-y-6 pt-4 border-t border-slate-200">
-        <div class="flex items-center gap-2">
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-600 text-white">LEARN & PRACTICE</span>
-          <span class="text-sm font-bold text-slate-700">Charts 3.4–3.5 & Exercises 4–7 (Pages 70–73)</span>
-        </div>
-
-        <!-- Row 1: Chart 3.4 & Exercise 4 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.4 Count Nouns & Non-Count Nouns</h4>
-            <div class="space-y-2 text-xs">
-              <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
-                <strong>Count:</strong> have singular and plural forms; use <em>a/an</em> with singular (<em>a building, an apartment</em>).
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>2. argan <strong>nuts</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="C"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>3. <strong>people</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="C"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>4. adds <strong>flavor</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="NC"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>5. adds flavor to <strong>food</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="NC"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>6. some <strong>companies</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="C"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
+</div>
+<div class="p-2 bg-slate-50 rounded-lg flex items-center justify-between">
+<span>7. lose <strong>weight</strong>:</span>
+<select class="select-check border rounded p-1 text-xs input-clean" data-ans="NC"><option value="">Select</option><option value="C">C (Count)</option><option value="NC">NC (Non-Count)</option></select>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex3-l2-card')" type="button">Check Ex 3</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <div id="tab-count" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">3.4 Count Nouns &amp; Non-Count Nouns</h4>
+<div class="space-y-2 text-xs">
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+<strong>Count:</strong> have singular and plural forms; use <em>a/an</em> with singular (<em>a building, an apartment</em>).
               </div>
-              <div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
-                <strong>Non-Count:</strong> cannot be counted directly; no plural form; do <strong>not</strong> use <em>a/an</em> (<em>happiness, snow, water</em>).
+<div class="border border-slate-200 rounded-xl p-3 bg-slate-50">
+<strong>Non-Count:</strong> cannot be counted directly; no plural form; do <strong>not</strong> use <em>a/an</em> (<em>happiness, snow, water</em>).
               </div>
-              <div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50 text-amber-950">
-                <strong>Dual meaning nouns:</strong><br>
-                &bull; <em>time</em> (duration = NC) vs <em>times</em> (occasions = C)<br>
-                &bull; <em>exercise</em> (activity = NC) vs <em>exercises</em> (tasks = C)
+<div class="border border-amber-200 rounded-xl p-2.5 bg-amber-50 text-amber-950">
+<strong>Dual meaning nouns:</strong><br/>
+                • <em>time</em> (duration = NC) vs <em>times</em> (occasions = C)<br/>
+                • <em>exercise</em> (activity = NC) vs <em>exercises</em> (tasks = C)
               </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
+</div>
+</div>
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex4-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">4</span>
               Choose Count or Non-Count Form (Pages 70–71)
             </h4>
-            <p class="text-xs text-slate-500">Circle the correct word(s) to complete each sentence:</p>
-
-            <div class="space-y-2 text-xs sm:text-sm">
-              <div class="p-1.5 bg-slate-50 rounded-lg">1. Some people use argan oil to keep their <select data-ans="hair" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="hair">hair</option><option value="hairs">hairs</option></select> soft.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">2. Some companies <select data-ans="say" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="says">says</option><option value="say">say</option></select> that acai helps people lose weight.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">3. Chinese medicine <select data-ans="is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is">is</option><option value="are">are</option></select> over 2000 years old.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">4. Science <select data-ans="is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is">is</option><option value="are">are</option></select> a difficult subject, but I enjoy <select data-ans="it" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it">it</option><option value="them">them</option></select>.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">5. The <select data-ans="stores" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="store">store</option><option value="stores">stores</option></select> on that street are sometimes expensive.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">6. <select data-ans="An apartment" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="Apartment">Apartment</option><option value="An apartment">An apartment</option></select> is a convenient place to live.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">7. Do you have any <select data-ans="time" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> to help me with my assignment?</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">8. Hans goes to Germany three or four <select data-ans="times" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> a year.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">9. This <select data-ans="information is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="information is">information is</option><option value="informations are">informations are</option></select> incorrect.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">10. Last night’s homework <select data-ans="was" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="was">was</option><option value="were">were</option></select> very difficult.</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">11. That furniture <select data-ans="is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="is">is</option><option value="are">are</option></select> ugly. I don’t know why I bought <select data-ans="it" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it">it</option><option value="them">them</option></select>!</div>
-              <div class="p-1.5 bg-slate-50 rounded-lg">12. Did you have any interesting <select data-ans="experiences" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="experience">experience</option><option value="experiences">experiences</option></select> on your vacation?</div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkSelectCard('ex4-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 4</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Row 2: Chart 3.5 & Exercise 6 -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          <div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base">3.5 Categories of Non-Count Nouns</h4>
-            <div class="space-y-1.5 text-xs">
-              <p><strong>[1] Category of related items:</strong> <em>clothing, fruit, furniture, homework, jewelry, money, mail, weather</em></p>
-              <p><strong>[2] Mass / Liquid / Solid:</strong> <em>air, cheese, coffee, fish, flour, hair, ice, juice, meat, milk, oil, rice, skin, soup, sugar, tea, water, wind</em></p>
-              <p><strong>[3] Abstract noun:</strong> <em>advice, beauty, energy, experience, fun, happiness, health, help, honesty, intelligence, knowledge, love, nature, work</em></p>
-              <p><strong>[4] Subject of study:</strong> <em>biology, chemistry, geometry, history, math, science</em></p>
-            </div>
-          </div>
-
-          <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3"
+<p class="text-xs text-slate-500">Circle the correct word(s) to complete each sentence:</p>
+<div class="space-y-2 text-xs sm:text-sm">
+<div class="p-1.5 bg-slate-50 rounded-lg">1. Some people use argan oil to keep their <select class="select-check border rounded p-1 text-xs input-clean" data-ans="hair"><option value="">select</option><option value="hair">hair</option><option value="hairs">hairs</option></select> soft.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">2. Some companies <select class="select-check border rounded p-1 text-xs input-clean" data-ans="say"><option value="">select</option><option value="says">says</option><option value="say">say</option></select> that acai helps people lose weight.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">3. Chinese medicine <select class="select-check border rounded p-1 text-xs input-clean" data-ans="is"><option value="">select</option><option value="is">is</option><option value="are">are</option></select> over 2000 years old.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">4. Science <select class="select-check border rounded p-1 text-xs input-clean" data-ans="is"><option value="">select</option><option value="is">is</option><option value="are">are</option></select> a difficult subject, but I enjoy <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it"><option value="">select</option><option value="it">it</option><option value="them">them</option></select>.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">5. The <select class="select-check border rounded p-1 text-xs input-clean" data-ans="stores"><option value="">select</option><option value="store">store</option><option value="stores">stores</option></select> on that street are sometimes expensive.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">6. <select class="select-check border rounded p-1 text-xs input-clean" data-ans="An apartment"><option value="">select</option><option value="Apartment">Apartment</option><option value="An apartment">An apartment</option></select> is a convenient place to live.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">7. Do you have any <select class="select-check border rounded p-1 text-xs input-clean" data-ans="time"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> to help me with my assignment?</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">8. Hans goes to Germany three or four <select class="select-check border rounded p-1 text-xs input-clean" data-ans="times"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> a year.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">9. This <select class="select-check border rounded p-1 text-xs input-clean" data-ans="information is"><option value="">select</option><option value="information is">information is</option><option value="informations are">informations are</option></select> incorrect.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">10. Last night’s homework <select class="select-check border rounded p-1 text-xs input-clean" data-ans="was"><option value="">select</option><option value="was">was</option><option value="were">were</option></select> very difficult.</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">11. That furniture <select class="select-check border rounded p-1 text-xs input-clean" data-ans="is"><option value="">select</option><option value="is">is</option><option value="are">are</option></select> ugly. I don’t know why I bought <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it"><option value="">select</option><option value="it">it</option><option value="them">them</option></select>!</div>
+<div class="p-1.5 bg-slate-50 rounded-lg">12. Did you have any interesting <select class="select-check border rounded p-1 text-xs input-clean" data-ans="experiences"><option value="">select</option><option value="experience">experience</option><option value="experiences">experiences</option></select> on your vacation?</div>
 </div>
-<div id="tab-ex6" class="ex-tab-pane hidden space-y-6">
-id="ex6-l2-card">
-            <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-              <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex4-l2-card')" type="button">Check Ex 4</button>
+</div>
+</div>
+</div>
+    </div>
+    <div id="tab-categories" class="ex-tab-pane hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<div class="lg:col-span-5 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base">3.5 Categories of Non-Count Nouns</h4>
+<div class="space-y-1.5 text-xs">
+<p><strong>[1] Category of related items:</strong> <em>clothing, fruit, furniture, homework, jewelry, money, mail, weather</em></p>
+<p><strong>[2] Mass / Liquid / Solid:</strong> <em>air, cheese, coffee, fish, flour, hair, ice, juice, meat, milk, oil, rice, skin, soup, sugar, tea, water, wind</em></p>
+<p><strong>[3] Abstract noun:</strong> <em>advice, beauty, energy, experience, fun, happiness, health, help, honesty, intelligence, knowledge, love, nature, work</em></p>
+<p><strong>[4] Subject of study:</strong> <em>biology, chemistry, geometry, history, math, science</em></p>
+</div>
+</div>
+<div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex6-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">6</span>
               Complete Conversations (Page 72)
             </h4>
-            <p class="text-xs text-slate-500">Circle the correct word(s) to complete the conversations:</p>
-
-            <div class="space-y-3 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
-              <div>
-                <strong>Conversation 1:</strong><br>
-                Lori: Did you go to the supermarket?<br>
-                Stan: Yes I did, but look! (1) <select data-ans="The fruit is" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="The fruit is">The fruit is</option><option value="fruit are">fruit are</option></select> rotten.<br>
-                Lori: Let’s see . . . Oh, yes, (2) <select data-ans="it smells" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it smells">it smells</option><option value="they smell">they smell</option></select> bad.<br>
-                Stan: The food in that store just (3) <select data-ans="isn't" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="isn't">isn't</option><option value="aren't">aren't</option></select> good anymore. I've been there four or five (4) <select data-ans="times" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> recently and there is always a problem.<br>
-                Lori: Wait a minute, though. The bananas (5) <select data-ans="look" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="look">look</option><option value="looks">looks</option></select> all right.<br>
-                Stan: You’re right. (6) <select data-ans="They do" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="It does">It does</option><option value="They do">They do</option></select>. But I’m going to take the rest back.
+<p class="text-xs text-slate-500">Circle the correct word(s) to complete the conversations:</p>
+<div class="space-y-3 text-xs bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+<div>
+<strong>Conversation 1:</strong><br/>
+                Lori: Did you go to the supermarket?<br/>
+                Stan: Yes I did, but look! (1) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="The fruit is"><option value="">select</option><option value="The fruit is">The fruit is</option><option value="fruit are">fruit are</option></select> rotten.<br/>
+                Lori: Let’s see . . . Oh, yes, (2) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it smells"><option value="">select</option><option value="it smells">it smells</option><option value="they smell">they smell</option></select> bad.<br/>
+                Stan: The food in that store just (3) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="isn't"><option value="">select</option><option value="isn't">isn't</option><option value="aren't">aren't</option></select> good anymore. I've been there four or five (4) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="times"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> recently and there is always a problem.<br/>
+                Lori: Wait a minute, though. The bananas (5) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="look"><option value="">select</option><option value="look">look</option><option value="looks">looks</option></select> all right.<br/>
+                Stan: You’re right. (6) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="They do"><option value="">select</option><option value="It does">It does</option><option value="They do">They do</option></select>. But I’m going to take the rest back.
               </div>
-              <div class="pt-2 border-t border-slate-200">
-                <strong>Conversation 2:</strong><br>
-                Tina: Are you doing your physics (7) <select data-ans="homework" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="homework">homework</option><option value="homeworks">homeworks</option></select>, Brendan?<br>
-                Brendan: Yes, but I need some (8) <select data-ans="help" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="help">help</option><option value="helps">helps</option></select>. I like physics, but (9) <select data-ans="it's" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="it's">it's</option><option value="they're">they're</option></select> difficult.<br>
-                Tina: Well, I have some (10) <select data-ans="time" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> now. I can help you.<br>
-                Brendan: Thanks, Tina. I don't understand this (11) <select data-ans="exercise" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="exercise">exercise</option><option value="exercises">exercises</option></select>. These instructions (12) <select data-ans="aren't" class="select-check border rounded p-1 text-xs input-clean"><option value="">select</option><option value="isn't">isn't</option><option value="aren't">aren't</option></select> very clear.
+<div class="pt-2 border-t border-slate-200">
+<strong>Conversation 2:</strong><br/>
+                Tina: Are you doing your physics (7) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="homework"><option value="">select</option><option value="homework">homework</option><option value="homeworks">homeworks</option></select>, Brendan?<br/>
+                Brendan: Yes, but I need some (8) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="help"><option value="">select</option><option value="help">help</option><option value="helps">helps</option></select>. I like physics, but (9) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="it's"><option value="">select</option><option value="it's">it's</option><option value="they're">they're</option></select> difficult.<br/>
+                Tina: Well, I have some (10) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="time"><option value="">select</option><option value="time">time</option><option value="times">times</option></select> now. I can help you.<br/>
+                Brendan: Thanks, Tina. I don't understand this (11) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="exercise"><option value="">select</option><option value="exercise">exercise</option><option value="exercises">exercises</option></select>. These instructions (12) <select class="select-check border rounded p-1 text-xs input-clean" data-ans="aren't"><option value="">select</option><option value="isn't">isn't</option><option value="aren't">aren't</option></select> very clear.
               </div>
-            </div>
-
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span class="ex-score text-xs font-bold text-slate-500"></span>
-              <button type="button" onclick="checkSelectCard('ex6-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 6</button>
-            </div>
-          </div>
-        </div>
 </div>
-<div id="tab-ex7" class="ex-tab-pane hidden space-y-6">
-<!-- Row 3: Exercise 7 (Word Boxes) -->
-        <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
-          <h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
-            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkSelectCard('ex6-l2-card')" type="button">Check Ex 6</button>
+</div>
+</div>
+</div>
+    </div>
+    <div id="tab-listen" class="ex-tab-pane hidden space-y-6">
+      <div class="bg-white rounded-2xl border border-slate-200 p-5 reader-card space-y-3" id="ex7-l2-card">
+<h4 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs">7</span>
             Complete with Nouns from Word Boxes (Pages 72–73)
           </h4>
-          <p class="text-xs text-slate-500">Make nouns plural if necessary. You will need to use one noun twice:</p>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-              <span class="font-bold text-slate-700 block">Box 1: advice, assignment, class, fun, homework, time</span>
-              <p>Alex: Hey, Bruce. Do you want to go to the basketball game tonight?</p>
-              <p>Bruce: No, sorry. I don’t have (1) <input type="text" data-ans="time" value="time" readonly class="border rounded px-1.5 py-0.5 text-xs w-20 bg-slate-200 font-semibold">. I have a lot of (2) <input type="text" data-ans="homework" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="noun"> tonight.</p>
-              <p>Alex: That’s too bad. How many (3) <input type="text" data-ans="classes" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun"> are you taking this semester?</p>
-              <p>Bruce: Five. And I have an (4) <input type="text" data-ans="assignment" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" placeholder="noun"> for each of them.</p>
-              <p>Alex: Ugh! That is a lot. You need to study less and have more (5) <input type="text" data-ans="fun" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun">.</p>
-              <p>Bruce: That seems like good (6) <input type="text" data-ans="advice" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun">. Enjoy the game tonight!</p>
-            </div>
-
-            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-              <span class="font-bold text-slate-700 block">Box 2: energy, exercise, health, time</span>
-              <p>Ellen: Hi, Junko. Where are you going?</p>
-              <p>Junko: To the gym. I was sitting in a meeting all day today. I need to get some (7) <input type="text" data-ans="exercise" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun">!</p>
-              <p>Ellen: Good for you! I’m so busy these days. I don’t have (8) <input type="text" data-ans="time" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun"> to exercise. How often do you go to the gym?</p>
-              <p>Junko: Oh, about three (9) <input type="text" data-ans="times" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun"> a week. I often go early in the morning before work.</p>
-              <p>Ellen: Really? Do you feel tired afterwards?</p>
-              <p>Junko: No, I actually have more (10) <input type="text" data-ans="energy" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun"> after I work out.</p>
-              <p>Ellen: That’s great. And it’s good for your (11) <input type="text" data-ans="health" class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" placeholder="noun">, too.</p>
-            </div>
-          </div>
-
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <span class="ex-score text-xs font-bold text-slate-500"></span>
-            <button type="button" onclick="checkClozeCard('ex7-l2-card')" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm">Check Ex 7</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- TAB 4: LESSON 3 (Pages 74–80) -->
-    <!-- ============================================================ -->
+<p class="text-xs text-slate-500">Make nouns plural if necessary. You will need to use one noun twice:</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+<div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+<span class="font-bold text-slate-700 block">Box 1: advice, assignment, class, fun, homework, time</span>
+<p>Alex: Hey, Bruce. Do you want to go to the basketball game tonight?</p>
+<p>Bruce: No, sorry. I don’t have (1) <input class="border rounded px-1.5 py-0.5 text-xs w-20 bg-slate-200 font-semibold" data-ans="time" readonly="" type="text" value="time"/>. I have a lot of (2) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" data-ans="homework" placeholder="noun" type="text"/> tonight.</p>
+<p>Alex: That’s too bad. How many (3) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="classes" placeholder="noun" type="text"/> are you taking this semester?</p>
+<p>Bruce: Five. And I have an (4) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-24 input-clean" data-ans="assignment" placeholder="noun" type="text"/> for each of them.</p>
+<p>Alex: Ugh! That is a lot. You need to study less and have more (5) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="fun" placeholder="noun" type="text"/>.</p>
+<p>Bruce: That seems like good (6) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="advice" placeholder="noun" type="text"/>. Enjoy the game tonight!</p>
 </div>
+<div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+<span class="font-bold text-slate-700 block">Box 2: energy, exercise, health, time</span>
+<p>Ellen: Hi, Junko. Where are you going?</p>
+<p>Junko: To the gym. I was sitting in a meeting all day today. I need to get some (7) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="exercise" placeholder="noun" type="text"/>!</p>
+<p>Ellen: Good for you! I’m so busy these days. I don’t have (8) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="time" placeholder="noun" type="text"/> to exercise. How often do you go to the gym?</p>
+<p>Junko: Oh, about three (9) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="times" placeholder="noun" type="text"/> a week. I often go early in the morning before work.</p>
+<p>Ellen: Really? Do you feel tired afterwards?</p>
+<p>Junko: No, I actually have more (10) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="energy" placeholder="noun" type="text"/> after I work out.</p>
+<p>Ellen: That’s great. And it’s good for your (11) <input class="cloze-input border rounded px-1.5 py-0.5 text-xs w-20 input-clean" data-ans="health" placeholder="noun" type="text"/>, too.</p>
+</div>
+</div>
+<div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+<span class="ex-score text-xs font-bold text-slate-500"></span>
+<button class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs transition shadow-sm" onclick="checkClozeCard('ex7-l2-card')" type="button">Check Ex 7</button>
+</div>
+</div>
+    </div>
+
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 text-xs py-6 border-t border-slate-800 mt-12">
-    <div class="max-w-7xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center">
-      <div class="flex items-center justify-center sm:justify-start gap-2">
-        <div class="w-2 h-4 bg-teal-400 rounded-xs"></div>
-        <p>Grammar Explorer 2 — National Geographic Learning • Unit 3: Lesson 2: Count and Non-Count Nouns</p>
+  <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+        <span>Grammar Explorer 2 — National Geographic Learning • Unit 3: Health and Fitness</span>
       </div>
-      <p class="mt-2 sm:mt-0 text-slate-500">Interactive Student Workbook & Exercises Suite</p>
+      <div>Interactive Student Workbook & Exercises Suite</div>
     </div>
   </footer>
 
@@ -485,6 +416,13 @@ id="ex6-l2-card">
       });
 
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function switchTab(tab) {
+      if (tab === 'lesson1') switchExTab('tab-explore');
+      else if (tab === 'lesson2') window.location.href = 'grammar_explorer_2_unit_3_lesson_2.html';
+      else if (tab === 'lesson3') window.location.href = 'grammar_explorer_2_unit_3_lesson_3.html';
+      else if (tab === 'review' || tab === 'writing') window.location.href = 'grammar_explorer_2_unit_3_review_writing.html';
     }
 
     function removeBadge(element) {
@@ -531,19 +469,59 @@ id="ex6-l2-card">
           return;
         }
 
-        const chosen = selectedBtn.getAttribute('data-selected');
-        if (chosen === correct) {
+        const selectedVal = selectedBtn.getAttribute('data-selected');
+        if (selectedVal === correct) {
           correctCount++;
-          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
-          selectedBtn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-600');
+          selectedBtn.classList.remove('bg-teal-500');
+          selectedBtn.classList.add('bg-emerald-500', 'text-white');
           statusIcon.innerHTML = `<span class="answer-badge answer-badge-correct">✓ Correct</span>`;
         } else {
-          selectedBtn.classList.remove('bg-teal-500', 'border-teal-600');
-          selectedBtn.classList.add('bg-rose-500', 'text-white', 'border-rose-600');
-          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong></span>`;
+          selectedBtn.classList.remove('bg-teal-500');
+          selectedBtn.classList.add('bg-rose-500', 'text-white');
+          statusIcon.innerHTML = `<span class="answer-badge answer-badge-incorrect">✗ Incorrect (Ans: ${correct})</span>`;
           const rightBtn = Array.from(row.querySelectorAll('.tf-btn')).find(b => b.textContent.trim() === correct);
           if (rightBtn) rightBtn.classList.add('ring-2', 'ring-emerald-500');
         }
+      });
+
+      const scoreEl = card.querySelector('.ex-score');
+      if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
+    }
+
+    function checkMCQCard(cardId) {
+      const card = document.getElementById(cardId);
+      if (!card) return;
+      const items = card.querySelectorAll('.mcq-item');
+      let correctCount = 0;
+      let total = items.length;
+
+      items.forEach(item => {
+        const correct = item.getAttribute('data-correct');
+        const selected = item.querySelector('input[type="radio"]:checked');
+        const badgeContainer = item.querySelector('.mcq-badge-container') || item;
+
+        const oldBadge = item.querySelector('.ans-badge');
+        if (oldBadge) oldBadge.remove();
+
+        const badge = document.createElement('span');
+        badge.className = 'ans-badge answer-badge';
+
+        if (!selected) {
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Unanswered (Ans: ${correct})`;
+          badgeContainer.appendChild(badge);
+          return;
+        }
+
+        if (selected.value === correct) {
+          correctCount++;
+          badge.classList.add('answer-badge-correct');
+          badge.innerHTML = `✓ Correct`;
+        } else {
+          badge.classList.add('answer-badge-incorrect');
+          badge.innerHTML = `✗ Incorrect (Ans: ${correct})`;
+        }
+        badgeContainer.appendChild(badge);
       });
 
       const scoreEl = card.querySelector('.ex-score');
@@ -559,24 +537,22 @@ id="ex6-l2-card">
 
       selects.forEach(sel => {
         removeBadge(sel);
-        const expected = (sel.getAttribute('data-ans') || '').trim();
-        const userVal = sel.value.trim();
-        const targetOption = Array.from(sel.options).find(opt => opt.value.toLowerCase() === expected.toLowerCase());
-        const displayAns = targetOption ? targetOption.text : expected;
+        const correct = sel.getAttribute('data-ans') || sel.getAttribute('data-correct');
+        const val = sel.value.trim();
 
         sel.classList.remove('input-correct', 'input-incorrect');
         const badge = document.createElement('span');
         badge.className = 'ans-badge answer-badge';
 
-        if (userVal === '') {
+        if (!val) {
           sel.classList.add('input-incorrect');
           badge.classList.add('answer-badge-incorrect');
-          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          badge.innerHTML = `✗ Select an answer (Ans: ${correct})`;
           sel.insertAdjacentElement('afterend', badge);
           return;
         }
 
-        if (userVal.toLowerCase() === expected.toLowerCase()) {
+        if (val.toLowerCase() === (correct || '').toLowerCase()) {
           correctCount++;
           sel.classList.add('input-correct');
           badge.classList.add('answer-badge-correct');
@@ -584,7 +560,7 @@ id="ex6-l2-card">
         } else {
           sel.classList.add('input-incorrect');
           badge.classList.add('answer-badge-incorrect');
-          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${displayAns}</strong>`;
+          badge.innerHTML = `✗ Ans: <strong class="text-emerald-700 ml-0.5">${correct}</strong>`;
         }
         sel.insertAdjacentElement('afterend', badge);
       });
@@ -641,11 +617,6 @@ id="ex6-l2-card">
 
       const scoreEl = card.querySelector('.ex-score');
       if (scoreEl) scoreEl.textContent = `Score: ${correctCount}/${total}`;
-    }
-
-    function checkDiscoverL3() {
-      checkClozeCard('ex3-l3-card');
-      checkSelectCard('ex3-l3-card');
     }
 
     function resetCurrentLesson() {
