@@ -13,3 +13,12 @@ _backups/
 Thumbs.db
 .vscode/
 .idea/
+
+# Scratch & Word source files
+scratch/
+word files/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
